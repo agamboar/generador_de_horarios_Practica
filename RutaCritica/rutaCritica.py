@@ -37,12 +37,21 @@ def getRamoCritico(nombreExcel):
     excelArray = np.array(excel)
     constCausal = 0
 
+    causal = input('¿Estuvo usted en causal de eliminación el semestre anterior? Responda con yes/no: \n')
+
     while(True):
         semestreAprobado = int(input('Por favor, indique hasta que semestre tiene aprobado completamente (número entre 0 y 10): \n'))
-        if semestreAprobado >= 0: 
-            break      
+        if semestreAprobado <=10:
+            if causal == 'yes':
+                constCausal = 4
+                break
+            elif causal == 'no':
+                constCausal = 6
+                break    
+            else:
+                print('\n Datos ingresados no válidos. Intente nuevamente. \n')        
         else:
-            print('Datos ingresados no válidos. Intente nuevamente. \n') 
+            print('Datos ingresados no válidos. Intente nuevamente. \n')
 
     ramosNoAprobados = []
     for aux in range(1, len(excelArray)):
@@ -52,9 +61,26 @@ def getRamoCritico(nombreExcel):
 
     asignaturasNoCursadas = np.array(ramosNoAprobados)
 
-    #print(asignaturasNoCursadas)
+    print(asignaturasNoCursadas)
 
 #comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
+    while(True):
+
+        answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con yes/no \n')
+
+        if answer == 'no':
+            ramos = input('Por favor, ingrese el número de las asignaturas (la primera columna de la matriz entregada previamente) que ya aprobó, separados por comas \n')
+            ramos = ramos.split(",")    
+
+            for elem in ramos:
+                result = np.where(asignaturasNoCursadas == int(elem))
+                asignaturasNoCursadas = np.delete(asignaturasNoCursadas, result[0][0], 0)
+            break
+
+        elif answer == 'yes':
+            break
+        else:
+            print('Por favor, ingrese una respuesta válida. \n')
 
     rows = len(asignaturasNoCursadas)
     idRamos = []
