@@ -15,10 +15,12 @@ def set_values_recursive(PERT,id_node,len_dag):
 
     PERT.nodes[id_node]["ES"] = max_count_jump
     PERT.nodes[id_node]["EF"] = max_count_jump + 1 #este uno es D
-    PERT.nodes[id_node]["LS"] = PERT.nodes[id_node]["ES"] + PERT.nodes[id_node]["H"]
     PERT.nodes[id_node]["LF"] = len_dag if len_dag > 1 else  max_count_jump + 1
     H = PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"]
-    PERT.nodes[id_node]["H"] =  H if  H > 0 else  0    
+    PERT.nodes[id_node]["H"] =  H if  H > 0 else  0
+    PERT.nodes[id_node]["LS"] = PERT.nodes[id_node]["ES"] + PERT.nodes[id_node]["H"]
+    
+        
 
     node_pred_arr= list(PERT.predecessors(id_node)) # nodos que apuntan al nodo id_node
     for elem in node_pred_arr:
