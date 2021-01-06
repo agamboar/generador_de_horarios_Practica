@@ -136,15 +136,33 @@ def getRamoCritico(nombreExcel):
         
 
     ramos_criticos = []
+    ramos_no_criticos = []
     for elem in list(PERT): # imprime todos los nodos agregados en el grafo 
         if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
             ramos_criticos.append(PERT.nodes[elem]["nombre"])
-        print(elem," ",PERT.nodes[elem])
-    print("Ramos criticos -> ", ramos_criticos)
+        #print(elem," ",PERT.nodes[elem])
+    
 
     #nx.draw_spring(PERT, with_labels=True, font_weight='bold')
     #plt.show()
 
+    for elem in list(PERT):
+        if PERT.nodes[elem]["H"] != 0 and PERT.nodes[elem]["ES"] == 1:
+            ramos_no_criticos.append(PERT.nodes[elem]["nombre"])
+    
+    print("Ramos criticos -> ", ramos_criticos, "\n")
+    print("Ramos no criticos ->", ramos_no_criticos, "\n") 
+
+    #solucionar lo de los electivos
+    ramos_por_tomar = ramos_criticos
+
+    for i in range(len(ramos_no_criticos)):
+        if len(ramos_por_tomar) >= 6:
+            break
+        else:
+            ramos_por_tomar.append(ramos_no_criticos[i])
+
+    print("Ramos por tomar ->", ramos_por_tomar, "\n")        
 
     return 
 
