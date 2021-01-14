@@ -1,0 +1,168 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+from extract_data import extract_data
+from rutaCritica import getRamoCritico
+
+
+
+#la prioridad se obtiene con un form desde front  
+
+
+
+
+def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar):
+	print(ramos_criticos)
+	G = nx.Graph()
+	priority= []
+	priority_ramo= []
+	print("Ramos disponibles: \n")
+	
+	for i in range(len(arr_ramos_tomar)):
+			print(i,".-",arr_ramos_tomar[i])
+	prio_ram=input("Desea asignarle prioridad a los ramos ? (si/no) \n")
+	if prio_ram == "si":
+		while (True):
+			num_ramo = int(input("Ingrese el numero de un ramo (numeros de la lista)\n"))
+			prioridad = int(input("Asigne una prioridad al ramo\n"))
+			priority_ramo.append({'nombre':arr_ramos_tomar[num_ramo],'prioridad':prioridad})
+			cont = input("Desea colocarle una prioridad a otro ramo ? (si/no)\n")
+			if cont !="si":
+				break
+
+
+	
+	prio_sec=input("Desea asignarle prioridad a las secciones de un ramo? (si/no)\n")
+	if prio_sec == "si":
+		while True:
+			for i in range(len(arr_ramos_tomar)):
+				print(i,".-",arr_ramos_tomar[i])
+			auxx=int(input("Ingrese el numero de un ramo\n"))
+			print("Secciones disponibles del ramo ", arr_ramos_tomar[auxx],": \n")
+			l=False
+			for elem in lista_secciones:
+				if arr_ramos_tomar[auxx] == elem["nombre"]:
+					l=True
+					print(elem)
+			if l== False:
+				print("No se encontraron secciones disponibles para el ramo ", arr_ramos_tomar[auxx])
+			else:
+				while (True):
+					codigo_sec = input("Ingrese el codigo de una seccion (codigos que aparecen en la lista)\n")
+					prioridad = int(input("Asigne una prioridad de una seccion\n"))
+					priority.append({'codigo':codigo_sec,'prioridad':prioridad})
+					cont = input("Desea colocarle una prioridad a otra seccion ? (si/no)\n")
+					if cont !="si":
+						break
+				cont = input("Desea colocarle una prioridad a seccion de otro ramo? (si/no)\n")
+				if cont !="si":
+					break 
+
+	
+	for elem in lista_secciones:
+		prioridad = ""
+		prioridad=str(10-ramos_disp_holgura[elem["nombre"]])#UU
+		for i in priority_ramo:
+			if i["nombre"] == elem["nombre"]:
+				prioridad = str(i["prioridad"]) #KK
+			else: 
+				prioridad = str(00) #KK
+		for i in priority:
+			if i["codigo"] == elem["codigo"]:
+				prioridad += str(i["prioridad"]) #SS
+			else:
+				prioridad += str(00) #SS
+		
+		if elem["nombre"] in ramos_criticos:
+			prioridad=str(10)+prioridad #CC
+		else:
+			prioridad=str(00)+prioridad
+		G.add_nodes_from([elem["codigo"]], nombre = elem["nombre"],seccion= elem["seccion"],horario=elem["horario"],profesor=elem["profesor"],prioridad=int(prioridad))
+
+	list_node = list(G.nodes.items()) 
+	lenth_graph = len(list_node) 
+
+	for i  in range (lenth_graph): 
+		if (i+1) < lenth_graph:
+			for j in range (i+1,lenth_graph):
+				if (list_node[i][1]["nombre"] != list_node[j][1]["nombre"]): #verificando que no se tomen dos secciones del mismo ramo
+					tope=0
+					for k in range (len(list_node[i][1]["horario"])): 
+						for x in range(len(list_node[j][1]["horario"])): 
+							if (list_node[i][1]["horario"][k] == list_node[j][1]["horario"][x]): #verificando que no topen los horarios
+								tope+=1
+								break										
+					if tope == 0:
+						G.add_edge(list_node[i][0], list_node[j][0])
+
+	#for elem in list_node: # imprime todos los nodos agregados en el grafo G, con sus atributos
+	#	print(elem,"\n")
+
+	max_clique_pond= nx.max_weight_clique(G, weight="prioridad") #se obtiene el maximo clique con mayor peso ponderado
+	cliques= list(nx.find_cliques(G)) #se obtiene el maximo clique
+
+	#print("\nSecciones disponibles a tomar este semestre:") # si no a parecen es porque no hay un horario definido
+
+	count_solucion=1
+	for elem in  list(cliques):
+		critic =0
+		if len(elem) >= 3:
+			for k in elem:
+				if G.nodes[k]["nombre"] in ramos_criticos:
+					critic +=1
+					
+			if len(ramos_criticos) == critic :
+				print("---------------")
+				print("\nSolucion #", count_solucion ,": \n")
+				count_solucion+=1
+				for k in elem:
+					print(G.nodes[k]["nombre"],"-",G.nodes[k]["seccion"],"| Horario -> ",G.nodes[k]["horario"],G.nodes[k]["prioridad"])
+	
+	print("---------------")
+	print("\nSolucion Recomendada: \n")
+
+	while len(max_clique_pond[0]) >6 : 
+			#if max_clique_pond[0][iterador]# se deberia eliminar el nodo con menor peso
+			max_clique_pond[0].pop(len(max_clique_pond[0])-1) #se elimina el ultimo de la lista, mejorar este filtro
+	for elem in  max_clique_pond[0]:
+		print(G.nodes[elem]["nombre"],"-",G.nodes[elem]["seccion"],"| Horario -> ",G.nodes[elem]["horario"],G.nodes[elem]["prioridad"]) #se muestra los elementos del clique maximo
+
+	if count_solucion == 1:
+		print("\nNo se encontro una solucion compatible con todos los ramos criticos!\n")
+		ver=input("Desea ver las otras opciones ?\n")
+		if ver == "si":
+			for elem in  list(cliques):
+				critic =0
+				if len(elem) >= 3:
+					for k in elem:
+						if G.nodes[k]["nombre"] in ramos_criticos:
+							critic +=1
+					
+					if len(ramos_criticos) - critic <=1 and len(elem) <=6  :
+							print("---------------")
+							print("\nSolucion #", count_solucion ,": \n")
+							count_solucion+=1
+							for k in elem:
+								print(G.nodes[k]["nombre"],"-",G.nodes[k]["seccion"],"| Horario -> ",G.nodes[k]["horario"],G.nodes[k]["prioridad"])
+		
+
+	if len(ramos_sin_horario)>0:
+		print("\nNo se encontraron horarios para ",len(ramos_sin_horario)," ramos !") 
+		for i in ramos_sin_horario:
+			print("- ",i)
+	
+	nx.draw(G, with_labels=True, font_weight='bold') #se dibuja el grafo generado
+	plt.show()
+	
+	#return max_clique_pond #se coloca por si se quiere utilizar mas adelante, de momento se deja el print
+
+def main():
+
+	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura = getRamoCritico('MallaCurricular.xlsx') # ramos criticos #funcion en otro archivo
+	
+	lista_secciones,ramos_sin_horario = extract_data(arr_ramos_tomar,'2019-1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
+	
+	get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar)
+	
+
+if __name__ == "__main__":
+    main()
