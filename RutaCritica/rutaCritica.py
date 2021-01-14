@@ -37,18 +37,21 @@ def getRamoCritico(nombreExcel):
     excelArray = np.array(excel)
     constCausal = 0
 
-<<<<<<< HEAD
+    causal = input('¿Estuvo usted en causal de eliminación el semestre anterior? Responda con yes/no: \n')
 
-    semestreAprobado = int(input('Por favor, indique hasta que semestre tiene aprobado completamente (número entre 0 y 10): \n'))
-        
-=======
     while(True):
         semestreAprobado = int(input('Por favor, indique hasta que semestre tiene aprobado completamente (número entre 0 y 10): \n'))
-        if semestreAprobado >= 0: 
-            break      
+        if semestreAprobado <=10:
+            if causal == 'yes':
+                constCausal = 4
+                break
+            elif causal == 'no':
+                constCausal = 6
+                break    
+            else:
+                print('\n Datos ingresados no válidos. Intente nuevamente. \n')        
         else:
-            print('Datos ingresados no válidos. Intente nuevamente. \n') 
->>>>>>> parent of ff0fae9... se pueden eliminar ramos cursados de forma independiente
+            print('Datos ingresados no válidos. Intente nuevamente. \n')
 
     ramosNoAprobados = []
     for aux in range(1, len(excelArray)):
@@ -58,27 +61,26 @@ def getRamoCritico(nombreExcel):
 
     asignaturasNoCursadas = np.array(ramosNoAprobados)
 
-    #print(asignaturasNoCursadas)
-
-#comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
-<<<<<<< HEAD
-
-
-    answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con yes/no \n')
-
-    if answer == 'no':
-        ramos = input('Por favor, ingrese el número de las asignaturas (la primera columna de la matriz entregada previamente) que ya aprobó, separados por comas \n')
-        ramos = ramos.split(",")    
-   
-        for elem in ramos:
-            
-            result = np.where(asignaturasNoCursadas == int(elem))
-            asignaturasNoCursadas = np.delete(asignaturasNoCursadas, result[0][0], 0)
-
     print(asignaturasNoCursadas)
 
-=======
->>>>>>> parent of ff0fae9... se pueden eliminar ramos cursados de forma independiente
+#comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
+    while(True):
+
+        answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con yes/no \n')
+
+        if answer == 'no':
+            ramos = input('Por favor, ingrese el número de las asignaturas (la primera columna de la matriz entregada previamente) que ya aprobó, separados por comas \n')
+            ramos = ramos.split(",")    
+
+            for elem in ramos:
+                result = np.where(asignaturasNoCursadas == int(elem))
+                asignaturasNoCursadas = np.delete(asignaturasNoCursadas, result[0][0], 0)
+            break
+
+        elif answer == 'yes':
+            break
+        else:
+            print('Por favor, ingrese una respuesta válida. \n')
 
     rows = len(asignaturasNoCursadas)
     idRamos = []
@@ -158,47 +160,39 @@ def getRamoCritico(nombreExcel):
                 PERT = set_values_recursive(PERT,k,long_path-1)
                 
         
-    ramos_disp_holgura={}
+
     ramos_criticos = []
     ramos_no_criticos = []
-    print("\nPERT Generado:\n ")
     for elem in list(PERT): # imprime todos los nodos agregados en el grafo 
         if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
-            ramos_disp_holgura[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["H"]
             ramos_criticos.append(PERT.nodes[elem]["nombre"])
-        print(elem," ",PERT.nodes[elem])
+        #print(elem," ",PERT.nodes[elem])
     
 
-   
+    #nx.draw_spring(PERT, with_labels=True, font_weight='bold')
+    #plt.show()
 
     for elem in list(PERT):
         if PERT.nodes[elem]["H"] != 0 and PERT.nodes[elem]["ES"] == 1:
-            ramos_disp_holgura[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["H"]
             ramos_no_criticos.append(PERT.nodes[elem]["nombre"])
     
-    print("\nRamos criticos -> ", ramos_criticos, "\n")
+    print("Ramos criticos -> ", ramos_criticos, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 
     #solucionar lo de los electivos
-    ramos_por_tomar=[]
-    for i in ramos_criticos:
-        ramos_por_tomar.append(i)
-    
-    ramos_disponibles = ramos_criticos +  ramos_no_criticos #guardar de alguna forma la H para poder colocarle una prioridad
-    """ for i in range(len(ramos_no_criticos)):
+    ramos_por_tomar = ramos_criticos
+
+    for i in range(len(ramos_no_criticos)):
         if len(ramos_por_tomar) >= 6:
             break
         else:
             ramos_por_tomar.append(ramos_no_criticos[i])
-    """
-    #print("Ramos por tomar ->", ramos_por_tomar, "\n")        
-    nx.draw_spring(PERT, with_labels=True, font_weight='bold')
-    plt.show()
-    print("Extrayendo Datos...")
-    print(ramos_disp_holgura)
-    return ramos_disponibles,ramos_criticos,ramos_disp_holgura
 
-#getRamoCritico('MallaCurricular.xlsx')
+    print("Ramos por tomar ->", ramos_por_tomar, "\n")        
+
+    return 
+
+getRamoCritico('MallaCurricular.xlsx')
 
                 
 
