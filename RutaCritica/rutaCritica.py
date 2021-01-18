@@ -180,10 +180,11 @@ def getRamoCritico(nombreExcel):
             ramos_por_tomar.append(ramos_no_criticos[i])
     """
     #print("Ramos por tomar ->", ramos_por_tomar, "\n")        
-    nx.draw_spring(PERT, with_labels=True, font_weight='bold')
-    plt.show()
-    print("Extrayendo Datos...")
-    print(ramos_disp_holgura)
+    #nx.draw_spring(PERT, with_labels=True, font_weight='bold')
+    #plt.show()
+    print("Ramos disponibles ->", ramos_disponibles, "\n") 
+    print("Extrayendo Datos...\n")
+    
     return ramos_disponibles,ramos_criticos,ramos_disp_holgura
 
 #getRamoCritico('MallaCurricular.xlsx')

@@ -2,7 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from extract_data import extract_data
 from rutaCritica import getRamoCritico
-
+import random
 
 
 #la prioridad se obtiene con un form desde front  
@@ -11,7 +11,7 @@ from rutaCritica import getRamoCritico
 
 
 def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar):
-	print(ramos_criticos)
+	#print(ramos_criticos)
 	G = nx.Graph()
 	priority= []
 	priority_ramo= []
@@ -21,9 +21,9 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			print(i,".-",arr_ramos_tomar[i])
 	prio_ram=input("Desea asignarle prioridad a los ramos ? (si/no) \n")
 	if prio_ram == "si":
-		while (True):
+		while (True): #Se puede mejorar el codigo para delimitar bien las prioridades # en teoria se mostrara una lista y con respecto al orden de los elementos se definira la prioridad
 			num_ramo = int(input("Ingrese el numero de un ramo (numeros de la lista)\n"))
-			prioridad = int(input("Asigne una prioridad al ramo\n"))
+			prioridad = int(input("Asigne una prioridad al ramo (1-10)\n"))
 			priority_ramo.append({'nombre':arr_ramos_tomar[num_ramo],'prioridad':prioridad})
 			cont = input("Desea colocarle una prioridad a otro ramo ? (si/no)\n")
 			if cont !="si":
@@ -44,11 +44,11 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 					l=True
 					print(elem)
 			if l== False:
-				print("No se encontraron secciones disponibles para el ramo ", arr_ramos_tomar[auxx])
+				print("No se encontraron secciones disponibles para el ramo ", arr_ramos_tomar[auxx],"\n")
 			else:
 				while (True):
 					codigo_sec = input("Ingrese el codigo de una seccion (codigos que aparecen en la lista)\n")
-					prioridad = int(input("Asigne una prioridad de una seccion\n"))
+					prioridad = int(input("Asigne una prioridad de una seccion(1-15)\n")) # es mas facil hacer los inputs en la pagina web
 					priority.append({'codigo':codigo_sec,'prioridad':prioridad})
 					cont = input("Desea colocarle una prioridad a otra seccion ? (si/no)\n")
 					if cont !="si":
@@ -60,22 +60,32 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	
 	for elem in lista_secciones:
 		prioridad = ""
-		prioridad=str(10-ramos_disp_holgura[elem["nombre"]])#UU
+		prioridad=str(10-ramos_disp_holgura[elem["nombre"]]) if len(str(10-ramos_disp_holgura[elem["nombre"]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["nombre"]]) #UU
+		
+		
 		for i in priority_ramo:
 			if i["nombre"] == elem["nombre"]:
-				prioridad = str(i["prioridad"]) #KK
-			else: 
-				prioridad = str(00) #KK
+				prioridad += str(i["prioridad"]+53) #KK ->( se le suma 53 para que tenga mas importancia que la prioridad por default)
+			
+		if len(prioridad) < 4:
+			beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"])
+			if  len(beta) < 2:
+				prioridad += str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
+			else:	
+				prioridad += beta
+		
+		
 		for i in priority:
 			if i["codigo"] == elem["codigo"]:
-				prioridad += str(i["prioridad"]) #SS
-			else:
-				prioridad += str(00) #SS
+				prioridad += str(i["prioridad"]+20) #SS -> se le suma el 20 para que supere cualquier valor d
+		if len(prioridad) < 6:
+			prioridad += str(elem["seccion"]) if len(str(elem["seccion"])) >1 else ("0" + str(elem["seccion"]))  #SS
 		
 		if elem["nombre"] in ramos_criticos:
-			prioridad=str(10)+prioridad #CC
+			prioridad="10"+str(prioridad) #CC
 		else:
-			prioridad=str(00)+prioridad
+			prioridad="00"+str(prioridad)
+		#print(prioridad)
 		G.add_nodes_from([elem["codigo"]], nombre = elem["nombre"],seccion= elem["seccion"],horario=elem["horario"],profesor=elem["profesor"],prioridad=int(prioridad))
 
 	list_node = list(G.nodes.items()) 
@@ -101,21 +111,36 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	cliques= list(nx.find_cliques(G)) #se obtiene el maximo clique
 
 	#print("\nSecciones disponibles a tomar este semestre:") # si no a parecen es porque no hay un horario definido
-
+	ko=False
 	count_solucion=1
+	epsilon=[]
 	for elem in  list(cliques):
 		critic =0
-		if len(elem) >= 3:
+		
+		for k in elem:
+			if G.nodes[k]["nombre"] in ramos_criticos:
+				critic +=1
+		if critic == len(ramos_criticos) :
+			ko=True
+
+		if len(ramos_criticos)-critic <= 3:
+			suma=0
 			for k in elem:
-				if G.nodes[k]["nombre"] in ramos_criticos:
-					critic +=1
-					
-			if len(ramos_criticos) == critic :
-				print("---------------")
-				print("\nSolucion #", count_solucion ,": \n")
-				count_solucion+=1
-				for k in elem:
-					print(G.nodes[k]["nombre"],"-",G.nodes[k]["seccion"],"| Horario -> ",G.nodes[k]["horario"],G.nodes[k]["prioridad"])
+				suma+=G.nodes[k]["prioridad"]
+			epsilon.append((elem,suma))
+
+	epsilon.sort(key=lambda tup: tup[1],reverse=True)
+	count_solucion=1
+		
+		
+	for k in epsilon:
+		
+		print("\nSolucion #", count_solucion ,": \n")
+		for i in k[0]:
+			print(G.nodes[i]["nombre"],"-",G.nodes[i]["seccion"],"| Horario -> ",G.nodes[i]["horario"],G.nodes[i]["prioridad"])
+		count_solucion+=1
+		if count_solucion == 16:
+			break
 	
 	print("---------------")
 	print("\nSolucion Recomendada: \n")
@@ -124,34 +149,21 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			#if max_clique_pond[0][iterador]# se deberia eliminar el nodo con menor peso
 			max_clique_pond[0].pop(len(max_clique_pond[0])-1) #se elimina el ultimo de la lista, mejorar este filtro
 	for elem in  max_clique_pond[0]:
-		print(G.nodes[elem]["nombre"],"-",G.nodes[elem]["seccion"],"| Horario -> ",G.nodes[elem]["horario"],G.nodes[elem]["prioridad"]) #se muestra los elementos del clique maximo
+		print(G.nodes[elem]["nombre"],"- Seccion",G.nodes[elem]["seccion"],"| Horario -> ",G.nodes[elem]["horario"],G.nodes[elem]["prioridad"]) #se muestra los elementos del clique maximo
 
-	if count_solucion == 1:
-		print("\nNo se encontro una solucion compatible con todos los ramos criticos!\n")
-		ver=input("Desea ver las otras opciones ?\n")
-		if ver == "si":
-			for elem in  list(cliques):
-				critic =0
-				if len(elem) >= 3:
-					for k in elem:
-						if G.nodes[k]["nombre"] in ramos_criticos:
-							critic +=1
-					
-					if len(ramos_criticos) - critic <=1 and len(elem) <=6  :
-							print("---------------")
-							print("\nSolucion #", count_solucion ,": \n")
-							count_solucion+=1
-							for k in elem:
-								print(G.nodes[k]["nombre"],"-",G.nodes[k]["seccion"],"| Horario -> ",G.nodes[k]["horario"],G.nodes[k]["prioridad"])
+	if ko == False:
+		print("\nNo se encontro una solucion con todos los ramos criticos")
+
+			
 		
 
-	if len(ramos_sin_horario)>0:
+	""" if len(ramos_sin_horario)>0:
 		print("\nNo se encontraron horarios para ",len(ramos_sin_horario)," ramos !") 
 		for i in ramos_sin_horario:
-			print("- ",i)
+			print("- ",i) """
 	
-	nx.draw(G, with_labels=True, font_weight='bold') #se dibuja el grafo generado
-	plt.show()
+	#nx.draw(G, with_labels=True, font_weight='bold') #se dibuja el grafo generado
+	#plt.show()
 	
 	#return max_clique_pond #se coloca por si se quiere utilizar mas adelante, de momento se deja el print
 

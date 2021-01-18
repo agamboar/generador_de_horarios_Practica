@@ -28,7 +28,11 @@ def extract_data(ramos_disponibles,sheet_name='2019-1'):
 
 					codigo = elem[4]  
 					nombre = elem[2]
-					seccion = elem[3]
+					if len(elem[3]) == 10:
+						seccion = int(elem[3][8]+elem[3][9])
+					else:
+						seccion = int(elem[3][8])
+						
 					profesor = elem[9]
 				except:
 					pass 
