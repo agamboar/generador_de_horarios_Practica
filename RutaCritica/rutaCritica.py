@@ -214,7 +214,3 @@ def getRamoCritico(miExcel):
     return ramos_disponibles,ramos_criticos,ramos_disp_holgura
 
 #getRamoCritico('MiMalla.xlsx')
-
-                
-
-        
