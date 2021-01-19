@@ -171,7 +171,7 @@ def main():
 
 	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura = getRamoCritico('MallaCurricular.xlsx') # ramos criticos #funcion en otro archivo
 	
-	lista_secciones,ramos_sin_horario = extract_data(arr_ramos_tomar,'2019-1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
+	lista_secciones,ramos_sin_horario = extract_data(arr_ramos_tomar,'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
 	
 	get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar)
 	
