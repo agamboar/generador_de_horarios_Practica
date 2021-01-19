@@ -154,7 +154,13 @@ def getRamoCritico(miExcel):
 
 
     #esto se puede colocar en la funcion de arriba ! mejorar !
-    for elem in list(PERT.predecessors(53)): #itera sobre los nodos que apuntan a 53
+
+    if M == '2010':
+        varAux = 53
+    elif M == '2018' or '2020':
+        varAux = 54
+
+    for elem in list(PERT.predecessors(varAux)): #itera sobre los nodos que apuntan a 53
         long_path=len(nx.dag_longest_path(PERT))
         arr_anc=list(nx.ancestors(PERT,elem))
         max_count_jump=1
@@ -214,3 +220,7 @@ def getRamoCritico(miExcel):
     return ramos_disponibles,ramos_criticos,ramos_disp_holgura
 
 #getRamoCritico('MiMalla.xlsx')
+
+                
+
+        
