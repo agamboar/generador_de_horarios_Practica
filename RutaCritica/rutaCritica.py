@@ -31,32 +31,6 @@ def set_values_recursive(PERT,id_node,len_dag):
 def getRamoCritico(miExcel):
 
     PERT = nx.DiGraph()  #Grafo dirigido
-<<<<<<< HEAD
-    ramosCriticos = []
-    nombreCriticos = []
-    excel = pd.read_excel(nombreExcel)
-    excelArray = np.array(excel)
-    constCausal = 0
-
-    causal = input('¿Estuvo usted en causal de eliminación el semestre anterior? Responda con yes/no: \n')
-
-    while(True):
-        semestreAprobado = int(input('Por favor, indique hasta que semestre tiene aprobado completamente (número entre 0 y 10): \n'))
-        if semestreAprobado <=10:
-            if causal == 'yes':
-                constCausal = 4
-                break
-            elif causal == 'no':
-                constCausal = 6
-                break    
-            else:
-                print('\n Datos ingresados no válidos. Intente nuevamente. \n')        
-        else:
-            print('Datos ingresados no válidos. Intente nuevamente. \n')
-
-    ramosNoAprobados = []
-    for aux in range(1, len(excelArray)):
-=======
     
     #Lectura del excel que contiene los ramos aprobados por el alumno   
     misRamos = pd.read_excel(miExcel)
@@ -94,7 +68,6 @@ def getRamoCritico(miExcel):
     for aux in range(1, len(idsMiMalla)):
         if idsMiMalla[aux] not in idsMisRamos:
             ramosNoAprobados.append(miMallaArray[aux])
->>>>>>> alvaro
 
     #for aux in range(1, len(excelArray)):
 
@@ -106,30 +79,11 @@ def getRamoCritico(miExcel):
     print(asignaturasNoCursadas)
 
 #comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
-<<<<<<< HEAD
-    while(True):
-
-=======
 
     while(True):
->>>>>>> alvaro
         answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con yes/no \n')
 
         if answer == 'no':
-<<<<<<< HEAD
-            ramos = input('Por favor, ingrese el número de las asignaturas (la primera columna de la matriz entregada previamente) que ya aprobó, separados por comas \n')
-            ramos = ramos.split(",")    
-
-            for elem in ramos:
-                result = np.where(asignaturasNoCursadas == int(elem))
-                asignaturasNoCursadas = np.delete(asignaturasNoCursadas, result[0][0], 0)
-            break
-
-        elif answer == 'yes':
-            break
-        else:
-            print('Por favor, ingrese una respuesta válida. \n')
-=======
             ramos = input('Por favor, verifique que los datos del Excel de sus ramos aprobados este correcto. \n')
             
             return
@@ -140,7 +94,6 @@ def getRamoCritico(miExcel):
 
     #print(asignaturasNoCursadas)
 
->>>>>>> alvaro
 
     rows = len(asignaturasNoCursadas)
     idRamos = []
@@ -220,23 +173,6 @@ def getRamoCritico(miExcel):
                 PERT = set_values_recursive(PERT,k,long_path-1)
                 
         
-<<<<<<< HEAD
-
-    ramos_criticos = []
-    ramos_no_criticos = []
-    for elem in list(PERT): # imprime todos los nodos agregados en el grafo 
-        if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
-            ramos_criticos.append(PERT.nodes[elem]["nombre"])
-        #print(elem," ",PERT.nodes[elem])
-    
-
-    #nx.draw_spring(PERT, with_labels=True, font_weight='bold')
-    #plt.show()
-
-    for elem in list(PERT):
-        if PERT.nodes[elem]["H"] != 0 and PERT.nodes[elem]["ES"] == 1:
-            ramos_no_criticos.append(PERT.nodes[elem]["nombre"])
-=======
     ramos_disp_holgura={}
     ramos_criticos = []
     ramos_no_criticos = []
@@ -246,25 +182,11 @@ def getRamoCritico(miExcel):
             ramos_disp_holgura[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["H"]
             ramos_criticos.append(PERT.nodes[elem]["nombre"])
         print(elem," ",PERT.nodes[elem])
->>>>>>> alvaro
     
     print("Ramos criticos -> ", ramos_criticos, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 
-<<<<<<< HEAD
-    #solucionar lo de los electivos
-    ramos_por_tomar = ramos_criticos
-
-    for i in range(len(ramos_no_criticos)):
-        if len(ramos_por_tomar) >= 6:
-            break
-        else:
-            ramos_por_tomar.append(ramos_no_criticos[i])
-
-    print("Ramos por tomar ->", ramos_por_tomar, "\n")        
-=======
    
->>>>>>> alvaro
 
     for elem in list(PERT):
         if PERT.nodes[elem]["H"] != 0 and PERT.nodes[elem]["ES"] == 1:
@@ -274,11 +196,6 @@ def getRamoCritico(miExcel):
     print("\nRamos criticos -> ", ramos_criticos, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 
-<<<<<<< HEAD
-getRamoCritico('MallaCurricular.xlsx')
-
-                
-=======
     #solucionar lo de los electivos
     ramos_por_tomar=[]
     for i in ramos_criticos:
@@ -298,6 +215,6 @@ getRamoCritico('MallaCurricular.xlsx')
     print("Extrayendo Datos...\n")
     
     return ramos_disponibles,ramos_criticos,ramos_disp_holgura
->>>>>>> alvaro
+
 
 #getRamoCritico('MiMalla.xlsx')
