@@ -28,31 +28,32 @@ def set_values_recursive(PERT,id_node,len_dag):
         set_values_recursive(PERT,elem,len_dag)
     return PERT
 
-def getRamoCritico(miExcel):
+def getRamoCritico(miExcel, malla):
 
     PERT = nx.DiGraph()  #Grafo dirigido
     
     #Lectura del excel que contiene los ramos aprobados por el alumno   
-    misRamos = pd.read_excel(miExcel)
-    
     #loop para escoger que malla corresponde a la situación del alumno
-    while(True):
-
-
-        M = input('Por favor, indique a que malla curricular corresponde su situacion (2010, 2018, o 2020): \n')
-        if M == '2020':
-            miMalla = pd.read_excel('MallaCurricular2020.xlsx')
-            break
-        elif M == '2018':
-            miMalla = pd.read_excel('MallaCurricular2018.xlsx')
-            break
-        elif M == '2010':
-            miMalla = pd.read_excel('MallaCurricular2010.xlsx')
-            break
-        else:
-            print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
-            pass
+    #while(True):
+    #    M = input('Por favor, indique a que malla curricular corresponde su situacion (2010, 2018, o 2020): \n')
+    #    if M == '2020':
+    #        miMalla = pd.read_excel('MallaCurricular2020.xlsx')
+    #        break
+    #    elif M == '2018':
+    #        miMalla = pd.read_excel('MallaCurricular2018.xlsx')
+    #        break
+    #    elif M == '2010':
+    #        miMalla = pd.read_excel('MallaCurricular2010.xlsx')
+    #        break
+    #    else:
+    #        print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
+    #        pass
     
+
+
+    misRamos = pd.read_excel(miExcel)
+    miMalla = pd.read_excel(malla) 
+
     #conversion de la lectura de los excel a arreglos de 2 dimensiones, utilizando Numpy, y su funcion array
     misRamosArray = np.array(misRamos)
     miMallaArray = np.array(miMalla)
@@ -83,7 +84,7 @@ def getRamoCritico(miExcel):
     while(True):
         answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con yes/no \n')
         if answer == 'no':
-            ramos = input('Por favor, verifique que los datos del Excel de sus ramos aprobados este correcto. \n')
+            print('Por favor, verifique que los datos del Excel de sus ramos aprobados este correcto. \n')
             
             return
         elif answer == 'yes':
@@ -155,9 +156,9 @@ def getRamoCritico(miExcel):
 
     #esto se puede colocar en la funcion de arriba ! mejorar !
 
-    if M == '2010':
+    if malla == 'MallaCurricular2010.xlsx':
         varAux = 53
-    elif M == '2018' or '2020':
+    elif malla == 'MallaCurricular2018.xlsx' or 'MallaCurricular2020.xlsx':
         varAux = 54
 
     for elem in list(PERT.predecessors(varAux)): #itera sobre los nodos que apuntan a 53
@@ -182,16 +183,22 @@ def getRamoCritico(miExcel):
     ramos_criticos = []
     ramos_no_criticos = []
     print("\nPERT Generado:\n ")
-    for elem in list(PERT): # imprime todos los nodos agregados en el grafo 
+    print(list(PERT))
+    for elem in list(PERT): # imprime todos los nodos agregados en el grafo
+        if elem == 0:
+            break
+        
         if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
             ramos_disp_holgura[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["H"]
             ramos_criticos.append(PERT.nodes[elem]["nombre"])
-        print(elem," ",PERT.nodes[elem])
+        #print(elem," ",PERT.nodes[elem])
     
 
    
 
     for elem in list(PERT):
+        if elem == 0:
+            break
         if PERT.nodes[elem]["H"] != 0 and PERT.nodes[elem]["ES"] == 1:
             ramos_disp_holgura[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["H"]
             ramos_no_criticos.append(PERT.nodes[elem]["nombre"])

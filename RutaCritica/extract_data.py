@@ -5,7 +5,7 @@ import pandas as pd
 
 #solo se consideran Catedra y Ayudantias, no Laboratorios
 
-def extract_data(ramos_disponibles,sheet_name='Sheet1'): 
+def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, sheet_name='Sheet1'): 
 	verificador = [0 for i in range(len(ramos_disponibles))] # se usa para saber que ramos no tienen horarios asigandos en la oferta academica
 
 	#count_cfg= ramos_disponibles.count("CFG") #cuenta cuantos cfg se deben tomar 
@@ -13,6 +13,28 @@ def extract_data(ramos_disponibles,sheet_name='Sheet1'):
 	excel = pd.read_excel('INGENIERÍA-CIVIL-EN-INFORMÁTICA-Y-TELECOMUNICACIONES.xlsx', sheet_name=sheet_name) #se obtiene los datos de la secciones de la oferta academica
 	excelArray = np.array(excel)
 	lista_secciones=[]
+
+	equiv = pd.read_excel(miMalla, sheet_name="Equivalencias")
+	equivArray = np.array(equiv)
+
+	for aux1 in range(len(ramos_disponibles)):
+		if ramos_disponibles[aux1] not in excelArray[:,17]:
+			if ramos_disponibles[aux1] in equivArray:
+				rows, col = np.where(equivArray==ramos_disponibles[aux1])
+				
+				#print(equivArray[rows[0]][col+1])
+				print(equivArray[rows[0]][col])
+				ramos_disp_holgura[list(equivArray[rows[0]][col+1])[0]] = ramos_disp_holgura[ramos_disponibles[aux1]]
+				print(ramos_disponibles[aux1], 'equivale a --->', list(equivArray[rows[0]][col+1])[0], '\n')
+				ramos_disponibles[aux1] = list(equivArray[rows[0]][col+1])[0]
+				#print(list(equivArray[rows[0]][col+1])[0])
+				#print(ramos_disponibles[aux1])
+				
+
+	#print(ramos_disponibles)
+#	print('---------------------- \n')
+#	print(excelArray[:,17])
+#	print('---------------------- \n')
 
 	for i in range (0,len(excelArray)):
 		elem=excelArray[i]
@@ -68,7 +90,7 @@ def extract_data(ramos_disponibles,sheet_name='Sheet1'):
 			codigo = "CFG_"+str(i+1)
 			lista_secciones.append({'codigo':codigo,'nombre':"CFG-"+str(i+1), 'seccion':"Sección "+str(i+1), "horario":[codigo] ,"profesor": "CFG"}) """
 
-	return lista_secciones ,ramos_sin_horario
+	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura
 
 
 

@@ -60,7 +60,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	
 	for elem in lista_secciones:
 		prioridad = ""
-		prioridad=str(10-ramos_disp_holgura[elem["nombre"]]) if len(str(10-ramos_disp_holgura[elem["nombre"]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["nombre"]]) #UU
+		prioridad=str(10-ramos_disp_holgura[elem["nombre"]]) if len(str(10-ramos_disp_holgura[elem["nombre"]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["nombre"]]) #UwU
 		
 		
 		for i in priority_ramo:
@@ -169,10 +169,23 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 
 def main():
 
-	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura = getRamoCritico('MiMalla.xlsx') # ramos criticos #funcion en otro archivo
+	while True:
+		malla = input('Por favor, indique a que malla curricular corresponde su situacion (2010, 2018, o 2020): \n')
+		if malla == '2010':
+			miMalla = 'MallaCurricular2010.xlsx'
+			break
+		elif malla == '2018':
+			miMalla = 'MallaCurricular2018.xlsx'
+			break
+		elif malla == '2020':
+			miMalla = 'MallaCurricular2020.xlsx'
+			break
+		else:
+			print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
+
+	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
 	
-	lista_secciones,ramos_sin_horario = extract_data(arr_ramos_tomar,'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
-	
+	lista_secciones,ramos_sin_horario, ramos_disp_holgura = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
 	get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar)
 	
 
