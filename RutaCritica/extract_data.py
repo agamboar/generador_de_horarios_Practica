@@ -16,7 +16,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 	excelArray = np.array(excel)
 	lista_secciones=[]
 	
-	equiv = pd.read_excel(miMalla, sheet_name="Equivalencias")
+	equiv = pd.read_excel(miMalla, sheet_name="Equivalencias") # COLOCAR TODAS LA EQUIVALENCIAS DE CODIGOS CON RESPECTO A LA MALLA 2020
 	equivArray = np.array(equiv)
 	#print(dict_ramos_codigos)
 	colum1 = equivArray[:,0]
@@ -44,11 +44,11 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 				#print(ramos_disponibles[aux1])
 				
 
-	#print(ramos_disponibles)
+	print(ramos_disponibles)
 #	print('---------------------- \n')
 #	print(excelArray[:,17])
 #	print('---------------------- \n')
-	print(dict_ramos_codigos)
+	#print(dict_ramos_codigos)
 	nombres_ramos_tomar = {}
 	for i in range (0,len(excelArray)):
 		elem=excelArray[i]
@@ -83,7 +83,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 		else:
 			#aqui va en vez de nombre, codigo
 			if codRamo in ramos_disponibles: #and (codRamo == dict_ramos_codigos[nombre] or nombre in auxiliarDeAseo): #con esto se guarda info incesaria en memoria, poquito la verdad
-				print(codRamo, nombre)
+				#print(codRamo, nombre)
 				aux33 = ramos_disponibles.index(codRamo)
 				nombres_ramos_tomar[nombre] = nombre
 
@@ -108,7 +108,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 		else:
 			codigo = "CFG_"+str(i+1)
 			lista_secciones.append({'codigo':codigo,'nombre':"CFG-"+str(i+1), 'seccion':"Sección "+str(i+1), "horario":[codigo] ,"profesor": "CFG"}) """
-	print(lista_secciones)
+	#print(lista_secciones)
 	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar
 
 

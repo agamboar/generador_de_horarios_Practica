@@ -81,17 +81,6 @@ def getRamoCritico(miExcel, malla):
 
 #comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
 
-    while(True):
-        answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con yes/no \n')
-        if answer == 'no':
-            print('Por favor, verifique que los datos del Excel de sus ramos aprobados este correcto. \n')
-            
-            return
-        elif answer == 'yes':
-            break
-        else:
-            print('Por favor, ingrese una respuesta válida.')
-
     #print(asignaturasNoCursadas)
 
 
@@ -183,12 +172,13 @@ def getRamoCritico(miExcel, malla):
                 
         
     ramos_disp_holgura={}
+    ramos_id={}
     dict_ramos_codigos = {}
     ramos_criticos = []
     ramos_porTomar_codigo = []
     ramos_no_criticos = []
     print("\nPERT Generado:\n ")
-    print(list(PERT))
+   
     for elem in list(PERT): # imprime todos los nodos agregados en el grafo
         if elem == 0:
             break
@@ -198,8 +188,8 @@ def getRamoCritico(miExcel, malla):
             ramos_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
-            
-        #print(elem," ",PERT.nodes[elem])
+            ramos_id[PERT.nodes[elem]["nombre"]]=elem
+        print(elem," ",PERT.nodes[elem])
       
     for elem in list(PERT):
         if elem == 0:
@@ -209,6 +199,7 @@ def getRamoCritico(miExcel, malla):
             ramos_no_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
+            ramos_id[PERT.nodes[elem]["nombre"]]=elem
     print("\nRamos criticos -> ", ramos_criticos, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 
@@ -230,7 +221,7 @@ def getRamoCritico(miExcel, malla):
     print("Ramos disponibles ->", ramos_disponibles, "\n") 
     print("Extrayendo Datos...\n")
     
-    return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles
+    return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles,ramos_id
 
 #getRamoCritico('MiMalla.xlsx')
 
