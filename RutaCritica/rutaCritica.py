@@ -39,10 +39,6 @@ def getRamoCritico(miExcel):
     while(True):
 
 
-<<<<<<< HEAD
-    semestreAprobado = int(input('Por favor, indique hasta que semestre tiene aprobado completamente (número entre 0 y 10): \n'))
-        
-=======
         M = input('Por favor, indique a que malla curricular corresponde su situacion (2010, 2018, o 2020): \n')
         if M == '2020':
             miMalla = pd.read_excel('MallaCurricular2020.xlsx')
@@ -60,7 +56,6 @@ def getRamoCritico(miExcel):
     #conversion de la lectura de los excel a arreglos de 2 dimensiones, utilizando Numpy, y su funcion array
     misRamosArray = np.array(misRamos)
     miMallaArray = np.array(miMalla)
->>>>>>> a1cba0957ec705c7fe1805517482e7b1cf9ca803
 
     ramosNoAprobados = []
 
@@ -85,21 +80,6 @@ def getRamoCritico(miExcel):
 
 #comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
 
-<<<<<<< HEAD
-
-    answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con yes/no \n')
-
-    if answer == 'no':
-        ramos = input('Por favor, ingrese el número de las asignaturas (la primera columna de la matriz entregada previamente) que ya aprobó, separados por comas \n')
-        ramos = ramos.split(",")    
-   
-        for elem in ramos:
-            
-            result = np.where(asignaturasNoCursadas == int(elem))
-            asignaturasNoCursadas = np.delete(asignaturasNoCursadas, result[0][0], 0)
-
-    print(asignaturasNoCursadas)
-=======
     while(True):
         answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con yes/no \n')
         if answer == 'no':
@@ -112,7 +92,6 @@ def getRamoCritico(miExcel):
             print('Por favor, ingrese una respuesta válida.')
 
     #print(asignaturasNoCursadas)
->>>>>>> a1cba0957ec705c7fe1805517482e7b1cf9ca803
 
 
     rows = len(asignaturasNoCursadas)
@@ -240,11 +219,7 @@ def getRamoCritico(miExcel):
     
     return ramos_disponibles,ramos_criticos,ramos_disp_holgura
 
-<<<<<<< HEAD
-#getRamoCritico('MallaCurricular.xlsx')
-=======
 #getRamoCritico('MiMalla.xlsx')
->>>>>>> a1cba0957ec705c7fe1805517482e7b1cf9ca803
 
                 
 

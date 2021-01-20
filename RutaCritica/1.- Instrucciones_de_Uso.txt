@@ -1,0 +1,33 @@
+Para utilizar esta primera versión de la aplicación, se utiliza Python, y usando 'pip install' se deben instalar las siguientes librerías:
+
+- pip install pandas
+- pip install numpy
+- pip install networkx
+- pip install matplotlib
+- pip install random
+
+Los archivos extract_data.py , get_clique_max_pond.py , rutaCritica.py y las mallas curriculares deben estar ubicados dentro de la misma carpeta.
+
+Abriendo el Excel 'MiMalla', este tendra las columnas separadas para cada una de las asignaturas que hayas aprobado. En uno de los Excel adjuntados, correspondiente a tu malla academica, las asignaturas estan separadas por semestres y en colores. Para indicarle a la aplicación hasta que semestre ha cursado, deberá copiar desde el Excel de su malla las asignaturas que usted ha aprobado hasta este momento, y copiarlas en esta planilla.  Se deben copiar los elementos de TODAS las columnas, para que el código tenga el formato correcto para calcular sus asignaturas críticas.
+
+Una vez que hayas seleccionado las asignaturas que has aprobado, utilizando la consola de comandos se debe ejecutar el archivo get_clique_max_pond.py, usando el comando
+
+- python get_clique_max_pond
+
+Hecho esto, se preguntará si tu malla corresponde a la 2010, 2018 o 2020. Despues de ingresar el año de la malla, se despliegan las asignaturas que has aprobado y se consulta si esta información es correcta.
+
+Si la información mostrada no es correcta, verificar si el Excel tiene la información bien ingresada.
+
+Luego de esto, se entregan las asignaturas críticas, se extraen los datos de la oferta academica y se consulta al alumno si quiere añadir prioridad a alguna asignatura o sección en especifico.
+
+Para el caso de la asignatura, se ingresa el número que aparece en la lista y se le debe asignar una prioridad entre 0 y 10, donde 10 es la prioridad más alta. 
+
+Y para el caso de las secciones, se debe ingresar el numero de la asignatura, y a continuación se despliegan las secciones disponibles de el ramo, con su información correspondiente. Se debe ingresar el codigo de la sección (ubicado en la segunda columna) y asignarle una prioridad de 0 a 15, donde 15 es la mayor prioridad.
+
+Finalmente, una vez que termine de asignar prioridades, se entrega el horario compatible con las preferencias y situación del alumno. Si no fue posible generar un horario con las preferencias ingresadas por el alumno, se indicará tal caso.
+
+**Destacar que las ofertas de electivos y CFG aún no se incluyen en el calculo del horario.**
+**Por favor, leer bien lo que solicita la consola como input, ya que no esta implementada la consistencia frente a ingreso de datos con formato incorrecto.**
+**Si no se entregan secciones para una asignatura, esto puedo ocurrir por 2 razones: no existen secciones para esa asignatura dentro de la oferta academica, o debido a que la equivalencia entre mallas aún no se ha implementado.**
+
+Cualquier duda, escribir por correo a cualquier integrante del grupo.
