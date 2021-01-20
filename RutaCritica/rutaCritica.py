@@ -101,6 +101,7 @@ def getRamoCritico(miExcel, malla):
     semestreCurso = []
     nombreCurso = []
     ramosPre = []
+    ramosCodigo = []
 
     for aux in range(rows):
         
@@ -109,12 +110,14 @@ def getRamoCritico(miExcel, malla):
         semestreCurso.append(asignaturasNoCursadas[aux][4])
         nombreCurso.append(asignaturasNoCursadas[aux][2])
         ramosPre.append(asignaturasNoCursadas[aux][5])
+        ramosCodigo.append(asignaturasNoCursadas[aux][1])
 
         idAux = idRamos[aux]
         stringAux = ramosAbre[aux]
         semestreAux = semestreCurso[aux]
         nombreAux = nombreCurso[aux]
         preReq = ramosPre[aux]
+        ramosCodigoAux = ramosCodigo[aux]
 
         if isinstance(stringAux, str): #creo que esto no es necesario
             stringAux = [int(s) for s in stringAux.split(',')]   #convierte string de numeros a arreglo o lista
@@ -131,7 +134,7 @@ def getRamoCritico(miExcel, malla):
         # Tiempo de término más tardío (LF = Latest Finish);
         # Holgura de la Actividad (H);
          
-        PERT.add_nodes_from([idAux], nombre=nombreAux, ES=None, EF = None, LS = None, LF = None , H = None)
+        PERT.add_nodes_from([idAux], nombre=nombreAux, codigo = ramosCodigoAux, ES=None, EF = None, LS = None, LF = None , H = None)
     
 
     rows2 = len(idRamos) #cantidad de ramos
@@ -180,7 +183,9 @@ def getRamoCritico(miExcel, malla):
                 
         
     ramos_disp_holgura={}
+    dict_ramos_codigos = {}
     ramos_criticos = []
+    ramos_porTomar_codigo = []
     ramos_no_criticos = []
     print("\nPERT Generado:\n ")
     print(list(PERT))
@@ -190,19 +195,20 @@ def getRamoCritico(miExcel, malla):
         
         if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
             ramos_disp_holgura[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["H"]
-            ramos_criticos.append(PERT.nodes[elem]["nombre"])
+            ramos_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
+            dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
+            ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
+            
         #print(elem," ",PERT.nodes[elem])
-    
-
-   
-
+      
     for elem in list(PERT):
         if elem == 0:
             break
         if PERT.nodes[elem]["H"] != 0 and PERT.nodes[elem]["ES"] == 1:
             ramos_disp_holgura[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["H"]
-            ramos_no_criticos.append(PERT.nodes[elem]["nombre"])
-    
+            ramos_no_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
+            dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
+            ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
     print("\nRamos criticos -> ", ramos_criticos, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 
@@ -224,7 +230,7 @@ def getRamoCritico(miExcel, malla):
     print("Ramos disponibles ->", ramos_disponibles, "\n") 
     print("Extrayendo Datos...\n")
     
-    return ramos_disponibles,ramos_criticos,ramos_disp_holgura
+    return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles
 
 #getRamoCritico('MiMalla.xlsx')
 
