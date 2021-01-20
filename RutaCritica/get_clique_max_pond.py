@@ -16,13 +16,15 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	priority= []
 	priority_ramo= []
 	print("Ramos disponibles: \n")
-	
-	for i in range(len(arr_ramos_tomar)):
-			print(i,".-",arr_ramos_tomar[i])
+	counter = 0
+	for i in (arr_ramos_tomar):
+			
+			print(counter,".-", i)
+			counter += 1
 	prio_ram=input("Desea asignarle prioridad a los ramos ? (si/no) \n")
 	if prio_ram == "si":
 		while (True): #Se puede mejorar el codigo para delimitar bien las prioridades # en teoria se mostrara una lista y con respecto al orden de los elementos se definira la prioridad
-			num_ramo = int(input("Ingrese el numero de un ramo (numeros de la lista)\n"))
+			num_ramo = str(input("Ingrese el nombre de un ramo (numeros de la lista)\n"))
 			prioridad = int(input("Asigne una prioridad al ramo (1-10)\n"))
 			priority_ramo.append({'nombre':arr_ramos_tomar[num_ramo],'prioridad':prioridad})
 			cont = input("Desea colocarle una prioridad a otro ramo ? (si/no)\n")
@@ -30,13 +32,15 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 				break
 
 
-	
+	counter = 0
 	prio_sec=input("Desea asignarle prioridad a las secciones de un ramo? (si/no)\n")
 	if prio_sec == "si":
 		while True:
-			for i in range(len(arr_ramos_tomar)):
-				print(i,".-",arr_ramos_tomar[i])
-			auxx=int(input("Ingrese el numero de un ramo\n"))
+			for i in (arr_ramos_tomar):
+				print(counter,".-", i)
+				counter += 1
+			print(arr_ramos_tomar)
+			auxx=str(input("Ingrese el nombre de un ramo\n"))
 			print("Secciones disponibles del ramo ", arr_ramos_tomar[auxx],": \n")
 			l=False
 			for elem in lista_secciones:
@@ -183,10 +187,11 @@ def main():
 		else:
 			print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
 
-	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
+	#getramocritico entrega codigo en vez de nombre
+	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
 	
-	lista_secciones,ramos_sin_horario, ramos_disp_holgura = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
-	get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar)
+	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, dict_ramos_codigos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
+	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar)
 	
 
 if __name__ == "__main__":
