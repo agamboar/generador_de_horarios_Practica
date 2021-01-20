@@ -5,41 +5,41 @@ import pandas as pd
 
 #solo se consideran Catedra y Ayudantias, no Laboratorios
 
-def extract_data(ramos_disponibles,sheet_name='2019-1'): 
+def extract_data(ramos_disponibles,sheet_name='Sheet1'): 
 	verificador = [0 for i in range(len(ramos_disponibles))] # se usa para saber que ramos no tienen horarios asigandos en la oferta academica
 
 	#count_cfg= ramos_disponibles.count("CFG") #cuenta cuantos cfg se deben tomar 
 	
-	excel = pd.read_excel('PROGRAMACION CURSOS 2017-2020.xlsx', sheet_name=sheet_name) #se obtiene los datos de la secciones de la oferta academica
+	excel = pd.read_excel('INGENIERÍA-CIVIL-EN-INFORMÁTICA-Y-TELECOMUNICACIONES.xlsx', sheet_name=sheet_name) #se obtiene los datos de la secciones de la oferta academica
 	excelArray = np.array(excel)
 	lista_secciones=[]
 
 	for i in range (0,len(excelArray)):
 		elem=excelArray[i]
-		if isinstance(elem[5], str): 
-			if elem[5][0] == "C": #se verifica que la informacion de la fila sea una Catedra
+		if isinstance(elem[21], str): 
+			if elem[21][0] == "C": #se verifica que la informacion de la fila sea una Catedra
 				aux_horario = [] 
 				try:
-					if len(elem[7].split()) == 5: #se procesa los datos de los horarios para usarlos posteriormente
-						aux = elem[7].split()[0]+" "+elem[7].split()[2] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+					if len(elem[22].split()) == 5: #se procesa los datos de los horarios para usarlos posteriormente
+						aux = elem[22].split()[0]+" "+elem[22].split()[2] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
-						aux = elem[7].split()[1]+" "+elem[7].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux = elem[22].split()[1]+" "+elem[22].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 						aux_horario.append(aux)
 
-					codigo = elem[4]  
-					nombre = elem[2]
-					if len(elem[3]) == 10:
-						seccion = int(elem[3][8]+elem[3][9])
+					codigo = elem[26]  
+					nombre = elem[17]
+					if len(elem[20]) == 10:
+						seccion = int(elem[20][8]+elem[20][9])
 					else:
-						seccion = int(elem[3][8])
+						seccion = int(elem[20][8])
 						
-					profesor = elem[9]
+					profesor = elem[23]
 				except:
 					pass 
 				finally:
 					continue
-			elif elem[5][0] == "A": #se verifica que la informacion de la fila sea una Ayudantia
-				aux = elem[7].split()[0]+" "+elem[7].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
+			elif elem[21][0] == "A": #se verifica que la informacion de la fila sea una Ayudantia
+				aux = elem[22].split()[0]+" "+elem[22].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
 				aux_horario.append(aux)
 			else:
 				continue
