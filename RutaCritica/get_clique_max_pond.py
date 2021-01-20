@@ -137,7 +137,11 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		
 		print("\nSolucion #", count_solucion ,": \n")
 		for i in k[0]:
+<<<<<<< HEAD
 			print(G.nodes[i]["nombre"],"-",G.nodes[i]["seccion"],"| Horario -> ",G.nodes[i]["horario"],G.nodes[i]["prioridad"])
+=======
+			print(G.nodes[i]["nombre"],"- Seccion s",G.nodes[i]["seccion"],"| Horario -> ",G.nodes[i]["horario"],G.nodes[i]["prioridad"])
+>>>>>>> a1cba0957ec705c7fe1805517482e7b1cf9ca803
 		count_solucion+=1
 		if count_solucion == 16:
 			break
@@ -169,7 +173,11 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 
 def main():
 
+<<<<<<< HEAD
 	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura = getRamoCritico('MallaCurricular.xlsx') # ramos criticos #funcion en otro archivo
+=======
+	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura = getRamoCritico('MiMalla.xlsx') # ramos criticos #funcion en otro archivo
+>>>>>>> a1cba0957ec705c7fe1805517482e7b1cf9ca803
 	
 	lista_secciones,ramos_sin_horario = extract_data(arr_ramos_tomar,'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
 	

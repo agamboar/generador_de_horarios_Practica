@@ -28,24 +28,56 @@ def set_values_recursive(PERT,id_node,len_dag):
         set_values_recursive(PERT,elem,len_dag)
     return PERT
 
-def getRamoCritico(nombreExcel):
+def getRamoCritico(miExcel):
 
     PERT = nx.DiGraph()  #Grafo dirigido
-    ramosCriticos = []
-    nombreCriticos = []
-    excel = pd.read_excel(nombreExcel)
-    excelArray = np.array(excel)
-    constCausal = 0
+    
+    #Lectura del excel que contiene los ramos aprobados por el alumno   
+    misRamos = pd.read_excel(miExcel)
+    
+    #loop para escoger que malla corresponde a la situación del alumno
+    while(True):
 
 
+<<<<<<< HEAD
     semestreAprobado = int(input('Por favor, indique hasta que semestre tiene aprobado completamente (número entre 0 y 10): \n'))
         
+=======
+        M = input('Por favor, indique a que malla curricular corresponde su situacion (2010, 2018, o 2020): \n')
+        if M == '2020':
+            miMalla = pd.read_excel('MallaCurricular2020.xlsx')
+            break
+        elif M == '2018':
+            miMalla = pd.read_excel('MallaCurricular2018.xlsx')
+            break
+        elif M == '2010':
+            miMalla = pd.read_excel('MallaCurricular2010.xlsx')
+            break
+        else:
+            print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
+            pass
+    
+    #conversion de la lectura de los excel a arreglos de 2 dimensiones, utilizando Numpy, y su funcion array
+    misRamosArray = np.array(misRamos)
+    miMallaArray = np.array(miMalla)
+>>>>>>> a1cba0957ec705c7fe1805517482e7b1cf9ca803
 
     ramosNoAprobados = []
-    for aux in range(1, len(excelArray)):
 
-        if int(excelArray[aux][4]) > semestreAprobado:
-            ramosNoAprobados.append(excelArray[aux])
+    #arreglos que contienen solo los numeros correlativos de ambos arreglos (malla y aprobados), para iterar sobre estos
+    idsMisRamos = misRamosArray[:,0]
+    idsMiMalla = miMallaArray[:,0]
+
+
+    #mediante la iteración, se añaden los ramos no aprobados a un arreglo
+    for aux in range(1, len(idsMiMalla)):
+        if idsMiMalla[aux] not in idsMisRamos:
+            ramosNoAprobados.append(miMallaArray[aux])
+
+    #for aux in range(1, len(excelArray)):
+
+    #    if int(excelArray[aux][4]) > semestreAprobado:
+    #        ramosNoAprobados.append(excelArray[aux])
 
     asignaturasNoCursadas = np.array(ramosNoAprobados)
 
@@ -53,6 +85,7 @@ def getRamoCritico(nombreExcel):
 
 #comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
 
+<<<<<<< HEAD
 
     answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con yes/no \n')
 
@@ -66,6 +99,20 @@ def getRamoCritico(nombreExcel):
             asignaturasNoCursadas = np.delete(asignaturasNoCursadas, result[0][0], 0)
 
     print(asignaturasNoCursadas)
+=======
+    while(True):
+        answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con yes/no \n')
+        if answer == 'no':
+            ramos = input('Por favor, verifique que los datos del Excel de sus ramos aprobados este correcto. \n')
+            
+            return
+        elif answer == 'yes':
+            break
+        else:
+            print('Por favor, ingrese una respuesta válida.')
+
+    #print(asignaturasNoCursadas)
+>>>>>>> a1cba0957ec705c7fe1805517482e7b1cf9ca803
 
 
     rows = len(asignaturasNoCursadas)
@@ -128,7 +175,13 @@ def getRamoCritico(nombreExcel):
 
 
     #esto se puede colocar en la funcion de arriba ! mejorar !
-    for elem in list(PERT.predecessors(53)): #itera sobre los nodos que apuntan a 53
+
+    if M == '2010':
+        varAux = 53
+    elif M == '2018' or '2020':
+        varAux = 54
+
+    for elem in list(PERT.predecessors(varAux)): #itera sobre los nodos que apuntan a 53
         long_path=len(nx.dag_longest_path(PERT))
         arr_anc=list(nx.ancestors(PERT,elem))
         max_count_jump=1
@@ -187,7 +240,11 @@ def getRamoCritico(nombreExcel):
     
     return ramos_disponibles,ramos_criticos,ramos_disp_holgura
 
+<<<<<<< HEAD
 #getRamoCritico('MallaCurricular.xlsx')
+=======
+#getRamoCritico('MiMalla.xlsx')
+>>>>>>> a1cba0957ec705c7fe1805517482e7b1cf9ca803
 
                 
 

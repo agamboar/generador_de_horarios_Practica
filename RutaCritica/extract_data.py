@@ -13,7 +13,11 @@ def extract_data(ramos_disponibles,sheet_name='Sheet1'):
 	excel = pd.read_excel('INGENIERÍA-CIVIL-EN-INFORMÁTICA-Y-TELECOMUNICACIONES.xlsx', sheet_name=sheet_name) #se obtiene los datos de la secciones de la oferta academica
 	excelArray = np.array(excel)
 	lista_secciones=[]
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> a1cba0957ec705c7fe1805517482e7b1cf9ca803
 	for i in range (0,len(excelArray)):
 		elem=excelArray[i]
 		if isinstance(elem[21], str): 
@@ -71,5 +75,9 @@ def extract_data(ramos_disponibles,sheet_name='Sheet1'):
 	return lista_secciones ,ramos_sin_horario
 
 
+<<<<<<< HEAD
 #extract_data([])
+=======
+
+>>>>>>> a1cba0957ec705c7fe1805517482e7b1cf9ca803
 
