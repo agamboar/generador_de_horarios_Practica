@@ -32,25 +32,6 @@ def getRamoCritico(miExcel, malla):
 
     PERT = nx.DiGraph()  #Grafo dirigido
     
-    #Lectura del excel que contiene los ramos aprobados por el alumno   
-    #loop para escoger que malla corresponde a la situación del alumno
-    #while(True):
-    #    M = input('Por favor, indique a que malla curricular corresponde su situacion (2010, 2018, o 2020): \n')
-    #    if M == '2020':
-    #        miMalla = pd.read_excel('MallaCurricular2020.xlsx')
-    #        break
-    #    elif M == '2018':
-    #        miMalla = pd.read_excel('MallaCurricular2018.xlsx')
-    #        break
-    #    elif M == '2010':
-    #        miMalla = pd.read_excel('MallaCurricular2010.xlsx')
-    #        break
-    #    else:
-    #        print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
-    #        pass
-    
-
-
     misRamos = pd.read_excel(miExcel)
     miMalla = pd.read_excel(malla) 
 
@@ -70,11 +51,6 @@ def getRamoCritico(miExcel, malla):
         if idsMiMalla[aux] not in idsMisRamos:
             ramosNoAprobados.append(miMallaArray[aux])
 
-    #for aux in range(1, len(excelArray)):
-
-    #    if int(excelArray[aux][4]) > semestreAprobado:
-    #        ramosNoAprobados.append(excelArray[aux])
-
     asignaturasNoCursadas = np.array(ramosNoAprobados)
 
     print(asignaturasNoCursadas)
@@ -93,7 +69,6 @@ def getRamoCritico(miExcel, malla):
             print('Por favor, ingrese una respuesta válida.')
 
     #print(asignaturasNoCursadas)
-
 
     rows = len(asignaturasNoCursadas)
     idRamos = []
@@ -181,14 +156,15 @@ def getRamoCritico(miExcel, malla):
             for k in list(PERT.predecessors(elem)):
                 PERT = set_values_recursive(PERT,k,long_path-1)
                 
-        
+    #error al calcular la holgura, y al entregar horario!!!!!!!!! solucionar. No incluye el ramo critico en el horario. Con la malla 2010 no pasa, se probo con la 2018    
     ramos_disp_holgura={}
     dict_ramos_codigos = {}
     ramos_criticos = []
     ramos_porTomar_codigo = []
     ramos_no_criticos = []
-    print("\nPERT Generado:\n ")
-    print(list(PERT))
+
+    #print("\nPERT Generado:\n ")
+    #print(list(PERT))
     for elem in list(PERT): # imprime todos los nodos agregados en el grafo
         if elem == 0:
             break
@@ -198,7 +174,7 @@ def getRamoCritico(miExcel, malla):
             ramos_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
-            
+        
         #print(elem," ",PERT.nodes[elem])
       
     for elem in list(PERT):
@@ -228,6 +204,8 @@ def getRamoCritico(miExcel, malla):
     #nx.draw_spring(PERT, with_labels=True, font_weight='bold')
     #plt.show()
     print("Ramos disponibles ->", ramos_disponibles, "\n") 
+    
+    #print(ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles)
     print("Extrayendo Datos...\n")
     
     return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles

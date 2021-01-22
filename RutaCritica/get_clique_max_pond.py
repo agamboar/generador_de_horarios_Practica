@@ -4,11 +4,7 @@ from extract_data import extract_data
 from rutaCritica import getRamoCritico
 import random
 
-
 #la prioridad se obtiene con un form desde front  
-
-
-
 
 def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar):
 	#print(ramos_criticos)
@@ -64,7 +60,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	
 	for elem in lista_secciones:
 		prioridad = ""
-		prioridad=str(10-ramos_disp_holgura[elem["nombre"]]) if len(str(10-ramos_disp_holgura[elem["nombre"]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["nombre"]]) #UwU
+		
+		prioridad=str(10-ramos_disp_holgura[elem["nombre"]]) if len(str(10-ramos_disp_holgura[elem["nombre"]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["nombre"]]) #UU
 		
 		
 		for i in priority_ramo:
@@ -186,11 +183,21 @@ def main():
 			break
 		else:
 			print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
+	
+	while True:
+		s = int(input('Por favor, indique hasta que semestre ha aprobado completamente (1-10): \n'))
+
+		if isinstance(s, int):
+			if s > 0 and s < 11:
+				semestre = s
+				break
+		elif isinstance(s, str):
+			print('Por favor, ingrese una respuesta válida. (1-10)')
 
 	#getramocritico entrega codigo en vez de nombre
 	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
 	
-	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, dict_ramos_codigos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
+	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, semestre, dict_ramos_codigos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
 	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar)
 	
 
