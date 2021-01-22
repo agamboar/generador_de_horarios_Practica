@@ -21,7 +21,7 @@ def equivalencia(ramos_disponibles, equivArray, excelArray):
 
 	return ramos_disponibles
 
-
+#pasar el diccionario dict_ramos_holg a la funcion de equivalencia. Asignarle la holgura de la cajita.
 
 def readingExcels(nombreOferta, miMalla):
 
@@ -32,10 +32,43 @@ def readingExcels(nombreOferta, miMalla):
 
 	return excelArray, electivosArray, equivArray, miMallaArray
 
+def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco):
+
+	codElectivos = electivosArray[:,1]
+	codAprobados = miMallaArray[:,1]
+
+	if len(cod_elect_inf) > 0: 				# <---- si el alumno aun debe dar electivos de informatica (el arreglo cod_elect_inf tiene elementos dentro)
+		for i in range(1, len(codElectivos)):
+			codigoAux = codElectivos[i]
+
+			aux = codigoAux[0:5]
+			if codigoAux not in codAprobados and aux == 'CIT33':
+				ramosDisponibles.append(codElectivos[i])
+		
+	if len(cod_elect_teleco) > 0: 				# <---- si el alumno aun debe dar electivos de teleco(el arreglo cod_elect_inf tiene elementos dentro)
+		for i in range(1, len(codElectivos)):
+			codigoAux = codElectivos[i]
+
+			aux = codigoAux[0:5]
+			if codigoAux not in codAprobados and aux == 'CIT34':
+					ramosDisponibles.append(codElectivos[i])
+		
+	ramsAux = ramosDisponibles
+
+	for i in range(len(ramosDisponibles)):  #remuevo los codigos 33XX y 34XX que hayan en la lista de ramos, por un tema de comodidad
+			
+		if 'CIT33XX' in ramsAux:
+			ramsAux.remove('CIT33XX')
+		if 'CIT34XX' in ramsAux:
+			ramsAux.remove('CIT34XX')
+
+	return ramosDisponibles
+
+
 
 
 def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict_ramos_codigos, sheet_name): 
-	verificador = [0 for i in range(len(ramos_disponibles))] # se usa para saber que ramos no tienen horarios asigandos en la oferta academica
+	 # se usa para saber que ramos no tienen horarios asigandos en la oferta academica
 
 	#count_cfg= ramos_disponibles.count("CFG") #cuenta cuantos cfg se deben tomar 	
 	lista_secciones=[]
@@ -74,35 +107,12 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 	#Si el semestre máximo aprobado por el alumno es mayor a 6, se le mostraran los electivos que se impartirán este semestre
 	
 	if semestre >= 6:
-		codElectivos = electivosArray[:,1]
-		codAprobados = miMallaArray[:,1]
+		ramosDisponibles = appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco)
 
-		if len(cod_elect_inf) > 0: 				# <---- si el alumno aun debe dar electivos de informatica (el arreglo cod_elect_inf tiene elementos dentro)
-			for i in range(1, len(codElectivos)):
-				codigoAux = codElectivos[i]
+	print(ramosDisponibles)
 
-				aux = codigoAux[0:5]
-				if codigoAux not in codAprobados and aux == 'CIT33':
-					ramosDisponibles.append(codElectivos[i])
-		
-		if len(cod_elect_teleco) > 0: 				# <---- si el alumno aun debe dar electivos de teleco(el arreglo cod_elect_inf tiene elementos dentro)
-			for i in range(1, len(codElectivos)):
-				codigoAux = codElectivos[i]
+	verificador = [0 for i in range(len(ramosDisponibles))]
 
-				aux = codigoAux[0:5]
-				if codigoAux not in codAprobados and aux == 'CIT34':
-					ramosDisponibles.append(codElectivos[i])
-		#print(ramosDisponibles)
-
-		ramsAux = ramosDisponibles
-
-		for i in range(len(ramosDisponibles)):  #remuevo los codigos 33XX y 34XX que hayan en la lista de ramos, por un tema de comodidad
-			
-			if 'CIT33XX' in ramsAux:
-				ramsAux.remove('CIT33XX')
-			if 'CIT34XX' in ramsAux:
-				ramsAux.remove('CIT34XX')
-		
 	nombres_ramos_tomar = {}
 	for i in range (0,len(excelArray)):
 		elem=excelArray[i]
@@ -163,6 +173,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 			codigo = "CFG_"+str(i+1)
 			lista_secciones.append({'codigo':codigo,'nombre':"CFG-"+str(i+1), 'seccion':"Sección "+str(i+1), "horario":[codigo] ,"profesor": "CFG"}) """
 	#print(lista_secciones)
+	print(nombres_ramos_tomar)
 
 	#print(cod_elect_inf, cod_elect_teleco, cod_CFG)
 	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar
