@@ -146,6 +146,7 @@ def getRamoCritico(miExcel, malla):
     ramos_criticos = []
     ramos_porTomar_codigo = []
     ramos_no_criticos = []
+    ramos_criticos_nombre = []
 
     #print("\nPERT Generado:\n ")
     #print(list(PERT))
@@ -155,7 +156,8 @@ def getRamoCritico(miExcel, malla):
         
         if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
             ramos_disp_holgura[PERT.nodes[elem]["codigo"]]=PERT.nodes[elem]["H"]
-            ramos_criticos.append(PERT.nodes[elem]["codigo"])  #hacer append de codigo y no de nombre
+            ramos_criticos.append(PERT.nodes[elem]["codigo"])
+            ramos_criticos_nombre.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
         
@@ -169,7 +171,7 @@ def getRamoCritico(miExcel, malla):
             ramos_no_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
-    print("\nRamos criticos -> ", ramos_criticos, "\n")
+    print("\nRamos criticos -> ", ramos_criticos_nombre, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 
     #solucionar lo de los electivos
@@ -177,7 +179,7 @@ def getRamoCritico(miExcel, malla):
     for i in ramos_criticos:
         ramos_por_tomar.append(i)
     
-    ramos_disponibles = ramos_criticos +  ramos_no_criticos #guardar de alguna forma la H para poder colocarle una prioridad
+    ramos_disponibles = ramos_criticos_nombre +  ramos_no_criticos #guardar de alguna forma la H para poder colocarle una prioridad
     """ for i in range(len(ramos_no_criticos)):
         if len(ramos_por_tomar) >= 6:
             break

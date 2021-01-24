@@ -174,8 +174,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	for elem in  arr_aux_delete:
 		print(G.nodes[elem[0]]["nombre"],"- Seccion",G.nodes[elem[0]]["seccion"],"| Horario -> ",G.nodes[elem[0]]["horario"],G.nodes[elem[0]]["prioridad"]) #se muestra los elementos del clique maximo
 
-	if ko == False:
-		print("\nNo se encontro una solucion con todos los ramos criticos")
+	#if ko == False:
+	#	print("\nNo se encontro una solucion con todos los ramos criticos")
 
 			
 		
