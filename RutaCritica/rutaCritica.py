@@ -28,29 +28,38 @@ def set_values_recursive(PERT,id_node,len_dag):
         set_values_recursive(PERT,elem,len_dag)
     return PERT
 
+def addNodeToPERT(PERT, asignaturasNoCursadas):
+
+    nroAsigNoCursadas = len(asignaturasNoCursadas)
+
+    idRamos = []
+    nombres = []
+    codRamos = []
+    ramosAbre = []
+
+    for i in range(nroAsigNoCursadas):
+
+        idRamos.append(asignaturasNoCursadas[i][0])
+        codRamos.append(asignaturasNoCursadas[i][1])
+        nombres.append(asignaturasNoCursadas[i][2])
+        ramosAbre.append(asignaturasNoCursadas[i][3])
+
+        idAux = idRamos[i]
+        codAux = codRamos[i]
+        nombreAux = nombres[i]
+        abreAux = ramosAbre[i]
+
+        #if isinstance(abreAux, str): #creo que esto no es necesario
+        #    abreAux = [int(s) for s in abreAux.split(',')]   #convierte string de numeros a arreglo o lista
+        PERT.add_nodes_from([idAux], nombre=nombreAux, codigo = codAux, ES=None, EF = None, LS = None, LF = None , H = None)
+    
+    return PERT, idRamos, ramosAbre
+
+
 def getRamoCritico(miExcel, malla):
 
     PERT = nx.DiGraph()  #Grafo dirigido
     
-    #Lectura del excel que contiene los ramos aprobados por el alumno   
-    #loop para escoger que malla corresponde a la situación del alumno
-    #while(True):
-    #    M = input('Por favor, indique a que malla curricular corresponde su situacion (2010, 2018, o 2020): \n')
-    #    if M == '2020':
-    #        miMalla = pd.read_excel('MallaCurricular2020.xlsx')
-    #        break
-    #    elif M == '2018':
-    #        miMalla = pd.read_excel('MallaCurricular2018.xlsx')
-    #        break
-    #    elif M == '2010':
-    #        miMalla = pd.read_excel('MallaCurricular2010.xlsx')
-    #        break
-    #    else:
-    #        print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
-    #        pass
-    
-
-
     misRamos = pd.read_excel(miExcel)
     miMalla = pd.read_excel(malla) 
 
@@ -70,50 +79,22 @@ def getRamoCritico(miExcel, malla):
         if idsMiMalla[aux] not in idsMisRamos:
             ramosNoAprobados.append(miMallaArray[aux])
 
-    #for aux in range(1, len(excelArray)):
-
-    #    if int(excelArray[aux][4]) > semestreAprobado:
-    #        ramosNoAprobados.append(excelArray[aux])
-
     asignaturasNoCursadas = np.array(ramosNoAprobados)
 
     print(asignaturasNoCursadas)
 
 #comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
 
-    #print(asignaturasNoCursadas)
-
-
-    rows = len(asignaturasNoCursadas)
-    idRamos = []
-    ramosAbre = []
-    semestreCurso = []
-    nombreCurso = []
-    ramosPre = []
-    ramosCodigo = []
-
-    for aux in range(rows):
-        
-        idRamos.append(asignaturasNoCursadas[aux][0])
-        ramosAbre.append(asignaturasNoCursadas[aux][3])
-        semestreCurso.append(asignaturasNoCursadas[aux][4])
-        nombreCurso.append(asignaturasNoCursadas[aux][2])
-        ramosPre.append(asignaturasNoCursadas[aux][5])
-        ramosCodigo.append(asignaturasNoCursadas[aux][1])
-
-        idAux = idRamos[aux]
-        stringAux = ramosAbre[aux]
-        semestreAux = semestreCurso[aux]
-        nombreAux = nombreCurso[aux]
-        preReq = ramosPre[aux]
-        ramosCodigoAux = ramosCodigo[aux]
-
-        if isinstance(stringAux, str): #creo que esto no es necesario
-            stringAux = [int(s) for s in stringAux.split(',')]   #convierte string de numeros a arreglo o lista
-
-        if isinstance(preReq, str):
-            preReq = [int(s) for s in preReq.split(',')]   #convierte string de numeros a arreglo o lista
-
+    while(True):
+        answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con si/no \n')
+        if answer == 'no':
+            print('Por favor, verifique que los datos del Excel de sus ramos aprobados este correcto. \n')
+            
+            return
+        elif answer == 'si':
+            break
+        else:
+            print('Por favor, ingrese una respuesta válida.')
 
         #Nombre de la actividad;
         # Duración esperada de la actividad (D); -> siempre sera uno al ser ramos semestrales
@@ -123,9 +104,7 @@ def getRamoCritico(miExcel, malla):
         # Tiempo de término más tardío (LF = Latest Finish);
         # Holgura de la Actividad (H);
          
-        PERT.add_nodes_from([idAux], nombre=nombreAux, codigo = ramosCodigoAux, ES=None, EF = None, LS = None, LF = None , H = None)
-    
-
+    PERT, idRamos, ramosAbre = addNodeToPERT(PERT, asignaturasNoCursadas)
     rows2 = len(idRamos) #cantidad de ramos
 
 #A continuacion, se crean las aristas que conectan cada nodo, con el respectivo ramo que abren. Estas aristas estan direccionadas.
@@ -170,15 +149,15 @@ def getRamoCritico(miExcel, malla):
             for k in list(PERT.predecessors(elem)):
                 PERT = set_values_recursive(PERT,k,long_path-1)
                 
-        
+    #error al calcular la holgura, y al entregar horario!!!!!!!!! solucionar. No incluye el ramo critico en el horario. Con la malla 2010 no pasa, se probo con la 2018    
     ramos_disp_holgura={}
-    ramos_id={}
     dict_ramos_codigos = {}
     ramos_criticos = []
     ramos_porTomar_codigo = []
     ramos_no_criticos = []
-    print("\nPERT Generado:\n ")
-   
+
+    #print("\nPERT Generado:\n ")
+    #print(list(PERT))
     for elem in list(PERT): # imprime todos los nodos agregados en el grafo
         if elem == 0:
             break
@@ -188,7 +167,7 @@ def getRamoCritico(miExcel, malla):
             ramos_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
-            ramos_id[PERT.nodes[elem]["nombre"]]=elem
+        
         print(elem," ",PERT.nodes[elem])
       
     for elem in list(PERT):
@@ -199,7 +178,6 @@ def getRamoCritico(miExcel, malla):
             ramos_no_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
-            ramos_id[PERT.nodes[elem]["nombre"]]=elem
     print("\nRamos criticos -> ", ramos_criticos, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 
@@ -219,9 +197,11 @@ def getRamoCritico(miExcel, malla):
     #nx.draw_spring(PERT, with_labels=True, font_weight='bold')
     #plt.show()
     print("Ramos disponibles ->", ramos_disponibles, "\n") 
+    
+    #print(ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles)
     print("Extrayendo Datos...\n")
     
-    return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles,ramos_id
+    return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles
 
 #getRamoCritico('MiMalla.xlsx')
 

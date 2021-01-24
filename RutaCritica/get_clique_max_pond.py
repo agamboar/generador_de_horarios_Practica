@@ -4,13 +4,9 @@ from extract_data import extract_data
 from rutaCritica import getRamoCritico
 import random
 
-
 #la prioridad se obtiene con un form desde front  
 
-
-
-
-def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar,ramos_id):
+def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar):
 	#print(ramos_criticos)
 	G = nx.Graph()
 	priority= []
@@ -39,7 +35,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			for i in (arr_ramos_tomar):
 				print(counter,".-", i)
 				counter += 1
-			#print(arr_ramos_tomar)
+			print(arr_ramos_tomar)
 			auxx=str(input("Ingrese el nombre de un ramo\n"))
 			print("Secciones disponibles del ramo ", arr_ramos_tomar[auxx],": \n")
 			l=False
@@ -73,8 +69,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 				prioridad += str(i["prioridad"]+53) #KK ->( se le suma 53 para que tenga mas importancia que la prioridad por default)
 			
 		if len(prioridad) < 4:
-
-			beta = str(53-ramos_id[elem["nombre"]]) #int(elem["N_correlativo"])
+			beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"])
 			if  len(beta) < 2:
 				prioridad += str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
 			else:	
@@ -91,7 +86,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			prioridad="10"+str(prioridad) #CC
 		else:
 			prioridad="00"+str(prioridad)
-		#print(elem["nombre"]," ",prioridad)
+		#print(prioridad)
 		G.add_nodes_from([elem["codigo"]], nombre = elem["nombre"],seccion= elem["seccion"],horario=elem["horario"],profesor=elem["profesor"],prioridad=int(prioridad))
 
 	list_node = list(G.nodes.items()) 
@@ -188,12 +183,22 @@ def main():
 			break
 		else:
 			print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
+	
+	while True:
+		s = int(input('Por favor, indique hasta que semestre ha aprobado completamente (1-10): \n'))
+
+		if isinstance(s, int):
+			if s > 0 and s < 11:
+				semestre = s
+				break
+		elif isinstance(s, str):
+			print('Por favor, ingrese una respuesta válida. (1-10)')
 
 	#getramocritico entrega codigo en vez de nombre
-	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles,ramos_id = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
+	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
 	
-	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, dict_ramos_codigos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
-	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar,ramos_id)
+	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, semestre, dict_ramos_codigos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
+	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar)
 	
 
 if __name__ == "__main__":
