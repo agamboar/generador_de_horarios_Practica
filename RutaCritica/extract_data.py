@@ -21,6 +21,20 @@ def equivalencia(ramos_disponibles, equivArray, excelArray,ramos_disp_holgura,ra
 				print(ramos_disponibles[aux], 'equivale a --->', equivArray[rows[0][0]][col+1], '\n')
 				ramos_disp_holgura[equivArray[rows[0][0]][col+1]]=ramos_disp_holgura[ramos_disponibles[aux]]
 				ramos_disponibles[aux] = equivArray[rows[0][0]][col+1]
+		else:
+			pos_cod_ramo=list(excelArray[:,16]).index(ramos_disponibles[aux])
+			print(pos_cod_ramo)
+			if isinstance(excelArray[pos_cod_ramo][22], str): 
+				continue
+			elif ramos_disponibles[aux] in equivArray:
+				col = 0
+				rows= np.where(colum==ramos_disponibles[aux])
+				if ramos_disponibles[aux] in ramos_criticos:
+					ramos_criticos.append(equivArray[rows[0][0]][col+1])
+				print(ramos_disponibles[aux], 'equivale a --->', equivArray[rows[0][0]][col+1], '\n')
+				ramos_disp_holgura[equivArray[rows[0][0]][col+1]]=ramos_disp_holgura[ramos_disponibles[aux]]
+				ramos_disponibles[aux] = equivArray[rows[0][0]][col+1]
+
 				
 	#print(ramos_disp_holgura)
 	return ramos_disponibles,ramos_disp_holgura,ramos_criticos

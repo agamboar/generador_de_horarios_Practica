@@ -196,7 +196,7 @@ def getRamoCritico(miExcel, malla):
     #print(ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles)
     print("Extrayendo Datos...\n")
     
-    return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles,asignaturasNoCursadas
+    return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles,asignaturasNoCursadas,ramos_id
 
 ## cambiar los como se muestran los cfg y electivos
 #-> electivos como si fueran ramos mas no mas yera. -> creo funciona asi y mas aun si se pone un filtro por semestre aprobado
