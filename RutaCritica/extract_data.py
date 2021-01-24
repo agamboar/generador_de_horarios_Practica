@@ -65,8 +65,6 @@ def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_in
 	return ramosDisponibles
 
 
-
-
 def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict_ramos_codigos, sheet_name): 
 	 # se usa para saber que ramos no tienen horarios asigandos en la oferta academica
 
@@ -106,14 +104,14 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 
 	#Si el semestre máximo aprobado por el alumno es mayor a 6, se le mostraran los electivos que se impartirán este semestre
 	
-	if semestre >= 6:
+	if semestre > 6:
 		ramosDisponibles = appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco)
 
 	print(ramosDisponibles)
 
 	verificador = [0 for i in range(len(ramosDisponibles))]
 
-	nombres_ramos_tomar = {}
+	codigo_ramos_tomar = {}
 	for i in range (0,len(excelArray)):
 		elem=excelArray[i]
 		if isinstance(elem[21], str): 
@@ -121,6 +119,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 				aux_horario = [] 
 				try:
 					if len(elem[22].split()) == 5: #se procesa los datos de los horarios para usarlos posteriormente
+						
 						aux = elem[22].split()[0]+" "+elem[22].split()[2] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
 						aux = elem[22].split()[1]+" "+elem[22].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
@@ -149,7 +148,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 			if codRamo in ramosDisponibles: #and (codRamo == dict_ramos_codigos[nombre] or nombre in auxiliarDeAseo): #con esto se guarda info incesaria en memoria, poquito la verdad
 				#print(codRamo, nombre)
 				aux33 = ramosDisponibles.index(codRamo)
-				nombres_ramos_tomar[nombre] = nombre
+				codigo_ramos_tomar[codRamo] = nombre
 
 				verificador[aux33] = 1
 				alfa = {'codigo':codigo,'nombre':nombre, 'seccion':seccion, "horario":aux_horario, "profesor":profesor}
@@ -173,10 +172,10 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 			codigo = "CFG_"+str(i+1)
 			lista_secciones.append({'codigo':codigo,'nombre':"CFG-"+str(i+1), 'seccion':"Sección "+str(i+1), "horario":[codigo] ,"profesor": "CFG"}) """
 	#print(lista_secciones)
-	print(nombres_ramos_tomar)
+	#print(codigo_ramos_tomar)
 
 	#print(cod_elect_inf, cod_elect_teleco, cod_CFG)
-	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar
+	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura, codigo_ramos_tomar
 
 
 

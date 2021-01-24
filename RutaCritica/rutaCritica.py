@@ -47,7 +47,7 @@ def addNodeToPERT(PERT, asignaturasNoCursadas):
         idAux = idRamos[i]
         codAux = codRamos[i]
         nombreAux = nombres[i]
-        abreAux = ramosAbre[i]
+        
 
         #if isinstance(abreAux, str): #creo que esto no es necesario
         #    abreAux = [int(s) for s in abreAux.split(',')]   #convierte string de numeros a arreglo o lista

@@ -60,8 +60,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	
 	for elem in lista_secciones:
 		prioridad = ""
-		
-		prioridad=str(10-ramos_disp_holgura[elem["nombre"]]) if len(str(10-ramos_disp_holgura[elem["nombre"]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["nombre"]]) #UU
+		#poner un try, si no encuentra lo que busca, es un electivo.
+		prioridad=str(10-ramos_disp_holgura[elem["nombre"]]) if len(str(10-ramos_disp_holgura[elem["nombre"]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["nombre"]]) #UwU
 		
 		
 		for i in priority_ramo:
