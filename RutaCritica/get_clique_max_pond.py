@@ -20,7 +20,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	prio_ram=input("Desea asignarle prioridad a los ramos ? (si/no) \n")
 	if prio_ram == "si":
 		while (True): #Se puede mejorar el codigo para delimitar bien las prioridades # en teoria se mostrara una lista y con respecto al orden de los elementos se definira la prioridad
-			num_ramo = str(input("Ingrese el nombre de un ramo (numeros de la lista)\n"))
+			num_ramo = str(input("Ingrese el NOMBRE de un ramo\n"))
 			prioridad = int(input("Asigne una prioridad al ramo (1-10)\n"))
 			priority_ramo.append({'nombre':arr_ramos_tomar[num_ramo],'prioridad':prioridad})
 			cont = input("Desea colocarle una prioridad a otro ramo ? (si/no)\n")
@@ -35,8 +35,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			for i in (arr_ramos_tomar):
 				print(counter,".-", i)
 				counter += 1
-			print(arr_ramos_tomar)
-			auxx=str(input("Ingrese el nombre de un ramo\n"))
+			
+			auxx=str(input("Ingrese el NOMBRE de un ramo\n"))
 			print("Secciones disponibles del ramo ", arr_ramos_tomar[auxx],": \n")
 			l=False
 			for elem in lista_secciones:
@@ -47,7 +47,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 				print("No se encontraron secciones disponibles para el ramo ", arr_ramos_tomar[auxx],"\n")
 			else:
 				while (True):
-					codigo_sec = input("Ingrese el codigo de una seccion (codigos que aparecen en la lista)\n")
+					codigo_sec = input("Ingrese el CODIGO de una seccion (codigos que aparecen en la lista)\n")
 					prioridad = int(input("Asigne una prioridad de una seccion(1-15)\n")) # es mas facil hacer los inputs en la pagina web
 					priority.append({'codigo':codigo_sec,'prioridad':prioridad})
 					cont = input("Desea colocarle una prioridad a otra seccion ? (si/no)\n")
