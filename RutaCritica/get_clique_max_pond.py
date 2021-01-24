@@ -6,7 +6,7 @@ import random
 
 #la prioridad se obtiene con un form desde front  
 
-def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar):
+def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar,ramos_id):
 	#print(ramos_criticos)
 	G = nx.Graph()
 	priority= []
@@ -217,10 +217,10 @@ def main():
 			print('Por favor, ingrese una respuesta válida. (1-10)')
 
 	#getramocritico entrega codigo en vez de nombre
-	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles, asignaturasNoCursadas = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
+	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles, asignaturasNoCursadas,ramos_id = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
 	
 	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, semestre, dict_ramos_codigos,asignaturasNoCursadas, ramos_criticos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
-	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar)
+	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar,ramos_id)
 	
 
 if __name__ == "__main__":

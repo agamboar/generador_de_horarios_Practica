@@ -147,7 +147,7 @@ def getRamoCritico(miExcel, malla):
     ramos_porTomar_codigo = []
     ramos_no_criticos = []
     ramos_criticos_nombre = []
-
+    ramos_id={}
     #print("\nPERT Generado:\n ")
     #print(list(PERT))
     for elem in list(PERT): # imprime todos los nodos agregados en el grafo
@@ -160,6 +160,7 @@ def getRamoCritico(miExcel, malla):
             ramos_criticos_nombre.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
+            ramos_id[PERT.nodes[elem]["nombre"]]=elem
         
         print(elem," ",PERT.nodes[elem])
       
@@ -171,6 +172,7 @@ def getRamoCritico(miExcel, malla):
             ramos_no_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
+            ramos_id[PERT.nodes[elem]["nombre"]]=elem
     print("\nRamos criticos -> ", ramos_criticos_nombre, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 
