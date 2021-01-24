@@ -60,8 +60,17 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	
 	for elem in lista_secciones:
 		prioridad = ""
-		try:
-			prioridad=str(10-ramos_disp_holgura[elem["nombre"]]) if len(str(10-ramos_disp_holgura[elem["nombre"]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["nombre"]]) #UU			
+		#aca ver si el codigo del ramo es un electivo cit33 o cit34 [:,5], si se cumple darle la holgura de electivo profesional del pert
+		
+		if elem["codigo"][0:5]=='CIT33':
+			prioridad=str(10-ramos_disp_holgura["CIT33XX"]) if len(str(10-ramos_disp_holgura["CIT33XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT33XX"]) #UU
+		elif elem["codigo"][0:5]=='CIT34':
+			prioridad=str(10-ramos_disp_holgura["CIT34XX"]) if len(str(10-ramos_disp_holgura["CIT34XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT34XX"]) #UU
+
+		else:
+			prioridad=str(10-ramos_disp_holgura[elem["codigo"][0:7]]) if len(str(10-ramos_disp_holgura[elem["codigo"][0:7]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["codigo"][0:7]]) #UU			
+
+		try: 
 			for i in priority_ramo:
 				if i["nombre"] == elem["nombre"]:
 					prioridad += str(i["prioridad"]+53) #KK ->( se le suma 53 para que tenga mas importancia que la prioridad por default)
@@ -74,9 +83,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 					prioridad += beta
 
 		except:
-			prioridad=str(10-random.randint(1, 10)) if len(str(10-random.randint(1, 10))) > 1 else "0"+str(10-random.randint(1, 10))#UU
 			if len(prioridad) < 4:
-				beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"])
+				beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"]) | esto en teoria se puede dejar asi ya si no se modifica es porq no importa
 				if  len(beta) < 2:
 					prioridad += str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
 				else:	
@@ -89,7 +97,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		if len(prioridad) < 6:
 			prioridad += str(elem["seccion"]) if len(str(elem["seccion"])) >1 else ("0" + str(elem["seccion"]))  #SS
 		
-		if elem["nombre"] in ramos_criticos:
+		if elem["codigo"][0:7] in ramos_criticos:
 			prioridad="10"+str(prioridad) #CC
 		else:
 			prioridad="00"+str(prioridad) ## la equivalencia no considera el cambio de nombre de los criticos -- NF 24/01
@@ -205,9 +213,9 @@ def main():
 			print('Por favor, ingrese una respuesta válida. (1-10)')
 
 	#getramocritico entrega codigo en vez de nombre
-	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
+	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles, asignaturasNoCursadas = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
 	
-	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, semestre, dict_ramos_codigos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
+	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, semestre, dict_ramos_codigos,asignaturasNoCursadas, ramos_criticos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
 	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar)
 	
 

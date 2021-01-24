@@ -8,18 +8,22 @@ import pandas as pd
 
 
 
-def equivalencia(ramos_disponibles, equivArray, excelArray):
-	#colcoar todas las equivalencias de los ramos -> para q se muestren bien los resultados
+def equivalencia(ramos_disponibles, equivArray, excelArray,ramos_disp_holgura,ramos_criticos):
+	
 	colum = equivArray[:,0]
 	for aux in range(len(ramos_disponibles)):
 		if ramos_disponibles[aux] not in excelArray[:,16]:
 			if ramos_disponibles[aux] in equivArray:
 				col = 0
 				rows= np.where(colum==ramos_disponibles[aux])
+				if ramos_disponibles[aux] in ramos_criticos:
+					ramos_criticos.append(equivArray[rows[0][0]][col+1])
 				print(ramos_disponibles[aux], 'equivale a --->', equivArray[rows[0][0]][col+1], '\n')
+				ramos_disp_holgura[equivArray[rows[0][0]][col+1]]=ramos_disp_holgura[ramos_disponibles[aux]]
 				ramos_disponibles[aux] = equivArray[rows[0][0]][col+1]
-
-	return ramos_disponibles
+				
+	#print(ramos_disp_holgura)
+	return ramos_disponibles,ramos_disp_holgura,ramos_criticos
 
 #pasar el diccionario dict_ramos_holg a la funcion de equivalencia. Asignarle la holgura de la cajita.
 
@@ -32,25 +36,38 @@ def readingExcels(nombreOferta, miMalla):
 
 	return excelArray, electivosArray, equivArray, miMallaArray
 
-def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco):
-
+def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco,asignaturasNoCursadas):
+	#falta pasar la holgura
 	codElectivos = electivosArray[:,1]
 	codAprobados = miMallaArray[:,1]
-
+	
 	if len(cod_elect_inf) > 0: 				# <---- si el alumno aun debe dar electivos de informatica (el arreglo cod_elect_inf tiene elementos dentro)
 		for i in range(1, len(codElectivos)):
-			codigoAux = codElectivos[i]
+			codigoAux = codElectivos[i] #porq se crea esta variable ? esta de mas
 
-			aux = codigoAux[0:5]
-			if codigoAux not in codAprobados and aux == 'CIT33':
-				ramosDisponibles.append(codElectivos[i])
+			aux = codigoAux[0:5] #para q tanto axuliar ???
+			can_take=True
+			if codigoAux not in codAprobados and aux == 'CIT33': 
+				for elem in (np.array(electivosArray[i])[4]).split(","):
+					if elem.strip() in asignaturasNoCursadas[:,1]:
+						can_take=False
+				#falta un if aca que verifique si puede tomar el electivo
+				if can_take == True:
+					ramosDisponibles.append(codElectivos[i])
 		
 	if len(cod_elect_teleco) > 0: 				# <---- si el alumno aun debe dar electivos de teleco(el arreglo cod_elect_inf tiene elementos dentro)
 		for i in range(1, len(codElectivos)):
 			codigoAux = codElectivos[i]
 
 			aux = codigoAux[0:5]
+			can_take=True
 			if codigoAux not in codAprobados and aux == 'CIT34':
+				for elem in (np.array(electivosArray[i])[4]).split(","):
+					if elem.strip() in asignaturasNoCursadas[:,1]:
+						can_take=False
+				#falta un if aca que verifique si puede tomar el electivo
+				if can_take == True:
+				#falta un if aca que verifique si puede tomar el electivo
 					ramosDisponibles.append(codElectivos[i])
 		
 	ramsAux = ramosDisponibles
@@ -67,9 +84,9 @@ def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_in
 
 
 
-def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict_ramos_codigos, sheet_name): 
-	 # se usa para saber que ramos no tienen horarios asigandos en la oferta academica
-
+def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict_ramos_codigos, asignaturasNoCursadas,ramos_criticos,sheet_name): 
+	# se usa para saber que ramos no tienen horarios asigandos en la oferta academica
+	
 	#count_cfg= ramos_disponibles.count("CFG") #cuenta cuantos cfg se deben tomar 	
 	lista_secciones=[]
 	cod_elect_inf = []
@@ -80,10 +97,10 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 	#iteracion para guardar los electivos y cfgs no cursados, en arreglos separados
 	for aux1 in range(len(ramos_disponibles)):
 
-		if ramos_disponibles[aux1] == "CIT33XX":
+		if ramos_disponibles[aux1][0:5] == "CIT33":
 			cod_elect_inf.append(ramos_disponibles[aux1])
 		
-		if ramos_disponibles[aux1] == "CIT34XX":
+		if ramos_disponibles[aux1][0:5] == "CIT34":
 			cod_elect_teleco.append(ramos_disponibles[aux1])
 		
 		if ramos_disponibles[aux1] == "CFG":
@@ -91,7 +108,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 		
 	excelArray, electivosArray, equivArray, miMallaArray = readingExcels('INGENIERÍA-CIVIL-EN-INFORMÁTICA-Y-TELECOMUNICACIONES.xlsx', miMalla)
 
-	ramosDisponibles = equivalencia(ramos_disponibles, equivArray, excelArray)
+	ramosDisponibles,ramos_disp_holgura, ramos_criticos = equivalencia(ramos_disponibles, equivArray, excelArray,ramos_disp_holgura,ramos_criticos)
 
 
 	#La idea para los electivos es que el alumno coloque en el Excel el electivo que ya curso, desde la sheet 'Electivos', y se filtra para no ofrecerle ese electivo.
@@ -107,9 +124,9 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 	#Si el semestre máximo aprobado por el alumno es mayor a 6, se le mostraran los electivos que se impartirán este semestre
 	
 	if semestre >= 6:
-		ramosDisponibles = appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco)
+		ramosDisponibles = appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco,asignaturasNoCursadas)
 
-	print(ramosDisponibles)
+	#print(ramosDisponibles)
 
 	verificador = [0 for i in range(len(ramosDisponibles))]
 
@@ -174,10 +191,10 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 			codigo = "CFG_"+str(i+1)
 			lista_secciones.append({'codigo':codigo,'nombre':"CFG-"+str(i+1), 'seccion':"Sección "+str(i+1), "horario":[codigo] ,"profesor": "CFG"}) """
 	#print(lista_secciones)
-	print(nombres_ramos_tomar)
+	#print(nombres_ramos_tomar)
 
 	#print(cod_elect_inf, cod_elect_teleco, cod_CFG)
-	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar
+	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos
 
 
 
