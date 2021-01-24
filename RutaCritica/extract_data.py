@@ -23,7 +23,6 @@ def equivalencia(ramos_disponibles, equivArray, excelArray,ramos_disp_holgura,ra
 				ramos_disponibles[aux] = equivArray[rows[0][0]][col+1]
 		else:
 			pos_cod_ramo=list(excelArray[:,16]).index(ramos_disponibles[aux])
-			print(pos_cod_ramo)
 			if isinstance(excelArray[pos_cod_ramo][22], str): 
 				continue
 			elif ramos_disponibles[aux] in equivArray:
@@ -134,7 +133,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 
 	#Si el semestre máximo aprobado por el alumno es mayor a 6, se le mostraran los electivos que se impartirán este semestre
 	
-	if semestre >= 6:
+	if semestre >= 4:
 		ramosDisponibles = appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco,asignaturasNoCursadas)
 
 	#print(ramosDisponibles)
