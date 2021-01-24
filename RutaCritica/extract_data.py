@@ -9,14 +9,14 @@ import pandas as pd
 
 
 def equivalencia(ramos_disponibles, equivArray, excelArray):
-
+	#colcoar todas las equivalencias de los ramos -> para q se muestren bien los resultados
 	colum = equivArray[:,0]
 	for aux in range(len(ramos_disponibles)):
 		if ramos_disponibles[aux] not in excelArray[:,16]:
 			if ramos_disponibles[aux] in equivArray:
 				col = 0
 				rows= np.where(colum==ramos_disponibles[aux])
-				print(ramos_disponibles[aux], 'equivale a --->', equivArray[rows[0][0]][col], '\n')
+				print(ramos_disponibles[aux], 'equivale a --->', equivArray[rows[0][0]][col+1], '\n')
 				ramos_disponibles[aux] = equivArray[rows[0][0]][col+1]
 
 	return ramos_disponibles
@@ -133,7 +133,8 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 						seccion = int(elem[20][8]+elem[20][9])
 					else:
 						seccion = int(elem[20][8])
-						
+					
+
 					profesor = elem[23]
 				except:
 					pass 
@@ -157,7 +158,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 				for k in range(0,len(lista_secciones)): 
 					if lista_secciones[k]["codigo"] == codigo: # se verifica si ya existe esta seccion en la lista de secciones (se evitan datos repetidos)
 						aux_count+=1
-				if aux_count == 0: #con esto solo se agrega una vez la seccion
+				if aux_count == 0 and seccion != 99: #con esto solo se agrega una vez la seccion
 					lista_secciones.append(alfa)
 
 	ramos_sin_horario =[]				

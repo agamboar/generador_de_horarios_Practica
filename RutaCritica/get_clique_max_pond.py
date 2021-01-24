@@ -60,20 +60,27 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	
 	for elem in lista_secciones:
 		prioridad = ""
-		
-		prioridad=str(10-ramos_disp_holgura[elem["nombre"]]) if len(str(10-ramos_disp_holgura[elem["nombre"]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["nombre"]]) #UU
-		
-		
-		for i in priority_ramo:
-			if i["nombre"] == elem["nombre"]:
-				prioridad += str(i["prioridad"]+53) #KK ->( se le suma 53 para que tenga mas importancia que la prioridad por default)
-			
-		if len(prioridad) < 4:
-			beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"])
-			if  len(beta) < 2:
-				prioridad += str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
-			else:	
-				prioridad += beta
+		try:
+			prioridad=str(10-ramos_disp_holgura[elem["nombre"]]) if len(str(10-ramos_disp_holgura[elem["nombre"]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["nombre"]]) #UU			
+			for i in priority_ramo:
+				if i["nombre"] == elem["nombre"]:
+					prioridad += str(i["prioridad"]+53) #KK ->( se le suma 53 para que tenga mas importancia que la prioridad por default)
+			if len(prioridad) < 4:
+
+				beta = str(53-ramos_id[elem["nombre"]]) #int(elem["N_correlativo"])
+				if  len(beta) < 2:
+					prioridad += str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
+				else:	
+					prioridad += beta
+
+		except:
+			prioridad=str(10-random.randint(1, 10)) if len(str(10-random.randint(1, 10))) > 1 else "0"+str(10-random.randint(1, 10))#UU
+			if len(prioridad) < 4:
+				beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"])
+				if  len(beta) < 2:
+					prioridad += str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
+				else:	
+					prioridad += beta
 		
 		
 		for i in priority:
@@ -85,7 +92,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		if elem["nombre"] in ramos_criticos:
 			prioridad="10"+str(prioridad) #CC
 		else:
-			prioridad="00"+str(prioridad)
+			prioridad="00"+str(prioridad) ## la equivalencia no considera el cambio de nombre de los criticos -- NF 24/01
 		#print(prioridad)
 		G.add_nodes_from([elem["codigo"]], nombre = elem["nombre"],seccion= elem["seccion"],horario=elem["horario"],profesor=elem["profesor"],prioridad=int(prioridad))
 
@@ -135,10 +142,13 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		
 		
 	for k in epsilon:
-		
+		counter_ramos=0
 		print("\nSolucion #", count_solucion ,": \n")
 		for i in k[0]:
-			print(G.nodes[i]["nombre"],"- Seccion s",G.nodes[i]["seccion"],"| Horario -> ",G.nodes[i]["horario"],G.nodes[i]["prioridad"])
+			if counter_ramos >5: #se debe eliminar la seccion con menos peso no la ultima xd
+				break
+			print(G.nodes[i]["nombre"],"- Seccion",G.nodes[i]["seccion"],"| Horario -> ",G.nodes[i]["horario"],G.nodes[i]["prioridad"])
+			counter_ramos+=1
 		count_solucion+=1
 		if count_solucion == 16:
 			break
@@ -184,7 +194,7 @@ def main():
 		else:
 			print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
 	
-	while True:
+	while True: #esto se puede hacer de forma automatica -> ver la cantidad de numeros correlativos en los ramos aprobados | cambiar esto a futuro puede q solo le falten cfg para tener todo listo hasta el semestre 7
 		s = int(input('Por favor, indique hasta que semestre ha aprobado completamente (1-10): \n'))
 
 		if isinstance(s, int):

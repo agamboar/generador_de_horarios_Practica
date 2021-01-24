@@ -85,16 +85,7 @@ def getRamoCritico(miExcel, malla):
 
 #comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
 
-    while(True):
-        answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con si/no \n')
-        if answer == 'no':
-            print('Por favor, verifique que los datos del Excel de sus ramos aprobados este correcto. \n')
-            
-            return
-        elif answer == 'si':
-            break
-        else:
-            print('Por favor, ingrese una respuesta válida.')
+   
 
         #Nombre de la actividad;
         # Duración esperada de la actividad (D); -> siempre sera uno al ser ramos semestrales
@@ -172,7 +163,7 @@ def getRamoCritico(miExcel, malla):
       
     for elem in list(PERT):
         if elem == 0:
-            break
+            continue
         if PERT.nodes[elem]["H"] != 0 and PERT.nodes[elem]["ES"] == 1:
             ramos_disp_holgura[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["H"]
             ramos_no_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
@@ -202,6 +193,11 @@ def getRamoCritico(miExcel, malla):
     print("Extrayendo Datos...\n")
     
     return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles
+
+## cambiar los como se muestran los cfg y electivos
+#-> electivos como si fueran ramos mas no mas yera. -> creo funciona asi y mas aun si se pone un filtro por semestre aprobado
+# especificar los ramos de teleco e inf
+# no aguanta 15 nodos -> de ahi pa lante se demora mas | con 9 webea
 
 #getRamoCritico('MiMalla.xlsx')
 
