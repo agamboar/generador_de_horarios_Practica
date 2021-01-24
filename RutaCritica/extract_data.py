@@ -57,9 +57,9 @@ def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_in
 	
 	if len(cod_elect_inf) > 0: 				# <---- si el alumno aun debe dar electivos de informatica (el arreglo cod_elect_inf tiene elementos dentro)
 		for i in range(1, len(codElectivos)):
-			codigoAux = codElectivos[i] #porq se crea esta variable ? esta de mas
+			codigoAux = codElectivos[i] 	#porq se crea esta variable ? esta de mas
 
-			aux = codigoAux[0:5] #para q tanto axuliar ???
+			aux = codigoAux[0:5] 			#para q tanto axuliar ???
 			can_take=True
 			if codigoAux not in codAprobados and aux == 'CIT33': 
 				for elem in (np.array(electivosArray[i])[4]).split(","):
@@ -101,12 +101,11 @@ def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_in
 def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict_ramos_codigos, asignaturasNoCursadas,ramos_criticos,sheet_name): 
 	# se usa para saber que ramos no tienen horarios asigandos en la oferta academica
 	
-	#count_cfg= ramos_disponibles.count("CFG") #cuenta cuantos cfg se deben tomar 	
+	#count_cfg= ramos_disponibles.count("CFG")
 	lista_secciones=[]
 	cod_elect_inf = []
 	cod_elect_teleco = []
 	cod_CFG = []
-
 
 	#iteracion para guardar los electivos y cfgs no cursados, en arreglos separados
 	for aux1 in range(len(ramos_disponibles)):
@@ -132,8 +131,6 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 	# Para los CFG se debe hacer algo similar con el arreglo cod_CFG, pero lo complicado es que son muchos CFG y el alumno no podrá indicar en el Excel cual ha cursado. Cuando se 
 	# saque del portal será más facil. Igual es posible hacer un excel que entregue ordenados por categorias los CFG y asi el alumno podria ingresar facilmente el dato. 
 	# Estudiar sobre esta posibilidad. 
-
-	#En un ratito más codearé esto. Solucionar lo de los INGLÉS GENERAL. No los encuentra en los diccionarios de la oferta. Estudiar porque ocurre esto.
 
 	#Si el semestre máximo aprobado por el alumno es mayor a 6, se le mostraran los electivos que se impartirán este semestre
 	

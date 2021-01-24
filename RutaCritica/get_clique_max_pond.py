@@ -127,7 +127,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	cliques= list(nx.find_cliques(G)) #se obtiene el maximo clique
 
 	#print("\nSecciones disponibles a tomar este semestre:") # si no a parecen es porque no hay un horario definido
-	ko=False
+	#ko=False
 	count_solucion=1
 	epsilon=[]
 	for elem in  list(cliques):
@@ -152,7 +152,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		counter_ramos=0
 		print("\nSolucion #", count_solucion ,": \n")
 		for i in k[0]:
-			if counter_ramos >5: #se debe eliminar la seccion con menos peso no la ultima xd
+			if counter_ramos >5: 
 				break
 			print(G.nodes[i]["nombre"],"- Seccion",G.nodes[i]["seccion"],"| Horario -> ",G.nodes[i]["horario"],G.nodes[i]["prioridad"])
 			counter_ramos+=1
@@ -169,7 +169,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	arr_aux_delete.sort(key=lambda tup: tup[1])
 
 	while len(arr_aux_delete) >6 : 
-			arr_aux_delete.pop(0)#se elimina el mas peso mas chico de la lista
+			arr_aux_delete.pop(0)	#se elimina el mas peso mas chico de la lista
 
 	for elem in  arr_aux_delete:
 		print(G.nodes[elem[0]]["nombre"],"- Seccion",G.nodes[elem[0]]["seccion"],"| Horario -> ",G.nodes[elem[0]]["horario"],G.nodes[elem[0]]["prioridad"]) #se muestra los elementos del clique maximo

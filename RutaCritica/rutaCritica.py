@@ -49,8 +49,6 @@ def addNodeToPERT(PERT, asignaturasNoCursadas):
         nombreAux = nombres[i]
         abreAux = ramosAbre[i]
 
-        #if isinstance(abreAux, str): #creo que esto no es necesario
-        #    abreAux = [int(s) for s in abreAux.split(',')]   #convierte string de numeros a arreglo o lista
         PERT.add_nodes_from([idAux], nombre=nombreAux, codigo = codAux, ES=None, EF = None, LS = None, LF = None , H = None)
     
     return PERT, idRamos, ramosAbre
@@ -81,7 +79,6 @@ def getRamoCritico(miExcel, malla):
 
     asignaturasNoCursadas = np.array(ramosNoAprobados)
 
-    #print(asignaturasNoCursadas)
 
 #comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
 
@@ -139,8 +136,7 @@ def getRamoCritico(miExcel, malla):
         if len(list(PERT.predecessors(elem))) > 0 : #itera sobre los padres de los nodos que apuntan a 53
             for k in list(PERT.predecessors(elem)):
                 PERT = set_values_recursive(PERT,k,long_path-1)
-                
-    #error al calcular la holgura, y al entregar horario!!!!!!!!! solucionar. No incluye el ramo critico en el horario. Con la malla 2010 no pasa, se probo con la 2018    
+
     ramos_disp_holgura={}
     dict_ramos_codigos = {}
     ramos_criticos = []
@@ -176,7 +172,6 @@ def getRamoCritico(miExcel, malla):
     print("\nRamos criticos -> ", ramos_criticos_nombre, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 
-    #solucionar lo de los electivos
     ramos_por_tomar=[]
     for i in ramos_criticos:
         ramos_por_tomar.append(i)
@@ -199,9 +194,9 @@ def getRamoCritico(miExcel, malla):
     return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles,asignaturasNoCursadas,ramos_id
 
 ## cambiar los como se muestran los cfg y electivos
-#-> electivos como si fueran ramos mas no mas yera. -> creo funciona asi y mas aun si se pone un filtro por semestre aprobado
+#-> electivos como si fueran ramos -> creo funciona asi y mas aun si se pone un filtro por semestre aprobado
 # especificar los ramos de teleco e inf
-# no aguanta 15 nodos -> de ahi pa lante se demora mas | con 9 webea
+# no aguanta 15 nodos -> de ahi en adelante tarda bastante en calcular  | con 9 tambien tarda
 
 #getRamoCritico('MiMalla.xlsx')
 
