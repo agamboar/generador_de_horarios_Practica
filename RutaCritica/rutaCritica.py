@@ -54,23 +54,39 @@ def addNodeToPERT(PERT, asignaturasNoCursadas):
     return PERT, idRamos, ramosAbre
 
 
-def getRamoCritico(miExcel, malla):
+def getRamoCritico(miExcel):
 
     PERT = nx.DiGraph()  #Grafo dirigido
     
-    misRamos = pd.read_excel(miExcel)
-    miMalla = pd.read_excel(malla) 
+    misRamos = pd.read_excel(miExcel, header = None)
+    #miMalla = pd.read_excel(malla) 
 
     #conversion de la lectura de los excel a arreglos de 2 dimensiones, utilizando Numpy, y su funcion array
     misRamosArray = np.array(misRamos)
-    miMallaArray = np.array(miMalla)
+    #miMallaArray = np.array(miMalla)
 
     ramosNoAprobados = []
 
     #arreglos que contienen solo los numeros correlativos de ambos arreglos (malla y aprobados), para iterar sobre estos
     idsMisRamos = misRamosArray[:,0]
-    idsMiMalla = miMallaArray[:,0]
+    
+    añoMalla = misRamosArray[0,1]
+    #print(añoMalla)
 
+    if añoMalla == '2010':
+        nombreMalla = 'MallaCurricular2010.xlsx'
+        miMallaArray = np.array(pd.read_excel(nombreMalla))
+    elif añoMalla == '2018':
+        nombreMalla = 'MallaCurricular2018.xlsx'
+        miMallaArray = np.array(pd.read_excel(nombreMalla))
+    elif añoMalla == '2020':
+        nombreMalla = 'MallaCurricular2020.xlsx'
+        miMallaArray = np.array(pd.read_excel(nombreMalla))
+    else:
+        print('Compruebe la información ingresada en el Excel "MiMalla.xlsx", por favor')
+        return
+
+    idsMiMalla = miMallaArray[:,0]
 
     #mediante la iteración, se añaden los ramos no aprobados a un arreglo
     for aux in range(1, len(idsMiMalla)):
@@ -115,9 +131,9 @@ def getRamoCritico(miExcel, malla):
 
     #esto se puede colocar en la funcion de arriba ! mejorar !
 
-    if malla == 'MallaCurricular2010.xlsx':
+    if nombreMalla == 'MallaCurricular2010.xlsx':
         varAux = 53
-    elif malla == 'MallaCurricular2018.xlsx' or 'MallaCurricular2020.xlsx':
+    elif nombreMalla == 'MallaCurricular2018.xlsx' or 'MallaCurricular2020.xlsx':
         varAux = 54
 
     for elem in list(PERT.predecessors(varAux)): #itera sobre los nodos que apuntan a 53
@@ -191,7 +207,7 @@ def getRamoCritico(miExcel, malla):
     #print(ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles)
     print("Extrayendo Datos...\n")
     
-    return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles,asignaturasNoCursadas,ramos_id
+    return ramos_porTomar_codigo, ramos_criticos, ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles, asignaturasNoCursadas, ramos_id, nombreMalla
 
 ## cambiar los como se muestran los cfg y electivos
 #-> electivos como si fueran ramos -> creo funciona asi y mas aun si se pone un filtro por semestre aprobado

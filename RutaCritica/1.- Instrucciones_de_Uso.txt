@@ -1,4 +1,7 @@
-Para utilizar esta primera versión de la aplicación, se utiliza Python, y usando 'pip install' se deben instalar las siguientes librerías:
+
+
+
+Para utilizar esta primera versión de la aplicación, se utiliza Python 3.8, y usando 'pip install' se deben instalar las siguientes librerías:
 
 - pip install pandas
 - pip install numpy
@@ -8,7 +11,9 @@ Para utilizar esta primera versión de la aplicación, se utiliza Python, y usan
 
 Los archivos extract_data.py , get_clique_max_pond.py , rutaCritica.py y las mallas curriculares deben estar ubicados dentro de la misma carpeta.
 
-Abriendo el Excel 'MiMalla', este tendra las columnas separadas para cada una de las asignaturas que hayas aprobado. En uno de los Excel adjuntados, correspondiente a tu malla academica, las asignaturas estan separadas por semestres y en colores. Para indicarle a la aplicación hasta que semestre ha cursado, deberá copiar desde el Excel de su malla las asignaturas que usted ha aprobado hasta este momento, y copiarlas en esta planilla.  Se deben copiar los elementos de TODAS las columnas, para que el código tenga el formato correcto para calcular sus asignaturas críticas.
+Abriendo el Excel 'MiMalla', este tendra las columnas separadas para cada una de las asignaturas que hayas aprobado. En primera instancia, debes indicar a que malla curricular corresponde tu instancia (2010, 2018, 2020). En el Excel se indica donde debe hacerse esto.
+
+En uno de los Excel adjuntados, correspondiente a tu malla academica, las asignaturas estan separadas por semestres y en colores. Para indicarle a la aplicación hasta que semestre ha cursado, deberá copiar desde el Excel de su malla las asignaturas que usted ha aprobado hasta este momento, y copiarlas en esta planilla.  Se deben copiar los elementos de TODAS las columnas, para que el código tenga el formato correcto para calcular sus asignaturas críticas.
 
 Una vez que hayas seleccionado las asignaturas que has aprobado, utilizando la consola de comandos se debe ejecutar el archivo get_clique_max_pond.py, usando el comando
 

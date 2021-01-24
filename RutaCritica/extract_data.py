@@ -97,7 +97,7 @@ def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_in
 
 
 
-def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict_ramos_codigos, asignaturasNoCursadas,ramos_criticos,sheet_name): 
+def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_codigos, asignaturasNoCursadas,ramos_criticos,sheet_name): 
 	# se usa para saber que ramos no tienen horarios asigandos en la oferta academica
 	
 	#count_cfg= ramos_disponibles.count("CFG")
@@ -133,8 +133,8 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, semestre, dict
 
 	#Si el semestre máximo aprobado por el alumno es mayor a 6, se le mostraran los electivos que se impartirán este semestre
 	
-	if semestre >= 4:
-		ramosDisponibles = appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco,asignaturasNoCursadas)
+	#if semestre >= 4:
+	ramosDisponibles = appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco,asignaturasNoCursadas)
 
 	#print(ramosDisponibles)
 

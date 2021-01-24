@@ -192,34 +192,36 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 
 def main():
 
-	while True:
-		malla = input('Por favor, indique a que malla curricular corresponde su situacion (2010, 2018, o 2020): \n')
-		if malla == '2010':
-			miMalla = 'MallaCurricular2010.xlsx'
-			break
-		elif malla == '2018':
-			miMalla = 'MallaCurricular2018.xlsx'
-			break
-		elif malla == '2020':
-			miMalla = 'MallaCurricular2020.xlsx'
-			break
-		else:
-			print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
 	
-	while True: #esto se puede hacer de forma automatica -> ver la cantidad de numeros correlativos en los ramos aprobados | cambiar esto a futuro puede q solo le falten cfg para tener todo listo hasta el semestre 7
-		s = int(input('Por favor, indique hasta que semestre ha aprobado completamente (1-10): \n'))
+		#malla = input('Por favor, indique a que malla curricular corresponde su situacion (2010, 2018, o 2020): \n')
+		#if malla == '2010':
+		#	miMalla = 'MallaCurricular2010.xlsx'
+		#	break
+		#elif malla == '2018':
+		#	miMalla = 'MallaCurricular2018.xlsx'
+		#	break
+		#elif malla == '2020':
+		#	miMalla = 'MallaCurricular2020.xlsx'
+		#	break
+		#else:
+		#	print('Por favor, ingrese una respuesta válida. (2010, 2018, 2020)')
+	
+	#while True: #esto se puede hacer de forma automatica -> ver la cantidad de numeros correlativos en los ramos aprobados | cambiar esto a futuro puede q solo le falten cfg para tener todo listo hasta el semestre 7
+	#	s = int(input('Por favor, indique hasta que semestre ha aprobado completamente (1-10): \n'))
 
-		if isinstance(s, int):
-			if s > 0 and s < 11:
-				semestre = s
-				break
-		elif isinstance(s, str):
-			print('Por favor, ingrese una respuesta válida. (1-10)')
+	#	if isinstance(s, int):
+	#		if s > 0 and s < 11:
+	#			semestre = s
+	#			break
+	#	elif isinstance(s, str):
+	#		print('Por favor, ingrese una respuesta válida. (1-10)')
 
 	#getramocritico entrega codigo en vez de nombre
-	arr_ramos_tomar,ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles, asignaturasNoCursadas,ramos_id = getRamoCritico('MiMalla.xlsx', miMalla) # ramos criticos #funcion en otro archivo
+	arr_ramos_tomar, ramos_criticos, ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles, asignaturasNoCursadas,ramos_id, nombreMalla = getRamoCritico('MiMalla.xlsx') # ramos criticos #funcion en otro archivo
 	
-	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos = extract_data(arr_ramos_tomar, miMalla, ramos_disp_holgura, semestre, dict_ramos_codigos,asignaturasNoCursadas, ramos_criticos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
+
+
+	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos = extract_data(arr_ramos_tomar, nombreMalla, ramos_disp_holgura, dict_ramos_codigos,asignaturasNoCursadas, ramos_criticos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
 	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar,ramos_id)
 	
 
