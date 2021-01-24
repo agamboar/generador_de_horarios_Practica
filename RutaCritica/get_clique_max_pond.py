@@ -132,9 +132,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	epsilon=[]
 	for elem in  list(cliques):
 		critic =0
-		
 		for k in elem:
-			if G.nodes[k]["nombre"] in ramos_criticos:
+			if k[0:7] in ramos_criticos:
 				critic +=1
 		if critic == len(ramos_criticos) :
 			ko=True
@@ -163,12 +162,17 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	
 	print("---------------")
 	print("\nSolucion Recomendada: \n")
-
-	while len(max_clique_pond[0]) >6 : 
-			#if max_clique_pond[0][iterador]# se deberia eliminar el nodo con menor peso
-			max_clique_pond[0].pop(len(max_clique_pond[0])-1) #se elimina el ultimo de la lista, mejorar este filtro
+	arr_aux_delete=[]
 	for elem in  max_clique_pond[0]:
-		print(G.nodes[elem]["nombre"],"- Seccion",G.nodes[elem]["seccion"],"| Horario -> ",G.nodes[elem]["horario"],G.nodes[elem]["prioridad"]) #se muestra los elementos del clique maximo
+		arr_aux_delete.append((elem,G.nodes[elem]["prioridad"]))
+
+	arr_aux_delete.sort(key=lambda tup: tup[1])
+
+	while len(arr_aux_delete) >6 : 
+			arr_aux_delete.pop(0)#se elimina el mas peso mas chico de la lista
+
+	for elem in  arr_aux_delete:
+		print(G.nodes[elem[0]]["nombre"],"- Seccion",G.nodes[elem[0]]["seccion"],"| Horario -> ",G.nodes[elem[0]]["horario"],G.nodes[elem[0]]["prioridad"]) #se muestra los elementos del clique maximo
 
 	if ko == False:
 		print("\nNo se encontro una solucion con todos los ramos criticos")

@@ -81,7 +81,7 @@ def getRamoCritico(miExcel, malla):
 
     asignaturasNoCursadas = np.array(ramosNoAprobados)
 
-    print(asignaturasNoCursadas)
+    #print(asignaturasNoCursadas)
 
 #comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
 
