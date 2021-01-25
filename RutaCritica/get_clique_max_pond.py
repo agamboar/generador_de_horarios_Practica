@@ -6,8 +6,9 @@ import random
 
 #la prioridad se obtiene con un form desde front  
 
-def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar,ramos_id):
+def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar,ramos_id,count_cfg,nombres_cfg_tomar):
 	#print(ramos_criticos)
+	
 	G = nx.Graph()
 	priority= []
 	priority_ramo= []
@@ -15,6 +16,11 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	counter = 0
 	for i in (arr_ramos_tomar):
 			
+			print(counter,".-", i)
+			counter += 1
+	show_cfg=(input("Quiere ver la lista de CFGs disponibles (si/no)\n"))
+	if show_cfg == "si":
+		for i in (nombres_cfg_tomar):
 			print(counter,".-", i)
 			counter += 1
 	prio_ram=input("Desea asignarle prioridad a los ramos ? (si/no) \n")
@@ -35,7 +41,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			for i in (arr_ramos_tomar):
 				print(counter,".-", i)
 				counter += 1
-			
+
 			auxx=str(input("Ingrese el NOMBRE de un ramo\n"))
 			print("Secciones disponibles del ramo ", arr_ramos_tomar[auxx],": \n")
 			l=False
@@ -61,12 +67,14 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	for elem in lista_secciones:
 		prioridad = ""
 		#aca ver si el codigo del ramo es un electivo cit33 o cit34 [:,5], si se cumple darle la holgura de electivo profesional del pert
-		
+		#| -> lo mismo pa cfg
+
 		if elem["codigo"][0:5]=='CIT33':
 			prioridad=str(10-ramos_disp_holgura["CIT33XX"]) if len(str(10-ramos_disp_holgura["CIT33XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT33XX"]) #UU
 		elif elem["codigo"][0:5]=='CIT34':
 			prioridad=str(10-ramos_disp_holgura["CIT34XX"]) if len(str(10-ramos_disp_holgura["CIT34XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT34XX"]) #UU
-
+		elif elem["codigo"][0:3]=='CFG':
+			prioridad=str(10-ramos_disp_holgura["CFG"]) if len(str(10-ramos_disp_holgura["CFG"])) > 1 else "0"+str(10-ramos_disp_holgura["CFG"]) #UU
 		else:
 			prioridad=str(10-ramos_disp_holgura[elem["codigo"][0:7]]) if len(str(10-ramos_disp_holgura[elem["codigo"][0:7]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["codigo"][0:7]]) #UU			
 
@@ -124,10 +132,14 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	#	print(elem,"\n")
 
 	max_clique_pond= nx.max_weight_clique(G, weight="prioridad") #se obtiene el maximo clique con mayor peso ponderado
-	cliques= list(nx.find_cliques(G)) #se obtiene el maximo clique
+	#cliques= list(nx.find_cliques(G)) #se obtiene el maximo clique
+	#cliques= list(nx.find_cliques_recursive(G))
+	#print("algo q no se q es !! -<>>> ",nx.graph_number_of_cliques(G)) -> explota con los cfg
+	
 
 	#print("\nSecciones disponibles a tomar este semestre:") # si no a parecen es porque no hay un horario definido
 	#ko=False
+	
 	count_solucion=1
 	epsilon=[]
 	for elem in  list(cliques):
@@ -149,30 +161,61 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		
 		
 	for k in epsilon:
+		aux_cfg=count_cfg
+		#solo recomendar la cantidad de cfgs que le faltan (tener un contador de cfg aprobados y sugeridos <=4)
 		counter_ramos=0
 		print("\nSolucion #", count_solucion ,": \n")
 		for i in k[0]:
 			if counter_ramos >5: 
 				break
-			print(G.nodes[i]["nombre"],"- Seccion",G.nodes[i]["seccion"],"| Horario -> ",G.nodes[i]["horario"],G.nodes[i]["prioridad"])
-			counter_ramos+=1
+			if aux_cfg >=4 and i[0:3] =="CFG" :
+				continue
+			else:
+				print(G.nodes[i]["nombre"],"- Seccion",G.nodes[i]["seccion"],"| Horario -> ",G.nodes[i]["horario"],G.nodes[i]["prioridad"])
+				counter_ramos+=1
+				if i[0:3] =="CFG":
+					aux_cfg+=1
+
 		count_solucion+=1
-		if count_solucion == 16:
-			break
+		""" if count_solucion == 16:
+			break """
 	
 	print("---------------")
 	print("\nSolucion Recomendada: \n")
 	arr_aux_delete=[]
+	arr_aux2_delete=[]
 	for elem in  max_clique_pond[0]:
 		arr_aux_delete.append((elem,G.nodes[elem]["prioridad"]))
 
-	arr_aux_delete.sort(key=lambda tup: tup[1])
+	for elem in  max_clique_pond[0]:
+		arr_aux2_delete.append((elem,G.nodes[elem]["prioridad"]))
 
+	arr_aux_delete.sort(key=lambda tup: tup[1],reverse = True)
+	arr_aux2_delete.sort(key=lambda tup: tup[1],reverse = True)
+	limit_achive_cfg=False
+	aux_cfg=count_cfg
+	
+
+	for elem in arr_aux2_delete:
+
+		if len(elem[0])<=3:
+			pass
+		elif elem[0][0:3] =="CFG" and limit_achive_cfg == False :
+			aux_cfg+=1
+		elif elem[0][0:3] =="CFG" and limit_achive_cfg == True:
+		
+			arr_aux_delete.pop(arr_aux_delete.index(elem))
+		if aux_cfg == 4:
+			limit_achive_cfg=True
+	
+	#antes de imprimir la lista de cfg preguntar si quiere tomar un cfg -> si un cfg es critico se le muestra si  o si los cfg
+	arr_aux_delete.sort(key=lambda tup: tup[1])
 	while len(arr_aux_delete) >6 : 
 			arr_aux_delete.pop(0)	#se elimina el mas peso mas chico de la lista
 
 	for elem in  arr_aux_delete:
 		print(G.nodes[elem[0]]["nombre"],"- Seccion",G.nodes[elem[0]]["seccion"],"| Horario -> ",G.nodes[elem[0]]["horario"],G.nodes[elem[0]]["prioridad"]) #se muestra los elementos del clique maximo
+
 
 	#if ko == False:
 	#	print("\nNo se encontro una solucion con todos los ramos criticos")
@@ -221,8 +264,8 @@ def main():
 	
 
 
-	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos = extract_data(arr_ramos_tomar, nombreMalla, ramos_disp_holgura, dict_ramos_codigos,asignaturasNoCursadas, ramos_criticos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
-	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar,ramos_id)
+	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos,count_cfg,nombres_cfg_tomar = extract_data(arr_ramos_tomar, nombreMalla, ramos_disp_holgura, dict_ramos_codigos,asignaturasNoCursadas, ramos_criticos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
+	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar,ramos_id,count_cfg,nombres_cfg_tomar )
 	
 
 if __name__ == "__main__":
