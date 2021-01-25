@@ -49,6 +49,64 @@ def readingExcels(nombreOferta, miMalla):
 
 	return excelArray, electivosArray, equivArray, miMallaArray
 
+def secciones_cfg(lista_secciones):
+	CFG_Array = np.array(pd.read_excel('CURSOS-DE-FORMACIÓN-GENERAL.xlsx', sheet_name='Sheet1'))
+	codAprobados = np.array(pd.read_excel('MiMalla.xlsx', sheet_name='MiMalla'))[:,1]
+	count_cfg=0
+	nombres_cfg_tomar = {}
+	#print(CFG_Array[0][5],CFG_Array[0][6],)
+	for i in codAprobados:
+		if i[0:3]=="CFG" : 
+			count_cfg+=1
+
+	for i in range (0,len(CFG_Array)):
+		elem=CFG_Array[i]
+		#print(i,"----",elem)
+		if isinstance(elem[5], str): 
+			if elem[5][0] == "C" or  elem[5][0] == "B": #se verifica que la informacion de la fila sea una Catedra
+				aux_horario = [] 
+				try:
+					if len(elem[6].split()) == 5: #se procesa los datos de los horarios para usarlos posteriormente
+						aux = elem[6].split()[0]+" "+elem[6].split()[2] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+						aux_horario.append(aux)
+						aux = elem[6].split()[1]+" "+elem[6].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux_horario.append(aux)
+					elif len(elem[6].split()) == 4:
+						aux = elem[6].split()[0]+" "+elem[6].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+						aux_horario.append(aux)
+					elif len(elem[6].split()) == 8:
+						aux = elem[6].split()[0]+" "+elem[6].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+						aux_horario.append(aux)
+						aux = elem[6].split()[4]+" "+elem[6].split()[5] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux_horario.append(aux)
+
+					codigo = elem[10]  
+					codRamo = elem[0]
+					nombre = elem[1]
+					if len(elem[4]) == 10:
+						seccion = int(elem[4][8]+elem[4][9])
+					else:
+						seccion = int(elem[4][8])
+					profesor = elem[7]
+				except:
+					pass 
+				finally:
+					continue
+			else:
+				continue
+		else:
+			if codigo not in codAprobados:
+				nombres_cfg_tomar[nombre] = nombre
+
+				alfa = {'codigo':codigo,'nombre':nombre, 'seccion':seccion, "horario":aux_horario, "profesor":profesor}
+				aux_count = 0
+				for k in range(0,len(lista_secciones)): 
+					if lista_secciones[k]["codigo"] == codigo: # se verifica si ya existe esta seccion en la lista de secciones (se evitan datos repetidos)
+						aux_count+=1
+				if aux_count == 0: #con esto solo se agrega una vez la seccion
+					lista_secciones.append(alfa)
+	return lista_secciones,nombres_cfg_tomar, count_cfg
+
 def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco,asignaturasNoCursadas):
 	#falta pasar la holgura
 	codElectivos = electivosArray[:,1]
@@ -152,6 +210,15 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 						aux_horario.append(aux)
 						aux = elem[22].split()[1]+" "+elem[22].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 						aux_horario.append(aux)
+					elif len(elem[22].split()) == 4:
+						aux = elem[22].split()[0]+" "+elem[22].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+						aux_horario.append(aux)
+					elif len(elem[22].split()) == 8:
+						aux = elem[22].split()[0]+" "+elem[22].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+						aux_horario.append(aux)
+						aux = elem[22].split()[4]+" "+elem[22].split()[5] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux_horario.append(aux)
+					
 
 					codigo = elem[26]  
 					codRamo = elem[16]
@@ -173,9 +240,8 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 			else:
 				continue
 		else:
-			#aqui va en vez de nombre, codigo
-			if codRamo in ramosDisponibles: #and (codRamo == dict_ramos_codigos[nombre] or nombre in auxiliarDeAseo): #con esto se guarda info incesaria en memoria, poquito la verdad
-				#print(codRamo, nombre)
+			if codRamo in ramosDisponibles: 
+				
 				aux33 = ramosDisponibles.index(codRamo)
 				nombres_ramos_tomar[nombre] = nombre
 
@@ -187,6 +253,12 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 						aux_count+=1
 				if aux_count == 0 and seccion != 99: #con esto solo se agrega una vez la seccion
 					lista_secciones.append(alfa)
+
+
+	#falta un if aqui -> solo funciona si sale como ramos disponible un cfg 
+	lista_secciones,nombres_cfg_tomar,count_cfg = secciones_cfg(lista_secciones)
+
+
 
 	ramos_sin_horario =[]				
 	for i in range(len(verificador)):
@@ -204,7 +276,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 	#print(nombres_ramos_tomar)
 
 	#print(cod_elect_inf, cod_elect_teleco, cod_CFG)
-	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos
+	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos,count_cfg,nombres_cfg_tomar
 
 
 
