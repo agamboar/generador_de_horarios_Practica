@@ -47,32 +47,46 @@ def addNodeToPERT(PERT, asignaturasNoCursadas):
         idAux = idRamos[i]
         codAux = codRamos[i]
         nombreAux = nombres[i]
-        
+        abreAux = ramosAbre[i]
 
-        #if isinstance(abreAux, str): #creo que esto no es necesario
-        #    abreAux = [int(s) for s in abreAux.split(',')]   #convierte string de numeros a arreglo o lista
         PERT.add_nodes_from([idAux], nombre=nombreAux, codigo = codAux, ES=None, EF = None, LS = None, LF = None , H = None)
     
     return PERT, idRamos, ramosAbre
 
 
-def getRamoCritico(miExcel, malla):
+def getRamoCritico(miExcel):
 
     PERT = nx.DiGraph()  #Grafo dirigido
     
-    misRamos = pd.read_excel(miExcel)
-    miMalla = pd.read_excel(malla) 
+    misRamos = pd.read_excel(miExcel, header = None)
+    #miMalla = pd.read_excel(malla) 
 
     #conversion de la lectura de los excel a arreglos de 2 dimensiones, utilizando Numpy, y su funcion array
     misRamosArray = np.array(misRamos)
-    miMallaArray = np.array(miMalla)
+    #miMallaArray = np.array(miMalla)
 
     ramosNoAprobados = []
 
     #arreglos que contienen solo los numeros correlativos de ambos arreglos (malla y aprobados), para iterar sobre estos
     idsMisRamos = misRamosArray[:,0]
-    idsMiMalla = miMallaArray[:,0]
+    
+    añoMalla = misRamosArray[0,1]
+    #print(añoMalla)
 
+    if añoMalla == '2010':
+        nombreMalla = 'MallaCurricular2010.xlsx'
+        miMallaArray = np.array(pd.read_excel(nombreMalla))
+    elif añoMalla == '2018':
+        nombreMalla = 'MallaCurricular2018.xlsx'
+        miMallaArray = np.array(pd.read_excel(nombreMalla))
+    elif añoMalla == '2020':
+        nombreMalla = 'MallaCurricular2020.xlsx'
+        miMallaArray = np.array(pd.read_excel(nombreMalla))
+    else:
+        print('Compruebe la información ingresada en el Excel "MiMalla.xlsx", por favor')
+        return
+
+    idsMiMalla = miMallaArray[:,0]
 
     #mediante la iteración, se añaden los ramos no aprobados a un arreglo
     for aux in range(1, len(idsMiMalla)):
@@ -81,20 +95,10 @@ def getRamoCritico(miExcel, malla):
 
     asignaturasNoCursadas = np.array(ramosNoAprobados)
 
-    print(asignaturasNoCursadas)
 
 #comienzo del proceso de añadir cada elemento de la lista de ramos no cursados como nodos al grafo que corresponderá al PERT
 
-    while(True):
-        answer = input('¿Corresponden estos ramos a los que aun usted no ha cursado? Responda con si/no \n')
-        if answer == 'no':
-            print('Por favor, verifique que los datos del Excel de sus ramos aprobados este correcto. \n')
-            
-            return
-        elif answer == 'si':
-            break
-        else:
-            print('Por favor, ingrese una respuesta válida.')
+   
 
         #Nombre de la actividad;
         # Duración esperada de la actividad (D); -> siempre sera uno al ser ramos semestrales
@@ -127,9 +131,9 @@ def getRamoCritico(miExcel, malla):
 
     #esto se puede colocar en la funcion de arriba ! mejorar !
 
-    if malla == 'MallaCurricular2010.xlsx':
+    if nombreMalla == 'MallaCurricular2010.xlsx':
         varAux = 53
-    elif malla == 'MallaCurricular2018.xlsx' or 'MallaCurricular2020.xlsx':
+    elif nombreMalla == 'MallaCurricular2018.xlsx' or 'MallaCurricular2020.xlsx':
         varAux = 54
 
     for elem in list(PERT.predecessors(varAux)): #itera sobre los nodos que apuntan a 53
@@ -148,45 +152,46 @@ def getRamoCritico(miExcel, malla):
         if len(list(PERT.predecessors(elem))) > 0 : #itera sobre los padres de los nodos que apuntan a 53
             for k in list(PERT.predecessors(elem)):
                 PERT = set_values_recursive(PERT,k,long_path-1)
-                
-    #error al calcular la holgura, y al entregar horario!!!!!!!!! solucionar. No incluye el ramo critico en el horario. Con la malla 2010 no pasa, se probo con la 2018    
     ramos_disp_holgura={}
     dict_ramos_codigos = {}
     ramos_criticos = []
     ramos_porTomar_codigo = []
     ramos_no_criticos = []
-
+    ramos_criticos_nombre = []
+    ramos_id={}
     #print("\nPERT Generado:\n ")
     #print(list(PERT))
     for elem in list(PERT): # imprime todos los nodos agregados en el grafo
         if elem == 0:
-            break
+            continue
         
         if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
-            ramos_disp_holgura[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["H"]
-            ramos_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
+            ramos_disp_holgura[PERT.nodes[elem]["codigo"]]=PERT.nodes[elem]["H"]
+            ramos_criticos.append(PERT.nodes[elem]["codigo"])
+            ramos_criticos_nombre.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
+            ramos_id[PERT.nodes[elem]["nombre"]]=elem
         
         print(elem," ",PERT.nodes[elem])
       
     for elem in list(PERT):
         if elem == 0:
-            break
+            continue
         if PERT.nodes[elem]["H"] != 0 and PERT.nodes[elem]["ES"] == 1:
-            ramos_disp_holgura[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["H"]
+            ramos_disp_holgura[PERT.nodes[elem]["codigo"]]=PERT.nodes[elem]["H"]
             ramos_no_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
-    print("\nRamos criticos -> ", ramos_criticos, "\n")
+            ramos_id[PERT.nodes[elem]["nombre"]]=elem
+    print("\nRamos criticos -> ", ramos_criticos_nombre, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 
-    #solucionar lo de los electivos
     ramos_por_tomar=[]
     for i in ramos_criticos:
         ramos_por_tomar.append(i)
     
-    ramos_disponibles = ramos_criticos +  ramos_no_criticos #guardar de alguna forma la H para poder colocarle una prioridad
+    ramos_disponibles = ramos_criticos_nombre +  ramos_no_criticos #guardar de alguna forma la H para poder colocarle una prioridad
     """ for i in range(len(ramos_no_criticos)):
         if len(ramos_por_tomar) >= 6:
             break
@@ -201,7 +206,12 @@ def getRamoCritico(miExcel, malla):
     #print(ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles)
     print("Extrayendo Datos...\n")
     
-    return ramos_porTomar_codigo, ramos_criticos,ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles
+    return ramos_porTomar_codigo, ramos_criticos, ramos_disp_holgura, dict_ramos_codigos, ramos_disponibles, asignaturasNoCursadas, ramos_id, nombreMalla
+
+## cambiar los como se muestran los cfg y electivos
+#-> electivos como si fueran ramos -> creo funciona asi y mas aun si se pone un filtro por semestre aprobado
+# especificar los ramos de teleco e inf
+# no aguanta 15 nodos -> de ahi en adelante tarda bastante en calcular  | con 9 tambien tarda
 
 #getRamoCritico('MiMalla.xlsx')
 
