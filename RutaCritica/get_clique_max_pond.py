@@ -140,7 +140,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	#print("\nSecciones disponibles a tomar este semestre:") # si no a parecen es porque no hay un horario definido
 	#ko=False
 	
-	count_solucion=1
+	""" count_solucion=1
 	epsilon=[]
 	for elem in  list(cliques):
 		critic =0
@@ -155,12 +155,12 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			for k in elem:
 				suma+=G.nodes[k]["prioridad"]
 			epsilon.append((elem,suma))
-
-	epsilon.sort(key=lambda tup: tup[1],reverse=True)
-	count_solucion=1
+ 	"""
+	""" epsilon.sort(key=lambda tup: tup[1],reverse=True)
+	count_solucion=1 """
 		
 		
-	for k in epsilon:
+	""" for k in epsilon:
 		aux_cfg=count_cfg
 		#solo recomendar la cantidad de cfgs que le faltan (tener un contador de cfg aprobados y sugeridos <=4)
 		counter_ramos=0
@@ -177,8 +177,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 					aux_cfg+=1
 
 		count_solucion+=1
-		""" if count_solucion == 16:
-			break """
+		 if count_solucion == 16:
+			break   """
 	
 	print("---------------")
 	print("\nSolucion Recomendada: \n")
