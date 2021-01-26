@@ -6,7 +6,7 @@ import random
 
 #la prioridad se obtiene con un form desde front  
 
-def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar,ramos_id,count_cfg,nombres_cfg_tomar):
+def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar,ramos_id,count_cfg,nombres_cfg_tomar,CFG_disponibles):
 	#print(ramos_criticos)
 	
 	G = nx.Graph()
@@ -18,11 +18,11 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			
 			print(counter,".-", i)
 			counter += 1
-	show_cfg=(input("Quiere ver la lista de CFGs disponibles (si/no)\n"))
+	""" show_cfg=(input("Quiere ver la lista de CFGs disponibles (si/no)\n"))
 	if show_cfg == "si":
 		for i in (nombres_cfg_tomar):
 			print(counter,".-", i)
-			counter += 1
+			counter += 1 """
 	prio_ram=input("Desea asignarle prioridad a los ramos ? (si/no) \n")
 	if prio_ram == "si":
 		while (True): #Se puede mejorar el codigo para delimitar bien las prioridades # en teoria se mostrara una lista y con respecto al orden de los elementos se definira la prioridad
@@ -92,7 +92,10 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 
 		except:
 			if len(prioridad) < 4:
-				beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"]) | esto en teoria se puede dejar asi ya si no se modifica es porq no importa
+				if elem["codigo"][0:3]=='CFG':
+					beta = "00"
+				else:
+					beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"]) | esto en teoria se puede dejar asi ya si no se modifica es porq no importa
 				if  len(beta) < 2:
 					prioridad += str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
 				else:	
@@ -114,22 +117,24 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 
 	list_node = list(G.nodes.items()) 
 	lenth_graph = len(list_node) 
-
+	
 	for i  in range (lenth_graph): 
 		if (i+1) < lenth_graph:
 			for j in range (i+1,lenth_graph):
 				if (list_node[i][1]["nombre"] != list_node[j][1]["nombre"]): #verificando que no se tomen dos secciones del mismo ramo
+				#list_node[0][0:7] != list_node[0][0:7] # verificar por codigo, es mejor
 					tope=0
-					for k in range (len(list_node[i][1]["horario"])): 
+					for k in range (len(list_node[i][1]["horario"])): #se itera por los modulos que tiene la seccion
 						for x in range(len(list_node[j][1]["horario"])): 
 							if (list_node[i][1]["horario"][k] == list_node[j][1]["horario"][x]): #verificando que no topen los horarios
 								tope+=1
-								break										
+								break # termina de ver los modulos, ya que pillo una que topa											
 					if tope == 0:
-						G.add_edge(list_node[i][0], list_node[j][0])
+						G.add_edge(list_node[i][0], list_node[j][0]) #se unen los nodos si no tienen topes de horarios
 
-	#for elem in list_node: # imprime todos los nodos agregados en el grafo G, con sus atributos
-	#	print(elem,"\n")
+	for elem in list_node: # imprime todos los nodos agregados en el grafo G, con sus atributos
+		print(elem,"\n")
+		
 
 	max_clique_pond= nx.max_weight_clique(G, weight="prioridad") #se obtiene el maximo clique con mayor peso ponderado
 	#cliques= list(nx.find_cliques(G)) #se obtiene el maximo clique
@@ -196,7 +201,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	aux_cfg=count_cfg
 	
 
-	for elem in arr_aux2_delete:
+	""" for elem in arr_aux2_delete: 
 
 		if len(elem[0])<=3:
 			pass
@@ -206,7 +211,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		
 			arr_aux_delete.pop(arr_aux_delete.index(elem))
 		if aux_cfg == 4:
-			limit_achive_cfg=True
+			limit_achive_cfg=True """
 	
 	#antes de imprimir la lista de cfg preguntar si quiere tomar un cfg -> si un cfg es critico se le muestra si  o si los cfg
 	arr_aux_delete.sort(key=lambda tup: tup[1])
@@ -264,8 +269,8 @@ def main():
 	
 
 
-	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos,count_cfg,nombres_cfg_tomar = extract_data(arr_ramos_tomar, nombreMalla, ramos_disp_holgura, dict_ramos_codigos,asignaturasNoCursadas, ramos_criticos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
-	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar,ramos_id,count_cfg,nombres_cfg_tomar )
+	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos,count_cfg,nombres_cfg_tomar,CFG_disponibles = extract_data(arr_ramos_tomar, nombreMalla, ramos_disp_holgura, dict_ramos_codigos,asignaturasNoCursadas, ramos_criticos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
+	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar,ramos_id,count_cfg,nombres_cfg_tomar,CFG_disponibles )
 	
 
 if __name__ == "__main__":

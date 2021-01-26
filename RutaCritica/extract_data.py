@@ -49,10 +49,11 @@ def readingExcels(nombreOferta, miMalla):
 
 	return excelArray, electivosArray, equivArray, miMallaArray
 
-def secciones_cfg(lista_secciones):
+def secciones_cfg():
 	CFG_Array = np.array(pd.read_excel('CURSOS-DE-FORMACIÓN-GENERAL.xlsx', sheet_name='Sheet1'))
 	codAprobados = np.array(pd.read_excel('MiMalla.xlsx', sheet_name='MiMalla'))[:,1]
 	count_cfg=0
+	CFG_disponibles=[]
 	nombres_cfg_tomar = {}
 	#print(CFG_Array[0][5],CFG_Array[0][6],)
 	for i in codAprobados:
@@ -100,12 +101,12 @@ def secciones_cfg(lista_secciones):
 
 				alfa = {'codigo':codigo,'nombre':nombre, 'seccion':seccion, "horario":aux_horario, "profesor":profesor}
 				aux_count = 0
-				for k in range(0,len(lista_secciones)): 
-					if lista_secciones[k]["codigo"] == codigo: # se verifica si ya existe esta seccion en la lista de secciones (se evitan datos repetidos)
+				for k in range(0,len(CFG_disponibles)): 
+					if CFG_disponibles[k]["codigo"] == codigo: # se verifica si ya existe esta seccion en la lista de secciones (se evitan datos repetidos)
 						aux_count+=1
 				if aux_count == 0: #con esto solo se agrega una vez la seccion
-					lista_secciones.append(alfa)
-	return lista_secciones,nombres_cfg_tomar, count_cfg
+					CFG_disponibles.append(alfa)
+	return CFG_disponibles,nombres_cfg_tomar, count_cfg
 
 def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_inf, cod_elect_teleco,asignaturasNoCursadas):
 	#falta pasar la holgura
@@ -256,7 +257,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 
 
 	#falta un if aqui -> solo funciona si sale como ramos disponible un cfg 
-	lista_secciones,nombres_cfg_tomar,count_cfg = secciones_cfg(lista_secciones)
+	CFG_disponibles,nombres_cfg_tomar,count_cfg = secciones_cfg()
 
 
 
@@ -276,7 +277,7 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 	#print(nombres_ramos_tomar)
 
 	#print(cod_elect_inf, cod_elect_teleco, cod_CFG)
-	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos,count_cfg,nombres_cfg_tomar
+	return lista_secciones ,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos,count_cfg,nombres_cfg_tomar,CFG_disponibles
 
 
 
