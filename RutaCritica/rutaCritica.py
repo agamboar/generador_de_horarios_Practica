@@ -162,29 +162,29 @@ def getRamoCritico(miExcel):
     ramos_id={}
     #print("\nPERT Generado:\n ")
     #print(list(PERT))
-    for elem in list(PERT): # imprime todos los nodos agregados en el grafo
+    for elem in list(PERT): 
         if elem == 0:
             continue
         
         if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
             ramos_disp_holgura[PERT.nodes[elem]["codigo"]]=PERT.nodes[elem]["H"]
             ramos_criticos.append(PERT.nodes[elem]["codigo"])
-            ramos_criticos_nombre.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
+            ramos_criticos_nombre.append(PERT.nodes[elem]["nombre"])  
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
             ramos_id[PERT.nodes[elem]["nombre"]]=elem
-        
-        print(elem," ",PERT.nodes[elem])
-      
-    for elem in list(PERT):
-        if elem == 0:
-            continue
+
         if PERT.nodes[elem]["H"] != 0 and PERT.nodes[elem]["ES"] == 1:
             ramos_disp_holgura[PERT.nodes[elem]["codigo"]]=PERT.nodes[elem]["H"]
-            ramos_no_criticos.append(PERT.nodes[elem]["nombre"])  #hacer append de codigo y no de nombre
+            ramos_no_criticos.append(PERT.nodes[elem]["nombre"])  
             dict_ramos_codigos[PERT.nodes[elem]["nombre"]]=PERT.nodes[elem]["codigo"]
             ramos_porTomar_codigo.append(PERT.nodes[elem]["codigo"])
             ramos_id[PERT.nodes[elem]["nombre"]]=elem
+            
+        #print(elem," ",PERT.nodes[elem])# imprime todos los nodos agregados en el grafo
+      
+    
+        
     print("\nRamos criticos -> ", ramos_criticos_nombre, "\n")
     print("Ramos no criticos ->", ramos_no_criticos, "\n") 
 

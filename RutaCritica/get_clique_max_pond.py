@@ -10,8 +10,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	#print(ramos_criticos)
 	
 	G = nx.Graph()
-	priority= []
-	priority_ramo= []
+	priority_sec= {}
+	priority_ramo= {}
 	print("Ramos disponibles: \n")
 	counter = 0
 	for i in (arr_ramos_tomar):
@@ -26,13 +26,13 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	prio_ram=input("Desea asignarle prioridad a los ramos ? (si/no) \n")
 	if prio_ram == "si":
 		while (True): #Se puede mejorar el codigo para delimitar bien las prioridades # en teoria se mostrara una lista y con respecto al orden de los elementos se definira la prioridad
-			num_ramo = str(input("Ingrese el NOMBRE de un ramo\n"))
-			prioridad = int(input("Asigne una prioridad al ramo (1-10)\n"))
-			priority_ramo.append({'nombre':arr_ramos_tomar[num_ramo],'prioridad':prioridad})
+			nomb_ramo = str(input("Ingrese el NOMBRE de un ramo\n"))
+			prioridad = int(input("Asigne una prioridad al ramo (1-100)\n"))
+			priority_ramo[nomb_ramo]=prioridad-1
 			cont = input("Desea colocarle una prioridad a otro ramo ? (si/no)\n")
 			if cont !="si":
 				break
-
+	#print(priority_ramo)
 
 	counter = 0
 	prio_sec=input("Desea asignarle prioridad a las secciones de un ramo? (si/no)\n")
@@ -54,16 +54,17 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			else:
 				while (True):
 					codigo_sec = input("Ingrese el CODIGO de una seccion (codigos que aparecen en la lista)\n")
-					prioridad = int(input("Asigne una prioridad de una seccion(1-15)\n")) # es mas facil hacer los inputs en la pagina web
-					priority.append({'codigo':codigo_sec,'prioridad':prioridad})
+					prioridad = int(input("Asigne una prioridad de una seccion(1-100)\n")) # es mas facil hacer los inputs en la pagina web
+					priority_sec[codigo_sec]=prioridad-1
 					cont = input("Desea colocarle una prioridad a otra seccion ? (si/no)\n")
 					if cont !="si":
 						break
 				cont = input("Desea colocarle una prioridad a seccion de otro ramo? (si/no)\n")
 				if cont !="si":
 					break 
+				counter = 0
 
-	
+	#print(priority_sec)
 	for elem in lista_secciones:
 		
 		#aca ver si el codigo del ramo es un electivo cit33 o cit34 [:,5], si se cumple darle la holgura de electivo profesional del pert
@@ -74,43 +75,30 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		elif elem["codigo"][0:5]=='CIT34':
 			UU=str(10-ramos_disp_holgura["CIT34XX"]) if len(str(10-ramos_disp_holgura["CIT34XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT34XX"]) #UU
 		elif elem["codigo"][0:3]=='CFG':
-			try:
-				UU=str(10-ramos_disp_holgura["CFG"]) if len(str(10-ramos_disp_holgura["CFG"])) > 1 else "0"+str(10-ramos_disp_holgura["CFG"]) #UU
-			except:
-				UU = "00"
+			UU=str(10-ramos_disp_holgura["CFG"]) if len(str(10-ramos_disp_holgura["CFG"])) > 1 else "0"+str(10-ramos_disp_holgura["CFG"]) #UU		
 		else:
 			UU=str(10-ramos_disp_holgura[elem["codigo"][0:7]]) if len(str(10-ramos_disp_holgura[elem["codigo"][0:7]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["codigo"][0:7]]) #UU			
+	
 
-		try: 
-			for i in priority_ramo:
-				if i["nombre"] == elem["nombre"]:
-					KK = str(i["prioridad"]+53) #KK ->( se le suma 53 para que tenga mas importancia que la prioridad por default)
-			
 
-			beta = str(53-ramos_id[elem["nombre"]]) #int(elem["N_correlativo"])
-			if  len(beta) < 2:
-				KK = str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
-			else:	
-				KK = beta
 
+		beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"]) | esto en teoria se puede dejar asi ya si no se modifica es porq no importa
+		KK = str("0"+beta) if  len(beta) < 2 else beta #KK -
+		
+		try:
+			KK = str(priority_ramo[elem["nombre"]]+53) #KK ->( se le suma 53 para que tenga mas importancia que la prioridad por default)
 		except:
-			
-			if elem["codigo"][0:3]=='CFG':
-				beta = "00"
-			else:
-				beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"]) | esto en teoria se puede dejar asi ya si no se modifica es porq no importa
-			if  len(beta) < 2:
-				KK = str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
-			else:	
-				KK = beta
-		
-		
-		for i in priority:
-			if i["codigo"] == elem["codigo"]:
-				SS = str(i["prioridad"]+20) #SS -> se le suma el 20 para que supere cualquier valor d
+			pass
+				
 		
 		SS = str(elem["seccion"]) if len(str(elem["seccion"])) >1 else ("0" + str(elem["seccion"]))  #SS
-		
+		#print(elem)
+		try:
+			SS = str(priority_sec[elem["codigo"]]+20)#SS -> se le suma el 20 para que supere cualquier valor d
+		except:
+			pass
+
+
 		if elem["codigo"][0:7] in ramos_criticos:
 			CC="10" #CC
 		else:
@@ -119,7 +107,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			if CC == "10":
 				prioridad = 10000000
 			else:
-				prioridad = 20000 # de esta forma se muestran los cfg al final de la carrera
+				prioridad = "2"+str(KK)+"00" # de esta forma se muestran los cfg al final de la carrera
 		else:
 			prioridad = CC+UU+KK+SS
 		#print(prioridad)
@@ -142,8 +130,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 					if tope == 0:
 						G.add_edge(list_node[i][0], list_node[j][0]) #se unen los nodos si no tienen topes de horarios
 
-	for elem in list_node: # imprime todos los nodos agregados en el grafo G, con sus atributos
-		print(elem,"\n")
+	#for elem in list_node: # imprime todos los nodos agregados en el grafo G, con sus atributos
+	#	print(elem,"\n")
 		
 
 	max_clique_pond= nx.max_weight_clique(G, weight="prioridad") #se obtiene el maximo clique con mayor peso ponderado
@@ -228,8 +216,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	while len(arr_aux_delete) >6 : 
 			arr_aux_delete.pop(0)	#se elimina el mas peso mas chico de la lista
 
-	#for elem in  arr_aux_delete:
-	#	print(G.nodes[elem[0]]["nombre"],"- Seccion",G.nodes[elem[0]]["seccion"],"| Horario -> ",G.nodes[elem[0]]["horario"],G.nodes[elem[0]]["prioridad"]) #se muestra los elementos del clique maximo
+	for elem in  arr_aux_delete:
+		print(G.nodes[elem[0]]["nombre"],"- Seccion",G.nodes[elem[0]]["seccion"],"| Horario -> ",G.nodes[elem[0]]["horario"],G.nodes[elem[0]]["prioridad"]) #se muestra los elementos del clique maximo
 
 
 	#if ko == False:
