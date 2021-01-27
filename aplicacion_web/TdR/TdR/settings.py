@@ -76,10 +76,12 @@ WSGI_APPLICATION = 'TdR.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tdr',
-        'USER': 'tdr_user',
-        'PASSWORD': 'patadepalo',
+        'USER': 'postgres',
+        'PASSWORD': 'pass123',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
