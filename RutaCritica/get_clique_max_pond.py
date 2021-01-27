@@ -6,7 +6,7 @@ import random
 
 #la prioridad se obtiene con un form desde front  
 
-def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar,ramos_id,count_cfg,nombres_cfg_tomar,CFG_disponibles):
+def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_disp_holgura,arr_ramos_tomar,ramos_id,count_cfg,nombres_cfg_tomar):
 	#print(ramos_criticos)
 	
 	G = nx.Graph()
@@ -18,11 +18,11 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 			
 			print(counter,".-", i)
 			counter += 1
-	""" show_cfg=(input("Quiere ver la lista de CFGs disponibles (si/no)\n"))
+	show_cfg=(input("Quiere ver la lista de CFGs disponibles (si/no)\n"))
 	if show_cfg == "si":
 		for i in (nombres_cfg_tomar):
 			print(counter,".-", i)
-			counter += 1 """
+			counter += 1
 	prio_ram=input("Desea asignarle prioridad a los ramos ? (si/no) \n")
 	if prio_ram == "si":
 		while (True): #Se puede mejorar el codigo para delimitar bien las prioridades # en teoria se mostrara una lista y con respecto al orden de los elementos se definira la prioridad
@@ -65,53 +65,63 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 
 	
 	for elem in lista_secciones:
-		prioridad = ""
+		
 		#aca ver si el codigo del ramo es un electivo cit33 o cit34 [:,5], si se cumple darle la holgura de electivo profesional del pert
 		#| -> lo mismo pa cfg
 
 		if elem["codigo"][0:5]=='CIT33':
-			prioridad=str(10-ramos_disp_holgura["CIT33XX"]) if len(str(10-ramos_disp_holgura["CIT33XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT33XX"]) #UU
+			UU=str(10-ramos_disp_holgura["CIT33XX"]) if len(str(10-ramos_disp_holgura["CIT33XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT33XX"]) #UU
 		elif elem["codigo"][0:5]=='CIT34':
-			prioridad=str(10-ramos_disp_holgura["CIT34XX"]) if len(str(10-ramos_disp_holgura["CIT34XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT34XX"]) #UU
+			UU=str(10-ramos_disp_holgura["CIT34XX"]) if len(str(10-ramos_disp_holgura["CIT34XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT34XX"]) #UU
 		elif elem["codigo"][0:3]=='CFG':
-			prioridad=str(10-ramos_disp_holgura["CFG"]) if len(str(10-ramos_disp_holgura["CFG"])) > 1 else "0"+str(10-ramos_disp_holgura["CFG"]) #UU
+			try:
+				UU=str(10-ramos_disp_holgura["CFG"]) if len(str(10-ramos_disp_holgura["CFG"])) > 1 else "0"+str(10-ramos_disp_holgura["CFG"]) #UU
+			except:
+				UU = "00"
 		else:
-			prioridad=str(10-ramos_disp_holgura[elem["codigo"][0:7]]) if len(str(10-ramos_disp_holgura[elem["codigo"][0:7]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["codigo"][0:7]]) #UU			
+			UU=str(10-ramos_disp_holgura[elem["codigo"][0:7]]) if len(str(10-ramos_disp_holgura[elem["codigo"][0:7]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["codigo"][0:7]]) #UU			
 
 		try: 
 			for i in priority_ramo:
 				if i["nombre"] == elem["nombre"]:
-					prioridad += str(i["prioridad"]+53) #KK ->( se le suma 53 para que tenga mas importancia que la prioridad por default)
-			if len(prioridad) < 4:
+					KK = str(i["prioridad"]+53) #KK ->( se le suma 53 para que tenga mas importancia que la prioridad por default)
+			
 
-				beta = str(53-ramos_id[elem["nombre"]]) #int(elem["N_correlativo"])
-				if  len(beta) < 2:
-					prioridad += str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
-				else:	
-					prioridad += beta
+			beta = str(53-ramos_id[elem["nombre"]]) #int(elem["N_correlativo"])
+			if  len(beta) < 2:
+				KK = str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
+			else:	
+				KK = beta
 
 		except:
-			if len(prioridad) < 4:
-				if elem["codigo"][0:3]=='CFG':
-					beta = "00"
-				else:
-					beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"]) | esto en teoria se puede dejar asi ya si no se modifica es porq no importa
-				if  len(beta) < 2:
-					prioridad += str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
-				else:	
-					prioridad += beta
+			
+			if elem["codigo"][0:3]=='CFG':
+				beta = "00"
+			else:
+				beta = str(53-random.randint(1, 53)) #int(elem["N_correlativo"]) | esto en teoria se puede dejar asi ya si no se modifica es porq no importa
+			if  len(beta) < 2:
+				KK = str("0"+beta) #KK -> de esta forma se setea mayor prioridad a los ramos que aparacen mas pronto en la malla	
+			else:	
+				KK = beta
 		
 		
 		for i in priority:
 			if i["codigo"] == elem["codigo"]:
-				prioridad += str(i["prioridad"]+20) #SS -> se le suma el 20 para que supere cualquier valor d
-		if len(prioridad) < 6:
-			prioridad += str(elem["seccion"]) if len(str(elem["seccion"])) >1 else ("0" + str(elem["seccion"]))  #SS
+				SS = str(i["prioridad"]+20) #SS -> se le suma el 20 para que supere cualquier valor d
+		
+		SS = str(elem["seccion"]) if len(str(elem["seccion"])) >1 else ("0" + str(elem["seccion"]))  #SS
 		
 		if elem["codigo"][0:7] in ramos_criticos:
-			prioridad="10"+str(prioridad) #CC
+			CC="10" #CC
 		else:
-			prioridad="00"+str(prioridad) ## la equivalencia no considera el cambio de nombre de los criticos -- NF 24/01
+			CC="00" ## la equivalencia no considera el cambio de nombre de los criticos -- NF 24/01
+		if elem["codigo"][0:3]=='CFG':
+			if CC == "10":
+				prioridad = 10000000
+			else:
+				prioridad = 20000 # de esta forma se muestran los cfg al final de la carrera
+		else:
+			prioridad = CC+UU+KK+SS
 		#print(prioridad)
 		G.add_nodes_from([elem["codigo"]], nombre = elem["nombre"],seccion= elem["seccion"],horario=elem["horario"],profesor=elem["profesor"],prioridad=int(prioridad))
 
@@ -201,7 +211,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	aux_cfg=count_cfg
 	
 
-	""" for elem in arr_aux2_delete: 
+	for elem in arr_aux2_delete: 
 
 		if len(elem[0])<=3:
 			pass
@@ -211,7 +221,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		
 			arr_aux_delete.pop(arr_aux_delete.index(elem))
 		if aux_cfg == 4:
-			limit_achive_cfg=True """
+			limit_achive_cfg=True
 	
 	#antes de imprimir la lista de cfg preguntar si quiere tomar un cfg -> si un cfg es critico se le muestra si  o si los cfg
 	arr_aux_delete.sort(key=lambda tup: tup[1])
@@ -269,8 +279,8 @@ def main():
 	
 
 
-	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos,count_cfg,nombres_cfg_tomar,CFG_disponibles = extract_data(arr_ramos_tomar, nombreMalla, ramos_disp_holgura, dict_ramos_codigos,asignaturasNoCursadas, ramos_criticos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
-	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar,ramos_id,count_cfg,nombres_cfg_tomar,CFG_disponibles )
+	lista_secciones,ramos_sin_horario, ramos_disp_holgura, nombres_ramos_tomar,ramos_criticos,count_cfg,nombres_cfg_tomar = extract_data(arr_ramos_tomar, nombreMalla, ramos_disp_holgura, dict_ramos_codigos,asignaturasNoCursadas, ramos_criticos, 'Sheet1') #input del año en el que se quiere obtener las secciones disponibles #funcion en otro archivo
+	get_clique_max_pond(lista_secciones, ramos_sin_horario, ramos_criticos, ramos_disp_holgura, nombres_ramos_tomar,ramos_id,count_cfg,nombres_cfg_tomar)
 	
 
 if __name__ == "__main__":
