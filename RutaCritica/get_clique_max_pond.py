@@ -228,8 +228,8 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 	while len(arr_aux_delete) >6 : 
 			arr_aux_delete.pop(0)	#se elimina el mas peso mas chico de la lista
 
-	for elem in  arr_aux_delete:
-		print(G.nodes[elem[0]]["nombre"],"- Seccion",G.nodes[elem[0]]["seccion"],"| Horario -> ",G.nodes[elem[0]]["horario"],G.nodes[elem[0]]["prioridad"]) #se muestra los elementos del clique maximo
+	#for elem in  arr_aux_delete:
+	#	print(G.nodes[elem[0]]["nombre"],"- Seccion",G.nodes[elem[0]]["seccion"],"| Horario -> ",G.nodes[elem[0]]["horario"],G.nodes[elem[0]]["prioridad"]) #se muestra los elementos del clique maximo
 
 
 	#if ko == False:
