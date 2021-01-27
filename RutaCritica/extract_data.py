@@ -53,6 +53,7 @@ def secciones_cfg(lista_secciones):
 	CFG_Array = np.array(pd.read_excel('CURSOS-DE-FORMACIÓN-GENERAL.xlsx', sheet_name='Sheet1'))
 	codAprobados = np.array(pd.read_excel('MiMalla.xlsx', sheet_name='MiMalla'))[:,1]
 	count_cfg=0
+	#CFG_disponibles=[]
 	nombres_cfg_tomar = {}
 	#print(CFG_Array[0][5],CFG_Array[0][6],)
 	for i in codAprobados:
@@ -213,6 +214,13 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 					elif len(elem[22].split()) == 4:
 						aux = elem[22].split()[0]+" "+elem[22].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
+					elif len(elem[22].split()) == 6:
+						aux = elem[22].split()[0]+" "+elem[22].split()[3] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+						aux_horario.append(aux)
+						aux = elem[22].split()[1]+" "+elem[22].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux_horario.append(aux)
+						aux = elem[22].split()[2]+" "+elem[22].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux_horario.append(aux)
 					elif len(elem[22].split()) == 8:
 						aux = elem[22].split()[0]+" "+elem[22].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
@@ -228,7 +236,6 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 					else:
 						seccion = int(elem[20][8])
 					
-
 					profesor = elem[23]
 				except:
 					pass 
