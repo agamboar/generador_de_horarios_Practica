@@ -1,117 +1,205 @@
 from django.db import models
 
 
-class MallaCurricular(models.Model):
+# COMPONENTE ESCUELA
 
-    agno = models.IntegerField()
-    carrera = models.CharField(max_length=40)
+class asignatura_real(models.Model):
 
-
-class Box(models.Model):
-    nro_correlativo = models.IntegerField(primary_key=True)
-    semestre = models.CharField(max_length=8)
-    # Indica una relacion many-to-many (box puede estar en varias mallas curr, una malla curricular tiene multiples boxes)
-    mallacurricular = models.ManyToManyField(MallaCurricular)
-
-
-class Asignatura(models.Model):
-    codigo = models.CharField(max_length=9, primary_key=True)
-    nombre = models.CharField(max_length=40)
-    creditos = models.IntegerField()
-    prerrequsitos = models.CharField(max_length=30)
-    equivalencias = models.CharField(max_length=20)
-
-    box = models.ManyToManyField(Box)
+    codigo = models.CharField(max_length=10, primary_key=True)
+    nombre = models.CharField(max_length=30)
+    creditos = models.IntegerField(null=False)
+    equivale = models.ManyToManyField('self')
+    abre = models.ManyToManyField('self')
+    prerrequisito = models.ManyToManyField('self')
 
 
-class Seccion(models.Model):
+class box(models.Model):
 
-    # class Meta:
-    #    unique_together = [['codigoSeccion', 'semestre']]
+    num_correlativo = models.IntegerField()
+    semestre = models.CharField(max_length=10)
 
-    codigo_seccion = models.CharField(max_length=25, primary_key=True)
-    semestre = models.CharField(max_length=8)
-    asignatura = models.ForeignKey(
-        to=Asignatura,
+    to_asignatura_real = models.ForeignKey(
+        to=asignatura_real,
+        on_delete=models.DO_NOTHING
+    )
+
+
+class malla_curricular(models.Model):
+
+    class Meta:
+        unique_together = [['agno', 'carrera']]
+
+    agno = models.IntegerField(null=False)
+    carrera = models.CharField(max_length=60)
+    json_malla = models.JSONField()
+
+    to_box = models.ForeignKey(
+        to=box,
+        on_delete=models.CASCADE
+    )
+
+
+class oferta_malla(models.Model):
+
+    semestre = models.CharField(max_length=12, primary_key=True)
+    json_oferta = models.JSONField()
+
+    to_malla_curricular = models.ForeignKey(
+        to=malla_curricular,
+        on_delete=models.DO_NOTHING
+    )
+
+
+class seccion(models.Model):
+
+    class Meta:
+        unique_together = [['cod_seccion', 'semestre']]
+
+    cod_seccion = models.CharField(max_length=25)
+    semestre = models.CharField(max_length=10)
+    num_seccion = models.IntegerField()
+
+    to_asignatura_real = models.ForeignKey(
+        to=asignatura_real,
         on_delete=models.CASCADE)
 
 
-class Evento(models.Model):
-    tipo = models.CharField(max_length=10)
+class evento(models.Model):
+
+    tipo = models.CharField(max_length=15)
     dia = models.CharField(max_length=3)
-    modulo = models.CharField(max_length=15)
-    profesor = models.CharField(max_length=30)
-    seccion = models.ForeignKey(
-        to=Seccion,
+    modulo = models.CharField(max_length=20)
+    profesor = models.CharField(max_length=50)
+
+    to_seccion = models.ForeignKey(
+        to=seccion,
         on_delete=models.CASCADE)
 
 
-# Componentes de datos del alumno
+# COMPONENTE ALUMNO
 
-class Alumno(models.Model):
+class alumno(models.Model):
+
     rut = models.CharField(max_length=11, primary_key=True)
-    nombre = models.CharField(max_length=15)
-    apellido = models.CharField(max_length=15)
-    mail = models.CharField(max_length=40)
-    psu_ponderado = models.IntegerField()
-    nem = models.IntegerField()
-    mallacurricular = models.ForeignKey(
-        to=MallaCurricular,
-        on_delete=models.DO_NOTHING)
+    password = models.CharField(max_length=12, default=None)
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
+    correo = models.CharField(max_length=50)
+    token = models.CharField(max_length=30, default=None)
+    psu_matematicas = models.IntegerField(default=0)
+    psu_lenguaje = models.IntegerField(default=0)
+    psu_historia = models.IntegerField(default=0)
+    psu_ciencias = models.IntegerField(default=0)
+    nem = models.IntegerField(default=0)
 
 
-class AsignaturaCursada(Seccion):
+class avance_academico(models.Model):
 
+    semestre = models.CharField(max_length=10, primary_key=True)
+    json_avance = models.JSONField()
+    fgd_count = models.IntegerField(default=0)
+    cfg_count = models.IntegerField(default=0)
+    einf_count = models.IntegerField(default=0)
+    etele_count = models.IntegerField(default=0)
+
+    to_alumno = models.ForeignKey(
+        to=alumno,
+        on_delete=models.CASCADE
+    )
+
+
+class asignatura_cursada(models.Model):
+
+    codigo = models.CharField(max_length=25)
     nota = models.FloatField()
     estado = models.CharField(max_length=15)
     fecha_modificacion = models.DateTimeField(auto_now=True)
-    alumno = models.ForeignKey(
-        to=Alumno,
-        on_delete=models.CASCADE)
+
+    to_alumno = models.ForeignKey(
+        to=alumno,
+        on_delete=models.CASCADE
+    )
+
+    to_box = models.ForeignKey(
+        to=box,
+        on_delete=models.DO_NOTHING
+    )
+
+    to_avance_academico = models.ForeignKey(
+        to=avance_academico,
+        on_delete=models.DO_NOTHING
+    )
 
 
-class Horario(models.Model):
+class horario(models.Model):
 
     semestre = models.CharField(max_length=8, primary_key=True)
-    # esto indica una relación one-to-many (un alumno puede tener varios horarios guardados)
-    alumno = models.ForeignKey(
-        to=Alumno,
+
+    # esto indica una relación one-to-many (un alumno puede tener varios horarios de antiguos semestres guardados)
+
+    to_alumno = models.ForeignKey(
+        to=alumno,
         on_delete=models.CASCADE)
 
-# componentes para la toma de ramos
 
+# COMPONENTE TOMA DE RAMOS
 
-class NodoAsignatura(models.Model):
+class nodo_asignatura(models.Model):
 
     holgura = models.IntegerField()
     ef = models.IntegerField()
     es = models.IntegerField()
     ls = models.IntegerField()
     lf = models.IntegerField()
+    fecha_mod = models.DateTimeField(auto_now=True)
+
+    to_asignatura_real = models.ManyToManyField(asignatura_real)
+
+    to_alumno = models.ManyToManyField(alumno)
+
+    to_box = models.ForeignKey(
+        to=box,
+        on_delete=models.CASCADE)
+
+
+class ramo_por_tomar(models.Model):
+
     cc = models.IntegerField()
     uu = models.IntegerField()
     kk = models.IntegerField()
 
-    box = models.ForeignKey(
-        to=Box,
-        on_delete=models.CASCADE, default=None)
+    to_nodo_asignatura = models.OneToOneField(
+        nodo_asignatura,
+        on_delete=models.CASCADE
+    )
+
+    to_asignatura_real = models.OneToOneField(
+        asignatura_real,
+        on_delete=models.CASCADE
+    )
 
 
-class NodoSeccion(Seccion):
+class nodo_seccion(models.Model):
 
     ss = models.IntegerField()
-    nodo_asignatura = models.ForeignKey(
-        to=NodoAsignatura,
+    fecha_mod = models.DateTimeField(auto_now=True)
+
+    to_ramo_por_tomar = models.ForeignKey(
+        to=ramo_por_tomar,
         on_delete=models.CASCADE)
 
+    to_seccion = models.ManyToManyField(seccion)
 
-# solucion pueden ser varias. La escogida por el usuario se transforma en un horario, y se relaciona con la clase horario.
-class Solucion(models.Model):
+
+class solucion(models.Model):
+
+    fecha_mod = models.DateTimeField()
 
     # esto indica una relacione one-to-one. Una solucion contiene un horario, y un horario solo puede formar parte de una solucion.
-    horario = models.OneToOneField(
-        Horario,
-        on_delete=models.CASCADE,
-        primary_key=True,
+
+    to_horario = models.OneToOneField(
+        horario,
+        on_delete=models.CASCADE
+
     )
-    nodo_seccion = models.ManyToManyField(NodoSeccion)
+    to_nodo_seccion = models.ManyToManyField(nodo_seccion)
