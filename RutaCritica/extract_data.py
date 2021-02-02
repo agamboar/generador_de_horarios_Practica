@@ -57,7 +57,7 @@ def secciones_cfg(lista_secciones):
 	nombres_cfg_tomar = {}
 	#print(CFG_Array[0][5],CFG_Array[0][6],)
 	for i in codAprobados:
-		if i[0:3]=="CFG" : 
+		if str(i)[0:3]=="CFG" : 
 			count_cfg+=1
 
 	for i in range (0,len(CFG_Array)):
@@ -117,7 +117,7 @@ def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_in
 		for i in range(1, len(codElectivos)):
 			codigoAux = codElectivos[i] 	#porq se crea esta variable ? esta de mas
 
-			aux = codigoAux[0:5] 			#para q tanto axuliar ???
+			aux = str(codigoAux)[0:5] 			#para q tanto axuliar ???
 			can_take=True
 			if codigoAux not in codAprobados and aux == 'CIT33': 
 				for elem in (np.array(electivosArray[i])[4]).split(","):
@@ -131,7 +131,7 @@ def appendElectivos(ramosDisponibles, electivosArray, miMallaArray, cod_elect_in
 		for i in range(1, len(codElectivos)):
 			codigoAux = codElectivos[i]
 
-			aux = codigoAux[0:5]
+			aux = str(codigoAux)[0:5]
 			can_take=True
 			if codigoAux not in codAprobados and aux == 'CIT34':
 				for elem in (np.array(electivosArray[i])[4]).split(","):
@@ -164,20 +164,20 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 	cod_elect_inf = []
 	cod_elect_teleco = []
 	cod_CFG = []
-
+	patata = []
 	#iteracion para guardar los electivos y cfgs no cursados, en arreglos separados
 	for aux1 in range(len(ramos_disponibles)):
 
-		if ramos_disponibles[aux1][0:5] == "CIT33":
+		if str(ramos_disponibles[aux1])[0:5] == "CIT33":
 			cod_elect_inf.append(ramos_disponibles[aux1])
 		
-		if ramos_disponibles[aux1][0:5] == "CIT34":
+		if str(ramos_disponibles[aux1])[0:5] == "CIT34":
 			cod_elect_teleco.append(ramos_disponibles[aux1])
 		
-		if ramos_disponibles[aux1] == "CFG":
+		if str(ramos_disponibles[aux1]) == "CFG":
 			cod_CFG.append(ramos_disponibles[aux1])
 		
-	excelArray, electivosArray, equivArray, miMallaArray = readingExcels('INGENIERÍA-CIVIL-EN-INFORMÁTICA-Y-TELECOMUNICACIONES.xlsx', miMalla)
+	excelArray, electivosArray, equivArray, miMallaArray = readingExcels('INGENIERÍA-CIVIL-EN-INFORMÁTICA-Y-TELECOMUNICACIONES.xlsx', miMalla) #miMalla es el nombre de la sheet 
 
 	ramosDisponibles,ramos_disp_holgura, ramos_criticos = equivalencia(ramos_disponibles, equivArray, excelArray,ramos_disp_holgura,ramos_criticos)
 
@@ -260,6 +260,16 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 						aux_count+=1
 				if aux_count == 0 and seccion != 99: #con esto solo se agrega una vez la seccion
 					lista_secciones.append(alfa)
+					patata.append(alfa)
+			else:
+		
+				alfa = {'codigo':codigo,'nombre':nombre, 'seccion':seccion, "horario":aux_horario, "profesor":profesor}
+				aux_count = 0
+				for k in range(0,len(lista_secciones)): 
+					if lista_secciones[k]["codigo"] == codigo: # se verifica si ya existe esta seccion en la lista de secciones (se evitan datos repetidos)
+						aux_count+=1
+				if aux_count == 0 and seccion != 99: #con esto solo se agrega una vez la seccion
+					patata.append(alfa)
 
 
 	#falta un if aqui -> solo funciona si sale como ramos disponible un cfg 
@@ -279,6 +289,10 @@ def extract_data(ramos_disponibles, miMalla,  ramos_disp_holgura, dict_ramos_cod
 		else:
 			codigo = "CFG_"+str(i+1)
 			lista_secciones.append({'codigo':codigo,'nombre':"CFG-"+str(i+1), 'seccion':"Sección "+str(i+1), "horario":[codigo] ,"profesor": "CFG"}) """
+	""" 
+	for i in lista_secciones:
+		print(i)
+	"""
 	#print(lista_secciones)
 	#print(nombres_ramos_tomar)
 

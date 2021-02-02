@@ -71,11 +71,11 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		#| -> lo mismo pa cfg
 
 		if elem["codigo"][0:5]=='CIT33':
-			UU=str(10-ramos_disp_holgura["CIT33XX"]) if len(str(10-ramos_disp_holgura["CIT33XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT33XX"]) #UU
+			UU=str(10-ramos_disp_holgura["CIT3313"]) if len(str(10-ramos_disp_holgura["CIT3313"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT3313"]) #UU
 		elif elem["codigo"][0:5]=='CIT34':
-			UU=str(10-ramos_disp_holgura["CIT34XX"]) if len(str(10-ramos_disp_holgura["CIT34XX"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT34XX"]) #UU
+			UU=str(10-ramos_disp_holgura["CIT3413"]) if len(str(10-ramos_disp_holgura["CIT3413"])) > 1 else "0"+str(10-ramos_disp_holgura["CIT3413"]) #UU
 		elif elem["codigo"][0:3]=='CFG':
-			UU=str(10-ramos_disp_holgura["CFG"]) if len(str(10-ramos_disp_holgura["CFG"])) > 1 else "0"+str(10-ramos_disp_holgura["CFG"]) #UU		
+			UU=str(10-ramos_disp_holgura["CFG-4"]) if len(str(10-ramos_disp_holgura["CFG-4"])) > 1 else "0"+str(10-ramos_disp_holgura["CFG-4"]) #UU		
 		else:
 			UU=str(10-ramos_disp_holgura[elem["codigo"][0:7]]) if len(str(10-ramos_disp_holgura[elem["codigo"][0:7]])) > 1 else "0"+str(10-ramos_disp_holgura[elem["codigo"][0:7]]) #UU			
 	
@@ -102,7 +102,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 		if elem["codigo"][0:7] in ramos_criticos:
 			CC="10" #CC
 		else:
-			CC="00" ## la equivalencia no considera el cambio de nombre de los criticos -- NF 24/01
+			CC="00" ## la equivalencia no considera el cambio de nombre de los criticos -- NF 24/01 | revisar esto 29-1
 		if elem["codigo"][0:3]=='CFG':
 			if CC == "10":
 				prioridad = 10000000
@@ -110,7 +110,7 @@ def get_clique_max_pond(lista_secciones,ramos_sin_horario,ramos_criticos,ramos_d
 				prioridad = "2"+str(KK)+"00" # de esta forma se muestran los cfg al final de la carrera
 		else:
 			prioridad = CC+UU+KK+SS
-		#print(prioridad)
+		print(prioridad)
 		G.add_nodes_from([elem["codigo"]], nombre = elem["nombre"],seccion= elem["seccion"],horario=elem["horario"],profesor=elem["profesor"],prioridad=int(prioridad))
 
 	list_node = list(G.nodes.items()) 
