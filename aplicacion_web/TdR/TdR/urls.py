@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from generador_horarios import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', views.apiOverview),
+    path('ramos/', views.ramoList, name='ramos'),
+    path('box/', views.boxList, name='box'),
+
 ]

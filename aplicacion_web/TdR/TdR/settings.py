@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'generador_horarios.apps.GeneradorHorariosConfig',
+    'import_export',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

@@ -3,25 +3,29 @@ from django.db import models
 
 # COMPONENTE ESCUELA
 
-class asignatura_real(models.Model):
 
-    codigo = models.CharField(max_length=10, primary_key=True)
-    nombre = models.CharField(max_length=30)
-    creditos = models.IntegerField(null=False)
-    equivale = models.ManyToManyField('self')
-    abre = models.ManyToManyField('self')
-    prerrequisito = models.ManyToManyField('self')
-
+# ¿es necesaria la clase box? solo complica las consultas desde views. Quizas es mejor incluir el numero
+# correlativo y el semestre dentro de asignatura_real, para facilitar las querys.
+# Se puede agregar un atributo de a que malla corresponde la asignatura, para que de esta manera
+# se muestre la asignatura que corresponde a la malla del alumno, pero aun asi, se le indica que
+# esa asignatura puede equivaler a otras asignaturas, de las otras mallas.
 
 class box(models.Model):
 
-    num_correlativo = models.IntegerField()
-    semestre = models.CharField(max_length=10)
+    num_correlativo = models.IntegerField(default=0, primary_key=True)
+    semestre = models.CharField(max_length=15)
 
-    to_asignatura_real = models.ForeignKey(
-        to=asignatura_real,
-        on_delete=models.DO_NOTHING
-    )
+
+class asignatura_real(models.Model):
+
+    codigo = models.CharField(max_length=30, primary_key=True)
+    nombre = models.CharField(max_length=50)
+    creditos = models.IntegerField(null=False)
+    equivale = models.ManyToManyField('self', default=None)
+    abre = models.ManyToManyField('self')
+    prerrequisito = models.ManyToManyField('self')
+
+    to_box = models.ManyToManyField(box)
 
 
 class malla_curricular(models.Model):
@@ -57,7 +61,7 @@ class seccion(models.Model):
 
     cod_seccion = models.CharField(max_length=25)
     semestre = models.CharField(max_length=10)
-    num_seccion = models.IntegerField()
+    num_seccion = models.IntegerField(default=0)
 
     to_asignatura_real = models.ForeignKey(
         to=asignatura_real,
@@ -146,11 +150,11 @@ class horario(models.Model):
 
 class nodo_asignatura(models.Model):
 
-    holgura = models.IntegerField()
-    ef = models.IntegerField()
-    es = models.IntegerField()
-    ls = models.IntegerField()
-    lf = models.IntegerField()
+    holgura = models.IntegerField(default=0)
+    ef = models.IntegerField(default=0)
+    es = models.IntegerField(default=0)
+    ls = models.IntegerField(default=0)
+    lf = models.IntegerField(default=0)
     fecha_mod = models.DateTimeField(auto_now=True)
 
     to_asignatura_real = models.ManyToManyField(asignatura_real)
@@ -164,9 +168,9 @@ class nodo_asignatura(models.Model):
 
 class ramo_por_tomar(models.Model):
 
-    cc = models.IntegerField()
-    uu = models.IntegerField()
-    kk = models.IntegerField()
+    cc = models.IntegerField(default=0)
+    uu = models.IntegerField(default=0)
+    kk = models.IntegerField(default=0)
 
     to_nodo_asignatura = models.OneToOneField(
         nodo_asignatura,
@@ -181,7 +185,7 @@ class ramo_por_tomar(models.Model):
 
 class nodo_seccion(models.Model):
 
-    ss = models.IntegerField()
+    ss = models.IntegerField(default=0)
     fecha_mod = models.DateTimeField(auto_now=True)
 
     to_ramo_por_tomar = models.ForeignKey(
