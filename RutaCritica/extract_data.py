@@ -6,6 +6,7 @@ import pandas as pd
 #solo se consideran Catedra y Ayudantias, no Laboratorios
 #ramos disponibles corresponde al codigo y no al nombre del curso
 
+##VERSION antigua de este archivo porque se borro el otro
 
 
 def equivalencia(ramos_disponibles, equivArray, excelArray,ramos_disp_holgura,ramos_criticos):
