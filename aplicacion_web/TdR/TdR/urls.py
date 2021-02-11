@@ -18,8 +18,9 @@ from django.urls import path
 from generador_horarios import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', views.apiOverview),
-    path('ramos/', views.ramoList, name='ramos'),
-    path('box/', views.boxList, name='box'),
+    path('api/', views.api_overview),
+    path('ramos/<str:year>/', views.ramo_list, name='ramos'),
+    path('seccion/<str:cod>/', views.secciones, name='secciones'),
+
 
 ]

@@ -18,16 +18,22 @@ def api_overview(request):
 
 
 @api_view(['GET'])
-def ramo_list(request):
-    asignatura = asignatura_real.objects.all()
+def ramo_list(request, year):
+
+    asignatura = asignatura_real.objects.filter(
+        malla_curricular__agno=year)
     serializer = asignaturaSerializer(asignatura, many=True)
 
     return Response(serializer.data)
 
 
 @api_view(['GET'])
-def box_list(request):
-    boxes = box.objects.all()
-    serializer = boxSerializer(boxes, many=True)
+def secciones(request, cod):
+
+    secc = seccion.objects.filter(
+        to_asignatura_real=cod
+    )
+
+    serializer = seccionSerializer(secc, many=True)
 
     return Response(serializer.data)

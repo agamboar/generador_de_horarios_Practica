@@ -14,7 +14,13 @@ class asignaturaSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class boxSerializer(serializers.ModelSerializer):
+class mallaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = box
-        fields = '__all__'
+        model = malla_curricular
+        fields = ['agno', 'carrera']
+
+
+class seccionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = seccion
+        fields = ['cod_seccion', 'semestre', 'num_seccion']

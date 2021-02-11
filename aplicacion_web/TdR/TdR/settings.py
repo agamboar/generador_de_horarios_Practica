@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'generador_horarios.apps.GeneradorHorariosConfig',
     'import_export',
     'rest_framework',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

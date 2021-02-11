@@ -10,10 +10,10 @@ from django.db import models
 # se muestre la asignatura que corresponde a la malla del alumno, pero aun asi, se le indica que
 # esa asignatura puede equivaler a otras asignaturas, de las otras mallas.
 
-class box(models.Model):
+# class box(models.Model):
 
-    num_correlativo = models.IntegerField(default=0, primary_key=True)
-    semestre = models.CharField(max_length=15)
+#    num_correlativo = models.IntegerField(default=0, primary_key=True)
+#   semestre = models.CharField(max_length=15)
 
 
 class asignatura_real(models.Model):
@@ -21,11 +21,10 @@ class asignatura_real(models.Model):
     codigo = models.CharField(max_length=30, primary_key=True)
     nombre = models.CharField(max_length=50)
     creditos = models.IntegerField(null=False)
+    nro_correlativo = models.CharField(max_length=20)
+    semestre = models.CharField(max_length=10)
     equivale = models.ManyToManyField('self', default=None)
-    abre = models.ManyToManyField('self')
     prerrequisito = models.ManyToManyField('self')
-
-    to_box = models.ManyToManyField(box)
 
 
 class malla_curricular(models.Model):
@@ -33,14 +32,11 @@ class malla_curricular(models.Model):
     class Meta:
         unique_together = [['agno', 'carrera']]
 
-    agno = models.IntegerField(null=False)
+    agno = models.IntegerField(null=False, primary_key=True)
     carrera = models.CharField(max_length=60)
-    json_malla = models.JSONField()
+    json_malla = models.JSONField(default=None)
 
-    to_box = models.ForeignKey(
-        to=box,
-        on_delete=models.CASCADE
-    )
+    to_asignatura_real = models.ManyToManyField(asignatura_real)
 
 
 class oferta_malla(models.Model):
@@ -59,7 +55,7 @@ class seccion(models.Model):
     class Meta:
         unique_together = [['cod_seccion', 'semestre']]
 
-    cod_seccion = models.CharField(max_length=25)
+    cod_seccion = models.CharField(max_length=25, primary_key=True)
     semestre = models.CharField(max_length=10)
     num_seccion = models.IntegerField(default=0)
 
@@ -124,14 +120,14 @@ class asignatura_cursada(models.Model):
         on_delete=models.CASCADE
     )
 
-    to_box = models.ForeignKey(
-        to=box,
+    to_asignatura_real = models.ForeignKey(
+        to=asignatura_real,
         on_delete=models.DO_NOTHING
     )
 
     to_avance_academico = models.ForeignKey(
         to=avance_academico,
-        on_delete=models.DO_NOTHING
+        on_delete=models.CASCADE
     )
 
 
@@ -157,13 +153,12 @@ class nodo_asignatura(models.Model):
     lf = models.IntegerField(default=0)
     fecha_mod = models.DateTimeField(auto_now=True)
 
-    to_asignatura_real = models.ManyToManyField(asignatura_real)
+    to_asignatura_real = models.OneToOneField(
+        to=asignatura_real,
+        on_delete=models.CASCADE
+    )
 
     to_alumno = models.ManyToManyField(alumno)
-
-    to_box = models.ForeignKey(
-        to=box,
-        on_delete=models.CASCADE)
 
 
 class ramo_por_tomar(models.Model):
@@ -202,7 +197,7 @@ class solucion(models.Model):
     # esto indica una relacione one-to-one. Una solucion contiene un horario, y un horario solo puede formar parte de una solucion.
 
     to_horario = models.OneToOneField(
-        horario,
+        to=horario,
         on_delete=models.CASCADE
 
     )
