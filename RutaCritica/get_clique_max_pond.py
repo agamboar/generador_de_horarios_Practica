@@ -113,7 +113,7 @@ def get_clique_max_pond(lista_secciones,ramos_disponibles):
 		else: """
 		prioridad = CC+UU+KK+SS
 		#print(prioridad)
-		G.add_nodes_from([str(elem["codigo_box"]+elem["codigo"])],codigo=elem["codigo"], nombre = elem["nombre"],seccion= elem["seccion"],horario=elem["horario"],profesor=elem["profesor"],codigo_box=elem["codigo_box"],prioridad=int(prioridad))
+		G.add_nodes_from([str(elem["codigo_box"]+"  - "+elem["codigo"])],codigo=elem["codigo"], nombre = elem["nombre"],seccion= elem["seccion"],horario=elem["horario"],profesor=elem["profesor"],codigo_box=elem["codigo_box"],prioridad=int(prioridad))
 
 	list_node = list(G.nodes.items()) 
 	lenth_graph = len(list_node) 
@@ -189,8 +189,8 @@ def get_clique_max_pond(lista_secciones,ramos_disponibles):
 
 	
 	
-	nx.draw(G, with_labels=True, font_weight='bold') #se dibuja el grafo generado
-	plt.show()
+	#nx.draw(G, with_labels=True, font_weight='bold') #se dibuja el grafo generado
+	#plt.show()
 	
 	#return max_clique_pond #se coloca por si se quiere utilizar mas adelante, de momento se deja el print
 

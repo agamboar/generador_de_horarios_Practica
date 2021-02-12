@@ -5,8 +5,7 @@ import matplotlib.pyplot as plt
 import random
 
 def set_values_recursive(PERT,id_node,len_dag):
-
-        
+    
     arr_anc=list(nx.ancestors(PERT,id_node))  # sirve para saber en cuantos semestre se debera tomar, idealmente, un ramo
     max_count_jump=1
     for elem1 in arr_anc: # se calcula el camino mas grande desde todos los antecesores del nodo id_node
@@ -19,11 +18,11 @@ def set_values_recursive(PERT,id_node,len_dag):
     H = PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"] if PERT.nodes[id_node]["H"] == None or (PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"]  < PERT.nodes[id_node]["H"]) else PERT.nodes[id_node]["H"] 
     PERT.nodes[id_node]["H"] =  H if  H > 0 else  0
     PERT.nodes[id_node]["LS"] = PERT.nodes[id_node]["ES"] + PERT.nodes[id_node]["H"]
- 
     node_pred_arr= list(PERT.predecessors(id_node)) # nodos que apuntan al nodo id_node
+    
+    
     for elem in node_pred_arr:
-        len_dag -= 1
-        set_values_recursive(PERT,elem,len_dag)
+        set_values_recursive(PERT,elem,len_dag-1)
     return PERT
 
 
@@ -110,8 +109,9 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
         if ramos_disponibles[i]["critico"] == False:
             print("->> ",ramos_disponibles[i]["nombre"],"-", ramos_disponibles[i]["codigo"])
 
-    print("Extrayendo Datos...\n")
-    
+    print("\nExtrayendo Datos...\n")
+    #nx.draw_shell(PERT, with_labels=True, font_weight='bold') #se dibuja el grafo generado
+    #plt.show()
     return ramos_disponibles, nombre_excel_malla
 
 #getRamoCritico('MiMalla.xlsx')
