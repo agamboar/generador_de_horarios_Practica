@@ -13,7 +13,7 @@ def equivalencia(ramos_disponibles,oferta_academica,equivalencia_ramos):
 	#aca se asigna el codigo del codigo de referencia
 	
 	for elem in list(ramos_disponibles):
-		if elem not in oferta_academica[:,16]:
+		if elem not in oferta_academica[:,1]:
 			if elem in equivalencia_ramos[:,0]:
 				rows= np.where(equivalencia_ramos[:,0]==elem)
 				ramos_disponibles[elem]["codigo_ref"] = equivalencia_ramos[rows[0][0]][1]
@@ -22,8 +22,8 @@ def equivalencia(ramos_disponibles,oferta_academica,equivalencia_ramos):
 				ramos_disponibles[elem]["codigo_ref"] = elem
 		
 		else:
-			pos_cod_ramo=list(oferta_academica[:,16]).index(elem)
-			if isinstance(oferta_academica[pos_cod_ramo][22], str): 
+			pos_cod_ramo=list(oferta_academica[:,1]).index(elem)
+			if isinstance(oferta_academica[pos_cod_ramo][7], str): 
 				ramos_disponibles[elem]["codigo_ref"] = elem
 			elif elem in equivalencia_ramos[:,0]:
 				rows= np.where(equivalencia_ramos[:,0]==elem)
@@ -154,127 +154,129 @@ def appendElectivos(lista_secciones,oferta_academica,ramos_aprobados,electivos_m
 		aux_horario = []
 		for i in range (0,len(oferta_academica)):
 			elem=oferta_academica[i]
-			if isinstance(elem[21], str): 
+			if isinstance(elem[5], str): 
 				
-				if elem[21][0] == "C": #se verifica que la informacion de la fila sea una Catedra
+				if elem[5][0] == "C": #se verifica que la informacion de la fila sea una Catedra
 
-					if len(elem[22].split()) == 5: #se procesa los datos de los horarios para usarlos posteriormente
-						aux = elem[22].split()[0]+" "+elem[22].split()[2] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+					if len(elem[7].split()) == 5: #se procesa los datos de los horarios para usarlos posteriormente
+						aux = elem[7].split()[0]+" "+elem[7].split()[2] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
-						aux = elem[22].split()[1]+" "+elem[22].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux = elem[7].split()[1]+" "+elem[7].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 						aux_horario.append(aux)
-					elif len(elem[22].split()) == 4:
-						aux = elem[22].split()[0]+" "+elem[22].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+					elif len(elem[7].split()) == 4:
+						aux = elem[7].split()[0]+" "+elem[7].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
-					elif len(elem[22].split()) == 6:
-						aux = elem[22].split()[0]+" "+elem[22].split()[3] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+					elif len(elem[7].split()) == 6:
+						aux = elem[7].split()[0]+" "+elem[7].split()[3] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
-						aux = elem[22].split()[1]+" "+elem[22].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux = elem[7].split()[1]+" "+elem[7].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 						aux_horario.append(aux)
-						aux = elem[22].split()[2]+" "+elem[22].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux = elem[7].split()[2]+" "+elem[7].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 						aux_horario.append(aux)
-					elif len(elem[22].split()) == 8:
-						aux = elem[22].split()[0]+" "+elem[22].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+					elif len(elem[7].split()) == 8:
+						aux = elem[7].split()[0]+" "+elem[7].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
-						aux = elem[22].split()[4]+" "+elem[22].split()[5] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux = elem[7].split()[4]+" "+elem[7].split()[5] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 						aux_horario.append(aux)
 					
 
-					codigo = elem[26]  
-					codRamo = elem[16]
-					nombre = elem[17]
-					if len(elem[20]) == 10:
-						seccion = int(elem[20][8]+elem[20][9])
+					codigo = elem[4]  
+					codRamo = elem[1]
+					nombre = elem[2]
+					vac_free = elem[12]
+					if len(elem[3]) == 10:
+						seccion = int(elem[3][8]+elem[3][9])
 					else:
-						seccion = int(elem[20][8])
+						seccion = int(elem[3][8])
 					
-					profesor = elem[23]
+					profesor = elem[9]
 					
-				elif elem[21][0] == "A": #se verifica que la informacion de la fila sea una Ayudantia
-					aux = elem[22].split()[0]+" "+elem[22].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
+				elif elem[5][0] == "A": #se verifica que la informacion de la fila sea una Ayudantia
+					aux = elem[7].split()[0]+" "+elem[7].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
 					aux_horario.append(aux)
 
-				elif elem[21][0] == "L": #se verifica que la informacion de la fila sea una Ayudantia
-					aux = elem[22].split()[0]+" "+elem[22].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
+				elif elem[5][0] == "L": #se verifica que la informacion de la fila sea una Ayudantia
+					aux = elem[7].split()[0]+" "+elem[7].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
 					aux_horario.append(aux)
 			else:
 				for j in electivos_can_take:
-					if codRamo == j :
-						
-						aux_box = "CIT331"+str(z)
-						
-						alfa = {'codigo':codigo,'nombre':nombre, 'seccion':seccion, "horario":aux_horario, "profesor":profesor,'codigo_box':aux_box }
-						
-						aux_count = 0
-						for k in range(0,len(lista_secciones)): 
-							if lista_secciones[k]["codigo"] == codigo and lista_secciones[k]["codigo_box"] == aux_box: # se verifica si ya existe esta seccion en la lista de secciones (se evitan datos repetidos)
-								aux_count+=1
-								break
-						if aux_count == 0 and seccion != 99: #con esto solo se agrega una vez la seccion
-							lista_secciones.append(alfa)
+					if codRamo == j and int(vac_free) > 0 :
+						if  codRamo[0:5]=="CIT33":
+							aux_box = "CIT331"+str(z)
+							
+							alfa = {'codigo':codigo,'nombre':nombre, 'seccion':seccion, "horario":aux_horario, "profesor":profesor,'codigo_box':aux_box }
+							
+							aux_count = 0
+							for k in range(0,len(lista_secciones)): 
+								if lista_secciones[k]["codigo"] == codigo and lista_secciones[k]["codigo_box"] == aux_box: # se verifica si ya existe esta seccion en la lista de secciones (se evitan datos repetidos)
+									aux_count+=1
+									break
+							if aux_count == 0 and seccion != 99: #con esto solo se agrega una vez la seccion
+								lista_secciones.append(alfa)
 				aux_horario = []
 
 	for z in range(count_electivos_tel_aprobados,cant_elect_tel_malla):
 		aux_horario = []
 		for i in range (0,len(oferta_academica)):
 			elem=oferta_academica[i]
-			if isinstance(elem[21], str): 
+			if isinstance(elem[5], str): 
 				
-				if elem[21][0] == "C": #se verifica que la informacion de la fila sea una Catedra
+				if elem[5][0] == "C": #se verifica que la informacion de la fila sea una Catedra
 
-					if len(elem[22].split()) == 5: #se procesa los datos de los horarios para usarlos posteriormente
-						aux = elem[22].split()[0]+" "+elem[22].split()[2] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+					if len(elem[7].split()) == 5: #se procesa los datos de los horarios para usarlos posteriormente
+						aux = elem[7].split()[0]+" "+elem[7].split()[2] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
-						aux = elem[22].split()[1]+" "+elem[22].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux = elem[7].split()[1]+" "+elem[7].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 						aux_horario.append(aux)
-					elif len(elem[22].split()) == 4:
-						aux = elem[22].split()[0]+" "+elem[22].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+					elif len(elem[7].split()) == 4:
+						aux = elem[7].split()[0]+" "+elem[7].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
-					elif len(elem[22].split()) == 6:
-						aux = elem[22].split()[0]+" "+elem[22].split()[3] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+					elif len(elem[7].split()) == 6:
+						aux = elem[7].split()[0]+" "+elem[7].split()[3] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
-						aux = elem[22].split()[1]+" "+elem[22].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux = elem[7].split()[1]+" "+elem[7].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 						aux_horario.append(aux)
-						aux = elem[22].split()[2]+" "+elem[22].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux = elem[7].split()[2]+" "+elem[7].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 						aux_horario.append(aux)
-					elif len(elem[22].split()) == 8:
-						aux = elem[22].split()[0]+" "+elem[22].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+					elif len(elem[7].split()) == 8:
+						aux = elem[7].split()[0]+" "+elem[7].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 						aux_horario.append(aux)
-						aux = elem[22].split()[4]+" "+elem[22].split()[5] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+						aux = elem[7].split()[4]+" "+elem[7].split()[5] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 						aux_horario.append(aux)
 					
 
-					codigo = elem[26]  
-					codRamo = elem[16]
-					nombre = elem[17]
-					if len(elem[20]) == 10:
-						seccion = int(elem[20][8]+elem[20][9])
+					codigo = elem[4]  
+					codRamo = elem[1]
+					nombre = elem[2]
+					vac_free = elem[12]
+					if len(elem[3]) == 10:
+						seccion = int(elem[3][8]+elem[3][9])
 					else:
-						seccion = int(elem[20][8])
+						seccion = int(elem[3][8])
 					
-					profesor = elem[23]
+					profesor = elem[9]
 					
-				elif elem[21][0] == "A": #se verifica que la informacion de la fila sea una Ayudantia
-					aux = elem[22].split()[0]+" "+elem[22].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
+				elif elem[5][0] == "A": #se verifica que la informacion de la fila sea una Ayudantia
+					aux = elem[7].split()[0]+" "+elem[7].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
 					aux_horario.append(aux)
 
-				elif elem[21][0] == "L": #se verifica que la informacion de la fila sea una Ayudantia
-					aux = elem[22].split()[0]+" "+elem[22].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
+				elif elem[5][0] == "L": #se verifica que la informacion de la fila sea una Ayudantia
+					aux = elem[7].split()[0]+" "+elem[7].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
 					aux_horario.append(aux)
 			else:
 				for j in electivos_can_take:
-					if codRamo == j :
-						
-						aux_box = "CIT341"+str(z)
-						
-						alfa = {'codigo':codigo,'nombre':nombre, 'seccion':seccion, "horario":aux_horario, "profesor":profesor,'codigo_box':aux_box }
-						aux_count = 0
-						for k in range(0,len(lista_secciones)): 
-							if lista_secciones[k]["codigo"] == codigo and lista_secciones[k]["codigo_box"] == aux_box: # se verifica si ya existe esta seccion en la lista de secciones (se evitan datos repetidos)
-								aux_count+=1
-								break
-						if aux_count == 0 and seccion != 99: #con esto solo se agrega una vez la seccion
-							lista_secciones.append(alfa)
+					if codRamo == j and int(vac_free) > 0 :
+						if  codRamo[0:5]=="CIT34":
+							aux_box = "CIT341"+str(z)
+							
+							alfa = {'codigo':codigo,'nombre':nombre, 'seccion':seccion, "horario":aux_horario, "profesor":profesor,'codigo_box':aux_box }
+							aux_count = 0
+							for k in range(0,len(lista_secciones)): 
+								if lista_secciones[k]["codigo"] == codigo and lista_secciones[k]["codigo_box"] == aux_box: # se verifica si ya existe esta seccion en la lista de secciones (se evitan datos repetidos)
+									aux_count+=1
+									break
+							if aux_count == 0 and seccion != 99: #con esto solo se agrega una vez la seccion
+								lista_secciones.append(alfa)
 				aux_horario = []
 	#se debe calcular cuantos electivos tiene su carrera
 	#saber cuantos ha cursado
@@ -290,13 +292,13 @@ def appendElectivos(lista_secciones,oferta_academica,ramos_aprobados,electivos_m
 def extract_data(ramos_disponibles, nombre_excel_malla): 
 	
 	
-	
+	#print(ramos_disponibles)
 	lista_secciones=[]
 	
 	
 	
 	
-	oferta_academica= np.array(pd.read_excel('INGENIERÍA-CIVIL-EN-INFORMÁTICA-Y-TELECOMUNICACIONES.xlsx', sheet_name='Sheet1'))
+	oferta_academica= np.array(pd.read_excel('Oferta Academica 2021-1 vacantes 2021-02-04.xlsx', sheet_name='Sheet1',engine='openpyxl'))
 
 	
 	electivos_malla= np.array(pd.read_excel(nombre_excel_malla, sheet_name='Electivos'))
@@ -322,53 +324,56 @@ def extract_data(ramos_disponibles, nombre_excel_malla):
 	aux_horario = []
 	for i in range (0,len(oferta_academica)):
 		elem=oferta_academica[i]
-		if isinstance(elem[21], str): 
+		if isinstance(elem[5], str): 
 			 
-			if elem[21][0] == "C": #se verifica que la informacion de la fila sea una Catedra
+			if elem[5][0] == "C": #se verifica que la informacion de la fila sea una Catedra
 
-				if len(elem[22].split()) == 5: #se procesa los datos de los horarios para usarlos posteriormente
-					aux = elem[22].split()[0]+" "+elem[22].split()[2] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+				if len(elem[7].split()) == 5: #se procesa los datos de los horarios para usarlos posteriormente
+					aux = elem[7].split()[0]+" "+elem[7].split()[2] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 					aux_horario.append(aux)
-					aux = elem[22].split()[1]+" "+elem[22].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+					aux = elem[7].split()[1]+" "+elem[7].split()[2] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 					aux_horario.append(aux)
-				elif len(elem[22].split()) == 4:
-					aux = elem[22].split()[0]+" "+elem[22].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+				elif len(elem[7].split()) == 4:
+					aux = elem[7].split()[0]+" "+elem[7].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 					aux_horario.append(aux)
-				elif len(elem[22].split()) == 6:
-					aux = elem[22].split()[0]+" "+elem[22].split()[3] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+				elif len(elem[7].split()) == 6:
+					aux = elem[7].split()[0]+" "+elem[7].split()[3] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 					aux_horario.append(aux)
-					aux = elem[22].split()[1]+" "+elem[22].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+					aux = elem[7].split()[1]+" "+elem[7].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 					aux_horario.append(aux)
-					aux = elem[22].split()[2]+" "+elem[22].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+					aux = elem[7].split()[2]+" "+elem[7].split()[3] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 					aux_horario.append(aux)
-				elif len(elem[22].split()) == 8:
-					aux = elem[22].split()[0]+" "+elem[22].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
+				elif len(elem[7].split()) == 8:
+					aux = elem[7].split()[0]+" "+elem[7].split()[1] # se guarda el primer modulo de la Catedra ejemplo LU 08.30
 					aux_horario.append(aux)
-					aux = elem[22].split()[4]+" "+elem[22].split()[5] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
+					aux = elem[7].split()[4]+" "+elem[7].split()[5] # se guarda el segundo modulo de la Catedra ejemplo MA 10.00
 					aux_horario.append(aux)
 				
 
-				codigo = elem[26]  
-				codRamo = elem[16]
-				nombre = elem[17]
-				if len(elem[20]) == 10:
-					seccion = int(elem[20][8]+elem[20][9])
+				codigo = elem[4]  
+				codRamo = elem[1]
+				nombre = elem[2]
+				vac_free = elem[12]
+				if len(elem[3]) == 10:
+					seccion = int(elem[3][8]+elem[3][9])
 				else:
-					seccion = int(elem[20][8])
+					seccion = int(elem[3][8])
 				
-				profesor = elem[23]
+				profesor = elem[9]
 				
-			elif elem[21][0] == "A": #se verifica que la informacion de la fila sea una Ayudantia
-				aux = elem[22].split()[0]+" "+elem[22].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
+			elif elem[5][0] == "A": #se verifica que la informacion de la fila sea una Ayudantia
+				aux = elem[7].split()[0]+" "+elem[7].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
 				aux_horario.append(aux)
 
-			elif elem[21][0] == "L": #se verifica que la informacion de la fila sea una Ayudantia
-				aux = elem[22].split()[0]+" "+elem[22].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
+			elif elem[5][0] == "L": #se verifica que la informacion de la fila sea una Ayudantia
+				aux = elem[7].split()[0]+" "+elem[7].split()[1]  # se guarda el primer modulo de la ayudantia ejemplo VI 17.25
 				aux_horario.append(aux)
 		else:
 			for j in ramos_disponibles:
-				if codRamo == ramos_disponibles[j]["codigo_ref"]:
+				
+				if codRamo == ramos_disponibles[j]["codigo_ref"] and int(vac_free) > 0 :
 					alfa = {'codigo':codigo,'nombre':nombre, 'seccion':seccion, "horario":aux_horario, "profesor":profesor,'codigo_box':j }
+					
 					aux_count = 0
 					for k in range(0,len(lista_secciones)): 
 						if lista_secciones[k]["codigo"] == codigo and lista_secciones[k]["codigo_box"] == j: # se verifica si ya existe esta seccion en la lista de secciones (se evitan datos repetidos)
@@ -405,7 +410,7 @@ def extract_data(ramos_disponibles, nombre_excel_malla):
 		print(i)
 	"""
 	#print(lista_secciones)
-	#print(nombres_ramos_tomar)
+	
 
 	#print(cod_elect_inf, cod_elect_teleco, cod_CFG)
 	return lista_secciones ,ramos_disponibles

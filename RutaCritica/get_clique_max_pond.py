@@ -136,50 +136,44 @@ def get_clique_max_pond(lista_secciones,ramos_disponibles):
 	#	print(elem,"\n")
 		
 
-	max_clique_pond= nx.max_weight_clique(G, weight="prioridad") #se obtiene el maximo clique con mayor peso ponderado
 
-	#print("\nSecciones disponibles a tomar este semestre:") # si no a parecen es porque no hay un horario definido
-	#ko=False
-	
-	
-	
-	print("---------------")
-	print("\nSolucion Recomendada: \n")
-	arr_aux_delete=[]
-	arr_aux2_delete=[]
-	
-	for elem in  max_clique_pond[0]:
-		arr_aux_delete.append((elem,G.nodes[elem]["prioridad"]))
 
-	for elem in  max_clique_pond[0]:
-		arr_aux2_delete.append((elem,G.nodes[elem]["prioridad"]))
 
-	arr_aux_delete.sort(key=lambda tup: tup[1],reverse = True)
-	arr_aux2_delete.sort(key=lambda tup: tup[1],reverse = True)
-	limit_achive_cfg=False
-	#aux_cfg=count_cfg
 	
+	prev_solution = []
 
-	""" for elem in arr_aux2_delete: 
+	""" show_options=input("Cuantas solucines quiere ver ?\n")
+	try:
+		show_options= int(show_options)
+	except:
+		show_options = 15 """
 
-		if len(elem[0])<=3:
-			pass
-		elif elem[0][0:3] =="CFG" and limit_achive_cfg == False :
-			aux_cfg+=1
-		elif elem[0][0:3] =="CFG" and limit_achive_cfg == True:
+	show_options = 10
+	for i in range(show_options):
+		max_clique_pond= nx.max_weight_clique(G, weight="prioridad") #se obtiene el maximo clique con mayor peso ponderado
+		if len(max_clique_pond[0]) <= 2:
+			print("\n---------------")
+			print("Solo quedan soluciones con 2 o menos ramos")
+			break 
+		arr_aux_delete=[]
+		for elem in  max_clique_pond[0]: # es necesario crear un nuevo arreglo ?
+			arr_aux_delete.append((elem,G.nodes[elem]["prioridad"])) 
+		arr_aux_delete.sort(key=lambda tup: tup[1]) #este arreglo contiene el clique maximo que se recomiendan ordenado de menor a mayor
 		
-			arr_aux_delete.pop(arr_aux_delete.index(elem))
-		if aux_cfg == 4:
-			limit_achive_cfg=True """
-	
-	#antes de imprimir la lista de cfg preguntar si quiere tomar un cfg -> si un cfg es critico se le muestra si  o si los cfg
-	arr_aux_delete.sort(key=lambda tup: tup[1])
-	while len(arr_aux_delete) >6 : 
-			arr_aux_delete.pop(0)	#se elimina el mas peso mas chico de la lista
+		
+		while len(arr_aux_delete) >6 : 
+				arr_aux_delete.pop(0)	#se elimina el mas peso mas chico de la lista	
 
-	for elem in  arr_aux_delete:
-		print(elem[0][0:7]," || ",G.nodes[elem[0]]["nombre"],"- Seccion:",G.nodes[elem[0]]["seccion"],"| Horario -> ",G.nodes[elem[0]]["horario"],"||",G.nodes[elem[0]]["prioridad"]) #se muestra los elementos del clique maximo
-
+		if 	prev_solution == arr_aux_delete: # sirve para no mostrar siempre las mismas soluciones
+			continue
+		else:
+			print("---------------")
+			print("\nSolucion Recomendada #",i+1,": \n")
+			for elem in  arr_aux_delete: # muestra las secciones a tomar
+				print(elem[0][0:7]," || ",G.nodes[elem[0]]["nombre"],"- Seccion:",G.nodes[elem[0]]["seccion"],"| Horario -> ",G.nodes[elem[0]]["horario"],"||",G.nodes[elem[0]]["prioridad"]) #se muestra los elementos del clique maximo
+		#print("ava",arr_aux_delete[0][0])
+		prev_solution = arr_aux_delete
+		G.remove_node(arr_aux_delete[0][0])
 
 	#if ko == False:
 	#	print("\nNo se encontro una solucion con todos los ramos criticos")
