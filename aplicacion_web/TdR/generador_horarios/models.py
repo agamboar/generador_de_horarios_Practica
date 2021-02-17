@@ -1,20 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # COMPONENTE ESCUELA
-
-
-# ¿es necesaria la clase box? solo complica las consultas desde views. Quizas es mejor incluir el numero
-# correlativo y el semestre dentro de asignatura_real, para facilitar las querys.
-# Se puede agregar un atributo de a que malla corresponde la asignatura, para que de esta manera
-# se muestre la asignatura que corresponde a la malla del alumno, pero aun asi, se le indica que
-# esa asignatura puede equivaler a otras asignaturas, de las otras mallas.
-
-# class box(models.Model):
-
-#    num_correlativo = models.IntegerField(default=0, primary_key=True)
-#   semestre = models.CharField(max_length=15)
-
 
 class asignatura_real(models.Model):
 
@@ -57,7 +45,10 @@ class seccion(models.Model):
 
     cod_seccion = models.CharField(max_length=25, primary_key=True)
     semestre = models.CharField(max_length=10)
-    num_seccion = models.IntegerField(default=0)
+    num_seccion = models.CharField(max_length=20)
+    vacantes = models.IntegerField(default=0)
+    inscritos = models.IntegerField(default=0)
+    vacantes_libres = models.IntegerField(default=0)
 
     to_asignatura_real = models.ForeignKey(
         to=asignatura_real,
@@ -66,7 +57,7 @@ class seccion(models.Model):
 
 class evento(models.Model):
 
-    tipo = models.CharField(max_length=15)
+    tipo = models.CharField(max_length=40)
     dia = models.CharField(max_length=3)
     modulo = models.CharField(max_length=20)
     profesor = models.CharField(max_length=50)
@@ -81,16 +72,18 @@ class evento(models.Model):
 class alumno(models.Model):
 
     rut = models.CharField(max_length=11, primary_key=True)
-    password = models.CharField(max_length=12, default=None)
-    nombre = models.CharField(max_length=30)
-    apellido = models.CharField(max_length=30)
-    correo = models.CharField(max_length=50)
-    token = models.CharField(max_length=30, default=None)
+    agno_ingreso = models.IntegerField(default=0)
     psu_matematicas = models.IntegerField(default=0)
     psu_lenguaje = models.IntegerField(default=0)
     psu_historia = models.IntegerField(default=0)
     psu_ciencias = models.IntegerField(default=0)
     nem = models.IntegerField(default=0)
+
+    to_user = models.OneToOneField(
+        to=User,
+        on_delete=models.CASCADE
+
+    )
 
 
 class avance_academico(models.Model):
@@ -102,8 +95,8 @@ class avance_academico(models.Model):
     einf_count = models.IntegerField(default=0)
     etele_count = models.IntegerField(default=0)
 
-    to_alumno = models.ForeignKey(
-        to=alumno,
+    to_user = models.ForeignKey(
+        to=User,
         on_delete=models.CASCADE
     )
 
@@ -111,12 +104,12 @@ class avance_academico(models.Model):
 class asignatura_cursada(models.Model):
 
     codigo = models.CharField(max_length=25)
-    nota = models.FloatField()
+    nota = models.FloatField(default=0)
     estado = models.CharField(max_length=15)
     fecha_modificacion = models.DateTimeField(auto_now=True)
 
-    to_alumno = models.ForeignKey(
-        to=alumno,
+    to_User = models.ForeignKey(
+        to=User,
         on_delete=models.CASCADE
     )
 
@@ -137,8 +130,8 @@ class horario(models.Model):
 
     # esto indica una relación one-to-many (un alumno puede tener varios horarios de antiguos semestres guardados)
 
-    to_alumno = models.ForeignKey(
-        to=alumno,
+    to_user = models.ForeignKey(
+        to=User,
         on_delete=models.CASCADE)
 
 
@@ -158,7 +151,7 @@ class nodo_asignatura(models.Model):
         on_delete=models.CASCADE
     )
 
-    to_alumno = models.ManyToManyField(alumno)
+    to_user = models.ManyToManyField(User)
 
 
 class ramo_por_tomar(models.Model):

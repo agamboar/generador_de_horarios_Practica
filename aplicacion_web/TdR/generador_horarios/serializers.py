@@ -23,4 +23,11 @@ class mallaSerializer(serializers.ModelSerializer):
 class seccionSerializer(serializers.ModelSerializer):
     class Meta:
         model = seccion
-        fields = ['cod_seccion', 'semestre', 'num_seccion']
+        fields = ['cod_seccion', 'semestre', 'num_seccion', 'vacantes',
+                  'inscritos', 'vacantes_libres', 'to_asignatura_real_id']
+
+
+class eventoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = evento
+        fields = ['tipo', 'dia', 'modulo', 'profesor', 'to_seccion_id']
