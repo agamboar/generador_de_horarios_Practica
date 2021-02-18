@@ -9,7 +9,7 @@ import pandas as pd
 ##VERSION antigua de este archivo porque se borro el otro
 
 
-def equivalencia(ramos_disponibles,oferta_academica,equivalencia_ramos):
+def equivalencia(ramos_disponibles,oferta_academica,equivalencia_ramos): #esto ya no va porque esta listo en la base de datos
 	#aca se asigna el codigo del codigo de referencia
 	
 	for elem in list(ramos_disponibles):
@@ -34,14 +34,14 @@ def equivalencia(ramos_disponibles,oferta_academica,equivalencia_ramos):
 	
 	return ramos_disponibles
 
-def counter_cfg_malla(malla_alumno):
+def counter_cfg_malla(malla_alumno): #esto ya no va porque esta listo en la base de datos
 	count_cfg_malla = 0
 	for cod in malla_alumno[:,1]:
 		if cod[0:3] == "CFG":
 			count_cfg_malla+=1
 	return count_cfg_malla
 
-def counter_cfg_aprobados(ramos_aprobados):
+def counter_cfg_aprobados(ramos_aprobados): #esto ya no va porque esta listo en la base de datos
 	count_cfg_aprobados = 0
 	cfg_aprobados=[]
 	for cod in ramos_aprobados[:,1]:
@@ -97,7 +97,7 @@ def secciones_cfg(lista_secciones,cant_cfg_malla,cant_cfg_aprobados,cfg_aprobado
 				else:
 					continue
 			else:
-				if codigo not in cfg_aprobados:
+				if codigo not in cfg_aprobados: #esto debe interar con el arreglo que le pasa la base de datos (agregar los nombres de los cfg aprobados a un array)
 					aux_box = "CFG-"+str(z)
 					alfa = {'codigo':codigo,'nombre':nombre, 'seccion':seccion, "horario":aux_horario, "profesor":profesor,"codigo_box":aux_box}
 					aux_count = 0
