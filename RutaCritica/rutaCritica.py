@@ -28,7 +28,9 @@ def set_values_recursive(PERT,id_node,len_dag):
 
 
 def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
+    #subir los ramos aprobados del almuno a la base usando un excel
 
+    ## se saca de malla
     ramos_cursados =  np.array(pd.read_excel(excel_ramos_aprobados, header = None))
     codigos_ramos_cursados = ramos_cursados[:,1]
 
@@ -45,7 +47,9 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
 
     ramos_no_cursados = np.array(ramos_no_cursados) 
     
+    ## hasta aqui
 
+    #se hace aca
     PERT = nx.DiGraph()  #Grafo dirigido
 
     for i in range(0,len(ramos_no_cursados)):
@@ -83,7 +87,7 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
   
     ramos_disponibles = {}
 
-    
+    #se hace aca 
     #print("\nPERT Generado:\n ")
     #print(list(PERT))
     for elem in list(PERT): # aca se determinan los ramos criticos y los ramos que se pueden tomar.
@@ -98,7 +102,7 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
             
         #print(elem," ",PERT.nodes[elem])# imprime todos los nodos agregados en el grafo
       
-    
+    # hasta aca
     print("Ramos criticos: ")
     for i in list(ramos_disponibles):
         if ramos_disponibles[i]["critico"] == True:
@@ -112,6 +116,7 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
     print("\nExtrayendo Datos...\n")
     #nx.draw_shell(PERT, with_labels=True, font_weight='bold') #se dibuja el grafo generado
     #plt.show()
+    #se debe pasar el año del pibe
     return ramos_disponibles, nombre_excel_malla
 
 #getRamoCritico('MiMalla.xlsx')

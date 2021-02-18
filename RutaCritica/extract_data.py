@@ -182,7 +182,7 @@ def appendElectivos(lista_secciones,oferta_academica,ramos_aprobados,electivos_m
 
 					codigo = elem[4]  
 					codRamo = elem[1]
-					nombre = elem[2]
+					nombre = elem[2] #ojo
 					vac_free = elem[12]
 					if len(elem[3]) == 10:
 						seccion = int(elem[3][8]+elem[3][9])
@@ -409,7 +409,7 @@ def extract_data(ramos_disponibles, nombre_excel_malla):
 	for i in lista_secciones:
 		print(i)
 	"""
-	#print(lista_secciones)
+	print(lista_secciones)
 	
 
 	#print(cod_elect_inf, cod_elect_teleco, cod_CFG)
