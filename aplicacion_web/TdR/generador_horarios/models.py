@@ -9,8 +9,9 @@ class asignatura_real(models.Model):
     codigo = models.CharField(max_length=30, primary_key=True)
     nombre = models.CharField(max_length=50)
     creditos = models.IntegerField(null=False)
-    nro_correlativo = models.CharField(max_length=20)
-    semestre = models.CharField(max_length=10)
+    nro_correlativo = models.CharField(max_length=30)
+    semestre = models.CharField(max_length=30)
+    tipo = models.IntegerField(default=0)
     equivale = models.ManyToManyField('self', default=None)
     prerrequisito = models.ManyToManyField('self')
 
