@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 # cambiar despues por la URL para que alumno indique ramos aprobados
-LOGIN_REDIRECT_URL = '/ramos/2010/'
+LOGIN_REDIRECT_URL = '/ramosaprobados/'
 ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login"
 
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",

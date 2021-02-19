@@ -27,6 +27,8 @@ class malla_curricular(models.Model):
 
     to_asignatura_real = models.ManyToManyField(asignatura_real)
 
+    to_user = models.ManyToManyField(User)
+
 
 class oferta_malla(models.Model):
 
@@ -79,6 +81,7 @@ class alumno(models.Model):
     psu_historia = models.IntegerField(default=0)
     psu_ciencias = models.IntegerField(default=0)
     nem = models.IntegerField(default=0)
+    agno_malla = models.IntegerField(default=0)
 
     to_user = models.OneToOneField(
         to=User,
@@ -90,7 +93,7 @@ class alumno(models.Model):
 class avance_academico(models.Model):
 
     semestre = models.CharField(max_length=10, primary_key=True)
-    json_avance = models.JSONField()
+    json_avance = models.JSONField(default=dict)
     fgd_count = models.IntegerField(default=0)
     cfg_count = models.IntegerField(default=0)
     einf_count = models.IntegerField(default=0)

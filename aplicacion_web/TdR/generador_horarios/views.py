@@ -3,19 +3,16 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django import forms
 
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers import *
 from .models import *
-from .tasks import read_eventos, read_secciones, read_evento_cfg, read_seccion_cfg
+from .tasks import *
 
 # Create your views here.
-
-
-class UploadFileForm(forms.Form):
-    file = forms.FileField()
 
 
 @api_view(['GET'])
@@ -27,31 +24,14 @@ def api_overview(request):
     return Response(api_urls)
 
 
-class asignaturaView(APIView):
-
-    def get(self, request, pk):
-        asignatura = get_object_or_404(asignatura_real, pk=pk)
-        serializer = asignaturaSerializer(asignatura)
-        return Response(serializer.data)
-
-
-class mallaView(APIView):
-
-    def get(self, request, year):
-
-        asignatura = asignatura_real.objects.filter(
-            malla_curricular__agno=year)
-        serializer = asignaturaSerializer(asignatura, many=True)
-
-        return Response(serializer.data)
-
-
 @api_view(['GET'])
 def ramo_list(request, year):
 
     asignatura = asignatura_real.objects.filter(
         malla_curricular__agno=year)
     serializer = asignaturaSerializer(asignatura, many=True)
+    current_user = request.user
+    print(current_user.id)
 
     return Response(serializer.data)
 
@@ -118,5 +98,36 @@ def import_cfg(request):
             e = evento(tipo=elem[0], dia=elem[1],
                        modulo=elem[2], profesor=elem[3], to_seccion=s)
             e.save()
+
+    return render(request, 'upload.html')
+
+
+def upload_mi_malla(request):
+
+    if request.method == "POST":
+
+        current_user = request.user
+        excel_file = request.FILES["excel_file"]
+        codigos = read_mi_malla(excel_file)
+        user = User.objects.get(id=current_user.id)
+
+        if avance_academico.objects.count == 0:
+
+            av = avance_academico.objects.create(
+                semestre=codigos[1], to_user=user)
+            av.save()
+            semestre = codigos[1]
+        else:
+            semestre = codigos[1]
+
+        avance = avance_academico.objects.get(semestre=semestre)
+
+        for elem in codigos[3:]:
+
+            asignatura = asignatura_real.objects.get(codigo=elem[0])
+
+            a = asignatura_cursada(
+                codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
+            a.save()
 
     return render(request, 'upload.html')
