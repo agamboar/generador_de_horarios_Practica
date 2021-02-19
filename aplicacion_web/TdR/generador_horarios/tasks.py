@@ -8,8 +8,7 @@ def read_secciones(excel_oferta):
 
     seccion = np.array(pd.read_excel(
 
-        excel_oferta, usecols=['Paquete', 'Sección', 'Asignatura', 'Vac. Paquete', 'Inscritos', 'Vac. Libres'], na_filter=False))
-
+        excel_oferta, usecols="T,D,B,K,L,M", na_filter=False,engine='openpyxl'))
     seen = set()
     newlist = []
 
@@ -35,7 +34,7 @@ def read_eventos(excel_oferta):
 
     evento = np.array(pd.read_excel(
 
-        excel_oferta, usecols=['Descrip. Evento', 'Horario', 'Profesor', 'Paquete'], na_filter=False))
+        excel_oferta, usecols="F,H,J,T", na_filter=False,engine='openpyxl'))
 
     arr_eventos = []
 

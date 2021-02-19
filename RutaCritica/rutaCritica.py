@@ -40,7 +40,16 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
     codigos_ramos_malla = malla_alumno[:,1]
     
     ramos_no_cursados = []
+    #codigos_ramos_malla se debe sacar usando una consulta a la base de datos, en donde se saquen todos los ramos de la malla que le corresponde al alumno
+    #consulta entre todas las tablas que correspondan 
 
+    # alfa = asignatura_real.objects.filter(malla_curricular__agno=2010) #ramos de la malla 2010 <-> codigos ramos_malla
+        #alfa[i].codigo
+
+    #primero se debe busar el id del usuario usando el rut de alumno
+        #beta=alumno.objects.get(rut="212221-1").to_user_id
+        # epsilon = asignatura_cursada.objects.filter(to_user_id__id=3,estado="Aprobado")
+            #epsilon[i].codigo
     for i in range(0, len(codigos_ramos_malla)):
         if codigos_ramos_malla[i] not in codigos_ramos_cursados:
             ramos_no_cursados.append(malla_alumno[i])
@@ -84,7 +93,13 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
             for k in list(PERT.predecessors(elem)):
                 PERT = set_values_recursive(PERT,k,long_path-1)
     
-  
+    #cuando ya se tiene listo los valores del pert
+    #se itera sobre todos los elementos y se van guardando los valores en la base de datos
+    #deberia poder asignar los valores usando el codigo de la asignatura...
+
+    #r = nodo_asignatura(to_asignatura_real_id=elem,holgura= PERT.nodes[elem]["H"], ef= PERT.nodes[elem]["EF"], es=PERT.nodes[elem]["ES"] ,ls = PERT.nodes[elem]["LS"],lf= PERT.nodes[elem]["LF"],critico=aux)
+    #r.save()
+    #siendo elem el codigo de la asignatura y aux un booleano
     ramos_disponibles = {}
 
     #se hace aca 

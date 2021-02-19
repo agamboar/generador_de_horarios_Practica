@@ -24,7 +24,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('ramos/<str:year>/', views.ramo_list, name='ramos'),
     path('upload/', views.import_malla, name='upload'),
-    path('uploadcfg/', views.import_cfg, name='uploadcfg')
+    path('uploadcfg/', views.import_cfg, name='uploadcfg'), 
 
 
 ]
