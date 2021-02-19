@@ -117,6 +117,8 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
     #nx.draw_shell(PERT, with_labels=True, font_weight='bold') #se dibuja el grafo generado
     #plt.show()
     #se debe pasar el año del pibe
+
+    #retornar un json con los ramos que puede tomar y con su holgura. -> se puede hacer una consulta
     return ramos_disponibles, nombre_excel_malla
 
 #getRamoCritico('MiMalla.xlsx')
