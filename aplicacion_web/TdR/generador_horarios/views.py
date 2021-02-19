@@ -111,6 +111,12 @@ def upload_mi_malla(request):
         codigos = read_mi_malla(excel_file)
         user = User.objects.get(id=current_user.id)
 
+        try:
+            asignatura_cursada.objects.all().delete()
+
+        except:
+            pass
+
         if avance_academico.objects.count == 0:
 
             av = avance_academico.objects.create(
