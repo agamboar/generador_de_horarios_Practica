@@ -38,9 +38,11 @@ class asignaturaView(APIView):
 class mallaView(APIView):
 
     def get(self, request, year):
+
         asignatura = asignatura_real.objects.filter(
             malla_curricular__agno=year)
         serializer = asignaturaSerializer(asignatura, many=True)
+
         return Response(serializer.data)
 
 
