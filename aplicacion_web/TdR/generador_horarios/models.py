@@ -146,6 +146,7 @@ class nodo_asignatura(models.Model):
     ls = models.IntegerField(default=0)
     lf = models.IntegerField(default=0)
     fecha_mod = models.DateTimeField(auto_now=True)
+    critico = models.BooleanField(default=False)
 
     to_asignatura_real = models.OneToOneField(
         to=asignatura_real,
