@@ -148,6 +148,9 @@ class nodo_asignatura(models.Model):
     es = models.IntegerField(default=0)
     ls = models.IntegerField(default=0)
     lf = models.IntegerField(default=0)
+    cc = models.CharField(max_length=3, default='0')
+    uu = models.CharField(max_length=3, default='0')
+    kk = models.CharField(max_length=3, default='0')
     fecha_mod = models.DateTimeField(auto_now=True)
     critico = models.BooleanField(default=False)
 
@@ -159,33 +162,18 @@ class nodo_asignatura(models.Model):
     to_user = models.ManyToManyField(User)
 
 
-class ramo_por_tomar(models.Model):
-
-    cc = models.IntegerField(default=0)
-    uu = models.IntegerField(default=0)
-    kk = models.IntegerField(default=0)
-
-    to_nodo_asignatura = models.OneToOneField(
-        nodo_asignatura,
-        on_delete=models.CASCADE
-    )
-
-    to_asignatura_real = models.OneToOneField(
-        asignatura_real,
-        on_delete=models.CASCADE
-    )
-
-
 class nodo_seccion(models.Model):
 
-    ss = models.IntegerField(default=0)
+    ss = models.CharField(max_length=3)
     fecha_mod = models.DateTimeField(auto_now=True)
 
-    to_ramo_por_tomar = models.ForeignKey(
-        to=ramo_por_tomar,
-        on_delete=models.CASCADE)
-
     to_seccion = models.ManyToManyField(seccion)
+
+    to_nodo_asignatura = models.ForeignKey(
+        to=nodo_asignatura,
+        on_delete=models.CASCADE,
+        default=1
+    )
 
 
 class solucion(models.Model):

@@ -55,6 +55,7 @@ def import_malla(request):
         arr_secciones = read_secciones(excel_file)
         arr_eventos = read_eventos(excel_file)
         try:
+            # hacer la sentencia SQL TRUNCATE generador_horarios_evento RESTART IDENTITY CASCADE; para resetear los ID
             seccion.objects.exclude(cod_seccion__contains='CFG').delete()
             evento.objects.exclude(to_seccion__contains='CFG').delete()
         except:
@@ -82,16 +83,30 @@ def import_cfg(request):
         excel_file = request.FILES["excel_file"]
         cfg_secciones = read_seccion_cfg(excel_file)
         cfg_eventos = read_evento_cfg(excel_file)
+        cfg1 = asignatura_real.objects.get(codigo='CFG1')
+        cfg2 = asignatura_real.objects.get(codigo='CFG2')
+        cfg3 = asignatura_real.objects.get(codigo='CFG3')
+        cfg4 = asignatura_real.objects.get(codigo='CFG4')
+
         try:
             seccion.objects.filter(cod_seccion__contains='CFG').delete()
             evento.objects.filter(to_seccion__contains='CFG').delete()
         except:
             pass
         for elem in cfg_secciones:
-            a = asignatura_real.objects.get(codigo=elem[6])
-            s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                        vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5], to_asignatura_real=a)
-            s.save()
+
+            s1 = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                         vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5], to_asignatura_real=cfg1)  # hacer un for para las 4 "cajitas" de los cfg
+            s1.save()
+            # s2 = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+            #             vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5], to_asignatura_real=cfg2)
+            # s2.save()
+            # s3 = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+            #             vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5], to_asignatura_real=cfg3)
+            # s3.save()
+            # s4 = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+            #             vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5], to_asignatura_real=cfg4)
+            # s4.save()
 
         for elem in cfg_eventos:
             s = seccion.objects.get(cod_seccion=elem[4])
@@ -102,6 +117,8 @@ def import_cfg(request):
     return render(request, 'upload.html')
 
 
+# hacer un field para recibir el atributo ss y guardarlo en la base de datos. Similar al excel de la oferta.
+@permission_classes([IsAuthenticated])
 def upload_mi_malla(request):
 
     if request.method == "POST":
@@ -113,14 +130,13 @@ def upload_mi_malla(request):
 
         try:
             asignatura_cursada.objects.all().delete()
-
         except:
             pass
 
-        if avance_academico.objects.count == 0:
+        if avance_academico.objects.count == 0:  # cambiar esto con update_or_create para ahorrar los if
 
             av = avance_academico.objects.create(
-                semestre=codigos[1], to_user=user)
+                semestre=codigos[1], cfg_count=codigos[2], einf_count=codigos[3], etele_count=codigos[4], to_user=user)
             av.save()
             semestre = codigos[1]
         else:
@@ -128,7 +144,7 @@ def upload_mi_malla(request):
 
         avance = avance_academico.objects.get(semestre=semestre)
 
-        for elem in codigos[3:]:
+        for elem in codigos[6:]:
 
             asignatura = asignatura_real.objects.get(codigo=elem[0])
 
