@@ -4,7 +4,7 @@ Donde dice 'C:\Users\Public\asignaturaReal.csv', colocar la ubicacion de los arc
 
 sentencia asignaturas: 
 
-copy generador_horarios_asignatura_real(codigo, nombre, creditos, nro_correlativo, semestre,tipo) from 'C:\Users\Public\asignaturaReal.csv' delimiter ';' csv header;
+copy generador_horarios_asignatura_real(codigo, nombre, creditos, nro_correlativo, semestre, tipo) from 'C:\Users\Public\asignaturaReal.csv' delimiter ';' csv header;
 
 
 sentencia mallas:
