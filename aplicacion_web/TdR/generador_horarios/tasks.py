@@ -10,15 +10,14 @@ def read_secciones(excel_oferta):
 
         excel_oferta, usecols="T,D,B,K,L,M", na_filter=False, engine='openpyxl'))
 
-    seen = set()
+    seen = []
     newlist = []
 
     for item in seccion:
-        t = tuple(item)
 
-        if t not in seen and item[0] != '':
+        if item[5] not in seen and item[0] != '':
             newlist.append(item)
-            seen.add(t)
+            seen.append(item[5])
 
     new_list = np.insert(newlist, 1, '2021-1', axis=1)
 
@@ -142,16 +141,14 @@ def read_seccion_cfg(excel_file):
 
         excel_file, usecols=['Paquete', 'Sección', 'Asignatura', 'Vac. Paquete'], na_filter=False))
 
-    seen = set()
+    seen = []
     newlist = []
 
     for item in cfg_seccion:
 
-        t = tuple(item)
-
-        if t not in seen and item[2] != '' and item[3] != 0:
+        if item[2] not in seen and item[0] != '':
             newlist.append(item)
-            seen.add(t)
+            seen.append(item[2])
 
     new_list = np.insert(newlist, 1, '2021-1', axis=1)
     aux_list2 = np.insert(new_list, 4, 0, axis=1)

@@ -25,6 +25,7 @@ urlpatterns = [
     path('ramos/<str:year>/', views.ramo_list, name='ramos'),
     path('upload/', views.import_malla, name='upload'),
     path('uploadcfg/', views.import_cfg, name='uploadcfg'),
-    path('ramosaprobados/', views.upload_mi_malla, name='uploadmimalla')
+    path('ramosaprobados/', views.upload_mi_malla, name='uploadmimalla'),
+    path('PERT/', views.get_PERT, name='PERT'),
 
 ]
