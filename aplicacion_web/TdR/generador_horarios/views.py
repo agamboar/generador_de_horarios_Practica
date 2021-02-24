@@ -119,7 +119,6 @@ def import_cfg(request):
     return render(request, 'upload.html')
 
 
-# hacer un field para recibir el atributo ss y guardarlo en la base de datos. Similar al excel de la oferta.
 @permission_classes([IsAuthenticated])
 def upload_mi_malla(request):
 
@@ -152,7 +151,6 @@ def upload_mi_malla(request):
         avance = avance_academico.objects.get(semestre=semestre, to_user=user)
 
         for elem in codigos[6:]:
-            print(type(elem[0]), elem)
 
             if elem[0] != '':
                 asignatura = asignatura_real.objects.get(codigo=elem[0])

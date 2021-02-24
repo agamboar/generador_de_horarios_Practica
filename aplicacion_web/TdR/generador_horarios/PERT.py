@@ -90,7 +90,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         PERT.nodes[elem]["LS"] = PERT.nodes[elem]["ES"] + PERT.nodes[elem]["H"]
 
         # itera sobre los padres de los nodos que apuntan a 53
-        print(list(PERT.predecessors(elem)), elem)
+
         if len(list(PERT.predecessors(elem))) > 0:
             for k in list(PERT.predecessors(elem)):
                 PERT = set_values_recursive(PERT, k, long_path-1)
@@ -148,15 +148,27 @@ def get_secciones_disponibles(current_user):
     except:
         pass
 
-    nodos_user = nodo_asignatura.objects.filter(to_user=u)
+    nodos_asignatura_user = nodo_asignatura.objects.filter(
+        to_user=u)  # los ramos que el alumno no ha dado
 
-    for elem in nodos_user:
+    for elem in nodos_asignatura_user:
 
-        secciones_user = seccion.objects.filter(
-            to_asignatura_real__nodo_asignatura=elem)
-        print(secciones_user)
+        secciones_ramo_user = seccion.objects.filter(
+            to_asignatura_real__nodo_asignatura=elem)  # las secciones de los ramos que no ha dado el alumno
 
-        for s in secciones_user:
+        # equivalencias
+        if len(secciones_ramo_user) == 0:
+            try:
+                codigo_box = asignatura_real.objects.get(
+                    nodo_asignatura__id=elem.id).codigo
+                codigo_real = asignatura_real.objects.get(
+                    equivale=codigo_box).codigo
+                secciones_ramo_user = seccion.objects.filter(
+                    to_asignatura_real__codigo=codigo_real)
+            except:
+                continue
+
+        for s in secciones_ramo_user:
 
             nro_seccion = s.num_seccion
             ss = str(nro_seccion) if len(str(nro_seccion)

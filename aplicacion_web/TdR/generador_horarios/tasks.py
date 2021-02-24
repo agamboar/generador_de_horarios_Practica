@@ -1,10 +1,8 @@
 import pandas as pd
 import numpy as np
-import sys
 
 
 def read_secciones(excel_oferta):
-    np.set_printoptions(threshold=sys.maxsize)
 
     seccion = np.array(pd.read_excel(
 

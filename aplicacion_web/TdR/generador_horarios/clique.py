@@ -7,7 +7,7 @@ from .models import *
 def get_clique_max_pond(current_user):
 
     datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=2, to_nodo_asignatura__es=1).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo',
-                                                                                                               'to_nodo_asignatura__to_asignatura_real__equivale', 'to_seccion__evento__dia', 'to_seccion__evento__modulo', 'to_seccion__to_asignatura_real__codigo').order_by('-to_seccion__to_asignatura_real__importancia', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct()
+                                                                                                               'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__modulo', 'to_seccion__to_asignatura_real__codigo').order_by('-to_seccion__to_asignatura_real__importancia', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct()
     G = nx.Graph()
 
     aux_seccion = datos_clique[0]['to_seccion__cod_seccion']
@@ -23,8 +23,7 @@ def get_clique_max_pond(current_user):
             horario = '---'
 
         if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_seccion__to_asignatura_real__codigo']:
-            codigo = elem['to_nodo_asignatura__to_asignatura_real__equivale'] if elem[
-                'to_nodo_asignatura__to_asignatura_real__equivale'] != None else elem['to_seccion__to_asignatura_real__codigo']
+            codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
             if horario not in aux_horario:
                 aux_horario.append(horario)
 
@@ -34,7 +33,7 @@ def get_clique_max_pond(current_user):
             ss = elem['ss']
 
             prioridad = int(cc+uu+kk+ss)
-            print(elem["to_seccion__cod_seccion"])
+            # print(elem["to_seccion__cod_seccion"])
 
             G.add_nodes_from([str(codigo + "   - " + elem["to_seccion__cod_seccion"])],
                              horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=elem['to_seccion__cod_seccion'])
