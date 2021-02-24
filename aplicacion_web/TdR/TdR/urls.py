@@ -27,5 +27,8 @@ urlpatterns = [
     path('uploadcfg/', views.import_cfg, name='uploadcfg'),
     path('ramosaprobados/', views.upload_mi_malla, name='uploadmimalla'),
     path('PERT/', views.get_PERT, name='PERT'),
+    path('kk/', views.asignar_kk, name='kk'),
+    path('ss/', views.asignar_ss, name='ss'),
+    path('clique/', views.get_clique, name='clique'),
 
 ]

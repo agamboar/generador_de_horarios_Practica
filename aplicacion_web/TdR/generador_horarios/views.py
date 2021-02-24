@@ -2,16 +2,19 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django import forms
+from django.http import HttpResponse
 
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+import json
 
 from .serializers import *
 from .models import *
 from .tasks import *
 from .PERT import *
+from .clique import *
 
 # Create your views here.
 
@@ -32,7 +35,7 @@ def ramo_list(request, year):
         malla_curricular__agno=year)
     serializer = asignaturaSerializer(asignatura, many=True)
 
-    return JsonResponse(serializer.data, safe=False)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
@@ -64,8 +67,10 @@ def import_malla(request):
         for elem in arr_secciones:
 
             a = asignatura_real.objects.get(codigo=elem[6])
-            s = seccion.objects.create(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                                       vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+
+            s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                        vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+            s.save()
             s.to_asignatura_real.add(a)
 
         for elem in arr_eventos:
@@ -138,7 +143,7 @@ def upload_mi_malla(request):
                     'agno_malla': codigos[0]
                     }
 
-        av, created = avance_academico.objects.update_or_create(  # ver error de multiples objetos retornados
+        av, created = avance_academico.objects.update_or_create(
             semestre=codigos[1], to_user=current_user,
             defaults=counters)
 
@@ -147,9 +152,12 @@ def upload_mi_malla(request):
         avance = avance_academico.objects.get(semestre=semestre, to_user=user)
 
         for elem in codigos[6:]:
+            print(type(elem[0]), elem)
 
-            asignatura = asignatura_real.objects.get(codigo=elem[0])
-
+            if elem[0] != '':
+                asignatura = asignatura_real.objects.get(codigo=elem[0])
+            else:
+                continue
             a = asignatura_cursada(
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
@@ -157,7 +165,7 @@ def upload_mi_malla(request):
     return render(request, 'upload.html')
 
 
-@permission_classes([IsAuthenticated])
+@api_view(['GET'])
 def get_PERT(request):
 
     if request.method == "GET":
@@ -169,16 +177,68 @@ def get_PERT(request):
         año_malla = avance_academico.objects.get(
             to_user=current_user).agno_malla
         codigos_ramos_malla = asignatura_real.objects.filter(
-            malla_curricular__agno=año_malla).values_list('codigo', flat=True)
+            malla_curricular__agno=año_malla, tipo=0).values_list('codigo', flat=True)
 
         nodo_asignatura.objects.filter(to_user=current_user).delete()
 
         getRamoCritico(codigos_asignaturas_cursadas,
                        codigos_ramos_malla, current_user)
 
+        get_secciones_disponibles(current_user)
+
         ramos_disponibles = nodo_asignatura.objects.filter(
-            to_user__id=current_user)
+            to_user__id=current_user, to_asignatura_real__tipo=0)
 
         serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
 
-        return JsonResponse(serializer.data, safe=False)
+        return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_clique(request):
+
+    if request.method == "GET":
+
+        current_user = request.user.id
+
+        jsons = get_clique_max_pond(current_user)
+
+        return Response(jsons)
+
+
+@api_view(['POST'])
+def asignar_kk(request):
+    if request.method == "POST":
+
+        json_data = request.data
+
+        for aux in json_data:
+
+            nodo = nodo_asignatura.objects.get(id=aux['id'])
+
+            serializer = nodoAsignaturaSerializer(
+                nodo, data={'kk': aux['kk']}, partial=True)
+
+            if serializer.is_valid():
+                serializer.save()
+
+        return JsonResponse(json_data, safe=False)
+
+
+@api_view(['POST'])
+def asignar_ss(request):
+    if request.method == "POST":
+
+        json_data = request.data
+
+        for aux in json_data:
+
+            nodo = nodo_seccion.objects.get(id=aux['id'])
+
+            serializer = nodoSeccionSerializer(
+                nodo, data={'ss': aux['ss']}, partial=True)
+
+            if serializer.is_valid():
+                serializer.save()
+
+        return JsonResponse(json_data, safe=False)

@@ -27,6 +27,11 @@ def read_secciones(excel_oferta):
     new_list[:, idx]
     new_list[:] = new_list[:, idx]
 
+    for i in range(len(new_list)):
+        aux = new_list[i][2].split()
+        numero = aux[1]
+        new_list[i][2] = numero
+
     return new_list
 
 
@@ -159,6 +164,11 @@ def read_seccion_cfg(excel_file):
     idx[permut] = np.arange(len(permut))
     cfg_secciones[:, idx]
     cfg_secciones[:] = cfg_secciones[:, idx]
+
+    for i in range(len(cfg_secciones)):
+        aux = cfg_secciones[i][2].split()
+        numero = aux[1]
+        cfg_secciones[i][2] = numero
 
     return cfg_secciones
 

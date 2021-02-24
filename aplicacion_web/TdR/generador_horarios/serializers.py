@@ -36,4 +36,10 @@ class eventoSerializer(serializers.ModelSerializer):
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
     class Meta:
         model = nodo_asignatura
-        fields = ['holgura', 'critico', 'to_asignatura_real']
+        fields = '__all__'
+
+
+class nodoSeccionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = nodo_seccion
+        fields = '__all__'

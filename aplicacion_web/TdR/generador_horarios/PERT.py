@@ -6,30 +6,29 @@ import random
 from .models import *
 
 
-def set_values_recursive(PERT, codigo_nodo, len_dag):
-    print(codigo_nodo)
+def set_values_recursive(PERT, id_node, len_dag):
 
     # sirve para saber en cuantos semestre se debera tomar, idealmente, un ramo
-    arr_anc = list(nx.ancestors(PERT, codigo_nodo))
+    arr_anc = list(nx.ancestors(PERT, id_node))
     max_count_jump = 1
-    for elem1 in arr_anc:  # se calcula el camino mas grande desde todos los antecesores del nodo codigo_nodo
-        if max_count_jump < len(list(nx.all_simple_paths(PERT, elem1, codigo_nodo))[0]):
+    for elem1 in arr_anc:  # se calcula el camino mas grande desde todos los antecesores del nodo id_node
+        if max_count_jump < len(list(nx.all_simple_paths(PERT, elem1, id_node))[0]):
             max_count_jump = len(
-                list(nx.all_simple_paths(PERT, elem1, codigo_nodo))[0])
+                list(nx.all_simple_paths(PERT, elem1, id_node))[0])
 
-    PERT.nodes[codigo_nodo]["ES"] = max_count_jump if (PERT.nodes[codigo_nodo]["ES"] == None or (
-        max_count_jump > PERT.nodes[codigo_nodo]["ES"])) else PERT.nodes[codigo_nodo]["ES"]
-    # este uno es D
-    PERT.nodes[codigo_nodo]["EF"] = PERT.nodes[codigo_nodo]["ES"] + 1
-    PERT.nodes[codigo_nodo]["LF"] = len_dag if len_dag > 1 and (
-        PERT.nodes[codigo_nodo]["LF"] == None or PERT.nodes[codigo_nodo]["LF"] > len_dag) else PERT.nodes[codigo_nodo]["EF"]
-    H = PERT.nodes[codigo_nodo]["LF"] - PERT.nodes[codigo_nodo]["EF"] if PERT.nodes[codigo_nodo]["H"] == None or (
-        PERT.nodes[codigo_nodo]["LF"] - PERT.nodes[codigo_nodo]["EF"] < PERT.nodes[codigo_nodo]["H"]) else PERT.nodes[codigo_nodo]["H"]
-    PERT.nodes[codigo_nodo]["H"] = H if H > 0 else 0
-    PERT.nodes[codigo_nodo]["LS"] = PERT.nodes[codigo_nodo]["ES"] + \
-        PERT.nodes[codigo_nodo]["H"]
-    # nodos que apuntan al nodo codigo_nodo
-    node_pred_arr = list(PERT.predecessors(codigo_nodo))
+    PERT.nodes[id_node]["ES"] = max_count_jump if (PERT.nodes[id_node]["ES"] == False or (
+        max_count_jump > PERT.nodes[id_node]["ES"])) else PERT.nodes[id_node]["ES"]
+    PERT.nodes[id_node]["EF"] = PERT.nodes[id_node]["ES"] + 1  # este uno es D
+    PERT.nodes[id_node]["LF"] = len_dag if len_dag > 1 and (
+        PERT.nodes[id_node]["LF"] == False or PERT.nodes[id_node]["LF"] > len_dag) else PERT.nodes[id_node]["EF"]
+    H = PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"] if PERT.nodes[id_node]["H"] == False or (
+        PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"] < PERT.nodes[id_node]["H"]) else PERT.nodes[id_node]["H"]
+    PERT.nodes[id_node]["H"] = H if H > 0 else 0
+    PERT.nodes[id_node]["LS"] = PERT.nodes[id_node]["ES"] + \
+        PERT.nodes[id_node]["H"]
+
+    # nodos que apuntan al nodo id_node
+    node_pred_arr = list(PERT.predecessors(id_node))
 
     for elem in node_pred_arr:
         set_values_recursive(PERT, elem, len_dag-1)
@@ -37,14 +36,6 @@ def set_values_recursive(PERT, codigo_nodo, len_dag):
 
 
 def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_user):
-
-    #ramos_cursados =  np.array(pd.read_excel(excel_ramos_aprobados, header = None))
-    #codigos_ramos_cursados = ramos_cursados[:,1]
-
-    #año_malla = ramos_cursados[0,1]
-    #nombre_excel_malla = 'MallaCurricular{}.xlsx'.format(str(año_malla))
-    #malla_alumno = np.array(pd.read_excel(nombre_excel_malla))
-    #codigos_ramos_malla = malla_alumno[:,1]
 
     codigos_ramos_no_cursados = []
 
@@ -54,14 +45,11 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
 
     codigos_ramos_no_cursados = np.array(codigos_ramos_no_cursados)
 
-    # hasta aqui
-
-    # se hace aca
     PERT = nx.DiGraph()  # Grafo dirigido
 
     for codigo in codigos_ramos_no_cursados:
-        PERT.add_nodes_from([codigo], ES=-1, EF=-1,
-                            LS=-1, LF=-1, H=-1)
+        PERT.add_nodes_from([codigo], ES=False, EF=False,
+                            LS=False, LF=False, H=False)
 
     for elem in codigos_ramos_no_cursados:
         try:
@@ -70,10 +58,11 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         except:
             continue
 
-        for i in codigos_prerrequisitos_ramo:  # aqui se deben sacar los prerrequisitos de la base
+        for i in codigos_prerrequisitos_ramo:  # Se sacan los prerrequisitos de la base de datos
             if i in codigos_ramos_no_cursados:
                 PERT.add_edge(i, elem)
-    # print(list(PERT))
+
+    # Asigna el nombre del nodo final, dependiendo de la malla del alumno
 
     if 'FINAL1' in codigos_ramos_malla:
         aux = 'FINAL1'
@@ -81,9 +70,11 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         aux = 'FINAL2'
     elif 'FINAL3' in codigos_ramos_malla:
         aux = 'FINAL3'
+
     # itera sobre los nodos que apuntan al ultimo nodo que es el nodo auxiliar final y se asignan los pesos
 
     for elem in list(PERT.predecessors(aux)):
+
         long_path = len(nx.dag_longest_path(PERT))
         arr_anc = list(nx.ancestors(PERT, elem))
         max_count_jump = 1
@@ -97,28 +88,39 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         PERT.nodes[elem]["LF"] = long_path
         PERT.nodes[elem]["H"] = PERT.nodes[elem]["LF"] - PERT.nodes[elem]["EF"]
         PERT.nodes[elem]["LS"] = PERT.nodes[elem]["ES"] + PERT.nodes[elem]["H"]
+
         # itera sobre los padres de los nodos que apuntan a 53
+        print(list(PERT.predecessors(elem)), elem)
         if len(list(PERT.predecessors(elem))) > 0:
             for k in list(PERT.predecessors(elem)):
                 PERT = set_values_recursive(PERT, k, long_path-1)
 
     ramos_disponibles = {}
-    #print(PERT.nodes['CIT2102']['H'], PERT.nodes['CIT2102']['LF'])
-    # se hace aca
-    #print("\nPERT Generado:\n ")
-    # print(list(PERT))
+
     # aca se determinan los ramos criticos y los ramos que se pueden tomar.
+
     u = User.objects.get(id=current_user)
 
     for elem in list(PERT):
 
         aux_critico = False
+        cc = '00'
+        nro_correlativo = int(asignatura_real.objects.get(
+            codigo=elem).nro_correlativo)
+        aux_kk = str(60-nro_correlativo)
+        kk = aux_kk if len(aux_kk) > 1 else str("0"+aux_kk)
 
         if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
             aux_critico = True
+            cc = '10'
+
+        holgura = PERT.nodes[elem]["H"]
+
+        aux_UU = str(10-holgura)
+        uu = aux_UU if len(aux_UU) > 1 else str("0" + aux_UU)
 
         r = nodo_asignatura(holgura=PERT.nodes[elem]["H"], ef=PERT.nodes[elem][
-            "EF"], es=PERT.nodes[elem]["ES"], ls=PERT.nodes[elem]["LS"], lf=PERT.nodes[elem]["LF"], critico=aux_critico)
+            "EF"], es=PERT.nodes[elem]["ES"], ls=PERT.nodes[elem]["LS"], lf=PERT.nodes[elem]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)  # NO OLVIDAR CC, UU, KK, Y SS
 
         r.save()
         n = nodo_asignatura.objects.get(id=r.id)
@@ -126,24 +128,46 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         a = asignatura_real.objects.get(codigo=elem)
         n.to_asignatura_real.add(a)
 
-    # hasta aca
-    """ print("Ramos criticos: ")
-    for i in list(ramos_disponibles):
-        if ramos_disponibles[i]["critico"] == True:
-            print("->> ", ramos_disponibles[i]["nombre"],
-                  "-", ramos_disponibles[i]["codigo"])
-
-    print("\nRamos no criticos: ")
-    for i in list(ramos_disponibles):
-        if ramos_disponibles[i]["critico"] == False:
-            print("->> ", ramos_disponibles[i]["nombre"],
-                  "-", ramos_disponibles[i]["codigo"])
-
-    print("\nExtrayendo Datos...\n")
-    # nx.draw_shell(PERT, with_labels=True, font_weight='bold') #se dibuja el grafo generado
-    # plt.show()
-    # se debe pasar el año del pibe """
     return ramos_disponibles
+
+# Funcion para obtener las secciones que puede inscribir el alumno. Se guardan en la tabla nodo_seccion y se relacionan
+# con una seccion y con un nodo_asignatura, el cual esta relacionado con un alumno en especifico, por lo que
+# cada nodo_seccion esta relacionado con un alumno, de manera indirecta, a traves de nodo_asignatura.
+# La tabla nodo_seccion tiene el atributo del peso "ss", el cual sera updateado en otra view
+# por el alumno, asignandole más o menos peso a una seccion, según su preferencia.
+# Lo mismo con el peso de la asignatura disponible "kk".
+
+
+def get_secciones_disponibles(current_user):
+
+    u = User.objects.get(id=current_user)
+
+    try:
+        nodo_seccion.objects.filter(
+            to_nodo_asignatura__to_user=current_user).delete()
+    except:
+        pass
+
+    nodos_user = nodo_asignatura.objects.filter(to_user=u)
+
+    for elem in nodos_user:
+
+        secciones_user = seccion.objects.filter(
+            to_asignatura_real__nodo_asignatura=elem)
+        print(secciones_user)
+
+        for s in secciones_user:
+
+            nro_seccion = s.num_seccion
+            ss = str(nro_seccion) if len(str(nro_seccion)
+                                         ) > 1 else ("0" + str(nro_seccion))
+            codigo_seccion = s.cod_seccion
+            sec = seccion.objects.get(cod_seccion=codigo_seccion)
+
+            ns = nodo_seccion(ss=ss, to_nodo_asignatura=elem)
+            ns.save()
+
+            ns.to_seccion.add(s)
 
 # getRamoCritico('MiMalla.xlsx')
 

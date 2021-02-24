@@ -155,7 +155,7 @@ def counter_electivos_aprobados(ramos_aprobados):
     return count_electivos_inf_aprobados, count_electivos_tel_aprobados, electivos_aprobados
 
 
-def appendElectivos(lista_secciones, oferta_academica, ramos_aprobados, electivos_malla, cant_elect_inf_malla, cant_elect_tel_malla, count_electivos_inf_aprobados, count_electivos_tel_aprobados, electivos_aprobados):
+def appednElectivos(lista_secciones, oferta_academica, ramos_aprobados, electivos_malla, cant_elect_inf_malla, cant_elect_tel_malla, count_electivos_inf_aprobados, count_electivos_tel_aprobados, electivos_aprobados):
     electivos_can_take = []
     for i in range(0, len(electivos_malla)):
         count = 0

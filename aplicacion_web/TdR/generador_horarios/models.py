@@ -14,6 +14,7 @@ class asignatura_real(models.Model):
     tipo = models.IntegerField(default=0)
     equivale = models.ManyToManyField('self', default=None)
     prerrequisito = models.ManyToManyField('self')
+    importancia = models.IntegerField(default=3)
 
 
 class malla_curricular(models.Model):
