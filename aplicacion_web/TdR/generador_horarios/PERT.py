@@ -109,6 +109,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
             codigo=elem).nro_correlativo)
         aux_kk = str(60-nro_correlativo)
         kk = aux_kk if len(aux_kk) > 1 else str("0"+aux_kk)
+        
 
         if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
             aux_critico = True
@@ -119,8 +120,9 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         aux_UU = str(10-holgura)
         uu = aux_UU if len(aux_UU) > 1 else str("0" + aux_UU)
 
+        #modificar ya que setea KK y SS y no toma en cuenta la asignacion de pesos hecha por el alumno
         r = nodo_asignatura(holgura=PERT.nodes[elem]["H"], ef=PERT.nodes[elem][
-            "EF"], es=PERT.nodes[elem]["ES"], ls=PERT.nodes[elem]["LS"], lf=PERT.nodes[elem]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)  # NO OLVIDAR CC, UU, KK, Y SS
+            "EF"], es=PERT.nodes[elem]["ES"], ls=PERT.nodes[elem]["LS"], lf=PERT.nodes[elem]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)  
 
         r.save()
         n = nodo_asignatura.objects.get(id=r.id)
