@@ -55,6 +55,9 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/ramosaprobados/'
 ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login"
 
+
+SESSION_COOKIE_AGE = 10800
+
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
 

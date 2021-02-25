@@ -2,15 +2,19 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django import forms
+from django.http import HttpResponse
 
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+import json
 
 from .serializers import *
 from .models import *
 from .tasks import *
+from .PERT import *
+from .clique import *
 
 # Create your views here.
 
@@ -30,8 +34,6 @@ def ramo_list(request, year):
     asignatura = asignatura_real.objects.filter(
         malla_curricular__agno=year)
     serializer = asignaturaSerializer(asignatura, many=True)
-    current_user = request.user
-    print(current_user.id)
 
     return Response(serializer.data)
 
@@ -54,6 +56,7 @@ def import_malla(request):
         excel_file = request.FILES["excel_file"]
         arr_secciones = read_secciones(excel_file)
         arr_eventos = read_eventos(excel_file)
+
         try:
             # hacer la sentencia SQL TRUNCATE generador_horarios_evento RESTART IDENTITY CASCADE; para resetear los ID
             seccion.objects.exclude(cod_seccion__contains='CFG').delete()
@@ -64,9 +67,12 @@ def import_malla(request):
         for elem in arr_secciones:
 
             a = asignatura_real.objects.get(codigo=elem[6])
+
             s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                        vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5], to_asignatura_real=a)
+                        vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
             s.save()
+            s.to_asignatura_real.add(a)
+
         for elem in arr_eventos:
             s = seccion.objects.get(cod_seccion=elem[4])
             e = evento(tipo=elem[0], dia=elem[1],
@@ -93,20 +99,16 @@ def import_cfg(request):
             evento.objects.filter(to_seccion__contains='CFG').delete()
         except:
             pass
+
         for elem in cfg_secciones:
 
-            s1 = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                         vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5], to_asignatura_real=cfg1)  # hacer un for para las 4 "cajitas" de los cfg
-            s1.save()
-            # s2 = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-            #             vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5], to_asignatura_real=cfg2)
-            # s2.save()
-            # s3 = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-            #             vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5], to_asignatura_real=cfg3)
-            # s3.save()
-            # s4 = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-            #             vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5], to_asignatura_real=cfg4)
-            # s4.save()
+            s1 = seccion.objects.create(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                                        vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+
+            s1.to_asignatura_real.add(cfg1)
+            s1.to_asignatura_real.add(cfg2)
+            s1.to_asignatura_real.add(cfg3)
+            s1.to_asignatura_real.add(cfg4)
 
         for elem in cfg_eventos:
             s = seccion.objects.get(cod_seccion=elem[4])
@@ -117,7 +119,6 @@ def import_cfg(request):
     return render(request, 'upload.html')
 
 
-# hacer un field para recibir el atributo ss y guardarlo en la base de datos. Similar al excel de la oferta.
 @permission_classes([IsAuthenticated])
 def upload_mi_malla(request):
 
@@ -133,23 +134,109 @@ def upload_mi_malla(request):
         except:
             pass
 
-        if avance_academico.objects.count == 0:  # cambiar esto con update_or_create para ahorrar los if
+        counters = {'semestre': codigos[1],
+                    'cfg_count': codigos[2],
+                    'einf_count': codigos[3],
+                    'etele_count': codigos[4],
+                    'to_user': current_user,
+                    'agno_malla': codigos[0]
+                    }
 
-            av = avance_academico.objects.create(
-                semestre=codigos[1], cfg_count=codigos[2], einf_count=codigos[3], etele_count=codigos[4], to_user=user)
-            av.save()
-            semestre = codigos[1]
-        else:
-            semestre = codigos[1]
+        av, created = avance_academico.objects.update_or_create(
+            semestre=codigos[1], to_user=current_user,
+            defaults=counters)
 
-        avance = avance_academico.objects.get(semestre=semestre)
+        semestre = codigos[1]
+
+        avance = avance_academico.objects.get(semestre=semestre, to_user=user)
 
         for elem in codigos[6:]:
 
-            asignatura = asignatura_real.objects.get(codigo=elem[0])
-
+            if elem[0] != '':
+                asignatura = asignatura_real.objects.get(codigo=elem[0])
+            else:
+                continue
             a = asignatura_cursada(
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
     return render(request, 'upload.html')
+
+
+@api_view(['GET'])
+def get_PERT(request):
+
+    if request.method == "GET":
+
+        current_user = request.user.id
+
+        codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(
+            to_User_id__id=current_user).values_list('codigo', flat=True)
+        año_malla = avance_academico.objects.get(
+            to_user=current_user).agno_malla
+        codigos_ramos_malla = asignatura_real.objects.filter(
+            malla_curricular__agno=año_malla, tipo=0).values_list('codigo', flat=True)
+
+        nodo_asignatura.objects.filter(to_user=current_user).delete()
+
+        getRamoCritico(codigos_asignaturas_cursadas,
+                       codigos_ramos_malla, current_user)
+
+        get_secciones_disponibles(current_user)
+
+        ramos_disponibles = nodo_asignatura.objects.filter(
+            to_user__id=current_user, to_asignatura_real__tipo=0)
+
+        serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
+
+        return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_clique(request):
+
+    if request.method == "GET":
+
+        current_user = request.user.id
+
+        jsons = get_clique_max_pond(current_user)
+
+        return Response(jsons)
+
+
+@api_view(['POST'])
+def asignar_kk(request):
+    if request.method == "POST":
+
+        json_data = request.data
+
+        for aux in json_data:
+
+            nodo = nodo_asignatura.objects.get(id=aux['id'])
+
+            serializer = nodoAsignaturaSerializer(
+                nodo, data={'kk': aux['kk']}, partial=True)
+
+            if serializer.is_valid():
+                serializer.save()
+
+        return JsonResponse(json_data, safe=False)
+
+
+@api_view(['POST'])
+def asignar_ss(request):
+    if request.method == "POST":
+
+        json_data = request.data
+
+        for aux in json_data:
+
+            nodo = nodo_seccion.objects.get(id=aux['id'])
+
+            serializer = nodoSeccionSerializer(
+                nodo, data={'ss': aux['ss']}, partial=True)
+
+            if serializer.is_valid():
+                serializer.save()
+
+        return JsonResponse(json_data, safe=False)

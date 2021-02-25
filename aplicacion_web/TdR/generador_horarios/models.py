@@ -14,6 +14,7 @@ class asignatura_real(models.Model):
     tipo = models.IntegerField(default=0)
     equivale = models.ManyToManyField('self', default=None)
     prerrequisito = models.ManyToManyField('self')
+    importancia = models.IntegerField(default=3)
 
 
 class malla_curricular(models.Model):
@@ -53,9 +54,7 @@ class seccion(models.Model):
     inscritos = models.IntegerField(default=0)
     vacantes_libres = models.IntegerField(default=0)
 
-    to_asignatura_real = models.ForeignKey(
-        to=asignatura_real,
-        on_delete=models.CASCADE)
+    to_asignatura_real = models.ManyToManyField(asignatura_real)
 
 
 class evento(models.Model):
@@ -81,7 +80,6 @@ class alumno(models.Model):
     psu_historia = models.IntegerField(default=0)
     psu_ciencias = models.IntegerField(default=0)
     nem = models.IntegerField(default=0)
-    agno_malla = models.IntegerField(default=0)
 
     to_user = models.OneToOneField(
         to=User,
@@ -92,12 +90,16 @@ class alumno(models.Model):
 
 class avance_academico(models.Model):
 
-    semestre = models.CharField(max_length=10, primary_key=True)
+    class Meta:
+        unique_together = [['semestre', 'to_user']]
+
+    semestre = models.CharField(max_length=10)
     json_avance = models.JSONField(default=dict)
     fgd_count = models.IntegerField(default=0)
     cfg_count = models.IntegerField(default=0)
     einf_count = models.IntegerField(default=0)
     etele_count = models.IntegerField(default=0)
+    agno_malla = models.IntegerField(default=0)
 
     to_user = models.ForeignKey(
         to=User,
@@ -154,10 +156,7 @@ class nodo_asignatura(models.Model):
     fecha_mod = models.DateTimeField(auto_now=True)
     critico = models.BooleanField(default=False)
 
-    to_asignatura_real = models.OneToOneField(
-        to=asignatura_real,
-        on_delete=models.CASCADE
-    )
+    to_asignatura_real = models.ManyToManyField(asignatura_real)
 
     to_user = models.ManyToManyField(User)
 
