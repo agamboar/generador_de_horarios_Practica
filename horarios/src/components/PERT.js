@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
-import PERTMalla2018 from './PERTMalla2018'
+import PERTMalla2010 from './PERTMalla2010'
 import {Link} from 'react-router-dom';
 
 
@@ -32,7 +32,7 @@ export default class PERT extends Component {
                 <br/>
                 <br/>
                 
-                <PERTMalla2018/>
+                <PERTMalla2010/>
 
                 <br/>
                 

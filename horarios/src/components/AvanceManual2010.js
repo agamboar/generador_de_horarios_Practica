@@ -8,12 +8,68 @@ import {Link} from 'react-router-dom';
 export default class AvanceManual extends Component {
     
     state = {
+        malla: '2010',
+        AR1_C:  'CBM1000', 
+        AR2_C:  'CBM1001',  
+        AR3_C:  'CBQ1000',  
+        AR4_C:  'CIT1000',  
+        AR5_C:  'FIC1000',  
+        AR6_C:  'CBM1002',  
+        AR7_C:  'CBM1003',  
+        AR8_C:  'CBF1000',  
+        AR9_C:  'CIT1010',  
+        AR10_C: 'CFG1',
+        AR11_C: 'CBM1005', 
+        AR12_C: 'CBM1006', 
+        AR13_C: 'CBF1001', 
+        AR14_C: 'CIT2000', 
+        AR15_C: 'CIT2100', 
+        AR16_C: 'CIT2204', 
+        AR17_C: 'CBM2000', 
+        AR18_C: 'CBF1002', 
+        AR19_C: 'CIT2001', 
+        AR20_C: 'CFG2'  ,
+        AR21_C: 'FIC1001', 
+        AR22_C: 'CII2750', 
+        AR23_C: 'CIT2106', 
+        AR24_C: 'CIT2200', 
+        AR25_C: 'CIT2002', 
+        AR26_C: 'CFG3',  
+        AR27_C: 'FIC1002', 
+        AR28_C: 'CII2000', 
+        AR29_C: 'CIT2202', 
+        AR30_C: 'CIT2101', 
+        AR31_C: 'CIT2003', 
+        AR32_C: 'CIT2103', 
+        AR33_C: 'CII1000', 
+        AR34_C: 'CIT2005', 
+        AR35_C: 'CIT2102', 
+        AR36_C: 'FIC1003', 
+        AR37_C: 'CIT2104', 
+        AR38_C: 'CIT2203', 
+        AR39_C: 'CIT2004', 
+        AR40_C: 'CIT2105', 
+        AR41_C: 'CIT2201', 
+        AR42_C: 'CFG4',  
+        AR43_C: 'CIT3310', 
+        AR44_C: 'CIT3410', 
+        AR45_C: 'CIT3411', 
+        AR46_C: 'CIT3200', 
+        AR47_C: 'CIT3311', 
+        AR48_C: 'CIT3312', 
+        AR49_C: 'CIT3412', 
+        AR50_C: 'CIT3413', 
+        AR51_C: 'CIT3201', 
+        AR52_C: 'CIT3313', 
+        PR1_C: 'CIT5001',
+        PR2_C: 'CIT5002',
+        
         AR1: false, AR2: false, AR3: false, AR4: false, AR5: false, AR6: false, AR7: false, AR8: false, AR9: false, 
         AR10: false, AR11: false, AR12: false, AR13: false, AR14: false, AR15: false, AR16: false, AR17: false, AR18: false, AR19: false, 
         AR20: false, AR21: false, AR22: false, AR23: false, AR24: false, AR25: false, AR26: false, AR27: false, AR28: false, AR29: false, 
         AR30: false, AR31: false, AR32: false, AR33: false, AR34: false, AR35: false, AR36: false, AR37: false, AR38: false, AR39: false, 
         AR40: false, AR41: false, AR42: false, AR43: false, AR44: false, AR45: false, AR46: false, AR47: false, AR48: false, AR49: false, 
-        AR50: false, AR51: false, AR52: false
+        AR50: false, AR51: false, AR52: false , PR1: false , PR2: false
         
     }
 
@@ -207,8 +263,22 @@ export default class AvanceManual extends Component {
                 <div className="col"> </div>                   
                 <div className="col"> </div>
              
-                </div>
-                <br/>                         
+            </div>
+            <br/> 
+            <div className="row row-cols-10">
+                <div className="col"> </div>
+                <div className="col"> </div>
+                <div className="col"> </div>  
+                <div className="col"> </div>  
+                <ARamo codigo = {"CIT5001"} ramo = {"Practia I"}show= {this.state.PR1} onChange1 = {this.onChangePR1} /> 
+                <div className="col"> </div>
+                <div className="col"> </div>     
+                <div className="col"> </div>   
+                <ARamo codigo = {"CIT5002"} ramo = {"Practica II"}show= {this.state.PR2} onChange1 = {this.onChangePR2} /> 
+                <div className="col"> </div>
+             
+            </div>
+            <br/>                         
                 <div className="row row-cols-10">
                 <div className="col"> 
                     <Link className="nav-link" to={{ pathname: '/users/usr/mallas/malla2010'}} >
@@ -230,7 +300,7 @@ export default class AvanceManual extends Component {
                     
                 <div className="col ">
                     <div className="card border-0">
-                        <button class="btn btn-primary rounded-pill " type="submit">Guardar</button>
+                        <button class="btn btn-primary rounded-pill " type="submit">Guardar</button> 
                     </div> 
                 </div>   
                     
@@ -616,9 +686,14 @@ export default class AvanceManual extends Component {
             AR52: !prevState.AR52
         }))
     }
-    onChange53 =(e) => {
+    onChangePR1 =(e) => {
         this.setState(prevState =>({
-            AR53: !prevState.AR53
+            PR1: !prevState.PR1
+        }))
+    }
+    onChangePR2 =(e) => {
+        this.setState(prevState =>({
+            PR2: !prevState.PR2
         }))
     }
     
