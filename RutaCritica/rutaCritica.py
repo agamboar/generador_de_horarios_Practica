@@ -69,7 +69,7 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
         PERT.add_nodes_from([id_ramo], codigo = cod_ramos,nombre=nombre_ramo, ES=None, EF = None, LS = None, LF = None , H = None)  
 
     for elem in ramos_no_cursados:
-        for i in str(elem[3]).split(","):
+        for i in str(elem[3]).split(","):   #aqui se deben sacar los prerrequisitos de la base
             if int(i) != 0:
                 if int(i) in ramos_no_cursados[:,0]:
                     PERT.add_edge(int(i),elem[0])  

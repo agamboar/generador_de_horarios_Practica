@@ -1,23 +1,21 @@
 import pandas as pd
 import numpy as np
-import sys
 
 
 def read_secciones(excel_oferta):
-    np.set_printoptions(threshold=sys.maxsize)
 
     seccion = np.array(pd.read_excel(
 
-        excel_oferta, usecols="T,D,B,K,L,M", na_filter=False,engine='openpyxl'))
-    seen = set()
+        excel_oferta, usecols="T,D,B,K,L,M", na_filter=False, engine='openpyxl'))
+
+    seen = []
     newlist = []
 
     for item in seccion:
-        t = tuple(item)
 
-        if t not in seen and item[0] != '':
+        if item[5] not in seen and item[0] != '':
             newlist.append(item)
-            seen.add(t)
+            seen.append(item[5])
 
     new_list = np.insert(newlist, 1, '2021-1', axis=1)
 
@@ -27,6 +25,11 @@ def read_secciones(excel_oferta):
     new_list[:, idx]
     new_list[:] = new_list[:, idx]
 
+    for i in range(len(new_list)):
+        aux = new_list[i][2].split()
+        numero = aux[1]
+        new_list[i][2] = numero
+
     return new_list
 
 
@@ -34,7 +37,11 @@ def read_eventos(excel_oferta):
 
     evento = np.array(pd.read_excel(
 
+<<<<<<< HEAD
         excel_oferta, usecols="F,H,J,T", na_filter=False,engine='openpyxl'))
+=======
+        excel_oferta, usecols="F,H,J,T", na_filter=False, engine='openpyxl'))
+>>>>>>> main
 
     arr_eventos = []
 
@@ -141,16 +148,14 @@ def read_seccion_cfg(excel_file):
 
         excel_file, usecols=['Paquete', 'Sección', 'Asignatura', 'Vac. Paquete'], na_filter=False))
 
-    seen = set()
+    seen = []
     newlist = []
 
     for item in cfg_seccion:
 
-        t = tuple(item)
-
-        if t not in seen and item[2] != '' and item[3] != 0:
+        if item[2] not in seen and item[0] != '':
             newlist.append(item)
-            seen.add(t)
+            seen.append(item[2])
 
     new_list = np.insert(newlist, 1, '2021-1', axis=1)
     aux_list2 = np.insert(new_list, 4, 0, axis=1)
@@ -161,6 +166,11 @@ def read_seccion_cfg(excel_file):
     idx[permut] = np.arange(len(permut))
     cfg_secciones[:, idx]
     cfg_secciones[:] = cfg_secciones[:, idx]
+
+    for i in range(len(cfg_secciones)):
+        aux = cfg_secciones[i][2].split()
+        numero = aux[1]
+        cfg_secciones[i][2] = numero
 
     return cfg_secciones
 
@@ -283,3 +293,12 @@ def read_evento_cfg(excel_file):
     cfg_eventos[:] = cfg_eventos[:, x]
 
     return cfg_eventos
+
+
+def read_mi_malla(excel_file):
+
+    mi_malla = np.array(pd.read_excel(
+
+        excel_file, usecols="B", header=None, na_filter=False, engine='openpyxl'))
+
+    return mi_malla
