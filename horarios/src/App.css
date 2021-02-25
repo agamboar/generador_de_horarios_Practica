@@ -1,0 +1,106 @@
+.altura-msj-cons{
+  margin: 19rem 0 0 0;
+}
+
+.altura-login{
+  margin: 11rem 0 0 0;
+}
+
+.title{
+  font-size: 4rem;
+}
+
+.primero{
+  margin: 240px 0 0 211px;
+  min-width: 400px;
+  max-width: 410px;
+  height: 50px;
+  font-size: 20px;
+
+}
+
+.Rectngulo_14{
+  min-width: 400px;
+  max-width: 410px;
+}
+.segundo{
+  margin: -50px 0 0 680px;
+  min-width: 480px;
+  max-width: 490px;
+  
+  font-size: 20px;
+
+}
+.tercero{
+  margin: -400px 0 0 1280px;
+  min-width: 480px;
+  max-width: 490px;
+  height: 50px;
+  font-size: 20px;
+
+}
+.cuarto{
+  margin: 500px 0 0 211px;
+  min-width: 390px;
+  max-width: 400px;
+  height: 50px;
+  font-size: 20px;
+
+}
+
+.quinto{
+  margin: -50px 0 0 700px;
+  min-width: 480px;
+  max-width: 490px;
+  height: 50px;
+  font-size: 20px;
+
+}
+.sexto{
+  margin: 530px 0 0 220px;
+  min-width: 400px;
+  max-width: 410px;
+  height: 50px;
+  font-size: 20px;
+
+}
+.septimo{
+  margin: -50px 0 0 700px;
+  min-width: 480px;
+  max-width: 490px;
+  height: 50px;
+  font-size: 20px;
+
+}
+
+
+
+.wrap { 
+  position:relative;
+  margin:0 
+  auto; 
+  width:960px; 
+}
+
+header, #footer{
+  width:100%; 
+  float:left;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  z-index:999999;
+  color: rgba(121, 120, 120, 0.692);
+}
+
+.custom { width: 84px !important; height: 86px; }
+
+.bordes {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 5px rgb(255, 179, 65);
+}
+
