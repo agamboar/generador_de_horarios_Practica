@@ -88,7 +88,7 @@ header, #footer{
 }
 
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   height: 40px;
@@ -97,6 +97,7 @@ header, #footer{
 }
 
 .custom { width: 84px !important; height: 86px; }
+.custom2 { min-width: 1110px; max-width: 1110px; min-height: 622px; max-height: 622px; }
 
 .bordes {
   border: 1px solid;
