@@ -8,7 +8,9 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+
 import json
+from datetime import date
 
 from .serializers import *
 from .models import *
@@ -238,5 +240,71 @@ def asignar_ss(request):
 
             if serializer.is_valid():
                 serializer.save()
+
+        return JsonResponse(json_data, safe=False)
+
+
+@api_view(['POST'])
+def mi_malla_manual(request):
+
+    if request.method == "POST":
+
+        current_user = request.user
+        user = User.objects.get(id=current_user.id)
+
+        json_data = request.data
+        cfg_count = 0
+        einf_count = 0
+        etele_count = 0
+        today = date.today()
+        codigos_aprobados = []
+        malla = json_data['malla']
+        semestre = []
+
+        if 1 <= today.month <= 6:
+            s = str(today.year)+'-1'
+            semestre.append(s)
+        elif 7 <= today.month <= 12:
+            s = str(today.year)+'-2'
+            semestre.append(s)
+
+        for elem in json_data:
+
+            if 'CFG' in elem and json_data[elem] == True:
+                cfg_count += 1
+            elif 'CIT33' in elem and json_data[elem] == True:
+                einf_count += 1
+            elif 'CIT34' in elem and json_data[elem] == True:
+                etele_count += 1
+
+            if json_data[elem] == True:
+                codigos_aprobados.append(elem)
+
+        try:
+            asignatura_cursada.objects.all().delete()
+        except:
+            pass
+
+        counters = {'semestre': semestre,
+                    'cfg_count': cfg_count,
+                    'einf_count': einf_count,
+                    'etele_count': etele_count,
+                    'to_user': current_user,
+                    'agno_malla': malla
+                    }
+
+        av, created = avance_academico.objects.update_or_create(
+            semestre=semestre, to_user=current_user,
+            defaults=counters)
+
+        avance = avance_academico.objects.get(semestre=semestre, to_user=user)
+
+        for elem in codigos_aprobados:
+
+            asignatura = asignatura_real.objects.get(codigo=elem)
+
+            a = asignatura_cursada(
+                codigo=elem, to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
+            a.save()
 
         return JsonResponse(json_data, safe=False)

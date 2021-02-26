@@ -34,6 +34,7 @@ class eventoSerializer(serializers.ModelSerializer):
 
 
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = nodo_asignatura
         fields = '__all__'
