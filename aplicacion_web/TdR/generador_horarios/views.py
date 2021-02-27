@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from django import forms
 from django.http import HttpResponse
 
+from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -37,7 +38,7 @@ def ramo_list(request, year):
         malla_curricular__agno=year)
     serializer = asignaturaSerializer(asignatura, many=True)
 
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -49,7 +50,7 @@ def secciones(request, cod):
 
     serializer = seccionSerializer(secc, many=True)
 
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 def import_malla(request):
@@ -81,7 +82,7 @@ def import_malla(request):
                        modulo=elem[2], profesor=elem[3], to_seccion=s)
             e.save()
 
-    return render(request, 'upload.html')
+    return render(request, 'upload.html', status=status.HTTP_201_CREATED)
 
 
 def import_cfg(request):
@@ -162,7 +163,7 @@ def upload_mi_malla(request):
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
-    return render(request, 'upload.html')
+    return render(request, 'upload.html', status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET'])
@@ -191,7 +192,7 @@ def get_PERT(request):
 
         serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
 
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -203,7 +204,7 @@ def get_clique(request):
 
         jsons = get_clique_max_pond(current_user)
 
-        return Response(jsons)
+        return Response(jsons, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -222,7 +223,7 @@ def asignar_kk(request):
             if serializer.is_valid():
                 serializer.save()
 
-        return JsonResponse(json_data, safe=False)
+        return JsonResponse(json_data, safe=False, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -241,7 +242,7 @@ def asignar_ss(request):
             if serializer.is_valid():
                 serializer.save()
 
-        return JsonResponse(json_data, safe=False)
+        return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
 
 @api_view(['POST'])
@@ -307,4 +308,4 @@ def mi_malla_manual(request):
                 codigo=elem, to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
-        return JsonResponse(json_data, safe=False)
+        return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
