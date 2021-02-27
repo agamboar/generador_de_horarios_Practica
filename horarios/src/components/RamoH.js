@@ -7,17 +7,17 @@ export default class Bloque extends Component {
         return (
             <div className="col  col-md-6">
                         <ul>
-                            <li>Ramo: </li>
+                            <li>Ramo: {this.props.nombre} - Sección {this.props.seccion}</li>
                             <ul>
-                                <li>Profesor:</li>  
+                                <li>Profesor: {this.props.profesor}</li>  
                                
                                 <li>Catedras:</li>
                                 <ul>
-                                    <li></li>
+                                    <li>{this.props.horario}</li>
                                 </ul>
                                 <li>Ayudantia:</li>
                                 <ul>
-                                    <li></li>
+                                    <li>{this.props.ayudantia}</li>
                                 </ul>
                             </ul>
                         </ul>

@@ -135,7 +135,7 @@ export default class Horario extends Component {
                         <div className="row row-cols-5">
                             <div className="col"> </div>  
                             <div className="col"> </div>  
-                            <div className="col"> <h3 className="card-title text-primary text-center">Horario n°1</h3> </div> 
+                            <div className="col"> <h3 className="card-title text-primary text-center">Horario n°2</h3> </div> 
                             <div className="col"> </div>  
                             <div className="col ">
                                 <div className="card border-0">
@@ -149,7 +149,7 @@ export default class Horario extends Component {
                         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramos:</h5>
                         <div className="row row-cols-2">
                         
-                        <RamoH/> 
+                        <RamoH nombre = "TICs II" profesor="JJEE" seccion ="2" horario="jueves 10:30" ayudantia="miercoles 10:230"/> 
                         <RamoH/>
                         <RamoH/>
                         <RamoH/>
