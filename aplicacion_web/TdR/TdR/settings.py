@@ -38,12 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'generador_horarios.apps.GeneradorHorariosConfig',
     'import_export',
+
     'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+
     'django_extensions',
     'django.contrib.sites',
+
     'corsheaders',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -53,11 +61,11 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 # cambiar despues por la URL para que alumno indique ramos aprobados
-LOGIN_REDIRECT_URL = '/ramosaprobados/'
-ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login"
+LOGIN_REDIRECT_URL = 'http://localhost:3000/users/usr'
+ACCOUNT_LOGOUT_REDIRECT_URL = "http://localhost:3000"
 
 
-SESSION_COOKIE_AGE = 10800
+SESSION_COOKIE_AGE = 10000
 
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
@@ -76,9 +84,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'TdR.urls'
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000'
-]
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {

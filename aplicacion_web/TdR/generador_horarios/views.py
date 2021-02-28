@@ -3,12 +3,16 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django import forms
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from dj_rest_auth.registration.views import SocialLoginView
+
+from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 
 import json
 from datetime import date
@@ -20,6 +24,10 @@ from .PERT import *
 from .clique import *
 
 # Create your views here.
+
+
+class GoogleLogin(SocialLoginView):
+    adapter_class = GoogleOAuth2Adapter
 
 
 @api_view(['GET'])
@@ -122,7 +130,6 @@ def import_cfg(request):
     return render(request, 'upload.html')
 
 
-@permission_classes([IsAuthenticated])
 def upload_mi_malla(request):
 
     if request.method == "POST":
@@ -298,7 +305,8 @@ def mi_malla_manual(request):
             semestre=semestre, to_user=current_user,
             defaults=counters)
 
-        avance = avance_academico.objects.get(semestre=semestre, to_user=user)
+        avance = avance_academico.objects.get(
+            semestre=semestre, to_user=user)
 
         for elem in codigos_aprobados:
 
