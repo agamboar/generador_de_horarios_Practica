@@ -3,13 +3,15 @@ import React, { Component } from 'react'
 
 
 export default class Bloque extends Component {
+    
     render() {
         return (
             <div className="col  col-md-6">
+                {console.log(this.props.ramo)}
                         <ul>
-                            <li>Ramo: {this.props.nombre} - Sección {this.props.seccion}</li>
+                            <li>Ramo: {this.props.ramo.nombre} - Sección {this.props.ramo.nro_seccion}</li>
                             <ul>
-                                <li>Profesor: {this.props.profesor}</li>  
+                                <li>Profesor: {this.props.ramo.eventos[0].profesor}</li>  
                                
                                 <li>Catedras:</li>
                                 <ul>

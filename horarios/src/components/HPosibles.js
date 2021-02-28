@@ -15,7 +15,7 @@ export default class HPosibles extends Component {
                 <br/>
                 
 
-                <p class="lead">
+                <p className="lead">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     A continuación veras los horarios que te recomendamos tomar para tu semestre actual, esperamos haberte ayudado!
                 </p>
@@ -24,7 +24,7 @@ export default class HPosibles extends Component {
                 <Horario/>  
                 <br/>
                 <br/>
-                <Horario/>  
+                
 
                 <br/>
                 <br/>

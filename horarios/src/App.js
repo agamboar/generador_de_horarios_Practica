@@ -33,7 +33,7 @@ import PERTExtra4 from './components/PERTExtra4'
 import AsignaturasCriticas from './components/AsignaturasCriticas'
 import GenerarHorarios from './components/GenerarHorarios'
 import PriorizarRamos from './components/PriorizarRamos'
-import AvanceManual2020 from './components/AvanceManual2020';
+
 
 
 function App() {
