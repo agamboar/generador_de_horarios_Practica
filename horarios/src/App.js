@@ -23,6 +23,7 @@ import M2020Extra4 from './components/M2020Extra4';
 import CrearHorario from './components/CrearHorario';
 import AManual2010 from './components/AManual2010';
 import AManual2018 from './components/AManual2018';
+import AManual2020 from './components/AManual2020';
 import HPosibles from './components/HPosibles';
 import PERT from './components/PERT';
 import PERTExtra1 from './components/PERTExtra1'
@@ -32,6 +33,7 @@ import PERTExtra4 from './components/PERTExtra4'
 import AsignaturasCriticas from './components/AsignaturasCriticas'
 import GenerarHorarios from './components/GenerarHorarios'
 import PriorizarRamos from './components/PriorizarRamos'
+import AvanceManual2020 from './components/AvanceManual2020';
 
 
 function App() {
@@ -55,6 +57,7 @@ function App() {
       <Route path="/users/usr/mallas/malla2018/DatosExtraM2018-4" exact component={M2018Extra4}/>
 
       <Route path="/users/usr/mallas/malla2020" exact component={M2020}/>
+      <Route path="/users/usr/mallas/malla2020/AvanceCurricular" exact component={AManual2020}/>
       <Route path="/users/usr/mallas/malla2020/DatosExtraM2020-1" exact component={M2020Extra1}/>
       <Route path="/users/usr/mallas/malla2020/DatosExtraM2020-2" exact component={M2020Extra2}/>
       <Route path="/users/usr/mallas/malla2020/DatosExtraM2020-3" exact component={M2020Extra3}/>
