@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 
 
-export default class Malla2018Extra1 extends Component {
+export default class Malla2010Extra1 extends Component {
     render() {
         return (
         
@@ -26,9 +26,9 @@ export default class Malla2018Extra1 extends Component {
 
                 <div className="row row-cols-10 align-items-start">
                     <div className="col col-md-1"> </div>  
-                    <RamoP codigo = {"CBM-1000"} ramo = {"Álgebra y Geometría"} numero = {"1"} creditos = {"7"} prerequisitos = {" - "} formacion = {"Ciencias Básicas"} />                    
-                    <RamoP codigo = {"CBM-1002"} ramo = {"Álgebra Lineal"} numero = {"6"} creditos = {"6"} prerequisitos = {"Álgebra y Geometría"} formacion = {"Ciencias Básicas"} />      
-                    <RamoP codigo = {"CBM-1005"} ramo = {"Ecuaciones Diferenciales"} numero = {"11"} creditos = {"6"} prerequisitos = {"Álgebra Lineal - Cálculo II" } formacion = {"Ciencias Básicas"}  />      
+                    <RamoP codigo = {"CBM-1000"} ramo = {"Álgebra y Geometría"} />                    
+                    <RamoP codigo = {"CBM-1002"} ramo = {"Álgebra Lineal"} />      
+                    <RamoP codigo = {"CBM-1005"} ramo = {"Ecuaciones Diferenciales"} />      
                     <div className="col col-md-1"> </div>  
                 </div>
 
@@ -36,9 +36,9 @@ export default class Malla2018Extra1 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div>  
-                    <RamoP codigo = {"CBM-1001"} ramo = {"Cálculo I"} numero = {"2"} creditos = {"7"} prerequisitos = {" - "}  formacion = {"Ciencias Básicas"}/>      
-                    <RamoP codigo = {"CBM-1003"} ramo = {"Cálculo II"} numero = {"7"} creditos = {"6"} prerequisitos = {"Cálculo I"} formacion = {"Ciencias Básicas"} />      
-                    <RamoP codigo = {"CBM-1006"} ramo = {"Cálculo III"} numero = {"12"} creditos = {"6"} prerequisitos = {"Cálculo II"}  formacion = {"Ciencias Básicas"}/>                       
+                    <RamoP codigo = {"CBM-1001"} ramo = {"Cálculo I"} />      
+                    <RamoP codigo = {"CBM-1003"} ramo = {"Cálculo II"} />      
+                    <RamoP codigo = {"CBM-1006"} ramo = {"Cálculo III"} />                       
                     <div className="col col-md-1"> </div>  
                 </div>
 
@@ -50,9 +50,9 @@ export default class Malla2018Extra1 extends Component {
                             <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
                         </svg>
                     </div> 
-                    <RamoP codigo = {"CBQ-1000"} ramo = {"Química"} numero = {"3"} creditos = {"6"} prerequisitos = {""} formacion = {"Ciencias Básicas"} />      
-                    <RamoP codigo = {"CBF-1000"} ramo = {"Mecánica"} numero = {"8"} creditos = {"7"} prerequisitos = {"Cálculo I"} formacion = {"Ciencias Básicas"} />      
-                    <RamoP codigo = {"CBF-1001"} ramo = {"Calor y Ondas"} numero = {"13"} creditos = {"7"} prerequisitos = {"Cálculo II - Mecánica"} formacion = {"Ciencias Básicas"} />      
+                    <RamoP codigo = {"CBQ-1000"} ramo = {"Química"} />      
+                    <RamoP codigo = {"CBF-1000"} ramo = {"Mecánica"} />      
+                    <RamoP codigo = {"CBF-1001"} ramo = {"Calor y Ondas"} />      
                     <div className="col col-md-1"> 
                         <Link className="nav-link" to={{ pathname: '/users/usr/PERT/PERTExtra2'}} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
@@ -67,9 +67,9 @@ export default class Malla2018Extra1 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoP codigo = {"CIT-1000"} ramo = {"Programación"} numero = {"4"} creditos = {"6"} prerequisitos = {" - "} formacion = {"Ciencias de la Ingeniería"} />      
-                    <RamoP codigo = {"CIT-1010"} ramo = {"Programación Avanzada"} numero = {"9"} creditos = {"6"} prerequisitos = {"Programación"} formacion = {"Ciencias de la Ingeniería"} />                     
-                    <RamoP codigo = {"CIT-2000"} ramo = {"Estructura de Datos"} numero = {"14"} creditos = {"6"} prerequisitos = {"Programación Avanzada"} formacion = {"Ingeniería Aplicada"} />      
+                    <RamoP codigo = {"CIT-1000"} ramo = {"Programación"} />      
+                    <RamoP codigo = {"CIT-1010"} ramo = {"Programación Avanzada"} />                     
+                    <RamoP codigo = {"CIT-2000"} ramo = {"Estructura de Datos"} />      
                     <div className="col col-md-1"> </div>                 
                 </div>
 
@@ -77,9 +77,9 @@ export default class Malla2018Extra1 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoP codigo = {"FIC-1000"} ramo = {"Comunicación para la Ingeniería"} numero = {"5"} creditos = {"5"} prerequisitos = {" - "} formacion = {"Transversal"} />      
-                    <RamoP codigo = {" - "} ramo = {"Minor / CFG"} numero = {"10"} creditos = {"5"} prerequisitos = {" - "} formacion = {"Transversal"} />                     
-                    <RamoP codigo = {"CIT-2100"} ramo = {"Redes de Datos"} numero = {"15"} creditos = {"6"} prerequisitos = {"Programación Avanzada"} formacion = {"Ingeniería Aplicada"} />      
+                    <RamoP codigo = {"FIC-1000"} ramo = {"Comunicación para la Ingeniería"} />      
+                    <RamoP codigo = {" - "} ramo = {"Minor / CFG"} />                     
+                    <RamoP codigo = {"CIT-2100"} ramo = {"Redes de Datos"} />      
                     <div className="col col-md-1"> </div>                     
                    
                 </div>

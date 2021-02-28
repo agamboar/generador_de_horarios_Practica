@@ -57,7 +57,7 @@ export default class Malla2020Extra2 extends Component {
                     </div> 
                     <div className="col">  
                         <div className="card border-primary">                  
-                            <h6 className="card-title text-center"><font size="2">CIT-2106</font></h6>
+                            <h6 className="card-title text-center"><font size="2">CIT-2108</font></h6>
                             <p className="card-text"><font size="2">
                                 &nbsp;&nbsp;° Nombre: Taller de Redes y Servicios
                                 <br/>
@@ -181,7 +181,7 @@ export default class Malla2020Extra2 extends Component {
                     <div className="col col-md-1"> </div> 
                     <div className="col">  
                         <div className="card border-primary">                  
-                            <h6 className="card-title text-center"><font size="2">CIT-2001</font></h6>
+                            <h6 className="card-title text-center"><font size="2">CIT-2007</font></h6>
                             <p className="card-text"><font size="2">
                                 &nbsp;&nbsp;° Nombre: Bases de Datos
                                 <br/>
@@ -201,7 +201,7 @@ export default class Malla2020Extra2 extends Component {
                     </div> 
                     <div className="col">  
                         <div className="card border-primary">                  
-                            <h6 className="card-title text-center"><font size="2">CIT-2002</font></h6>
+                            <h6 className="card-title text-center"><font size="2">CIT-2009</font></h6>
                             <p className="card-text"><font size="2">
                                 &nbsp;&nbsp;° Nombre: Bases de Datos Avanzadas
                                 <br/>
@@ -220,7 +220,7 @@ export default class Malla2020Extra2 extends Component {
                     </div> 
                     <div className="col">  
                         <div className="card border-primary">                  
-                            <h6 className="card-title text-center"><font size="2">CIT-2003</font></h6>
+                            <h6 className="card-title text-center"><font size="2">CIT-2010</font></h6>
                             <p className="card-text"><font size="2">
                                 &nbsp;&nbsp;° Nombre: Sistemas Operativos
                                 <br/>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
-import PERTE1 from './PERTE1'
+import PERTE1 from './PERTE1-2018'
 
 
 
