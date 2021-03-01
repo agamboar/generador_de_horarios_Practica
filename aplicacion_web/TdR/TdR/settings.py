@@ -29,6 +29,18 @@ DEBUG = True
 
 # Application definition
 
+CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,7 +61,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'corsheaders',
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

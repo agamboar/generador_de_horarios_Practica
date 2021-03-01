@@ -38,12 +38,14 @@ export default class AvanceManual extends Component {
         //var csrftoken = getCookie('csrftoken');
         //axios.defaults.url = 'http://127.0.0.1:8000/';
         const header = {
-            headers: { 'Authentication': 'Token 66c54201f64d384caea2e56b2c6eb1bd11952176', 'Content-Type': 'application/json' }
+            headers: {
+                Authorization: "Bearer 66c54201f64d384caea2e56b2c6eb1bd11952176"
+            }
         }
         const Avance = { state: this.state }
         const payload = Avance.state
         console.log(Avance)
-        axios.post("http://127.0.0.1:8000/mimallamanual/", payload, header)
+        axios.post("http://127.0.0.1:8000/mimallamanual/", payload, { headers: { Authorization: "Token 66c54201f64d384caea2e56b2c6eb1bd11952176" } })
     }
 
     render() {
