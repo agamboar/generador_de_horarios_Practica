@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Bloque from './Bloque'
 import BloqueH from './BloqueH'
 import RamosH from './RamosH'
-import Ramos from './Ramos.json'
 import Dia from './Dia'
 
 
@@ -11,7 +10,6 @@ export default class Horario extends Component {
 
     state = {
         show: true,
-        Ramos: Ramos,
         LU_8: null,
         LU_10: null,
         LU_11: null,
@@ -66,12 +64,12 @@ export default class Horario extends Component {
 
     fillSchedule = () => {
         
-        for(let i = 0; i<this.state.Ramos.length; i++){            
+        for(let i = 0; i<this.props.horario.ramos.length; i++){            
             const mov = i;
-            for(let j = 0; j<this.state.Ramos[mov].eventos.length; j++){
-                const mov3 = this.state.Ramos[i].eventos[j].bloque;
+            for(let j = 0; j<this.props.horario.ramos[mov].eventos.length; j++){
+                const mov3 = this.props.horario.ramos[i].eventos[j].bloque;
                 this.setState({
-                    [mov3]: this.state.Ramos[i]
+                    [mov3]: this.props.horario.ramos[i]
                     
                 })
             }
@@ -100,8 +98,7 @@ export default class Horario extends Component {
         if(!this.state.show){
             
             return (
-                <div className="container custom2" >
-                    
+                <div className="container" >
                     <div className="card border-primary text-center custom2">  
                         <br/> 
                         <div className="row row-cols-10">
@@ -196,7 +193,11 @@ export default class Horario extends Component {
                    </div> 
 
                 {console.log(this.state)}
+                <br/>
+                <br/>
+                
                 </div>
+                
      
            
             )
@@ -222,7 +223,7 @@ export default class Horario extends Component {
                         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramos:</h5>
                         <div className="row row-cols-2">
                         
-                        <RamosH ramos = {this.state.Ramos}/>
+                        <RamosH ramos = {this.props.horario.ramos}/>
                         
                         
                         </div>

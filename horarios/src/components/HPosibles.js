@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
-import Horario from './Horario'
+import Horarios from './Horarios'
+import Horarios2 from './Horarios.json'
 
 
 
 
 export default class HPosibles extends Component {
+
+    state = {
+        Horarios: Horarios2
+    }
+
     render() {
         return (
             <div>
@@ -21,9 +27,9 @@ export default class HPosibles extends Component {
                 </p>
                 <br/>
                 <br/>
-                <Horario/>  
-                <Horario/>  
+                <Horarios horarios = {this.state.Horarios}/>
                 <br/>
+
                 <br/>
                 
 

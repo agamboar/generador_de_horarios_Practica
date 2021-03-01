@@ -1,0 +1,165 @@
+[
+        
+        {       
+                "id": 1,
+                "ramos":
+                        [
+                                {       
+                                    "nombre": "Optimización",
+                                    "nro_seccion" : "1",
+                                    "cod_asignatura_real": "CII2750",
+                                    "eventos": [
+                                            {
+                                                    "bloque": "VI_17",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "profe 1"
+                                        
+                                            },
+                                            {
+                                                    "bloque": "MI_13",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "profe 1"
+                                        
+                                            },
+                                            {
+                                                    "bloque": "LU_17",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "profe 1"
+                                        
+                                            }
+                                    ]
+                            },
+                                    {       
+                                        "nombre": "Oasdasdasd",
+                                        "nro_seccion" : "2341",
+                                        "cod_asignatura_real": "holasoyotrocodigo",
+                                        "eventos": [
+                                                {
+                                                        "bloque": "LU_10",
+                                                        "tipo": "CATEDRA 02",
+                                                        "profesor": "GEISSE ESTEBAN"
+                                                
+                                                },
+                                                {
+                                                        "bloque": "MA_11",
+                                                        "tipo": "CATEDRA 02",
+                                                        "profesor": "GEISSE ESTEBAN"
+                                                
+                                                },
+                                                {
+                                                        "bloque": "JU_8",
+                                                        "tipo": "CATEDRA 02",
+                                                        "profesor": "GEISSE ESTEBAN"
+                                                
+                                                }
+                                        ]
+                                },
+                            {       
+                                    "nombre": "Electrooo",
+                                    "nro_seccion" : "4",
+                                    "cod_asignatura_real": "Holasoyuncodigo",
+                                    "eventos": [
+                                            {
+                                                    "bloque": "MI_17",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "GEISSE ESTEBAN"
+                                        
+                                            },
+                                            {
+                                                    "bloque": "JU_13",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "GEISSE ESTEBAN"
+                                        
+                                            },
+                                            {
+                                                    "bloque": "LU_13",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "GEISSE ESTEBAN"
+                                        
+                                            }
+                                    ]
+                            }
+                        ]
+        },
+        {       
+                "id": 2,
+                "ramos":
+                        [
+                                {       
+                                    "nombre": "Optimizaciónnnnn",
+                                    "nro_seccion" : "113",
+                                    "cod_asignatura_real": "gasdfsd",
+                                    "eventos": [
+                                            {
+                                                    "bloque": "LU_8",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "GEISSE ESTEBAN"
+                                        
+                                            },
+                                            {
+                                                    "bloque": "MI_8",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "GEISSE ESTEBAN"
+                                        
+                                            },
+                                            {
+                                                    "bloque": "VI_8",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "GEISSE ESTEBAN"
+                                        
+                                            }
+                                    ]
+                            },
+                                    {       
+                                        "nombre": "Oasdasasdfsaddasd",
+                                        "nro_seccion" : "2341a",
+                                        "cod_asignatura_real": "holasoyotrocodigo asd",
+                                        "eventos": [
+                                                {
+                                                        "bloque": "MA_10",
+                                                        "tipo": "CATEDRA 02",
+                                                        "profesor": "GEISSE ESTEBAN"
+                                                
+                                                },
+                                                {
+                                                        "bloque": "JU_10",
+                                                        "tipo": "CATEDRA 02",
+                                                        "profesor": "GEISSE ESTEBAN"
+                                                
+                                                },
+                                                {
+                                                        "bloque": "VI_17",
+                                                        "tipo": "CATEDRA 02",
+                                                        "profesor": "GEISSE ESTEBAN"
+                                                
+                                                }
+                                        ]
+                                },
+                            {       
+                                    "nombre": "Electrooo",
+                                    "nro_seccion" : "4",
+                                    "cod_asignatura_real": "Holasoyuncodigo",
+                                    "eventos": [
+                                            {
+                                                    "bloque": "LU_13",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "GEISSE ESTEBAN"
+                                        
+                                            },
+                                            {
+                                                    "bloque": "MI_13",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "GEISSE ESTEBAN"
+                                        
+                                            },
+                                            {
+                                                    "bloque": "VI_13",
+                                                    "tipo": "CATEDRA 02",
+                                                    "profesor": "GEISSE ESTEBAN"
+                                        
+                                            }
+                                    ]
+                            }
+                        ]
+        }
+]
