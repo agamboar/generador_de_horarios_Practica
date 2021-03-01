@@ -21,7 +21,6 @@ function getCookie(name) {
     return cookieValue;
 }
 
-
 export default class AvanceManual extends Component {
     state = {
         malla: '2010',
@@ -34,18 +33,18 @@ export default class AvanceManual extends Component {
     }
 
     onSubmit = async (e) => {
-        const token = sessionStorage.getItem("token")
         e.preventDefault();
-        var csrftoken = getCookie('csrftoken');
+        //const token = sessionStorage.getItem("token").toString('base64')
+        //var csrftoken = getCookie('csrftoken');
+        //axios.defaults.url = 'http://127.0.0.1:8000/';
+        const header = {
+            headers: { 'Authentication': 'Token 66c54201f64d384caea2e56b2c6eb1bd11952176', 'Content-Type': 'application/json' }
+        }
         const Avance = { state: this.state }
+        const payload = Avance.state
         console.log(Avance)
-        console.log(token)
-        const res = await axios.post("http://127.0.0.1:8000/mimallamanual/", Avance)
-        alert(res.data.message)
-
+        axios.post("http://127.0.0.1:8000/mimallamanual/", payload, header)
     }
-
-
 
     render() {
         return (
