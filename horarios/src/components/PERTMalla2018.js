@@ -8,20 +8,27 @@ import {Link} from 'react-router-dom';
 export default class AvanceManual2018 extends Component {
     
     state = {
-        CBM1000: '', CBM1001: '', CBQ1000: '', CIT1000: '', FIC1000: '', CBM1002: '', CBM1003: '', CBF1000: '', CIT1010: '', 
-        CFG1: '', CBM1005: '', CBM1006: '', CBF1001: '', CIT2000: '', CIT2100: '', CIT2204: '', CBM2000: '', CBF1002: '', CIT2001: '', 
-        CFG2: '', CIG1012: '', CII2750: '', CIT2106: '', CIT2200: '', CIT2002: '', CFG3: '', CIG1013: '', CII2000: '', CIT2202: '', 
-        CIT2101: '', CIT2003: '', CIT2103: '', CII1000: '', CIT2005: '', CIT2102: '', FIC1003: '', CIT2104: '', CIT2203: '', CIT2004: '', 
-        CIT2105: '', CIT2201: '', CFG4: '', CIT3310: '', CIT3410: '', CIT3412: '', CIT3200: '', CIT3312: '', CIT3311: '', CIT3411: '', 
-        CIT3413: '', CIT3201: '', CIT3313: '', CIG1014: '' , CIT6001: '', CIT6002: ''
+        CBM1000: null, CBM1001: null, CBQ1000: null, CIT1000: null, FIC1000: null, CBM1002: null, CBM1003: null, CBF1000: null, CIT1010: null, 
+        CFG1: null, CBM1005: null, CBM1006: null, CBF1001: null, CIT2000: null, CIT2100: null, CIT2204: null, CBM2000: null, CBF1002: null, CIT2001: null, 
+        CFG2: null, CIG1012: null, CII2750: null, CIT2106: null, CIT2200: null, CIT2002: null, CFG3: null, CIG1013: null, CII2000: null, CIT2202: null, 
+        CIT2101: null, CIT2003: null, CIT2103: null, CII1000: null, CIT2005: null, CIT2102: null, FIC1003: null, CIT2104: null, CIT2203: null, CIT2004: null, 
+        CIT2105: null, CIT2201: null, CFG4: null, CIT3310: null, CIT3410: null, CIT3412: null, CIT3200: null, CIT3312: null, CIT3311: null, CIT3411: null, 
+        CIT3413: null, CIT3201: null, CIT3313: null, CIG1014: null , CIT6001: null, CIT6002: null
         
     }
 
-    onSubmit = e => { 
-        e.preventDefault();
-        const Avance = { state: this.state}
-        console.log(Avance)
+    fillSchedule = () => {
+        for(let i = 0; i<this.props.ramos.length; i++){            
+            const mov = i;
+            const mov2 = this.props.ramos[mov].to_asignatura_real[0];
+            this.setState({
+                [mov2]: this.props.ramos[mov].critico
+            })
+        }         
+    };
 
+    componentDidMount = () => {
+        this.fillSchedule();
     }
     
     render() {

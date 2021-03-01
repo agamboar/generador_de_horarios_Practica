@@ -6,14 +6,29 @@ import {Link} from 'react-router-dom';
 
 export default class AvanceManual2020 extends Component {
     state = {
-        CBM1000: '', CBM1001: '', CBQ1002: '', CIT1000: '', FIC1000: '', CBM1002: '', CBM1003: '', CBF1000: '', CIT1010: '', 
-        CFG1: '', CBM1005: '', CBM1006: '', CBF1001: '', CIT2006: '', CIT2114: '', CIT2204: '', CIT2107: '', CBF1002: '', CIT2007: '', 
-        CIT2008: '', CIG1012: '', CII2750: '', CIT2108: '', CIT2205: '', CIT2009: '', CFG2: '', CIG1013: '', CII1000: '', CIT2109: '', 
-        CIT2110: '', CIT2010: '', CFG3: '', CIG1014: '', CIT2206: '', CIT2011: '', CIT2111: '', CIT2012: '', CFG4: '', CII2100: '', 
-        CIT2112: '', CIT2113: '', CIT2213: '', CIT2207: '', CIT3310: '', CIT3100: '', CIT3411: '', CIT3000: '', CIT3102: '', CIT3311: '', 
-        CIT3410: '', CIT3412: '', CIT3312: '' , CIT4000: '', CIT4001: ''
+        CBM1000: null, CBM1001: null, CBQ1002: null, CIT1000: null, FIC1000: null, CBM1002: null, CBM1003: null, CBF1000: null, CIT1010: null, 
+        CFG1: null, CBM1005: null, CBM1006: null, CBF1001: null, CIT2006: null, CIT2114: null, CIT2204: null, CIT2107: null, CBF1002: null, CIT2007: null, 
+        CIT2008: null, CIG1012: null, CII2750: null, CIT2108: null, CIT2205: null, CIT2009: null, CFG2: null, CIG1013: null, CII1000: null, CIT2109: null, 
+        CIT2110: null, CIT2010: null, CFG3: null, CIG1014: null, CIT2206: null, CIT2011: null, CIT2111: null, CIT2012: null, CFG4: null, CII2100: null, 
+        CIT2112: null, CIT2113: null, CIT2213: null, CIT2207: null, CIT3310: null, CIT3100: null, CIT3411: null, CIT3000: null, CIT3102: null, CIT3311: null, 
+        CIT3410: null, CIT3412: null, CIT3312: null , CIT4000: null, CIT4001: null
         
     }
+
+    fillSchedule = () => {
+        for(let i = 0; i<this.props.ramos.length; i++){            
+            const mov = i;
+            const mov2 = this.props.ramos[mov].to_asignatura_real[0];
+            this.setState({
+                [mov2]: this.props.ramos[mov].critico
+            })
+        }         
+    };
+
+    componentDidMount = () => {
+        this.fillSchedule();
+    }
+
     render() {
         return (
 

@@ -1,0 +1,500 @@
+{
+        "PERT": [
+          {
+            "holgura": 0,
+            "ef": 2,
+            "es": 1,
+            "ls": 1,
+            "lf": 2,
+            "critico": true,
+            "to_asignatura_real": [
+              "CBM1005"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 2,
+            "es": 1,
+            "ls": 1,
+            "lf": 2,
+            "critico": true,
+            "to_asignatura_real": [
+              "CBM1006"
+            ]
+          },
+          {
+            "holgura": 4,
+            "ef": 2,
+            "es": 1,
+            "ls": 5,
+            "lf": 6,
+            "critico": false,
+            "to_asignatura_real": [
+              "CBF1001"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 2,
+            "es": 1,
+            "ls": 1,
+            "lf": 2,
+            "critico": true,
+            "to_asignatura_real": [
+              "CIT2000"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 2,
+            "es": 1,
+            "ls": 1,
+            "lf": 2,
+            "critico": true,
+            "to_asignatura_real": [
+              "CIT2100"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 2,
+            "es": 1,
+            "ls": 1,
+            "lf": 2,
+            "critico": true,
+            "to_asignatura_real": [
+              "CIT2204"
+            ]
+          },
+          {
+            "holgura": 4,
+            "ef": 2,
+            "es": 1,
+            "ls": 5,
+            "lf": 6,
+            "critico": false,
+            "to_asignatura_real": [
+              "CBM2000"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 3,
+            "es": 2,
+            "ls": 2,
+            "lf": 3,
+            "critico": false,
+            "to_asignatura_real": [
+              "CBF1002"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 3,
+            "es": 2,
+            "ls": 2,
+            "lf": 3,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2001"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 2,
+            "es": 1,
+            "ls": 1,
+            "lf": 2,
+            "critico": true,
+            "to_asignatura_real": [
+              "FIC1001"
+            ]
+          },
+          {
+            "holgura": 3,
+            "ef": 3,
+            "es": 2,
+            "ls": 5,
+            "lf": 6,
+            "critico": false,
+            "to_asignatura_real": [
+              "CII2750"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 4,
+            "es": 3,
+            "ls": 3,
+            "lf": 4,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2106"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 4,
+            "es": 3,
+            "ls": 3,
+            "lf": 4,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2200"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 4,
+            "es": 3,
+            "ls": 3,
+            "lf": 4,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2002"
+            ]
+          },
+          {
+            "holgura": 4,
+            "ef": 3,
+            "es": 2,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "FIC1002"
+            ]
+          },
+          {
+            "holgura": 4,
+            "ef": 3,
+            "es": 2,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CII2000"
+            ]
+          },
+          {
+            "holgura": 3,
+            "ef": 4,
+            "es": 3,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2202"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 5,
+            "es": 4,
+            "ls": 4,
+            "lf": 5,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2101"
+            ]
+          },
+          {
+            "holgura": 1,
+            "ef": 5,
+            "es": 4,
+            "ls": 5,
+            "lf": 6,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2003"
+            ]
+          },
+          {
+            "holgura": 1,
+            "ef": 5,
+            "es": 4,
+            "ls": 5,
+            "lf": 6,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2103"
+            ]
+          },
+          {
+            "holgura": 5,
+            "ef": 2,
+            "es": 1,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CII1000"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 5,
+            "es": 4,
+            "ls": 4,
+            "lf": 5,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2005"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 6,
+            "es": 5,
+            "ls": 5,
+            "lf": 6,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2102"
+            ]
+          },
+          {
+            "holgura": 5,
+            "ef": 2,
+            "es": 1,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "FIC1003"
+            ]
+          },
+          {
+            "holgura": 1,
+            "ef": 6,
+            "es": 5,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2104"
+            ]
+          },
+          {
+            "holgura": 5,
+            "ef": 2,
+            "es": 1,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2203"
+            ]
+          },
+          {
+            "holgura": 1,
+            "ef": 6,
+            "es": 5,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2004"
+            ]
+          },
+          {
+            "holgura": 1,
+            "ef": 6,
+            "es": 5,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2105"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 7,
+            "es": 6,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT2201"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 0,
+            "es": 0,
+            "ls": 0,
+            "lf": 0,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT3200"
+            ]
+          },
+          {
+            "holgura": 6,
+            "ef": 2,
+            "es": 1,
+            "ls": 7,
+            "lf": 8,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT3201"
+            ]
+          },
+          {
+            "holgura": 3,
+            "ef": 4,
+            "es": 3,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT5001"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 8,
+            "es": 7,
+            "ls": 7,
+            "lf": 8,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT5002"
+            ]
+          },
+          {
+            "holgura": 0,
+            "ef": 0,
+            "es": 0,
+            "ls": 0,
+            "lf": 0,
+            "critico": false,
+            "to_asignatura_real": [
+              "FINAL1"
+            ]
+          },
+          {
+            "holgura": 6,
+            "ef": 2,
+            "es": 1,
+            "ls": 7,
+            "lf": 8,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT3310"
+            ]
+          },
+          {
+            "holgura": 6,
+            "ef": 2,
+            "es": 1,
+            "ls": 7,
+            "lf": 8,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT3311"
+            ]
+          },
+          {
+            "holgura": 6,
+            "ef": 2,
+            "es": 1,
+            "ls": 7,
+            "lf": 8,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT3312"
+            ]
+          },
+          {
+            "holgura": 6,
+            "ef": 2,
+            "es": 1,
+            "ls": 7,
+            "lf": 8,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT3313"
+            ]
+          },
+          {
+            "holgura": 6,
+            "ef": 2,
+            "es": 1,
+            "ls": 7,
+            "lf": 8,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT3410"
+            ]
+          },
+          {
+            "holgura": 6,
+            "ef": 2,
+            "es": 1,
+            "ls": 7,
+            "lf": 8,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT3411"
+            ]
+          },
+          {
+            "holgura": 6,
+            "ef": 2,
+            "es": 1,
+            "ls": 7,
+            "lf": 8,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT3412"
+            ]
+          },
+          {
+            "holgura": 6,
+            "ef": 2,
+            "es": 1,
+            "ls": 7,
+            "lf": 8,
+            "critico": false,
+            "to_asignatura_real": [
+              "CIT3413"
+            ]
+          },
+          {
+            "holgura": 4,
+            "ef": 2,
+            "es": 1,
+            "ls": 5,
+            "lf": 6,
+            "critico": false,
+            "to_asignatura_real": [
+              "CFG2"
+            ]
+          },
+          {
+            "holgura": 5,
+            "ef": 2,
+            "es": 1,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CFG3"
+            ]
+          },
+          {
+            "holgura": 5,
+            "ef": 2,
+            "es": 1,
+            "ls": 6,
+            "lf": 7,
+            "critico": false,
+            "to_asignatura_real": [
+              "CFG4"
+            ]
+          }
+        ],
+        "malla": 2010
+      }
