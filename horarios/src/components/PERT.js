@@ -6,14 +6,7 @@ import PERTMalla2020 from './PERTMalla2020'
 /*  import axios from 'axios';   */
 import { Link } from 'react-router-dom';
 import PERT_json from './PERT.json'
-  /*
-const getPERT = async () => {
 
-    const PERT = await axios.get("http://127.0.0.1:8000/PERT/", { headers: { Authorization: "Token 66c54201f64d384caea2e56b2c6eb1bd11952176" } })
-    console.log(PERT.data)
-}
-
-getPERT(); */
 
 export default class PERT extends Component {
 
@@ -23,6 +16,12 @@ export default class PERT extends Component {
     }
 
     componentDidMount = () => {
+        /* const PERT_j = await axios.get("http://127.0.0.1:8000/PERT/", { headers: { Authorization: "Token 66c54201f64d384caea2e56b2c6eb1bd11952176" } }) 
+        this.setState({
+            malla: PERT_j.data.malla,
+            ramos: PERT_j.data.PERT
+        })
+        */
         this.setState({
             malla: PERT_json.malla,
             ramos: PERT_json.PERT
@@ -91,7 +90,7 @@ export default class PERT extends Component {
     
                 </div>
             )
-        }else {
+        }else if (this.state.malla === 2018){
             return (
                 <div>
                     <Navbar />
@@ -121,7 +120,11 @@ export default class PERT extends Component {
     
                 </div>
             )
-        } 
+        } else {
+            return (
+            <div> asd </div>
+            )
+        }
 
     }
 }
