@@ -26,8 +26,6 @@ SECRET_KEY = 'na*2v($m74c(@ifhm&=x@g$+qnpent*5$6&$j46f6_otxfp6rw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -38,11 +36,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'generador_horarios.apps.GeneradorHorariosConfig',
     'import_export',
+
     'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+
     'django_extensions',
     'django.contrib.sites',
+
+    'corsheaders',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -52,17 +59,18 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 # cambiar despues por la URL para que alumno indique ramos aprobados
-LOGIN_REDIRECT_URL = '/ramosaprobados/'
-ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login"
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/ramosaprobados/'
+ACCOUNT_LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000/accounts/login/"
 
 
-SESSION_COOKIE_AGE = 10800
+SESSION_COOKIE_AGE = 10000
 
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,6 +81,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'TdR.urls'
+
 
 TEMPLATES = [
     {
@@ -135,6 +144,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAdminUser'
+    ),
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ]

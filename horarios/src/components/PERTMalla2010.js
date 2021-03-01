@@ -102,7 +102,11 @@ export default class Malla2010 extends Component {
                     <Ramo codigo = {"CFG2"} ramo = {"Minor / CFG"} state = {this.state.CFG2}/>  
                     <Ramo codigo = {"CFG3"} ramo = {"Minor / CFG"} state = {this.state.CFG3}/>                    
                     <Ramo codigo = {"CIT2103"} ramo = {"Sistemas Digitales"} state = {this.state.CIT2103} />                    
+<<<<<<< HEAD
                     <Ramo codigo = {"CIT2104"} ramo = {"Arquitectura de Comp."} state = {this.state.CIT2104}/>
+=======
+                    <Ramo codigo = {"CIT2104"} ramo = {"Arq. de Comp."} state = {this.state.CIT2104}/>
+>>>>>>> 5e41abe50b223e19f5f108918e4f1a6e88bb41ba
                     <Ramo codigo = {"CFG4"} ramo = {"Minor / CFG"} state = {this.state.CFG4}/>  
                     <Ramo codigo = {"CIT3312"} ramo = {"Electivo Profesional"} state = {this.state.CIT3312}/>
                     <Ramo codigo = {"CIT3313"} ramo = {"Electivo Profesional"} state = {this.state.CIT3313}/>

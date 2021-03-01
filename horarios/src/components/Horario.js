@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import Bloque from './Bloque'
 import BloqueH from './BloqueH'
+<<<<<<< HEAD
 import RamosH from './RamosH'
+=======
+import RamoH from './RamoH'
+>>>>>>> 5e41abe50b223e19f5f108918e4f1a6e88bb41ba
 import Dia from './Dia'
 
 
@@ -9,6 +13,7 @@ import Dia from './Dia'
 export default class Horario extends Component {
 
     state = {
+<<<<<<< HEAD
         show: true,
         LU_8: null,
         LU_10: null,
@@ -79,6 +84,10 @@ export default class Horario extends Component {
 
     componentDidMount = () => {
         this.fillSchedule();
+=======
+        show: true
+
+>>>>>>> 5e41abe50b223e19f5f108918e4f1a6e88bb41ba
     }
 
     onChange1 = () => {
@@ -98,7 +107,11 @@ export default class Horario extends Component {
         if(!this.state.show){
             
             return (
+<<<<<<< HEAD
                 <div className="container" >
+=======
+                <div className="container custom2" >
+>>>>>>> 5e41abe50b223e19f5f108918e4f1a6e88bb41ba
                     <div className="card border-primary text-center custom2">  
                         <br/> 
                         <div className="row row-cols-10">
@@ -209,7 +222,11 @@ export default class Horario extends Component {
                         <div className="row row-cols-5">
                             <div className="col"> </div>  
                             <div className="col"> </div>  
+<<<<<<< HEAD
                             <div className="col"> <h3 className="card-title text-primary text-center">Horario n°{this.props.horario.id}</h3> </div> 
+=======
+                            <div className="col"> <h3 className="card-title text-primary text-center">Horario n°2</h3> </div> 
+>>>>>>> 5e41abe50b223e19f5f108918e4f1a6e88bb41ba
                             <div className="col"> </div>  
                             <div className="col ">
                                 <div className="card border-0">
@@ -223,8 +240,17 @@ export default class Horario extends Component {
                         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramos:</h5>
                         <div className="row row-cols-2">
                         
+<<<<<<< HEAD
                         <RamosH ramos = {this.props.horario.ramos}/>
                         
+=======
+                        <RamoH nombre = "TICs II" profesor="JJEE" seccion ="2" horario="jueves 10:30" ayudantia="miercoles 10:230"/> 
+                        <RamoH/>
+                        <RamoH/>
+                        <RamoH/>
+                        <RamoH/>
+                        <RamoH/>
+>>>>>>> 5e41abe50b223e19f5f108918e4f1a6e88bb41ba
                         
                         </div>
                         
