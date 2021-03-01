@@ -62,7 +62,7 @@ def get_clique_max_pond(current_user):
 
             list_node = list(G.nodes.items())
 
-            if len(list_node) == 130:
+            if len(list_node) == 20:
                 break
         else:
             aux_eventos = []
@@ -92,9 +92,9 @@ def get_clique_max_pond(current_user):
                         G.add_edge(list_node[i][0], list_node[j][0])
 
     prev_solution = []
-    aux_retornar = []
+    aux_retornar = {}
 
-    show_options = 10
+    show_options = 1
     for i in range(show_options):
 
         max_clique_pond = nx.max_weight_clique(G, weight="prioridad")
@@ -121,7 +121,8 @@ def get_clique_max_pond(current_user):
                 print(elem[0][0: 7], " || ", "| Horario -> ", G.nodes[elem[0]]["horario"], "||",
                       G.nodes[elem[0]]["prioridad"], "codigo seccion ->", G.nodes[elem[0]]["cod_seccion"])
 
-            aux_retornar.append({'Solucion: '+str(i+1): solucion})
+            aux_retornar['id'] = i+1
+            aux_retornar['ramos'] = solucion
         prev_solution = arr_aux_delete
         G.remove_node(arr_aux_delete[0][0])
 

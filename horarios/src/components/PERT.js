@@ -132,21 +132,21 @@ export default class PERT extends Component {
                     <br />
                     <br />
                     <div class="d-flex justify-content-center">
-                    <h1 class="display-6">Un Momento, Se esta calculando tú PERT</h1>
+                        <h1 class="display-6">Un Momento, Se esta calculando tú PERT</h1>
                     </div>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <div class="d-flex justify-content-center">
-                                                
-                        <div class="spinner-grow text-primary" role="status"/>
+
+                        <div class="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="spinner-grow text-primary" role="status"/>
+                        <div class="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="spinner-border text-primary"  role="status"/>
+                        <div class="spinner-border text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="spinner-grow text-primary" role="status"/>
+                        <div class="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="spinner-grow text-primary" role="status"/>
+                        <div class="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
 
                     </div>
