@@ -197,8 +197,11 @@ def get_PERT(request):
             to_user__id=current_user, to_asignatura_real__tipo=0)
 
         serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
+        new_dict = {}
+        new_dict.update({"PERT": serializer.data})
+        new_dict["malla"] = año_malla
 
-        return Response(serializer.data)
+        return Response(new_dict)
 
 
 @api_view(['GET'])
