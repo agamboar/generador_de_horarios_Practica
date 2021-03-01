@@ -29,6 +29,31 @@
                                             }
                                     ]
                             },
+                            {       
+                                "nombre": "Optimización 23",
+                                "nro_seccion" : "13",
+                                "cod_asignatura_real": "CII27502",
+                                "eventos": [
+                                        {
+                                                "bloque": "JU_17",
+                                                "tipo": "CATEDRA 02",
+                                                "profesor": "profe 1"
+                                    
+                                        },
+                                        {
+                                                "bloque": "JU_14",
+                                                "tipo": "CATEDRA 02",
+                                                "profesor": "profe 1"
+                                    
+                                        },
+                                        {
+                                                "bloque": "MA_13",
+                                                "tipo": "CATEDRA 02",
+                                                "profesor": "profe 1"
+                                    
+                                        }
+                                ]
+                        },
                                     {       
                                         "nombre": "Oasdasdasd",
                                         "nro_seccion" : "2341",
