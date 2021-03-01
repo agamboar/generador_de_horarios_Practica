@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
 
@@ -62,6 +62,8 @@ export default class GoogleSocialAuth extends Component {
                             buttonText="Login con Google"
                             onSuccess={googleResponse}
                             onFailure={googleResponse}
+                            uxMode='redirect'
+                            redirectUri='http://localhost:3000/users/usr/'
                         />
 
                     </div>
