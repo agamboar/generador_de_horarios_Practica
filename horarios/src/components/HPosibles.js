@@ -21,6 +21,58 @@ export default class HPosibles extends Component {
     }
 
     render() {
+        if( this.state.Horarios === null){
+            return (
+                <div>
+                    <Navbar/>
+    
+                    <br/>
+                    <br/>
+                    
+    
+                    <p className="lead">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        A continuación veras los horarios que te recomendamos tomar para tu semestre actual, esperamos haberte ayudado!
+                    </p>
+                    <br/>
+                    <br/>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="d-flex justify-content-center">
+                    <h1 class="display-6">Un Momento, Se esta calculando tús horarios</h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="d-flex justify-content-center">
+                                                
+                        <div class="spinner-grow text-primary" role="status"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="spinner-grow text-primary" role="status"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="spinner-border text-primary"  role="status"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="spinner-grow text-primary" role="status"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="spinner-grow text-primary" role="status"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+    
+                    
+    
+    
+                </div>
+            )
+
+        }else{
+
+        
         return (
             <div>
                 <Navbar/>
@@ -46,5 +98,6 @@ export default class HPosibles extends Component {
 
             </div>
         )
+        }
     }
 }
