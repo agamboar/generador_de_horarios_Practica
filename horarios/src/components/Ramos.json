@@ -5,7 +5,7 @@
         "cod_asignatura_real": "CII2750",
         "eventos": [
                 {
-                        "bloque": "JU_17",
+                        "bloque": "VI_17",
                         "tipo": "CATEDRA 02",
                         "profesor": "GEISSE ESTEBAN"
 
@@ -24,6 +24,31 @@
                 }
         ]
 },
+        {       
+            "nombre": "Oasdasdasd",
+            "nro_seccion" : "2341",
+            "cod_asignatura_real": "holasoyotrocodigo",
+            "eventos": [
+                    {
+                            "bloque": "LU_10",
+                            "tipo": "CATEDRA 02",
+                            "profesor": "GEISSE ESTEBAN"
+    
+                    },
+                    {
+                            "bloque": "MA_11",
+                            "tipo": "CATEDRA 02",
+                            "profesor": "GEISSE ESTEBAN"
+    
+                    },
+                    {
+                            "bloque": "JU_8",
+                            "tipo": "CATEDRA 02",
+                            "profesor": "GEISSE ESTEBAN"
+    
+                    }
+            ]
+    },
 {       
         "nombre": "Electrooo",
         "nro_seccion" : "4",

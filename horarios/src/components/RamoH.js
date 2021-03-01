@@ -7,7 +7,6 @@ export default class Bloque extends Component {
     render() {
         return (
             <div className="col  col-md-6">
-                {console.log(this.props.ramo)}
                         <ul>
                             <li>Ramo: {this.props.ramo.nombre} - Sección {this.props.ramo.nro_seccion}</li>
                             <ul>

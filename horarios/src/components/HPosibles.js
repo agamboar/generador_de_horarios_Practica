@@ -22,12 +22,11 @@ export default class HPosibles extends Component {
                 <br/>
                 <br/>
                 <Horario/>  
+                <Horario/>  
                 <br/>
                 <br/>
                 
 
-                <br/>
-                <br/>
                 
 
 
