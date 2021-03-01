@@ -29,7 +29,7 @@ export default class PrioridadRamo extends Component {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-            <RamoCritico name='Calculo I'/>
+            <RamoCritico name='Calculo II'/>
 
               
             </Card.Body>

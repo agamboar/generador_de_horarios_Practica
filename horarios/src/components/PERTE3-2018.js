@@ -25,8 +25,8 @@ export default class Malla2018Extra3 extends Component {
 
                 <div className="row row-cols-10 align-items-start">
                     <div className="col col-md-1"> </div>  
-                    <RamoP codigo = {"CII-1000"} ramo = {"Contabilidad y Costos"} numero = {"33"} creditos = {"6"} prerequisitos = {"Cálculo I"} formacion = {"Ciencias de la Ingeniería"} />      
-                    <RamoP codigo = {"CIT-2203"} ramo = {"Gestión Organizacional"} numero = {"38"} creditos = {"6"} prerequisitos = {"Comuniación para la Ingeniería"} formacion = {"Ciencias de la Ingeniería"} />                     
+                    <RamoP codigo = {"CII-1000"} ramo = {"Contabilidad y Costos"} />      
+                    <RamoP codigo = {"CIT-2203"} ramo = {"Gestión Organizacional"} />                     
                                        
                     <div className="col col-md-1"> </div>  
                 </div>
@@ -35,8 +35,8 @@ export default class Malla2018Extra3 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div>  
-                    <RamoP codigo = {"CIT-2005"} ramo = {"Ingeniería de Software"} numero = {"34"} creditos = {"6"} prerequisitos = {"Proyecto en TICs I - Bases de Datos"} formacion = {"Ingeniería Aplicada "} />      
-                    <RamoP codigo = {"CIT-2004"} ramo = {"Arquitectura de Sistemas"} numero = {"39"} creditos = {"6"} prerequisitos = {"Ingeniería de Software"} formacion = {"Ingeniería Aplicada"} />                     
+                    <RamoP codigo = {"CIT-2005"} ramo = {"Ingeniería de Software"} />      
+                    <RamoP codigo = {"CIT-2004"} ramo = {"Arquitectura de Sistemas"} />                     
                     <div className="col col-md-1"> </div>  
                 </div>
 
@@ -50,8 +50,8 @@ export default class Malla2018Extra3 extends Component {
                             </svg>
                         </Link>
                     </div> 
-                    <RamoP codigo = {"CIT-2102"} ramo = {"Comunicaciones Digitales"} numero = {"35"} creditos = {"6"} prerequisitos = {"Señales y Sistemas"} formacion = {"Ingeniería Aplicada"} />      
-                    <RamoP codigo = {"CIT-2105"} ramo = {"Criptografía y Seguridad en Redes"} numero = {"40"} creditos = {"6"} prerequisitos = {"Sistemas Operativos"} formacion = {"Ingeniería Aplicada"} />                     
+                    <RamoP codigo = {"CIT-2102"} ramo = {"Comunicaciones Digitales"} />      
+                    <RamoP codigo = {"CIT-2105"} ramo = {"Criptografía y Seguridad en Redes"} />                     
                     <div className="col col-md-1"> 
                         <Link className="nav-link" to={{ pathname: '/users/usr/PERT/PERTExtra4'}} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
@@ -66,42 +66,8 @@ export default class Malla2018Extra3 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <div className="col">  
-                        <div className="card border-primary">                  
-                            <h6 className="card-title text-center"><font size="2">FIC-1003</font></h6>
-                            <p className="card-text"><font size="2">
-                                &nbsp;&nbsp;° Nombre: Derecho en Ingeniería
-                                <br/>
-                                &nbsp;&nbsp;° Número: 35
-                                <br/>
-                                &nbsp;&nbsp;° Creditos: 5
-                                <br/>
-                                &nbsp;&nbsp;° Pre-Requisitos: 180 Creditos
-                                <br/>
-                                &nbsp;&nbsp;° Formación: Transversal
-                                <br/>
-                                <br/>
-                            </font></p> 
-                        </div>
-                    </div> 
-                    <div className="col">  
-                        <div className="card border-primary">                  
-                            <h6 className="card-title text-center"><font size="2">CIT-2201</font></h6>
-                            <p className="card-text"><font size="2">
-                                &nbsp;&nbsp;° Nombre: Proyecto en TICs II
-                                <br/>
-                                &nbsp;&nbsp;° Número: 41
-                                <br/>
-                                &nbsp;&nbsp;° Creditos: 6
-                                <br/>
-                                &nbsp;&nbsp;° Pre-Requisitos: Proyecto en TICs I - Ingeniería de Software -
-                                &nbsp;&nbsp;&nbsp;Comunicaciones Digitales
-                                <br/>
-                                &nbsp;&nbsp;° Formación: Ingeniería Aplicada
-                                <br/>
-                            </font></p> 
-                        </div>
-                    </div> 
+                    <RamoP codigo = {"FIC-1003"} ramo = {"Derecho en Ingeniería"}  />      
+                    <RamoP codigo = {"CIT-2201"} ramo = {"Proyecto en TICs II"}  />    
                     <div className="col col-md-1"> </div>                 
                 </div>
 
@@ -109,8 +75,8 @@ export default class Malla2018Extra3 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoP codigo = {"CIT-2104"} ramo = {"Arquitectura de Computadores"} numero = {"37"} creditos = {"6"} prerequisitos = {"Sistemas Digitales"} formacion = {"Ingeniería Aplicada"} />      
-                    <RamoP codigo = {" - "} ramo = {"Minor / CFG"} numero = {"42"} creditos = {"5"} prerequisitos = {" - "} formacion = {"Transversal"} />                               
+                    <RamoP codigo = {"CIT-2104"} ramo = {"Arquitectura de Computadores"} />      
+                    <RamoP codigo = {" - "} ramo = {"Minor / CFG"} />                               
                     <div className="col col-md-1"> </div>                     
                    
                 </div>

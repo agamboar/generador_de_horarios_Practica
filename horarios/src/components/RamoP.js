@@ -8,7 +8,7 @@ export default class RamoE extends Component {
 
             
             <div className="col">  
-                <div className="card border-primary" style={{background: this.props.color}}>                  
+                <div className="card border-primary">                  
                     <h6 className="card-title text-center"><font size="2">{this.props.codigo}</font></h6>
                     <p className="card-text"><font size="2">
                         &nbsp;&nbsp;° Nombre: {this.props.ramo}

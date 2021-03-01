@@ -5,18 +5,25 @@ import {Link} from 'react-router-dom';
 
 
 
-export default class AvanceManual extends Component {
+export default class AvanceManual2018 extends Component {
     
     state = {
-        AR1: false, AR2: false, AR3: false, AR4: false, AR5: false, AR6: false, AR7: false, AR8: false, AR9: false, 
-        AR10: false, AR11: false, AR12: false, AR13: false, AR14: false, AR15: false, AR16: false, AR17: false, AR18: false, AR19: false, 
-        AR20: false, AR21: false, AR22: false, AR23: false, AR24: false, AR25: false, AR26: false, AR27: false, AR28: false, AR29: false, 
-        AR30: false, AR31: false, AR32: false, AR33: false, AR34: false, AR35: false, AR36: false, AR37: false, AR38: false, AR39: false, 
-        AR40: false, AR41: false, AR42: false, AR43: false, AR44: false, AR45: false, AR46: false, AR47: false, AR48: false, AR49: false, 
-        AR50: false, AR51: false, AR52: false, AR53: false
+        CBM1000: false, CBM1001: false, CBQ1000: false, CIT1000: false, FIC1000: false, CBM1002: false, CBM1003: false, CBF1000: false, CIT1010: false, 
+        CFG1: false, CBM1005: false, CBM1006: false, CBF1001: false, CIT2000: false, CIT2100: false, CIT2204: false, CBM2000: false, CBF1002: false, CIT2001: false, 
+        CFG2: false, CIG1012: false, CII2750: false, CIT2106: false, CIT2200: false, CIT2002: false, CFG3: false, CIG1013: false, CII2000: false, CIT2202: false, 
+        CIT2101: false, CIT2003: false, CIT2103: false, CII1000: false, CIT2005: false, CIT2102: false, FIC1003: false, CIT2104: false, CIT2203: false, CIT2004: false, 
+        CIT2105: false, CIT2201: false, CFG4: false, CIT3310: false, CIT3410: false, CIT3412: false, CIT3200: false, CIT3312: false, CIT3311: false, CIT3411: false, 
+        CIT3413: false, CIT3201: false, CIT3313: false, CIG1014: false , CIT6001: false, CIT6002: false
         
     }
 
+    onSubmit = e => { 
+        e.preventDefault();
+        const Avance = { state: this.state}
+        console.log(Avance)
+
+    }
+    
     render() {
         return (
             <div className="container">
@@ -123,74 +130,74 @@ export default class AvanceManual extends Component {
             </div> 
                 <br/>
                         {/*   show= {this.state.AR} onChange1 = {this.onChange}      */}
-            
+            <form onSubmit = {this.onSubmit}> 
                 <div className="row row-cols-10 ">
-                    <ARamo codigo = {"CBM-1000"} ramo = {"Álgebra y Geometría"} show= {this.state.AR1} onChange1 = {this.onChange1} />                    
-                    <ARamo codigo = {"CBM-1002"} ramo = {"Álgebra Lineal"} show= {this.state.AR6} onChange1 = {this.onChange6} />                    
-                    <ARamo codigo = {"CBM-1005"} ramo = {"Ecuaciones Difl."} show= {this.state.AR11} onChange1 = {this.onChange11} />                    
-                    <ARamo codigo = {"CIT-2204"} ramo = {"Prob. y Estadisticas"} show= {this.state.AR16} onChange1 = {this.onChange16}/>                  
-                    <ARamo codigo = {"CII-2750"} ramo = {"Optimiza- ción"} show= {this.state.AR22} onChange1 = {this.onChange22}/>                 
-                    <ARamo codigo = {"CII-2000"} ramo = {"Introd. a la Economía"} show= {this.state.AR28} onChange1 = {this.onChange28}  />                    
-                    <ARamo codigo = {"CII-1000"} ramo = {"Contabi- lidad y Costos"} show= {this.state.AR33} onChange1 = {this.onChange33} />
-                    <ARamo codigo = {"CIT-2203"} ramo = {"Gestión Organiza- cional"} show= {this.state.AR38} onChange1 = {this.onChange38}  />
-                    <ARamo codigo = {"CIT-33XX"} ramo = {"Electivo Profesional"} show= {this.state.AR43} onChange1 = {this.onChange43}/>
-                    <ARamo codigo = {"CIT-33XX"} ramo = {"Electivo Profesional"} show= {this.state.AR48} onChange1 = {this.onChange48}/>
+                    <ARamo codigo = {"CBM1000"} ramo = {"Álgebra y Geometría"} show= {this.state.CBM1000} onChange1 = {this.onChange1} />                    
+                    <ARamo codigo = {"CBM1002"} ramo = {"Álgebra Lineal"} show= {this.state.CBM1002} onChange1 = {this.onChange6} />                    
+                    <ARamo codigo = {"CBM1005"} ramo = {"Ecuaciones Difl."} show= {this.state.CBM1005} onChange1 = {this.onChange11} />                    
+                    <ARamo codigo = {"CIT2204"} ramo = {"Prob. y Estadisticas"} show= {this.state.CIT2204} onChange1 = {this.onChange16}/>                  
+                    <ARamo codigo = {"CII2750"} ramo = {"Optimiza- ción"} show= {this.state.CII2750} onChange1 = {this.onChange22}/>                 
+                    <ARamo codigo = {"CII2000"} ramo = {"Introd. a la Economía"} show= {this.state.CII2000} onChange1 = {this.onChange28}  />                    
+                    <ARamo codigo = {"CII1000"} ramo = {"Contabi- lidad y Costos"} show= {this.state.CII1000} onChange1 = {this.onChange33} />
+                    <ARamo codigo = {"CIT2203"} ramo = {"Gestión Organiza- cional"} show= {this.state.CIT2203} onChange1 = {this.onChange38}  />
+                    <ARamo codigo = {"CIT3310"} ramo = {"Electivo Profesional"} show= {this.state.CIT3310} onChange1 = {this.onChange43}/>
+                    <ARamo codigo = {"CIT3311"} ramo = {"Electivo Profesional"} show= {this.state.CIT3311} onChange1 = {this.onChange48}/>
                 </div>
                 <br/>
 
                 <div className="row row-cols-10">
                     
-                    <ARamo codigo = {"CBM-1001"} ramo = {"Cálculo I"} show= {this.state.AR2} onChange1 = {this.onChange2}   />  
-                    <ARamo codigo = {"CBM-1003"} ramo = {"Cálculo II"} show= {this.state.AR7} onChange1 = {this.onChange7}   />                                     
-                    <ARamo codigo = {"CBM-1006"} ramo = {"Cálculo III"} show= {this.state.AR12} onChange1 = {this.onChange12}   />                    
-                    <ARamo codigo = {"CBM-2000"} ramo = {"Métodos Numéricos"} show= {this.state.AR17} onChange1 = {this.onChange17}   />                    
-                    <ARamo codigo = {"CIT-2106"} ramo = {"Electrónica y Electro- tecnia"} show= {this.state.AR23} onChange1 = {this.onChange23}  />                    
-                    <ARamo codigo = {"CIT-2202"} ramo = {"Modelos Estoc. y Simul."} show= {this.state.AR29} onChange1 = {this.onChange29}  />                    
-                    <ARamo codigo = {"CIT-2005"} ramo = {"Ingeniería de Software"} show= {this.state.AR34} onChange1 = {this.onChange34}/>
-                    <ARamo codigo = {"CIT-2004"} ramo = {"Arquitec- tura de Sistemas"} show= {this.state.AR39} onChange1 = {this.onChange39} />
-                    <ARamo codigo = {"CIT-34XX"} ramo = {"Electivo Profesional"}show= {this.state.AR44} onChange1 = {this.onChange44} />
-                    <ARamo codigo = {"CIT-34XX"} ramo = {"Electivo Profesional"} show= {this.state.AR49} onChange1 = {this.onChange49}/>
+                    <ARamo codigo = {"CBM1001"} ramo = {"Cálculo I"} show= {this.state.CBM1001} onChange1 = {this.onChange2}   />  
+                    <ARamo codigo = {"CBM1003"} ramo = {"Cálculo II"} show= {this.state.CBM1003} onChange1 = {this.onChange7}   />                                     
+                    <ARamo codigo = {"CBM1006"} ramo = {"Cálculo III"} show= {this.state.CBM1006} onChange1 = {this.onChange12}   />                    
+                    <ARamo codigo = {"CBM2000"} ramo = {"Métodos Numéricos"} show= {this.state.CBM2000} onChange1 = {this.onChange17}   />                    
+                    <ARamo codigo = {"CIT2106"} ramo = {"Electrónica y Electro- tecnia"} show= {this.state.CIT2106} onChange1 = {this.onChange23}  />                    
+                    <ARamo codigo = {"CIT2202"} ramo = {"Modelos Estoc. y Simul."} show= {this.state.CIT2202} onChange1 = {this.onChange29}  />                    
+                    <ARamo codigo = {"CIT2005"} ramo = {"Ingeniería de Software"} show= {this.state.CIT2005} onChange1 = {this.onChange34}/>
+                    <ARamo codigo = {"CIT2004"} ramo = {"Arquitec- tura de Sistemas"} show= {this.state.CIT2004} onChange1 = {this.onChange39} />
+                    <ARamo codigo = {"CIT3410"} ramo = {"Electivo Profesional"}show= {this.state.CIT3410} onChange1 = {this.onChange44} />
+                    <ARamo codigo = {"CIT3411"} ramo = {"Electivo Profesional"} show= {this.state.CIT3411} onChange1 = {this.onChange49}/>
                 </div>
 
                 <br/>
 
                 <div className="row row-cols-10">
-                    <ARamo codigo = {"CBQ-1000"} ramo = {"Química"} show= {this.state.AR3} onChange1 = {this.onChange3} />                    
-                    <ARamo codigo = {"CBF-1000"} ramo = {"Mecánica"} show= {this.state.AR8} onChange1 = {this.onChange8} />                    
-                    <ARamo codigo = {"CBF-1001"} ramo = {"Calor y Ondas"} show= {this.state.AR13} onChange1 = {this.onChange13} />                    
-                    <ARamo codigo = {"CBF-1002"} ramo = {"Electricidad y Magnetismo"} show= {this.state.AR18} onChange1 = {this.onChange18} />                    
-                    <ARamo codigo = {"CIT-2200"} ramo = {"Proyectos en TICs I"} show= {this.state.AR24} onChange1 = {this.onChange24} />                    
-                    <ARamo codigo = {"CIT-2101"} ramo = {"Señales y Sistemas"} show= {this.state.AR30} onChange1 = {this.onChange30} />                    
-                    <ARamo codigo = {"CIT-2102"} ramo = {"Comunica- ciones Digitales"}show= {this.state.AR35} onChange1 = {this.onChange35} />
-                    <ARamo codigo = {"CIT-2105"} ramo = {"Criptografía y Seg. en Redes"}show= {this.state.AR40} onChange1 = {this.onChange40} />
-                    <ARamo codigo = {"CIT-34XX"} ramo = {"Electivo Profesional"} show= {this.state.AR45} onChange1 = {this.onChange45}/>
-                    <ARamo codigo = {"CIT-34XX"} ramo = {"Electivo Profesional"}show= {this.state.AR50} onChange1 = {this.onChange50} />
+                    <ARamo codigo = {"CBQ1000"} ramo = {"Química"} show= {this.state.CBQ1000} onChange1 = {this.onChange3} />                    
+                    <ARamo codigo = {"CBF1000"} ramo = {"Mecánica"} show= {this.state.CBF1000} onChange1 = {this.onChange8} />                    
+                    <ARamo codigo = {"CBF1001"} ramo = {"Calor y Ondas"} show= {this.state.CBF1001} onChange1 = {this.onChange13} />                    
+                    <ARamo codigo = {"CBF1002"} ramo = {"Electricidad y Magnetismo"} show= {this.state.CBF1002} onChange1 = {this.onChange18} />                    
+                    <ARamo codigo = {"CIT2200"} ramo = {"Proyectos en TICs I"} show= {this.state.CIT2200} onChange1 = {this.onChange24} />                    
+                    <ARamo codigo = {"CIT2101"} ramo = {"Señales y Sistemas"} show= {this.state.CIT2101} onChange1 = {this.onChange30} />                    
+                    <ARamo codigo = {"CIT2102"} ramo = {"Comunica- ciones Digitales"}show= {this.state.CIT2102} onChange1 = {this.onChange35} />
+                    <ARamo codigo = {"CIT2105"} ramo = {"Criptografía y Seg. en Redes"}show= {this.state.CIT2105} onChange1 = {this.onChange40} />
+                    <ARamo codigo = {"CIT3412"} ramo = {"Electivo Profesional"} show= {this.state.CIT3412} onChange1 = {this.onChange45}/>
+                    <ARamo codigo = {"CIT3413"} ramo = {"Electivo Profesional"}show= {this.state.CIT3413} onChange1 = {this.onChange50} />
                 </div> 
                 <br/>
                 <div className="row row-cols-10">                    
-                    <ARamo codigo = {"CIT-1000"} ramo = {"Programa- ción"}  show= {this.state.AR4} onChange1 = {this.onChange4} />                    
-                    <ARamo codigo = {"CIT-1010"} ramo = {"Programa- ción Avanzada"}  show= {this.state.AR9} onChange1 = {this.onChange9} />                    
-                    <ARamo codigo = {"CIT-2000"} ramo = {"Estructura de Datos"} show= {this.state.AR14} onChange1 = {this.onChange14} />                    
-                    <ARamo codigo = {"CIT-2001"} ramo = {"Dis. y Análisis de Alg."} show= {this.state.AR19} onChange1 = {this.onChange19} />                    
-                    <ARamo codigo = {"CIT-2002"} ramo = {"Bases de Datos"}  show= {this.state.AR25} onChange1 = {this.onChange25}/>                    
-                    <ARamo codigo = {"CIT-2003"} ramo = {"Sistemas Operativos"} show= {this.state.AR31} onChange1 = {this.onChange31}/>                    
-                    <ARamo codigo = {"FIC-1003"} ramo = {"Derecho en Ingeniería"} show= {this.state.AR36} onChange1 = {this.onChange36}/>
-                    <ARamo codigo = {"CIT-2201"} ramo = {"Proyecto en TICs II"} show= {this.state.AR41} onChange1 = {this.onChange41}/>
-                    <ARamo codigo = {"CIT-3200"} ramo = {"Evaluación de Proy. TIC"} show= {this.state.AR46} onChange1 = {this.onChange46}/>
-                    <ARamo codigo = {"CIT-3201"} ramo = {"Proyecto en TICs III"} show= {this.state.AR51} onChange1 = {this.onChange51}/>
+                    <ARamo codigo = {"CIT1000"} ramo = {"Programa- ción"}  show= {this.state.CIT1000} onChange1 = {this.onChange4} />                    
+                    <ARamo codigo = {"CIT1010"} ramo = {"Programa- ción Avanzada"}  show= {this.state.CIT1010} onChange1 = {this.onChange9} />                    
+                    <ARamo codigo = {"CIT2000"} ramo = {"Estructura de Datos"} show= {this.state.CIT2000} onChange1 = {this.onChange14} />                    
+                    <ARamo codigo = {"CIT2001"} ramo = {"Dis. y Análisis de Alg."} show= {this.state.CIT2001} onChange1 = {this.onChange19} />                    
+                    <ARamo codigo = {"CIT2002"} ramo = {"Bases de Datos"}  show= {this.state.CIT2002} onChange1 = {this.onChange25}/>                    
+                    <ARamo codigo = {"CIT2003"} ramo = {"Sistemas Operativos"} show= {this.state.CIT2003} onChange1 = {this.onChange31}/>                    
+                    <ARamo codigo = {"FIC1003"} ramo = {"Derecho en Ingeniería"} show= {this.state.FIC1003} onChange1 = {this.onChange36}/>
+                    <ARamo codigo = {"CIT2201"} ramo = {"Proyecto en TICs II"} show= {this.state.CIT2201} onChange1 = {this.onChange41}/>
+                    <ARamo codigo = {"CIT3200"} ramo = {"Evaluación de Proy. TIC"} show= {this.state.CIT3200} onChange1 = {this.onChange46}/>
+                    <ARamo codigo = {"CIT3201"} ramo = {"Proyecto en TICs III"} show= {this.state.CIT3201} onChange1 = {this.onChange51}/>
                 </div>
                 <br/>
                 <div className="row row-cols-10">
-                    <ARamo codigo = {"FIC-1000"} ramo = {"Comunicación para la Ing."} show= {this.state.AR5} onChange1 = {this.onChange5} />                                     
-                    <ARamo codigo = {"Minor / CFG"} ramo = {"Minor / CFG"} show= {this.state.AR10} onChange1 = {this.onChange10} />   
-                    <ARamo codigo = {"CIT-2100"} ramo = {"Redes de Datos"} show= {this.state.AR15} onChange1 = {this.onChange15} />                    
-                    <ARamo codigo = {"Minor / CFG"} ramo = {"Minor / CFG"} show= {this.state.AR20} onChange1 = {this.onChange20} /> 
-                    <ARamo codigo = {"Minor / CFG"} ramo = {"Minor / CFG"} show= {this.state.AR26} onChange1 = {this.onChange26} />                   
-                    <ARamo codigo = {"CIT-2103"} ramo = {"Sistemas Digitales"} show= {this.state.AR32} onChange1 = {this.onChange32}/>                    
-                    <ARamo codigo = {"CIT-2104"} ramo = {"Arquitec- tura de Comp."} show= {this.state.AR37} onChange1 = {this.onChange37}/>
-                    <ARamo codigo = {"Minor / CFG"} ramo = {"Minor / CFG"} show= {this.state.AR42} onChange1 = {this.onChange42} /> 
-                    <ARamo codigo = {"CIT-33XX"} ramo = {"Electivo Profesional"} show= {this.state.AR47} onChange1 = {this.onChange47}/>
-                    <ARamo codigo = {"CIT-33XX"} ramo = {"Electivo Profesional"}show= {this.state.AR52} onChange1 = {this.onChange52} />
+                    <ARamo codigo = {"FIC1000"} ramo = {"Comunica- ción para la Ing."} show= {this.state.FIC1000} onChange1 = {this.onChange5} />                                     
+                    <ARamo codigo = {"CFG1"} ramo = {"Minor / CFG"} show= {this.state.CFG1} onChange1 = {this.onChange10} />   
+                    <ARamo codigo = {"CIT2100"} ramo = {"Redes de Datos"} show= {this.state.CIT2100} onChange1 = {this.onChange15} />                    
+                    <ARamo codigo = {"CFG2"} ramo = {"Minor / CFG"} show= {this.state.CFG2} onChange1 = {this.onChange20} /> 
+                    <ARamo codigo = {"CFG3"} ramo = {"Minor / CFG"} show= {this.state.CFG3} onChange1 = {this.onChange26} />                   
+                    <ARamo codigo = {"CIT2103"} ramo = {"Sistemas Digitales"} show= {this.state.CIT2103} onChange1 = {this.onChange32}/>                    
+                    <ARamo codigo = {"CIT2104"} ramo = {"Arquitec- tura de Comp."} show= {this.state.CIT2104} onChange1 = {this.onChange37}/>
+                    <ARamo codigo = {"CFG4"} ramo = {"Minor / CFG"} show= {this.state.CFG4} onChange1 = {this.onChange42} /> 
+                    <ARamo codigo = {"CIT3312"} ramo = {"Electivo Profesional"} show= {this.state.CIT3312} onChange1 = {this.onChange47}/>
+                    <ARamo codigo = {"CIT3313"} ramo = {"Electivo Profesional"}show= {this.state.CIT3313} onChange1 = {this.onChange52} />
                 </div>
                 <br/>
 
@@ -199,16 +206,30 @@ export default class AvanceManual extends Component {
                 <div className="col"> </div>
                 <div className="col"> </div>
                 <div className="col"> </div>  
-                <ARamo codigo = {"FIC-1012"} ramo = {"Inglés I"}show= {this.state.AR21} onChange1 = {this.onChange21} />
-                <ARamo codigo = {"FIC-1013"} ramo = {"Inglés II"}show= {this.state.AR27} onChange1 = {this.onChange27} /> 
-                <ARamo codigo = {"FIC-1014"} ramo = {"Inglés II"}show= {this.state.AR53} onChange1 = {this.onChange53} /> 
+                <ARamo codigo = {"CIG1012"} ramo = {"Inglés I"}show= {this.state.CIG1012} onChange1 = {this.onChange21} />
+                <ARamo codigo = {"CIG1013"} ramo = {"Inglés II"}show= {this.state.CIG1013} onChange1 = {this.onChange27} /> 
+                <ARamo codigo = {"CIG1014"} ramo = {"Inglés II"}show= {this.state.CIG1014} onChange1 = {this.onChange53} /> 
                 <div className="col"> </div>     
                 <div className="col"> </div>   
                 <div className="col"> </div>                   
                 <div className="col"> </div>
              
-                </div>
-                <br/>                         
+            </div>
+            <br/>                         
+            <div className="row row-cols-10">
+                <div className="col"> </div>
+                <div className="col"> </div>
+                <div className="col"> </div>  
+                <div className="col"> </div>  
+                <ARamo codigo = {"CIT6001"} ramo = {"Practia I"}show= {this.state.CIT6001} onChange1 = {this.onChangePR1} /> 
+                <div className="col"> </div>
+                <div className="col"> </div>     
+                <div className="col"> </div>   
+                <ARamo codigo = {"CIT6002"} ramo = {"Practica II"}show= {this.state.CIT6002} onChange1 = {this.onChangePR2} /> 
+                <div className="col"> </div>
+             
+            </div>
+            <br/> 
                 <div className="row row-cols-10">
                 <div className="col"> 
                     <Link className="nav-link" to={{ pathname: '/users/usr/mallas/malla2018'}} >
@@ -237,6 +258,7 @@ export default class AvanceManual extends Component {
                 </div>
              
                 </div>
+                </form>
 
                 <br/>
                 <br/>
@@ -256,99 +278,99 @@ export default class AvanceManual extends Component {
 
     onChange1_5 =(e) => {
         this.setState(prevState =>({
-            AR1: true,
-            AR2: true,
-            AR3: true,
-            AR4: true,
-            AR5: true
+            CBM1000: true,
+            CBM1001: true,
+            CBQ1000: true,
+            CIT1000: true,
+            FIC1000: true
         }))
     }
     onChange6_10 =(e) => {
         this.setState(prevState =>({
-            AR6: true,
-            AR7: true,
-            AR8: true,
-            AR9: true,
-            AR10: true
+            CBM1002: true,
+            CBM1003: true,
+            CBF1000: true,
+            CIT1010: true,
+            CFG1: true
         }))
     }
     onChange11_15 =(e) => {
         this.setState(prevState =>({
-            AR11: true,
-            AR12: true,
-            AR13: true,
-            AR14: true,
-            AR15: true
+            CBM1005: true,
+            CBM1006: true,
+            CBF1001: true,
+            CIT2000: true,
+            CIT2100: true
         }))
     }
     onChange16_21 =(e) => {
         this.setState(prevState =>({
-            AR16: true,
-            AR17: true,
-            AR18: true,
-            AR19: true,
-            AR20: true,
-            AR21: true
+            CIT2204: true,
+            CBM2000: true,
+            CBF1002: true,
+            CIT2001: true,
+            CFG2: true,
+            CIG1012: true
         }))
     }
     onChange22_27 =(e) => {
         this.setState(prevState =>({
-            AR22: true,
-            AR23: true,
-            AR24: true,
-            AR25: true,
-            AR26: true,
-            AR27: true
+            CII2750: true,
+            CIT2106: true,
+            CIT2200: true,
+            CIT2002: true,
+            CFG3: true,
+            CIG1013: true
         }))
     }
     onChange28_33 =(e) => {
         this.setState(prevState =>({
-            AR28: true,
-            AR29: true,
-            AR30: true,
-            AR31: true,
-            AR32: true,
-            AR53: true
+            CII2000: true,
+            CIT2202: true,
+            CIT2101: true,
+            CIT2003: true,
+            CIT2103: true,
+            CIG1014: true
         }))
     }
     onChange34_38 =(e) => {
         this.setState(prevState =>({
-            AR33: true,
-            AR34: true,
-            AR35: true,
-            AR36: true,
-            AR37: true,
+            CII1000: true,
+            CIT2005: true,
+            CIT2102: true,
+            FIC1003: true,
+            CIT2104: true,
             
         }))
     }
     v
     onChange39_43 =(e) => {
         this.setState(prevState =>({
-            AR38: true,
-            AR39: true,
-            AR40: true,
-            AR41: true,
-            AR42: true,
+            CIT2203: true,
+            CIT2004: true,
+            CIT2105: true,
+            CIT2201: true,
+            CFG4: true,
             
         }))
     }
     onChange44_48 =(e) => {
         this.setState(prevState =>({
-            AR43: true,
-            AR44: true,
-            AR45: true,
-            AR46: true,
-            AR47: true,
+            CIT3310: true,
+            CIT3410: true,
+            CIT3412: true,
+            CIT3200: true,
+            CIT3312: true,
             
         }))
     }
     onChange49_53 =(e) => {
         this.setState(prevState =>({
-            AR48: true,
-            AR49: true,
-            AR50: true,
-            AR51: true,
-            AR52: true,
+            CIT3311: true,
+            CIT3411: true,
+            CIT3413: true,
+            CIT3201: true,
+            CIT3313: true,
         }))
     }
 
@@ -356,273 +378,282 @@ export default class AvanceManual extends Component {
 
     onChange1 =(e) => {
         this.setState(prevState =>({
-            AR1: !prevState.AR1
+            CBM1000: !prevState.CBM1000
         }))
     }
     onChange2 =(e) => {
         this.setState(prevState =>({
-            AR2: !prevState.AR2
+            CBM1001: !prevState.CBM1001
         }))
     }
     onChange3 =(e) => {
         this.setState(prevState =>({
-            AR3: !prevState.AR3
+            CBQ1000: !prevState.CBQ1000
         }))
     }
     onChange4 =(e) => {
         this.setState(prevState =>({
-            AR4: !prevState.AR4
+            CIT1000: !prevState.CIT1000
         }))
     }
     onChange5 =(e) => {
         this.setState(prevState =>({
-            AR5: !prevState.AR5
+            FIC1000: !prevState.FIC1000
         }))
     }
     onChange6 =(e) => {
         this.setState(prevState =>({
-            AR6: !prevState.AR6
+            CBM1002: !prevState.CBM1002
         }))
     }
     onChange7 =(e) => {
         this.setState(prevState =>({
-            AR7: !prevState.AR7
+            CBM1003: !prevState.CBM1003
         }))
     }
     onChange8 =(e) => {
         this.setState(prevState =>({
-            AR8: !prevState.AR8
+            CBF1000: !prevState.CBF1000
         }))
     }
     onChange9 =(e) => {
         this.setState(prevState =>({
-            AR9: !prevState.AR9
+            CIT1010: !prevState.CIT1010
         }))
     }
 
     onChange10 =(e) => {
         this.setState(prevState =>({
-            AR10: !prevState.AR10
+            CFG1: !prevState.CFG1
         }))
     }
 
     onChange11 =(e) => {
         this.setState(prevState =>({
-            AR11: !prevState.AR11
+            CBM1005: !prevState.CBM1005
         }))
     }
     onChange12 =(e) => {
         this.setState(prevState =>({
-            AR12: !prevState.AR12
+            CBM1006: !prevState.CBM1006
         }))
     }
     onChange13 =(e) => {
         this.setState(prevState =>({
-            AR13: !prevState.AR13
+            CBF1001: !prevState.CBF1001
         }))
     }
     onChange14 =(e) => {
         this.setState(prevState =>({
-            AR14: !prevState.AR14
+            CIT2000: !prevState.CIT2000
         }))
     }
     onChange15 =(e) => {
         this.setState(prevState =>({
-            AR15: !prevState.AR15
+            CIT2100: !prevState.CIT2100
         }))
     }
     onChange16 =(e) => {
         this.setState(prevState =>({
-            AR16: !prevState.AR16
+            CIT2204: !prevState.CIT2204
         }))
     }
     onChange17 =(e) => {
         this.setState(prevState =>({
-            AR17: !prevState.AR17
+            CBM2000: !prevState.CBM2000
         }))
     }
     onChange18 =(e) => {
         this.setState(prevState =>({
-            AR18: !prevState.AR18
+            CBF1002: !prevState.CBF1002
         }))
     }
     onChange19 =(e) => {
         this.setState(prevState =>({
-            AR19: !prevState.AR19
+            CIT2001: !prevState.CIT2001
         }))
     }
 
     onChange20 =(e) => {
         this.setState(prevState =>({
-            AR20: !prevState.AR20
+            CFG2: !prevState.CFG2
         }))
     }
     onChange21 =(e) => {
         this.setState(prevState =>({
-            AR21: !prevState.AR21
+            CIG1012: !prevState.CIG1012
         }))
     }
     onChange22 =(e) => {
         this.setState(prevState =>({
-            AR22: !prevState.AR22
+            CII2750: !prevState.CII2750
         }))
     }
     onChange23 =(e) => {
         this.setState(prevState =>({
-            AR23: !prevState.AR23
+            CIT2106: !prevState.CIT2106
         }))
     }
     onChange24 =(e) => {
         this.setState(prevState =>({
-            AR24: !prevState.AR24
+            CIT2200: !prevState.CIT2200
         }))
     }
     onChange25 =(e) => {
         this.setState(prevState =>({
-            AR25: !prevState.AR25
+            CIT2002: !prevState.CIT2002
         }))
     }
     onChange26 =(e) => {
         this.setState(prevState =>({
-            AR26: !prevState.AR26
+            CFG3: !prevState.CFG3
         }))
     }
     onChange27 =(e) => {
         this.setState(prevState =>({
-            AR27: !prevState.AR27
+            CIG1013: !prevState.CIG1013
         }))
     }
     onChange28 =(e) => {
         this.setState(prevState =>({
-            AR28: !prevState.AR28
+            CII2000: !prevState.CII2000
         }))
     }
     onChange29 =(e) => {
         this.setState(prevState =>({
-            AR29: !prevState.AR29
+            CIT2202: !prevState.CIT2202
         }))
     }
 
     onChange30 =(e) => {
         this.setState(prevState =>({
-            AR30: !prevState.AR30
+            CIT2101: !prevState.CIT2101
         }))
     }
     onChange31 =(e) => {
         this.setState(prevState =>({
-            AR31: !prevState.AR31
+            CIT2003: !prevState.CIT2003
         }))
     }
     onChange32 =(e) => {
         this.setState(prevState =>({
-            AR32: !prevState.AR32
+            CIT2103: !prevState.CIT2103
         }))
     }
     onChange33 =(e) => {
         this.setState(prevState =>({
-            AR33: !prevState.AR33
+            CII1000: !prevState.CII1000
         }))
     }
     onChange34 =(e) => {
         this.setState(prevState =>({
-            AR34: !prevState.AR34
+            CIT2005: !prevState.CIT2005
         }))
     }
     onChange35 =(e) => {
         this.setState(prevState =>({
-            AR35: !prevState.AR35
+            CIT2102: !prevState.CIT2102
         }))
     }
     onChange36 =(e) => {
         this.setState(prevState =>({
-            AR36: !prevState.AR36
+            FIC1003: !prevState.FIC1003
         }))
     }
     onChange37 =(e) => {
         this.setState(prevState =>({
-            AR37: !prevState.AR37
+            CIT2104: !prevState.CIT2104
         }))
     }
     onChange38 =(e) => {
         this.setState(prevState =>({
-            AR38: !prevState.AR38
+            CIT2203: !prevState.CIT2203
         }))
     }
     onChange39 =(e) => {
         this.setState(prevState =>({
-            AR39: !prevState.AR39
+            CIT2004: !prevState.CIT2004
         }))
     }
     onChange40 =(e) => {
         this.setState(prevState =>({
-            AR40: !prevState.AR40
+            CIT2105: !prevState.CIT2105
         }))
     }
     onChange41 =(e) => {
         this.setState(prevState =>({
-            AR41: !prevState.AR41
+            CIT2201: !prevState.CIT2201
         }))
     }
     onChange42 =(e) => {
         this.setState(prevState =>({
-            AR42: !prevState.AR42
+            CFG4: !prevState.CFG4
         }))
     }
     onChange43 =(e) => {
         this.setState(prevState =>({
-            AR43: !prevState.AR43
+            CIT3310: !prevState.CIT3310
         }))
     }
     onChange44 =(e) => {
         this.setState(prevState =>({
-            AR44: !prevState.AR44
+            CIT3410: !prevState.CIT3410
         }))
     }
     onChange45 =(e) => {
         this.setState(prevState =>({
-            AR45: !prevState.AR45
+            CIT3412: !prevState.CIT3412
         }))
     }
     onChange46 =(e) => {
         this.setState(prevState =>({
-            AR46: !prevState.AR46
+            CIT3200: !prevState.CIT3200
         }))
     }
     onChange47 =(e) => {
         this.setState(prevState =>({
-            AR47: !prevState.AR47
+            CIT3312: !prevState.CIT3312
         }))
     }
     onChange48 =(e) => {
         this.setState(prevState =>({
-            AR48: !prevState.AR48
+            CIT3311: !prevState.CIT3311
         }))
     }
     onChange49 =(e) => {
         this.setState(prevState =>({
-            AR49: !prevState.AR49
+            CIT3411: !prevState.CIT3411
         }))
     }
 
     onChange50 =(e) => {
         this.setState(prevState =>({
-            AR50: !prevState.AR50
+            CIT3413: !prevState.CIT3413
         }))
     }
     onChange51 =(e) => {
         this.setState(prevState =>({
-            AR51: !prevState.AR51
+            CIT3201: !prevState.CIT3201
         }))
     }
     onChange52 =(e) => {
         this.setState(prevState =>({
-            AR52: !prevState.AR52
+            CIT3313: !prevState.CIT3313
         }))
     }
     onChange53 =(e) => {
         this.setState(prevState =>({
-            AR53: !prevState.AR53
+            CIG1014: !prevState.CIG1014
         }))
     }
-    
+    onChangePR1 =(e) => {
+        this.setState(prevState =>({
+            CIT6001: !prevState.CIT6001
+        }))
+    }
+    onChangePR2 =(e) => {
+        this.setState(prevState =>({
+            CIT6002: !prevState.CIT6002
+        }))
+    }
 }

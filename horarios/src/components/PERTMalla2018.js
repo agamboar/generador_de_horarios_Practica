@@ -1,16 +1,34 @@
 import React, { Component } from 'react'
-import Ramo from './Ramo'
+import ARamo from './RamoC'
 import Semestre from './Semestre'
 import {Link} from 'react-router-dom';
 
 
 
+export default class AvanceManual2018 extends Component {
+    
+    state = {
+        CBM1000: '', CBM1001: '', CBQ1000: '', CIT1000: '', FIC1000: '', CBM1002: '', CBM1003: '', CBF1000: '', CIT1010: '', 
+        CFG1: '', CBM1005: '', CBM1006: '', CBF1001: '', CIT2000: '', CIT2100: '', CIT2204: '', CBM2000: '', CBF1002: '', CIT2001: '', 
+        CFG2: '', CIG1012: '', CII2750: '', CIT2106: '', CIT2200: '', CIT2002: '', CFG3: '', CIG1013: '', CII2000: '', CIT2202: '', 
+        CIT2101: '', CIT2003: '', CIT2103: '', CII1000: '', CIT2005: '', CIT2102: '', FIC1003: '', CIT2104: '', CIT2203: '', CIT2004: '', 
+        CIT2105: '', CIT2201: '', CFG4: '', CIT3310: '', CIT3410: '', CIT3412: '', CIT3200: '', CIT3312: '', CIT3311: '', CIT3411: '', 
+        CIT3413: '', CIT3201: '', CIT3313: '', CIG1014: '' , CIT6001: '', CIT6002: ''
+        
+    }
 
-export default class Malla2010 extends Component {
+    onSubmit = e => { 
+        e.preventDefault();
+        const Avance = { state: this.state}
+        console.log(Avance)
+
+    }
+    
     render() {
         return (
-            
             <div className="container">
+                <br/>
+            
                 <div className="row row-cols-10">
                     <Semestre semestre = {"1"}/>
                     <Semestre semestre = {"2"}/>
@@ -24,178 +42,154 @@ export default class Malla2010 extends Component {
                     <Semestre semestre = {"10"}/>
                 </div>
 
-                <br/>                
+                <br/>
+                        
+                <div className="row row-cols-10 ">
+                    <ARamo codigo = {"CBM1000"} ramo = {"Álgebra y Geometría"} state= {this.state.CBM1000}  />                    
+                    <ARamo codigo = {"CBM1002"} ramo = {"Álgebra Lineal"} state= {this.state.CBM1002}  />                    
+                    <ARamo codigo = {"CBM1005"} ramo = {"Ecuaciones Diferenciales"} state= {this.state.CBM1005} />                    
+                    <ARamo codigo = {"CIT2204"} ramo = {"Prob. y Estadisticas"} state= {this.state.CIT2204} />                  
+                    <ARamo codigo = {"CII2750"} ramo = {"Optimización"} state= {this.state.CII2750} />                 
+                    <ARamo codigo = {"CII2000"} ramo = {"Introducción a la Economía"} state= {this.state.CII2000}  />                    
+                    <ARamo codigo = {"CII1000"} ramo = {"Contabilidad y Costos"} state= {this.state.CII1000}  />
+                    <ARamo codigo = {"CIT2203"} ramo = {"Gestión Org."} state= {this.state.CIT2203} />
+                    <ARamo codigo = {"CIT3310"} ramo = {"Electivo Profesional"} state= {this.state.CIT3310} />
+                    <ARamo codigo = {"CIT3311"} ramo = {"Electivo Profesional"} state= {this.state.CIT3311} />
+                </div>
+                <br/>
 
                 <div className="row row-cols-10">
-                    <Ramo codigo = {"CBM-1000"} ramo = {"Álgebra y Geometría"} color={'#28B463 '}/>                    
-                    <Ramo codigo = {"CBM-1002"} ramo = {"Álgebra Lineal"} color={'#28B463 '} />                    
-                    <Ramo codigo = {"CBM-1005"} ramo = {"Ecuaciones Diferenciales"} color={'#28B463 '} />                    
-                    <Ramo codigo = {"CIT-2204"} ramo = {"Prob. y Estadisticas"} />                    
-                    <div className="col"> 
-                        <div className="card border-primary text-center" >                  
-                            <h6 className="card-title"><font size="2">CII-2750</font></h6>
-                            <p className="card-text"><font size="2">Optimización &nbsp;</font></p> 
-                        </div>
-                    </div>                 
-                    <Ramo codigo = {"CIT-2000"} ramo = {"Introducción a la Economía"} />                    
-                    <Ramo codigo = {"CII-1000"} ramo = {"Contabilidad y Costos"} />
-                    <Ramo codigo = {"CIT-2203"} ramo = {"Gestión Organizacional"} />
-                    <Ramo codigo = {"CIT-33XX"} ramo = {"Electivo Profesional"} />
-                    <Ramo codigo = {"CIT-33XX"} ramo = {"Electivo Profesional"} />
+                    
+                    <ARamo codigo = {"CBM1001"} ramo = {"Cálculo I"} state= {this.state.CBM1001}    />  
+                    <ARamo codigo = {"CBM1003"} ramo = {"Cálculo II"} state= {this.state.CBM1003}    />                                     
+                    <ARamo codigo = {"CBM1006"} ramo = {"Cálculo III"} state= {this.state.CBM1006}   />                    
+                    <ARamo codigo = {"CBM2000"} ramo = {"Métodos Numéricos"} state= {this.state.CBM2000}   />                    
+                    <ARamo codigo = {"CIT2106"} ramo = {"Electrónica y Electrotecnia"} state= {this.state.CIT2106}  />                    
+                    <ARamo codigo = {"CIT2202"} ramo = {"Modelos Estoc. y Simul."} state= {this.state.CIT2202}   />                    
+                    <ARamo codigo = {"CIT2005"} ramo = {"Ingeniería de Software"} state= {this.state.CIT2005} />
+                    <ARamo codigo = {"CIT2004"} ramo = {"Arquitectura de Sistemas"} state= {this.state.CIT2004}  />
+                    <ARamo codigo = {"CIT3410"} ramo = {"Electivo Profesional"}state= {this.state.CIT3410}  />
+                    <ARamo codigo = {"CIT3411"} ramo = {"Electivo Profesional"} state= {this.state.CIT3411} />
                 </div>
 
                 <br/>
 
                 <div className="row row-cols-10">
-                    <div className="col"> 
-                        <div className="card border-primary text-center" style={{background: '#28B463 '}} >                  
-                            <h6 className="card-title"><font size="2">CBM-1001</font></h6>
-                            <p className="card-text"><font size="2">Cálculo I &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></p> 
-                        </div>
-                    </div> 
-                    <div className="col"> 
-                        <div className="card border-primary text-center" style={{background: '#28B463 '}} >                  
-                            <h6 className="card-title"><font size="2">CBM-1003</font></h6>
-                            <p className="card-text"><font size="2">Cálculo II &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></p> 
-                        </div>
-                    </div>
-                    <div className="col"> 
-                        <div className="card border-primary text-center" style={{background: '#28B463 '}} >                  
-                            <h6 className="card-title"><font size="2">CBM-1006</font></h6>
-                            <p className="card-text"><font size="2">Cálculo III &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></p> 
-                        </div>
-                    </div>                   
-                    <Ramo codigo = {"CBM-2200"} ramo = {"Métodos Numéricos"} color={'#28B463 '}/>                    
-                    <Ramo codigo = {"CIT-2106"} ramo = {"Electrónica y Electrotecnia"} color={'#FF3E17'}/>                    
-                    <Ramo codigo = {"CIT-2202"} ramo = {"Modelos Estoc. y Simul."} />              
-                    <Ramo codigo = {"CIT-2005"} ramo = {"Ingeniería de Software"} color={'#FF3E17'}/>
-                    <Ramo codigo = {"CIT-2004"} ramo = {"Arquitectura de Sistemas"} />
-                    <Ramo codigo = {"CIT-34XX"} ramo = {"Electivo Profesional"} />
-                    <Ramo codigo = {"CIT-34XX"} ramo = {"Electivo Profesional"} />
+                    <ARamo codigo = {"CBQ1000"} ramo = {"Química"} state= {this.state.CBQ1000}  />                    
+                    <ARamo codigo = {"CBF1000"} ramo = {"Mecánica"} state= {this.state.CBF1000}  />                    
+                    <ARamo codigo = {"CBF1001"} ramo = {"Calor y Ondas"} state= {this.state.CBF1001}  />                    
+                    <ARamo codigo = {"CBF1002"} ramo = {"Electricidad y Magnetismo"} state= {this.state.CBF1002}  />                    
+                    <ARamo codigo = {"CIT2200"} ramo = {"Proyectos en TICs I"} state= {this.state.CIT2200}  />                    
+                    <ARamo codigo = {"CIT2101"} ramo = {"Señales y Sistemas"} state= {this.state.CIT2101}  />                    
+                    <ARamo codigo = {"CIT2102"} ramo = {"Comunicacio- nes Digitales"}state= {this.state.CIT2102}  />
+                    <ARamo codigo = {"CIT2105"} ramo = {"Criptografía y Seg. en Redes"}state= {this.state.CIT2105}  />
+                    <ARamo codigo = {"CIT3412"} ramo = {"Electivo Profesional"} state= {this.state.CIT3412} />
+                    <ARamo codigo = {"CIT3413"} ramo = {"Electivo Profesional"}state= {this.state.CIT3413}  />
+                </div> 
+                <br/>
+                <div className="row row-cols-10">                    
+                    <ARamo codigo = {"CIT1000"} ramo = {"Programación"}  state= {this.state.CIT1000}  />                    
+                    <ARamo codigo = {"CIT1010"} ramo = {"Programación Avanzada"}  state= {this.state.CIT1010}  />                    
+                    <ARamo codigo = {"CIT2000"} ramo = {"Estructura de Datos"} state= {this.state.CIT2000}  />                    
+                    <ARamo codigo = {"CIT2001"} ramo = {"Dis. y Análisis de Alg."} state= {this.state.CIT2001}  />                    
+                    <ARamo codigo = {"CIT2002"} ramo = {"Bases de Datos"}  state= {this.state.CIT2002} />                    
+                    <ARamo codigo = {"CIT2003"} ramo = {"Sistemas Operativos"} state= {this.state.CIT2003} />                    
+                    <ARamo codigo = {"FIC1003"} ramo = {"Derecho en Ingeniería"} state= {this.state.FIC1003} />
+                    <ARamo codigo = {"CIT2201"} ramo = {"Proyecto en TICs II"} state= {this.state.CIT2201} />
+                    <ARamo codigo = {"CIT3200"} ramo = {"Evaluación de Proy. TIC"} state= {this.state.CIT3200} />
+                    <ARamo codigo = {"CIT3201"} ramo = {"Proyecto en TICs III"} state= {this.state.CIT3201} />
                 </div>
-
+                <br/>
+                <div className="row row-cols-10">
+                    <ARamo codigo = {"FIC1000"} ramo = {"Comunicación para la Ing."} state= {this.state.FIC1000}  />                                     
+                    <ARamo codigo = {"CFG1"} ramo = {"Minor / CFG"} state= {this.state.CFG1}  />   
+                    <ARamo codigo = {"CIT2100"} ramo = {"Redes de Datos"} state= {this.state.CIT2100}  />                    
+                    <ARamo codigo = {"CFG2"} ramo = {"Minor / CFG"} state= {this.state.CFG2}  /> 
+                    <ARamo codigo = {"CFG3"} ramo = {"Minor / CFG"} state= {this.state.CFG3}  />                   
+                    <ARamo codigo = {"CIT2103"} ramo = {"Sistemas Digitales"} state= {this.state.CIT2103} />                    
+                    <ARamo codigo = {"CIT2104"} ramo = {"Arquitectura de Comp."} state= {this.state.CIT2104} />
+                    <ARamo codigo = {"CFG4"} ramo = {"Minor / CFG"} state= {this.state.CFG4}  /> 
+                    <ARamo codigo = {"CIT3312"} ramo = {"Electivo Profesional"} state= {this.state.CIT3312} />
+                    <ARamo codigo = {"CIT3313"} ramo = {"Electivo Profesional"}state= {this.state.CIT3313}  />
+                </div>
                 <br/>
 
-                <div className="row row-cols-10">
-                    <div className="col"> 
-                        <div className="card border-primary text-center" style={{background: '#28B463 '}}>                  
-                            <h6 className="card-title"><font size="2">CBQ-1000</font></h6>
-                            <p className="card-text"><font size="2">Química &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></p> 
-                        </div>
-                    </div>
-                    <div className="col"> 
-                        <div className="card border-primary text-center" style={{background: '#28B463 '}}>                  
-                            <h6 className="card-title"><font size="2">CBF-1000</font></h6>
-                            <p className="card-text"><font size="2">Mecánica &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></p> 
-                        </div>
-                    </div>
-                    <div className="col"> 
-                        <div className="card border-primary text-center" style={{background: '#28B463 '}}>                  
-                            <h6 className="card-title"><font size="2">CBF-1001</font></h6>
-                            <p className="card-text"><font size="2">Calor y Ondas &nbsp;</font></p> 
-                        </div>
-                    </div>
-                    <Ramo codigo = {"CBF-1002"} ramo = {"Electricidad y Magnetismo"} color={'#FF3E17'}      />                    
-                    <Ramo codigo = {"CIT-2200"} ramo = {"Proyectos en TICs I"} color={'#28B463 '}/>                    
-                    <Ramo codigo = {"CIT-2101"} ramo = {"Señales y Sistemas"} />                    
-                    <Ramo codigo = {"CIT-2102"} ramo = {"Comunicacio -nes Digitales"}   />
-                    <Ramo codigo = {"CIT-2105"} ramo = {"Criptografía y Seg. en Redes"} />
-                    <Ramo codigo = {"CIT-34XX"} ramo = {"Electivo Profesional"} />
-                    <Ramo codigo = {"CIT-34XX"} ramo = {"Electivo Profesional"} />
-                </div>
 
-                <br/>
-
-                <div className="row row-cols-10">
-                    <div className="col"> 
-                        <div className="card border-primary text-center" style={{background: '#28B463 '}} >                  
-                            <h6 className="card-title"><font size="2">CIT-1000</font></h6>
-                            <p className="card-text"><font size="2">Programación &nbsp;</font></p> 
-                        </div>
-                    </div>
-                    <Ramo codigo = {"CIT-1010"} ramo = {"Programación Avanzada"} color={'#28B463 '}/>                    
-                    <Ramo codigo = {"CIT-2000"} ramo = {"Estructura de Datos"} color={'#28B463 '}/>                    
-                    <Ramo codigo = {"CIT-2001"} ramo = {"Dis. y Análisis de Algoritmos"} color={'#28B463 '}/>                    
-                    <Ramo codigo = {"CIT-2002"} ramo = {"Bases de Datos"} color={'#28B463 '}/>                    
-                    <Ramo codigo = {"CIT-2003"} ramo = {"Sistemas Operativos"} color={'#FF3E17'}/>                    
-                    <Ramo codigo = {"FIC-1003"} ramo = {"Derecho en Ingeniería"} />
-                    <Ramo codigo = {"CIT-2201"} ramo = {"Proyecto en TICs II"} color={'#FF3E17'}/>
-                    <Ramo codigo = {"CIT-3200"} ramo = {"Evaluación de Proyectos TIC"} color={'#FF3E17'}/>
-                    <Ramo codigo = {"CIT-3201"} ramo = {"Proyecto en TICs III"} color={'#FF3E17'}/>
-                </div>
-
-                <br/>
-
-                <div className="row row-cols-10">
-                    <Ramo codigo = {"FIC-1000"} ramo = {"Comunicación para la Ing."} color={'#28B463 '}/>   
-                    <div className="col"> 
-                        <div className="card border-primary text-center" style={{background: '#28B463 '}}>                  
-                            <h6 className="card-title"><font size="2"> &nbsp; </font></h6>
-                            <p className="card-text"><font size="2">Minor / CFG &nbsp;&nbsp;&nbsp;&nbsp;</font></p> 
-                        </div>
-                    </div>                                  
-                    <Ramo codigo = {"CIT-2100"} ramo = {"Redes de Datos"} />                    
-                    <div className="col"> 
-                        <div className="card border-primary text-center" style={{background: '#28B463 '}}>                  
-                            <h6 className="card-title"><font size="2"> &nbsp; </font></h6>
-                            <p className="card-text"><font size="2">Minor / CFG &nbsp;&nbsp;&nbsp;&nbsp;</font></p> 
-                        </div>
-                    </div>
-                    <div className="col"> 
-                        <div className="card border-primary text-center" style={{background: '#28B463 '}}>                  
-                            <h6 className="card-title"><font size="2"> &nbsp; </font></h6>
-                            <p className="card-text"><font size="2">Minor / CFG &nbsp;&nbsp;&nbsp;&nbsp;</font></p> 
-                        </div>
-                    </div>                   
-                    <Ramo codigo = {"CIT-2103"} ramo = {"Sistemas Digitales"} color={'#FF3E17'} />                    
-                    <Ramo codigo = {"CIT-2104"} ramo = {"Arq. de Computadores"} color={'#FF3E17'}/>
-                    <div className="col"> 
-                        <div className="card border-primary text-center" >                  
-                            <h6 className="card-title"><font size="2"> &nbsp; </font></h6>
-                            <p className="card-text"><font size="2">Minor / CFG &nbsp;&nbsp;&nbsp;&nbsp;</font></p> 
-                        </div>
-                    </div>
-                    <Ramo codigo = {"CIT-33XX"} ramo = {"Electivo Profesional"} />
-                    <Ramo codigo = {"CIT-33XX"} ramo = {"Electivo Profesional"} />
-                </div>
-
-                <br/>
-                
-                <div className="row row-cols-10">
+            <div className="row row-cols-10">
                 <div className="col"> </div>
                 <div className="col"> </div>
                 <div className="col"> </div>  
-                <div className="col"> 
-                    <div className="card border-primary text-center" style={{background: '#28B463 '}}>                  
-                        <h6 className="card-title"><font size="2">FIC-1012</font></h6>
-                        <p className="card-text"><font size="2">Inglés I</font></p> 
-                    </div>
-                </div>  
-                <div className="col "> 
-                    <div className="card border-primary text-center" style={{background: '#28B463 '}}>                  
-                        <h6 className="card-title"><font size="2">FIC-1013</font></h6>
-                        <p className="card-text"><font size="2">Inglés II</font></p> 
-                    </div>
-                </div>   
-                <div className="col"> 
-                    <div className="card border-primary text-center" style={{background: '#28B463 '}}>                  
-                        <h6 className="card-title"><font size="2">FIC-1014</font></h6>
-                        <p className="card-text"><font size="2">Inglés III</font></p> 
-                    </div>                
-                </div>    
+                <ARamo codigo = {"CIG1012"} ramo = {"Inglés I"}state= {this.state.CIG1012}  />
+                <ARamo codigo = {"CIG1013"} ramo = {"Inglés II"}state= {this.state.CIG1013}  /> 
+                <ARamo codigo = {"CIG1014"} ramo = {"Inglés II"}state= {this.state.CIG1014}  /> 
                 <div className="col"> </div>     
-                <div className="col"> </div>    
+                <div className="col"> </div>   
+                <div className="col"> </div>                   
                 <div className="col"> </div>
+             
+            </div>
+            <br/>                         
+            <div className="row row-cols-10">
+                <div className="col"> </div>
+                <div className="col"> </div>
+                <div className="col"> </div>  
+                <div className="col"> </div>  
+                <ARamo codigo = {"CIT6001"} ramo = {"Practia I"}state= {this.state.CIT6001}  /> 
+                <div className="col"> </div>
+                <div className="col"> </div>     
+                <div className="col"> </div>   
+                <ARamo codigo = {"CIT6002"} ramo = {"Practica II"}state= {this.state.CIT6002}  /> 
                 <div className="col">
                     <Link className="nav-link" to={{ pathname: '/users/usr/PERT/PERTExtra1'}} >Ver + Detalles</Link>    
                 </div>
              
+            </div>
+            <br/> 
+            <div className="row row-cols-10">
+                    <div className="col col-md-2 mt-1"> 
+                        <div className="card border-dark text-center" >                  
+                            <br/>   
+                        </div>
+                    </div>  
+                    <div className="col mt-1"> 
+                             Ramo No Cursado
+                    </div>  
                 </div>
+             
+                <div className="row row-cols-10">
+                    <div className="col col-md-2 mt-1"> 
+                        <div className="card border-dark text-center" style={{background: '#28B463'}} >                  
+                            <br/>   
+                        </div>
+                    </div>  
+                    <div className="col mt-1"> 
+                             Ramo Aprobado
+                    </div>  
+                </div>
+               
+                <div className="row row-cols-10">
+                    <div className="col col-md-2 mt-1"> 
+                        <div className="card border-dark text-center" style={{background: '#FF3E17'}} >                  
+                            <br/>   
+                        </div>
+                    </div>  
+                    <div className="col mt-1"> 
+                             Ramo Crítico
+                    </div>  
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                
+                
 
                 
            </div>
      
            
         )
+
+        
     }
+
 }

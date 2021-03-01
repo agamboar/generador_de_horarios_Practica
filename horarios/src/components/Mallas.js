@@ -13,7 +13,7 @@ export default class Mallas extends Component {
                 
                 <br/>
                 <br/> 
-                <p class="lead">
+                <p className="lead">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     A continuación deberas elegir la malla que actualmente estas cursando
                 </p>
