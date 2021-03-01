@@ -116,7 +116,45 @@ export default class PERT extends Component {
             )
         } else {
             return (
-                <div> asd </div>
+                <div>
+                    <Navbar />
+                    <br />
+                    <div className="row row-cols-3">
+                        <div className="col">
+                            <h1 className="title text-primary text-center">PERT</h1>
+                        </div>
+                        <div className="col"></div>
+                        <div className="col"></div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="d-flex justify-content-center">
+                    <h1 class="display-6">Un Momento, Se esta calculando tú PERT</h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="d-flex justify-content-center">
+                                                
+                        <div class="spinner-grow text-primary" role="status"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="spinner-grow text-primary" role="status"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="spinner-border text-primary"  role="status"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="spinner-grow text-primary" role="status"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="spinner-grow text-primary" role="status"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+
+                </div>
             )
         }
 

@@ -52,15 +52,6 @@ export default class Horario extends Component {
 
     }
 
-    /*  
-    for(let j = 0; j<this.state.Ramos[i].length; j++){
-                console.log("hola")
-                this.setState({
-                   [this.state.Ramos[i].eventos[j].bloque]: this.state.Ramos[i]
-                   
-               })
-           }
-        */
 
     fillSchedule = () => {
         

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Horarios from './Horarios'
-import Horarios2 from './Horarios.json'
+import axios from 'axios';
+
 
 
 
@@ -9,7 +10,14 @@ import Horarios2 from './Horarios.json'
 export default class HPosibles extends Component {
 
     state = {
-        Horarios: Horarios2
+        Horarios: null
+    }
+
+    componentDidMount = async () => {
+        const horarios_posibles = await axios.get("http://127.0.0.1:8000/clique/", { headers: { Authorization: "Token 66c54201f64d384caea2e56b2c6eb1bd11952176" } })
+        this.setState({
+            Horarios: horarios_posibles.data
+        })
     }
 
     render() {

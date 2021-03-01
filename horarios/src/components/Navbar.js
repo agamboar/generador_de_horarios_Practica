@@ -27,10 +27,10 @@ export default class Navbar extends Component {
                         <Link className="nav-link" to={{ pathname: '/users/usr/crearHorario'}}style={{ color: '#FFF' }} >Mi Avance Curricular</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos/priorizar'}}style={{ color: '#FFF' }} >Priorizar Ramos</Link>
+                        <Link className="nav-link" to={{ pathname: '/users/usr/PERT'}}style={{ color: '#FFF' }} >PERT</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/PERT'}}style={{ color: '#FFF' }} >PERT</Link>
+                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos/priorizar'}}style={{ color: '#FFF' }} >Priorizar Ramos</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles'}}style={{ color: '#FFF' }} >Horarios Posibles</Link>
