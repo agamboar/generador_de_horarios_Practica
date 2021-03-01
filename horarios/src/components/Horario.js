@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Bloque from './Bloque'
 import BloqueH from './BloqueH'
+import RamoH from './RamoH'
 import Dia from './Dia'
 
 
@@ -9,6 +10,7 @@ export default class Horario extends Component {
 
     state = {
         show: true
+
     }
 
     onChange1 = () => {
@@ -26,8 +28,8 @@ export default class Horario extends Component {
     render() {
         if(!this.state.show){
             return (
-                <div className="container" >
-                    <div className="card border-primary text-center">  
+                <div className="container custom2" >
+                    <div className="card border-primary text-center custom2">  
                         <br/> 
                         <div className="row row-cols-10">
                         &nbsp;&nbsp;&nbsp;&nbsp; 
@@ -127,13 +129,13 @@ export default class Horario extends Component {
             )
         }else{
             return(
-                <div className="container" >
-                    <div className="card border-primary border-5">
+                <div className="container " >
+                    <div className="card border-primary border-5 custom2 ">
                         &nbsp;
                         <div className="row row-cols-5">
                             <div className="col"> </div>  
                             <div className="col"> </div>  
-                            <div className="col"> <h3 className="card-title text-primary text-center">Horario n°1</h3> </div> 
+                            <div className="col"> <h3 className="card-title text-primary text-center">Horario n°2</h3> </div> 
                             <div className="col"> </div>  
                             <div className="col ">
                                 <div className="card border-0">
@@ -147,112 +149,17 @@ export default class Horario extends Component {
                         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramos:</h5>
                         <div className="row row-cols-2">
                         
-                        <div className="col  col-md-6">
-                        <ul>
-                            <li>Televisión Digital - Sección 1</li>
-                            <ul>
-                                <li>Profesor:</li>  
-                               
-                                <li>Catedras:</li>
-                                <ul>
-                                    <li>Lunes y Jueves: 8:30 - 9:50</li>
-                                </ul>
-                                <li>Ayudantia:</li>
-                                <ul>
-                                    <li>-</li>
-                                </ul>
-                            </ul>
-                        </ul>
-                        </div> 
-                        <div className="col  col-md-6">
-                        <ul>  
-                            <li>Tecnologias Inalambricas - Sección 1</li>
-                            <ul>
-                                <li>Profesor:</li>  
-                                
-                                <li>Catedras:</li>
-                                <ul>
-                                    <li>Lunes y Jueves: 11:30 - 12:50</li>
-                                </ul>
-                                <li>Ayudantia:</li>
-                                <ul>
-                                    <li>Viernes: 11:30 - 12:50</li>
-                                </ul>
-                            </ul>
-                        </ul> 
+                        <RamoH nombre = "TICs II" profesor="JJEE" seccion ="2" horario="jueves 10:30" ayudantia="miercoles 10:230"/> 
+                        <RamoH/>
+                        <RamoH/>
+                        <RamoH/>
+                        <RamoH/>
+                        <RamoH/>
+                        
                         </div>
-                        <div className="col col-md-6">
-                        <ul>     
-                            <li>TICs 3 - Sección 1</li>
-                            <ul>
-                                <li>Profesor:</li>  
-                             
-                                <li>Catedras:</li>
-                                <ul>
-                                    <li>Lunes y Jueves: 17:30 - 18:50</li>
-                                </ul>
-                                <li>Ayudantia:</li>
-                                <ul>
-                                    <li>Martes: 13:00 - 14:20</li>
-                                </ul>
-                            </ul>
-                        </ul>
-                        </div>
-                        <div className="col col-md-6">
-                        <ul>     
-                            <li>Ramo N°4</li>
-                            <ul>
-                                <li>Profesor:</li>  
-                                
-                                <li>Catedras:</li>
-                                <ul>
-                                    <li></li>
-                                </ul>
-                                <li>Ayudantia:</li>
-                                <ul>
-                                    <li></li>
-                                </ul>
-                            </ul>
-                        </ul>
-                        </div>
-                        <div className="col col-md-6">
-                        <ul>     
-                            <li>Ramo N°5</li>
-                            <ul>
-                                <li>Profesor:</li>  
-                                
-                                <li>Catedras:</li>
-                                <ul>
-                                    <li></li>
-                                </ul>
-                                <li>Ayudantia:</li>
-                                <ul>
-                                    <li></li>
-                                </ul>
-                            </ul>
-                        </ul>
-                        </div>
-                        <div className="col col-md-6">
-                        <ul>     
-                            <li>Ramo N°6</li>
-                            <ul>
-                                <li>Profesor:</li>  
-                                 
-                                <li>Catedras:</li>
-                                <ul>
-                                    <li></li>
-                                </ul>
-                                <li>Ayudantia:</li>
-                                <ul>
-                                    <li></li>
-                                </ul>
-                            </ul>
-                        </ul>
-                        </div>
-                        </div>
-
-                        <button type="button" class="btn btn-primary" onClick = {this.onChange1}> Ver Horario Graficamente</button>
-
+                        
+                            <button type="button" className="btn btn-primary footer" onClick = {this.onChange1}> Ver Horario Graficamente</button>
+                        
                     </div>
                 </div>
             )

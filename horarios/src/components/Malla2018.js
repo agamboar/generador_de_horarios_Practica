@@ -167,19 +167,19 @@ export default class Malla2010 extends Component {
                 <div className="col"> </div>  
                 <div className="col"> 
                     <div className="card border-primary text-center" style={{background: '#FFB260'}}>                  
-                        <h6 className="card-title"><font size="2">FIC-1012</font></h6>
+                        <h6 className="card-title"><font size="2">CIG-1012</font></h6>
                         <p className="card-text"><font size="2">Inglés I</font></p> 
                     </div>
                 </div>  
                 <div className="col "> 
                     <div className="card border-primary text-center" style={{background: '#FFB260'}}>                  
-                        <h6 className="card-title"><font size="2">FIC-1013</font></h6>
+                        <h6 className="card-title"><font size="2">CIG-1013</font></h6>
                         <p className="card-text"><font size="2">Inglés II</font></p> 
                     </div>
                 </div>   
                 <div className="col"> 
                     <div className="card border-primary text-center" style={{background: '#FFB260'}}>                 
-                        <h6 className="card-title"><font size="2">FIC-1014</font></h6>
+                        <h6 className="card-title"><font size="2">CIG-1014</font></h6>
                         <p className="card-text"><font size="2">Inglés III</font></p> 
                     </div>                
                 </div>    

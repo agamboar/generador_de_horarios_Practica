@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from generador_horarios import views
+from generador_horarios.views import GoogleLogin
 
 urlpatterns = [
 
     path('admin/', admin.site.urls),
+    path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('dj-rest-auth/google/', GoogleLogin.as_view(), name='google_login'),
     path('api/', views.api_overview),
     path('accounts/', include('allauth.urls')),
     path('ramos/<str:year>/', views.ramo_list, name='ramos'),
@@ -30,5 +34,6 @@ urlpatterns = [
     path('kk/', views.asignar_kk, name='kk'),
     path('ss/', views.asignar_ss, name='ss'),
     path('clique/', views.get_clique, name='clique'),
+    path('mimallamanual/', views.mi_malla_manual, name='manual'),
 
 ]
