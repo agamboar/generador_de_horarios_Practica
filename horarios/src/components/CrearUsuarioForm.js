@@ -1,6 +1,24 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
+var $ = require('zepto-browserify').$;
+
+var getCookie = function(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = $.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 export default class CrearUsuarioForm extends Component {
 
   state = {
@@ -18,22 +36,28 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
-
+    var csrftoken = getCookie('csrftoken');
+    console.log(csrftoken)
+    var config1 = {
+      method: 'get',
+      url: 'http://200.14.84.238:443/accounts/signup/',
+      headers: { 
+        'Cookie': 'csrftoken='+csrftoken
+      }
+    };
+    
+    var csrftoken_server = axios(config1)
+/*
     var qs = require('qs');
-
-    var data = qs.stringify({
-      'username': 'test123123',
-      'email': 'test1231@gmail.com',
-      'password1': 'asistente2021',
-      'password2': 'asistente2021'
-    });
+    
+    var data = qs.stringify(newUsuario);
     var config = {
       method: 'post',
-      url: 'http://127.0.0.1:8000/accounts/signup/',
+      url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': 'saGCISJPZfvVu7ySIP5dv0Lo7JV6Lc87vdmMIyZtJycmKaVjbXzX4oEVp2w9EoCA',
+        'X-CSRFToken': csrftoken_server,
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Cookie': 'csrftoken=saGCISJPZfvVu7ySIP5dv0Lo7JV6Lc87vdmMIyZtJycmKaVjbXzX4oEVp2w9EoCA'
+        'Cookie': 'csrftoken='+csrftoken
       },
       data: data
     };
@@ -44,12 +68,13 @@ export default class CrearUsuarioForm extends Component {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      });*/
   }
 
   onSubmit = e => {
     e.preventDefault();
     this.addUsuario(this.state.username, this.state.email, this.state.password1, this.state.password2)
+    
   }
 
   onChange = e => {
@@ -147,9 +172,10 @@ export default class CrearUsuarioForm extends Component {
                 value={this.state.password2}
               />
             </div>
+            <button type="submit" className="btn btn-primary">Crear Usuario</button>
           </form>
 
-          <button type="submit" className="btn btn-primary">Crear Usuario</button>
+         
           <div className=" align-self-end">
             <Link className="nav-link" to={{ pathname: '/' }} >Volver </Link>
           </div>
