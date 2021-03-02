@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as  Route, Link } from "react-router-dom";
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
-
+import Register from '../components/Register';
 
 
 
