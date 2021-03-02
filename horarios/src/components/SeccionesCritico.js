@@ -5,6 +5,7 @@ import Seccion from './Seccion'
 
 
 
+
 export default class RamoCritico extends Component {
 
     state ={

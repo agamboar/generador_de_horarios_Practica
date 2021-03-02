@@ -4,6 +4,8 @@ import ARamo from './ARamo'
 import Semestre from './Semestre'
 import { Link } from 'react-router-dom';
 
+
+
 /*
 
 
@@ -25,6 +27,7 @@ function getCookie(name) {
 export default class AvanceManual extends Component {
     state = {
         malla: '2010',
+        show: false,
         CBM1000: false, CBM1001: false, CBQ1000: false, CIT1000: false, FIC1000: false, CBM1002: false, CBM1003: false, CBF1000: false, CIT1010: false,
         CFG1: false, CBM1005: false, CBM1006: false, CBF1001: false, CIT2000: false, CIT2100: false, CIT2204: false, CBM2000: false, CBF1002: false, CIT2001: false,
         CFG2: false, FIC1001: false, CII2750: false, CIT2106: false, CIT2200: false, CIT2002: false, CFG3: false, FIC1002: false, CII2000: false, CIT2202: false,
@@ -62,6 +65,11 @@ export default class AvanceManual extends Component {
                 console.log(error);
             });
     }
+
+
+    
+
+
 
     render() {
         return (
@@ -287,14 +295,13 @@ export default class AvanceManual extends Component {
                         <div className="col"> </div>
 
                         <div className="col">
-
                             <div className="col ">
                                 <div className="card border-0">
                                     <button className="btn btn-primary rounded-pill " type="submit">Guardar</button>
                                 </div>
                             </div>
 
-                        </div>
+                        </div>       
 
                     </div>
                 </form>
