@@ -68,8 +68,7 @@ SESSION_COOKIE_AGE = 10000
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '200.14.84.238']
-
+ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_METHODS = [
     'DELETE',
@@ -181,12 +180,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000/",
-    "http://127.0.0.1:8000/",
-    "http://200.14.84.238",
-    "http://200.14.84.238:80",
-]
+CORS_ALLOWED_ORIGINS = ['*']
 
 CORS_ALLOW_CREDENTIALS = True
 
