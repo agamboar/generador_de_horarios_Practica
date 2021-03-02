@@ -67,7 +67,7 @@ export default class GoogleSocialAuth extends Component {
                     </div>
                     <br />
                     <div className=" align-self-end">
-                        <Link className="nav-link" to={{ pathname: '/users/usr' }} >Registrarse </Link>
+                        <Link className="nav-link" to={{ pathname: '/Registro' }} >Registrarse </Link>
                     </div>
                 </div>
             </div>

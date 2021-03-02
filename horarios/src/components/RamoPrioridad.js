@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 
 
 
-export default class Seccion extends Component {
+export default class RamoPrioridad extends Component {
     render() {
-      if(this.props.seccion !== null){
+      if(this.props.ramo !== null){
         return (
         <div className = 'card '>
           <div className = 'row row-cols-2 mt-3' >
               <div className = 'col-1'></div>
-              <div className = 'col-9 '><h5> Sección {this.props.num} </h5> Profesor: {this.props.profesor}</div>
+              <div className = 'col-9 '><h5> Ramo: {this.props.nombre} </h5> Código: {this.props.codigo}</div>
               <div className = 'col-auto'> 
                 <div type="button" className="btn" onClick = {this.props.onChangeUP}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
@@ -18,7 +18,7 @@ export default class Seccion extends Component {
                 </div>
               </div>
               <div className = 'col-2'></div>
-              <div className = 'col-8'>Catedra: {this.props.catedra} -  Ayudantia: {this.props.ayudantia}</div>
+              <div className = 'col-8'></div>
               <div className = 'col-auto'>
               <div type="button" className="btn" onClick = {this.props.onChangeDOWN}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">

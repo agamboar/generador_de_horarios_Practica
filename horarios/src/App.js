@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Init from './components/Init';
+import Registro from './components/Registro'
 import UserInterface from './components/UserInterface';
 import Mallas from './components/Mallas';
 import M2010 from './components/M2010'
@@ -30,9 +31,9 @@ import PERTExtra1 from './components/PERTExtra1'
 import PERTExtra2 from './components/PERTExtra2'
 import PERTExtra3 from './components/PERTExtra3'
 import PERTExtra4 from './components/PERTExtra4'
-import AsignaturasCriticas from './components/AsignaturasCriticas'
 import GenerarHorarios from './components/GenerarHorarios'
 import PriorizarRamos from './components/PriorizarRamos'
+import PriorizarSecciones from './components/PriorizarSecciones'
 
 
 
@@ -40,6 +41,7 @@ function App() {
   return (
     <BrowserRouter>
       <Route path="/" exact component={Init}/>
+      <Route path="/Registro" exact component={Registro}/>
       <Route path="/users/usr/" exact component={UserInterface}/>
       <Route path="/users/usr/mallas/" exact component={Mallas}/>
       <Route path="/users/usr/mallas/malla2010" exact component={M2010}/>
@@ -73,9 +75,9 @@ function App() {
       <Route path="/users/usr/PERT/PERTExtra3" exact component={PERTExtra3}/>
       <Route path="/users/usr/PERT/PERTExtra4" exact component={PERTExtra4}/>
 
-      <Route path="/users/usr/priorizarRamos" exact component={AsignaturasCriticas}/>
+      <Route path="/users/usr/priorizarRamos" exact component={PriorizarRamos}/>
 
-      <Route path="/users/usr/priorizarRamos/priorizar" exact component={PriorizarRamos}/>
+      <Route path="/users/usr/priorizarSecciones" exact component={PriorizarSecciones}/>
 
       <Route path="/users/usr/generarHorarios" exact component={GenerarHorarios}/>
 
