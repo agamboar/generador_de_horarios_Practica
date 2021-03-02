@@ -68,29 +68,8 @@ SESSION_COOKIE_AGE = 10000
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-]
-
-CORS_ALLOW_HEADERS = [
-    'Accept',
-    'Accept-Encoding',
-    'Authorization',
-    'Content-Type',
-    'DNT',
-    'Origin',
-    'User-Agent',
-    'x-csrftoken',
-    'x-Requested-With',
-    'my-custom-header',
-]
 
 
 MIDDLEWARE = [
@@ -179,10 +158,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ]
 }
-
-CORS_ALLOWED_ORIGINS = ['*']
-
-CORS_ALLOW_CREDENTIALS = True
 
 
 # Internationalization
