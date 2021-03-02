@@ -41,7 +41,21 @@ export default class AvanceManual extends Component {
         const Avance = { state: this.state }
         const payload = Avance.state
         console.log(Avance)
-        axios.post("http://127.0.0.1:8000/mimallamanual/", payload, { headers: {"Access-Control-Allow-Origin": ['*'],'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS'   , "Authorization": "Token 372daae409f639993f9cf376f2058914dcd07a9c", 'Content-Type':'application/x-www-form-urlencoded'} })
+        axios.post("http://localhost:8000/mimallamanual/", payload, { headers: {"Authorization": "Token 372daae409f639993f9cf376f2058914dcd07a9c", 'Content-Type':'application/json'} }).catch(function (error) {
+    if (error.response) {
+      // Request made and server responded
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.log(error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error', error.message);
+    }
+
+  });
     }
 
     render() {
