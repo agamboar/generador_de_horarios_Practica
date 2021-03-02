@@ -6,12 +6,12 @@ var $ = require('zepto-browserify').$;
 
 var getCookie = function(name) {
     var cookieValue = null;
-    if (document.cookie && document.cookie != '') {
+    if (document.cookie && document.cookie !== '') {
         var cookies = document.cookie.split(';');
         for (var i = 0; i < cookies.length; i++) {
             var cookie = $.trim(cookies[i]);
             // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
             }
@@ -41,9 +41,7 @@ export default class CrearUsuarioForm extends Component {
     var config1 = {
       method: 'get',
       url: 'http://200.14.84.238:443/accounts/signup/',
-      headers: { 
-        'Cookie': 'csrftoken='+csrftoken
-      }
+
     };
     
     var csrftoken_server = axios(config1)
