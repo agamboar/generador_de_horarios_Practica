@@ -37,7 +37,7 @@ export default class AvanceManual extends Component {
         e.preventDefault();
         //const token = sessionStorage.getItem("token").toString('base64')
         //var csrftoken = getCookie('csrftoken');
-        axios.defaults.url = 'http://127.0.0.1:8000/';
+        axios.defaults.baseurl = 'http://127.0.0.1:8000/';
         const Avance = { state: this.state }
         const payload = Avance.state
         console.log(Avance)
