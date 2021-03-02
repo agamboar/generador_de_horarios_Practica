@@ -41,7 +41,12 @@ export default class AvanceManual extends Component {
         const Avance = { state: this.state }
         const payload = Avance.state
         console.log(Avance)
-        axios.post("http://127.0.0.1:8000/mimallamanual/", payload, { headers: { "Authorization": "Token 372daae409f639993f9cf376f2058914dcd07a9c", 'Content-Type': 'application/json' } }).catch(function (error) {
+        axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+        axios.defaults.withCredentials = true
+        axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+        axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+        axios.defaults.headers.post["Authorization"] = 'Token 372daae409f639993f9cf376f2058914dcd07a9c';
+        axios.post('mimallamanual/', payload).catch(function (error) {
             if (error.response) {
                 // Request made and server responded
                 console.log(error.response.data);
