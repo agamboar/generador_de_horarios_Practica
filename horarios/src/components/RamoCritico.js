@@ -18,7 +18,19 @@ export default class RamoCritico extends Component {
       s8: null,
       s9: null,
       s10: null,
-      s11: null
+      s11: null,
+      ps1: 11,
+      ps2: 10,
+      ps3: 9,
+      ps4: 8,
+      ps5: 7,
+      ps6: 6,
+      ps7: 5,
+      ps8: 4,
+      ps9: 3,
+      ps10: 2,
+      ps11: 1
+
     }
 
     render() {
