@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as  Route, Link } from "react-router-dom";
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
 
@@ -69,7 +69,8 @@ export default class GoogleSocialAuth extends Component {
                     </div>
                     <br />
                     <div className=" align-self-end">
-                        <Link className="nav-link" to={{ pathname: '/users/usr' }} >Registrarse </Link>
+                        <Link className="nav-link" to="/register" >Registrarse </Link>
+                        <Route exact path="/register" component={Register}/>
                     </div>
                 </div>
             </div>
