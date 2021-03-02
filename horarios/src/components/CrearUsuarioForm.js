@@ -169,9 +169,10 @@ export default class CrearUsuarioForm extends Component {
                 value={this.state.password2}
               />
             </div>
+            <button type="submit" className="btn btn-primary">Crear Usuario</button>
           </form>
 
-          <button type="submit" className="btn btn-primary">Crear Usuario</button>
+         
           <div className=" align-self-end">
             <Link className="nav-link" to={{ pathname: '/' }} >Volver </Link>
           </div>
