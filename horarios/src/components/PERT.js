@@ -19,7 +19,7 @@ export default class PERT extends Component {
 
         var config = {
             method: 'get',
-            url: 'http://200.14.84.238/PERT/',
+            url: 'http://200.14.84.238:443/PERT/',
             headers: {
                 'Authorization': 'Token 372daae409f639993f9cf376f2058914dcd07a9c',
                 'Content-Type': 'application/json'
