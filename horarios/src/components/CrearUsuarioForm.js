@@ -45,11 +45,12 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
-    console.log(getCookie_server())
+ 
+    console.log(this.getCookie_server())
 
     //var csrftoken_server = await axios(config1)
     //console.log(csrftoken_server)
-    var qs = require('qs');
+   /* var qs = require('qs');
     
     var data = qs.stringify(newUsuario);
     var config = {
@@ -69,7 +70,7 @@ export default class CrearUsuarioForm extends Component {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      });*/
   }
 
   onSubmit = e => {
