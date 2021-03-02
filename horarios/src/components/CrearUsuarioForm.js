@@ -33,21 +33,26 @@ export default class CrearUsuarioForm extends Component {
 
     }
 
+    var config = {
+      method: 'get',
+      url: 'http://200.14.84.238:443/accounts/signup/',
+      headers: { 
+        'Cookie': 'csrftoken='+csrftoken
+      }
+    };
+    
+    csrftoken_server = axios(config)
+
     var qs = require('qs');
     var csrftoken = getCookie('csrftoken');
-    var data = qs.stringify({
-      'username': 'test123123',
-      'email': 'test1231@gmail.com',
-      'password1': 'asistente2021',
-      'password2': 'asistente2021'
-    });
+    var data = qs.stringify(newUsuario);
     var config = {
       method: 'post',
       url: 'http://127.0.0.1:8000/accounts/signup/',
       headers: {
-        'X-CSRFToken': csrftoken,
+        'X-CSRFToken': csrftoken_server,
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Cookie': 'csrftoken=saGCISJPZfvVu7ySIP5dv0Lo7JV6Lc87vdmMIyZtJycmKaVjbXzX4oEVp2w9EoCA'
+        'Cookie': 'csrftoken='+csrftoken
       },
       data: data
     };
