@@ -6,14 +6,12 @@ class Horarios extends Component {
 
     render() {
 
-        if (this.props.horarios === null) {
-            return <div>ARROZ</div>
-        } else {
-            console.log('CARNE MONGOLIANA')
-            console.log(this.props.horarios.data)
 
-            return this.props.horarios.data.map(horario => <Horario horario={horario} key={horario.id} />);
-        }
+        console.log('Esto es Horarios')
+        console.log(this.props.horarios.data[0])
+
+        return setTimeout(() => { this.props.horarios.data.map(solucion => <Horario horario={solucion[0]} key={solucion} />); }, 1000);
+
 
     }
 }

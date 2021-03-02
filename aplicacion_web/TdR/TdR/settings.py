@@ -68,12 +68,15 @@ SESSION_COOKIE_AGE = 10000
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
 
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -110,11 +113,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tdr',
         'USER': 'postgres',
-        'PASSWORD': 'pass123',
+        'PASSWORD': 'asistente.2021',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
+
 
 AUTHENTICATION_BACKENDS = [
 
