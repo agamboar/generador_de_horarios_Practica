@@ -9,13 +9,13 @@ import googleLogin from "../services/googleLogin"
 export default class GoogleSocialAuth extends Component {
 
     render() {
-        const googleResponse = async (response) => {
+        /*const googleResponse = async (response) => {
             let responseGoogle = await googleLogin(response.accessToken)
             console.log(responseGoogle);
             sessionStorage.setItem('token', response.accessToken)
             sessionStorage.setItem('key', responseGoogle.key)
             console.log(responseGoogle.data)
-        }
+        }*/
         return (
             <div className="col-md-4 offset-md-4 align-self-sm-end">
                 <div className="card card-body border border-primary shadow-lg p-3 mb-5 bg-white rounded">
