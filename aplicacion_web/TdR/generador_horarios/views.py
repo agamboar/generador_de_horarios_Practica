@@ -232,7 +232,7 @@ def asignar_kk(request):
             if serializer.is_valid():
                 serializer.save()
 
-        return JsonResponse(json_data, safe=False, status=status.HTTP_200_OK)
+        return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
 
 @api_view(['POST'])

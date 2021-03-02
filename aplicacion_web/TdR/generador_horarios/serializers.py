@@ -37,7 +37,7 @@ class nodoAsignaturaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = nodo_asignatura
-        fields = ['holgura', 'ef', 'es', 'ls',
+        fields = ['holgura', 'ef', 'es', 'ls', 'kk',
                   'lf', 'critico', 'to_asignatura_real']
 
 
