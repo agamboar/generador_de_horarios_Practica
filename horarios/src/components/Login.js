@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as  Route, Link } from "react-router-dom";
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
-import Register from './Register.js';
+
 
 
 
@@ -70,7 +70,7 @@ export default class GoogleSocialAuth extends Component {
                     <br />
                     <div className=" align-self-end">
                         <Link className="nav-link" to="/register" >Registrarse </Link>
-                        <Route exact path="/register" component={Register}/>
+                        
                     </div>
                 </div>
             </div>

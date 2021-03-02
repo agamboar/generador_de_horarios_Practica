@@ -33,7 +33,7 @@ import PERTExtra4 from './components/PERTExtra4'
 import AsignaturasCriticas from './components/AsignaturasCriticas'
 import GenerarHorarios from './components/GenerarHorarios'
 import PriorizarRamos from './components/PriorizarRamos'
-
+import Register from './components/Register';
 
 
 function App() {
@@ -78,6 +78,7 @@ function App() {
       <Route path="/users/usr/priorizarRamos/priorizar" exact component={PriorizarRamos}/>
 
       <Route path="/users/usr/generarHorarios" exact component={GenerarHorarios}/>
+      <Route exact path="/register" component={Register}/>
 
     
     
