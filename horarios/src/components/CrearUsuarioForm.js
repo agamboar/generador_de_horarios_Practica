@@ -44,7 +44,7 @@ export default class CrearUsuarioForm extends Component {
     };
     
     var csrftoken_server = axios(config1)
-
+    console.log(csrftoken_server)
     var qs = require('qs');
     
     var data = qs.stringify(newUsuario);
