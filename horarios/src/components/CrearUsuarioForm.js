@@ -27,6 +27,15 @@ export default class CrearUsuarioForm extends Component {
     password2: '',
     email: ''
   }
+  getCookie_server = async ()=>{
+    var csrftoken = getCookie('csrftoken');
+    console.log(csrftoken)
+    var config1 = {
+      method: 'get',
+      url: 'http://200.14.84.238:443/accounts/signup/',
+    };
+    return config1
+  }
 
   addUsuario = async (username, email, password1, password2) => {
     const newUsuario = {
@@ -36,14 +45,9 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
-    var csrftoken = getCookie('csrftoken');
-    console.log(csrftoken)
-    var config1 = {
-      method: 'get',
-      url: 'http://200.14.84.238:443/accounts/signup/',
-    };
+    console.log(getCookie_server())
     
-    var csrftoken_server = axios(config1)
+    var csrftoken_server = await axios(config1)
     console.log(csrftoken_server)
     var qs = require('qs');
     
@@ -59,7 +63,7 @@ export default class CrearUsuarioForm extends Component {
       data: data
     };
 
-    axios(config)
+    await axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
       })
