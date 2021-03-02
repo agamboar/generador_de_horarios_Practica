@@ -11,11 +11,20 @@ export default class HPosibles extends Component {
     }
 
     componentDidMount = async () => {
-        const horarios_posibles = await axios.get("http://127.0.0.1:8000/clique/", { headers: { Authorization: "Token 66c54201f64d384caea2e56b2c6eb1bd11952176" } })
-        console.log('Esto es HPosibles')
-        console.log(horarios_posibles)
+
+        var config = {
+            method: 'get',
+            url: 'http://127.0.0.1:8000/clique',
+            headers: {
+                'Authorization': 'Token 372daae409f639993f9cf376f2058914dcd07a9c',
+                'Content-Type': 'application/json'
+            }
+        };
+
+        var horarios_posibles = await axios(config)
+
         this.setState({
-            Horarios: horarios_posibles
+            Horarios: horarios_posibles.data
         })
 
     }
