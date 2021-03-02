@@ -34,8 +34,8 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
-
-    var config = {
+    var csrftoken = getCookie('csrftoken');
+    var config1 = {
       method: 'get',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: { 
@@ -43,14 +43,14 @@ export default class CrearUsuarioForm extends Component {
       }
     };
     
-    var csrftoken_server = axios(config)
+    var csrftoken_server = axios(config1)
 
     var qs = require('qs');
-    var csrftoken = getCookie('csrftoken');
+    
     var data = qs.stringify(newUsuario);
     var config = {
       method: 'post',
-      url: 'http://127.0.0.1:8000/accounts/signup/',
+      url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
         'X-CSRFToken': csrftoken_server,
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -71,6 +71,7 @@ export default class CrearUsuarioForm extends Component {
   onSubmit = e => {
     e.preventDefault();
     this.addUsuario(this.state.username, this.state.email, this.state.password1, this.state.password2)
+    console.log("hola")
   }
 
   onChange = e => {
