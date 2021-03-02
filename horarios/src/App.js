@@ -40,7 +40,7 @@ function App() {
   return (
     <BrowserRouter>
       <Route path="/" exact component={Init}/>
-      <Route path="/users/usr/" exact component={UserInterface}/>
+      <Route path="/users/usr/" exact component={Register}/>
       <Route path="/users/usr/mallas/" exact component={Mallas}/>
       <Route path="/users/usr/mallas/malla2010" exact component={M2010}/>
       <Route path="/users/usr/mallas/malla2010/AvanceCurricular" exact component={AManual2010}/>
@@ -78,7 +78,7 @@ function App() {
       <Route path="/users/usr/priorizarRamos/priorizar" exact component={PriorizarRamos}/>
 
       <Route path="/users/usr/generarHorarios" exact component={GenerarHorarios}/>
-      <Route exact path="/register" component={Register}/>
+      
 
     
     
