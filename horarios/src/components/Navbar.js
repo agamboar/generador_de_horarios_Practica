@@ -21,13 +21,13 @@ export default class Navbar extends Component {
                         <Link className="nav-link" to={{ pathname: '/users/usr'}}style={{ color: '#FFF' }} >Home</Link>
                     </li>
                     <li className="nav-item">
+                        <Link className="nav-link" to={{ pathname: '/users/usr/crearHorario'}}style={{ color: '#FFF' }} >Mi Avance</Link>
+                    </li>           
+                    <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/mallas'}}style={{ color: '#FFF' }} >Mi Malla</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/crearHorario'}}style={{ color: '#FFF' }} >Mi Avance Curricular</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/PERT'}}style={{ color: '#FFF' }} >PERT</Link>
+                        <Link className="nav-link" to={{ pathname: '/users/usr/PERT'}}style={{ color: '#FFF' }} >Mis Ramos Críticos</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos'}}style={{ color: '#FFF' }} >Priorizar Ramos</Link>
