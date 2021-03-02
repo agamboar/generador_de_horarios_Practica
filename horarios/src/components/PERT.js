@@ -26,7 +26,7 @@ export default class PERT extends Component {
             }
         };
 
-        var PERT_j = axios(config)
+        var PERT_j = await axios(config)
             .then(function (response) {
                 console.log(JSON.stringify(response.data));
             })
