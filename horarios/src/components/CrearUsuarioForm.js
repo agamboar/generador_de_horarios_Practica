@@ -34,7 +34,7 @@ export default class CrearUsuarioForm extends Component {
     }
 
     var qs = require('qs');
-
+    var csrftoken = getCookie('csrftoken');
     var data = qs.stringify({
       'username': 'test123123',
       'email': 'test1231@gmail.com',
@@ -45,7 +45,7 @@ export default class CrearUsuarioForm extends Component {
       method: 'post',
       url: 'http://127.0.0.1:8000/accounts/signup/',
       headers: {
-        'X-CSRFToken': 'saGCISJPZfvVu7ySIP5dv0Lo7JV6Lc87vdmMIyZtJycmKaVjbXzX4oEVp2w9EoCA',
+        'X-CSRFToken': csrftoken,
         'Content-Type': 'application/x-www-form-urlencoded',
         'Cookie': 'csrftoken=saGCISJPZfvVu7ySIP5dv0Lo7JV6Lc87vdmMIyZtJycmKaVjbXzX4oEVp2w9EoCA'
       },
