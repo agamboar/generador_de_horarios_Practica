@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 import jquery from 'jquery'; 
 function getCookie(name) {
   var cookieValue = null;
