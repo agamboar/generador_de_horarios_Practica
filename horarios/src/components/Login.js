@@ -57,14 +57,14 @@ export default class GoogleSocialAuth extends Component {
                     <div className="App">
                         <h1> Login con Google </h1>
 
-                        <GoogleLogin
+                      { /* <GoogleLogin
                             clientId="822886799677-jgmhd4dtp3v0jqqleaj04k832uv14sb8.apps.googleusercontent.com"
                             buttonText="Login con Google"
                             onSuccess={googleResponse}
                             onFailure={googleResponse}
                             uxMode='redirect'
                             redirectUri='http://localhost:3000/users/usr/'
-                        />
+                        />*/}
 
                     </div>
                     <br />
