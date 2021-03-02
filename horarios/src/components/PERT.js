@@ -16,7 +16,7 @@ export default class PERT extends Component {
     }
 
     componentDidMount = async () => {
-        const PERT_j = await axios.get("http://127.0.0.1:8000/PERT/", { headers: { Authorization: "Token 66c54201f64d384caea2e56b2c6eb1bd11952176" } })
+        const PERT_j = await axios.get("http://127.0.0.1:8000/PERT/", { headers: { Authorization: "Token 372daae409f639993f9cf376f2058914dcd07a9c" } })
         this.setState({
             malla: PERT_j.data.malla,
             ramos: PERT_j.data.PERT
