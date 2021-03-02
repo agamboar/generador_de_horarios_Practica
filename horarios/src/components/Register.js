@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from 'react-router-dom';
 export default class Register extends Component {
     render() {
         return (
@@ -27,9 +27,10 @@ export default class Register extends Component {
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-                <p className="forgot-password text-right">
-                    Already registered <a href="#">sign in?</a>
-                </p>
+                <Link className="forgot-password text-right" to={{ pathname: '/' }}>
+                    Already registered
+                </Link>
+                
             </form>
         );
     }
