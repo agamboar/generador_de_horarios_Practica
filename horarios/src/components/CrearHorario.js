@@ -16,8 +16,6 @@ export default class CrearHorario extends Component {
                 <br/>
                 <br/>
                 
-
-
                 <div className="container">
 
                 
