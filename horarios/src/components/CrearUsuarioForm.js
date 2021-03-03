@@ -51,14 +51,17 @@ export default class CrearUsuarioForm extends Component {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': 'rqGpJoUIB5VXhPRAatpVdleEUzbdIGR6wfjCERIEWvDwM1LD9aYcMqI4oYn0Dj3X',
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Cookie': 'csrftoken=rqGpJoUIB5VXhPRAatpVdleEUzbdIGR6wfjCERIEWvDwM1LD9aYcMqI4oYn0Dj3X'
+        'Content-Type': 'application/json',
+        'Accept': '/',
+        'Cache-Control': 'no-cache',
+        'Cookie': document.cookie
       },
-      data: data
+      data: data,
+      credentials: 'same-origin'
     };
+    axios.defaults.withCredentials = true;
 
-    axios(config, { withCredentials: true })
+    axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
       })
