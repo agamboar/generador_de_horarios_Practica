@@ -96,8 +96,9 @@ export default class CrearHorario extends Component {
                                 </div>      
                             </div>
                         </div>
+                        <button type="submit" className="btn btn-primary">Subir Oferta Informática</button>  
                     </div>  
-                    <button type="submit" className="btn btn-primary">Subir Mallas</button>  
+                   
                     </form>
                     <form onSubmit={this.onSubmit2}>
                     <div className="col-sm-4 ">
@@ -134,8 +135,9 @@ export default class CrearHorario extends Component {
                                 </div>      
                             </div>
                         </div>
+                        <button type="submit" className="btn btn-primary">Subir Oferta CFG</button>     
                     </div> 
-                    <button type="submit" className="btn btn-primary">Subir Mallas</button>                
+                               
                 </form>
                     <div className="col-sm-2 "/>                  
                 </div>
