@@ -11,17 +11,17 @@ const API_HOST = 'http://200.14.84.238:443';
 let _csrfToken = null;
 
 async function getCsrfToken() {
-  if (_csrfToken === null) {
-    const response = await fetch(`${API_HOST}/csrf/`, {
-      credentials: 'include',
-    });
-    const data = await response.json();
-    _csrfToken = data.csrfToken;
-  }
-  return _csrfToken;
+    if (_csrfToken === null) {
+        const response = await fetch(`${API_HOST}/csrf/`, {
+            credentials: 'include',
+        });
+        const data = await response.json();
+        _csrfToken = data.csrfToken;
+    }
+    return _csrfToken;
 }
 
-getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '' }) )
+getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '' }))
 
 export default class GoogleSocialAuth extends Component {
 
@@ -29,7 +29,7 @@ export default class GoogleSocialAuth extends Component {
         user: null,
         password: null
     }
-    
+
     verificar_user = async (login, password) => {
         const newUser = {
             username: login,
@@ -43,15 +43,15 @@ export default class GoogleSocialAuth extends Component {
         var data = qs.stringify(newUser);
         console.log(data)
         var config = {
-            method: 'post', 
+            method: 'post',
             url: 'http://200.14.84.238:443/dj-rest-auth/login/',
             data: data
         };
 
         await axios(config).then(response => sessionStorage.setItem('token', response.data.key))
         console.log(sessionStorage.getItem("token"))
-          
-        
+
+
 
     }
     onChange = e => {
@@ -116,8 +116,8 @@ export default class GoogleSocialAuth extends Component {
                             />
                         </div>
 
-                        <button type="submit" className="btn btn-primary rounded-pill"> Ingresar
-                        <Link className="nav-link" to={{ pathname: '/users/usr' }} >Registrarse </Link>
+                        <button type="submit" className="btn btn-primary rounded-pill">
+                            <Link className="nav-link" to={{ pathname: '/users/usr' }} >Ingresar </Link>
                         </button>
                     </form>
                     <p className="lead align-self-center"> o </p>
