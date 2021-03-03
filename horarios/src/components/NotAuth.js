@@ -23,7 +23,7 @@ export default class NotAuth extends Component {
                     </div>
                     <div class="d-flex justify-content-center">
                         <h5>Seras redirigido</h5>
-                        {setTimeout(()=>{window.location.href = '/';}, 50000)} 
+                        
                    
                 </div>
                 <br />
