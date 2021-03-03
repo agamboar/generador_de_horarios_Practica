@@ -16,8 +16,8 @@ export default class GoogleSocialAuth extends Component {
     }
 
     verificar_user = async (login, password) => {
-        const newUser ={
-            login:login,
+        const newUser = {
+            login: login,
             password: password
         }
         var csrftoken = Cookies.get('csrftoken');
@@ -25,7 +25,7 @@ export default class GoogleSocialAuth extends Component {
         var axios = require('axios');
         var qs = require('qs');
 
-        var data = qs.stringify( newUser );
+        var data = qs.stringify(newUser);
 
         var config = {
             method: 'post',
@@ -47,16 +47,16 @@ export default class GoogleSocialAuth extends Component {
     }
     onChange = e => {
         this.setState({
-          [e.target.name]: e.target.value
+            [e.target.name]: e.target.value
         })
         console.log(e.target.value);
-      }
+    }
 
     onSubmit = e => {
         e.preventDefault();
-        this.verificar_user(this.state.user,this.state.password)
-        
-      }
+        this.verificar_user(this.state.user, this.state.password)
+
+    }
 
     render() {
         /*const googleResponse = async (response) => {
@@ -78,35 +78,35 @@ export default class GoogleSocialAuth extends Component {
                         </svg>
                 Usuario
                 </h5>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <input 
-                        type="Tel" 
-                        name="user"
-                        className="form-control rounded-pill" 
-                        placeholder="Ej: usuario" 
-                        onChange={this.onChange}
-                        value= {this.state.user}
-                        />
-                    </div>
-                    <h5>
-                        &nbsp;&nbsp;
+                    <form onSubmit={this.onSubmit}>
+                        <div className="form-group">
+                            <input
+                                type="Tel"
+                                name="user"
+                                className="form-control rounded-pill"
+                                placeholder="Ej: usuario"
+                                onChange={this.onChange}
+                                value={this.state.user}
+                            />
+                        </div>
+                        <h5>
+                            &nbsp;&nbsp;
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="bi bi-lock" viewBox="0 0 22 22">
-                            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
-                        </svg>
+                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
+                            </svg>
                 Password
                 </h5>
-                    <div className="form-group">
-                        <input 
-                        type="password" 
-                        className="form-control rounded-pill"                         
-                        placeholder="********" 
-                        name="password" 
-                        onChange={this.onChange}
-                        value={this.state.password}
-                        />
-                    </div>
-                    
+                        <div className="form-group">
+                            <input
+                                type="password"
+                                className="form-control rounded-pill"
+                                placeholder="********"
+                                name="password"
+                                onChange={this.onChange}
+                                value={this.state.password}
+                            />
+                        </div>
+
                         <button type="submit" className="btn btn-primary rounded-pill"> Ingresar</button>
                     </form>
                     <p className="lead align-self-center"> o </p>

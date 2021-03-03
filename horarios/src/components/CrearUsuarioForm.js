@@ -56,12 +56,11 @@ export default class CrearUsuarioForm extends Component {
     console.log(getCsrfToken())
     var qs = require('qs');
     var data = qs.stringify({
-      'username': 'CristobalUrra123',
-      'email': 'curra123@gmail.com',
+      'username': 'CristobalUrra121',
+      'email': 'curra545@gmail.com',
       'password1': 'asistente2021',
       'password2': 'asistente2021'
     });
-
     var config = {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
@@ -71,10 +70,8 @@ export default class CrearUsuarioForm extends Component {
         'Cache-Control': 'no-cache',
         'Cookie': document.cookie 
       },
-      data: data,
-      credentials: 'same-origin'
+      data: data
     };
-    axios.defaults.withCredentials = true;
 
     axios(config)
       .then(function (response) {
