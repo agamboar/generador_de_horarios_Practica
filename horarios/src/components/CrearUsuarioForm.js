@@ -3,17 +3,20 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import cookie from "react-cookies";
 import $ from 'jquery';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
 
 const API_HOST = 'http://200.14.84.238:443';
 
 let _csrfToken = null;
 
-function getCsrfToken() {
+async function getCsrfToken() {
   if (_csrfToken === null) {
-    const response = fetch(`${API_HOST}/csrf/`, {
+    const response = await fetch(`${API_HOST}/csrf/`, {
       credentials: 'include',
     });
-    const data =  response.json();
+    const data = await response.json();
     _csrfToken = data.csrfToken;
   }
   return _csrfToken;
@@ -39,7 +42,7 @@ export default class CrearUsuarioForm extends Component {
     }
     var algo = getCsrfToken()
     console.log(algo)
-   
+    cookies.set('csrftoken', getCsrfToken() , { path: '/' });
     var qs = require('qs');
     var data = qs.stringify({
       'username': 'CristobalUrra121',
@@ -51,7 +54,7 @@ export default class CrearUsuarioForm extends Component {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': "beta", 
+        'X-CSRFToken': cookies.get('csrftoken'), 
         'Content-Type': 'application/x-www-form-urlencoded',  
       },
       data: data
