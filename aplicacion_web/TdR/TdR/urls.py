@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from generador_horarios import views
 from generador_horarios.views import GoogleLogin
-from rest_framework_jwt.views import obtain_jwt_token
+
 
 urlpatterns = [
 
@@ -36,6 +36,6 @@ urlpatterns = [
     path('ss/', views.asignar_ss, name='ss'),
     path('clique/', views.get_clique, name='clique'),
     path('mimallamanual/', views.mi_malla_manual, name='manual'),
-    path('token-auth/', obtain_jwt_token),
+    
 
 ]
