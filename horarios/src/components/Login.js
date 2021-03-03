@@ -28,8 +28,8 @@ export default class GoogleSocialAuth extends Component {
         password: null
     }
 
-    verificar_user() {
-
+    verificar_user = async (user, password) => {
+            
         // falta pasar los datos del form
         var form_data = { "algo": 212 }
         var csrftoken = getCookie('csrftoken');
@@ -63,18 +63,9 @@ export default class GoogleSocialAuth extends Component {
         console.log(e.target.value);
       }
 
-    userLogin = async (user, password) => {
-        const newuserLogin = {
-          user: user,
-          password: password
-        }
-        // aqui va el axios
-
-        }
-
     onSubmit = e => {
-        
-        this.userLogin(this.state.user,this.state.password)
+        e.preventDefault();
+        this.verificar_user(this.state.user,this.state.password)
         
       }
 
@@ -130,7 +121,7 @@ export default class GoogleSocialAuth extends Component {
 
 
                     <div className="align-self-center">
-                        <button type="submit" className="btn btn-primary rounded-pill btn-sm" onClick={this.verificar_user()}>
+                        <button type="submit" className="btn btn-primary rounded-pill btn-sm" onClick={this.onSubmit()}>
                             <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 Ingresar Con Tú Usuario
