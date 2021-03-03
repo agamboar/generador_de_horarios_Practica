@@ -24,6 +24,11 @@ function getCookie(name) {
 
 export default class GoogleSocialAuth extends Component {
 
+    state = {
+        user: null,
+        password: null
+    }
+
     verificar_user() {
 
         // falta pasar los datos del form
@@ -52,6 +57,27 @@ export default class GoogleSocialAuth extends Component {
             });
 
     }
+    onChange = e => {
+        this.setState({
+          [e.target.name]: e.target.value
+        })
+        console.log(e.target.value);
+      }
+
+    userLogin = async (user, password) => {
+        const newuserLogin = {
+          user: user,
+          password: password
+        }
+        // aqui va el axios
+
+        }
+
+    onSubmit = e => {
+        e.preventDefault();
+        this.userLogin(this.state.user,this.state.password)
+        
+      }
 
     render() {
         /*const googleResponse = async (response) => {
@@ -73,8 +99,16 @@ export default class GoogleSocialAuth extends Component {
                         </svg>
                 Usuario
                 </h5>
+                <form onSubmit={this.onSubmit()}>
                     <div className="form-group">
-                        <input type="Tel" className="form-control rounded-pill" placeholder="Ej: prueba@mail.cl" name="email" />
+                        <input 
+                        type="Tel" 
+                        name="user"
+                        className="form-control rounded-pill" 
+                        placeholder="Ej: usuario" 
+                        onChange={this.onChange}
+                        value= {this.state.user}
+                        />
                     </div>
                     <h5>
                         &nbsp;&nbsp;
@@ -84,8 +118,16 @@ export default class GoogleSocialAuth extends Component {
                 Password
                 </h5>
                     <div className="form-group">
-                        <input type="password" className="form-control rounded-pill" placeholder="********" name="password" />
+                        <input 
+                        type="password" 
+                        className="form-control rounded-pill"                         
+                        placeholder="********" 
+                        name="password" 
+                        onChange={this.onChange}
+                        value={this.state.password}
+                        />
                     </div>
+                </form>
 
 
                     <div className="align-self-center">
