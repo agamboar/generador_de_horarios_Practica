@@ -54,7 +54,8 @@ export default class CrearUsuarioForm extends Component {
     }
     var algo = getCookie("csfrtoken")
     console.log("aca")
-    console.log(algo.then(val => console.log(val)))
+    var beta = "aa";
+    console.log(algo.then(val => beta=val))
     var qs = require('qs');
     var data = qs.stringify({
       'username': 'CristobalUrra121',
@@ -66,7 +67,7 @@ export default class CrearUsuarioForm extends Component {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': algo.then(val => console.log(val)), 
+        'X-CSRFToken': , 
         'Content-Type': 'application/x-www-form-urlencoded',  
       },
       data: data
