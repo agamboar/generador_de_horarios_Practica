@@ -41,21 +41,22 @@ export default class GoogleSocialAuth extends Component {
         var qs = require('qs');
 
         var data = qs.stringify(newUser);
-
+        console.log(data)
         var config = {
             method: 'post', 
             url: 'http://200.14.84.238:443/dj-rest-auth/login/',
             data: data
         };
 
-        await axios(config).then(response => response.json())
+        await axios(config)
+        /*.then(response => response.json())
         .then(res_json => {
           if(res_json.key){
             sessionStorage.setItem('token', res_json.token)
             //sessionStorage.getItem("token")
             console.log(res_json)
           } 
-        })
+        })*/
 
         
 
