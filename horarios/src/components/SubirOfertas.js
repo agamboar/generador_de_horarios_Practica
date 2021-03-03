@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Derechos from './Derechos'
+import axios from 'axios';
 
 
 
