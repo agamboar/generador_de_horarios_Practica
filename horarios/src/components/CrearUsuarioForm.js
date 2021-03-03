@@ -56,6 +56,7 @@ export default class CrearUsuarioForm extends Component {
     console.log("aca")
     var beta = "aa";
     console.log(algo.then(val => beta=val))
+    console.log(beta)
     var qs = require('qs');
     var data = qs.stringify({
       'username': 'CristobalUrra121',
