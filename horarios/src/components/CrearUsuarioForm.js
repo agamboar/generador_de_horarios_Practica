@@ -51,7 +51,7 @@ export default class CrearUsuarioForm extends Component {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': beta, 
+        'X-CSRFToken': "beta", 
         'Content-Type': 'application/x-www-form-urlencoded',  
       },
       data: data
