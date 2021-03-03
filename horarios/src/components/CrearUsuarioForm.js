@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import cookie from "react-cookies";
 import $ from 'jquery'; 
 
 function getCookie(name) {
@@ -11,7 +11,7 @@ function getCookie(name) {
   if (document.cookie && document.cookie !== '') {
       var cookies = document.cookie.split(';');
       for (var i = 0; i < cookies.length; i++) {
-          var cookie = $.trim(cookies[i]);
+          var cookie = cookies[i].toString().replace(/^([\s]*)|([\s]*)$/g, "");
           if (cookie.substring(0, name.length + 1) === (name + '=')) {
               cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
               break;
@@ -48,7 +48,7 @@ export default class CrearUsuarioForm extends Component {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': csrftoken,
+        'X-CSRFToken': cookie.load("csrftoken"),
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       data: data
