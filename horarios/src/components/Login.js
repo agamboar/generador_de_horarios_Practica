@@ -47,11 +47,13 @@ export default class GoogleSocialAuth extends Component {
             url: 'http://200.14.84.238:443/dj-rest-auth/login/',
             data: data
         };
-
+        this.props.history.push('http://200.14.84.238:443/users/usr');
+        this.props.history.push('users/usr');
         await axios(config).then(response => sessionStorage.setItem('token', response.data.key))
-        console.log(sessionStorage.getItem("token"))
+        
         if (sessionStorage.getItem("token")){
-            this.props.history.push('http://200.14.84.238:443/users/usr');
+            console.log(sessionStorage.getItem("token"))
+            this.props.history.push('users/usr');
         }
 
 
