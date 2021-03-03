@@ -2,24 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
+import Cookies from 'js-cookie'
 
 var $ = require('zepto-browserify').$;
 
-var getCookie = function (name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = $.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
+
 
 export default class GoogleSocialAuth extends Component {
 
@@ -33,7 +20,8 @@ export default class GoogleSocialAuth extends Component {
             login:login,
             password: password
         }
-        var csrftoken = getCookie('csrftoken');
+        var csrftoken = Cookies.get('csrftoken');
+        console.log(csrftoken)
         var axios = require('axios');
         var qs = require('qs');
 
