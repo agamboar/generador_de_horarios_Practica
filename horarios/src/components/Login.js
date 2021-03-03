@@ -53,7 +53,7 @@ export default class GoogleSocialAuth extends Component {
         
         if (sessionStorage.getItem("token")){
             console.log(sessionStorage.getItem("token"))
-            this.props.history.push('users/usr');
+            history.push('users/usr');
         }
 
 
