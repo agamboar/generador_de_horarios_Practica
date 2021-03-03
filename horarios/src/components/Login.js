@@ -4,12 +4,51 @@ import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
 
 
-
+var getCookie = function(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = $.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 
 export default class GoogleSocialAuth extends Component {
 
-    cambiaestenombre(){
-        <div/>
+    verificar_user(){
+
+        // falta pasar los datos del form
+        var form_data= {"algo":212}
+        var csrftoken = getCookie('csrftoken');
+        var axios = require('axios');
+        var qs = require('qs');
+
+        var data = qs.stringify({ form_data});
+
+        var config = {
+        method: 'post',
+        url: 'http://200.14.84.238:443/accounts/login/',
+        headers: { 
+            'X-CSRFToken': csrftoken, 
+            'Content-Type': 'application/x-www-form-urlencoded', 
+        },
+        data : data
+        };
+
+        axios(config).then(function (response) {
+        console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
+        
     }
 
     render() {
@@ -48,7 +87,7 @@ export default class GoogleSocialAuth extends Component {
 
 
                     <div className="align-self-center">
-                        <button type="submit" className="btn btn-primary rounded-pill btn-sm" onClick={this.cambiaestenombre()}>
+                        <button type="submit" className="btn btn-primary rounded-pill btn-sm" onClick={this.verificar_user()}>
                             <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 Ingresar Con Tú Email
