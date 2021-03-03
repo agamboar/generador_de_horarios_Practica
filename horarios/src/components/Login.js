@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
 
-import Cookies from 'universal-cookie';
+
 import $ from 'jquery'; 
 
 function getCookie(name) {
