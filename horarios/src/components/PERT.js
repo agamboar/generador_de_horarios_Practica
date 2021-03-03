@@ -5,6 +5,7 @@ import PERTMalla2018 from './PERTMalla2018'
 import PERTMalla2020 from './PERTMalla2020'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import NotAuth from './NotAuth'
 
 
 
@@ -36,6 +37,7 @@ export default class PERT extends Component {
     }
 
     render() {
+        if (localStorage.getItem("token")){
         if (this.state.malla === 2010) {
             return (
                 <div>
@@ -167,8 +169,11 @@ export default class PERT extends Component {
                     <br />
 
                 </div>
+                
             )
         }
-
+    }else{
+        return (<NotAuth />)
+    }
     }
 }

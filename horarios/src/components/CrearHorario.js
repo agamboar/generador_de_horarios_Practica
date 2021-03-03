@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import Navbar from './Navbar'
 import {Link} from 'react-router-dom';
 import Derechos from './Derechos'
-
+import NotAuth from './NotAuth'
 
 
 export default class CrearHorario extends Component {
     render() {
         return (
+            <div>
+                {(localStorage.getItem("token"))?  
             <div>
                 <Navbar/>
                 
@@ -93,6 +95,9 @@ export default class CrearHorario extends Component {
                 </div>
                 </div>
                 <Derechos/>
+
+            </div>
+            : <NotAuth />}
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import SeccionesCritico from './SeccionesCritico'
-
+import NotAuth from './NotAuth'
 
 
 
@@ -20,6 +20,8 @@ export default class PriorizarSecciones extends Component {
 
     render() {
         return (
+            <div>
+            {(localStorage.getItem("token"))? 
             <div>
                 <Navbar/>
 
@@ -50,6 +52,8 @@ export default class PriorizarSecciones extends Component {
                            
 
 
+            </div>
+            : <NotAuth />}
             </div>
         )
     }

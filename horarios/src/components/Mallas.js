@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import Navbar from './Navbar'
 import {Link} from 'react-router-dom';
 import Derechos from './Derechos'
-
+import NotAuth from './NotAuth'
 
 
 export default class Mallas extends Component {
     render() {
         return (
+        <div>
+            {(localStorage.getItem("token"))?  
             <div>
                 <Navbar/>
                 
@@ -77,6 +79,8 @@ export default class Mallas extends Component {
                 </div>
                 <Derechos/>
             </div>
+             : <NotAuth />}
+             </div>
         )
     }
 }

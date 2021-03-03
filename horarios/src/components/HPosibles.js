@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Horarios from './Horarios'
 import Horario from './Horario'
 import axios from 'axios';
+import NotAuth from './NotAuth'
 
 export default class HPosibles extends Component {
 
@@ -30,6 +31,7 @@ export default class HPosibles extends Component {
     }
 
     render() {
+        if (localStorage.getItem("token")){
         if (this.state.Horarios === null) {
             return (
                 <div>
@@ -110,5 +112,8 @@ export default class HPosibles extends Component {
                 </div>
             )
         }
+    }else{
+        return (<NotAuth />)
+    }
     }
 }

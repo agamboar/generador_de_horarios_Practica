@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import RamoCritico from './RamoCritico'
-
+import NotAuth from './NotAuth'
 
 
 
@@ -31,6 +31,8 @@ export default class PriorizarRamos extends Component {
 
     render() {
         return (
+            <div>
+            {(localStorage.getItem("token"))?  
             <div>
                 <Navbar/>
 
@@ -69,6 +71,8 @@ export default class PriorizarRamos extends Component {
                 <br/>
                 <br/>
 
+            </div>
+            : <NotAuth />}
             </div>
         )
     }
