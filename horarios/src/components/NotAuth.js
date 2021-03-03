@@ -3,10 +3,7 @@ import React, { Component } from 'react'
 export default class NotAuth extends Component {
     render() {
         return (
-            
-                        <Jumbotron>
-       
-        
+            <div>
 
                 <br />
                 <div >
@@ -21,18 +18,18 @@ export default class NotAuth extends Component {
                 <br />
                 <br />
                 <div class="d-flex justify-content-center">
-                    <p>
+                    
                         <h1 class="display-6">Debes ingresar con tu cuenta</h1>
-                    </p>
-                    <p>
-                        <h class="display-6">Seras redirigido</h>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h5>Heading level 5</h5>
                         {setTimeout(()=>{window.location.href = '/';},10000)} 
-                    </p>
+                   
                 </div>
                 <br />
                 <br />
                 <br />
-                </Jumbotron>
+            </div>
          ) }
         
 }
