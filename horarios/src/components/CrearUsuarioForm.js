@@ -5,7 +5,7 @@ import axios from 'axios';
 import $ from 'jquery'; 
 
 function getCookie(name) {
-  var cookieValue = null;
+  var cookieValue = "cfggg";
   console.log("funcion cookie")
   console.log(document.cookie)
   if (document.cookie && document.cookie !== '') {
