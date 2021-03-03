@@ -28,15 +28,16 @@ export default class GoogleSocialAuth extends Component {
         password: null
     }
 
-    verificar_user = async (user, password) => {
-            
-        // falta pasar los datos del form
-        var form_data = { "algo": 212 }
+    verificar_user = async (login, password) => {
+        const newUser ={
+            login:login,
+            password: password
+        }
         var csrftoken = getCookie('csrftoken');
         var axios = require('axios');
         var qs = require('qs');
 
-        var data = qs.stringify({ form_data });
+        var data = qs.stringify( newUser );
 
         var config = {
             method: 'post',
@@ -117,7 +118,7 @@ export default class GoogleSocialAuth extends Component {
                         value={this.state.password}
                         />
                     </div>
-                </form>
+                
 
 
                     <div className="align-self-center">
@@ -130,6 +131,7 @@ export default class GoogleSocialAuth extends Component {
                         </button>
 
                     </div>
+                    </form>
                     <p className="lead align-self-center"> o </p>
                     <div className="App">
                         <h1> Login con Google </h1>
