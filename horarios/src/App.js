@@ -4,6 +4,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Init from './components/Init';
 import Registro from './components/Registro'
+import SubirOferta from './components/SubirOfertas'
 import UserInterface from './components/UserInterface';
 import Mallas from './components/Mallas';
 import M2010 from './components/M2010'
@@ -42,6 +43,7 @@ function App() {
     <BrowserRouter>
       <Route path="/" exact component={Init}/>
       <Route path="/Registro" exact component={Registro}/>
+      <Route path="/admin/subirOferta" exact component={SubirOferta}/>
       <Route path="/users/usr/" exact component={UserInterface}/>
       <Route path="/users/usr/mallas/" exact component={Mallas}/>
       <Route path="/users/usr/mallas/malla2010" exact component={M2010}/>

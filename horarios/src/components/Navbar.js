@@ -18,6 +18,9 @@ export default class Navbar extends Component {
                 
                 <ul className="nav justify-content-end">
                     <li className="nav-item">
+                        <Link className="nav-link" to={{ pathname: '/admin/subirOferta'}}style={{ color: '#FFF' }} >alo</Link>
+                    </li> 
+                    <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr'}}style={{ color: '#FFF' }} >Home</Link>
                     </li>
                     <li className="nav-item">
