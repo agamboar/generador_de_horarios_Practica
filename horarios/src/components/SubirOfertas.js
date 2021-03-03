@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Derechos from './Derechos'
+import axios from 'axios';
 
 
 
@@ -11,42 +12,29 @@ export default class CrearHorario extends Component {
         cfg: null
     }
 
-    onChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
+    handleOferta(e) {
+
+        let informatica = e.target.files[0]
+        this.setState({ informatica: informatica })
+    }
+
+    uploadOferta(e) {
+
+        let informatica = this.state.informatica
+
+        let formdata = new FormData()
+
+        formdata.append('excel', informatica)
+
+        axios({
+            url = 'http://200.14.84.238:443/mimallamanual/',
+            method: 'POST',
+            headers: {
+                'Authorization': 'Token ' + sessionStorage.getItem('token'),
+                'Content-Type': 'multipart/form-data'
+            },
+            data: formdata
         })
-        console.log(e.target.value);
-    }
-
-    addInformatica = async (informatica) => {
-        const newInformatica = {
-            informatica: informatica
-
-        }
-        // aqui va el axios
-
-    }
-
-    addCfg = async (cfg) => {
-        const newCfg = {
-            cfg: cfg
-
-        }
-        // aqui va el axios
-
-    }
-
-
-    onSubmit1 = e => {
-        e.preventDefault();
-        this.addInformatica(this.state.informatica)
-
-    }
-
-    onSubmit2 = e => {
-        e.preventDefault();
-        this.addCfg(this.state.cfg)
-
     }
 
     render() {
@@ -90,11 +78,11 @@ export default class CrearHorario extends Component {
                                                 type="file"
                                                 name="informatica"
                                                 id="formFile"
-                                                onChange={this.onChange}
-                                                value={this.state.informática}
+                                                onChange={(e) => this.handleOferta(e)}
+                                                value={this.state.informatica}
                                                 multiple />
                                         </div>
-                                        <button type="submit" className="btn btn-primary">Subir Oferta Informática</button>
+                                        <button type="submit" className="btn btn-primary" onClick={(e) => this.uploadOferta(e)}>Subir Oferta Informática</button>
                                     </div>
 
                                 </div>
