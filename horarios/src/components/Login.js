@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
 
+var $ = require('zepto-browserify').$;
 
-var getCookie = function(name) {
+var getCookie = function (name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
         var cookies = document.cookie.split(';');
@@ -22,33 +23,33 @@ var getCookie = function(name) {
 
 export default class GoogleSocialAuth extends Component {
 
-    verificar_user(){
+    verificar_user() {
 
         // falta pasar los datos del form
-        var form_data= {"algo":212}
+        var form_data = { "algo": 212 }
         var csrftoken = getCookie('csrftoken');
         var axios = require('axios');
         var qs = require('qs');
 
-        var data = qs.stringify({ form_data});
+        var data = qs.stringify({ form_data });
 
         var config = {
-        method: 'post',
-        url: 'http://200.14.84.238:443/accounts/login/',
-        headers: { 
-            'X-CSRFToken': csrftoken, 
-            'Content-Type': 'application/x-www-form-urlencoded', 
-        },
-        data : data
+            method: 'post',
+            url: 'http://200.14.84.238:443/accounts/login/',
+            headers: {
+                'X-CSRFToken': csrftoken,
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            data: data
         };
 
         axios(config).then(function (response) {
-        console.log(JSON.stringify(response.data));
+            console.log(JSON.stringify(response.data));
         })
-        .catch(function (error) {
-        console.log(error);
-        });
-        
+            .catch(function (error) {
+                console.log(error);
+            });
+
     }
 
     render() {
@@ -67,7 +68,7 @@ export default class GoogleSocialAuth extends Component {
                     <h5>
                         &nbsp;&nbsp;&nbsp;
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                         </svg>
                 Usuario
                 </h5>
@@ -100,7 +101,7 @@ export default class GoogleSocialAuth extends Component {
                     <div className="App">
                         <h1> Login con Google </h1>
 
-                      { /* <GoogleLogin
+                        { /* <GoogleLogin
                             clientId="822886799677-jgmhd4dtp3v0jqqleaj04k832uv14sb8.apps.googleusercontent.com"
                             buttonText="Login con Google"
                             onSuccess={googleResponse}
