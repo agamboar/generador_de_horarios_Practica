@@ -20,7 +20,7 @@ async function getCsrfToken() {
 }
 
 function getCookie(name) {
-  var cookieValue = getCsrfToken();
+  var cookieValue = getCsrfToken().then(val => console.log(val));
   console.log("funcion cookie")
   
     var cookies = getCsrfToken();
@@ -53,10 +53,7 @@ export default class CrearUsuarioForm extends Component {
 
     }
     var algo = getCookie("csfrtoken")
-    console.log("aca")
-    var beta = "aa";
-    console.log(algo.then(val => beta=val))
-    console.log(beta)
+   
     var qs = require('qs');
     var data = qs.stringify({
       'username': 'CristobalUrra121',
