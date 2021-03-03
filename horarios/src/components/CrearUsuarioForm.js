@@ -128,7 +128,7 @@ export default class CrearUsuarioForm extends Component {
                 </h5>
             <div className="input-group mb-3">
               <input
-                type="text"
+                type="password"
                 name="password1"
                 placeholder="********"
                 className="form-control rounded-pill"
@@ -146,7 +146,7 @@ export default class CrearUsuarioForm extends Component {
                 </h5>
             <div className="input-group mb-3">
               <input
-                type="text"
+                type="password"
                 name="password2"
                 placeholder="********"
                 className="form-control rounded-pill"
