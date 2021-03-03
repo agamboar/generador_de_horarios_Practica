@@ -39,6 +39,13 @@ export default class CrearHorario extends Component {
             },
             data: formdata
         };
+        axios(config)
+            .then(function (response) {
+                console.log('Subida exitosa del archivo.');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
     }
 
