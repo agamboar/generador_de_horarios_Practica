@@ -38,23 +38,25 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
-    axios.defaults.withCredentials = true;
-    console.log(cookie.load("csrftoken"))
     var qs = require('qs');
-    var csrftoken = getCookie('csrftoken');
-    console.log(csrftoken);
-    var data = qs.stringify(newUsuario);
     var config = {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': "csrftoken=a2PUvrvfQCywbusDq32W7VD2tjN1gTBhzQOvWT4n92egNS8HEfiT00m7vS9ha40s",
+        'X-CSRFToken': 'rqGpJoUIB5VXhPRAatpVdleEUzbdIGR6wfjCERIEWvDwM1LD9aYcMqI4oYn0Dj3X',
         'Content-Type': 'application/x-www-form-urlencoded',
+        'Cookie': 'csrftoken=rqGpJoUIB5VXhPRAatpVdleEUzbdIGR6wfjCERIEWvDwM1LD9aYcMqI4oYn0Dj3X'
       },
-      data: data
+      data: qs.stringify(newUsuario)
     };
 
-    await axios(config, { withCredentials: true })
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   onSubmit = e => {
