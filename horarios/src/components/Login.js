@@ -118,9 +118,8 @@ export default class GoogleSocialAuth extends Component {
                         value={this.state.password}
                         />
                     </div>
-                    <div className="align-self-center">
+                    
                         <button type="submit" className="btn btn-primary rounded-pill btn-sm align-self-center"> Ingresar</button>
-                    </div>
                     </form>
                     <p className="lead align-self-center"> o </p>
                     <div className="App">
