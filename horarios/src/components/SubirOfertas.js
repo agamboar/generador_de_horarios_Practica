@@ -94,8 +94,9 @@ export default class CrearHorario extends Component {
                                     value={this.state.informática}
                                     multiple/>
                                 </div>      
+                                <button type="submit" className="btn btn-primary">Subir Oferta Informática</button>  
                             </div>
-                            <button type="submit" className="btn btn-primary">Subir Oferta Informática</button>  
+                            
                         </div>
                         
                     </div>  
@@ -134,8 +135,9 @@ export default class CrearHorario extends Component {
                                     value={this.state.cfg}
                                     multiple/>
                                 </div>      
+                                <button type="submit" className="btn btn-primary">Subir Oferta CFG</button>    
                             </div>
-                            <button type="submit" className="btn btn-primary">Subir Oferta CFG</button>     
+                             
                         </div>
                         
                     </div> 
