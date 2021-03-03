@@ -8,6 +8,10 @@ import googleLogin from "../services/googleLogin"
 
 export default class GoogleSocialAuth extends Component {
 
+    cambiaestenombre(){
+        <div/>
+    }
+
     render() {
         /*const googleResponse = async (response) => {
             let responseGoogle = await googleLogin(response.accessToken)
@@ -44,7 +48,7 @@ export default class GoogleSocialAuth extends Component {
 
 
                     <div className="align-self-center">
-                        <button type="submit" className="btn btn-primary rounded-pill btn-sm">
+                        <button type="submit" className="btn btn-primary rounded-pill btn-sm" onClick={this.cambiaestenombre()}>
                             <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 Ingresar Con Tú Email
