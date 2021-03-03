@@ -36,6 +36,11 @@ export default class CrearHorario extends Component {
                             <div className="card-body">
                                 <h5 className="card-title text-center">Ingreso de Oferta Académica Informática</h5>
                                 <br/>
+                                <br/> 
+                                <br/> 
+                                <br/> 
+                                <br/> 
+                                <br/> 
                                 <div className="form-group">
                                     <input className="form-control form-control-sm" type="file" id="formFile" multiple/>
                                 </div>      
@@ -56,8 +61,13 @@ export default class CrearHorario extends Component {
                         <br/>
                     </div>
                             <div className="card-body">
-                                <h5 className="card-title text-center">Ingreso Oferta Académica Informática</h5>
+                                <h5 className="card-title text-center">Ingreso Oferta Académica CFG</h5>
                                 <br/>
+                                <br/> 
+                                <br/> 
+                                <br/> 
+                                <br/> 
+                                <br/> 
                                 <div className="form-group">
                                     <input className="form-control form-control-sm" type="file" id="formFile" multiple/>
                                 </div>      
