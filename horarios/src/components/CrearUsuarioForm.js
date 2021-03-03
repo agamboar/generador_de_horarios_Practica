@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
-
+import Cookies from 'js-cookie';
 
 
 export default class CrearUsuarioForm extends Component {
@@ -33,7 +32,7 @@ export default class CrearUsuarioForm extends Component {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': cookies.get('csrftoken'), 
+        'X-CSRFToken': Cookies.get('csrftoken'), 
         'Content-Type': 'application/x-www-form-urlencoded',  
       },
       data: data

@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
-import Cookies from 'universal-cookie';
+import Cookies from 'js-cookie';
 
 
 
-const cookies = new Cookies();
+
 
 
 const API_HOST = 'http://200.14.84.238:443';
@@ -24,7 +24,7 @@ async function getCsrfToken() {
   return _csrfToken;
 }
 
-getCsrfToken().then(val => cookies.set('csrftoken', val  , { path: '/' }))
+getCsrfToken().then(val =>  Cookies.set('csrftoken', val, { path: '' }) )
 
 export default class GoogleSocialAuth extends Component {
 
