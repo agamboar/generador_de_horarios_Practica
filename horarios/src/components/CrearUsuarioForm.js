@@ -54,7 +54,7 @@ export default class CrearUsuarioForm extends Component {
     }
     var algo = getCookie("csfrtoken")
     console.log("aca")
-    console.log(algo)
+    console.log(algo.then(val => console.log(val)))
     var qs = require('qs');
     var data = qs.stringify({
       'username': 'CristobalUrra121',
