@@ -43,12 +43,8 @@ export default class GoogleSocialAuth extends Component {
         var data = qs.stringify(newUser);
 
         var config = {
-            method: 'post',
+            method: 'post', 
             url: 'http://200.14.84.238:443/dj-rest-auth/login/',
-            headers: {
-                'X-CSRFToken':csrftoken, 
-                'Content-Type': 'application/x-www-form-urlencoded',  
-            },
             data: data
         };
 
