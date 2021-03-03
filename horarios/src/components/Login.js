@@ -48,7 +48,7 @@ export default class GoogleSocialAuth extends Component {
             data: data
         };
 
-        await axios(config).then(response => console.log(response))
+        await axios(config).then(response => console.log(response.data.key))
         /*.then(response => response.json())
         .then(res_json => {
           if(res_json.key){
