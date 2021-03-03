@@ -56,8 +56,7 @@ export default class GoogleSocialAuth extends Component {
         .then(res_json => {
           if(res_json.token){
             sessionStorage.setItem('token', res_json.token)
-            sessionStorage.setItem('user', values.username)
-            //sessionStorage.getItem("user")
+            //sessionStorage.getItem("token")
             console.log(res_json)
           } 
         })
