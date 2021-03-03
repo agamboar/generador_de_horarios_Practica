@@ -120,20 +120,20 @@ export default class GoogleSocialAuth extends Component {
                         <button type="submit" className="btn btn-outline-primary rounded-pill"> Ingresar
                         </button>
                     </form>
-                    <p className="lead align-self-center"> o </p>
+                    {/*<p className="lead align-self-center"> o </p>
                     <div className="App">
-                        {/*<h1> Login con Google </h1>*/}
+                        <h1> Login con Google </h1>
 
-                        { /* <GoogleLogin
+                         <GoogleLogin
                             clientId="822886799677-jgmhd4dtp3v0jqqleaj04k832uv14sb8.apps.googleusercontent.com"
                             buttonText="Login con Google"
                             onSuccess={googleResponse}
                             onFailure={googleResponse}
                             uxMode='redirect'
                             redirectUri='http://localhost:3000/users/usr/'
-                        />*/}
+                        />
 
-                    </div>
+                    </div>*/}
                     <br />
                     <div className=" align-self-end">
                         <Link className="nav-link" to={{ pathname: '/Registro' }} >Registrarse </Link>
