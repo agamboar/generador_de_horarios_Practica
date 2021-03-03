@@ -32,7 +32,7 @@ export default class GoogleSocialAuth extends Component {
     
     verificar_user = async (login, password) => {
         const newUser = {
-            login: login,
+            username: login,
             password: password
         }
 
