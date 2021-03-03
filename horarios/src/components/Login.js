@@ -118,18 +118,8 @@ export default class GoogleSocialAuth extends Component {
                         value={this.state.password}
                         />
                     </div>
-                
-
-
                     <div className="align-self-center">
-                        <button type="submit" className="btn btn-primary rounded-pill btn-sm">
-                            <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                Ingresar Con Tú Usuario
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </Link>
-                        </button>
-
+                        <button type="submit" className="btn btn-primary rounded-pill btn-sm align-self-center"></button>
                     </div>
                     </form>
                     <p className="lead align-self-center"> o </p>
