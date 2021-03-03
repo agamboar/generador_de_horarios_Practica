@@ -7,6 +7,17 @@ import SeccionesCritico from './SeccionesCritico'
 
 
 export default class PriorizarSecciones extends Component {
+
+    state ={
+        ramos : null
+    }
+
+    onSubmit = e => {
+        e.preventDefault();
+     
+
+    }
+
     render() {
         return (
             <div>
@@ -15,16 +26,21 @@ export default class PriorizarSecciones extends Component {
                 <br/>
                 <br/>
                 
-
+                
                 <p class="lead">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Ahora deberas elegir que secciónes prefieres asignarles una mayor prioridad en tu horario
                 </p>
                 <br/>
                 <br/>
+                <form onSubmit={this.onSubmit}>
 
                 <SeccionesCritico />
-                
+                <SeccionesCritico />
+                {/* aqui hay que crear una funcion map que cree los multiples ramos de con la funcion SeccionesCritico*/}
+                 
+                <button type="submit" className="btn btn-outline-primary rounded-pill"> Guardar Prioridades</button>
+                </form>
 
                            
 
