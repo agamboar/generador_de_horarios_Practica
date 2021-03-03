@@ -4,20 +4,20 @@ import axios from 'axios';
 
 var $ = require('zepto-browserify').$;
 
-var getCookie = function(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = $.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
+var getCookie = function (name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = $.trim(cookies[i]);
+      // Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
     }
-    return cookieValue;
+  }
+  return cookieValue;
 }
 export default class CrearUsuarioForm extends Component {
 
@@ -36,10 +36,11 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
- 
+
 
     var qs = require('qs');
     var csrftoken = getCookie('csrftoken');
+    console.log(csrftoken);
     var data = qs.stringify(newUsuario);
     var config = {
       method: 'post',
@@ -57,7 +58,7 @@ export default class CrearUsuarioForm extends Component {
   onSubmit = e => {
     e.preventDefault();
     this.addUsuario(this.state.username, this.state.email, this.state.password1, this.state.password2)
-    
+
   }
 
   onChange = e => {
@@ -158,7 +159,7 @@ export default class CrearUsuarioForm extends Component {
             <button type="submit" className="btn btn-primary">Crear Usuario</button>
           </form>
 
-         
+
           <div className=" align-self-end">
             <Link className="nav-link" to={{ pathname: '/' }} >Volver </Link>
           </div>
