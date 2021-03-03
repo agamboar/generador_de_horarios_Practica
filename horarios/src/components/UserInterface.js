@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import Derechos from './Derechos'
 import Navbar from './Navbar'
-
+import NotAuth from './NotAuth'
 
 export default class UserInterface extends Component {
     render() {
         return (
+            <div>
+            {(localStorage.getItem("token"))?  
             <div>
                 <Navbar/>
                 
@@ -23,6 +25,8 @@ export default class UserInterface extends Component {
                 
 
                 <Derechos/>
+            </div>
+            : <NotAuth />}
             </div>
         )
     }
