@@ -19,21 +19,6 @@ async function getCsrfToken() {
   return _csrfToken;
 }
 
-function getCookie(name) {
-  var cookieValue = getCsrfToken().then(val => console.log(val));
-  console.log("funcion cookie")
-  
-    var cookies = getCsrfToken();
-    for (var i = 0; i < cookies.length; i++) {
-      var cookie = cookies[i].toString().replace(/^([\s]*)|([\s]*)$/g, "");
-      if (cookie.substring(0, name.length + 1) === (name + '=')) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
-      }
-    }
-  
-  return cookieValue;
-}
 
 export default class CrearUsuarioForm extends Component {
 
@@ -52,7 +37,8 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
-    var algo = getCookie("csfrtoken")
+    var algo = getCsrfToken()
+    console.log(algo)
    
     var qs = require('qs');
     var data = qs.stringify({
