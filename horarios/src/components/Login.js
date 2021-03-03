@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
-import $ from 'jquery'; 
+
 var $ = require('zepto-browserify').$;
 
-var getCookie(name) {
+var getCookie = function (name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
         var cookies = document.cookie.split(';');
         for (var i = 0; i < cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
+            var cookie = $.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
@@ -22,15 +23,21 @@ var getCookie(name) {
 
 export default class GoogleSocialAuth extends Component {
 
-    verificar_user() {
+    state = {
+        user: null,
+        password: null
+    }
 
-        // falta pasar los datos del form
-        var form_data = { "algo": 212 }
+    verificar_user = async (login, password) => {
+        const newUser ={
+            login:login,
+            password: password
+        }
         var csrftoken = getCookie('csrftoken');
         var axios = require('axios');
         var qs = require('qs');
 
-        var data = qs.stringify({ form_data });
+        var data = qs.stringify( newUser );
 
         var config = {
             method: 'post',
@@ -50,6 +57,18 @@ export default class GoogleSocialAuth extends Component {
             });
 
     }
+    onChange = e => {
+        this.setState({
+          [e.target.name]: e.target.value
+        })
+        console.log(e.target.value);
+      }
+
+    onSubmit = e => {
+        e.preventDefault();
+        this.verificar_user(this.state.user,this.state.password)
+        
+      }
 
     render() {
         /*const googleResponse = async (response) => {
@@ -71,8 +90,16 @@ export default class GoogleSocialAuth extends Component {
                         </svg>
                 Usuario
                 </h5>
+                <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <input type="Tel" className="form-control rounded-pill" placeholder="Ej: prueba@mail.cl" name="email" />
+                        <input 
+                        type="Tel" 
+                        name="user"
+                        className="form-control rounded-pill" 
+                        placeholder="Ej: usuario" 
+                        onChange={this.onChange}
+                        value= {this.state.user}
+                        />
                     </div>
                     <h5>
                         &nbsp;&nbsp;
@@ -82,20 +109,18 @@ export default class GoogleSocialAuth extends Component {
                 Password
                 </h5>
                     <div className="form-group">
-                        <input type="password" className="form-control rounded-pill" placeholder="********" name="password" />
+                        <input 
+                        type="password" 
+                        className="form-control rounded-pill"                         
+                        placeholder="********" 
+                        name="password" 
+                        onChange={this.onChange}
+                        value={this.state.password}
+                        />
                     </div>
-
-
-                    <div className="align-self-center">
-                        <button type="submit" className="btn btn-primary rounded-pill btn-sm" onClick={this.verificar_user()}>
-                            <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                Ingresar Con Tú Usuario
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </Link>
-                        </button>
-
-                    </div>
+                    
+                        <button type="submit" className="btn btn-primary rounded-pill"> Ingresar</button>
+                    </form>
                     <p className="lead align-self-center"> o </p>
                     <div className="App">
                         <h1> Login con Google </h1>
