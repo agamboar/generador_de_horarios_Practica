@@ -294,7 +294,7 @@ def mi_malla_manual(request):
                 codigos_aprobados.append(elem)
 
         try:
-            asignatura_cursada.objects.all().delete()
+            asignatura_cursada.objects.filter(to_User=user).delete()
         except:
             pass
 
@@ -322,7 +322,6 @@ def mi_malla_manual(request):
             a.save()
 
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
-
 
 
 def csrf(request):
