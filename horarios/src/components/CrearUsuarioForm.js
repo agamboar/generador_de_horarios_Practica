@@ -48,7 +48,7 @@ export default class CrearUsuarioForm extends Component {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': cookie.load("csrftoken"),
+        'X-CSRFToken': "csrftoken=a2PUvrvfQCywbusDq32W7VD2tjN1gTBhzQOvWT4n92egNS8HEfiT00m7vS9ha40s",
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       data: data
