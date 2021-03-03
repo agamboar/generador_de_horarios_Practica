@@ -1,85 +1,53 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Derechos from './Derechos'
-import axios from 'axios';
 
 
 
 export default class CrearHorario extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            oferta_inf: null,
-            oferta_cfg: null
+    state = {
+        informatica: null,
+        cfg: null
+    }
+
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        console.log(e.target.value);
+    }
+
+    addInformatica = async (informatica) => {
+        const newInformatica = {
+            informatica: informatica
+
         }
-        this.onFormSubmit1 = this.onFormSubmit1.bind(this)
-        this.onFormSubmit2 = this.onFormSubmit2.bind(this)
-        this.onChange1 = this.onChange1.bind(this)
-        this.onChange2 = this.onChange2.bind(this)
-        this.upload_inf = this.upload_inf.bind(this)
-        this.upload_cfg = this.upload_cfg.bind(this)
+        // aqui va el axios
+
     }
 
-    onFormSubmit1(e) {
-        e.preventDefault()
-        this.fileUpload(this.state.upload_inf).then((response) => {
-            console.log(response.data)
-        })
-    }
+    addCfg = async (cfg) => {
+        const newCfg = {
+            cfg: cfg
 
-    onFormSubmit2(e) {
-        e.preventDefault()
-        this.fileUpload(this.state.upload_cfg).then((response) => {
-            console.log(response.data)
-        })
-    }
+        }
+        // aqui va el axios
 
-    onChange1(e) {
-        this.setState({ oferta_inf: e.target.files[0] })
-    }
-
-    onChange2(e) {
-        this.setState({ oferta_cfg: e.target.files[0] })
-    }
-
-    upload_inf(oferta_inf) {
-
-        const formData = new FormData();
-
-        formData.append('oferta_inf', oferta_inf)
-
-        var config = {
-            method: 'post',
-            url: 'http://200.14.84.238:443/upload/',
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'Authorization': 'Token 372daae409f639993f9cf376f2058914dcd07a9c'
-            },
-            formData: formData
-        };
-        return axios(config)
-    }
-
-    upload_cfg(oferta_cfg) {
-
-        const formData = new FormData();
-
-        formData.append('oferta_inf', oferta_cfg)
-
-        var config = {
-            method: 'post',
-            url: 'http://200.14.84.238:443/uploadcfg/',
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'Authorization': 'Token 372daae409f639993f9cf376f2058914dcd07a9c'
-            },
-            formData: formData
-        };
-        return axios(config)
     }
 
 
+    onSubmit1 = e => {
+        e.preventDefault();
+        this.addInformatica(this.state.informatica)
+
+    }
+
+    onSubmit2 = e => {
+        e.preventDefault();
+        this.addCfg(this.state.cfg)
+
+    }
 
     render() {
         return (
@@ -122,8 +90,8 @@ export default class CrearHorario extends Component {
                                                 type="file"
                                                 name="informatica"
                                                 id="formFile"
-                                                onChange={this.onChange1}
-                                                value={this.state.oferta_inf}
+                                                onChange={this.onChange}
+                                                value={this.state.informática}
                                                 multiple />
                                         </div>
                                         <button type="submit" className="btn btn-primary">Subir Oferta Informática</button>
@@ -163,8 +131,8 @@ export default class CrearHorario extends Component {
                                                 type="file"
                                                 name="cfg"
                                                 id="formFile"
-                                                onChange={this.onChange2}
-                                                value={this.state.oferta_cfg}
+                                                onChange={this.onChange}
+                                                value={this.state.cfg}
                                                 multiple />
                                         </div>
                                         <button type="submit" className="btn btn-primary">Subir Oferta CFG</button>
