@@ -5,7 +5,7 @@ import axios from 'axios';
 var $ = require('zepto-browserify').$;
 
 var getCookie = function (name) {
-  var cookieValue = null;
+  var cookieValue = 'this is a cookie';
   if (document.cookie && document.cookie !== '') {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
@@ -19,6 +19,7 @@ var getCookie = function (name) {
   }
   return cookieValue;
 }
+
 export default class CrearUsuarioForm extends Component {
 
   state = {
