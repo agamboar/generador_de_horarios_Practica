@@ -19,7 +19,7 @@ export default class Navbar extends Component {
                 </svg>    
                     Generador de Horarios
                 </a>
-                {console.log(localStorage.getItem("token"))}
+                
                 
                 <ul className="nav justify-content-end">
                     <li className="nav-item">
