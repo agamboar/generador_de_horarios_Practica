@@ -22,8 +22,8 @@ export default class NotAuth extends Component {
                         <h1 class="display-6">Debes ingresar con tu cuenta</h1>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <h5>Heading level 5</h5>
-                        {setTimeout(()=>{window.location.href = '/';},10000)} 
+                        <h5>Seras redirigido</h5>
+                        {setTimeout(()=>{window.location.href = '/';}, 10000)} 
                    
                 </div>
                 <br />
