@@ -22,8 +22,8 @@ async function getCsrfToken() {
 function getCookie(name) {
   var cookieValue = getCsrfToken().csrfToken;
   console.log("funcion cookie")
-  if (cookieValue && cookieValue !== '') {
-    var cookies = document.cookie.split(';');
+  
+    var cookies = getCsrfToken().csrfToken;
     for (var i = 0; i < cookies.length; i++) {
       var cookie = cookies[i].toString().replace(/^([\s]*)|([\s]*)$/g, "");
       if (cookie.substring(0, name.length + 1) === (name + '=')) {
@@ -31,7 +31,7 @@ function getCookie(name) {
         break;
       }
     }
-  }
+  
   return cookieValue;
 }
 
@@ -52,6 +52,7 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
+    var algo = getCookie("CSRFToken")
     console.log("aca")
     console.log(await getCsrfToken())
     var qs = require('qs');
@@ -65,7 +66,7 @@ export default class CrearUsuarioForm extends Component {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': "a2PUvrvfQCywbusDq32W7VD2tjN1gTBhzQOvWT4n92egNS8HEfiT00m7vS9ha40s", 
+        'X-CSRFToken': aalgo, 
         'Content-Type': 'application/x-www-form-urlencoded',  
       },
       data: data
