@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class NotAuth extends Component {
      myFunction() {
-        setTimeout(function(){ window.location.href = '/'; }, 5000);
+        setTimeout(function(){ window.location.href = '/'; }, 12000);
       }
     render() {
         return (
