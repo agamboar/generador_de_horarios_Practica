@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export default class NotAuth extends Component {
     render() {
+        return (
             <div>
 
                 <br />
@@ -26,5 +27,6 @@ export default class NotAuth extends Component {
                 <br />
                 <br />
             </div>
-            }
+         ) }
+        
 }
