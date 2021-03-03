@@ -6,9 +6,6 @@ import Cookies from 'js-cookie';
 
 
 
-
-
-
 const API_HOST = 'http://200.14.84.238:443';
 
 let _csrfToken = null;
@@ -24,7 +21,7 @@ async function getCsrfToken() {
   return _csrfToken;
 }
 
-getCsrfToken().then(val =>  Cookies.set('csrftoken', val, { path: '' }) )
+getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '' }) )
 
 export default class GoogleSocialAuth extends Component {
 
@@ -38,8 +35,8 @@ export default class GoogleSocialAuth extends Component {
             login: login,
             password: password
         }
+
         var csrftoken = Cookies.get('csrftoken');
-        console.log(csrftoken)
         var axios = require('axios');
         var qs = require('qs');
 
@@ -49,18 +46,13 @@ export default class GoogleSocialAuth extends Component {
             method: 'post',
             url: 'http://200.14.84.238:443/accounts/login/',
             headers: {
-                'X-CSRFToken': csrftoken,
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken':csrftoken, 
+                'Content-Type': 'application/x-www-form-urlencoded',  
             },
             data: data
         };
 
-        axios(config).then(function (response) {
-            console.log(JSON.stringify(response.data));
-        })
-            .catch(function (error) {
-                console.log(error);
-            });
+        await axios(config).then((response) => response.data)
 
     }
     onChange = e => {
