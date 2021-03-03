@@ -119,7 +119,7 @@ export default class GoogleSocialAuth extends Component {
                         />
                     </div>
                     
-                        <button type="submit" className="btn btn-primary rounded-pill btn-sm align-self-center"> Ingresar</button>
+                        <button type="submit" className="btn btn-primary rounded-pill"> Ingresar</button>
                     </form>
                     <p className="lead align-self-center"> o </p>
                     <div className="App">
