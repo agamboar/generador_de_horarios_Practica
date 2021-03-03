@@ -38,6 +38,15 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
+
+    var data = qs.stringify({
+      'username': 'CristobalUrra123',
+      'email': 'curra123@gmail.com',
+      'password1': 'asistente2021',
+      'password2': 'asistente2021'
+    });
+
+
     var qs = require('qs');
     var config = {
       method: 'post',
@@ -47,7 +56,7 @@ export default class CrearUsuarioForm extends Component {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Cookie': 'csrftoken=rqGpJoUIB5VXhPRAatpVdleEUzbdIGR6wfjCERIEWvDwM1LD9aYcMqI4oYn0Dj3X'
       },
-      data: qs.stringify(newUsuario)
+      data: data
     };
 
     axios(config)
