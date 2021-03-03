@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
 
+import Cookies from 'universal-cookie';
 import $ from 'jquery'; 
 
 function getCookie(name) {
     var cookieValue = null;
+    console.log(document.cookie)
     if (document.cookie && document.cookie !== '') {
         var cookies = document.cookie.split(';');
         for (var i = 0; i < cookies.length; i++) {
