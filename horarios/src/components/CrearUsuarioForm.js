@@ -47,8 +47,6 @@ export default class CrearUsuarioForm extends Component {
       'password2': 'asistente2021'
     });
 
-
-
     var config = {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
@@ -60,7 +58,7 @@ export default class CrearUsuarioForm extends Component {
       data: data
     };
 
-    axios(config)
+    axios(config, { withCredentials: true })
       .then(function (response) {
         console.log(JSON.stringify(response.data));
       })
