@@ -39,7 +39,7 @@ export default class GoogleSocialAuth extends Component {
         var qs = require('qs');
 
         var data = qs.stringify(newUser);
-        console.log(data)
+        //console.log(data)
         var config = {
             method: 'post',
             url: 'http://200.14.84.238:443/dj-rest-auth/login/',
@@ -49,7 +49,7 @@ export default class GoogleSocialAuth extends Component {
         await axios(config).then(response => localStorage.setItem('token', response.data.key))
         
         if (localStorage.getItem("token")){
-            console.log(localStorage.getItem("token"))
+            //console.log(localStorage.getItem("token"))
             window.location.href = '/users/usr'
         }
 
@@ -59,7 +59,7 @@ export default class GoogleSocialAuth extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-        console.log(e.target.value);
+        //console.log(e.target.value);
     }
 
     onSubmit = e => {

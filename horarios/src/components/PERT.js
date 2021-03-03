@@ -29,7 +29,7 @@ export default class PERT extends Component {
 
         var PERT_j = await axios(config)
 
-        console.log(PERT_j)
+        //console.log(PERT_j)
         this.setState({
             malla: PERT_j.data.malla,
             ramos: PERT_j.data.PERT

@@ -44,7 +44,7 @@ export default class AvanceManual extends Component {
         //axios.defaults.url = 'http://127.0.0.1:8000/';
         const Avance = { state: this.state }
         const payload = Avance.state
-        console.log(Avance)
+        //console.log(Avance)
 
         var data = JSON.stringify(payload);
 
@@ -59,12 +59,6 @@ export default class AvanceManual extends Component {
         };
 
         axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data));
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
     }
 
 
