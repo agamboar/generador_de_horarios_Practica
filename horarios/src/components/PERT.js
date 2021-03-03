@@ -96,7 +96,7 @@ export default class PERT extends Component {
 
                 </div>
             )
-        } else if (this.state.malla === 2018) {
+        } else if (this.state.malla === 2020) {
             return (
                 <div>
                     <Navbar />
