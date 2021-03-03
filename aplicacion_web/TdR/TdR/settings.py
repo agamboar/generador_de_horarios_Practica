@@ -84,7 +84,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'TdR.urls'
-
+SESSION_COOKIE_PATH = '/;HttpOnly'
 
 TEMPLATES = [
     {
