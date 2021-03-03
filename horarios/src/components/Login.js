@@ -48,9 +48,8 @@ export default class GoogleSocialAuth extends Component {
             data: data
         };
 
-        await axios(config).then(response => console.log(sessionStorage.setItem('token', response.data.key)))
-       
-        //sessionStorage.getItem("token")
+        await axios(config).then(response => sessionStorage.setItem('token', response.data.key))
+        console.log(sessionStorage.getItem("token"))
           
         
 
