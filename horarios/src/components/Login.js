@@ -90,7 +90,7 @@ export default class GoogleSocialAuth extends Component {
                         </svg>
                 Usuario
                 </h5>
-                <form onSubmit={this.onSubmit()}>
+                <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <input 
                         type="Tel" 
