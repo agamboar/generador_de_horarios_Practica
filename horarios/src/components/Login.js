@@ -121,7 +121,7 @@ export default class GoogleSocialAuth extends Component {
 
 
                     <div className="align-self-center">
-                        <button type="submit" className="btn btn-primary rounded-pill btn-sm" onClick={this.onSubmit()}>
+                        <button type="submit" className="btn btn-primary rounded-pill btn-sm">
                             <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 Ingresar Con Tú Usuario
