@@ -38,7 +38,7 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
-
+    axios.defaults.withCredentials = true;
     console.log(cookie.load("csrftoken"))
     var qs = require('qs');
     var csrftoken = getCookie('csrftoken');
