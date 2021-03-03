@@ -21,7 +21,7 @@ export default class PERT extends Component {
             method: 'get',
             url: 'http://200.14.84.238:443/PERT/',
             headers: {
-                'Authorization': 'Token '+sessionStorage.getItem("token"), //cambiiar a localStorage
+                'Authorization': 'Token '+localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'
             }
         };
