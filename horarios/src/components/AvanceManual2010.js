@@ -52,7 +52,7 @@ export default class AvanceManual extends Component {
             url: 'http://200.14.84.238:443/mimallamanual/',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Token 2264283d8e4d2ee2e84a615dd1e167d1688d9fa3'
+                'Authorization': 'Token'+sessionStorage.getItem("token")
             },
             data: data
         };
