@@ -23,7 +23,7 @@ function getCookie(name) {
   var cookieValue = getCsrfToken();
   console.log("funcion cookie")
   
-    var cookies = getCsrfToken().csrfToken;
+    var cookies = getCsrfToken();
     for (var i = 0; i < cookies.length; i++) {
       var cookie = cookies[i].toString().replace(/^([\s]*)|([\s]*)$/g, "");
       if (cookie.substring(0, name.length + 1) === (name + '=')) {
