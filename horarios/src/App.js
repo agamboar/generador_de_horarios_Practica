@@ -52,7 +52,7 @@ async function getCsrfToken() {
 }
 
 
-getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '' }))
+getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '/' }))
 
 function App() {
   return (
