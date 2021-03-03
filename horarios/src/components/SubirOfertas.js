@@ -1,11 +1,54 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
-import {Link} from 'react-router-dom';
 import Derechos from './Derechos'
 
 
 
 export default class CrearHorario extends Component {
+
+    state = {
+        informatica: null,
+        cfg: null
+    }
+
+    onChange = e => {
+        this.setState({
+          [e.target.name]: e.target.value
+        })
+        console.log(e.target.value);
+      }
+
+      addInformatica = async (informatica) => {
+        const newInformatica = {
+          informatica: informatica
+    
+        }
+        // aqui va el axios
+
+        }
+
+        addCfg = async (Cfg) => {
+            const newCfg = {
+              cfg: cfg
+        
+        }
+            // aqui va el axios
+    
+        }
+
+
+      onSubmit1 = e => {
+        e.preventDefault();
+        this.addInformatica(this.state.informatica)
+        
+      }
+
+      onSubmit2 = e => {
+        e.preventDefault();
+        this.addCfg(this.state.cfg)
+        
+      }
+
     render() {
         return (
             <div>
@@ -20,6 +63,7 @@ export default class CrearHorario extends Component {
                 
                 <div className="row">                    
                 <div className="col-sm-2 "/>     
+                <form onSubmit={this.onSubmit1}>
                 <div className="col-sm-4 ">
                         <div className="card ">
                         <div className="container">
@@ -42,11 +86,20 @@ export default class CrearHorario extends Component {
                                 <br/> 
                                 <br/> 
                                 <div className="form-group">
-                                    <input className="form-control form-control-sm" type="file" id="formFile" multiple/>
+                                    <input className="form-control form-control-sm" 
+                                    type="file" 
+                                    name= "informatica" 
+                                    id="formFile" 
+                                    onChange={this.onChange}
+                                    value={this.state.informática}
+                                    multiple/>
                                 </div>      
                             </div>
                         </div>
                     </div>  
+                    <button type="submit" className="btn btn-primary">Subir Mallas</button>  
+                    </form>
+                    <form onSubmit={this.onSubmit2}>
                     <div className="col-sm-4 ">
                         <div className="card ">
                         <div className="container">
@@ -68,14 +121,25 @@ export default class CrearHorario extends Component {
                                 <br/> 
                                 <br/> 
                                 <br/> 
+                                <br/> 
                                 <div className="form-group">
-                                    <input className="form-control form-control-sm" type="file" id="formFile" multiple/>
+                                    <input 
+                                    className="form-control form-control-sm" 
+                                    type="file" 
+                                    name="cfg"
+                                    id="formFile"
+                                    onChange={this.onChange}
+                                    value={this.state.cfg}
+                                    multiple/>
                                 </div>      
                             </div>
                         </div>
                     </div> 
+                    <button type="submit" className="btn btn-primary">Subir Mallas</button>                
+                </form>
                     <div className="col-sm-2 "/>                  
                 </div>
+                
                 </div>
                 <Derechos/>
             </div>
