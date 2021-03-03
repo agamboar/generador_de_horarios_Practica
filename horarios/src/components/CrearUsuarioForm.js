@@ -1,26 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import cookie from "react-cookies";
-import $ from 'jquery';
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
 
 
-const API_HOST = 'http://200.14.84.238:443';
-
-let _csrfToken = null;
-
-async function getCsrfToken() {
-  if (_csrfToken === null) {
-    const response = await fetch(`${API_HOST}/csrf/`, {
-      credentials: 'include',
-    });
-    const data = await response.json();
-    _csrfToken = data.csrfToken;
-  }
-  return _csrfToken;
-}
 
 
 export default class CrearUsuarioForm extends Component {
@@ -40,11 +22,10 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
-    var algo = getCsrfToken()
+   
  
-    getCsrfToken().then(val => cookies.set('csrftoken', val  , { path: '/' }))
+  
     
-    console.log(cookies.get('csrftoken'))
 
     var qs = require('qs');
     var data = qs.stringify(newUsuario);
