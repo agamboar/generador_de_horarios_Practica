@@ -33,13 +33,18 @@ export default class PriorizarSecciones extends Component {
                 </p>
                 <br/>
                 <br/>
-                <form onSubmit={this.onSubmit}>
+                
 
                 <SeccionesCritico />
                 <SeccionesCritico />
                 {/* aqui hay que crear una funcion map que cree los multiples ramos de con la funcion SeccionesCritico*/}
-                 
-                <button type="submit" className="btn btn-outline-primary rounded-pill"> Guardar Prioridades</button>
+
+                <form onSubmit={this.onSubmit}>
+                <div className="container">
+                    <div className=" align-self-end">
+                        <button type="submit" className="btn btn-primary rounded-pill"> Guardar Prioridades</button>
+                    </div>
+                </div>
                 </form>
 
                            
