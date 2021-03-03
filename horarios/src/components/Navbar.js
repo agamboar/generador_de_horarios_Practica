@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 export default class Navbar extends Component {
-    onClick = (e) => {
+    deleteToken = (e) => {
         localStorage.removeItem("token")
     }
     render() {
@@ -46,7 +46,7 @@ export default class Navbar extends Component {
                         <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles'}}style={{ color: '#FFF' }} >Horarios Posibles</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/'}}style={{ color: '#FFF' }} onClick={hello}>Salir</Link>
+                        <Link className="nav-link" to={{ pathname: '/'}}style={{ color: '#FFF' }} onClick={deleteToken}>Salir</Link>
                     </li>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </ul>
