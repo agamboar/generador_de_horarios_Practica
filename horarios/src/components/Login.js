@@ -53,7 +53,7 @@ export default class GoogleSocialAuth extends Component {
         
         if (sessionStorage.getItem("token")){
             console.log(sessionStorage.getItem("token"))
-            history.push('users/usr');
+            {<Redirect to='/users/usr' /> }
         }
 
 
