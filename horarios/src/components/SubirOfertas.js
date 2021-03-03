@@ -27,7 +27,7 @@ export default class CrearHorario extends Component {
         formdata.append('excel', informatica)
 
         axios({
-            url = 'http://200.14.84.238:443/mimallamanual/',
+            url: 'http://200.14.84.238:443/mimallamanual/',
             method: 'POST',
             headers: {
                 'Authorization': 'Token ' + sessionStorage.getItem('token'),
