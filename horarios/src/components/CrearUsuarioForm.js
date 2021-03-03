@@ -39,6 +39,7 @@ export default class CrearUsuarioForm extends Component {
 
     }
 
+    var qs = require('qs');
     var data = qs.stringify({
       'username': 'CristobalUrra123',
       'email': 'curra123@gmail.com',
@@ -47,7 +48,7 @@ export default class CrearUsuarioForm extends Component {
     });
 
 
-    var qs = require('qs');
+
     var config = {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
