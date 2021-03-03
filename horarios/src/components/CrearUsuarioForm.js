@@ -8,12 +8,12 @@ const API_HOST = 'http://200.14.84.238:443';
 
 let _csrfToken = null;
 
-async function getCsrfToken() {
+function getCsrfToken() {
   if (_csrfToken === null) {
-    const response = await fetch(`${API_HOST}/csrf/`, {
+    const response = fetch(`${API_HOST}/csrf/`, {
       credentials: 'include',
     });
-    const data = await response.json();
+    const data =  response.json();
     _csrfToken = data.csrfToken;
   }
   return _csrfToken;
