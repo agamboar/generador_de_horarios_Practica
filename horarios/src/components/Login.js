@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
 
-var $ = require('zepto-browserify').$;
 
-var getCookie = function (name) {
+import $ from 'jquery'; 
+
+function getCookie(name) {
     var cookieValue = null;
+    console.log(document.cookie)
     if (document.cookie && document.cookie !== '') {
         var cookies = document.cookie.split(';');
         for (var i = 0; i < cookies.length; i++) {
             var cookie = $.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
@@ -19,7 +20,7 @@ var getCookie = function (name) {
         }
     }
     return cookieValue;
-}
+  }
 
 export default class GoogleSocialAuth extends Component {
 
