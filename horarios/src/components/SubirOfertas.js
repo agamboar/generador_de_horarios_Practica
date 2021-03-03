@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Derechos from './Derechos'
-import axios from 'axios';
 
 
 
@@ -26,19 +25,6 @@ export default class CrearHorario extends Component {
         }
         // aqui va el axios
 
-        formData = new FormData()
-        formData.append('file', this.state.informatica)
-        var config = {
-            method: 'post',
-            url: 'http://200.14.84.238:443/upload/',
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'Authorization': 'Token 372daae409f639993f9cf376f2058914dcd07a9c'
-            },
-            data: formData
-        };
-        axios(config)
-
     }
 
     addCfg = async (cfg) => {
@@ -47,19 +33,6 @@ export default class CrearHorario extends Component {
 
         }
         // aqui va el axios
-        formData = new FormData()
-        formData.append('file', this.state.cfg)
-
-        var config = {
-            method: 'post',
-            url: 'http://200.14.84.238:443/uploadcfg/',
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'Authorization': 'Token 372daae409f639993f9cf376f2058914dcd07a9c'
-            },
-            data: formData
-        };
-        axios(config)
 
     }
 
