@@ -8,8 +8,8 @@ export default class Navbar extends Component {
     }
     render() {
         return (
-           <div>
-               {(localStorage.getItem("token"))?  
+           
+               
             <nav className="navbar navbar-dark bg-primary">
                 <a className="navbar-brand" href="/users/usr">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
@@ -52,7 +52,7 @@ export default class Navbar extends Component {
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </ul>
             </nav>
-            :<div> asd</div> }</div>
+            
         )
     }
 }

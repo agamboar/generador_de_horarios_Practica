@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import ARamo from './ARamo'
 import Semestre from './Semestre'
+import NotAuth from './NotAuth'
 import { Link } from 'react-router-dom';
 
 
@@ -73,6 +74,8 @@ export default class AvanceManual extends Component {
 
     render() {
         return (
+            <div>
+            {(localStorage.getItem("token"))?  
             <div className="container">
                 <br />
 
@@ -314,7 +317,8 @@ export default class AvanceManual extends Component {
 
 
             </div>
-
+            : <NotAuth />}
+            </div>
 
         )
 
