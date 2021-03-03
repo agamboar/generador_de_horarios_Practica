@@ -52,12 +52,6 @@ export default class CrearUsuarioForm extends Component {
     };
 
     await axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   }
 
   onSubmit = e => {
