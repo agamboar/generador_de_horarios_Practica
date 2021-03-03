@@ -46,7 +46,7 @@ export default class Navbar extends Component {
                         <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles'}}style={{ color: '#FFF' }} >Horarios Posibles</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/'}}style={{ color: '#FFF' }} onClick={deleteToken}>Salir</Link>
+                        <Link className="nav-link" to={{ pathname: '/'}}style={{ color: '#FFF' }} onClick={this.deleteToken}>Salir</Link>
                     </li>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </ul>
