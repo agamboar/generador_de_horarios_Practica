@@ -35,7 +35,7 @@ import PERTExtra4 from './components/PERTExtra4'
 import GenerarHorarios from './components/GenerarHorarios'
 import PriorizarRamos from './components/PriorizarRamos'
 import PriorizarSecciones from './components/PriorizarSecciones'
-
+import Cookies from 'js-cookie';
 
 getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '' }))
 function App() {

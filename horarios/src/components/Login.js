@@ -21,7 +21,7 @@ async function getCsrfToken() {
     return _csrfToken;
 }
 
-getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '' }))
+//getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '' }))
 
 export default class GoogleSocialAuth extends Component {
 
