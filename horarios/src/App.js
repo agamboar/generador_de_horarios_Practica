@@ -37,7 +37,7 @@ import PriorizarRamos from './components/PriorizarRamos'
 import PriorizarSecciones from './components/PriorizarSecciones'
 
 
-
+getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '' }))
 function App() {
   return (
     <BrowserRouter>

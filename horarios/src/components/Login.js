@@ -36,7 +36,7 @@ export default class GoogleSocialAuth extends Component {
             password: password
         }
 
-        var csrftoken = Cookies.get('csrftoken');
+        
         var axios = require('axios');
         var qs = require('qs');
 
