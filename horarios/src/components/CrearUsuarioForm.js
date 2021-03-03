@@ -6,6 +6,7 @@ import $ from 'jquery';
 
 function getCookie(name) {
   var cookieValue = null;
+  console.log("funcion cookie")
   console.log(document.cookie)
   if (document.cookie && document.cookie !== '') {
       var cookies = document.cookie.split(';');
