@@ -36,6 +36,7 @@ urlpatterns = [
     path('ss/', views.asignar_ss, name='ss'),
     path('clique/', views.get_clique, name='clique'),
     path('mimallamanual/', views.mi_malla_manual, name='manual'),
+    path('csrf/', views.csrf),
     
 
 ]

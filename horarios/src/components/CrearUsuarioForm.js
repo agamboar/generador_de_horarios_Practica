@@ -4,6 +4,21 @@ import axios from 'axios';
 import cookie from "react-cookies";
 import $ from 'jquery';
 
+const API_HOST = 'http://200.14.84.238:443';
+
+let _csrfToken = null;
+
+async function getCsrfToken() {
+  if (_csrfToken === null) {
+    const response = await fetch(`${API_HOST}/csrf/`, {
+      credentials: 'include',
+    });
+    const data = await response.json();
+    _csrfToken = data.csrfToken;
+  }
+  return _csrfToken;
+}
+
 function getCookie(name) {
   var cookieValue = "cfggg";
   console.log("funcion cookie")
@@ -38,7 +53,7 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
-
+    console.log(getCsrfToken())
     var qs = require('qs');
     var data = qs.stringify({
       'username': 'CristobalUrra123',
@@ -54,7 +69,7 @@ export default class CrearUsuarioForm extends Component {
         'Content-Type': 'application/json',
         'Accept': '/',
         'Cache-Control': 'no-cache',
-        'Cookie': document.cookie
+        'Cookie': document.cookie 
       },
       data: data,
       credentials: 'same-origin'

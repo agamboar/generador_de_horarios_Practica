@@ -11,6 +11,9 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from dj_rest_auth.registration.views import SocialLoginView
 
+from django.http import JsonResponse
+from django.middleware.csrf import get_token
+
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 
 import json
@@ -319,3 +322,8 @@ def mi_malla_manual(request):
             a.save()
 
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
+
+
+
+def csrf(request):
+    return JsonResponse({'csrfToken': get_token(request)})
