@@ -52,6 +52,7 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
+    console.log("aca")
     console.log(getCsrfToken().csrfToken)
     var qs = require('qs');
     var data = qs.stringify({
