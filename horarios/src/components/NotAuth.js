@@ -6,7 +6,7 @@ export default class NotAuth extends Component {
             <div>
 
                 <br />
-                <div className="row row-cols-3">
+                <div className="row row-cols-6">
                     <div className="col">
                         <h1 className="title text-primary text-center">No estas autorizado</h1>
                     </div>
@@ -20,8 +20,8 @@ export default class NotAuth extends Component {
                 <br />
                 <div class="d-flex justify-content-center">
                     <h1 class="display-6">Debes ingresar con tu cuenta</h1>
-                    <h3 class="display-6">Seras redirigido en 5 segundos</h3>
-                    {setTimeout(()=>{window.location.href = '/';},5000)} 
+                    <h3 class="display-6">Seras redirigido</h3>
+                    {setTimeout(()=>{window.location.href = '/';},15000)} 
                 </div>
                 <br />
                 <br />
