@@ -44,7 +44,7 @@ export default class GoogleSocialAuth extends Component {
 
         var config = {
             method: 'post',
-            url: 'http://200.14.84.238:443/accounts/login/',
+            url: 'http://200.14.84.238:443/dj-rest-auth/login/',
             headers: {
                 'X-CSRFToken':csrftoken, 
                 'Content-Type': 'application/x-www-form-urlencoded',  
@@ -54,7 +54,7 @@ export default class GoogleSocialAuth extends Component {
 
         await axios(config).then(response => response.json())
         .then(res_json => {
-          if(res_json.token){
+          if(res_json.key){
             sessionStorage.setItem('token', res_json.token)
             //sessionStorage.getItem("token")
             console.log(res_json)
