@@ -59,8 +59,8 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 # cambiar despues por la URL para que alumno indique ramos aprobados
-LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/ramosaprobados/'
-ACCOUNT_LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000/accounts/login/"
+#LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/ramosaprobados/'
+#ACCOUNT_LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000/accounts/login/"
 
 
 SESSION_COOKIE_AGE = 10000
