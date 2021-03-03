@@ -27,15 +27,6 @@ export default class CrearUsuarioForm extends Component {
     password2: '',
     email: ''
   }
-  getCookie_server = async ()=>{
-    var csrftoken = getCookie('csrftoken');
-    console.log(csrftoken)
-    var config1 = {
-      method: 'get',
-      url: 'http://200.14.84.238:443/accounts/signup/',
-    };
-    return config1
-  }
 
   addUsuario = async (username, email, password1, password2) => {
     const newUsuario = {
@@ -46,20 +37,16 @@ export default class CrearUsuarioForm extends Component {
 
     }
  
-    console.log(this.getCookie_server())
 
-    //var csrftoken_server = await axios(config1)
-    //console.log(csrftoken_server)
-   /* var qs = require('qs');
-    
+    var qs = require('qs');
+    var csrftoken = getCookie('csrftoken');
     var data = qs.stringify(newUsuario);
     var config = {
       method: 'post',
       url: 'http://200.14.84.238:443/accounts/signup/',
       headers: {
-        'X-CSRFToken': csrftoken_server,
+        'X-CSRFToken': csrftoken,
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Cookie': 'csrftoken='+csrftoken
       },
       data: data
     };
@@ -70,7 +57,7 @@ export default class CrearUsuarioForm extends Component {
       })
       .catch(function (error) {
         console.log(error);
-      });*/
+      });
   }
 
   onSubmit = e => {
