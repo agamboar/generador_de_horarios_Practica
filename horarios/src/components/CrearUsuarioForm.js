@@ -42,7 +42,7 @@ export default class CrearUsuarioForm extends Component {
     }
     var algo = getCsrfToken()
     console.log(algo)
-    getCsrfToken().then(val => cookies.set('csrftoken', val  , { path: '/' ,httpOnly: true}))
+    getCsrfToken().then(val => cookies.set('csrftoken', val  , { path: '/' }))
     
     console.log(cookies.get('csrftoken'))
 
