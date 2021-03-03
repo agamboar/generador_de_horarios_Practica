@@ -39,7 +39,7 @@ export default class CrearUsuarioForm extends Component {
 
     }
 
-
+    console.log(cookie.load("csrftoken"))
     var qs = require('qs');
     var csrftoken = getCookie('csrftoken');
     console.log(csrftoken);
