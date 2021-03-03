@@ -6,7 +6,7 @@ import Seccion from './Seccion'
 
 
 
-export default class RamoCritico extends Component {
+export default class SeccionesCritico extends Component {
 
     state ={
       s1: null,  
