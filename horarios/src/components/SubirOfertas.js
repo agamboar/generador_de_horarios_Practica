@@ -25,8 +25,9 @@ export default class CrearHorario extends Component {
 
         }
         // aqui va el axios
-        const formData = new FormData();
-        formData.append('informatica', informatica)
+
+        formData = new FormData()
+        formData.append('file', this.state.informatica)
         var config = {
             method: 'post',
             url: 'http://200.14.84.238:443/upload/',
@@ -46,8 +47,9 @@ export default class CrearHorario extends Component {
 
         }
         // aqui va el axios
-        const formData = new FormData();
-        formData.append('cfg', cfg)
+        formData = new FormData()
+        formData.append('file', this.state.cfg)
+
         var config = {
             method: 'post',
             url: 'http://200.14.84.238:443/uploadcfg/',
