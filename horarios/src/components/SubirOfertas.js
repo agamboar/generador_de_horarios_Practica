@@ -36,7 +36,9 @@ export default class CrearHorario extends Component {
             url: 'http://200.14.84.238:443/upload/',
             headers: {
                 'Content-Type': 'multipart/form-data',
-                'Authorization': 'Token ' + sessionStorage.getItem("token") //cambiiar a localStorage
+                'Authorization': 'Token ' + sessionStorage.getItem("token"),
+                'Cookie': 'csrftoken=' + sessionStorage.getItem("token"),
+                'X-CSRFTOKEN': sessionStorage.getItem("token")  //cambiiar a localStorage
             },
             data: formdata
         };
