@@ -27,7 +27,7 @@ export default class CrearHorario extends Component {
 
         }
 
-        addCfg = async (Cfg) => {
+        addCfg = async (cfg) => {
             const newCfg = {
               cfg: cfg
         
