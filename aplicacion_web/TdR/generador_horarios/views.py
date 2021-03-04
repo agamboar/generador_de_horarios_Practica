@@ -67,8 +67,10 @@ def secciones(request, cod):
 @csrf_exempt
 def import_malla(request):
     if request.method == "POST":
-
+        print(request)
+        print(request.FILES)
         excel_file = request.FILES["informatica"]
+
         arr_secciones = read_secciones(excel_file)
         arr_eventos = read_eventos(excel_file)
 
@@ -196,7 +198,6 @@ def get_PERT(request):
             codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(
                 to_User_id__id=current_user).values_list('codigo', flat=True)
 
-
             codigos_ramos_malla = asignatura_real.objects.filter(
                 malla_curricular__agno=año_malla, tipo=0).values_list('codigo', flat=True)
 
@@ -211,14 +212,13 @@ def get_PERT(request):
                 to_user__id=current_user, to_asignatura_real__tipo=0)
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
-            aux_pert= serializer.data
+            aux_pert = serializer.data
             print("guardo el json")
             avance_academico_user.json_avance = serializer.data
             avance_academico_user.save()
         else:
             print("uso el json")
             aux_pert = avance_academico_user.json_avance
-
 
         new_dict = {}
         new_dict.update({"PERT": aux_pert})
@@ -340,7 +340,7 @@ def mi_malla_manual(request):
             a = asignatura_cursada(
                 codigo=elem, to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
-            
+
         avance_academico_user = avance_academico.objects.get(
             to_user_id=current_user)
         avance_academico_user.json_avance = {}
