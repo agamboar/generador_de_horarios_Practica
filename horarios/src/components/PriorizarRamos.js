@@ -11,7 +11,7 @@ export default class PriorizarRamos extends Component {
 
     state ={
         ramos: null,
-        p: [10],
+        p: [null,null,null,null,null,null,null,null,null,null],
         p1:null,
         p2:null,
         p3:null,
