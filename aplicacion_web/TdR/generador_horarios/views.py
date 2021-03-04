@@ -101,7 +101,7 @@ def import_malla(request):
             except:
                 continue
 
-    return
+    return JsonResponse(status=200)
 
 
 @csrf_exempt
