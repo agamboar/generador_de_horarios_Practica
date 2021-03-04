@@ -24,8 +24,9 @@ export default class CrearHorario extends Component {
       }
 
     onChange_cfg=event=>{
+        console.log( event.target.files)
         this.setState({
-          selectedFile_cfg: event.target.files[0],
+          selectedFile_cfg: event.target.files[1],
           loaded: 0,
         })
       }
