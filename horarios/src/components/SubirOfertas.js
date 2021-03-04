@@ -29,7 +29,7 @@ export default class CrearHorario extends Component {
         let oferta = this.state.newInformatica
 
         let formdata = new FormData()
-        formdata.append('oferta', oferta)
+        formdata.append('excel_file', oferta)
 
         var config = {
             method: 'post',
