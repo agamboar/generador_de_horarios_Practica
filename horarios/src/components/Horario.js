@@ -94,7 +94,7 @@ export default class Horario extends Component {
     }
 
     render() {
-        console.log(this.props)
+        console.log(this.props.index)
         if (!this.state.show) {
 
             return (
