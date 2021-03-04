@@ -26,7 +26,7 @@ export default class CrearHorario extends Component {
         // aqui va el axios
 
         let formdata = new FormData()
-        formdata.append('informatica', this.state.informatica_excel)
+        formdata.append('informatica', informatica_excel)
 
         var config = {
             method: 'post',
