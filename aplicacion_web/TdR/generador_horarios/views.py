@@ -242,14 +242,14 @@ def get_clique(request):
         # ojo cada vez q se suba la oferta academica se deben borrar todas las soluciones
         # guardadas de los usuarios, pero NO la tabla horario, esa no se toca hasta que el pibe
         # guarda otra solucion
-        existen_soluciones = False
+        existen_soluciones = True
         try:
             sol = solucion.objects.filter(to_user=current_user)
-            existen_soluciones = True
+            existen_soluciones = False
         except:
             pass
 
-        if existen_soluciones == False:
+        if existen_soluciones:
 
             jsons = get_clique_max_pond(current_user)
 
