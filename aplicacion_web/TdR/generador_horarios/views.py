@@ -67,7 +67,7 @@ def secciones(request, cod):
 @csrf_exempt
 def import_malla(request):
     if request.method == "POST":
-        
+
         print("fileeee", type(request.FILES["file"]))
         excel_file = request.FILES["file"]
 
@@ -96,12 +96,12 @@ def import_malla(request):
             try:
                 s = seccion.objects.get(cod_seccion=elem[4])
                 e = evento(tipo=elem[0], dia=elem[1],
-                        modulo=elem[2], profesor=elem[3], to_seccion=s)
+                           modulo=elem[2], profesor=elem[3], to_seccion=s)
                 e.save()
             except:
                 continue
 
-    return JsonResponse({'description': "Oferta subida!"},status=200)
+    return JsonResponse({'description': "Oferta subida!"}, status=200)
 
 
 @csrf_exempt
@@ -139,7 +139,7 @@ def import_cfg(request):
                        modulo=elem[2], profesor=elem[3], to_seccion=s)
             e.save()
 
-    return render(request, 'upload.html')
+    return JsonResponse({'description': "CFG subidos!"}, status=200)
 
 
 @csrf_exempt
@@ -236,15 +236,15 @@ def get_PERT(request):
 def get_clique(request):
 
     if request.method == "GET":
-        #ojo cada vez q se suba la oferta academica se deben borrar todas las soluciones
-        #guardadas de los usuarios, pero NO la tabla horario, esa no se toca hasta que el pibe
-        #guarda otra solucion 
+        # ojo cada vez q se suba la oferta academica se deben borrar todas las soluciones
+        # guardadas de los usuarios, pero NO la tabla horario, esa no se toca hasta que el pibe
+        # guarda otra solucion
         current_user = request.user.id
-        #aca debe haber un if, si existen elementos en la tabla soluciones, entonces 
-        #retornar esas soluciones, si no calcular el clique
+        # aca debe haber un if, si existen elementos en la tabla soluciones, entonces
+        # retornar esas soluciones, si no calcular el clique
         jsons = get_clique_max_pond(current_user)
-        #aca falta guardar las soluciones a la tabla soluciones xd
-        #y guardar el horario que el alumno escoja 
+        # aca falta guardar las soluciones a la tabla soluciones xd
+        # y guardar el horario que el alumno escoja
         return Response(jsons, status=status.HTTP_200_OK)
 
 
