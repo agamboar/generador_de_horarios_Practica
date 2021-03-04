@@ -130,17 +130,6 @@ class asignatura_cursada(models.Model):
     )
 
 
-class horario(models.Model):
-
-    semestre = models.CharField(max_length=8, primary_key=True)
-
-    # esto indica una relación one-to-many (un alumno puede tener varios horarios de antiguos semestres guardados)
-
-    to_user = models.ForeignKey(
-        to=User,
-        on_delete=models.CASCADE)
-
-
 # COMPONENTE TOMA DE RAMOS
 
 class nodo_asignatura(models.Model):
@@ -179,6 +168,7 @@ class solucion(models.Model):
 
     fecha_mod = models.DateTimeField()
     json_solucion = models.JSONField(default=dict)
+    is_horario = models.BooleanField(default=False)
 
     # esto indica una relacione one-to-one. Una solucion contiene un horario, y un horario solo puede formar parte de una solucion.
     to_horario = models.OneToOneField(
@@ -187,3 +177,7 @@ class solucion(models.Model):
 
     )
     to_nodo_seccion = models.ManyToManyField(nodo_seccion)
+
+    to_user = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE)

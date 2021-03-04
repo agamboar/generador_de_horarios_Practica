@@ -245,6 +245,7 @@ def get_clique(request):
         jsons = get_clique_max_pond(current_user)
         for elem in jsons:
             print('----------------------------------------------', elem)
+
         # print(jsons)
         # for elem, index in jsons:
         # no entiendo como guardar se guardan las soluciones yo los guardaria en un json y era como el pert
