@@ -170,12 +170,6 @@ class solucion(models.Model):
     json_solucion = models.JSONField(default=dict)
     is_horario = models.BooleanField(default=False)
 
-    # esto indica una relacione one-to-one. Una solucion contiene un horario, y un horario solo puede formar parte de una solucion.
-    to_horario = models.OneToOneField(
-        to=horario,
-        on_delete=models.CASCADE
-
-    )
     to_nodo_seccion = models.ManyToManyField(nodo_seccion)
 
     to_user = models.ForeignKey(
