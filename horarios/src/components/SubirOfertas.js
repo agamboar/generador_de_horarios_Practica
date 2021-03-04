@@ -19,7 +19,6 @@ export default class CrearHorario extends Component {
         console.log(e.target.files[0]);
         this.setState({
             informatica: e.target.files[0],
-            loaded: 0,
           })
 
     }
