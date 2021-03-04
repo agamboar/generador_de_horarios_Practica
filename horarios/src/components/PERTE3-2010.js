@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import RamoP from './RamoP'
+import Ramo from './RamoP'
 import Semestre from './Semestre'
 import {Link} from 'react-router-dom';
 
@@ -25,8 +25,8 @@ export default class Malla2010Extra3 extends Component {
 
                 <div className="row row-cols-10 align-items-start">
                     <div className="col col-md-1"> </div>  
-                    <RamoP codigo = {"CII-1000"} ramo = {"Contabilidad y Costos"} />      
-                    <RamoP codigo = {"CIT-2203"} ramo = {"Gestión Organizacional"} />                     
+                    <Ramo codigo={"CII1000"} ramo={"Contabilidad y Costos"} state={this.state.CII1000} />
+                    <Ramo codigo={"CIT2203"} ramo={"Gestión Org."} state={this.state.CIT2203} />    
                                        
                     <div className="col col-md-1"> </div>  
                 </div>
@@ -35,8 +35,8 @@ export default class Malla2010Extra3 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div>  
-                    <RamoP codigo = {"CIT-2005"} ramo = {"Ingeniería de Software"} />      
-                    <RamoP codigo = {"CIT-2004"} ramo = {"Arquitectura de Sistemas"} />                     
+                    <Ramo codigo={"CIT2005"} ramo={"Ingeniería de Software"} state={this.state.CIT2005} />
+                    <Ramo codigo={"CIT2004"} ramo={"Arquitectura de Sistemas"} state={this.state.CIT2004} />      
                     <div className="col col-md-1"> </div>  
                 </div>
 
@@ -50,8 +50,8 @@ export default class Malla2010Extra3 extends Component {
                             </svg>
                         </Link>
                     </div> 
-                    <RamoP codigo = {"CIT-2102"} ramo = {"Comunicaciones Digitales"} />      
-                    <RamoP codigo = {"CIT-2105"} ramo = {"Criptografía y Seguridad en Redes"} />                     
+                    <Ramo codigo={"CIT2102"} ramo={"Comunicacio -nes Digitales"} state={this.state.CIT2102} />
+                    <Ramo codigo={"CIT2105"} ramo={"Criptografía y Seg. en Redes"} state={this.state.CIT2105} />          
                     <div className="col col-md-1"> 
                         <Link className="nav-link" to={{ pathname: '/users/usr/PERT/PERTExtra4'}} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
@@ -66,8 +66,8 @@ export default class Malla2010Extra3 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoP codigo = {"FIC-1003"} ramo = {"Derecho en Ingeniería"}  />      
-                    <RamoP codigo = {"CIT-2201"} ramo = {"Proyecto en TICs II"}  />    
+                    <Ramo codigo={"FIC1003"} ramo={"Derecho en Ingeniería"} state={this.state.FIC1003} />
+                    <Ramo codigo={"CIT2201"} ramo={"Proyecto en TICs II"} state={this.state.CIT2201} />
                     <div className="col col-md-1"> </div>                 
                 </div>
 
@@ -75,8 +75,8 @@ export default class Malla2010Extra3 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoP codigo = {"CIT-2104"} ramo = {"Arquitectura de Computadores"} />      
-                    <RamoP codigo = {" - "} ramo = {"Minor / CFG"} />                               
+                    <Ramo codigo={"CIT2104"} ramo={"Arquitectura de Comp."} state={this.state.CIT2104} />
+                    <Ramo codigo={"CFG4"} ramo={"Minor / CFG"} state={this.state.CFG4} />                  
                     <div className="col col-md-1"> </div>                     
                    
                 </div>

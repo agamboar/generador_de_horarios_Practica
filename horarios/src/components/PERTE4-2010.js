@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import RamoP from './RamoP'
+import Ramo from './RamoP'
 import Semestre from './Semestre'
 import {Link} from 'react-router-dom';
 
@@ -25,8 +25,8 @@ export default class Malla2010Extra4 extends Component {
 
                 <div className="row row-cols-10 align-items-start">
                     <div className="col col-md-1"> </div>  
-                    <RamoP codigo = {"CIT-33xx"} ramo = {"Electivo Profesional"} />      
-                    <RamoP codigo = {"CIT-33xx"} ramo = {"Electivo Profesional"} />      
+                    <Ramo codigo={"CIT3310"} ramo={"Electivo Profesional"} state={this.state.CIT3310} />
+                    <Ramo codigo={"CIT3311"} ramo={"Electivo Profesional"} state={this.state.CIT3311} />
                     <div className="col col-md-1"> </div>  
                 </div>
 
@@ -34,8 +34,8 @@ export default class Malla2010Extra4 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div>  
-                    <RamoP codigo = {"CIT-34xx"} ramo = {"Electivo Profesional"} />      
-                    <RamoP codigo = {"CIT-34xx"} ramo = {"Electivo Profesional"} />      
+                    <Ramo codigo={"CIT3410"} ramo={"Electivo Profesional"} state={this.state.CIT3410} />
+                    <Ramo codigo={"CIT3411"} ramo={"Electivo Profesional"} state={this.state.CIT3411} />
                     <div className="col col-md-1"> </div>  
                 </div>
 
@@ -49,8 +49,8 @@ export default class Malla2010Extra4 extends Component {
                             </svg>
                         </Link>
                     </div> 
-                    <RamoP codigo = {"CIT-34xx"} ramo = {"Electivo Profesional"} />      
-                    <RamoP codigo = {"CIT-34xx"} ramo = {"Electivo Profesional"} />      
+                    <Ramo codigo={"CIT3412"} ramo={"Electivo Profesional"} state={this.state.CIT3412} />
+                    <Ramo codigo={"CIT3413"} ramo={"Electivo Profesional"} state={this.state.CIT3413} />
                     <div className="col col-md-1"> 
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                             <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
@@ -63,8 +63,8 @@ export default class Malla2010Extra4 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoP codigo = {"CIT-3200"} ramo = {"Evaluación de Proyectos TIC"} />      
-                    <RamoP codigo = {"CIT-3201"} ramo = {"Proyecto en TICs III"} />                     
+                    <Ramo codigo={"CIT3200"} ramo={"Evaluación de Proyectos TIC"} state={this.state.CIT3200} />
+                    <Ramo codigo={"CIT3201"} ramo={"Proyecto en TICs III"} state={this.state.CIT3201} />               
                     <div className="col col-md-1"> </div>                 
                 </div>
 
@@ -72,8 +72,8 @@ export default class Malla2010Extra4 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoP codigo = {"CIT-33xx"} ramo = {"Electivo Profesional"} />      
-                    <RamoP codigo = {"CIT-33xx"} ramo = {"Electivo Profesional"} />      
+                    <Ramo codigo={"CIT3312"} ramo={"Electivo Profesional"} state={this.state.CIT3312} />
+                    <Ramo codigo={"CIT3313"} ramo={"Electivo Profesional"} state={this.state.CIT3313} />  
                     <div className="col col-md-1"> </div>                     
                    
                 </div>
