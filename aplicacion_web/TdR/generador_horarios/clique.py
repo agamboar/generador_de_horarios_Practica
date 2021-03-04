@@ -113,8 +113,8 @@ def get_clique_max_pond(current_user):
             continue
         else:
 
-            #print("---------------")
-            #print("\nSolucion Recomendada #", i+1, ": \n")
+            # print("---------------")
+            # print("\nSolucion Recomendada #", i+1, ": \n")
             for elem in arr_aux_delete:  # muestra las secciones a tomar
                 solucion.append(
                     {'nombre': G.nodes[elem[0]]["nombre"], 'nro_seccion': G.nodes[elem[0]]["nro_seccion"], 'cod_asignatura_real': G.nodes[elem[0]]["cod_asignatura_real"], 'eventos': G.nodes[elem[0]]["eventos"]})
@@ -123,7 +123,5 @@ def get_clique_max_pond(current_user):
             aux_retornar.append(solucion)
         prev_solution = arr_aux_delete
         G.remove_node(arr_aux_delete[0][0])
-
-        print(aux_retornar)
 
     return aux_retornar
