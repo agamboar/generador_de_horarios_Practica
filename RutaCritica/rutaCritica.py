@@ -11,7 +11,7 @@ def set_values_recursive(PERT,id_node,len_dag):
     for elem1 in arr_anc: # se calcula el camino mas grande desde todos los antecesores del nodo id_node
         if max_count_jump < len(list(nx.all_simple_paths(PERT,elem1,id_node))[0]):
             max_count_jump = len(list(nx.all_simple_paths(PERT,elem1,id_node))[0])
-     
+    #print("ES: ",PERT.nodes[id_node]["ES"],"EF: ",PERT.nodes[id_node]["EF"],"LF: ",PERT.nodes[id_node]["LF"],"H: ",PERT.nodes[id_node]["H"],"LS: ",PERT.nodes[id_node]["LS"])
     PERT.nodes[id_node]["ES"] = max_count_jump if (PERT.nodes[id_node]["ES"] == None or (max_count_jump > PERT.nodes[id_node]["ES"])) else PERT.nodes[id_node]["ES"]
     PERT.nodes[id_node]["EF"] = PERT.nodes[id_node]["ES"] + 1 #este uno es D
     PERT.nodes[id_node]["LF"] = len_dag if len_dag > 1 and (PERT.nodes[id_node]["LF"] == None or PERT.nodes[id_node]["LF"] > len_dag) else PERT.nodes[id_node]["EF"]
@@ -19,9 +19,10 @@ def set_values_recursive(PERT,id_node,len_dag):
     PERT.nodes[id_node]["H"] =  H if  H > 0 else  0
     PERT.nodes[id_node]["LS"] = PERT.nodes[id_node]["ES"] + PERT.nodes[id_node]["H"]
     node_pred_arr= list(PERT.predecessors(id_node)) # nodos que apuntan al nodo id_node
-    
+    #print("ES: ",PERT.nodes[id_node]["ES"],"EF: ",PERT.nodes[id_node]["EF"],"LF: ",PERT.nodes[id_node]["LF"],"H: ",PERT.nodes[id_node]["H"],"LS: ",PERT.nodes[id_node]["LS"])
     
     for elem in node_pred_arr:
+        #print("entro :", PERT.nodes[elem]["nombre"], "---", "por: ", PERT.nodes[id_node]["nombre"] )
         set_values_recursive(PERT,elem,len_dag-1)
     return PERT
 
@@ -72,9 +73,12 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
         for i in str(elem[3]).split(","):   #aqui se deben sacar los prerrequisitos de la base
             if int(i) != 0:
                 if int(i) in ramos_no_cursados[:,0]:
-                    PERT.add_edge(int(i),elem[0])  
-        
+                    PERT.add_edge(int(i),elem[0]) 
 
+
+    #print(list(PERT.predecessors(99)) )
+    #for elem in (list(PERT.predecessors(99))):
+    #    print("->",PERT.nodes[elem]["nombre"])
 
     for elem in list(PERT.predecessors(99)): #itera sobre los nodos que apuntan al ultimo nodo que es el nodo auxiliar final y se asignan los pesos
         long_path=len(nx.dag_longest_path(PERT))
@@ -91,6 +95,7 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
         PERT.nodes[elem]["LS"] = PERT.nodes[elem]["ES"] + PERT.nodes[elem]["H"]
         if len(list(PERT.predecessors(elem))) > 0 : #itera sobre los padres de los nodos que apuntan a 53
             for k in list(PERT.predecessors(elem)):
+                #print("entro: ",PERT.nodes[k]["nombre"],"---","por: ", PERT.nodes[elem]["nombre"]) 
                 PERT = set_values_recursive(PERT,k,long_path-1)
     
     #cuando ya se tiene listo los valores del pert
