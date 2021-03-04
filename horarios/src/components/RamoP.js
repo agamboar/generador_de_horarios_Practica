@@ -6,7 +6,7 @@ export default class RamoE extends Component {
     
     render() {
         console.log(this.props)
-        if(this.props.state[0]===null){
+        if(this.props.state===null){
         return (
             <div>
             </div>    
