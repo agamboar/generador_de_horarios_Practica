@@ -68,7 +68,7 @@ def secciones(request, cod):
 def import_malla(request):
     if request.method == "POST":
 
-        excel_file = request.FILES["excel_file"]
+        excel_file = request.FILES["informatica"]
         arr_secciones = read_secciones(excel_file)
         arr_eventos = read_eventos(excel_file)
 
@@ -185,10 +185,13 @@ def get_PERT(request):
     if request.method == "GET":
 
         current_user = request.user.id
-        avance_academico_user = avance_academico.objects.get(to_user_id=current_user)
-        año_malla = avance_academico.objects.get(to_user=current_user).agno_malla
-      
-        if avance_academico_user.json_avance == {}: #falta colocar una condicion -> si se cambio recientemente los ramos aprobados
+        avance_academico_user = avance_academico.objects.get(
+            to_user_id=current_user)
+        año_malla = avance_academico.objects.get(
+            to_user=current_user).agno_malla
+
+        # falta colocar una condicion -> si se cambio recientemente los ramos aprobados
+        if avance_academico_user.json_avance == {}:
             codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(
                 to_User_id__id=current_user).values_list('codigo', flat=True)
 
@@ -206,17 +209,16 @@ def get_PERT(request):
                 to_user__id=current_user, to_asignatura_real__tipo=0)
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
-            aux_pert= serializer.data
+            aux_pert = serializer.data
 
             avance_academico_user.json_avance = serializer.data
             avance_academico_user.save()
         else:
             print("uso el json")
-            aux_pert= avance_academico_user.json_avance
-
+            aux_pert = avance_academico_user.json_avance
 
         new_dict = {}
-         
+
         new_dict.update({"PERT": aux_pert})
         new_dict["malla"] = año_malla
 
@@ -337,10 +339,11 @@ def mi_malla_manual(request):
                 codigo=elem, to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
-        avance_academico_user = avance_academico.objects.get(to_user_id=current_user)
+        avance_academico_user = avance_academico.objects.get(
+            to_user_id=current_user)
         avance_academico_user.json_avance = {}
         avance_academico_user.save()
-        
+
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
 
