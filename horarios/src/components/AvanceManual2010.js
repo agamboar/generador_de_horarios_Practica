@@ -318,95 +318,95 @@ export default class AvanceManual extends Component {
     onChange1_5 = (e) => {
         this.setState(prevState => ({
             CBM1000: !this.state.CBM1000,
-            CBM1001: true,
-            CBQ1000: true,
-            CIT1000: true,
-            FIC1000: true
+            CBM1001: !this.state.CBM1001,
+            CBQ1000: !this.state.CBQ1000,
+            CIT1000: !this.state.CIT1000,
+            FIC1000: !this.state.FIC1000
         }))
     }
     onChange6_10 = (e) => {
         this.setState(prevState => ({
-            CBM1002: true,
-            CBM1003: true,
-            CBF1000: true,
-            CIT1010: true,
-            CFG1: true
+            CBM1002: !this.state.CBM1002,
+            CBM1003: !this.state.CBM1003,
+            CBF1000: !this.state.CBF1000,
+            CIT1010: !this.state.CIT1010,
+            CFG1:    !this.state.CFG1
         }))
     }
     onChange11_15 = (e) => {
         this.setState(prevState => ({
-            CBM1005: true,
-            CBM1006: true,
-            CBF1001: true,
-            CIT2000: true,
-            CIT2100: true
+            CBM1005: !this.state.CBM1005,
+            CBM1006: !this.state.CBM1006,
+            CBF1001: !this.state.CBF1001,
+            CIT2000: !this.state.CIT2000,
+            CIT2100: !this.state.CIT2100
         }))
     }
     onChange16_21 = (e) => {
         this.setState(prevState => ({
-            CIT2204: true,
-            CBM2000: true,
-            CBF1002: true,
-            CIT2001: true,
-            CFG2: true,
-            FIC1001: true
+            CIT2204: !this.state.CIT2204,
+            CBM2000: !this.state.CBM2000,
+            CBF1002: !this.state.CBF1002,
+            CIT2001: !this.state.CIT2001,
+            CFG2   : !this.state.CFG2   ,
+            FIC1001: !this.state.FIC1001
         }))
     }
     onChange22_27 = (e) => {
         this.setState(prevState => ({
-            CII2750: true,
-            CIT2106: true,
-            CIT2200: true,
-            CIT2002: true,
-            CFG3: true,
-            FIC1002: true
+            CII2750: !this.state.CII2750,
+            CIT2106: !this.state.CIT2106,
+            CIT2200: !this.state.CIT2200,
+            CIT2002: !this.state.CIT2002,
+            CFG3   : !this.state.CFG3   ,
+            FIC1002: !this.state.FIC1002
         }))
     }
     onChange28_33 = (e) => {
         this.setState(prevState => ({
-            CII2000: true,
-            CIT2202: true,
-            CIT2101: true,
-            CIT2003: true,
-            CIT2103: true,
+            CII2000: !this.state.CII2000,
+            CIT2202: !this.state.CIT2202,
+            CIT2101: !this.state.CIT2101,
+            CIT2003: !this.state.CIT2003,
+            CIT2103: !this.state.CIT2103,
         }))
     }
     onChange34_38 = (e) => {
         this.setState(prevState => ({
-            CII1000: true,
-            CIT2005: true,
-            CIT2102: true,
-            FIC1003: true,
-            CIT2104: true,
+            CII1000: !this.state.CII1000,
+            CIT2005: !this.state.CIT2005,
+            CIT2102: !this.state.CIT2102,
+            FIC1003: !this.state.FIC1003,
+            CIT2104: !this.state.CIT2104,
 
         }))
     }
     v
     onChange39_43 = (e) => {
         this.setState(prevState => ({
-            CIT2203: true,
-            CIT2004: true,
-            CIT2105: true,
-            CIT2201: true,
-            CFG4: true
+            CIT2203: !this.state.CIT2203,
+            CIT2004: !this.state.CIT2004,
+            CIT2105: !this.state.CIT2105,
+            CIT2201: !this.state.CIT2201,
+            CFG4   : !this.state.CFG4   
         }))
     }
     onChange44_48 = (e) => {
         this.setState(prevState => ({
-            CIT3310: true,
-            CIT3410: true,
-            CIT3411: true,
-            CIT3200: true,
-            CIT3311: true
+            CIT3310: !this.state.CIT3310,
+            CIT3410: !this.state.CIT3410,
+            CIT3411: !this.state.CIT3411,
+            CIT3200: !this.state.CIT3200,
+            CIT3311: !this.state.CIT3311
         }))
     }
     onChange49_53 = (e) => {
         this.setState(prevState => ({
-            CIT3312: true,
-            CIT3412: true,
-            CIT3413: true,
-            CIT3201: true,
-            CIT3313: true
+            CIT3312: !this.state.CIT3312,
+            CIT3412: !this.state.CIT3412,
+            CIT3413: !this.state.CIT3413,
+            CIT3201: !this.state.CIT3201,
+            CIT3313: !this.state.CIT3313
         }))
     }
 
