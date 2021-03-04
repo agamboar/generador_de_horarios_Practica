@@ -15,9 +15,9 @@ export default class HPosibles extends Component {
 
         var config = {
             method: 'get',
-            url: 'http://127.0.0.1:443/clique',
+            url: 'http://200.14.84.238:443/clique',
             headers: {
-                'Authorization': 'Token 372daae409f639993f9cf376f2058914dcd07a9c',
+                'Authorization': 'Token ' + localStorage.getItem("token"),
                 'Content-Type': 'application/json'
             }
         };
