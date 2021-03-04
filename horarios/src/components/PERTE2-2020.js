@@ -119,6 +119,7 @@ export default class Malla2020Extra2 extends Component {
 
                 
            </div>
+           </div>
      
            
         )
