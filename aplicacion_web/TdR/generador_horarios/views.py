@@ -245,7 +245,12 @@ def get_clique(request):
 
             jsons = get_clique_max_pond(current_user)
             for elem in jsons:
-                print('----------------------------------------------', elem)
+                for elem2 in elem:
+                    #print('----------------------------------------------', elem)
+                    nodoSeccion = nodo_seccion.objects.get(
+                        to_seccion__cod_seccion=elem['cod_seccion'], to_nodo_asignatura__to_user=current_user)
+
+                    print(nodoSeccion)
                 # nodo_seccion.objects.filter()
 
                 # data=   {'json_solucion': elem,
