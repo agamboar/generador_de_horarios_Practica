@@ -241,16 +241,15 @@ def get_clique(request):
         # guardadas de los usuarios, pero NO la tabla horario, esa no se toca hasta que el pibe
         # guarda otra solucion
         current_user = request.user.id
-        if solucion.json_solucion == {}:
 
-            jsons = get_clique_max_pond(current_user)
-            for elem in jsons:
-                for elem2 in elem:
-                    #print('----------------------------------------------', elem)
-                    nodoSeccion = nodo_seccion.objects.get(
-                        to_seccion__cod_seccion=elem['cod_seccion'], to_nodo_asignatura__to_user=current_user)
+        jsons = get_clique_max_pond(current_user)
+        for elem in jsons:
+            for elem2 in elem:
+                #print('----------------------------------------------', elem)
+                nodoSeccion = nodo_seccion.objects.get(
+                    to_seccion__cod_seccion=elem['cod_seccion'], to_nodo_asignatura__to_user=current_user)
 
-                    print(nodoSeccion)
+                print(nodoSeccion)
                 # nodo_seccion.objects.filter()
 
                 # data=   {'json_solucion': elem,
