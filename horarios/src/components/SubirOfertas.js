@@ -14,7 +14,7 @@ export default class CrearHorario extends Component {
 
     onChange = e => {
         this.setState({
-            [e.target.name]: e.target.files[0]
+            informatica: e.target.files[0]
         })
         console.log(e.target.files[0]);
 
