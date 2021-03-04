@@ -3,6 +3,7 @@ import NotAuth from './NotAuth'
 import PriorizarSecciones2010 from "./PriorizarSecciones2010"
 import PriorizarSecciones2018 from "./PriorizarSecciones2018"
 import PriorizarSecciones2020 from "./PriorizarSecciones2020"
+import axios from 'axios';
 
 
 
