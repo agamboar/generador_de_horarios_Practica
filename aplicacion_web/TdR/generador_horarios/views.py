@@ -178,7 +178,7 @@ def upload_mi_malla(request):
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
-    return render(request, 'upload.html', status=status.HTTP_201_CREATED)
+    return render(request, status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET'])
