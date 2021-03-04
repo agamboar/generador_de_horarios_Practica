@@ -243,6 +243,7 @@ def get_clique(request):
         # aca debe haber un if, si existen elementos en la tabla soluciones, entonces
         # retornar esas soluciones, si no calcular el clique
         jsons = get_clique_max_pond(current_user)
+        print(jsons)
         # aca falta guardar las soluciones a la tabla soluciones xd
         # y guardar el horario que el alumno escoja
         return Response(jsons, status=status.HTTP_200_OK)
