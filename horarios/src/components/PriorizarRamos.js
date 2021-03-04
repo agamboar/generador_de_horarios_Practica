@@ -36,7 +36,7 @@ export default class PriorizarRamos extends Component {
         for (let i = 0; i < this.state.ramos.length; i++) {
             const mov = i;
             this.setState({
-                p,[this.state.ramos[mov].holgura]: [...this.state.p[this.state.ramos[mov].holgura],this.state.ramos[mov]]
+                
             })            
         }
 
