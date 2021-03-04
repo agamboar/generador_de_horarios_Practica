@@ -19,17 +19,12 @@ export default class CrearHorario extends Component {
         console.log(e.target.value);
     }
 
-    addInformatica = async (informatica) => {
-        const newInformatica = {
-            informatica: informatica
+    addInformatica = async (informatica_excel) => {
 
-        }
         // aqui va el axios
 
-        let informatica = this.state.newInformatica
-
         let formdata = new FormData()
-        formdata.append('informatica', informatica)
+        formdata.append('informatica', informatica_excel)
 
         var config = {
             method: 'post',
