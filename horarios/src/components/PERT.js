@@ -22,14 +22,14 @@ export default class PERT extends Component {
             method: 'get',
             url: 'http://200.14.84.238:443/PERT/',
             headers: {
-                'Authorization': 'Token '+localStorage.getItem("token"), //cambiiar a localStorage
+                'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'
             }
         };
 
         var PERT_j = await axios(config)
 
-        //console.log(PERT_j)
+        console.log(PERT_j)
         this.setState({
             malla: PERT_j.data.malla,
             ramos: PERT_j.data.PERT
@@ -37,122 +37,122 @@ export default class PERT extends Component {
     }
 
     render() {
-        if (localStorage.getItem("token")){
-        if (this.state.malla === 2010) {
-            return (
-                <div>
-                    <Navbar />
-                    <br />
-                    <div className="row row-cols-3">
-                        <div className="col">
-                            <h1 className="title text-primary text-center">PERT</h1>
-                        </div>
-                        <div className="col"></div>
-                        <div className="col">
-                            <br />
-                            <div className="align-self-center">
-                                <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                    <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        if (localStorage.getItem("token")) {
+            if (this.state.malla === 2010) {
+                return (
+                    <div>
+                        <Navbar />
+                        <br />
+                        <div className="row row-cols-3">
+                            <div className="col">
+                                <h1 className="title text-primary text-center">PERT</h1>
+                            </div>
+                            <div className="col"></div>
+                            <div className="col">
+                                <br />
+                                <div className="align-self-center">
+                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <font size="3">Generar Horarios</font>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </Link>
-                                </button>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <br />
-                    <br />
-                    <PERTMalla2010 ramos={this.state.ramos} />
-                    <br />
+                        <br />
+                        <br />
+                        <PERTMalla2010 ramos={this.state.ramos} />
+                        <br />
 
-                </div>
-            )
-        } else if (this.state.malla === 2018) {
-            return (
-                <div>
-                    <Navbar />
-                    <br />
-                    <div className="row row-cols-3">
-                        <div className="col">
-                            <h1 className="title text-primary text-center">PERT</h1>
-                        </div>
-                        <div className="col"></div>
-                        <div className="col">
-                            <br />
-                            <div className="align-self-center">
-                                <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                    <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                )
+            } else if (this.state.malla === 2018) {
+                return (
+                    <div>
+                        <Navbar />
+                        <br />
+                        <div className="row row-cols-3">
+                            <div className="col">
+                                <h1 className="title text-primary text-center">PERT</h1>
+                            </div>
+                            <div className="col"></div>
+                            <div className="col">
+                                <br />
+                                <div className="align-self-center">
+                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <font size="3">Generar Horarios</font>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </Link>
-                                </button>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <br />
-                    <br />
-                    <PERTMalla2018 ramos={this.state.ramos} />
-                    <br />
+                        <br />
+                        <br />
+                        <PERTMalla2018 ramos={this.state.ramos} />
+                        <br />
 
-                </div>
-            )
-        } else if (this.state.malla === 2020) {
-            return (
-                <div>
-                    <Navbar />
-                    <br />
-                    <div className="row row-cols-3">
-                        <div className="col">
-                            <h1 className="title text-primary text-center">PERT</h1>
-                        </div>
-                        <div className="col"></div>
-                        <div className="col">
-                            <br />
-                            <div className="align-self-center">
-                                <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                    <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                )
+            } else if (this.state.malla === 2020) {
+                return (
+                    <div>
+                        <Navbar />
+                        <br />
+                        <div className="row row-cols-3">
+                            <div className="col">
+                                <h1 className="title text-primary text-center">PERT</h1>
+                            </div>
+                            <div className="col"></div>
+                            <div className="col">
+                                <br />
+                                <div className="align-self-center">
+                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <font size="3">Generar Horarios</font>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </Link>
-                                </button>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <br />
-                    <br />
-                    <PERTMalla2020 ramos={this.state.ramos} />
-                    <br />
+                        <br />
+                        <br />
+                        <PERTMalla2020 ramos={this.state.ramos} />
+                        <br />
 
-                </div>
-            )
-        } else {
-            return (
-                <div>
-                    <Navbar />
-                    <br />
-                    <div className="row row-cols-3">
-                        <div className="col">
-                            <h1 className="title text-primary text-center">PERT</h1>
+                    </div>
+                )
+            } else {
+                return (
+                    <div>
+                        <Navbar />
+                        <br />
+                        <div className="row row-cols-3">
+                            <div className="col">
+                                <h1 className="title text-primary text-center">PERT</h1>
+                            </div>
+                            <div className="col"></div>
+                            <div className="col"></div>
                         </div>
-                        <div className="col"></div>
-                        <div className="col"></div>
-                    </div>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <div class="d-flex justify-content-center">
-                        <h1 class="display-6">Un Momento, Se esta calculando tú PERT</h1>
-                    </div>
-                    <br />
-                    <br />
-                    <div class="d-flex justify-content-center">
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <div class="d-flex justify-content-center">
+                            <h1 class="display-6">Un Momento, Se esta calculando tú PERT</h1>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="d-flex justify-content-center">
 
-                        <div class="spinner-grow text-primary" role="status" />
+                            <div class="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -164,16 +164,16 @@ export default class PERT extends Component {
                         &nbsp;&nbsp;&nbsp;&nbsp;
 
                     </div>
-                    <br />
-                    <br />
-                    <br />
+                        <br />
+                        <br />
+                        <br />
 
-                </div>
-                
-            )
+                    </div>
+
+                )
+            }
+        } else {
+            return (<NotAuth />)
         }
-    }else{
-        return (<NotAuth />)
-    }
     }
 }
