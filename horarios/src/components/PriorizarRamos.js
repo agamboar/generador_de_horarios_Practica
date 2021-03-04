@@ -50,10 +50,64 @@ export default class PriorizarRamos extends Component {
                     p0: [...this.state.p0,this.state.ramos[mov]]
                 }) 
             }
+            if(this.state.ramos[mov].holgura===1){
+                this.setState({
+                    p1: [...this.state.p1,this.state.ramos[mov]]
+                }) 
+            }
+            if(this.state.ramos[mov].holgura===2){
+                this.setState({
+                    p2: [...this.state.p2,this.state.ramos[mov]]
+                }) 
+            }
+            if(this.state.ramos[mov].holgura===3){
+                this.setState({
+                    p3: [...this.state.p3,this.state.ramos[mov]]
+                }) 
+            }
+            if(this.state.ramos[mov].holgura===4){
+                this.setState({
+                    p4: [...this.state.p4,this.state.ramos[mov]]
+                }) 
+            }
+            if(this.state.ramos[mov].holgura===5){
+                this.setState({
+                    p5: [...this.state.p5,this.state.ramos[mov]]
+                }) 
+            }
+            if(this.state.ramos[mov].holgura===6){
+                this.setState({
+                    p6: [...this.state.p6,this.state.ramos[mov]]
+                }) 
+            }
+            if(this.state.ramos[mov].holgura===7){
+                this.setState({
+                    p7: [...this.state.p7,this.state.ramos[mov]]
+                }) 
+            }
+            if(this.state.ramos[mov].holgura===8){
+                this.setState({
+                    p8: [...this.state.p8,this.state.ramos[mov]]
+                }) 
+            }
+            if(this.state.ramos[mov].holgura===9){
+                this.setState({
+                    p9: [...this.state.p9,this.state.ramos[mov]]
+                }) 
+            }
 
                        
         }
         console.log(this.state.p0)
+        console.log(this.state.p1)
+        console.log(this.state.p2)
+        console.log(this.state.p3)
+        console.log(this.state.p4)
+        console.log(this.state.p5)
+        console.log(this.state.p6)
+        console.log(this.state.p7)
+        console.log(this.state.p8)
+        console.log(this.state.p9)
         
     }
 
