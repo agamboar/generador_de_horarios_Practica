@@ -7,8 +7,8 @@ class Horarios extends Component {
     render() {
 
 
-        console.log('Esto es Horarios')
-        console.log(this.props.horarios.data[0])
+        
+        console.log(this.props.horarios)
 
         return setTimeout(() => { this.props.horarios.data.map(solucion => <Horario horario={solucion[0]} key={solucion} />); }, 1000);
 
