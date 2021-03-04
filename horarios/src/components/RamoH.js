@@ -19,7 +19,7 @@ export default class Bloque extends Component {
                                 </ul>
                                 <li>Ayudantia:</li>
                                 <ul>
-                                    <li>{elemayudantia}</li>
+                                    <li>{elem.ayudantia}</li>
                                 </ul>
                             </ul>
                         </ul>
