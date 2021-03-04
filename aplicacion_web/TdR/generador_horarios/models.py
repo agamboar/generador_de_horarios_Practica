@@ -174,4 +174,5 @@ class solucion(models.Model):
 
     to_user = models.ForeignKey(
         to=User,
-        on_delete=models.CASCADE)
+        on_delete=models.CASCADE,
+        default=1)
