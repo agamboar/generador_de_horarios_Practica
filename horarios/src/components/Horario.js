@@ -206,7 +206,7 @@ export default class Horario extends Component {
                 <div className="container " >
                     <div className="card border-primary border-5 custom2 ">
                         &nbsp;
-                        <div className="row row-cols-5">
+                      {/*  <div className="row row-cols-5">
                             <div className="col"> </div>
                             <div className="col"> </div>
                             <div className="col"> <h3 className="card-title text-primary text-center">Horario n°{this.props.index}</h3> </div>
@@ -217,7 +217,7 @@ export default class Horario extends Component {
                                 </div>
                             </div>
                         </div>
-
+                    */}
 
 
                         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramos:</h5>
