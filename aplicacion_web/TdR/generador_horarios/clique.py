@@ -94,7 +94,7 @@ def get_clique_max_pond(current_user):
     prev_solution = []
     aux_retornar = []
 
-    show_options = 2
+    show_options = 5
     for i in range(show_options):
 
         max_clique_pond = nx.max_weight_clique(G, weight="prioridad")
