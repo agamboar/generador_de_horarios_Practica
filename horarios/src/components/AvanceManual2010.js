@@ -36,7 +36,7 @@ export default class AvanceManual extends Component {
         CIT2105: false, CIT2201: false, CFG4: false, CIT3310: false, CIT3410: false, CIT3411: false, CIT3200: false, CIT3311: false, CIT3312: false, CIT3412: false,
         CIT3413: false, CIT3201: false, CIT3313: false, CIT5001: false, CIT5002: false
     }
-
+    show_alert=false
     onSubmit = async (e) => {
         e.preventDefault();
         //const token = sessionStorage.getItem("token").toString('base64')
@@ -59,19 +59,22 @@ export default class AvanceManual extends Component {
         };
 
         axios(config)
+        this.show_alert = true
         setTimeout(function(){ window.location.href = 'http://200.14.84.238:443/users/usr/PERT'; }, 10000);
-        <Alert show={true} key='primary' variant='primary'>
-        Seras redirigido a Mis Ramos Críticos
-        </Alert>
+        
     }
 
     render() {
         return (
             <div>
                 {(localStorage.getItem("token")) ?
+                
                     <div className="container">
                         <br />
-
+                        <Alert show={this.show_alert} key='primary' variant='primary'>
+                        Seras redirigido a Mis Ramos Críticos
+                        </Alert>
+                        <br />
                         <div className="row row-cols-10">
                             <Semestre semestre={"1"} />
                             <Semestre semestre={"2"} />
