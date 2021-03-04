@@ -152,7 +152,7 @@ export default class AvanceManual2020 extends Component {
 
 
                 <br />
-
+                <form onSubmit = {this.onSubmit}>
                 <div className="row  row-cols-10">
                     <ARamo codigo={"CBM1000"} ramo={"Álgebra y Geometría"} show={this.state.CBM1000} onChange1={this.onChange1} />
                     <ARamo codigo={"CBM1002"} ramo={"Álgebra Lineal"} show={this.state.CBM1002} onChange1={this.onChange6} />
@@ -165,7 +165,6 @@ export default class AvanceManual2020 extends Component {
                     <ARamo codigo={"CITOPTINF1"} ramo={"Electivo Profesional"} show={this.state.CITOPTINF1} onChange1={this.onChange44} />
                     <ARamo codigo={"CITOPTINF2"} ramo={"Electivo Profesional"} show={this.state.CITOPTINF2} onChange1={this.onChange49} />
                 </div>
-
                 <br />
 
                 <div className="row  row-cols-10">
@@ -281,10 +280,13 @@ export default class AvanceManual2020 extends Component {
                                 <button className="btn btn-primary rounded-pill " type="submit">Guardar</button>
                             </div>
                         </div>
+                    
 
                     </div>
+                    
 
                 </div>
+                </form>
 
                 <br />
                 <br />
@@ -296,99 +298,99 @@ export default class AvanceManual2020 extends Component {
     }
     onChange1_5 = (e) => {
         this.setState(prevState => ({
-            CBM1000: true,
-            CBM1001: true,
-            CBQ1000: true,
-            CIT1000: true,
-            FIC1000: true
+            CBM1000: !this.state.CBM1000,
+            CBM1001: !this.state.CBM1001,
+            CBQ1000: !this.state.CBQ1000,
+            CIT1000: !this.state.CIT1000,
+            FIC1000: !this.state.FIC1000
         }))
     }
     onChange6_10 = (e) => {
         this.setState(prevState => ({
-            CBM1002: true,
-            CBM1003: true,
-            CBF1000: true,
-            CIT1010: true,
-            CFG1: true
+            CBM1002: !this.state.CBM1002,
+            CBM1003: !this.state.CBM1003,
+            CBF1000: !this.state.CBF1000,
+            CIT1010: !this.state.CIT1010,
+            CFG1   : !this.state.CFG1   
         }))
     }
     onChange11_15 = (e) => {
         this.setState(prevState => ({
-            CBM1005: true,
-            CBM1006: true,
-            CBF1001: true,
-            CIT2006: true,
-            CIT2114: true
+            CBM1005: !this.state.CBM1005,
+            CBM1006: !this.state.CBM1006,
+            CBF1001: !this.state.CBF1001,
+            CIT2006: !this.state.CIT2006,
+            CIT2114: !this.state.CIT2114
         }))
     }
     onChange16_21 = (e) => {
         this.setState(prevState => ({
-            CIT2204: true,
-            CIT2107: true,
-            CBF1002: true,
-            CIT2007: true,
-            CIT2008: true,
-            CIG1012: true
+            CIT2204: !this.state.CIT2204,
+            CIT2107: !this.state.CIT2107,
+            CBF1002: !this.state.CBF1002,
+            CIT2007: !this.state.CIT2007,
+            CIT2008: !this.state.CIT2008,
+            CIG1012: !this.state.CIG1012
         }))
     }
     onChange22_27 = (e) => {
         this.setState(prevState => ({
-            CII2750: true,
-            CIT2108: true,
-            CIT2205: true,
-            CIT2009: true,
-            CFG2: true,
-            CIG1013: true
+            CII2750: !this.state.CII2750,
+            CIT2108: !this.state.CIT2108,
+            CIT2205: !this.state.CIT2205,
+            CIT2009: !this.state.CIT2009,
+            CFG2   : !this.state.CFG2   ,
+            CIG1013: !this.state.CIG1013
         }))
     }
     onChange28_33 = (e) => {
         this.setState(prevState => ({
-            CII1000: true,
-            CIT2109: true,
-            CIT2110: true,
-            CIT2010: true,
-            CFG3: true,
-            CIG1014: true,
+            CII1000: !this.state.CII1000,
+            CIT2109: !this.state.CIT2109,
+            CIT2110: !this.state.CIT2110,
+            CIT2010: !this.state.CIT2010,
+            CFG3   : !this.state.CFG3   ,
+            CIG1014: !this.state.CIG1014,
         }))
     }
     onChange34_38 = (e) => {
         this.setState(prevState => ({
-            CIT2206: true,
-            CIT2011: true,
-            CIT2111: true,
-            CIT2012: true,
-            CFG4: true
+            CIT2206: !this.state.CIT2206,
+            CIT2011: !this.state.CIT2011,
+            CIT2111: !this.state.CIT2111,
+            CIT2012: !this.state.CIT2012,
+            CFG4   : !this.state.CFG4   
 
         }))
     }
     v
     onChange39_43 = (e) => {
         this.setState(prevState => ({
-            CII2100: true,
-            CIT2112: true,
-            CIT2113: true,
-            CIT2013: true,
-            CIT2207: true
+            CII2100: !this.state.CII2100,
+            CIT2112: !this.state.CIT2112,
+            CIT2113: !this.state.CIT2113,
+            CIT2013: !this.state.CIT2013,
+            CIT2207: !this.state.CIT2207
         }))
     }
     onChange44_48 = (e) => {
         this.setState(prevState => ({
 
-            CITOPTINF1: true,
-            CIT3100: true,
-            CITOPTTEL1: true,
-            CIT3000: true,
-            CIT3202: true
+            CITOPTINF1: !this.state.CITOPTINF1,
+            CIT3100   : !this.state.CIT3100   ,
+            CITOPTTEL1: !this.state.CITOPTTEL1,
+            CIT3000   : !this.state.CIT3000   ,
+            CIT3202   : !this.state.CIT3202   
         }))
     }
     onChange49_53 = (e) => {
         this.setState(prevState => ({
 
-            CITOPTINF2: true,
-            CITOPTTEL2: true,
-            CITOPTTEL3: true,
-            CITOPTINF3: true,
-            CIT3203: true
+            CITOPTINF2: !this.state.CITOPTINF2,
+            CITOPTTEL2: !this.state.CITOPTTEL2,
+            CITOPTTEL3: !this.state.CITOPTTEL3,
+            CITOPTINF3: !this.state.CITOPTINF3,
+            CIT3203   : !this.state.CIT3203   
         }))
     }
 
