@@ -11,16 +11,25 @@ export default class CrearHorario extends Component {
     constructor(props) {
         super(props);
           this.state = {
-            selectedFile: null
+            selectedFile: null,
+            selectedFile_cfg: null
           }
        
     }
-    onChangeHandler=event=>{
+    onChange_oferta=event=>{
         this.setState({
           selectedFile: event.target.files[0],
           loaded: 0,
         })
       }
+
+    onChange_cfg=event=>{
+        this.setState({
+          selectedFile_cfg: event.target.files[0],
+          loaded: 0,
+        })
+      }
+
     onClick_oferta = () => {
         const data = new FormData()
         console.log(this.state.selectedFile)
@@ -42,11 +51,11 @@ export default class CrearHorario extends Component {
             <div>
                 <Navbar />
 
-                <input type="file" name="file" onChange={this.onChangeHandler}/>
-                <button type="button" class="btn btn-success btn-block" onClick={this.onClick_oferta}>Upload</button>
+                <input type="file" name="file" onChange={this.onChange_oferta}/>
+                <button type="button" class="btn btn-success btn-block" onClick={this.onClick_oferta}>Subir oferta </button> {/* mejorar front*/ }
 
-                <input type="file" name="file" onChange={this.onChangeHandler}/>
-                <button type="button" class="btn btn-success btn-block" onClick={this.onClick_cfg}>Upload</button>
+                <input type="file" name="file" onChange={this.onChange_cfg}/>
+                <button type="button" class="btn btn-success btn-block" onClick={this.onClick_cfg}>Subir CFG</button>
 
                 <Derechos />
             </div>
