@@ -15,18 +15,14 @@ export default class AvanceManual2020 extends Component {
 
     }
 
-    fillSchedule = () => {
+    componentDidMount = () => {
         for (let i = 0; i < this.props.ramos.length; i++) {
             const mov = i;
             const mov2 = this.props.ramos[mov].to_asignatura_real[0];
             this.setState({
-                [mov2]: this.props.ramos[mov].critico
+                [mov2]: [this.props.ramos[mov].critico , this.props.ramos[mov].es]
             })
         }
-    };
-
-    componentDidMount = () => {
-        this.fillSchedule();
     }
 
     render() {
