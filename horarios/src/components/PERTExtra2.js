@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import PERTE2_2010 from './PERTE2-2010'
 import PERTE2_2018 from './PERTE2-2018'
 import PERTE2_2020 from './PERTE2-2020'
-
+import axios from 'axios';
 
 
 export default class M2018Extra1 extends Component {

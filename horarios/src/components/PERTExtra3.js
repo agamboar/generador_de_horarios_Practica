@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import PERTE3_2010 from './PERTE2-2010'
 import PERTE3_2018 from './PERTE2-2018'
 import PERTE3_2020 from './PERTE2-2020'
+import axios from 'axios';
 
 
 
