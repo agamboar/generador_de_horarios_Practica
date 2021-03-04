@@ -16,9 +16,9 @@ export default class CrearHorario extends Component {
 
     }
 
-    onChange = e => {
+    onChange = e => { // recibir el excel todo bien 
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.files
         })
         console.log("holaaa")
         console.log(e.target.value);
@@ -49,7 +49,9 @@ export default class CrearHorario extends Component {
 
     onSubmit1 = e => {
         e.preventDefault();
+        console.log(this.state.informatica)
         this.addInformatica(this.state.informatica)
+        
 
     }
 
