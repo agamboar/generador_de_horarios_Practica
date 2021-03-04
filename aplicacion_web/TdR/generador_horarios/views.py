@@ -246,7 +246,7 @@ def get_clique(request):
         for elem in jsons:
             for elem2 in elem:
                 #print('----------------------------------------------', elem)
-                nodoSeccion = nodo_seccion.objects.get(
+                nodoSeccion = nodo_seccion.objects.filter(
                     to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)
 
                 print(nodoSeccion)
