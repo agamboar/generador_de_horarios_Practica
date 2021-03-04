@@ -186,10 +186,9 @@ def get_PERT(request):
 
         current_user = request.user.id
         avance_academico_user = avance_academico.objects.get(to_user_id=current_user)
-        avance_academico_user_json = avance_academico_user.json_avance
         año_malla = avance_academico.objects.get(to_user=current_user).agno_malla
       
-        if avance_academico_user_json == {}: #falta colocar una condicion -> si se cambio recientemente los ramos aprobados
+        if avance_academico_user.json_avance == {}: #falta colocar una condicion -> si se cambio recientemente los ramos aprobados
             codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(
                 to_User_id__id=current_user).values_list('codigo', flat=True)
            
@@ -207,10 +206,8 @@ def get_PERT(request):
                 to_user__id=current_user, to_asignatura_real__tipo=0)
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
-            print(avance_academico_user)
-            print(avance_academico_user_json)
-            avance_academico_user_json = {"prueba2":"no"} #no se que pasa si lo guardo asi en la base directamente
-            print(avance_academico_user_json)
+
+            avance_academico_user.json_avance= {"prueba2":"no"} 
             avance_academico_user.save()
         else:
             pass
