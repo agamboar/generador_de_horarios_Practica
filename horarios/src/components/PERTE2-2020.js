@@ -1,11 +1,32 @@
 import React, { Component } from 'react'
-import RamoE from './RamoP'
+import ARamo from './RamoP'
 import Semestre from './Semestre'
 import {Link} from 'react-router-dom';
 
 
 
 export default class Malla2020Extra2 extends Component {
+
+    state = {
+        CBM1000: null, CBM1001: null, CBQ1000: null, CIT1000: null, FIC1000: null, CBM1002: null, CBM1003: null, CBF1000: null, CIT1010: null,
+        CFG1: null, CBM1005: null, CBM1006: null, CBF1001: null, CIT2006: null, CIT2114: null, CIT2204: null, CIT2107: null, CBF1002: null, CIT2007: null,
+        CIT2008: null, CIG1012: null, CII2750: null, CIT2108: null, CIT2205: null, CIT2009: null, CFG2: null, CIG1013: null, CII1000: null, CIT2109: null,
+        CIT2110: null, CIT2010: null, CFG3: null, CIG1014: null, CIT2206: null, CIT2011: null, CIT2111: null, CIT2012: null, CFG4: null, CII2100: null,
+        CIT2112: null, CIT2113: null, CIT2013: null, CIT2207: null, CITOPTINF1: null, CIT3100: null, CITOPTTEL1: null, CIT3000: null, CIT3202: null, CITOPTINF2: null,
+        CITOPTTEL2: null, CITOPTTEL3: null, CITOPTINF3: null, CIT3203: null, CIT4000: null, CIT4001: null
+
+    }
+
+    componentDidMount = () => {
+        for (let i = 0; i < this.props.ramos.length; i++) {
+            const mov = i;
+            const mov2 = this.props.ramos[mov].to_asignatura_real[0];
+            this.setState({
+                [mov2]: [this.props.ramos[mov].es , this.props.ramos[mov].ls, this.props.ramos[mov].ef , this.props.ramos[mov].lf, this.props.ramos[mov].holgura]
+            })
+        }
+    }
+
     render() {
         return (
         
@@ -26,9 +47,9 @@ export default class Malla2020Extra2 extends Component {
 
                 <div className="row row-cols-10 align-items-start">
                     <div className="col col-md-1"> </div>  
-                    <RamoE codigo = {"CIT-2204"} ramo = {"Probabilidades y Estadistica"} />      
-                    <RamoE codigo = {"CII-2750"} ramo = {"Optimización"} />                     
-                    <RamoE codigo = {"CII-1000"} ramo = {"Contabilidad y Costos"} />      
+                    <ARamo codigo={"CIT2204"} ramo={"Prob. y Estadisticas"} state={this.state.CIT2204} />
+                    <ARamo codigo={"CII2750"} ramo={"Optimización"} state={this.state.CII2750} />
+                    <ARamo codigo={"CII1000"} ramo={"Contabilidad y Costos"} state={this.state.CII1000} />
                     <div className="col col-md-1"> </div>  
                 </div>
 
@@ -36,9 +57,9 @@ export default class Malla2020Extra2 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div>  
-                    <RamoE codigo = {"CIT-2107"} ramo = {"Electrónica y Electrotecnia"} />     
-                    <RamoE codigo = {"CIT-2108"} ramo = {"Taller de Redes y Servicios"} />    
-                    <RamoE codigo = {"CIT-2202"} ramo = {"Arq. y Org. de Computadores"} />    
+                    <ARamo codigo={"CIT2107"} ramo={"Electrónica y Electrotecnia"} state={this.state.CIT2107} />
+                    <ARamo codigo={"CIT2108"} ramo={"T. de Redes y Servicios"} state={this.state.CIT2108} />
+                    <ARamo codigo={"CIT2109"} ramo={"Arq y Org de Comp."} state={this.state.CIT2109} />
                     <div className="col col-md-1"> </div>  
                 </div>
 
@@ -52,9 +73,9 @@ export default class Malla2020Extra2 extends Component {
                             </svg>
                         </Link>
                     </div>  
-                    <RamoE codigo = {"CBF-1002"} ramo = {"Electricidad y Magnetismo"} />   
-                    <RamoE codigo = {"CIT-2205"} ramo = {"Proyectos en TICs I"} />   
-                    <RamoE codigo = {"CIT-2110"} ramo = {"Señales y Sistemas "} />   
+                    <ARamo codigo={"CBF1002"} ramo={"Electricidad y Magnetismo"} state={this.state.CBF1002} />
+                    <ARamo codigo={"CIT2205"} ramo={"Proyectos en TICs I"} state={this.state.CIT2205} />
+                    <ARamo codigo={"CIT2110"} ramo={"Señales y Sistemas"} state={this.state.CIT2110} />
                     <div className="col col-md-1"> 
                         <Link className="nav-link" to={{ pathname: '/users/usr/mallas/malla2020/DatosExtraM2020-3'}} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
@@ -69,10 +90,9 @@ export default class Malla2020Extra2 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoE codigo = {"CIT-2007"} ramo = {"Bases de Datos"} />   
-                    <RamoE codigo = {"CIT-2009"} ramo = {"Bases de Datos Avanzadas"} />   
-                    <div className="col">  
-                    <RamoE codigo = {"CIT-2010"} ramo = {"Sistemas Operativos"} />  
+                    <ARamo codigo={"CIT2007"} ramo={"Bases de Datos"} state={this.state.CIT2007} />
+                    <ARamo codigo={"CIT2009"} ramo={"B. de Datos Avanzadas"} state={this.state.CIT2009} />
+                    <ARamo codigo={"CIT2010"} ramo={"Sistemas Operativos"} state={this.state.CIT2010} />
                     <div className="col col-md-1"> </div>                 
                 </div>
 
@@ -80,9 +100,9 @@ export default class Malla2020Extra2 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoE codigo = {" CIT-2008 "} ramo = {"Desarrollo Web y Móvil"} numero = {"20"} creditos = {"6"} prerequisitos = {" Programación Avanzada"} formacion = {"Ingeniería Aplicada - Informática"} />                     
-                    <RamoE codigo = {" - "} ramo = {"Minor / CFG"} numero = {"26"} creditos = {"5"} prerequisitos = {" - "} formacion = {"Transversal"} />                     
-                    <RamoE codigo = {" - "} ramo = {"Minor / CFG"} numero = {"32"} creditos = {"5"} prerequisitos = {" - "} formacion = {"Transversal"} />                     
+                    <ARamo codigo={"CIT2008"} ramo={"Desarrollo Web y Móvil"} state={this.state.CIT2008} />
+                    <ARamo codigo={"CFG2"} ramo={"Minor / CFG"} state={this.state.CFG2} />
+                    <ARamo codigo={"CFG3"} ramo={"Minor / CFG"} state={this.state.CFG3} />
                     <div className="col col-md-1"> </div>                     
                    
                 </div>
@@ -91,9 +111,9 @@ export default class Malla2020Extra2 extends Component {
                 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoE codigo = {"CIG-1012"} ramo = {"Inglés I"} numero = {"21"} creditos = {"5"} prerequisitos = {""} formacion = {"Transversal"} />      
-                    <RamoE codigo = {"CIG-1013"} ramo = {"Inglés II"} numero = {"27"} creditos = {"5"} prerequisitos = {"Inglés I"} formacion = {"Transversal"} />                     
-                    <RamoE codigo = {"CIG-1014"} ramo = {"Inglés III"} numero = {"33"} creditos = {"5"} prerequisitos = {"Inglés II"} formacion = {"Transversal"} />                     
+                    <ARamo codigo={"CIG1012"} ramo={"Inglés I"} state={this.state.CIG1012} />
+                    <ARamo codigo={"CIG1013"} ramo={"Inglés II"} state={this.state.CIG1013} />
+                    <ARamo codigo={"CIG1014"} ramo={"Inglés III"} state={this.state.CIG1014} />
                     <div className="col col-md-1"> </div>                     
                    
                 </div>
@@ -110,7 +130,7 @@ export default class Malla2020Extra2 extends Component {
                         </svg>
                     </Link>
                 </div>
-                <RamoE codigo = {"CIT-4000"} ramo = {"Práctica I"} numero = {"54"} creditos = {"7"} prerequisitos = {"4 Semestre Cursado"} formacion = {"Práctica"} />      
+                <ARamo codigo={"CIT4000"} ramo={"Práctica I"} state={this.state.CIT4000} />
                 <div className="col"> </div>  
                 <div className="col"> </div>              
                 </div>
@@ -118,7 +138,6 @@ export default class Malla2020Extra2 extends Component {
                 <br/>
 
                 
-           </div>
            </div>
      
            
