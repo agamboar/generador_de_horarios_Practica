@@ -22,10 +22,10 @@ export default class CrearHorario extends Component {
 
     addInformatica = async (informatica_excel) => {
         console.log(informatica_excel)
-        axios.post("http://localhost:8000/upload", informatica_excel)
-        await axios(config).then(res => { 
+        axios.post("http://localhost:8000/upload", informatica_excel).then(res => { 
             console.log(res.statusText)
          })
+   
 
 
     }
