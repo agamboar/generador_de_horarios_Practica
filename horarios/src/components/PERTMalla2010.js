@@ -24,7 +24,7 @@ export default class Malla2010 extends Component {
             const mov = i;
             const mov2 = this.props.ramos[mov].to_asignatura_real[0];
             this.setState({
-                [mov2]: [this.props.ramos[mov].critico , this.props.ramos[mov].es]
+                [mov2]: [this.props.ramos[mov].critico, this.props.ramos[mov].es]
             })
         }
     }
@@ -153,15 +153,24 @@ export default class Malla2010 extends Component {
                 <br />
                 <div className="row row-cols-10">
                     <div className="col col-md-2 mt-1">
-                        <div className="card border-dark text-center" >
+                        <div className="card border-dark text-center" style={{ background: '#FF3E17' }} >
                             <br />
                         </div>
                     </div>
                     <div className="col mt-1">
-                        Ramo No Cursado
+                        Ramo Crítico
                     </div>
                 </div>
-
+                <div className="row row-cols-10">
+                    <div className="col col-md-2 mt-1">
+                        <div className="card border-dark text-center" style={{ background: '#FFD44F' }} >
+                            <br />
+                        </div>
+                    </div>
+                    <div className="col mt-1">
+                        Ramo No Crítico Cursable
+                    </div>
+                </div>
                 <div className="row row-cols-10">
                     <div className="col col-md-2 mt-1">
                         <div className="card border-dark text-center" style={{ background: '#28B463' }} >
@@ -172,15 +181,14 @@ export default class Malla2010 extends Component {
                         Ramo Aprobado
                     </div>
                 </div>
-
                 <div className="row row-cols-10">
                     <div className="col col-md-2 mt-1">
-                        <div className="card border-dark text-center" style={{ background: '#FF3E17' }} >
+                        <div className="card border-dark text-center" >
                             <br />
                         </div>
                     </div>
                     <div className="col mt-1">
-                        Ramo Crítico
+                        Ramo No Cursado
                     </div>
                 </div>
 

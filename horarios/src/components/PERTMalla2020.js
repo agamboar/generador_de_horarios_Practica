@@ -152,14 +152,26 @@ export default class AvanceManual2020 extends Component {
 
                 </div>
                 <br />
+
                 <div className="row row-cols-10">
                     <div className="col col-md-2 mt-1">
-                        <div className="card border-dark text-center" >
+                        <div className="card border-dark text-center" style={{ background: '#FF3E17' }} >
                             <br />
                         </div>
                     </div>
                     <div className="col mt-1">
-                        Ramo No Cursado
+                        Ramo Crítico
+                    </div>
+                </div>
+
+                <div className="row row-cols-10">
+                    <div className="col col-md-2 mt-1">
+                        <div className="card border-dark text-center" style={{ background: '#FFD44F' }} >
+                            <br />
+                        </div>
+                    </div>
+                    <div className="col mt-1">
+                        Ramo No Crítico Cursable
                     </div>
                 </div>
 
@@ -173,18 +185,16 @@ export default class AvanceManual2020 extends Component {
                         Ramo Aprobado
                     </div>
                 </div>
-
                 <div className="row row-cols-10">
                     <div className="col col-md-2 mt-1">
-                        <div className="card border-dark text-center" style={{ background: '#FF3E17' }} >
+                        <div className="card border-dark text-center" >
                             <br />
                         </div>
                     </div>
                     <div className="col mt-1">
-                        Ramo Crítico
+                        Ramo No Cursado
                     </div>
                 </div>
-
                 <br />
                 <br />
 
