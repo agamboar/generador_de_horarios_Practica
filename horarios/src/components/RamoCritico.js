@@ -41,7 +41,7 @@ export default class RamoCritico extends Component {
         <Card border="primary" > 
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="0">
-              Prioridad: {this.props.name}
+              {this.props.name}
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
