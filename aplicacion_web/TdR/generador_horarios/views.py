@@ -67,8 +67,8 @@ def secciones(request, cod):
 @csrf_exempt
 def import_malla(request):
     if request.method == "POST":
-        print(request)
-        print(request.FILES)
+        print("requesssstt",request)
+        print("fileeee",request.FILES)
         excel_file = request.FILES["informatica_excel"]
 
         arr_secciones = read_secciones(excel_file)
