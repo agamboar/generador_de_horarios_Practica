@@ -117,7 +117,7 @@ export default class CrearHorario extends Component {
                                                 name="excel_file"
                                                 id="formFile"
                                                 onChange={this.onChange}
-                                                value={this.state.informática}
+                                                value={this.state.informatica}
                                                 multiple />
                                         </div>
                                         <form onSubmit={this.onSubmit1}>
