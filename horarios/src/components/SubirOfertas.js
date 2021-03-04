@@ -15,12 +15,17 @@ export default class CrearHorario extends Component {
           }
        
     }
+    onChangeHandler=event=>{
+        this.setState({
+          selectedFile: event.target.files[0],
+          loaded: 0,
+        })
+      }
     onClickHandler = () => {
         const data = new FormData()
+        console.log(this.state.selectedFile)
         data.append('file', this.state.selectedFile)
-        axios.post("http://localhost:8000/upload", data, { 
-           // receive two    parameter endpoint url ,form data
-       }).then(res => { // then print response status
+        axios.post("http://200.14.84.238:443/upload/", data).then(res => { // then print response status
         console.log(res.statusText)
      })
     }
