@@ -37,7 +37,29 @@ export default class AvanceManual extends Component {
         CIT3413: false, CIT3201: false, CIT3313: false, CIT5001: false, CIT5002: false
     }
 
+    onSubmit = async (e) => {
+        e.preventDefault();
+        //const token = sessionStorage.getItem("token").toString('base64')
+        //var csrftoken = getCookie('csrftoken');
+        //axios.defaults.url = 'http://127.0.0.1:8000/';
+        const Avance = { state: this.state }
+        const payload = Avance.state
+        //console.log(Avance)
 
+        var data = JSON.stringify(payload);
+
+        var config = {
+            method: 'post',
+            url: 'http://200.14.84.238:443/mimallamanual/',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + localStorage.getItem("token")
+            },
+            data: data
+        };
+
+        axios(config)
+    }
 
     render() {
         return (
