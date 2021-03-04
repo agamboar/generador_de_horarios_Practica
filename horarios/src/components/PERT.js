@@ -124,6 +124,7 @@ export default class PERT extends Component {
                         <br />
                         <br />
                         <PERTMalla2020 ramos={this.state.ramos} />
+                        {console.log(this.state.ramos)}
                         <br />
 
                     </div>
