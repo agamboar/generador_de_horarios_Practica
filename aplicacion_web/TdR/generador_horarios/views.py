@@ -209,7 +209,8 @@ def get_PERT(request):
             avance_academico_user_json = {"prueba2":"no"} #no se que pasa si lo guardo asi en la base directamente
             avance_academico_user.save()
         else:
-            serializer = nodoAsignaturaSerializer(avance_academico_user_json, many=True) # no se si va un serializer aca
+            pass
+            #serializer = nodoAsignaturaSerializer(avance_academico_user_json, many=True) # no se si va un serializer aca || esto esta malo
 
         new_dict = {}
         new_dict.update({"PERT": serializer.data})
