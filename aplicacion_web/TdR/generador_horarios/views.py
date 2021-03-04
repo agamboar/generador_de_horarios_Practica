@@ -82,7 +82,7 @@ def import_malla(request):
             pass
 
         for elem in arr_secciones:
-
+            print(elem[6])
             a = asignatura_real.objects.get(codigo=elem[6])
 
             s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
