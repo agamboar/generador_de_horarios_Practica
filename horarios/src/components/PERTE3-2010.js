@@ -22,7 +22,7 @@ export default class Malla2010Extra3 extends Component {
             const mov = i;
             const mov2 = this.props.ramos[mov].to_asignatura_real[0];
             this.setState({
-                [mov2]: [this.props.ramos[mov].critico , this.props.ramos[mov].es]
+                [mov2]: [this.props.ramos[mov].es , this.props.ramos[mov].ls, this.props.ramos[mov].ef , this.props.ramos[mov].lf, this.props.ramos[mov].holgura]
             })
         }
     }
