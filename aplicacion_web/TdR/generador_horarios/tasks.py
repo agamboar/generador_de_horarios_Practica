@@ -177,7 +177,7 @@ def read_evento_cfg(excel_file):
 
     cfg_evento = np.array(pd.read_excel(
 
-        excel_oferta, usecols="F,G,H,K", na_filter=False, engine='openpyxl'))
+        excel_file, usecols="F,G,H,K", na_filter=False, engine='openpyxl'))
 
     cfg_eventos = []
 
