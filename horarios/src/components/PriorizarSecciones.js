@@ -11,8 +11,28 @@ export default class PriorizarSecciones extends Component {
 
     state ={
         ramos : null,
-        malla : 2010
+        malla : null
 
+    }
+
+    componentDidMount = async () => {
+
+        var config = {
+            method: 'get',
+            url: 'http://200.14.84.238:443/PERT/',
+            headers: {
+                'Authorization': 'Token ' + localStorage.getItem("token"), //cambiar a localStorage
+                'Content-Type': 'application/json'
+            }
+        };
+
+        var PERT_j = await axios(config)
+
+        console.log(PERT_j)
+        this.setState({
+            malla: PERT_j.data.malla,
+            ramos: PERT_j.data.PERT
+        })
     }
 
     render() {
