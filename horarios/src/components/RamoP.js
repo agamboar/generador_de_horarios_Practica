@@ -13,15 +13,15 @@ export default class RamoE extends Component {
                     <p className="card-text"><font size="2">
                         &nbsp;&nbsp;° Nombre: {this.props.ramo}
                         <br/>
-                        &nbsp;&nbsp;° Inicio Temprano: {this.props.es}
+                        &nbsp;&nbsp;° Inicio Temprano: {this.props.state[0]}
                         <br/>
-                        &nbsp;&nbsp;° Termino Temprano: {this.props.ls}
+                        &nbsp;&nbsp;° Termino Temprano: {this.props.state[1]}
                         <br/>
-                        &nbsp;&nbsp;° Inicio Tardio: {this.props.ef}
+                        &nbsp;&nbsp;° Inicio Tardio: {this.props.state[2]}
                         <br/>
-                        &nbsp;&nbsp;° Termino Tardio: {this.props.lf}
+                        &nbsp;&nbsp;° Termino Tardio: {this.props.state[3]}
                         <br/>
-                        &nbsp;&nbsp;° Holgura: {this.props.holgura}
+                        &nbsp;&nbsp;° Holgura: {this.props.state[4]}
 
                     </font></p> 
                 </div>
