@@ -207,7 +207,7 @@ def get_PERT(request):
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
 
-            avance_academico_user.json_avance= serializer.data
+            avance_academico_user.json_avance= serializer.data[0]
             avance_academico_user.save()
         else:
             pass
@@ -334,6 +334,10 @@ def mi_malla_manual(request):
                 codigo=elem, to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
+        avance_academico_user = avance_academico.objects.get(to_user_id=current_user)
+        avance_academico_user.json_avance = {}
+        avance_academico_user.save()
+        
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
 
