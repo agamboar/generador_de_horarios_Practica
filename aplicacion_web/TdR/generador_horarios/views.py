@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django import forms
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
@@ -63,6 +64,7 @@ def secciones(request, cod):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+@csrf_exempt
 def import_malla(request):
     if request.method == "POST":
 
@@ -95,6 +97,7 @@ def import_malla(request):
     return render(request, 'upload.html', status=status.HTTP_201_CREATED)
 
 
+@csrf_exempt
 def import_cfg(request):
 
     if request.method == "POST":
@@ -132,6 +135,7 @@ def import_cfg(request):
     return render(request, 'upload.html')
 
 
+@csrf_exempt
 def upload_mi_malla(request):
 
     if request.method == "POST":
