@@ -142,7 +142,7 @@ def read_seccion_cfg(excel_file):
 
     cfg_seccion = np.array(pd.read_excel(
 
-        excel_file, usecols=['Paquete', 'Sección', 'Asignatura', 'Vac. Paquete'], na_filter=False))
+        excel_oferta, usecols="K,E,A,L", na_filter=False, engine='openpyxl'))
 
     seen = []
     newlist = []
@@ -177,7 +177,7 @@ def read_evento_cfg(excel_file):
 
     cfg_evento = np.array(pd.read_excel(
 
-        excel_file, usecols=['Descrip. Evento', 'Horario', 'Profesor', 'Paquete'], na_filter=False))
+        excel_oferta, usecols="F,G,H,K", na_filter=False, engine='openpyxl'))
 
     cfg_eventos = []
 
