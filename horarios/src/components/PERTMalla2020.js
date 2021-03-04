@@ -72,7 +72,7 @@ export default class AvanceManual2020 extends Component {
                     <ARamo codigo={"CIT2011"} ramo={"Sistemas Distribuidos"} state={this.state.CIT2011} />
                     <ARamo codigo={"CIT2112"} ramo={"Tecnologías Inalámbricas"} state={this.state.CIT2112} />
                     <ARamo codigo={"CIT3100"} ramo={"Arquitecturas Emergentes"} state={this.state.CIT3100} />
-                    <ARamo codigo={"CITOPTTEL2"} ramo={"Electivo Profesional"} state={this.state.CIT3410} />
+                    <ARamo codigo={"CITOPTTEL2"} ramo={"Electivo Profesional"} state={this.state.CITOPTTEL2} />
                 </div>
 
                 <br />
@@ -86,8 +86,8 @@ export default class AvanceManual2020 extends Component {
                     <ARamo codigo={"CIT2110"} ramo={"Señales y Sistemas"} state={this.state.CIT2110} />
                     <ARamo codigo={"CIT2111"} ramo={"Comunicacio- nes Digitales"} state={this.state.CIT2111} />
                     <ARamo codigo={"CIT2113"} ramo={"Criptografía y Seg. en Redes"} state={this.state.CIT2113} />
-                    <ARamo codigo={"CITOPTTEL1"} ramo={"Electivo Profesional"} state={this.state.CIT3411} />
-                    <ARamo codigo={"CITOPTTEL3"} ramo={"Electivo Profesional"} state={this.state.CIT3412} />
+                    <ARamo codigo={"CITOPTTEL1"} ramo={"Electivo Profesional"} state={this.state.CITOPTTEL1} />
+                    <ARamo codigo={"CITOPTTEL3"} ramo={"Electivo Profesional"} state={this.state.CITOPTTEL3} />
                 </div>
 
                 <br />
