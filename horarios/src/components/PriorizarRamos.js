@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Navbar from './Navbar'
 import RamoCritico from './RamoCritico'
 import NotAuth from './NotAuth'
+import axios from 'axios';
 
 
 
@@ -20,7 +21,27 @@ export default class PriorizarRamos extends Component {
         p7:null,
         p8:null,
         p9:null,
+    }
 
+    componentDidMount = async () => {
+
+        var config = {
+            method: 'get',
+            url: 'http://200.14.84.238:443/PERT/',
+            headers: {
+                'Authorization': 'Token ' + localStorage.getItem("token"), //cambiar a localStorage
+                'Content-Type': 'application/json'
+            }
+        };
+
+        var PERT_j = await axios(config)
+
+        console.log(PERT_j)
+        this.setState({
+            ramos: PERT_j.data.PERT
+        })
+
+        console.log(this.state.ramos)
     }
 
     onSubmit = e => {
