@@ -15,14 +15,11 @@ export default class RamoE extends Component {
                             &nbsp;&nbsp;° Nombre: {this.props.ramo}
                             <br/>
                             <br/>
-                            <br/>
-                            <br/>
-                            <br/>
                             &nbsp;&nbsp;Ya aprobaste este ramo, Felicidades!!
                             <br/>
                             <br/>
                             <br/>
-                            <br/>
+
     
                         </font></p> 
                     </div>
