@@ -4,7 +4,7 @@ import ARamo from './ARamo'
 import Semestre from './Semestre'
 import NotAuth from './NotAuth'
 import { Link } from 'react-router-dom';
-import { Alert } from 'react-bootstrap';
+
 
 
 /*
@@ -60,6 +60,7 @@ export default class AvanceManual extends Component {
 
         axios(config)
         this.show_alert = true
+        alert("Seras redirigido a Mis Ramos Críticos en 10 segundos"); //cambia esto por toast
         setTimeout(function(){ window.location.href = 'http://200.14.84.238:443/users/usr/PERT'; }, 10000);
         
     }
@@ -71,9 +72,7 @@ export default class AvanceManual extends Component {
                 
                     <div className="container">
                         <br />
-                        <Alert show={this.show_alert} key='primary' variant='primary'>
-                        Seras redirigido a Mis Ramos Críticos
-                        </Alert>
+                       
                         <br />
                         <div className="row row-cols-10">
                             <Semestre semestre={"1"} />
