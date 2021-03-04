@@ -231,11 +231,15 @@ def get_PERT(request):
 def get_clique(request):
 
     if request.method == "GET":
-
+        #ojo cada vez q se suba la oferta academica se deben borrar todas las soluciones
+        #guardadas de los usuarios, pero NO la tabla horario, esa no se toca hasta que el pibe
+        #guarda otra solucion 
         current_user = request.user.id
-
+        #aca debe haber un if, si existen elementos en la tabla soluciones, entonces 
+        #retornar esas soluciones, si no calcular el clique
         jsons = get_clique_max_pond(current_user)
-
+        #aca falta guardar las soluciones a la tabla soluciones xd
+        #y guardar el horario que el alumno escoja 
         return Response(jsons, status=status.HTTP_200_OK)
 
 
@@ -340,7 +344,7 @@ def mi_malla_manual(request):
             a = asignatura_cursada(
                 codigo=elem, to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
-            
+
         avance_academico_user = avance_academico.objects.get(
             to_user_id=current_user)
         avance_academico_user.json_avance = {}
