@@ -8,11 +8,9 @@ class Horarios extends Component {
 
 
         
-        console.log(this.props.horarios)
-        this.props.horarios.map((solucion, index) => console.log(solucion,index));
-        return <div> asdsa </div>
-        // otro map ??
-        //return setTimeout(() => { this.props.horarios.map((solucion, index) => <Horario horario={solucion} key={index} />); }, 1000);
+        console.log(this.props.horarios) //soluciones y adentro hay ramos tambien es un arreglo
+        
+        return setTimeout(() => { this.props.horarios.map((solucion, index) => <Horario horario={solucion} index={index} />); }, 1000);
 
 
     }
