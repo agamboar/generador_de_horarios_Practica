@@ -11,16 +11,16 @@ export default class PriorizarRamos extends Component {
 
     state ={
         ramos: null,
-        p0: [],
-        p1: [],
-        p2: [],
-        p3: [],
-        p4: [],
-        p5: [],
-        p6: [],
-        p7: [],
-        p8: [],
-        p9: []
+        p0: [null],
+        p1: [null],
+        p2: [null],
+        p3: [null],
+        p4: [null],
+        p5: [null],
+        p6: [null],
+        p7: [null],
+        p8: [null],
+        p9: [null]
     }
 
     componentDidMount = async () => {
