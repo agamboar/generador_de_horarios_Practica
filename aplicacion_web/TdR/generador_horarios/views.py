@@ -108,7 +108,7 @@ def import_malla(request):
 def import_cfg(request):
 
     if request.method == "POST":
-
+        print(request.FILES)
         excel_file = request.FILES["excel_file"]
         cfg_secciones = read_seccion_cfg(excel_file)
         cfg_eventos = read_evento_cfg(excel_file)
