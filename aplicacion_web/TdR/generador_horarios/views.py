@@ -153,7 +153,7 @@ def upload_mi_malla(request):
         user = User.objects.get(id=current_user.id)
 
         try:
-            asignatura_cursada.objects.all().delete()
+            asignatura_cursada.objects.filter(to_User=user).delete()
         except:
             pass
 
