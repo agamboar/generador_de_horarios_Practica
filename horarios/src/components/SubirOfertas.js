@@ -35,7 +35,7 @@ export default class CrearHorario extends Component {
             method: 'post',
             url: 'http://200.14.84.238:443/upload/',
             headers: {
-
+                'Content-Type': 'multipart/form-data',
                 'Authorization': 'Token ' + sessionStorage.getItem("token"),
                 'Cookie': 'csrftoken=' + sessionStorage.getItem("token"),
                 'X-CSRFTOKEN': sessionStorage.getItem("token")  //cambiiar a localStorage
@@ -114,7 +114,7 @@ export default class CrearHorario extends Component {
                                         <div className="form-group">
                                             <input className="form-control form-control-sm"
                                                 type="file"
-                                                name="informatica"
+                                                name="excel_file"
                                                 id="formFile"
                                                 onChange={this.onChange}
                                                 value={this.state.informática}
