@@ -60,7 +60,7 @@ export default class AvanceManual extends Component {
 
         axios(config)
         setTimeout(function(){ window.location.href = 'http://200.14.84.238:443/users/usr/PERT'; }, 10000);
-        <Alert key='primary' variant='primary'>
+        <Alert show={true} key='primary' variant='primary'>
         Seras redirigido a Mis Ramos Críticos
         </Alert>
     }
