@@ -15,7 +15,7 @@ def set_values_recursive(PERT,id_node,len_dag):
      
     PERT.nodes[id_node]["ES"] = max_count_jump if (PERT.nodes[id_node]["ES"] == None or (max_count_jump > PERT.nodes[id_node]["ES"])) else PERT.nodes[id_node]["ES"]
     PERT.nodes[id_node]["EF"] = PERT.nodes[id_node]["ES"] + 1 #este uno es D
-    PERT.nodes[id_node]["LF"] = len_dag if len_dag > 1 and (PERT.nodes[id_node]["LF"] == None or PERT.nodes[id_node]["LF"] > len_dag) else PERT.nodes[id_node]["EF"]
+    PERT.nodes[id_node]["LF"] = len_dag if len_dag > 1 and (PERT.nodes[id_node]["LF"] == None or PERT.nodes[id_node]["LF"] > len_dag) else PERT.nodes[id_node]["LF"]
     H = PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"] if PERT.nodes[id_node]["H"] == None or (PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"]  < PERT.nodes[id_node]["H"]) else PERT.nodes[id_node]["H"] 
     PERT.nodes[id_node]["H"] =  H if  H > 0 else  0
     PERT.nodes[id_node]["LS"] = PERT.nodes[id_node]["ES"] + PERT.nodes[id_node]["H"]
