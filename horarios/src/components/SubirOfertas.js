@@ -21,11 +21,19 @@ export default class CrearHorario extends Component {
           loaded: 0,
         })
       }
-    onClickHandler = () => {
+    onClick_oferta = () => {
         const data = new FormData()
         console.log(this.state.selectedFile)
         data.append('file', this.state.selectedFile)
         axios.post("http://200.14.84.238:443/upload/", data).then(res => { // then print response status
+        console.log(res.statusText)
+     })
+    }
+    onClick_cfg = () => {
+        const data = new FormData()
+        console.log(this.state.selectedFile)
+        data.append('file', this.state.selectedFile)
+        axios.post("http://200.14.84.238:443/uploadcfg/", data).then(res => { // then print response status
         console.log(res.statusText)
      })
     }
@@ -35,7 +43,11 @@ export default class CrearHorario extends Component {
                 <Navbar />
 
                 <input type="file" name="file" onChange={this.onChangeHandler}/>
-                <button type="button" class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
+                <button type="button" class="btn btn-success btn-block" onClick={this.onClick_oferta}>Upload</button>
+
+                <input type="file" name="file" onChange={this.onChangeHandler}/>
+                <button type="button" class="btn btn-success btn-block" onClick={this.onClick_cfg}>Upload</button>
+
                 <Derechos />
             </div>
         )
