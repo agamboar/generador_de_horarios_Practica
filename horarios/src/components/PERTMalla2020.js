@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 
 export default class AvanceManual2020 extends Component {
     state = {
-        CBM1000: false, CBM1001: false, CBQ1000: false, CIT1000: false, FIC1000: false, CBM1002: false, CBM1003: false, CBF1000: false, CIT1010: false,
-        CFG1: false, CBM1005: false, CBM1006: false, CBF1001: false, CIT2006: false, CIT2114: false, CIT2204: false, CIT2107: false, CBF1002: false, CIT2007: false,
-        CIT2008: false, CIG1012: false, CII2750: false, CIT2108: false, CIT2205: false, CIT2009: false, CFG2: false, CIG1013: false, CII1000: false, CIT2109: false,
-        CIT2110: false, CIT2010: false, CFG3: false, CIG1014: false, CIT2206: false, CIT2011: false, CIT2111: false, CIT2012: false, CFG4: false, CII2100: false,
-        CIT2112: false, CIT2113: false, CIT2013: false, CIT2207: false, CITOPTINF1: false, CIT3100: false, CITOPTTEL1: false, CIT3000: false, CIT3202: false, CITOPTINF2: false,
-        CITOPTTEL2: false, CITOPTTEL3: false, CITOPTINF3: false, CIT3203: false, CIT4000: false, CIT4001: false
+        CBM1000: null, CBM1001: null, CBQ1000: null, CIT1000: null, FIC1000: null, CBM1002: null, CBM1003: null, CBF1000: null, CIT1010: null,
+        CFG1: null, CBM1005: null, CBM1006: null, CBF1001: null, CIT2006: null, CIT2114: null, CIT2204: null, CIT2107: null, CBF1002: null, CIT2007: null,
+        CIT2008: null, CIG1012: null, CII2750: null, CIT2108: null, CIT2205: null, CIT2009: null, CFG2: null, CIG1013: null, CII1000: null, CIT2109: null,
+        CIT2110: null, CIT2010: null, CFG3: null, CIG1014: null, CIT2206: null, CIT2011: null, CIT2111: null, CIT2012: null, CFG4: null, CII2100: null,
+        CIT2112: null, CIT2113: null, CIT2013: null, CIT2207: null, CITOPTINF1: null, CIT3100: null, CITOPTTEL1: null, CIT3000: null, CIT3202: null, CITOPTINF2: null,
+        CITOPTTEL2: null, CITOPTTEL3: null, CITOPTINF3: null, CIT3203: null, CIT4000: null, CIT4001: null
 
     }
 
@@ -20,7 +20,7 @@ export default class AvanceManual2020 extends Component {
             const mov = i;
             const mov2 = this.props.ramos[mov].to_asignatura_real[0];
             this.setState({
-                [mov2]: [this.props.ramos[mov].critico , this.props.ramos[mov].es]
+                [mov2]: [this.props.ramos[mov].critico, this.props.ramos[mov].es]
             })
         }
     }
