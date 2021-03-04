@@ -173,8 +173,6 @@ def read_seccion_cfg(excel_file):
 
 def read_evento_cfg(excel_file):
 
-    np.set_printoptions(threshold=sys.maxsize)
-
     cfg_evento = np.array(pd.read_excel(
 
         excel_file, usecols="F,G,H,K", na_filter=False, engine='openpyxl'))
