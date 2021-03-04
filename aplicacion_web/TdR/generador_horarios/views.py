@@ -185,25 +185,32 @@ def get_PERT(request):
     if request.method == "GET":
 
         current_user = request.user.id
+        avance_academico_user = avance_academico.objects.get(to_user_id=current_user)
+        avance_academico_user_json = avance_academico_user.json_avance
+        año_malla = avance_academico.objects.get(to_user=current_user).agno_malla
+        if avance_academico_user_json == {}: #falta colocar una condicion -> si se cambio recientemente los ramos aprobados
+            codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(
+                to_User_id__id=current_user).values_list('codigo', flat=True)
+           
+            codigos_ramos_malla = asignatura_real.objects.filter(
+                malla_curricular__agno=año_malla, tipo=0).values_list('codigo', flat=True)
 
-        codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(
-            to_User_id__id=current_user).values_list('codigo', flat=True)
-        año_malla = avance_academico.objects.get(
-            to_user=current_user).agno_malla
-        codigos_ramos_malla = asignatura_real.objects.filter(
-            malla_curricular__agno=año_malla, tipo=0).values_list('codigo', flat=True)
+            nodo_asignatura.objects.filter(to_user=current_user).delete()
 
-        nodo_asignatura.objects.filter(to_user=current_user).delete()
+            getRamoCritico(codigos_asignaturas_cursadas,
+                        codigos_ramos_malla, current_user)
 
-        getRamoCritico(codigos_asignaturas_cursadas,
-                       codigos_ramos_malla, current_user)
+            get_secciones_disponibles(current_user)
 
-        get_secciones_disponibles(current_user)
+            ramos_disponibles = nodo_asignatura.objects.filter(
+                to_user__id=current_user, to_asignatura_real__tipo=0)
 
-        ramos_disponibles = nodo_asignatura.objects.filter(
-            to_user__id=current_user, to_asignatura_real__tipo=0)
+            serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
+            avance_academico_user_json = {"prueba2":"no"} #no se que pasa si lo guardo asi en la base directamente
+            avance_academico_user.save()
+        else:
+            serializer = nodoAsignaturaSerializer(avance_academico_user_json, many=True) # no se si va un serializer aca
 
-        serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
         new_dict = {}
         new_dict.update({"PERT": serializer.data})
         new_dict["malla"] = año_malla

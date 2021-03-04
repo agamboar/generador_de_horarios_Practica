@@ -89,7 +89,7 @@ export default class CrearHorario extends Component {
 
                     <div className="row">
                         <div className="col-sm-2 " />
-                        <form onSubmit={this.onSubmit1}>
+                        
                             <div className="col-sm-4 ">
                                 <div className="card ">
                                     <div className="container">
@@ -102,7 +102,7 @@ export default class CrearHorario extends Component {
                                             </svg>
                                         </h1>
                                         <br />
-                                    </div>
+                                    
                                     <div className="card-body">
                                         <h5 className="card-title text-center">Ingreso de Oferta Académica Informática</h5>
                                         <br />
@@ -120,15 +120,18 @@ export default class CrearHorario extends Component {
                                                 value={this.state.informática}
                                                 multiple />
                                         </div>
+                                        <form onSubmit={this.onSubmit1}>
                                         <button type="submit" className="btn btn-primary" onClick={(e) => this.addInformatica(e)}>Subir Oferta Informática</button>
+                                        </form>
+                                    </div>
                                     </div>
 
                                 </div>
 
                             </div>
 
-                        </form>
-                        <form onSubmit={this.onSubmit2}>
+                        
+                        
                             <div className="col-sm-4 ">
                                 <div className="card ">
                                     <div className="container">
@@ -141,7 +144,7 @@ export default class CrearHorario extends Component {
                                             </svg>
                                         </h1>
                                         <br />
-                                    </div>
+                                    
                                     <div className="card-body">
                                         <h5 className="card-title text-center">Ingreso Oferta Académica CFG</h5>
                                         <br />
@@ -161,14 +164,16 @@ export default class CrearHorario extends Component {
                                                 value={this.state.cfg}
                                                 multiple />
                                         </div>
+                                        <form onSubmit={this.onSubmit2}>
                                         <button type="submit" className="btn btn-primary">Subir Oferta CFG</button>
+                                        </form>
                                     </div>
-
+                                    </div>
                                 </div>
 
                             </div>
 
-                        </form>
+                       
                         <div className="col-sm-2 " />
                     </div>
 
