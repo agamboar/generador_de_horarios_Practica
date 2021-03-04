@@ -12,16 +12,6 @@ export default class PriorizarRamos extends Component {
     state ={
         ramos: null,
         p: [null,null,null,null,null,null,null,null,null,null],
-        p1:null,
-        p2:null,
-        p3:null,
-        p4:null,
-        p5:null,
-        p6:null,
-        p7:null,
-        p8:null,
-        p9:null,
-        p10:null
     }
 
     componentDidMount = async () => {
@@ -71,16 +61,16 @@ export default class PriorizarRamos extends Component {
                 <br/>
                 <br/>
                 {/* en ramo critico se filtrara por prioridad  */}
-                <RamoCritico name='1' resultado = {this.state.p1} ramos = {this.state.ramos}/>
-                <RamoCritico name='2' resultado = {this.state.p2} ramos = {this.state.ramos}/>
-                <RamoCritico name='3' resultado = {this.state.p3} ramos = {this.state.ramos}/>
-                <RamoCritico name='4' resultado = {this.state.p4} ramos = {this.state.ramos}/>
-                <RamoCritico name='5' resultado = {this.state.p5} ramos = {this.state.ramos}/>
-                <RamoCritico name='6' resultado = {this.state.p6} ramos = {this.state.ramos}/>
-                <RamoCritico name='7' resultado = {this.state.p7} ramos = {this.state.ramos}/>
-                <RamoCritico name='8' resultado = {this.state.p8} ramos = {this.state.ramos}/>
-                <RamoCritico name='9' resultado = {this.state.p9} ramos = {this.state.ramos}/>
-                <RamoCritico name='10' resultado = {this.state.p10} ramos = {this.state.ramos}/>
+                <RamoCritico name='1' resultado = {this.state.p[0]} ramos = {this.state.ramos}/>
+                <RamoCritico name='2' resultado = {this.state.p[2]} ramos = {this.state.ramos}/>
+                <RamoCritico name='3' resultado = {this.state.p[3]} ramos = {this.state.ramos}/>
+                <RamoCritico name='4' resultado = {this.state.p[4]} ramos = {this.state.ramos}/>
+                <RamoCritico name='5' resultado = {this.state.p[5]} ramos = {this.state.ramos}/>
+                <RamoCritico name='6' resultado = {this.state.p[6]} ramos = {this.state.ramos}/>
+                <RamoCritico name='7' resultado = {this.state.p[7]} ramos = {this.state.ramos}/>
+                <RamoCritico name='8' resultado = {this.state.p[8]} ramos = {this.state.ramos}/>
+                <RamoCritico name='9' resultado = {this.state.p[9]} ramos = {this.state.ramos}/>
+                <RamoCritico name='10' resultado = {this.state.p[10]} ramos = {this.state.ramos}/>
                 
                 <form onSubmit={this.onSubmit}>
                 <div className="container">
