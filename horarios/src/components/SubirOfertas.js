@@ -116,7 +116,7 @@ export default class CrearHorario extends Component {
                                                 multiple />
                                         </div>
                                         <form onSubmit={this.onSubmit1}>
-                                            <button type="submit" className="btn btn-primary" onClick={(e) => this.addInformatica(e)}>Subir Oferta Informática</button>
+                                            <button type="submit" className="btn btn-primary" >Subir Oferta Informática</button>
                                         </form>
                                     </div>
                                 </div>

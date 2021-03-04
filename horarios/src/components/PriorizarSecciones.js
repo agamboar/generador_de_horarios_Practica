@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Navbar from './Navbar'
-import SeccionesCritico from './SeccionesCritico'
 import NotAuth from './NotAuth'
 import PriorizarSecciones2010 from "./PriorizarSecciones2010"
 import PriorizarSecciones2018 from "./PriorizarSecciones2018"
