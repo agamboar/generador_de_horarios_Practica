@@ -207,7 +207,7 @@ def get_PERT(request):
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
 
-            avance_academico_user.json_avance= {"prueba2":"no"} 
+            avance_academico_user.json_avance= serializer.data
             avance_academico_user.save()
         else:
             pass
