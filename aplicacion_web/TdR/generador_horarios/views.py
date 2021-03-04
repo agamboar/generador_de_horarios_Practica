@@ -94,7 +94,7 @@ def import_malla(request):
                        modulo=elem[2], profesor=elem[3], to_seccion=s)
             e.save()
 
-    return render(request, status=status.HTTP_201_CREATED)
+    return render(request, 'upload.html', status=status.HTTP_201_CREATED)
 
 
 @csrf_exempt
@@ -187,11 +187,12 @@ def get_PERT(request):
         current_user = request.user.id
         avance_academico_user = avance_academico.objects.get(
             to_user_id=current_user)
+        avance_academico_user_json = avance_academico_user.json_avance
         año_malla = avance_academico.objects.get(
             to_user=current_user).agno_malla
 
         # falta colocar una condicion -> si se cambio recientemente los ramos aprobados
-        if avance_academico_user.json_avance == {}:
+        if avance_academico_user_json == {}:
             codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(
                 to_User_id__id=current_user).values_list('codigo', flat=True)
 
@@ -209,17 +210,18 @@ def get_PERT(request):
                 to_user__id=current_user, to_asignatura_real__tipo=0)
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
-            aux_pert= serializer.data
-            print("guardo el json")
-            avance_academico_user.json_avance = serializer.data
+            print(avance_academico_user)
+            print(avance_academico_user_json)
+            # no se que pasa si lo guardo asi en la base directamente
+            avance_academico_user_json = {"prueba2": "no"}
+            print(avance_academico_user_json)
             avance_academico_user.save()
         else:
-            print("uso el json")
-            aux_pert = avance_academico_user.json_avance
+            pass
+            # serializer = nodoAsignaturaSerializer(avance_academico_user_json, many=True) # no se si va un serializer aca || esto esta malo
 
         new_dict = {}
-
-        new_dict.update({"PERT": aux_pert})
+        new_dict.update({"PERT": serializer.data})
         new_dict["malla"] = año_malla
 
         return Response(new_dict)
@@ -338,11 +340,6 @@ def mi_malla_manual(request):
             a = asignatura_cursada(
                 codigo=elem, to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
-
-        avance_academico_user = avance_academico.objects.get(
-            to_user_id=current_user)
-        avance_academico_user.json_avance = {}
-        avance_academico_user.save()
 
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
