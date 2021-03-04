@@ -17,12 +17,6 @@ export default class PriorizarSecciones extends Component {
 
     }
 
-    onSubmit = e => {
-        e.preventDefault();
-     
-
-    }
-
     render() {
         if (localStorage.getItem("token")){
             if (this.state.malla === 2010) {

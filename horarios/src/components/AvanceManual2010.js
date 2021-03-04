@@ -322,7 +322,7 @@ export default class AvanceManual extends Component {
 
     onChange1_5 = (e) => {
         this.setState(prevState => ({
-            CBM1000: true,
+            CBM1000: !this.state.CBM1000,
             CBM1001: true,
             CBQ1000: true,
             CIT1000: true,
