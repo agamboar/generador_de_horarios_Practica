@@ -18,7 +18,7 @@ export default class CrearHorario extends Component {
 
     onChange = e => { // recibir el excel todo bien 
         this.setState({
-            [e.target.name]: e.target.files[0] //deberia colocar un 0 ? 
+            [e.target.name]: e.target.files//deberia colocar un 0 ? 
         })
         console.log("holaaa")
         console.log(e.target.value);
