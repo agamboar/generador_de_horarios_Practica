@@ -206,15 +206,17 @@ def get_PERT(request):
                 to_user__id=current_user, to_asignatura_real__tipo=0)
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
-
-            avance_academico_user.json_avance= {"prueba2":"no"} 
+            aux_pert= serializer.data
+            
+            avance_academico_user.json_avance = serializer.data
             avance_academico_user.save()
         else:
-            pass
-            # serializer = nodoAsignaturaSerializer(avance_academico_user_json, many=True) # no se si va un serializer aca || esto esta malo
+            aux_pert= avance_academico_user.json_avance
+
 
         new_dict = {}
-        new_dict.update({"PERT": serializer.data})
+         
+        new_dict.update({"PERT": aux_pert})
         new_dict["malla"] = año_malla
 
         return Response(new_dict)
@@ -334,6 +336,10 @@ def mi_malla_manual(request):
                 codigo=elem, to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
+        avance_academico_user = avance_academico.objects.get(to_user_id=current_user)
+        avance_academico_user.json_avance = {}
+        avance_academico_user.save()
+        
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
 
