@@ -7,7 +7,7 @@ import Dia from './Dia'
 
 
 export default class Horario extends Component {
-
+   
     state = {
         show: true,
         LU_8: null,
@@ -94,7 +94,7 @@ export default class Horario extends Component {
     }
 
     render() {
-
+        console.log(this.props)
         if (!this.state.show) {
 
             return (
@@ -222,7 +222,7 @@ export default class Horario extends Component {
 
                         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramos:</h5>
                         <div className="row row-cols-2">
-                            {console.log(this.props.horario)}
+                            
                             {/*<RamosH ramos={this.props.horario} />*/}
 
 
