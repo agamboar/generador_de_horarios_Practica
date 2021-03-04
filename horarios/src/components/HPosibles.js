@@ -100,7 +100,7 @@ export default class HPosibles extends Component {
                     <br />
 
                     <Horarios horarios={this.state.Horarios} />
-                    <Horario />
+                    
                     <br />
 
                     <br />
