@@ -60,7 +60,7 @@ export default class AvanceManual extends Component {
 
         axios(config)
         this.show_alert = true
-        alert("Seras redirigido para calcular tus ramos críticos en 5 segundos"); //cambia esto por toast
+        setTimeout(function(){alert("Seras redirigido para calcular tus ramos críticos"); }, 2000); //cambia esto por toast
         setTimeout(function(){ window.location.href = 'http://200.14.84.238:443/users/usr/PERT'; }, 5000);
         
     }
