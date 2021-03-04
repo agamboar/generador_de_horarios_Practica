@@ -11,6 +11,7 @@ export default class PriorizarRamos extends Component {
 
     state ={
         ramos: null,
+        critico: [],
         p0: [],
         p1: [],
         p2: [],
@@ -98,17 +99,7 @@ export default class PriorizarRamos extends Component {
 
                        
         }
-        console.log(this.state.p0)
-        console.log(this.state.p1)
-        console.log(this.state.p2)
-        console.log(this.state.p3)
-        console.log(this.state.p4)
-        console.log(this.state.p5)
-        console.log(this.state.p6)
-        console.log(this.state.p7)
-        console.log(this.state.p8)
-        console.log(this.state.p9)
-        
+        console.log(this.state.p0)        
     }
 
     onSubmit = e => {
@@ -135,16 +126,17 @@ export default class PriorizarRamos extends Component {
                 <br/>
                 <br/>
                 {/* en ramo critico se filtrara por prioridad  */}
-                <RamoCritico name='0' resultado = {this.state.p0} ramos = {this.state.ramos}/>
-                <RamoCritico name='1' resultado = {this.state.p1} ramos = {this.state.ramos}/>
-                <RamoCritico name='2' resultado = {this.state.p2} ramos = {this.state.ramos}/>
-                <RamoCritico name='3' resultado = {this.state.p3} ramos = {this.state.ramos}/>
-                <RamoCritico name='4' resultado = {this.state.p4} ramos = {this.state.ramos}/>
-                <RamoCritico name='5' resultado = {this.state.p5} ramos = {this.state.ramos}/>
-                <RamoCritico name='6' resultado = {this.state.p6} ramos = {this.state.ramos}/>
-                <RamoCritico name='7' resultado = {this.state.p7} ramos = {this.state.ramos}/>
-                <RamoCritico name='8' resultado = {this.state.p8} ramos = {this.state.ramos}/>
-                <RamoCritico name='9' resultado = {this.state.p9} ramos = {this.state.ramos}/>
+                <RamoCritico name='Críticos' resultado = {this.state.critico} />
+                <RamoCritico name='Prioridad 0' resultado = {this.state.p0} />
+                <RamoCritico name='Prioridad 1' resultado = {this.state.p1} />
+                <RamoCritico name='Prioridad 2' resultado = {this.state.p2} />
+                <RamoCritico name='Prioridad 3' resultado = {this.state.p3} />
+                <RamoCritico name='Prioridad 4' resultado = {this.state.p4} />
+                <RamoCritico name='Prioridad 5' resultado = {this.state.p5} />
+                <RamoCritico name='Prioridad 6' resultado = {this.state.p6} />
+                <RamoCritico name='Prioridad 7' resultado = {this.state.p7} />
+                <RamoCritico name='Prioridad 8' resultado = {this.state.p8} />
+                <RamoCritico name='Prioridad 9' resultado = {this.state.p9} />
                 
                 <form onSubmit={this.onSubmit}>
                 <div className="container">
