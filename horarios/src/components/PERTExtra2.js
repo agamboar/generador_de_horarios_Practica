@@ -38,7 +38,7 @@ export default class M2018Extra1 extends Component {
                 <div>
                     <Navbar/>
                     
-                    <PERTE2_2010/>
+                    <PERTE2_2010 ramos={this.state.ramos}/>
     
                     
                     
@@ -49,7 +49,7 @@ export default class M2018Extra1 extends Component {
                 <div>
                     <Navbar/>
                     
-                    <PERTE2_2018/>
+                    <PERTE2_2018 ramos={this.state.ramos}/>
     
                     
                     
@@ -60,7 +60,7 @@ export default class M2018Extra1 extends Component {
                 <div>
                     <Navbar/>
                     
-                    <PERTE2_2020/>
+                    <PERTE2_2020 ramos={this.state.ramos}/>
     
                     
                     

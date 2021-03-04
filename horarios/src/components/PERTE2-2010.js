@@ -1,11 +1,32 @@
 import React, { Component } from 'react'
-import RamoP from './RamoP'
+import Ramo from './RamoP'
 import Semestre from './Semestre'
 import {Link} from 'react-router-dom';
 
 
 
 export default class Malla2010Extra2 extends Component {
+
+    state = {
+        CBM1000: null, CBM1001: null, CBQ1000: null, CIT1000: null, FIC1000: null, CBM1002: null, CBM1003: null, CBF1000: null, CIT1010: null,
+        CFG1: null, CBM1005: null, CBM1006: null, CBF1001: null, CIT2000: null, CIT2100: null, CIT2204: null, CBM2000: null, CBF1002: null, CIT2001: null,
+        CFG2: null, FIC1001: null, CII2750: null, CIT2106: null, CIT2200: null, CIT2002: null, CFG3: null, FIC1002: null, CII2000: null, CIT2202: null,
+        CIT2101: null, CIT2003: null, CIT2103: null, CII1000: null, CIT2005: null, CIT2102: null, FIC1003: null, CIT2104: null, CIT2203: null, CIT2004: null,
+        CIT2105: null, CIT2201: null, CFG4: null, CIT3310: null, CIT3410: null, CIT3411: null, CIT3200: null, CIT3311: null, CIT3312: null, CIT3412: null,
+        CIT3413: null, CIT3201: null, CIT3313: null, CIT5001: null, CIT5002: null
+
+    }
+
+    componentDidMount = () => {
+        for (let i = 0; i < this.props.ramos.length; i++) {
+            const mov = i;
+            const mov2 = this.props.ramos[mov].to_asignatura_real[0];
+            this.setState({
+                [mov2]: [this.props.ramos[mov].critico , this.props.ramos[mov].es]
+            })
+        }
+    }
+
     render() {
         return (
         
@@ -26,9 +47,9 @@ export default class Malla2010Extra2 extends Component {
 
                 <div className="row row-cols-10 align-items-start">
                     <div className="col col-md-1"> </div>  
-                    <RamoP codigo = {"CIT-2204"} ramo = {"Probabilidades y Estadistica"} numero = {"16"} creditos = {"6"} prerequisitos = {"Cálculo II"} formacion = {"Ciencias de la Ingeniería"} />      
-                    <RamoP codigo = {"CII-2750"} ramo = {"Optimización"} numero = {"22"} creditos = {"6"} prerequisitos = {"Álgebra Lineal - Cálculo II"} formacion = {"Ciencias de la Ingeniería"} />                     
-                    <RamoP codigo = {"CII-2000"} ramo = {"Introducción a la Economia"} numero = {"28"} creditos = {"6"} prerequisitos = {"Cálculo II"} formacion = {"Ciencias de la Ingeniería"} />      
+                    <Ramo codigo={"CIT2204"} ramo={"Prob. y Estadisticas"} state={this.state.CIT2204} />
+                    <Ramo codigo={"CII2750"} ramo={"Optimización"} state={this.state.CII2750} />
+                    <Ramo codigo={"CII2000"} ramo={"Introducción a la Economía"} state={this.state.CII2000} />
                     <div className="col col-md-1"> </div>  
                 </div>
 
@@ -36,9 +57,9 @@ export default class Malla2010Extra2 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div>                      
-                    <RamoP codigo = {"CBM-2000"} ramo = {"Métodos Numéricos"} />      
-                    <RamoP codigo = {"CIT-2106"} ramo = {"Electrónica y Electrotecnia"} />      
-                    <RamoP codigo = {"CIT-2202"} ramo = {"Modelos Estocasticos y Simulación"} /> 
+                    <Ramo codigo={"CBM2000"} ramo={"Métodos Numéricos"} state={this.state.CBM2000} />
+                    <Ramo codigo={"CIT2106"} ramo={"Electrónica y Electrotecnia"} state={this.state.CIT2106} />
+                    <Ramo codigo={"CIT2202"} ramo={"Modelos Estoc. y Simul."} state={this.state.CIT2202} />
                     <div className="col col-md-1"> </div>  
                 </div>
 
@@ -52,9 +73,9 @@ export default class Malla2010Extra2 extends Component {
                             </svg>
                         </Link>
                     </div> 
-                    <RamoP codigo = {"CBF-1002"} ramo = {"Electricidad y Magnetismo"} /> 
-                    <RamoP codigo = {"CIT-2200"} ramo = {"Proyectos en TICs I"} /> 
-                    <RamoP codigo = {"CIT-2101"} ramo = {"Señales y Sistemas "} /> 
+                    <Ramo codigo={"CBF1002"} ramo={"Electricidad y Magnetismo"} state={this.state.CBF1002} />
+                    <Ramo codigo={"CIT2200"} ramo={"Proyectos en TICs I"} state={this.state.CIT2200} />
+                    <Ramo codigo={"CIT2101"} ramo={"Señales y Sistemas"} state={this.state.CIT2101} />
                     <div className="col col-md-1"> 
                         <Link className="nav-link" to={{ pathname: '/users/usr/PERT/PERTExtra3'}} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
@@ -69,9 +90,9 @@ export default class Malla2010Extra2 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoP codigo = {"CIT-2001"} ramo = {"Diseño y Análisis de Algoritmos"} /> 
-                    <RamoP codigo = {"CIT-2002"} ramo = {"Bases de Datos"} />  
-                    <RamoP codigo = {"CIT-2003"} ramo = {"Sistemas Operativos"} />  
+                    <Ramo codigo={"CIT2001"} ramo={"Dis. y Análisis de Algoritmos"} state={this.state.CIT2001} />
+                    <Ramo codigo={"CIT2002"} ramo={"Bases de Datos"} state={this.state.CIT2002} />
+                    <Ramo codigo={"CIT2003"} ramo={"Sistemas Operativos"} state={this.state.CIT2003} />
                     <div className="col col-md-1"> </div>                 
                 </div>
 
@@ -79,9 +100,9 @@ export default class Malla2010Extra2 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoP codigo = {" - "} ramo = {"Minor / CFG"} numero = {"20"} creditos = {"5"} prerequisitos = {" - "} formacion = {"Transversal"} />                     
-                    <RamoP codigo = {" - "} ramo = {"Minor / CFG"} numero = {"26"} creditos = {"5"} prerequisitos = {" - "} formacion = {"Transversal"} />                     
-                    <RamoP codigo = {"CIT-2103"} ramo = {"Sistemas Digitales"} numero = {"32"} creditos = {"6"} prerequisitos = {"Electrónica y Electrotecnia"} formacion = {"Ingeniería Aplicada"} />      
+                    <Ramo codigo={"CFG2"} ramo={"Minor / CFG"} state={this.state.CFG2} />
+                    <Ramo codigo={"CFG3"} ramo={"Minor / CFG"} state={this.state.CFG3} />
+                    <Ramo codigo={"CIT2103"} ramo={"Sistemas Digitales"} state={this.state.CIT2103} />
                     <div className="col col-md-1"> </div>                     
                    
                 </div>
@@ -90,8 +111,8 @@ export default class Malla2010Extra2 extends Component {
                 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div> 
-                    <RamoP codigo = {"CIG-1012"} ramo = {"Inglés I"} numero = {"21"} creditos = {"5"} prerequisitos = {""} formacion = {"Transversal"} />      
-                    <RamoP codigo = {"CIG-1013"} ramo = {"Inglés II"} numero = {"27"} creditos = {"5"} prerequisitos = {"Inglés I"} formacion = {"Transversal"} />                     
+                    <Ramo codigo={"FIC1001"} ramo={"Inglés I"} state={this.state.FIC1001} />
+                    <Ramo codigo={"FIC1002"} ramo={"Inglés II"} state={this.state.FIC1002} />            
                     <div className="col "> </div> 
                     <div className="col col-md-1"> </div>                     
                    
