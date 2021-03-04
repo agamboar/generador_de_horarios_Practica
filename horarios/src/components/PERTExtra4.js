@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
-import PERTE4_2010 from './PERTE2-2010'
-import PERTE4_2018 from './PERTE2-2018'
-import PERTE4_2020 from './PERTE2-2020'
+import PERTE4_2010 from './PERTE4-2010'
+import PERTE4_2018 from './PERTE4-2018'
+import PERTE4_2020 from './PERTE4-2020'
 import axios from 'axios';
 
 
