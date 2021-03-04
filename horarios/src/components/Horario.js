@@ -76,11 +76,11 @@ export default class Horario extends Component {
 
         }
     };
-    */
+    
     componentDidMount = () => {
         this.fillSchedule();
     }
-
+    */
     onChange1 = () => {
         this.setState({
             show: false
