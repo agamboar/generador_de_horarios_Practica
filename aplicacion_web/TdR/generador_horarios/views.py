@@ -206,7 +206,7 @@ def get_PERT(request):
                 to_user__id=current_user, to_asignatura_real__tipo=0)
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
-            avance_academico_user_json = serializer #no se que pasa si lo guardo asi en la base directamente
+            avance_academico_user_json = {"prueba2":"no"} #no se que pasa si lo guardo asi en la base directamente
             avance_academico_user.save()
         else:
             serializer = nodoAsignaturaSerializer(avance_academico_user_json, many=True) # no se si va un serializer aca
