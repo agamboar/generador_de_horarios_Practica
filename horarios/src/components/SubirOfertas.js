@@ -26,10 +26,10 @@ export default class CrearHorario extends Component {
         }
         // aqui va el axios
 
-        let oferta = this.state.newInformatica
+        let excel_file = this.state.newInformatica
 
         let formdata = new FormData()
-        formdata.append('excel_file', oferta)
+        formdata.append('excel_file', excel_file)
 
         var config = {
             method: 'post',
