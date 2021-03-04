@@ -245,6 +245,7 @@ def get_clique(request):
         existen_soluciones = True
         try:
             sol = solucion.objects.filter(to_user=current_user)
+            print('asdkhajsdlk', sol)
             existen_soluciones = False
         except:
             pass
