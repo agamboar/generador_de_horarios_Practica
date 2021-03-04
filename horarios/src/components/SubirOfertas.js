@@ -26,10 +26,10 @@ export default class CrearHorario extends Component {
         }
         // aqui va el axios
 
-        let excel_file = this.state.newInformatica
+        let informatica = this.state.newInformatica
 
         let formdata = new FormData()
-        formdata.append('excel_file', excel_file)
+        formdata.append('informatica', informatica)
 
         var config = {
             method: 'post',
@@ -114,7 +114,7 @@ export default class CrearHorario extends Component {
                                         <div className="form-group">
                                             <input className="form-control form-control-sm"
                                                 type="file"
-                                                name="excel_file"
+                                                name="informatica"
                                                 id="formFile"
                                                 onChange={this.onChange}
                                                 value={this.state.informatica}
