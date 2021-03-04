@@ -10,7 +10,7 @@ export default class CrearHorario extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            informatica: {"hola":"sds"},
+            informatica:null,
             cfg: null
         }
 
@@ -29,7 +29,7 @@ export default class CrearHorario extends Component {
     addInformatica = async (informatica_excel) => {
 
         // aqui va el axios
-
+        console.log(informatica_excel)
         const data = new FormData()
         data.append('excel_file', informatica_excel)
         axios.post("http://200.14.84.238:443/upload/", data)
