@@ -82,19 +82,24 @@ def import_malla(request):
             pass
 
         for elem in arr_secciones:
-            print(elem[6])
-            a = asignatura_real.objects.get(codigo=elem[6])
+            try:
+                a = asignatura_real.objects.get(codigo=elem[6])
 
-            s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                        vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
-            s.save()
-            s.to_asignatura_real.add(a)
+                s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                            vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+                s.save()
+                s.to_asignatura_real.add(a)
+            except:
+                continue
 
         for elem in arr_eventos:
-            s = seccion.objects.get(cod_seccion=elem[4])
-            e = evento(tipo=elem[0], dia=elem[1],
-                       modulo=elem[2], profesor=elem[3], to_seccion=s)
-            e.save()
+            try:
+                s = seccion.objects.get(cod_seccion=elem[4])
+                e = evento(tipo=elem[0], dia=elem[1],
+                        modulo=elem[2], profesor=elem[3], to_seccion=s)
+                e.save()
+            except:
+                continue
 
     return
 
