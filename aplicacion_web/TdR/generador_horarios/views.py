@@ -96,7 +96,7 @@ def import_malla(request):
                        modulo=elem[2], profesor=elem[3], to_seccion=s)
             e.save()
 
-    return render(request, status=status.HTTP_201_CREATED)
+    return
 
 
 @csrf_exempt
