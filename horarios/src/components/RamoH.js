@@ -7,22 +7,24 @@ export default class Bloque extends Component {
     render() {
         return (
             <div className="col  col-md-6">
+                    {this.props.ramos.map(elem=>
                         <ul>
-                            <li>Ramo: {this.props.ramo.nombre} - Sección {this.props.ramo.nro_seccion}</li>
+                            <li>Ramo: {elem.nombre} - Sección {elem.nro_seccion}</li>
                             <ul>
-                                <li>Profesor: {this.props.ramo.eventos[0].profesor}</li>  
+                                <li>Profesor: {elem.eventos[0].profesor}</li>  
                                
                                 <li>Catedras:</li>
                                 <ul>
-                                    <li>{this.props.horario}</li>
+                                    <li>{elem.horario}</li>
                                 </ul>
                                 <li>Ayudantia:</li>
                                 <ul>
-                                    <li>{this.props.ayudantia}</li>
+                                    <li>{elem.ayudantia}</li>
                                 </ul>
                             </ul>
                         </ul>
-                        </div>   
+                    )}
+                    </div>   
         )
     }
 }
