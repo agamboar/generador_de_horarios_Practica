@@ -101,7 +101,7 @@ def import_malla(request):
             except:
                 continue
 
-    return JsonResponse(excel_file,status=200)
+    return JsonResponse({'description': "Oferta subida!"},status=200)
 
 
 @csrf_exempt
