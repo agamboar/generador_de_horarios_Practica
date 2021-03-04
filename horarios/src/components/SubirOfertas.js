@@ -20,6 +20,7 @@ export default class CrearHorario extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+        console.log("holaaa")
         console.log(e.target.value);
     }
 
