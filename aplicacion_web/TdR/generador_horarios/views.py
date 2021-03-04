@@ -268,14 +268,14 @@ def get_clique(request):
                         to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
 
                     solucion_alumno.to_nodo_seccion.add(nodoSeccion)
-            print(jsons)
+            print('guardo el json', jsons)
         else:
             aux = 1
             jsons = {}
             for elem in sol:
                 jsons['Solucion'+aux] = elem
                 aux += 1
-            print(jsons)
+            print('uso el json', jsons)
         # print(jsons)
         # for elem, index in jsons:
         # no entiendo como guardar se guardan las soluciones yo los guardaria en un json y era como el pert
