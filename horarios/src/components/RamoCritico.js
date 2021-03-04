@@ -8,7 +8,7 @@ import RamoPrioridad from './RamoPrioridad'
 export default class RamoCritico extends Component {
 
     state ={
-      s1: null,
+      s1: true,
       s2: null,
       s3: null,
       s4: null,

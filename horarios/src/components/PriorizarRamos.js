@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Navbar from './Navbar'
 import RamoCritico from './RamoCritico'
 import NotAuth from './NotAuth'
+import axios from 'axios';
 
 
 
@@ -10,7 +11,7 @@ export default class PriorizarRamos extends Component {
 
     state ={
         ramos: null,
-        p0:null,
+        p: [null,null,null,null,null,null,null,null,null,null],
         p1:null,
         p2:null,
         p3:null,
@@ -20,7 +21,30 @@ export default class PriorizarRamos extends Component {
         p7:null,
         p8:null,
         p9:null,
+        p10:null
+    }
 
+    componentDidMount = async () => {
+
+        var config = {
+            method: 'get',
+            url: 'http://200.14.84.238:443/PERT/',
+            headers: {
+                'Authorization': 'Token ' + localStorage.getItem("token"), //cambiar a localStorage
+                'Content-Type': 'application/json'
+            }
+        };
+
+        var PERT_j = await axios(config)
+
+        console.log(PERT_j)
+        this.setState({
+            ramos: PERT_j.data.PERT
+        })
+        console.log(this.state.p)
+        console.log(this.state.ramos)
+
+        
     }
 
     onSubmit = e => {
@@ -47,7 +71,6 @@ export default class PriorizarRamos extends Component {
                 <br/>
                 <br/>
                 {/* en ramo critico se filtrara por prioridad  */}
-                <RamoCritico name='0' resultado = {this.state.p0} ramos = {this.state.ramos}/>
                 <RamoCritico name='1' resultado = {this.state.p1} ramos = {this.state.ramos}/>
                 <RamoCritico name='2' resultado = {this.state.p2} ramos = {this.state.ramos}/>
                 <RamoCritico name='3' resultado = {this.state.p3} ramos = {this.state.ramos}/>
@@ -57,6 +80,7 @@ export default class PriorizarRamos extends Component {
                 <RamoCritico name='7' resultado = {this.state.p7} ramos = {this.state.ramos}/>
                 <RamoCritico name='8' resultado = {this.state.p8} ramos = {this.state.ramos}/>
                 <RamoCritico name='9' resultado = {this.state.p9} ramos = {this.state.ramos}/>
+                <RamoCritico name='10' resultado = {this.state.p10} ramos = {this.state.ramos}/>
                 
                 <form onSubmit={this.onSubmit}>
                 <div className="container">
