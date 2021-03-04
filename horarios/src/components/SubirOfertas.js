@@ -10,7 +10,7 @@ export default class CrearHorario extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            informatica: null,
+            informatica: {"hola":"sds"},
             cfg: null
         }
 
