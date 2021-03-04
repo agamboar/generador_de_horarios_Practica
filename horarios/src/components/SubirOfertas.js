@@ -7,24 +7,18 @@ import axios from 'axios';
 
 export default class CrearHorario extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            informatica: null,
-            cfg: null
-        }
-
+    state = {
+        informatica: null,
+        cfg: null
     }
 
     onChange = e => {
         this.setState({
-
-            informatica: e.target.files[0]
+            [e.target.name]: e.target.value
         })
         console.log(e.target.files[0]);
 
     }
-
 
     addInformatica = async (informatica_excel) => {
 
@@ -46,7 +40,7 @@ export default class CrearHorario extends Component {
         await axios(config)
 
 
-    };
+    }
 
     addCfg = async (cfg) => {
         const newCfg = {
