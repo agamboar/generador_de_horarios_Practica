@@ -41,7 +41,7 @@ export default class CrearHorario extends Component {
     }
     onClick_cfg = () => {
         const data = new FormData()
-        console.log(this.state.selectedFile)
+        console.log(this.state.selectedFile_cfg)
         data.append('excel_file', this.state.selectedFile_cfg)
         axios.post("http://200.14.84.238:443/uploadcfg/", data).then(res => { // then print response status
         console.log(res.statusText)
