@@ -8,8 +8,25 @@ export default class RamoE extends Component {
         console.log(this.props)
         if(this.props.state===null){
         return (
-            <div>
-            </div>    
+            <div className="col">  
+                    <div className="card border-primary">                  
+                        <h6 className="card-title text-center"><font size="2">{this.props.codigo}</font></h6>
+                        <p className="card-text"><font size="2">                            
+                            &nbsp;&nbsp;° Nombre: {this.props.ramo}
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            &nbsp;&nbsp;Ya aprobaste este ramo, Felicidades!!
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+    
+                        </font></p> 
+                    </div>
+                </div>   
         )
         }else{
             return (
