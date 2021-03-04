@@ -3,7 +3,9 @@ import React, { Component } from 'react'
 
 
 export default class RamoE extends Component {
+    
     render() {
+        console.log(this.props)
         if(this.props.state[0]===null){
         return (
             <div>
@@ -14,8 +16,7 @@ export default class RamoE extends Component {
                 <div className="col">  
                     <div className="card border-primary">                  
                         <h6 className="card-title text-center"><font size="2">{this.props.codigo}</font></h6>
-                        <p className="card-text"><font size="2">
-                            {console.log(this.props)}
+                        <p className="card-text"><font size="2">                            
                             &nbsp;&nbsp;° Nombre: {this.props.ramo}
                             <br/>
                             &nbsp;&nbsp;° Inicio Temprano: {this.props.state[0]}
