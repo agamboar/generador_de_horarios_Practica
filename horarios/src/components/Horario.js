@@ -222,7 +222,7 @@ export default class Horario extends Component {
 
                         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramos:</h5>
                         <div className="row row-cols-2">
-                            
+                            {console.log(this.props.horario)}
                             <RamosH ramos={this.props.horario} />
 
 
