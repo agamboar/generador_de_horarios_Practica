@@ -33,6 +33,12 @@ export default class PriorizarRamos extends Component {
         })
         console.log(this.state.p)
         console.log(this.state.ramos)
+        for (let i = 0; i < this.state.ramos.length; i++) {
+            const mov = i;
+            this.setState({
+                p[this.state.ramos[mov].holgura]: [...this.state.p[this.state.ramos[mov].holgura],this.state.ramos[mov]]
+            })            
+        }
 
         
     }
@@ -61,7 +67,8 @@ export default class PriorizarRamos extends Component {
                 <br/>
                 <br/>
                 {/* en ramo critico se filtrara por prioridad  */}
-                <RamoCritico name='1' resultado = {this.state.p[0]} ramos = {this.state.ramos}/>
+                <RamoCritico name='0' resultado = {this.state.p[0]} ramos = {this.state.ramos}/>
+                <RamoCritico name='1' resultado = {this.state.p[1]} ramos = {this.state.ramos}/>
                 <RamoCritico name='2' resultado = {this.state.p[2]} ramos = {this.state.ramos}/>
                 <RamoCritico name='3' resultado = {this.state.p[3]} ramos = {this.state.ramos}/>
                 <RamoCritico name='4' resultado = {this.state.p[4]} ramos = {this.state.ramos}/>
@@ -70,7 +77,6 @@ export default class PriorizarRamos extends Component {
                 <RamoCritico name='7' resultado = {this.state.p[7]} ramos = {this.state.ramos}/>
                 <RamoCritico name='8' resultado = {this.state.p[8]} ramos = {this.state.ramos}/>
                 <RamoCritico name='9' resultado = {this.state.p[9]} ramos = {this.state.ramos}/>
-                <RamoCritico name='10' resultado = {this.state.p[10]} ramos = {this.state.ramos}/>
                 
                 <form onSubmit={this.onSubmit}>
                 <div className="container">
