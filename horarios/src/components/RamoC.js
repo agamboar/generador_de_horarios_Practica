@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 
 export default class Ramo extends Component {
     render() {
-        if(this.props.state===true){
+        if(this.props.state[0]===true){
         return (
             <div className="col" >  
                 <div className="card border-primary text-center custom" style={{background: '#FF3E17' }}  >                  
@@ -12,7 +12,7 @@ export default class Ramo extends Component {
                     <p className="card-text"><font size="2">{this.props.ramo}</font></p> 
                 </div>
             </div>    
-        )}else if(this.props.state===false){
+        )}else if(this.props.state[0]===false){
             return (
                 <div className="col" >  
                     <div className="card border-primary text-center custom"   >                  
