@@ -148,12 +148,12 @@ def upload_mi_malla(request):
     if request.method == "POST":
 
         current_user = request.user
-        excel_file = request.FILES["excel_file"]
+        excel_file = request.FILES["file"]
         codigos = read_mi_malla(excel_file)
         user = User.objects.get(id=current_user.id)
 
         try:
-            asignatura_cursada.objects.all().delete()
+            asignatura_cursada.objects.filter(to_User=user).delete()
         except:
             pass
 
@@ -183,7 +183,7 @@ def upload_mi_malla(request):
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
-    return render(request, 'upload.html', status=status.HTTP_201_CREATED)
+    return JsonResponse({'description': "Malla Subida."}, status=200)
 
 
 @api_view(['GET'])
