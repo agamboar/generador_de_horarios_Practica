@@ -1,20 +1,73 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
-import PERTE1 from './PERTE1-2018'
+import PERTE1_2010 from './PERTE1-2010'
+import PERTE1_2018 from './PERTE1-2018'
+import PERTE1_2020 from './PERTE1-2020'
 
 
 
 export default class M2018Extra1 extends Component {
-    render() {
-        return (
-            <div>
-                <Navbar/>
-                
-                <PERTE1/>
+    state = {
+        malla: null,
+        ramos: null
+    }
 
-                
-                
-            </div>
-        )
+    componentDidMount = async () => {
+
+        var config = {
+            method: 'get',
+            url: 'http://200.14.84.238:443/PERT/',
+            headers: {
+                'Authorization': 'Token ' + localStorage.getItem("token"), //cambiar a localStorage
+                'Content-Type': 'application/json'
+            }
+        };
+
+        var PERT_j = await axios(config)
+
+        console.log(PERT_j)
+        this.setState({
+            malla: PERT_j.data.malla,
+            ramos: PERT_j.data.PERT
+        })
+    }
+
+    render() {
+        if(this.state.malla === 2010){
+            return (
+                <div>
+                    <Navbar/>
+                    
+                    <PERTE1_2010/>
+    
+                    
+                    
+                </div>
+            )
+        }else if(this.state.malla === 2018){
+            return (
+                <div>
+                    <Navbar/>
+                    
+                    <PERTE1_2018/>
+    
+                    
+                    
+                </div>
+            )
+        }else if(this.state.malla === 2020){
+            return (
+                <div>
+                    <Navbar/>
+                    
+                    <PERTE1_2020/>
+    
+                    
+                    
+                </div>
+            )
+        }else{
+            <div></div>
+        }
     }
 }
