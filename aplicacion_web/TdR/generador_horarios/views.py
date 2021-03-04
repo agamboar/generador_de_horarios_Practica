@@ -69,7 +69,7 @@ def import_malla(request):
     if request.method == "POST":
         
         print("fileeee", type(request.FILES["file"]))
-        excel_file = request.FILES["informatica_excel"]
+        excel_file = request.FILES["file"]
 
         arr_secciones = read_secciones(excel_file)
         arr_eventos = read_eventos(excel_file)
