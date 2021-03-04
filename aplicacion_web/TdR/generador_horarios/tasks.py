@@ -142,7 +142,7 @@ def read_seccion_cfg(excel_file):
 
     cfg_seccion = np.array(pd.read_excel(
 
-        excel_oferta, usecols="K,E,A,L", na_filter=False, engine='openpyxl'))
+        excel_file, usecols="K,E,A,L", na_filter=False, engine='openpyxl'))
 
     seen = []
     newlist = []
