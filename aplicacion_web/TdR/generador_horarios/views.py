@@ -237,26 +237,45 @@ def get_clique(request):
 
     if request.method == "GET":
 
+        current_user = request.user.id
+
         # ojo cada vez q se suba la oferta academica se deben borrar todas las soluciones
         # guardadas de los usuarios, pero NO la tabla horario, esa no se toca hasta que el pibe
         # guarda otra solucion
-        current_user = request.user.id
+        existen_soluciones = True
+        try:
+            sol = solucion.objects.filter(to_user=current_user)
+            existen_soluciones = False
+        except:
+            pass
 
-        jsons = get_clique_max_pond(current_user)
-        for elem in jsons:
-            for elem2 in elem:
-                #print('----------------------------------------------', elem)
-                nodoSeccion = nodo_seccion.objects.filter(
-                    to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
-                print(nodoSeccion)
-                # nodo_seccion.objects.filter()
+        if existen_soluciones:
 
-                # data=   {'json_solucion': elem,
-                #            'is_horario':False,
-                #            'to_user_id': current_user
-                #        }
-                #av, created = solucion.objects.update_or_create(to_user=current_user, defaults=data)
+            jsons = get_clique_max_pond(current_user)
 
+            for elem in jsons:
+
+                data = {'json_solucion': elem,
+                        'is_horario': False,
+                        'to_user_id': current_user
+                        }
+                solucion_alumno, created = solucion.objects.update_or_create(
+                    to_user=current_user, defaults=data)
+
+                for elem2 in elem:
+
+                    nodoSeccion = nodo_seccion.objects.filter(
+                        to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
+
+                    solucion_alumno.to_nodo_seccion.add(nodoSeccion)
+            print('guardo el json', jsons)
+        else:
+            aux = 1
+            jsons = {}
+            for elem in sol:
+                jsons['Solucion'+aux] = elem
+                aux += 1
+            print('uso el json', jsons)
         # print(jsons)
         # for elem, index in jsons:
         # no entiendo como guardar se guardan las soluciones yo los guardaria en un json y era como el pert
