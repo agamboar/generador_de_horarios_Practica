@@ -7,13 +7,18 @@ import axios from 'axios';
 
 export default class CrearHorario extends Component {
 
-    state = {
-        informatica: null,
-        cfg: null
+    constructor(props) {
+        super(props);
+        this.state = {
+            informatica: null,
+            cfg: null
+        }
+
     }
 
     onChange = e => {
         this.setState({
+
             informatica: e.target.files[0]
         })
         console.log(e.target.files[0]);
