@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Navbar from './Navbar'
 import SeccionesCritico from './SeccionesCritico'
 import NotAuth from './NotAuth'
+import PriorizarSecciones2010 from "./PriorizarSecciones2010"
+import PriorizarSecciones2018 from "./PriorizarSecciones2018"
+import PriorizarSecciones2020 from "./PriorizarSecciones2020"
 
 
 
@@ -9,7 +12,9 @@ import NotAuth from './NotAuth'
 export default class PriorizarSecciones extends Component {
 
     state ={
-        ramos : null
+        ramos : null,
+        malla : 2010
+
     }
 
     onSubmit = e => {
@@ -19,42 +24,28 @@ export default class PriorizarSecciones extends Component {
     }
 
     render() {
-        return (
-            <div>
-            {(localStorage.getItem("token"))? 
-            <div>
-                <Navbar/>
-
-                <br/>
-                <br/>
+        if (localStorage.getItem("token")){
+            if (this.state.malla === 2010) {
+                return (                    
+                    
+                    <PriorizarSecciones2010 ramos = {this.state.ramos}/>                           
                 
+                )
+            }else if (this.state.malla === 2018) {
+                return (                    
+                    
+                    <PriorizarSecciones2018 ramos = {this.state.ramos}/>                           
                 
-                <p class="lead">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Ahora deberas elegir que secciónes prefieres asignarles una mayor prioridad en tu horario
-                </p>
-                <br/>
-                <br/>
+                )
+            }else{
+                return (                    
+                    
+                    <PriorizarSecciones2020 ramos = {this.state.ramos}/>                           
                 
-
-                <SeccionesCritico />
-                <SeccionesCritico />
-                {/* aqui hay que crear una funcion map que cree los multiples ramos de con la funcion SeccionesCritico*/}
-
-                <form onSubmit={this.onSubmit}>
-                <div className="container">
-                    <div className=" align-self-end">
-                        <button type="submit" className="btn btn-primary rounded-pill"> Guardar Prioridades</button>
-                    </div>
-                </div>
-                </form>
-
-                           
-
-
-            </div>
-            : <NotAuth />}
-            </div>
-        )
+                )
+            }
+        }else{
+            return (<NotAuth />)
+        }
     }
 }
