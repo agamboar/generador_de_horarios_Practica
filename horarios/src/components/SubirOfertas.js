@@ -102,7 +102,7 @@ export default class CrearHorario extends Component {
                                             </svg>
                                         </h1>
                                         <br />
-                                    </div>
+                                    
                                     <div className="card-body">
                                         <h5 className="card-title text-center">Ingreso de Oferta Académica Informática</h5>
                                         <br />
@@ -124,6 +124,7 @@ export default class CrearHorario extends Component {
                                         <button type="submit" className="btn btn-primary" onClick={(e) => this.addInformatica(e)}>Subir Oferta Informática</button>
                                         </form>
                                     </div>
+                                    </div>
 
                                 </div>
 
@@ -143,7 +144,7 @@ export default class CrearHorario extends Component {
                                             </svg>
                                         </h1>
                                         <br />
-                                    </div>
+                                    
                                     <div className="card-body">
                                         <h5 className="card-title text-center">Ingreso Oferta Académica CFG</h5>
                                         <br />
@@ -167,7 +168,7 @@ export default class CrearHorario extends Component {
                                         <button type="submit" className="btn btn-primary">Subir Oferta CFG</button>
                                         </form>
                                     </div>
-
+                                    </div>
                                 </div>
 
                             </div>
