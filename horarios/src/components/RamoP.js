@@ -15,6 +15,7 @@ export default class RamoE extends Component {
                     <div className="card border-primary">                  
                         <h6 className="card-title text-center"><font size="2">{this.props.codigo}</font></h6>
                         <p className="card-text"><font size="2">
+                            {console.log(this.props)}
                             &nbsp;&nbsp;° Nombre: {this.props.ramo}
                             <br/>
                             &nbsp;&nbsp;° Inicio Temprano: {this.props.state[0]}
