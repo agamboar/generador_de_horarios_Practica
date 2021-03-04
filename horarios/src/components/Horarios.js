@@ -10,7 +10,7 @@ class Horarios extends Component {
         
         console.log(this.props.horarios)
         // otro map ??
-        return setTimeout(() => { this.props.horarios.data.map(solucion => <Horario horario={solucion} key={solucion} />); }, 1000);
+        return setTimeout(() => { this.props.horarios.map(solucion => <Horario horario={solucion} key={solucion} />); }, 1000);
 
 
     }
