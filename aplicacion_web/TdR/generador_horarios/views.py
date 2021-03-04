@@ -68,7 +68,7 @@ def secciones(request, cod):
 def import_malla(request):
     if request.method == "POST":
         
-        print(request.FILES)
+        print("fileeee", type(request.FILES["file"]))
         excel_file = request.FILES["file"]
 
         arr_secciones = read_secciones(excel_file)
