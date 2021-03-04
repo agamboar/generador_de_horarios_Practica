@@ -178,7 +178,7 @@ class nodo_seccion(models.Model):
 class solucion(models.Model):
 
     fecha_mod = models.DateTimeField()
-    json_solucion = models.JSONField()
+    json_solucion = models.JSONField(default=dict)
 
     # esto indica una relacione one-to-one. Una solucion contiene un horario, y un horario solo puede formar parte de una solucion.
     to_horario = models.OneToOneField(
