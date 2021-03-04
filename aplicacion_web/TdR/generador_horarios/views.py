@@ -236,15 +236,23 @@ def get_PERT(request):
 def get_clique(request):
 
     if request.method == "GET":
+
         # ojo cada vez q se suba la oferta academica se deben borrar todas las soluciones
         # guardadas de los usuarios, pero NO la tabla horario, esa no se toca hasta que el pibe
         # guarda otra solucion
         current_user = request.user.id
-        # aca debe haber un if, si existen elementos en la tabla soluciones, entonces
-        # retornar esas soluciones, si no calcular el clique
-        jsons = get_clique_max_pond(current_user)
-        for elem in jsons:
-            print('----------------------------------------------', elem)
+        if solucion.json_solucion == {}:
+
+            jsons = get_clique_max_pond(current_user)
+            for elem in jsons:
+                print('----------------------------------------------', elem)
+                # nodo_seccion.objects.filter()
+
+                # data=   {'json_solucion': elem,
+                #            'is_horario':False,
+                #            'to_user_id': current_user
+                #        }
+                #av, created = solucion.objects.update_or_create(to_user=current_user, defaults=data)
 
         # print(jsons)
         # for elem, index in jsons:
