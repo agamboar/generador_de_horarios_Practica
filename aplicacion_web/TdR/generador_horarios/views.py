@@ -96,7 +96,7 @@ def import_malla(request):
                        modulo=elem[2], profesor=elem[3], to_seccion=s)
             e.save()
 
-    return render(request, 'upload.html', status=status.HTTP_201_CREATED)
+    return render(request, status=status.HTTP_201_CREATED)
 
 
 @csrf_exempt
@@ -178,7 +178,7 @@ def upload_mi_malla(request):
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
-    return render(request, status=status.HTTP_201_CREATED)
+    return render(request, 'upload.html', status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET'])
