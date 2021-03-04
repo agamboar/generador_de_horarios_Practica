@@ -94,7 +94,7 @@ export default class Horario extends Component {
     }
 
     render() {
-        console.log(this.props.index)
+        
         if (!this.state.show) {
 
             return (
@@ -223,7 +223,7 @@ export default class Horario extends Component {
                         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramos:</h5>
                         <div className="row row-cols-2">
                             
-                            {/*<RamosH ramos={this.props.horario} />*/}
+                            <RamosH ramos={this.props.horario} />
 
 
                         </div>
