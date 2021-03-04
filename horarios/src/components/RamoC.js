@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 
 export default class Ramo extends Component {
     render() {
+        console.log(this.props)
         if(this.props.state[0]===true){
         return (
             <div className="col" >  
