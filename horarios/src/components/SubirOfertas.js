@@ -38,7 +38,7 @@ export default class CrearHorario extends Component {
             data: formdata
         };
         console.log(sessionStorage.getItem("token"))
-        axios(config)
+        await axios(config)
             .then(function (response) {
                 console.log('Subida exitosa del archivo.');
             })
