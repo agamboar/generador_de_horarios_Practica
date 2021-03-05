@@ -19,8 +19,8 @@ export default class Bloque extends Component {
         return (
             <div className="col col-md-2">  
                 <div className="card border-primary text-center" style={{background: '#48DAFF'}} >      
-                    <h6 className="card-text d-inline-block text-truncate" ><font size="2">&nbsp;{this.props.ramo.nombre}</font></h6> 
-                    <p className="card-texts"><font size="2">&nbsp;  Sección {this.props.ramo.nro_seccion} </font></p> 
+                    <h6 className="card-text d-inline-block text-truncate" ><font size="2">&nbsp;    </font></h6> 
+                    <p className="card-texts"><font size="2">&nbsp;  Sección    </font></p> 
                 </div>
             </div>    
         )
