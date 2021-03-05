@@ -228,7 +228,7 @@ def get_PERT(request):
         new_dict = {}
         new_dict.update({"PERT": aux_pert})
         new_dict["malla"] = año_malla
-
+        print(new_dict)
         return Response(new_dict)
 
 
