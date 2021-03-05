@@ -75,14 +75,13 @@ export default class Horario extends Component {
 
                 })
             }
-            this.setState(
+        }
+        this.setState(
             {
                 bool: true
             }
         )
         console.log(this.state.bool)
-
-        }
     }
 
     onChange1 = () => {
