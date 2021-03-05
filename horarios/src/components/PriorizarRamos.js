@@ -25,6 +25,9 @@ export default class PriorizarRamos extends Component {
         bool: "0"
     }
 
+    
+
+
     componentDidMount = async () => {
 
         var config = {
@@ -177,17 +180,20 @@ export default class PriorizarRamos extends Component {
                         <br />
                         <br />
                         {console.log(this.state.critico)/* NO BORRAR */}
-                       <RamoCritico name='Críticos' resultado={this.state.critico} />
-                       <RamoCritico name='Prioridad 0' resultado={this.state.p0} />
-                       <RamoCritico name='Prioridad 1' resultado={this.state.p1} />
-                       <RamoCritico name='Prioridad 2' resultado={this.state.p2} />
-                       <RamoCritico name='Prioridad 3' resultado={this.state.p3} />
-                       <RamoCritico name='Prioridad 4' resultado={this.state.p4} />
-                       <RamoCritico name='Prioridad 5' resultado={this.state.p5} />
-                       <RamoCritico name='Prioridad 6' resultado={this.state.p6} />
-                       <RamoCritico name='Prioridad 7' resultado={this.state.p7} />
-                       <RamoCritico name='Prioridad 8' resultado={this.state.p8} />
-                       <RamoCritico name='Prioridad 9' resultado={this.state.p9} />
+                       <RamoCritico name='Críticos' resultado={this.state.critico} onChange0_1  = {this.criticoonChange0_1} onChange1_2  = {this.criticoonChange1_2} onChange2_3  = {this.criticoonChange2_3} onChange3_4  = {this.criticoonChange3_4} onChange4_5  = {this.criticoonChange4_5} onChange5_6  = {this.criticoonChange5_6} onChange6_7  = {this.criticoonChange6_7} onChange7_8  = {this.criticoonChange7_8} onChange8_9  = {this.criticoonChange8_9} onChange9_10 = {this.criticoonChange9_10} />
+                       <RamoCritico name='Prioridad 0' resultado={this.state.p0}    onChange0_1  = {this.p0onChange0_1} onChange1_2  = {this.p0onChange1_2} onChange2_3  = {this.p0onChange2_3} onChange3_4  = {this.p0onChange3_4} onChange4_5  = {this.p0onChange4_5} onChange5_6  = {this.p0onChange5_6} onChange6_7  = {this.p0onChange6_7} onChange7_8  = {this.p0onChange7_8} onChange8_9  = {this.p0onChange8_9} onChange9_10 = {this.p0onChange9_10}/>
+                       <RamoCritico name='Prioridad 1' resultado={this.state.p1}    onChange0_1  = {this.p1onChange0_1} onChange1_2  = {this.p1onChange1_2} onChange2_3  = {this.p1onChange2_3} onChange3_4  = {this.p1onChange3_4} onChange4_5  = {this.p1onChange4_5} onChange5_6  = {this.p1onChange5_6} onChange6_7  = {this.p1onChange6_7} onChange7_8  = {this.p1onChange7_8} onChange8_9  = {this.p1onChange8_9} onChange9_10 = {this.p1onChange9_10}/>
+                       <RamoCritico name='Prioridad 2' resultado={this.state.p2}    onChange0_1  = {this.p2onChange0_1} onChange1_2  = {this.p2onChange1_2} onChange2_3  = {this.p2onChange2_3} onChange3_4  = {this.p2onChange3_4} onChange4_5  = {this.p2onChange4_5} onChange5_6  = {this.p2onChange5_6} onChange6_7  = {this.p2onChange6_7} onChange7_8  = {this.p2onChange7_8} onChange8_9  = {this.p2onChange8_9} onChange9_10 = {this.p2onChange9_10}/>
+                       <RamoCritico name='Prioridad 3' resultado={this.state.p3}    onChange0_1  = {this.p3onChange0_1} onChange1_2  = {this.p3onChange1_2} onChange2_3  = {this.p3onChange2_3} onChange3_4  = {this.p3onChange3_4} onChange4_5  = {this.p3onChange4_5} onChange5_6  = {this.p3onChange5_6} onChange6_7  = {this.p3onChange6_7} onChange7_8  = {this.p3onChange7_8} onChange8_9  = {this.p3onChange8_9} onChange9_10 = {this.p3onChange9_10}/>
+                       <RamoCritico name='Prioridad 4' resultado={this.state.p4}    onChange0_1  = {this.p4onChange0_1} onChange1_2  = {this.p4onChange1_2} onChange2_3  = {this.p4onChange2_3} onChange3_4  = {this.p4onChange3_4} onChange4_5  = {this.p4onChange4_5} onChange5_6  = {this.p4onChange5_6} onChange6_7  = {this.p4onChange6_7} onChange7_8  = {this.p4onChange7_8} onChange8_9  = {this.p4onChange8_9} onChange9_10 = {this.p4onChange9_10}/>
+                       <RamoCritico name='Prioridad 5' resultado={this.state.p5}    onChange0_1  = {this.p5onChange0_1} onChange1_2  = {this.p5onChange1_2} onChange2_3  = {this.p5onChange2_3} onChange3_4  = {this.p5onChange3_4} onChange4_5  = {this.p5onChange4_5} onChange5_6  = {this.p5onChange5_6} onChange6_7  = {this.p5onChange6_7} onChange7_8  = {this.p5onChange7_8} onChange8_9  = {this.p5onChange8_9} onChange9_10 = {this.p5onChange9_10}/>
+                       <RamoCritico name='Prioridad 6' resultado={this.state.p6}    onChange0_1  = {this.p6onChange0_1} onChange1_2  = {this.p6onChange1_2} onChange2_3  = {this.p6onChange2_3} onChange3_4  = {this.p6onChange3_4} onChange4_5  = {this.p6onChange4_5} onChange5_6  = {this.p6onChange5_6} onChange6_7  = {this.p6onChange6_7} onChange7_8  = {this.p6onChange7_8} onChange8_9  = {this.p6onChange8_9} onChange9_10 = {this.p6onChange9_10}/>
+                       <RamoCritico name='Prioridad 7' resultado={this.state.p7}    onChange0_1  = {this.p7onChange0_1} onChange1_2  = {this.p7onChange1_2} onChange2_3  = {this.p7onChange2_3} onChange3_4  = {this.p7onChange3_4} onChange4_5  = {this.p7onChange4_5} onChange5_6  = {this.p7onChange5_6} onChange6_7  = {this.p7onChange6_7} onChange7_8  = {this.p7onChange7_8} onChange8_9  = {this.p7onChange8_9} onChange9_10 = {this.p7onChange9_10}/>
+                       <RamoCritico name='Prioridad 8' resultado={this.state.p8}    onChange0_1  = {this.p8onChange0_1} onChange1_2  = {this.p8onChange1_2} onChange2_3  = {this.p8onChange2_3} onChange3_4  = {this.p8onChange3_4} onChange4_5  = {this.p8onChange4_5} onChange5_6  = {this.p8onChange5_6} onChange6_7  = {this.p8onChange6_7} onChange7_8  = {this.p8onChange7_8} onChange8_9  = {this.p8onChange8_9} onChange9_10 = {this.p8onChange9_10}/>
+                       <RamoCritico name='Prioridad 9' resultado={this.state.p9}    onChange0_1  = {this.p9onChange0_1} onChange1_2  = {this.p9onChange1_2} onChange2_3  = {this.p9onChange2_3} onChange3_4  = {this.p9onChange3_4} onChange4_5  = {this.p9onChange4_5} onChange5_6  = {this.p9onChange5_6} onChange6_7  = {this.p9onChange6_7} onChange7_8  = {this.p9onChange7_8} onChange8_9  = {this.p9onChange8_9} onChange9_10 = {this.p9onChange9_10}/>
+
+                       
+
 
                         <form onSubmit={this.onSubmit}>
                             <div className="container">
@@ -207,4 +213,878 @@ export default class PriorizarRamos extends Component {
             </div>
         )
     }
+    ////////////////////////////////////
+    p0onChange0_1 =(e) => {
+        if(this.state.p0[1] !== null){
+        const aux = this.state.p0[0]
+        this.state.p0[0]= this.state.p0[1];
+        this.state.p0[1]= aux;
+      }
+    }
+
+    p0onChange1_2 =(e) => {
+        if(this.state.p0[2] !== null){
+        const aux = this.state.p0[1]
+        this.state.p0[1]= this.state.p0[2];
+        this.state.p0[2]= aux;
+      }
+    }
+
+    p0onChange2_3 =(e) => {
+        if(this.state.p0[3] !== null){
+        const aux = this.state.p0[2]
+        this.state.p0[2]= this.state.p0[3];
+        this.state.p0[3]= aux;
+      }
+    }
+
+    p0onChange3_4 =(e) => {
+        if(this.state.p0[4] !== null){
+        const aux = this.state.p0[3]
+        this.state.p0[3]= this.state.p0[4];
+        this.state.p0[4]= aux;
+      }
+    }
+
+    p0onChange4_5 =(e) => {
+        if(this.state.p0[5] !== null){
+        const aux = this.state.p0[4]
+        this.state.p0[4]= this.state.p0[5];
+        this.state.p0[5]= aux;
+      }
+    }
+
+    p0onChange5_6 =(e) => {
+        if(this.state.p0[6] !== null){
+        const aux = this.state.p0[5]
+        this.state.p0[5]= this.state.p0[6];
+        this.state.p0[6]= aux;
+      }
+    }
+    p0onChange6_7 =(e) => {
+        if(this.state.p0[7] !== null){
+        const aux = this.state.p0[6]
+        this.state.p0[6]= this.state.p0[7];
+        this.state.p0[7]= aux;
+      }
+    }
+
+    p0onChange7_8 =(e) => {
+        if(this.state.p0[8] !== null){
+        const aux = this.state.p0[7]
+        this.state.p0[7]= this.state.p0[8];
+        this.state.p0[8]= aux;
+      }
+    }
+
+    p0onChange8_9 =(e) => {
+        if(this.state.p0[9] !== null){
+        const aux = this.state.p0[8]
+        this.state.p0[8]= this.state.p0[9];
+        this.state.p0[9]= aux;
+      }
+    }
+
+    p0onChange9_10 =(e) => {
+        if(this.state.p0[10] !== null){
+        const aux = this.state.p0[9]
+        this.state.p0[9]= this.state.p0[10];
+        this.state.p0[10]= aux;
+      }
+    }
+    ///////////////////////////////////////////////
+
+    p1onChange0_1 =(e) => {
+        if(this.state.p1[1] !== null){
+        const aux = this.state.p1[0]
+        this.state.p1[0]= this.state.p1[1];
+        this.state.p1[1]= aux;
+      }
+    }
+
+    p1onChange1_2 =(e) => {
+        if(this.state.p1[2] !== null){
+        const aux = this.state.p1[1]
+        this.state.p1[1]= this.state.p1[2];
+        this.state.p1[2]= aux;
+      }
+    }
+
+    p1onChange2_3 =(e) => {
+        if(this.state.p1[3] !== null){
+        const aux = this.state.p1[2]
+        this.state.p1[2]= this.state.p1[3];
+        this.state.p1[3]= aux;
+      }
+    }
+
+    p1onChange3_4 =(e) => {
+        if(this.state.p1[4] !== null){
+        const aux = this.state.p1[3]
+        this.state.p1[3]= this.state.p1[4];
+        this.state.p1[4]= aux;
+      }
+    }
+
+    p1onChange4_5 =(e) => {
+        if(this.state.p1[5] !== null){
+        const aux = this.state.p1[4]
+        this.state.p1[4]= this.state.p1[5];
+        this.state.p1[5]= aux;
+      }
+    }
+
+    p1onChange5_6 =(e) => {
+        if(this.state.p1[6] !== null){
+        const aux = this.state.p1[5]
+        this.state.p1[5]= this.state.p1[6];
+        this.state.p1[6]= aux;
+      }
+    }
+    p1onChange6_7 =(e) => {
+        if(this.state.p1[7] !== null){
+        const aux = this.state.p1[6]
+        this.state.p1[6]= this.state.p1[7];
+        this.state.p1[7]= aux;
+      }
+    }
+
+    p1onChange7_8 =(e) => {
+        if(this.state.p1[8] !== null){
+        const aux = this.state.p1[7]
+        this.state.p1[7]= this.state.p1[8];
+        this.state.p1[8]= aux;
+      }
+    }
+
+    p1onChange8_9 =(e) => {
+        if(this.state.p1[9] !== null){
+        const aux = this.state.p1[8]
+        this.state.p1[8]= this.state.p1[9];
+        this.state.p1[9]= aux;
+      }
+    }
+
+    p1onChange9_10 =(e) => {
+        if(this.state.p1[10] !== null){
+        const aux = this.state.p1[9]
+        this.state.p1[9]= this.state.p1[10];
+        this.state.p1[10]= aux;
+      }
+    }
+    ///////////////////////////////////////////////
+
+    p2onChange0_1 =(e) => {
+        if(this.state.p2[1] !== null){
+        const aux = this.state.p2[0]
+        this.state.p2[0]= this.state.p2[1];
+        this.state.p2[1]= aux;
+      }
+    }
+
+    p2onChange1_2 =(e) => {
+        if(this.state.p2[2] !== null){
+        const aux = this.state.p2[1]
+        this.state.p2[1]= this.state.p2[2];
+        this.state.p2[2]= aux;
+      }
+    }
+
+    p2onChange2_3 =(e) => {
+        if(this.state.p2[3] !== null){
+        const aux = this.state.p2[2]
+        this.state.p2[2]= this.state.p2[3];
+        this.state.p2[3]= aux;
+      }
+    }
+
+    p2onChange3_4 =(e) => {
+        if(this.state.p2[4] !== null){
+        const aux = this.state.p2[3]
+        this.state.p2[3]= this.state.p2[4];
+        this.state.p2[4]= aux;
+      }
+    }
+
+    p2onChange4_5 =(e) => {
+        if(this.state.p2[5] !== null){
+        const aux = this.state.p2[4]
+        this.state.p2[4]= this.state.p2[5];
+        this.state.p2[5]= aux;
+      }
+    }
+
+    p2onChange5_6 =(e) => {
+        if(this.state.p2[6] !== null){
+        const aux = this.state.p2[5]
+        this.state.p2[5]= this.state.p2[6];
+        this.state.p2[6]= aux;
+      }
+    }
+    p2onChange6_7 =(e) => {
+        if(this.state.p2[7] !== null){
+        const aux = this.state.p2[6]
+        this.state.p2[6]= this.state.p2[7];
+        this.state.p2[7]= aux;
+      }
+    }
+
+    p2onChange7_8 =(e) => {
+        if(this.state.p2[8] !== null){
+        const aux = this.state.p2[7]
+        this.state.p2[7]= this.state.p2[8];
+        this.state.p2[8]= aux;
+      }
+    }
+
+    p2onChange8_9 =(e) => {
+        if(this.state.p2[9] !== null){
+        const aux = this.state.p2[8]
+        this.state.p2[8]= this.state.p2[9];
+        this.state.p2[9]= aux;
+      }
+    }
+
+    p2onChange9_10 =(e) => {
+        if(this.state.p2[10] !== null){
+        const aux = this.state.p2[9]
+        this.state.p2[9]= this.state.p2[10];
+        this.state.p2[10]= aux;
+      }
+    }
+
+    ///////////////////////////////////////////////
+    p3onChange0_1 =(e) => {
+        if(this.state.p3[1] !== null){
+        const aux = this.state.p3[0]
+        this.state.p3[0]= this.state.p3[1];
+        this.state.p3[1]= aux;
+      }
+    }
+
+    p3onChange1_2 =(e) => {
+        if(this.state.p3[2] !== null){
+        const aux = this.state.p3[1]
+        this.state.p3[1]= this.state.p3[2];
+        this.state.p3[2]= aux;
+      }
+    }
+
+    p3onChange2_3 =(e) => {
+        if(this.state.p3[3] !== null){
+        const aux = this.state.p3[2]
+        this.state.p3[2]= this.state.p3[3];
+        this.state.p3[3]= aux;
+      }
+    }
+
+    p3onChange3_4 =(e) => {
+        if(this.state.p3[4] !== null){
+        const aux = this.state.p3[3]
+        this.state.p3[3]= this.state.p3[4];
+        this.state.p3[4]= aux;
+      }
+    }
+
+    p3onChange4_5 =(e) => {
+        if(this.state.p3[5] !== null){
+        const aux = this.state.p3[4]
+        this.state.p3[4]= this.state.p3[5];
+        this.state.p3[5]= aux;
+      }
+    }
+
+    p3onChange5_6 =(e) => {
+        if(this.state.p3[6] !== null){
+        const aux = this.state.p3[5]
+        this.state.p3[5]= this.state.p3[6];
+        this.state.p3[6]= aux;
+      }
+    }
+    p3onChange6_7 =(e) => {
+        if(this.state.p3[7] !== null){
+        const aux = this.state.p3[6]
+        this.state.p3[6]= this.state.p3[7];
+        this.state.p3[7]= aux;
+      }
+    }
+
+    p3onChange7_8 =(e) => {
+        if(this.state.p3[8] !== null){
+        const aux = this.state.p3[7]
+        this.state.p3[7]= this.state.p3[8];
+        this.state.p3[8]= aux;
+      }
+    }
+
+    p3onChange8_9 =(e) => {
+        if(this.state.p3[9] !== null){
+        const aux = this.state.p3[8]
+        this.state.p3[8]= this.state.p3[9];
+        this.state.p3[9]= aux;
+      }
+    }
+
+    p3onChange9_10 =(e) => {
+        if(this.state.p3[10] !== null){
+        const aux = this.state.p3[9]
+        this.state.p3[9]= this.state.p3[10];
+        this.state.p3[10]= aux;
+      }
+    }
+    ///////////////////////////////////////////////
+    p4onChange0_1 =(e) => {
+        if(this.state.p4[1] !== null){
+        const aux = this.state.p4[0]
+        this.state.p4[0]= this.state.p4[1];
+        this.state.p4[1]= aux;
+      }
+    }
+
+    p4onChange1_2 =(e) => {
+        if(this.state.p4[2] !== null){
+        const aux = this.state.p4[1]
+        this.state.p4[1]= this.state.p4[2];
+        this.state.p4[2]= aux;
+      }
+    }
+
+    p4onChange2_3 =(e) => {
+        if(this.state.p4[3] !== null){
+        const aux = this.state.p4[2]
+        this.state.p4[2]= this.state.p4[3];
+        this.state.p4[3]= aux;
+      }
+    }
+
+    p4onChange3_4 =(e) => {
+        if(this.state.p4[4] !== null){
+        const aux = this.state.p4[3]
+        this.state.p4[3]= this.state.p4[4];
+        this.state.p4[4]= aux;
+      }
+    }
+
+    p4onChange4_5 =(e) => {
+        if(this.state.p4[5] !== null){
+        const aux = this.state.p4[4]
+        this.state.p4[4]= this.state.p4[5];
+        this.state.p4[5]= aux;
+      }
+    }
+
+    p4onChange5_6 =(e) => {
+        if(this.state.p4[6] !== null){
+        const aux = this.state.p4[5]
+        this.state.p4[5]= this.state.p4[6];
+        this.state.p4[6]= aux;
+      }
+    }
+    p4onChange6_7 =(e) => {
+        if(this.state.p4[7] !== null){
+        const aux = this.state.p4[6]
+        this.state.p4[6]= this.state.p4[7];
+        this.state.p4[7]= aux;
+      }
+    }
+
+    p4onChange7_8 =(e) => {
+        if(this.state.p4[8] !== null){
+        const aux = this.state.p4[7]
+        this.state.p4[7]= this.state.p4[8];
+        this.state.p4[8]= aux;
+      }
+    }
+
+    p4onChange8_9 =(e) => {
+        if(this.state.p4[9] !== null){
+        const aux = this.state.p4[8]
+        this.state.p4[8]= this.state.p4[9];
+        this.state.p4[9]= aux;
+      }
+    }
+
+    p4onChange9_10 =(e) => {
+        if(this.state.p4[10] !== null){
+        const aux = this.state.p4[9]
+        this.state.p4[9]= this.state.p4[10];
+        this.state.p4[10]= aux;
+      }
+    }
+    ///////////////////////////////////////////////
+    p5onChange0_1 =(e) => {
+        if(this.state.p5[1] !== null){
+        const aux = this.state.p5[0]
+        this.state.p5[0]= this.state.p5[1];
+        this.state.p5[1]= aux;
+      }
+    }
+
+    p5onChange1_2 =(e) => {
+        if(this.state.p5[2] !== null){
+        const aux = this.state.p5[1]
+        this.state.p5[1]= this.state.p5[2];
+        this.state.p5[2]= aux;
+      }
+    }
+
+    p5onChange2_3 =(e) => {
+        if(this.state.p5[3] !== null){
+        const aux = this.state.p5[2]
+        this.state.p5[2]= this.state.p5[3];
+        this.state.p5[3]= aux;
+      }
+    }
+
+    p5onChange3_4 =(e) => {
+        if(this.state.p5[4] !== null){
+        const aux = this.state.p5[3]
+        this.state.p5[3]= this.state.p5[4];
+        this.state.p5[4]= aux;
+      }
+    }
+
+    p5onChange4_5 =(e) => {
+        if(this.state.p5[5] !== null){
+        const aux = this.state.p5[4]
+        this.state.p5[4]= this.state.p5[5];
+        this.state.p5[5]= aux;
+      }
+    }
+
+    p5onChange5_6 =(e) => {
+        if(this.state.p5[6] !== null){
+        const aux = this.state.p5[5]
+        this.state.p5[5]= this.state.p5[6];
+        this.state.p5[6]= aux;
+      }
+    }
+    p5onChange6_7 =(e) => {
+        if(this.state.p5[7] !== null){
+        const aux = this.state.p5[6]
+        this.state.p5[6]= this.state.p5[7];
+        this.state.p5[7]= aux;
+      }
+    }
+
+    p5onChange7_8 =(e) => {
+        if(this.state.p5[8] !== null){
+        const aux = this.state.p5[7]
+        this.state.p5[7]= this.state.p5[8];
+        this.state.p5[8]= aux;
+      }
+    }
+
+    p5onChange8_9 =(e) => {
+        if(this.state.p5[9] !== null){
+        const aux = this.state.p5[8]
+        this.state.p5[8]= this.state.p5[9];
+        this.state.p5[9]= aux;
+      }
+    }
+
+    p5onChange9_10 =(e) => {
+        if(this.state.p5[10] !== null){
+        const aux = this.state.p5[9]
+        this.state.p5[9]= this.state.p5[10];
+        this.state.p5[10]= aux;
+      }
+    }
+    ///////////////////////////////////////////////
+    p6onChange0_1 =(e) => {
+        if(this.state.p6[1] !== null){
+        const aux = this.state.p6[0]
+        this.state.p6[0]= this.state.p6[1];
+        this.state.p6[1]= aux;
+      }
+    }
+
+    p6onChange1_2 =(e) => {
+        if(this.state.p6[2] !== null){
+        const aux = this.state.p6[1]
+        this.state.p6[1]= this.state.p6[2];
+        this.state.p6[2]= aux;
+      }
+    }
+
+    p6onChange2_3 =(e) => {
+        if(this.state.p6[3] !== null){
+        const aux = this.state.p6[2]
+        this.state.p6[2]= this.state.p6[3];
+        this.state.p6[3]= aux;
+      }
+    }
+
+    p6onChange3_4 =(e) => {
+        if(this.state.p6[4] !== null){
+        const aux = this.state.p6[3]
+        this.state.p6[3]= this.state.p6[4];
+        this.state.p6[4]= aux;
+      }
+    }
+
+    p6onChange4_5 =(e) => {
+        if(this.state.p6[5] !== null){
+        const aux = this.state.p6[4]
+        this.state.p6[4]= this.state.p6[5];
+        this.state.p6[5]= aux;
+      }
+    }
+
+    p6onChange5_6 =(e) => {
+        if(this.state.p6[6] !== null){
+        const aux = this.state.p6[5]
+        this.state.p6[5]= this.state.p6[6];
+        this.state.p6[6]= aux;
+      }
+    }
+    p6onChange6_7 =(e) => {
+        if(this.state.p6[7] !== null){
+        const aux = this.state.p6[6]
+        this.state.p6[6]= this.state.p6[7];
+        this.state.p6[7]= aux;
+      }
+    }
+
+    p6onChange7_8 =(e) => {
+        if(this.state.p6[8] !== null){
+        const aux = this.state.p6[7]
+        this.state.p6[7]= this.state.p6[8];
+        this.state.p6[8]= aux;
+      }
+    }
+
+    p6onChange8_9 =(e) => {
+        if(this.state.p6[9] !== null){
+        const aux = this.state.p6[8]
+        this.state.p6[8]= this.state.p6[9];
+        this.state.p6[9]= aux;
+      }
+    }
+
+    p6onChange9_10 =(e) => {
+        if(this.state.p6[10] !== null){
+        const aux = this.state.p6[9]
+        this.state.p6[9]= this.state.p6[10];
+        this.state.p6[10]= aux;
+      }
+    }
+    ///////////////////////////////////////////////
+    p7onChange0_1 =(e) => {
+        if(this.state.p7[1] !== null){
+        const aux = this.state.p7[0]
+        this.state.p7[0]= this.state.p7[1];
+        this.state.p7[1]= aux;
+      }
+    }
+
+    p7onChange1_2 =(e) => {
+        if(this.state.p7[2] !== null){
+        const aux = this.state.p7[1]
+        this.state.p7[1]= this.state.p7[2];
+        this.state.p7[2]= aux;
+      }
+    }
+
+    p7onChange2_3 =(e) => {
+        if(this.state.p7[3] !== null){
+        const aux = this.state.p7[2]
+        this.state.p7[2]= this.state.p7[3];
+        this.state.p7[3]= aux;
+      }
+    }
+
+    p7onChange3_4 =(e) => {
+        if(this.state.p7[4] !== null){
+        const aux = this.state.p7[3]
+        this.state.p7[3]= this.state.p7[4];
+        this.state.p7[4]= aux;
+      }
+    }
+
+    p7onChange4_5 =(e) => {
+        if(this.state.p7[5] !== null){
+        const aux = this.state.p7[4]
+        this.state.p7[4]= this.state.p7[5];
+        this.state.p7[5]= aux;
+      }
+    }
+
+    p7onChange5_6 =(e) => {
+        if(this.state.p7[6] !== null){
+        const aux = this.state.p7[5]
+        this.state.p7[5]= this.state.p7[6];
+        this.state.p7[6]= aux;
+      }
+    }
+    p7onChange6_7 =(e) => {
+        if(this.state.p7[7] !== null){
+        const aux = this.state.p7[6]
+        this.state.p7[6]= this.state.p7[7];
+        this.state.p7[7]= aux;
+      }
+    }
+
+    p7onChange7_8 =(e) => {
+        if(this.state.p7[8] !== null){
+        const aux = this.state.p7[7]
+        this.state.p7[7]= this.state.p7[8];
+        this.state.p7[8]= aux;
+      }
+    }
+
+    p7onChange8_9 =(e) => {
+        if(this.state.p7[9] !== null){
+        const aux = this.state.p7[8]
+        this.state.p7[8]= this.state.p7[9];
+        this.state.p7[9]= aux;
+      }
+    }
+
+    p7onChange9_10 =(e) => {
+        if(this.state.p7[10] !== null){
+        const aux = this.state.p7[9]
+        this.state.p7[9]= this.state.p7[10];
+        this.state.p7[10]= aux;
+      }
+    }
+    ///////////////////////////////////////////////
+    p8onChange0_1 =(e) => {
+        if(this.state.p8[1] !== null){
+        const aux = this.state.p8[0]
+        this.state.p8[0]= this.state.p8[1];
+        this.state.p8[1]= aux;
+      }
+    }
+
+    p8onChange1_2 =(e) => {
+        if(this.state.p8[2] !== null){
+        const aux = this.state.p8[1]
+        this.state.p8[1]= this.state.p8[2];
+        this.state.p8[2]= aux;
+      }
+    }
+
+    p8onChange2_3 =(e) => {
+        if(this.state.p8[3] !== null){
+        const aux = this.state.p8[2]
+        this.state.p8[2]= this.state.p8[3];
+        this.state.p8[3]= aux;
+      }
+    }
+
+    p8onChange3_4 =(e) => {
+        if(this.state.p8[4] !== null){
+        const aux = this.state.p8[3]
+        this.state.p8[3]= this.state.p8[4];
+        this.state.p8[4]= aux;
+      }
+    }
+
+    p8onChange4_5 =(e) => {
+        if(this.state.p8[5] !== null){
+        const aux = this.state.p8[4]
+        this.state.p8[4]= this.state.p8[5];
+        this.state.p8[5]= aux;
+      }
+    }
+
+    p8onChange5_6 =(e) => {
+        if(this.state.p8[6] !== null){
+        const aux = this.state.p8[5]
+        this.state.p8[5]= this.state.p8[6];
+        this.state.p8[6]= aux;
+      }
+    }
+    p8onChange6_7 =(e) => {
+        if(this.state.p8[7] !== null){
+        const aux = this.state.p8[6]
+        this.state.p8[6]= this.state.p8[7];
+        this.state.p8[7]= aux;
+      }
+    }
+
+    p8onChange7_8 =(e) => {
+        if(this.state.p8[8] !== null){
+        const aux = this.state.p8[7]
+        this.state.p8[7]= this.state.p8[8];
+        this.state.p8[8]= aux;
+      }
+    }
+
+    p8onChange8_9 =(e) => {
+        if(this.state.p8[9] !== null){
+        const aux = this.state.p8[8]
+        this.state.p8[8]= this.state.p8[9];
+        this.state.p8[9]= aux;
+      }
+    }
+
+    p8onChange9_10 =(e) => {
+        if(this.state.p8[10] !== null){
+        const aux = this.state.p8[9]
+        this.state.p8[9]= this.state.p8[10];
+        this.state.p8[10]= aux;
+      }
+    }
+    ///////////////////////////////////////////////
+    p9onChange0_1 =(e) => {
+        if(this.state.p9[1] !== null){
+        const aux = this.state.p9[0]
+        this.state.p9[0]= this.state.p9[1];
+        this.state.p9[1]= aux;
+      }
+    }
+
+    p9onChange1_2 =(e) => {
+        if(this.state.p9[2] !== null){
+        const aux = this.state.p9[1]
+        this.state.p9[1]= this.state.p9[2];
+        this.state.p9[2]= aux;
+      }
+    }
+
+    p9onChange2_3 =(e) => {
+        if(this.state.p9[3] !== null){
+        const aux = this.state.p9[2]
+        this.state.p9[2]= this.state.p9[3];
+        this.state.p9[3]= aux;
+      }
+    }
+
+    p9onChange3_4 =(e) => {
+        if(this.state.p9[4] !== null){
+        const aux = this.state.p9[3]
+        this.state.p9[3]= this.state.p9[4];
+        this.state.p9[4]= aux;
+      }
+    }
+
+    p9onChange4_5 =(e) => {
+        if(this.state.p9[5] !== null){
+        const aux = this.state.p9[4]
+        this.state.p9[4]= this.state.p9[5];
+        this.state.p9[5]= aux;
+      }
+    }
+
+    p9onChange5_6 =(e) => {
+        if(this.state.p9[6] !== null){
+        const aux = this.state.p9[5]
+        this.state.p9[5]= this.state.p9[6];
+        this.state.p9[6]= aux;
+      }
+    }
+    p9onChange6_7 =(e) => {
+        if(this.state.p9[7] !== null){
+        const aux = this.state.p9[6]
+        this.state.p9[6]= this.state.p9[7];
+        this.state.p9[7]= aux;
+      }
+    }
+
+    p9onChange7_8 =(e) => {
+        if(this.state.p9[8] !== null){
+        const aux = this.state.p9[7]
+        this.state.p9[7]= this.state.p9[8];
+        this.state.p9[8]= aux;
+      }
+    }
+
+    p9onChange8_9 =(e) => {
+        if(this.state.p9[9] !== null){
+        const aux = this.state.p9[8]
+        this.state.p9[8]= this.state.p9[9];
+        this.state.p9[9]= aux;
+      }
+    }
+
+    p9onChange9_10 =(e) => {
+        if(this.state.p9[10] !== null){
+        const aux = this.state.p9[9]
+        this.state.p9[9]= this.state.p9[10];
+        this.state.p9[10]= aux;
+      }
+    }
+    ///////////////////////////////////////////////
+
+    criticoonChange0_1 =(e) => {
+        if(this.state.critico[1] !== null){
+        const aux = this.state.critico[0]
+        this.state.critico[0]= this.state.critico[1];
+        this.state.critico[1]= aux;
+      }
+    }
+
+    criticoonChange1_2 =(e) => {
+        if(this.state.critico[2] !== null){
+        const aux = this.state.critico[1]
+        this.state.critico[1]= this.state.critico[2];
+        this.state.critico[2]= aux;
+      }
+    }
+
+    criticoonChange2_3 =(e) => {
+        if(this.state.critico[3] !== null){
+        const aux = this.state.critico[2]
+        this.state.critico[2]= this.state.critico[3];
+        this.state.critico[3]= aux;
+      }
+    }
+
+    criticoonChange3_4 =(e) => {
+        if(this.state.critico[4] !== null){
+        const aux = this.state.critico[3]
+        this.state.critico[3]= this.state.critico[4];
+        this.state.critico[4]= aux;
+      }
+    }
+
+    criticoonChange4_5 =(e) => {
+        if(this.state.critico[5] !== null){
+        const aux = this.state.critico[4]
+        this.state.critico[4]= this.state.critico[5];
+        this.state.critico[5]= aux;
+      }
+    }
+
+    criticoonChange5_6 =(e) => {
+        if(this.state.critico[6] !== null){
+        const aux = this.state.critico[5]
+        this.state.critico[5]= this.state.critico[6];
+        this.state.critico[6]= aux;
+      }
+    }
+    criticoonChange6_7 =(e) => {
+        if(this.state.critico[7] !== null){
+        const aux = this.state.critico[6]
+        this.state.critico[6]= this.state.critico[7];
+        this.state.critico[7]= aux;
+      }
+    }
+
+    criticoonChange7_8 =(e) => {
+        if(this.state.critico[8] !== null){
+        const aux = this.state.critico[7]
+        this.state.critico[7]= this.state.critico[8];
+        this.state.critico[8]= aux;
+      }
+    }
+
+    criticoonChange8_9 =(e) => {
+        if(this.state.critico[9] !== null){
+        const aux = this.state.critico[8]
+        this.state.critico[8]= this.state.critico[9];
+        this.state.critico[9]= aux;
+      }
+    }
+
+    criticoonChange9_10 =(e) => {
+        if(this.state.critico[10] !== null){
+        const aux = this.state.critico[9]
+        this.state.critico[9]= this.state.critico[10];
+        this.state.critico[10]= aux;
+      }
+    }
+    ///////////////////////////////////////////////
 }
