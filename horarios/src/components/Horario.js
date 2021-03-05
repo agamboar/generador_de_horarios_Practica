@@ -69,7 +69,7 @@ export default class Horario extends Component {
                 const mov = i;
                 for (let j = 0; j < this.props.horario[mov].eventos.length; j++) {
                     const mov3 =this.props.horario[i].eventos[j].bloque;
-                    console.log(this.state.horario,"hola")
+                    console.log(this.props.horario,"hola")
                     this.setState({
                         [mov3]: this.props.horario[i]
     
