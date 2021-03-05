@@ -425,7 +425,7 @@ def get_nodo_seccion(request):
     ns = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user)
 
     for elem in ns:
-        print(ns)
+        print(elem)
         json['id'] = elem.id
         json['ss'] = elem.ss
         json['codigo'] = asignatura_real.objects.filter(
