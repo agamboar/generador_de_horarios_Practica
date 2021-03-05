@@ -224,6 +224,7 @@ def get_PERT(request):
         else:
             print("uso el json")
             aux_pert = avance_academico_user.json_avance
+            print(aux_pert)
 
         new_dict = {}
         new_dict.update({"PERT": aux_pert})
