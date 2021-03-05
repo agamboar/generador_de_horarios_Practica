@@ -34,12 +34,12 @@ class eventoSerializer(serializers.ModelSerializer):
 
 
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
-    #asignatura_real = asignaturaSerializer()
+    asignatura_real = asignaturaSerializer()
     nombre_asignatura = serializers.SerializerMethodField()
 
     def get_nombre_asignatura(self, obj):
         try:
-            nombre_asignatura = generador_horarios.asignatura_real.objects.get(codigo=obj.to_asignatura_real).nombre
+            nombre_asignatura = asignatura_real.objects.get(codigo=obj.to_asignatura_real).nombre
             return asignaturaSerializer(nombre_asignatura).data #data ?
         except  Exception as e:
             return {}
