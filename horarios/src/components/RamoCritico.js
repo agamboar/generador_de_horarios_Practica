@@ -8,7 +8,7 @@ import RamoPrioridad from './RamoPrioridad'
 export default class RamoCritico extends Component {
 
     state ={
-      s1: true,
+      s1: null,
       s2: null,
       s3: null,
       s4: null,
@@ -31,6 +31,69 @@ export default class RamoCritico extends Component {
       ps10: 2,
       ps11: 1
 
+    }
+
+    componentDidMount = async () => { 
+
+      for (let i = 0; i < this.props.resultado.length; i++) {
+        const mov = i;
+
+        if(mov ===0){
+          this.setState({
+            s1: this.props.resultado[mov]
+          })
+        }
+        if(mov ===1){
+          this.setState({
+            s2: this.props.resultado[mov]
+          })
+        }
+        if(mov ===2){
+          this.setState({
+            s3: this.props.resultado[mov]
+          })
+        }
+        if(mov ===3){
+          this.setState({
+            s4: this.props.resultado[mov]
+          })
+        }
+        if(mov ===4){
+          this.setState({
+            s5: this.props.resultado[mov]
+          })
+        }
+        if(mov ===5){
+          this.setState({
+            s6: this.props.resultado[mov]
+          })
+        }
+        if(mov ===6){
+          this.setState({
+            s7: this.props.resultado[mov]
+          })
+        }
+        if(mov ===7){
+          this.setState({
+            s8: this.props.resultado[mov]
+          })
+        }
+        if(mov ===8){
+          this.setState({
+            s9: this.props.resultado[mov]
+          })
+        }
+        if(mov ===9){
+          this.setState({
+            s10: this.props.resultado[mov]
+          })
+        }
+        if(mov ===10){
+          this.setState({
+            s11: this.props.resultado[mov]
+          })
+        }
+      }
     }
 
     render() {
