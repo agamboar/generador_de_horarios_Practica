@@ -84,10 +84,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'TdR.urls'
-SECURE_BROWSER_XSS_FILTER = True
+
 LANGUAGE_COOKIE_HTTPONLY = True
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 TEMPLATES = [
     {
@@ -162,7 +167,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-CSRF_COOKIE_SECURE = True
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
