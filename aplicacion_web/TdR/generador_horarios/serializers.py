@@ -48,7 +48,7 @@ class nodoAsignaturaSerializer(serializers.ModelSerializer):
         model = nodo_asignatura
         #nombre = generador_horarios.asignatura_real.objects.get(codigo='to_asignatura_real').nombre
         fields = ['holgura', 'ef', 'es', 'ls', 'kk',
-                  'lf', 'critico', 'to_asignatura_real','nombre_asignatura']
+                  'lf', 'critico', 'to_asignatura_real','nombre_asignatura','asignatura_real']
 
 
 class nodoSeccionSerializer(serializers.ModelSerializer):
