@@ -79,8 +79,7 @@ export default class Horario extends Component {
     componentDidMount = () => {
          console.log(this.state)
         
-        this.forceUpdate();
-        console.log(this.state)
+
         this.setState(
             {
                 bool: true
@@ -88,6 +87,8 @@ export default class Horario extends Component {
         )
         this.fillSchedule
         console.log(this.state.bool)
+        this.forceUpdate();
+        console.log(this.state)
     }
 
     onChange = () => {
