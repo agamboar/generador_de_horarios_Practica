@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 
 export default class Bloque extends Component {
     render() {
+        console.log(this.props)
         if(this.props.ramo === null){
         return (
             <div className="col col-md-2">  
