@@ -13,6 +13,17 @@ class asignaturaSerializer(serializers.ModelSerializer):
         model = asignatura_real
         fields = '__all__'
 
+class asignaturaSerializer_codigo(serializers.ModelSerializer):
+    class Meta:
+        model = asignatura_real
+        fields = ['codigo']
+
+class asignaturaSerializer_nombre(serializers.ModelSerializer):
+    class Meta:
+        model = asignatura_real
+        fields = ['nombre']
+
+
 
 class mallaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -35,20 +46,15 @@ class eventoSerializer(serializers.ModelSerializer):
 
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
     
-    to_asignatura_real = asignaturaSerializer(queryset,many=True)
-    print(to_asignatura_real)
+    to_asignatura_real = asignaturaSerializer_nombre(many=True)
+    
 
     class Meta:
         model = nodo_asignatura
         #nombre = generador_horarios.asignatura_real.objects.get(codigo='to_asignatura_real').nombre
         fields = ['holgura', 'ef', 'es', 'ls', 'kk', 'lf', 'critico', 'to_asignatura_real']
 
-    def get_nombre_asignatura(self, obj):
-        try:
-            nombre_asignatura = asignatura_real.objects.get(codigo=obj.to_asignatura_real).nombre
-            return nombre_asignatura
-        except  Exception as e:
-            return {}
+    
 
 
 class nodoSeccionSerializer(serializers.ModelSerializer):
