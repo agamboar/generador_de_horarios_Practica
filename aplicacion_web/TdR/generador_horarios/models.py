@@ -166,7 +166,7 @@ class nodo_seccion(models.Model):
 
 class solucion(models.Model):
 
-    fecha_mod = models.DateTimeField()
+    fecha_mod = models.DateTimeField(auto_now=True)
     json_solucion = models.JSONField(default=list)
     is_horario = models.BooleanField(default=False)
 
