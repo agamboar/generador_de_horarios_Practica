@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 
 export default class Bloque extends Component {
     render() {
+        this.forceUpdate();
         console.log(this.props)
         if(this.props.ramo === null){
         return (
