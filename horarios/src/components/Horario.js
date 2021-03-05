@@ -63,7 +63,6 @@ export default class Horario extends Component {
            }
         */
     fillSchedule = () => {
-        if(this.state.bool === true){
             for (let i = 0; i < this.props.horario.length; i++) {
                 for (let j = 0; j < this.props.horario[i].eventos.length; j++) {
                     console.log(this.props.horario[i],"hola")
@@ -72,7 +71,7 @@ export default class Horario extends Component {
     
                     })
                 }
-            }
+            
         }
     };
     
