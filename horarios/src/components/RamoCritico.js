@@ -47,7 +47,7 @@ export default class RamoCritico extends Component {
             </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
-            <Card.Body>
+            <Card.Body>            
             {console.log(this.props.resultado)}  
             {console.log(this.props.resultado[0])}
             <RamoPrioridad ramo={this.props.resultado[0]} onChangeDOWN={this.onChange1_2}/>
