@@ -33,68 +33,7 @@ export default class RamoCritico extends Component {
 
     }
 
-    componentDidMount = async () => { 
-
-      for (let i = 0; i < this.props.resultado.length; i++) {
-        const mov = i;
-
-        if(mov ===0){
-          this.setState({
-            s1: this.props.resultado[mov]
-          })
-        }
-        if(mov ===1){
-          this.setState({
-            s2: this.props.resultado[mov]
-          })
-        }
-        if(mov ===2){
-          this.setState({
-            s3: this.props.resultado[mov]
-          })
-        }
-        if(mov ===3){
-          this.setState({
-            s4: this.props.resultado[mov]
-          })
-        }
-        if(mov ===4){
-          this.setState({
-            s5: this.props.resultado[mov]
-          })
-        }
-        if(mov ===5){
-          this.setState({
-            s6: this.props.resultado[mov]
-          })
-        }
-        if(mov ===6){
-          this.setState({
-            s7: this.props.resultado[mov]
-          })
-        }
-        if(mov ===7){
-          this.setState({
-            s8: this.props.resultado[mov]
-          })
-        }
-        if(mov ===8){
-          this.setState({
-            s9: this.props.resultado[mov]
-          })
-        }
-        if(mov ===9){
-          this.setState({
-            s10: this.props.resultado[mov]
-          })
-        }
-        if(mov ===10){
-          this.setState({
-            s11: this.props.resultado[mov]
-          })
-        }
-      }
-    }
+    
 
     render() {
 
@@ -110,17 +49,17 @@ export default class RamoCritico extends Component {
           <Accordion.Collapse eventKey="0">
             <Card.Body>
             {console.log(this.props)}
-            <RamoPrioridad ramo={this.state.s1} onChangeDOWN={this.onChange1_2}/>
-            <RamoPrioridad ramo={this.state.s2} onChangeDOWN={this.onChange2_3} onChangeUP={this.onChange1_2} />
-            <RamoPrioridad ramo={this.state.s3} onChangeDOWN={this.onChange3_4} onChangeUP={this.onChange2_3} />
-            <RamoPrioridad ramo={this.state.s4} onChangeDOWN={this.onChange4_5} onChangeUP={this.onChange3_4} />
-            <RamoPrioridad ramo={this.state.s5} onChangeDOWN={this.onChange5_6} onChangeUP={this.onChange4_5} />
-            <RamoPrioridad ramo={this.state.s6} onChangeDOWN={this.onChange6_7} onChangeUP={this.onChange5_6} />
-            <RamoPrioridad ramo={this.state.s7} onChangeDOWN={this.onChange7_8} onChangeUP={this.onChange6_7} />
-            <RamoPrioridad ramo={this.state.s8} onChangeDOWN={this.onChange8_9} onChangeUP={this.onChange7_8} />
-            <RamoPrioridad ramo={this.state.s9} onChangeDOWN={this.onChange9_10} onChangeUP={this.onChange8_9} />
-            <RamoPrioridad ramo={this.state.s10} onChangeDOWN={this.onChange10_11} onChangeUP={this.onChange9_10} />
-            <RamoPrioridad ramo={this.state.s11} onChangeUP={this.onChange10_11}/>
+            <RamoPrioridad ramo={this.props.resultado[0]} onChangeDOWN={this.onChange1_2}/>
+            <RamoPrioridad ramo={this.props.resultado[1]} onChangeDOWN={this.onChange2_3} onChangeUP={this.onChange1_2} />
+            <RamoPrioridad ramo={this.props.resultado[2]} onChangeDOWN={this.onChange3_4} onChangeUP={this.onChange2_3} />
+            <RamoPrioridad ramo={this.props.resultado[3]} onChangeDOWN={this.onChange4_5} onChangeUP={this.onChange3_4} />
+            <RamoPrioridad ramo={this.props.resultado[4]} onChangeDOWN={this.onChange5_6} onChangeUP={this.onChange4_5} />
+            <RamoPrioridad ramo={this.props.resultado[5]} onChangeDOWN={this.onChange6_7} onChangeUP={this.onChange5_6} />
+            <RamoPrioridad ramo={this.props.resultado[6]} onChangeDOWN={this.onChange7_8} onChangeUP={this.onChange6_7} />
+            <RamoPrioridad ramo={this.props.resultado[7]} onChangeDOWN={this.onChange8_9} onChangeUP={this.onChange7_8} />
+            <RamoPrioridad ramo={this.props.resultado[8]} onChangeDOWN={this.onChange9_10} onChangeUP={this.onChange8_9} />
+            <RamoPrioridad ramo={this.props.resultado[9]} onChangeDOWN={this.onChange10_11} onChangeUP={this.onChange9_10} />
+            <RamoPrioridad ramo={this.props.resultado[10]} onChangeUP={this.onChange10_11}/>
               
             </Card.Body>
           </Accordion.Collapse>
