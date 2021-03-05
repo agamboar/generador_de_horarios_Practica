@@ -81,6 +81,8 @@ export default class Horario extends Component {
     componentDidMount = () => {
       // this.fillSchedule();
        console.log(this.props)
+       console.log(this.props.horario)
+       console.log(this.props.horario[0])
     }
 
     onChange1 = () => {
