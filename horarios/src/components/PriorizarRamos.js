@@ -11,7 +11,7 @@ export default class PriorizarRamos extends Component {
 
     state = {
         ramos: null,
-        critico: [null, null, null, null, null, null, null, null, null, null, null],
+        critico: [null, null, null, null, null, null, null, null, null, null, null], 
         p0: [null, null, null, null, null, null, null, null, null, null, null],
         p1: [null, null, null, null, null, null, null, null, null, null, null],
         p2: [null, null, null, null, null, null, null, null, null, null, null],
@@ -144,6 +144,7 @@ export default class PriorizarRamos extends Component {
                 }
             }
         }
+        console.log(this.state.critico)
     }
 
     onSubmit = e => {
