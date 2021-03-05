@@ -21,8 +21,7 @@ export default class PriorizarRamos extends Component {
         p6: [null, null, null, null, null, null, null, null, null, null, null],
         p7: [null, null, null, null, null, null, null, null, null, null, null],
         p8: [null, null, null, null, null, null, null, null, null, null, null],
-        p9: [null, null, null, null, null, null, null, null, null, null, null],
-        bool: false
+        p9: [null, null, null, null, null, null, null, null, null, null, null]
     }
 
     componentDidMount = async () => {
