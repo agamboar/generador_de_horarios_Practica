@@ -102,6 +102,7 @@ export default class Horario extends Component {
 
             return (
                 <div className="container" >
+                    {this.fillSchedule}
                     <div className="card border-primary text-center custom2">
                         <br />
                         <div className="row row-cols-10">
@@ -205,7 +206,6 @@ export default class Horario extends Component {
                 <div className="container " >
                     <div className="card border-primary border-5 custom2 ">
                         {console.log(this.state.bool)/* NO BORRAR */}
-                        {this.fillSchedule}
                         &nbsp;
                         <div className="row row-cols-5">
                             <div className="col"> </div>
