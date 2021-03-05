@@ -177,18 +177,17 @@ export default class PriorizarRamos extends Component {
                         <br />
                         <br />
                         {console.log(this.state.critico)/* NO BORRAR */}
-                       {this.state.bool && console.log("hola toy funcionando")}
-                       {this.state.bool && <RamoCritico name='Críticos' resultado={this.state.critico} />}
-                       {this.state.bool && <RamoCritico name='Prioridad 0' resultado={this.state.p0} />}
-                       {this.state.bool && <RamoCritico name='Prioridad 1' resultado={this.state.p1} />}
-                       {this.state.bool && <RamoCritico name='Prioridad 2' resultado={this.state.p2} />}
-                       {this.state.bool && <RamoCritico name='Prioridad 3' resultado={this.state.p3} />}
-                       {this.state.bool && <RamoCritico name='Prioridad 4' resultado={this.state.p4} />}
-                       {this.state.bool && <RamoCritico name='Prioridad 5' resultado={this.state.p5} />}
-                       {this.state.bool && <RamoCritico name='Prioridad 6' resultado={this.state.p6} />}
-                       {this.state.bool && <RamoCritico name='Prioridad 7' resultado={this.state.p7} />}
-                       {this.state.bool && <RamoCritico name='Prioridad 8' resultado={this.state.p8} />}
-                       {this.state.bool && <RamoCritico name='Prioridad 9' resultado={this.state.p9} />}
+                       <RamoCritico name='Críticos' resultado={this.state.critico} />
+                       <RamoCritico name='Prioridad 0' resultado={this.state.p0} />
+                       <RamoCritico name='Prioridad 1' resultado={this.state.p1} />
+                       <RamoCritico name='Prioridad 2' resultado={this.state.p2} />
+                       <RamoCritico name='Prioridad 3' resultado={this.state.p3} />
+                       <RamoCritico name='Prioridad 4' resultado={this.state.p4} />
+                       <RamoCritico name='Prioridad 5' resultado={this.state.p5} />
+                       <RamoCritico name='Prioridad 6' resultado={this.state.p6} />
+                       <RamoCritico name='Prioridad 7' resultado={this.state.p7} />
+                       <RamoCritico name='Prioridad 8' resultado={this.state.p8} />
+                       <RamoCritico name='Prioridad 9' resultado={this.state.p9} />
 
                         <form onSubmit={this.onSubmit}>
                             <div className="container">
