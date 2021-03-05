@@ -193,10 +193,7 @@ export default class Horario extends Component {
                         <button type="button" className="btn btn-primary" onClick={this.onChange2}> Ver Horario</button>
                     </div>
 
-                    {console.log(this.state)}
-                    <br />
-                    <br />
-                    
+                    {console.log(this.state)}                    
                 </div>
 
 
@@ -231,10 +228,7 @@ export default class Horario extends Component {
 
                         
                         <button type="button" className="btn btn-primary" onClick={this.onChange1}> Ver Horario Graficamente</button>                        
-                    </div>
-                    <br />
-                    <br />
-                    
+                    </div>                   
                 </div>
 
             )
