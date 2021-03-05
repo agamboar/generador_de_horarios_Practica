@@ -53,7 +53,7 @@ export default class HPosibles extends Component {
                         <br />
                         <br />
                         <div class="d-flex justify-content-center">
-                            <h1 class="display-6">Un Momento, Se esta calculando tús horarios</h1>
+                            <h1 class="display-6">Un Momento, Se están calculando tús horarios</h1>
                         </div>
                         <br />
                         <br />
