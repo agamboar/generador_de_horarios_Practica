@@ -428,11 +428,12 @@ def get_nodo_seccion(request):
 
         json['id'] = elem.id
         json['ss'] = elem.ss
-        print(json)
+
         json['codigo'] = asignatura_real.objects.filter(
             nodo_asignatura__nodo_seccion__id=elem.id)[0].codigo
         json['nombre'] = asignatura_real.objects.filter(
             nodo_asignatura__nodo_seccion__id=elem.id)[0].nombre
+        print(json)
         json_array.append(json)
 
     return JsonResponse(json_array, safe=False, status=status.HTTP_200_OK)
