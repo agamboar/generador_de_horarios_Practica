@@ -40,7 +40,7 @@ class nodoAsignaturaSerializer(serializers.ModelSerializer):
     def get_nombre_asignatura(self, obj):
         print(self, obj)
         try:
-            nombre_asignatura = asignatura_real.objects.get(codigo=obj.to_asignatura_real).nombre
+            nombre_asignatura = asignatura_real.objects.get(codigo=obj.to_asignatura_real[0]).nombre
             return nombre_asignatura
         except  Exception as e:
             return {}
