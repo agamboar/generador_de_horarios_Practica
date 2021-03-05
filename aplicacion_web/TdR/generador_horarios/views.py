@@ -427,13 +427,19 @@ def get_nodo_seccion(request):
 
     for elem in ns:
         json = {}
+
+        codigo_asignatura = asignatura_real.objects.filter(
+            nodo_asignatura__nodo_seccion__id=elem.id)[0].codigo
+        nombre_asignatura = asignatura_real.objects.filter(
+            nodo_asignatura__nodo_seccion__id=elem.id)[0].nombre
+
+        if nombre_asignatura[0:3] == 'CFG':
+            continue
+
+        json['codigo'] = codigo_asignatura
+        json['nombre'] = nombre_asignatura
         json['id'] = elem.id
         json['ss'] = elem.ss
-
-        json['codigo'] = asignatura_real.objects.filter(
-            nodo_asignatura__nodo_seccion__id=elem.id)[0].codigo
-        json['nombre'] = asignatura_real.objects.filter(
-            nodo_asignatura__nodo_seccion__id=elem.id)[0].nombre
 
         print(json)
         json_array.append(json)
