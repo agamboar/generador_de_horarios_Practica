@@ -3,17 +3,7 @@ import { Accordion, Card, Button } from 'react-bootstrap';
 import RamoPrioridad from './RamoPrioridad'
 
 /*
-ramo={this.props.resultado[0]} 
-ramo={this.props.resultado[1]} 
-ramo={this.props.resultado[2]} 
-ramo={this.props.resultado[3]} 
-ramo={this.props.resultado[4]} 
-ramo={this.props.resultado[5]} 
-ramo={this.props.resultado[6]} 
-ramo={this.props.resultado[7]} 
-ramo={this.props.resultado[8]} 
-ramo={this.props.resultado[9]} 
-ramo={this.props.resultado[10]}
+
 */
 export default class RamoCritico extends Component {
 
@@ -43,10 +33,6 @@ export default class RamoCritico extends Component {
 
     }
 
-    componentDidMount(){
-      console.log(this.props, "primero")
-      console.log(this.props, "segundo")
-    }
 
     render() {
 
@@ -61,17 +47,17 @@ export default class RamoCritico extends Component {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body>            
-            <RamoPrioridad onChangeDOWN={this.onChange1_2}/>
-            <RamoPrioridad onChangeDOWN={this.onChange2_3} onChangeUP={this.onChange1_2} />
-            <RamoPrioridad onChangeDOWN={this.onChange3_4} onChangeUP={this.onChange2_3} />
-            <RamoPrioridad onChangeDOWN={this.onChange4_5} onChangeUP={this.onChange3_4} />
-            <RamoPrioridad onChangeDOWN={this.onChange5_6} onChangeUP={this.onChange4_5} />
-            <RamoPrioridad onChangeDOWN={this.onChange6_7} onChangeUP={this.onChange5_6} />
-            <RamoPrioridad onChangeDOWN={this.onChange7_8} onChangeUP={this.onChange6_7} />
-            <RamoPrioridad onChangeDOWN={this.onChange8_9} onChangeUP={this.onChange7_8} />
-            <RamoPrioridad onChangeDOWN={this.onChange9_10} onChangeUP={this.onChange8_9} />
-            <RamoPrioridad onChangeDOWN={this.onChange10_11} onChangeUP={this.onChange9_10} />
-            <RamoPrioridad  onChangeUP={this.onChange10_11}/>
+            <RamoPrioridad ramo={this.props.resultado[0]}  onChangeDOWN={this.onChange1_2}/>
+            <RamoPrioridad ramo={this.props.resultado[1]}  onChangeDOWN={this.onChange2_3} onChangeUP={this.onChange1_2} />
+            <RamoPrioridad ramo={this.props.resultado[2]}  onChangeDOWN={this.onChange3_4} onChangeUP={this.onChange2_3} />
+            <RamoPrioridad ramo={this.props.resultado[3]}  onChangeDOWN={this.onChange4_5} onChangeUP={this.onChange3_4} />
+            <RamoPrioridad ramo={this.props.resultado[4]}  onChangeDOWN={this.onChange5_6} onChangeUP={this.onChange4_5} />
+            <RamoPrioridad ramo={this.props.resultado[5]}  onChangeDOWN={this.onChange6_7} onChangeUP={this.onChange5_6} />
+            <RamoPrioridad ramo={this.props.resultado[6]}  onChangeDOWN={this.onChange7_8} onChangeUP={this.onChange6_7} />
+            <RamoPrioridad ramo={this.props.resultado[7]}  onChangeDOWN={this.onChange8_9} onChangeUP={this.onChange7_8} />
+            <RamoPrioridad ramo={this.props.resultado[8]}  onChangeDOWN={this.onChange9_10} onChangeUP={this.onChange8_9} />
+            <RamoPrioridad ramo={this.props.resultado[9]}  onChangeDOWN={this.onChange10_11} onChangeUP={this.onChange9_10} />
+            <RamoPrioridad ramo={this.props.resultado[10]} onChangeUP={this.onChange10_11}/>
               
             </Card.Body>
           </Accordion.Collapse>
