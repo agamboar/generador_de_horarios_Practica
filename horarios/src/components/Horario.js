@@ -65,7 +65,7 @@ export default class Horario extends Component {
 
     
     componentDidMount = () => {
-        for (let i = 0; i < this.props.horario.length; i++) {
+        /*for (let i = 0; i < this.props.horario.length; i++) {
             const mov = i;
             for (let j = 0; j < this.props.horario[mov].eventos.length; j++) {
                 const mov3 =this.props.horario[i].eventos[j].bloque;
@@ -75,7 +75,7 @@ export default class Horario extends Component {
 
                 })
             }
-        }
+        }*/
         this.setState(
             {
                 bool: true
@@ -84,17 +84,13 @@ export default class Horario extends Component {
         console.log(this.state.bool)
     }
 
-    onChange1 = () => {
-        this.setState({
-            show: false
-        })
+    onChange = () => {
+        this.setState(prevState =>({
+            show: !prevState.show
+        }))
     }
 
-    onChange2 = () => {
-        this.setState({
-            show: true
-        })
-    }
+
 
     render() {
         
@@ -109,7 +105,7 @@ export default class Horario extends Component {
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <div className="col">
 
-                                <button type="button" className="btn btn-primary" onClick={this.onChange2}>
+                                <button type="button" className="btn btn-primary" onClick={this.onChange}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-arrow-return-left" viewBox="0 0 16 16">
                                         <path fillRule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
                                     </svg>
@@ -227,7 +223,7 @@ export default class Horario extends Component {
                         </div>
 
                         
-                        <button type="button" className="btn btn-primary position-absolute bottom-0 end-50" onClick={this.onChange1}> Ver Horario Graficamente</button>                        
+                        <button type="button" className="btn btn-primary position-absolute bottom-0 end-50" onClick={this.onChange}> Ver Horario Graficamente</button>                        
                     </div>    
                     <br />               
                 </div>
