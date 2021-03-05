@@ -213,14 +213,13 @@ def get_PERT(request):
 
             get_secciones_disponibles(current_user)
 
-            #ramos_disponibles = nodo_asignatura.objects.filter(
-            #    to_user__id=current_user, to_asignatura_real__tipo=0)
-            ramos_disponibles = list(nodo_asignatura.objects.filter(to_user__id=current_user, to_asignatura_real__tipo=0).values("kk","ef","es","ls","lf","cc","uu","critico","to_asignatura_real","to_asignatura_real__nombre"))
+            ramos_disponibles = nodo_asignatura.objects.filter(
+                to_user__id=current_user, to_asignatura_real__tipo=0)
 
-            #serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
-            aux_pert = ramos_disponibles
+            serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
+            aux_pert = serializer.data
             print("guardo el json")
-            avance_academico_user.json_avance = ramos_disponibles
+            avance_academico_user.json_avance = serializer.data
             avance_academico_user.save()
         else:
             print("uso el json")
