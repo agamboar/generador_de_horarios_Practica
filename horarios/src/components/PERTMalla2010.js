@@ -20,6 +20,7 @@ export default class Malla2010 extends Component {
     }
 
     componentDidMount = () => {
+        console.log(this.props.ramos)
         for (let i = 0; i < this.props.ramos.length; i++) {
             const mov = i;
             const mov2 = this.props.ramos[mov].to_asignatura_real[0];
