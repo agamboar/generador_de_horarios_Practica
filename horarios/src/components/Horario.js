@@ -63,9 +63,8 @@ export default class Horario extends Component {
            }
         */
     fillSchedule = () => {
-        if(this.state.bool !== true){
+        if(this.state.bool === true){
             console.log("hola")
-        }else{
             for (let i = 0; i < this.props.horario.length; i++) {
                 const mov = i;
                 for (let j = 0; j < this.props.horario[mov].eventos.length; j++) {
