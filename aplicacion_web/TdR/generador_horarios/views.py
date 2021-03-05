@@ -420,6 +420,7 @@ def get_nodo_seccion(request):
     current_user = request.user
 
     json = {}
+    json_array = []
 
     ns = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user)
 
@@ -431,8 +432,9 @@ def get_nodo_seccion(request):
             nodo_asignatura__nodo_seccion__id=elem.id)[0].codigo
         json['nombre'] = asignatura_real.objects.filter(
             nodo_asignatura__nodo_seccion__id=elem.id)[0].nombre
+        json_array.append(json)
 
-    return JsonResponse(json, safe=False, status=status.HTTP_200_OK)
+    return JsonResponse(json_array, safe=False, status=status.HTTP_200_OK)
 
 
 def csrf(request):
