@@ -31,8 +31,18 @@ def get_clique_max_pond(current_user):
             elif elem['to_seccion__evento__tipo'][0] == 'L':
                 aux = 'LABORATORIO'
 
+            prof = elem['to_seccion__evento__profesor']
+
+            if prof != '':
+                a, b = 'ÁÉÍÓÚÑáéíóúñ', 'AEIOUNaeioun'
+                trans = str.maketrans(a, b)
+                prof_modificado = prof.translate(trans)
+            else:
+                prof_modificado = ''
+
             evento = {'bloque': elem['to_seccion__evento__dia'] + '-' + elem['to_seccion__evento__modulo'][0:2],
-                      'tipo': aux, 'profesor': elem['to_seccion__evento__profesor']}
+                      'tipo': aux, 'profesor': prof_modificado}
+
         except:
             evento = '---'
 
