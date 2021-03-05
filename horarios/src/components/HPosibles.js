@@ -8,7 +8,8 @@ import NotAuth from './NotAuth'
 export default class HPosibles extends Component {
 
     state = {
-        Horarios: null
+        Horarios: null,
+        bool: "0"
     }
 
     componentDidMount = async () => {
@@ -27,7 +28,12 @@ export default class HPosibles extends Component {
         this.setState({
             Horarios: horarios_posibles.data
         })
-
+        this.setState(
+            {
+                bool: true
+            }
+        )
+        console.log(this.state.bool)
     }
 
     render() {
@@ -98,7 +104,7 @@ export default class HPosibles extends Component {
                 </p>
                         <br />
                         <br />
-
+                        {console.log(this.state.Horarios)/* NO BORRAR */}
                         <Horarios horarios={this.state.Horarios} />
 
                         <br />
