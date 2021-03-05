@@ -20,6 +20,7 @@ from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 import json
 from datetime import date
 import datetime
+import pytz
 
 from .serializers import *
 from .models import *
@@ -250,12 +251,13 @@ def get_clique(request):
             sol = solucion.objects.filter(to_user=current_user)
             if sol == []:
                 no_existen_soluciones = False
+                tz = pytz.timezone('UTC')
+                current_timestamp = datetime.datetime.now(tz)
+
+                diff = current_timestamp-sol[0].fecha_mod
+                segundos = diff.seconds
         except:
             pass
-
-        current_timestamp = datetime.datetime.now()
-        diff = current_timestamp-sol[0].fecha_mod
-        segundos = diff.seconds
 
         if no_existen_soluciones:
 
