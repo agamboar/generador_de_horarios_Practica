@@ -84,7 +84,8 @@ export default class Horario extends Component {
        console.log(this.props.horario)
        console.log(this.props.horario[0])
        console.log(this.props.horario[0].eventos)
-       console.log(this.props.horario[0].eventos.bloque)
+       console.log(this.props.horario[0].eventos[0])
+       console.log(this.props.horario[0].eventos[0].bloque)
     }
 
     onChange1 = () => {
