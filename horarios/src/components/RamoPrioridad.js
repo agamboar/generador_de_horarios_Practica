@@ -9,7 +9,8 @@ export default class RamoPrioridad extends Component {
         <div className = 'card '>
           <div className = 'row row-cols-2 mt-3' >
               <div className = 'col-1'></div>
-              <div className = 'col-9 '><h5> Ramo: {this.props.nombre} </h5> Código: {this.props.to_asignatura_real[0]}</div>
+              {console.log(this.props)}
+              <div className = 'col-9 '><h5> Ramo: {this.props.nombre} </h5> Código: {this.props.codigo}</div>
               <div className = 'col-auto'> 
                 <div type="button" className="btn" onClick = {this.props.onChangeUP}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
