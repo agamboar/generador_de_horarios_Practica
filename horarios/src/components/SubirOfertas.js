@@ -34,7 +34,7 @@ export default class CrearHorario extends Component {
         const data = new FormData()
         console.log(this.state.selectedFile)
         data.append('file', this.state.selectedFile)
-        axios.post("https://200.14.84.238:443/upload/", data).then(res => { // then print response status
+        axios.post("http://200.14.84.238:443/upload/", data).then(res => { // then print response status
             console.log(res.statusText)
         })
     }
@@ -42,7 +42,7 @@ export default class CrearHorario extends Component {
         const data = new FormData()
         console.log(this.state.selectedFile_cfg)
         data.append('excel_file', this.state.selectedFile_cfg)
-        axios.post("https://200.14.84.238:443/uploadcfg/", data).then(res => { // then print response status
+        axios.post("http://200.14.84.238:443/uploadcfg/", data).then(res => { // then print response status
             console.log(res.statusText)
         })
     }

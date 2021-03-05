@@ -20,7 +20,7 @@ export default class PERT extends Component {
 
         var config = {
             method: 'get',
-            url: 'https://200.14.84.238:443/PERT/',
+            url: 'http://200.14.84.238:443/PERT/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'
