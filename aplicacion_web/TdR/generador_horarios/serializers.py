@@ -35,21 +35,20 @@ class eventoSerializer(serializers.ModelSerializer):
 
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
     
-    nombre_asignatura = serializers.SerializerMethodField()
-
-    def get_nombre_asignatura(self, obj):
-        print(self, obj)
-        try:
-            nombre_asignatura = asignatura_real.objects.get(codigo=obj.to_asignatura_real[0]).nombre
-            return nombre_asignatura
-        except  Exception as e:
-            return {}
+    nombre_asignatura = asignaturaSerializer("get_nombre")
 
     class Meta:
         model = nodo_asignatura
         #nombre = generador_horarios.asignatura_real.objects.get(codigo='to_asignatura_real').nombre
         fields = ['holgura', 'ef', 'es', 'ls', 'kk',
                   'lf', 'critico', 'to_asignatura_real','nombre_asignatura']
+
+     def get_nombre_asignatura(self, obj):
+        try:
+            nombre_asignatura = asignatura_real.objects.get(codigo=obj.to_asignatura_real).nombre
+            return nombre_asignatura
+        except  Exception as e:
+            return {}
 
 
 class nodoSeccionSerializer(serializers.ModelSerializer):
