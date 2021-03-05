@@ -59,85 +59,85 @@ def read_eventos(excel_oferta):
                     a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
                     trans = str.maketrans(a, b)
                     prof.translate(trans)
-                    print(elem[2], prof
+                    print(elem[2], prof)
 
-                    elem1[2]=prof
-                    elem[2]=prof
+                    elem1[2] = prof
+                    elem2[2] = prof
 
-                    bloque=arr_horario[2]+" - "+arr_horario[4]
-                    dia1=arr_horario[0]
-                    dia2=arr_horario[1]
+                    bloque = arr_horario[2]+" - "+arr_horario[4]
+                    dia1 = arr_horario[0]
+                    dia2 = arr_horario[1]
 
-                    elem1[1]=dia1
-                    elem1=np.append(elem1.tolist(), bloque)
+                    elem1[1] = dia1
+                    elem1 = np.append(elem1.tolist(), bloque)
                     arr_eventos.append(elem1.tolist())
 
-                    elem2[1]=dia2
-                    elem2=np.append(elem2.tolist(), bloque)
+                    elem2[1] = dia2
+                    elem2 = np.append(elem2.tolist(), bloque)
                     arr_eventos.append(elem2.tolist())
 
                 elif len(elem[1].split()) == 6:
 
-                    arr_horario=elem[1].split()
+                    arr_horario = elem[1].split()
 
-                    elem1=elem.copy()
-                    elem2=elem.copy()
-                    elem3=elem.copy()
+                    elem1 = elem.copy()
+                    elem2 = elem.copy()
+                    elem3 = elem.copy()
 
-                    prof=elem1[2]
+                    prof = elem1[2]
 
-                    a, b='ÁÉÍÓÚÑ', 'AEIOUN'
-                    trans=str.maketrans(a, b)
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
                     prof.translate(trans)
 
-                    elem1[2]=prof
-                    elem2[2]=prof
-                    elem3[2]=prof
+                    elem1[2] = prof
+                    elem2[2] = prof
+                    elem3[2] = prof
 
-                    bloque=arr_horario[3]+" - "+arr_horario[5]
-                    dia1=arr_horario[0]
-                    dia2=arr_horario[1]
-                    dia3=arr_horario[2]
+                    bloque = arr_horario[3]+" - "+arr_horario[5]
+                    dia1 = arr_horario[0]
+                    dia2 = arr_horario[1]
+                    dia3 = arr_horario[2]
 
-                    elem1[1]=dia1
-                    elem1=np.append(elem1.tolist(), bloque)
+                    elem1[1] = dia1
+                    elem1 = np.append(elem1.tolist(), bloque)
                     arr_eventos.append(elem1.tolist())
 
-                    elem2[1]=dia2
-                    elem2=np.append(elem2.tolist(), bloque)
+                    elem2[1] = dia2
+                    elem2 = np.append(elem2.tolist(), bloque)
                     arr_eventos.append(elem2.tolist())
 
-                    elem3[1]=dia3
-                    elem3=np.append(elem3.tolist(), bloque)
+                    elem3[1] = dia3
+                    elem3 = np.append(elem3.tolist(), bloque)
                     arr_eventos.append(elem3.tolist())
 
                 elif len(elem[1].split()) == 8:
 
-                    arr_horario=elem[1].split()
+                    arr_horario = elem[1].split()
 
-                    elem1=elem.copy()
-                    elem2=elem.copy()
+                    elem1 = elem.copy()
+                    elem2 = elem.copy()
 
-                    prof=elem1[2]
+                    prof = elem1[2]
 
-                    a, b='ÁÉÍÓÚÑ', 'AEIOUN'
-                    trans=str.maketrans(a, b)
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
                     prof.translate(trans)
 
-                    elem1[2]=prof
-                    elem2[2]=prof
+                    elem1[2] = prof
+                    elem2[2] = prof
 
-                    bloque1=arr_horario[1]+" - "+arr_horario[3].strip(';')
-                    bloque2=arr_horario[5]+" - "+arr_horario[7].strip(';')
-                    dia1=arr_horario[0]
-                    dia2=arr_horario[4]
+                    bloque1 = arr_horario[1]+" - "+arr_horario[3].strip(';')
+                    bloque2 = arr_horario[5]+" - "+arr_horario[7].strip(';')
+                    dia1 = arr_horario[0]
+                    dia2 = arr_horario[4]
 
-                    elem1=np.append(elem1, bloque1)
-                    elem1[1]=dia1
+                    elem1 = np.append(elem1, bloque1)
+                    elem1[1] = dia1
                     arr_eventos.append(elem1.tolist())
 
-                    elem2=np.append(elem2, bloque2)
-                    elem2[1]=dia2
+                    elem2 = np.append(elem2, bloque2)
+                    elem2[1] = dia2
                     arr_eventos.append(elem2.tolist())
 
                 elif len(elem[1].split()) == 4:
@@ -146,35 +146,35 @@ def read_eventos(excel_oferta):
             elif elem[0][0] == 'P':
                 pass
             else:
-                arr_horario=elem[1].split()
+                arr_horario = elem[1].split()
 
-                elem1=elem.copy()
+                elem1 = elem.copy()
 
-                dia=arr_horario[0]
-                bloque=arr_horario[1]+" - "+arr_horario[3]
-                elem1=np.append(elem1, bloque)
-                elem1[1]=dia
+                dia = arr_horario[0]
+                bloque = arr_horario[1]+" - "+arr_horario[3]
+                elem1 = np.append(elem1, bloque)
+                elem1[1] = dia
                 arr_eventos.append(elem1.tolist())
 
-    arr_eventos=np.array(arr_eventos)
+    arr_eventos = np.array(arr_eventos)
 
-    p=[0, 1, 3, 4, 2]
-    x=np.empty_like(p)
-    x[p]=np.arange(len(p))
+    p = [0, 1, 3, 4, 2]
+    x = np.empty_like(p)
+    x[p] = np.arange(len(p))
     arr_eventos[:, x]
-    arr_eventos[:]=arr_eventos[:, x]
+    arr_eventos[:] = arr_eventos[:, x]
 
     return arr_eventos
 
 
 def read_seccion_cfg(excel_file):
 
-    cfg_seccion=np.array(pd.read_excel(
+    cfg_seccion = np.array(pd.read_excel(
 
         excel_file, usecols="K,E,A,L", na_filter=False, engine='openpyxl'))
 
-    seen=[]
-    newlist=[]
+    seen = []
+    newlist = []
 
     for item in cfg_seccion:
 
@@ -182,31 +182,31 @@ def read_seccion_cfg(excel_file):
             newlist.append(item)
             seen.append(item[2])
 
-    new_list=np.insert(newlist, 1, '2021-1', axis=1)
-    aux_list2=np.insert(new_list, 4, 0, axis=1)
-    cfg_secciones=np.insert(aux_list2, 4, aux_list2[:, 5], axis=1)
+    new_list = np.insert(newlist, 1, '2021-1', axis=1)
+    aux_list2 = np.insert(new_list, 4, 0, axis=1)
+    cfg_secciones = np.insert(aux_list2, 4, aux_list2[:, 5], axis=1)
 
-    permut=[6, 1, 2, 0, 3, 4, 5]
-    idx=np.empty_like(permut)
-    idx[permut]=np.arange(len(permut))
+    permut = [6, 1, 2, 0, 3, 4, 5]
+    idx = np.empty_like(permut)
+    idx[permut] = np.arange(len(permut))
     cfg_secciones[:, idx]
-    cfg_secciones[:]=cfg_secciones[:, idx]
+    cfg_secciones[:] = cfg_secciones[:, idx]
 
     for i in range(len(cfg_secciones)):
-        aux=cfg_secciones[i][2].split()
-        numero=aux[1]
-        cfg_secciones[i][2]=numero
+        aux = cfg_secciones[i][2].split()
+        numero = aux[1]
+        cfg_secciones[i][2] = numero
 
     return cfg_secciones
 
 
 def read_evento_cfg(excel_file):
 
-    cfg_evento=np.array(pd.read_excel(
+    cfg_evento = np.array(pd.read_excel(
 
         excel_file, usecols="F,G,H,K", na_filter=False, engine='openpyxl'))
 
-    cfg_eventos=[]
+    cfg_eventos = []
 
     for elem in cfg_evento:
 
@@ -217,145 +217,145 @@ def read_evento_cfg(excel_file):
 
                 if len(elem[1].split()) == 5:
 
-                    arr_horario=elem[1].split()
+                    arr_horario = elem[1].split()
 
-                    elem1=elem.copy()
-                    elem2=elem.copy()
+                    elem1 = elem.copy()
+                    elem2 = elem.copy()
 
-                    prof=elem1[2]
+                    prof = elem1[2]
 
-                    a, b='ÁÉÍÓÚÑ', 'AEIOUN'
-                    trans=str.maketrans(a, b)
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
                     prof.translate(trans)
 
-                    elem1[2]=prof
-                    elem2[2]=prof
+                    elem1[2] = prof
+                    elem2[2] = prof
 
-                    bloque=arr_horario[2]+" - "+arr_horario[4]
-                    dia1=arr_horario[0]
-                    dia2=arr_horario[1]
+                    bloque = arr_horario[2]+" - "+arr_horario[4]
+                    dia1 = arr_horario[0]
+                    dia2 = arr_horario[1]
 
-                    elem1[1]=dia1
-                    elem1=np.append(elem1.tolist(), bloque)
+                    elem1[1] = dia1
+                    elem1 = np.append(elem1.tolist(), bloque)
                     cfg_eventos.append(elem1.tolist())
 
-                    elem2[1]=dia2
-                    elem2=np.append(elem2.tolist(), bloque)
+                    elem2[1] = dia2
+                    elem2 = np.append(elem2.tolist(), bloque)
                     cfg_eventos.append(elem2.tolist())
 
                 elif len(elem[1].split()) == 4:
 
-                    arr_horario=elem[1].split()
+                    arr_horario = elem[1].split()
 
-                    elem1=elem.copy()
-                    elem2=elem.copy()
+                    elem1 = elem.copy()
+                    elem2 = elem.copy()
 
                     if arr_horario[1] == '08:30':
-                        bloque=arr_horario[1] + ' - 09:50'
-                        bloque2='10:00 - ' + arr_horario[3]
+                        bloque = arr_horario[1] + ' - 09:50'
+                        bloque2 = '10:00 - ' + arr_horario[3]
                     elif arr_horario[1] == '10:00':
-                        bloque=arr_horario[1] + ' - 11:20'
-                        bloque2='11:30 - ' + arr_horario[3]
+                        bloque = arr_horario[1] + ' - 11:20'
+                        bloque2 = '11:30 - ' + arr_horario[3]
                     elif arr_horario[1] == '11:30':
-                        bloque=arr_horario[1] + ' - 12:50'
-                        bloque2='13:00 - ' + arr_horario[3]
+                        bloque = arr_horario[1] + ' - 12:50'
+                        bloque2 = '13:00 - ' + arr_horario[3]
                     elif arr_horario[1] == '13:00':
-                        bloque=arr_horario[1]+' - 14:20'
-                        bloque2='14:30 - ' + arr_horario[3]
+                        bloque = arr_horario[1]+' - 14:20'
+                        bloque2 = '14:30 - ' + arr_horario[3]
                     elif arr_horario[1] == '14:30':
-                        bloque=arr_horario[1]+' - 15:50'
-                        bloque2='16:00 - ' + arr_horario[3]
+                        bloque = arr_horario[1]+' - 15:50'
+                        bloque2 = '16:00 - ' + arr_horario[3]
                     elif arr_horario[1] == '16:00':
-                        bloque=arr_horario[1]+' - 17:20'
-                        bloque2='17:30 - ' + arr_horario[3]
+                        bloque = arr_horario[1]+' - 17:20'
+                        bloque2 = '17:30 - ' + arr_horario[3]
                     elif arr_horario[1] == '17:30':
-                        bloque=arr_horario[1]+' - 18:45'
-                        bloque2='18:50 - ' + arr_horario[3]
+                        bloque = arr_horario[1]+' - 18:45'
+                        bloque2 = '18:50 - ' + arr_horario[3]
                     elif arr_horario[1] == '18:50':
-                        bloque=arr_horario[1]+' - 20:10'
-                        bloque2='20:15 - ' + arr_horario[3]
+                        bloque = arr_horario[1]+' - 20:10'
+                        bloque2 = '20:15 - ' + arr_horario[3]
 
-                    dia=arr_horario[0]
+                    dia = arr_horario[0]
 
-                    prof=elem1[2]
+                    prof = elem1[2]
 
-                    a, b='ÁÉÍÓÚÑ', 'AEIOUN'
-                    trans=str.maketrans(a, b)
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
                     prof.translate(trans)
 
-                    elem1[2]=prof
-                    elem2[2]=prof
+                    elem1[2] = prof
+                    elem2[2] = prof
 
-                    elem1[1]=dia
-                    elem1=np.append(elem1.tolist(), bloque)
+                    elem1[1] = dia
+                    elem1 = np.append(elem1.tolist(), bloque)
                     cfg_eventos.append(elem1.tolist())
 
-                    elem2[1]=dia
-                    elem2=np.append(elem2.tolist(), bloque2)
+                    elem2[1] = dia
+                    elem2 = np.append(elem2.tolist(), bloque2)
                     cfg_eventos.append(elem2.tolist())
 
                 elif len(elem[1].split()) == 8:
 
-                    arr_horario=elem[1].split()
+                    arr_horario = elem[1].split()
 
-                    elem1=elem.copy()
-                    elem2=elem.copy()
+                    elem1 = elem.copy()
+                    elem2 = elem.copy()
 
-                    prof=elem1[2]
+                    prof = elem1[2]
 
-                    a, b='ÁÉÍÓÚÑ', 'AEIOUN'
-                    trans=str.maketrans(a, b)
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
                     prof.translate(trans)
 
-                    elem1[2]=prof
-                    elem2[2]=prof
+                    elem1[2] = prof
+                    elem2[2] = prof
 
-                    bloque1=arr_horario[1]+" - "+arr_horario[3].strip(';')
-                    bloque2=arr_horario[5]+" - "+arr_horario[7].strip(';')
-                    dia1=arr_horario[0]
-                    dia2=arr_horario[4]
+                    bloque1 = arr_horario[1]+" - "+arr_horario[3].strip(';')
+                    bloque2 = arr_horario[5]+" - "+arr_horario[7].strip(';')
+                    dia1 = arr_horario[0]
+                    dia2 = arr_horario[4]
 
-                    elem1=np.append(elem1, bloque1)
-                    elem1[1]=dia1
+                    elem1 = np.append(elem1, bloque1)
+                    elem1[1] = dia1
                     cfg_eventos.append(elem1.tolist())
 
-                    elem2=np.append(elem2, bloque2)
-                    elem2[1]=dia2
+                    elem2 = np.append(elem2, bloque2)
+                    elem2[1] = dia2
                     cfg_eventos.append(elem2.tolist())
 
             else:
-                arr_horario=elem[1].split()
+                arr_horario = elem[1].split()
 
-                elem1=elem.copy()
+                elem1 = elem.copy()
 
-                prof=elem1[2]
+                prof = elem1[2]
 
-                a, b='ÁÉÍÓÚÑ', 'AEIOUN'
-                trans=str.maketrans(a, b)
+                a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                trans = str.maketrans(a, b)
                 prof.translate(trans)
 
-                elem1[2]=prof
+                elem1[2] = prof
 
-                dia=arr_horario[0]
-                bloque=arr_horario[1]+" - "+arr_horario[3]
-                elem1=np.append(elem1, bloque)
-                elem1[1]=dia
+                dia = arr_horario[0]
+                bloque = arr_horario[1]+" - "+arr_horario[3]
+                elem1 = np.append(elem1, bloque)
+                elem1[1] = dia
                 cfg_eventos.append(elem1.tolist())
 
-    cfg_eventos=np.array(cfg_eventos)
+    cfg_eventos = np.array(cfg_eventos)
 
-    p=[0, 1, 3, 4, 2]
-    x=np.empty_like(p)
-    x[p]=np.arange(len(p))
+    p = [0, 1, 3, 4, 2]
+    x = np.empty_like(p)
+    x[p] = np.arange(len(p))
     cfg_eventos[:, x]
-    cfg_eventos[:]=cfg_eventos[:, x]
+    cfg_eventos[:] = cfg_eventos[:, x]
 
     return cfg_eventos
 
 
 def read_mi_malla(excel_file):
 
-    mi_malla=np.array(pd.read_excel(
+    mi_malla = np.array(pd.read_excel(
 
         excel_file, usecols="B", header=None, na_filter=False, engine='openpyxl'))
 
