@@ -23,6 +23,7 @@ def get_clique_max_pond(current_user):
             horario = '---'
 
         try:
+
             if elem['to_seccion__evento__tipo'][0] == 'C':
                 aux = 'CATEDRA'
             elif elem['to_seccion__evento__tipo'][0] == 'A':
@@ -30,8 +31,12 @@ def get_clique_max_pond(current_user):
             elif elem['to_seccion__evento__tipo'][0] == 'L':
                 aux = 'LABORATORIO'
 
+            prof = elem['to_seccion__evento__profesor']
+
+            prof.encode('utf-8')
+
             evento = {'bloque': elem['to_seccion__evento__dia'] + '-' + elem['to_seccion__evento__modulo'][0:2],
-                      'tipo': aux, 'profesor': elem['to_seccion__evento__profesor']}
+                      'tipo': aux, 'profesor': prof}
         except:
             evento = '---'
 
