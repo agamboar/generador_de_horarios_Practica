@@ -62,20 +62,25 @@ export default class Horario extends Component {
                })
            }
         */
-
+    fillSchedule = () => {
+        if(this.state.bool !== true){
+            console.log("hola")
+        }else{
+            for (let i = 0; i < this.props.horario.length; i++) {
+                const mov = i;
+                for (let j = 0; j < this.props.horario[mov].eventos.length; j++) {
+                    const mov3 =this.props.horario[i].eventos[j].bloque;
+                    console.log(this.state.horario[i],"hola")
+                    this.setState({
+                        [mov3]: this.props.horario[i]
+    
+                    })
+                }
+            }
+        }
+    };
     
     componentDidMount = () => {
-        /*for (let i = 0; i < this.props.horario.length; i++) {
-            const mov = i;
-            for (let j = 0; j < this.props.horario[mov].eventos.length; j++) {
-                const mov3 =this.props.horario[i].eventos[j].bloque;
-                console.log(this.state.horario[i],"hola")
-                this.setState({
-                    [mov3]: this.props.horario[i]
-
-                })
-            }
-        }*/
         this.setState(
             {
                 bool: true
@@ -201,6 +206,7 @@ export default class Horario extends Component {
                 <div className="container " >
                     <div className="card border-primary border-5 custom2 ">
                         {console.log(this.state.bool)/* NO BORRAR */}
+                        {this.fillSchedule}
                         &nbsp;
                         <div className="row row-cols-5">
                             <div className="col"> </div>
