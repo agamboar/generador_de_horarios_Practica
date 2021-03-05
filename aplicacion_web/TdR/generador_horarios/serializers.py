@@ -34,11 +34,11 @@ class eventoSerializer(serializers.ModelSerializer):
 
 
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
-    nombre = asignatura_real.objects.get(codigo="CFG4").nombre
+    #nombre = asignatura_real.objects.get(codigo="CFG4").nombre
     class Meta:
         model = nodo_asignatura
         fields = ['holgura', 'ef', 'es', 'ls', 'kk',
-                  'lf', 'critico', 'to_asignatura_real','nombre']
+                  'lf', 'critico', 'to_asignatura_real','to_asignatura_real__nombre']
 
 
 class nodoSeccionSerializer(serializers.ModelSerializer):
