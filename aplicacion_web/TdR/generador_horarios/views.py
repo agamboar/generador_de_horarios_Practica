@@ -262,6 +262,7 @@ def get_clique(request):
                 print(elem)
                 solucion_alumno = solucion(
                     to_user=user, is_horario=False, json_solucion=elem)
+                solucion_alumno.save()
 
                 for elem2 in elem:
 
