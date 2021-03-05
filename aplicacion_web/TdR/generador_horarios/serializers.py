@@ -38,10 +38,12 @@ class nodoAsignaturaSerializer(serializers.ModelSerializer):
     nombre_asignatura = serializers.SerializerMethodField()
 
     def get_nombre_asignatura(self, obj):
-        print(obj)
-        nombre_asignatura = asignatura_real.objects.get(codigo=obj.to_asignatura_real).nombre
-        return nombre_asignatura
-      
+        print(self, obj)
+        try:
+            nombre_asignatura = asignatura_real.objects.get(codigo=obj.to_asignatura_real).nombre
+            return nombre_asignatura
+        except  Exception as e:
+            return {}
 
     class Meta:
         model = nodo_asignatura
