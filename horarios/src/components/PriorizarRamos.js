@@ -220,6 +220,7 @@ export default class PriorizarRamos extends Component {
         this.state.p0[0]= this.state.p0[1];
         this.state.p0[1]= aux;
       }
+      this.forceUpdate();
     }
 
     p0onChange1_2 =(e) => {
@@ -228,6 +229,7 @@ export default class PriorizarRamos extends Component {
         this.state.p0[1]= this.state.p0[2];
         this.state.p0[2]= aux;
       }
+      this.forceUpdate();
     }
 
     p0onChange2_3 =(e) => {
@@ -236,6 +238,7 @@ export default class PriorizarRamos extends Component {
         this.state.p0[2]= this.state.p0[3];
         this.state.p0[3]= aux;
       }
+      this.forceUpdate();
     }
 
     p0onChange3_4 =(e) => {
@@ -300,6 +303,7 @@ export default class PriorizarRamos extends Component {
         this.state.p1[0]= this.state.p1[1];
         this.state.p1[1]= aux;
       }
+      this.forceUpdate();
     }
 
     p1onChange1_2 =(e) => {
@@ -308,6 +312,7 @@ export default class PriorizarRamos extends Component {
         this.state.p1[1]= this.state.p1[2];
         this.state.p1[2]= aux;
       }
+      this.forceUpdate();
     }
 
     p1onChange2_3 =(e) => {
@@ -316,6 +321,7 @@ export default class PriorizarRamos extends Component {
         this.state.p1[2]= this.state.p1[3];
         this.state.p1[3]= aux;
       }
+      this.forceUpdate();
     }
 
     p1onChange3_4 =(e) => {
@@ -324,6 +330,7 @@ export default class PriorizarRamos extends Component {
         this.state.p1[3]= this.state.p1[4];
         this.state.p1[4]= aux;
       }
+      this.forceUpdate();
     }
 
     p1onChange4_5 =(e) => {
@@ -332,6 +339,7 @@ export default class PriorizarRamos extends Component {
         this.state.p1[4]= this.state.p1[5];
         this.state.p1[5]= aux;
       }
+      this.forceUpdate();
     }
 
     p1onChange5_6 =(e) => {
@@ -340,6 +348,7 @@ export default class PriorizarRamos extends Component {
         this.state.p1[5]= this.state.p1[6];
         this.state.p1[6]= aux;
       }
+      this.forceUpdate();
     }
     p1onChange6_7 =(e) => {
         if(this.state.p1[7] !== null){
