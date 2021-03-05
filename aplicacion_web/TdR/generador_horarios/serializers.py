@@ -35,7 +35,7 @@ class eventoSerializer(serializers.ModelSerializer):
 
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
     
-    nombre_asignatura = nodoAsignaturaSerializer( many=True)
+    nombre_asignatura = asignaturaSerializer(source ="get_nombre", many=True)
 
     class Meta:
         model = nodo_asignatura
