@@ -34,7 +34,7 @@ class eventoSerializer(serializers.ModelSerializer):
 
 
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
-    asignatura_real = asignaturaSerializer()
+    #asignatura_real = asignaturaSerializer()
     nombre_asignatura = serializers.SerializerMethodField()
 
     def get_nombre_asignatura(self, obj):
