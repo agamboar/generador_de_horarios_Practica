@@ -34,8 +34,8 @@ export default class RamoCritico extends Component {
     }
 
     componentDidMount(){
-      console.log(this.props.resultado, "primero")
-      console.log(this.props.resultado[0], "segundo")
+      console.log(this.props, "primero")
+      console.log(this.props, "segundo")
     }
 
     render() {
