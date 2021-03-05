@@ -100,7 +100,6 @@ export default class Horario extends Component {
                 <div className="container" >
                     <div className="card border-primary text-center custom2">
                         <br />
-                        {console.log(this.state.bool)/* NO BORRAR */}
                         <div className="row row-cols-10">
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <div className="col">
