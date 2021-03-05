@@ -76,6 +76,8 @@ export default class GoogleSocialAuth extends Component {
             sessionStorage.setItem('key', responseGoogle.key)
             console.log(responseGoogle.data)
         }*/
+
+        if (!localStorage.getItem("token")) { 
         return (
             <div className="col-md-4 offset-md-4 align-self-sm-end">
                 <div className="card card-body border border-primary shadow-lg p-3 mb-5 bg-white rounded">
@@ -141,6 +143,9 @@ export default class GoogleSocialAuth extends Component {
                 </div>
             </div>
         )
+    }else{
+        window.location.href = '/users/usr'
+    }
     }
 }
 
