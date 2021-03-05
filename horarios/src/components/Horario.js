@@ -85,7 +85,7 @@ export default class Horario extends Component {
                 bool: true
             }
         )
-        this.fillSchedule
+        this.fillSchedule()
         console.log(this.state.bool)
         this.forceUpdate();
         console.log(this.state)
