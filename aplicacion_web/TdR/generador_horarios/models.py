@@ -167,7 +167,7 @@ class nodo_seccion(models.Model):
 class solucion(models.Model):
 
     fecha_mod = models.DateTimeField()
-    json_solucion = models.JSONField(default=dict)
+    json_solucion = models.JSONField(default=list)
     is_horario = models.BooleanField(default=False)
 
     to_nodo_seccion = models.ManyToManyField(nodo_seccion)

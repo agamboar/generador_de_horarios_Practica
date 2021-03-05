@@ -238,6 +238,7 @@ def get_clique(request):
     if request.method == "GET":
 
         current_user = request.user.id
+        user = User.objects.get(id=current_user)
 
         # ojo cada vez q se suba la oferta academica se deben borrar todas las soluciones
         # guardadas de los usuarios, pero NO la tabla horario, esa no se toca hasta que el pibe
@@ -263,7 +264,7 @@ def get_clique(request):
                         'to_user_id': current_user
                         }
                 solucion_alumno, created = solucion.objects.update_or_create(
-                    to_user=current_user, defaults=data)
+                    to_user=user, defaults=data)
 
                 for elem2 in elem:
 
