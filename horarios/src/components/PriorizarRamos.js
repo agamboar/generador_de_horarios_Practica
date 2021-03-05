@@ -21,7 +21,8 @@ export default class PriorizarRamos extends Component {
         p6: [null, null, null, null, null, null, null, null, null, null, null],
         p7: [null, null, null, null, null, null, null, null, null, null, null],
         p8: [null, null, null, null, null, null, null, null, null, null, null],
-        p9: [null, null, null, null, null, null, null, null, null, null, null]
+        p9: [null, null, null, null, null, null, null, null, null, null, null],
+        bool: false
     }
 
     componentDidMount = async () => {
@@ -144,6 +145,10 @@ export default class PriorizarRamos extends Component {
                 }
             }
         }
+        this.setState({
+            bool: true
+        })
+        console.log(this.state.bool)
     }
 
     onSubmit = e => {
