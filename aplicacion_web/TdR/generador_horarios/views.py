@@ -265,8 +265,8 @@ def get_clique(request):
                         }
 
                 print(elem)
-                # solucion_alumno, created = solucion.objects.update_or_create(
-                #    to_user=user, defaults=data)
+                solucion_alumno, created = solucion.objects.update_or_create(
+                    to_user=user, defaults=data)
 
                 for elem2 in elem:
 
