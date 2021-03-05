@@ -21,15 +21,14 @@ export default class PriorizarRamos extends Component {
         p6: [null, null, null, null, null, null, null, null, null, null, null],
         p7: [null, null, null, null, null, null, null, null, null, null, null],
         p8: [null, null, null, null, null, null, null, null, null, null, null],
-        p9: [null, null, null, null, null, null, null, null, null, null, null],
-        bool: false
+        p9: [null, null, null, null, null, null, null, null, null, null, null]
     }
 
     componentDidMount = async () => {
 
         var config = {
             method: 'get',
-            url: 'http://200.14.84.238:80/PERT/',
+            url: 'http://200.14.84.238:443/PERT/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiar a localStorage
                 'Content-Type': 'application/json'
@@ -148,6 +147,7 @@ export default class PriorizarRamos extends Component {
         this.setState({
             bool: true
         })
+        console.log(this.state.bool)
     }
 
     onSubmit = e => {
@@ -175,17 +175,17 @@ export default class PriorizarRamos extends Component {
                         <br />
                         {console.log(this.state.critico[0])/* NO BORRAR */}
 
-                        this.state.bool && <RamoCritico name='Críticos' resultado={this.state.critico} />
-                        this.state.bool && <RamoCritico name='Prioridad 0' resultado={this.state.p0} />
-                        this.state.bool && <RamoCritico name='Prioridad 1' resultado={this.state.p1} />
-                        this.state.bool && <RamoCritico name='Prioridad 2' resultado={this.state.p2} />
-                        this.state.bool && <RamoCritico name='Prioridad 3' resultado={this.state.p3} />
-                        this.state.bool && <RamoCritico name='Prioridad 4' resultado={this.state.p4} />
-                        this.state.bool && <RamoCritico name='Prioridad 5' resultado={this.state.p5} />
-                        this.state.bool && <RamoCritico name='Prioridad 6' resultado={this.state.p6} />
-                        this.state.bool && <RamoCritico name='Prioridad 7' resultado={this.state.p7} />
-                        this.state.bool && <RamoCritico name='Prioridad 8' resultado={this.state.p8} />
-                        this.state.bool && <RamoCritico name='Prioridad 9' resultado={this.state.p9} />
+                        {this.state.bool && <RamoCritico name='Críticos' resultado={this.state.critico} />}
+                        {this.state.bool && <RamoCritico name='Prioridad 0' resultado={this.state.p0} />}
+                        {this.state.bool && <RamoCritico name='Prioridad 1' resultado={this.state.p1} />}
+                        {this.state.bool && <RamoCritico name='Prioridad 2' resultado={this.state.p2} />}
+                        {this.state.bool && <RamoCritico name='Prioridad 3' resultado={this.state.p3} />}
+                        {this.state.bool && <RamoCritico name='Prioridad 4' resultado={this.state.p4} />}
+                        {this.state.bool && <RamoCritico name='Prioridad 5' resultado={this.state.p5} />}
+                        {this.state.bool && <RamoCritico name='Prioridad 6' resultado={this.state.p6} />}
+                        {this.state.bool && <RamoCritico name='Prioridad 7' resultado={this.state.p7} />}
+                        {this.state.bool && <RamoCritico name='Prioridad 8' resultado={this.state.p8} />}
+                        {this.state.bool && <RamoCritico name='Prioridad 9' resultado={this.state.p9} />}
 
                         <form onSubmit={this.onSubmit}>
                             <div className="container">
