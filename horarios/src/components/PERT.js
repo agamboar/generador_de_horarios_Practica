@@ -20,7 +20,7 @@ export default class PERT extends Component {
 
         var config = {
             method: 'get',
-            url: 'http://200.14.84.238:443/PERT/',
+            url: 'http://200.14.84.238:80/PERT/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export default class PERT extends Component {
 
         var PERT_j = await axios(config)
 
-        
+
         this.setState({
             malla: PERT_j.data.malla,
             ramos: PERT_j.data.PERT
@@ -124,7 +124,7 @@ export default class PERT extends Component {
                         <br />
                         <br />
                         <PERTMalla2020 ramos={this.state.ramos} />
-                        
+
                         <br />
 
                     </div>

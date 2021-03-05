@@ -34,7 +34,7 @@ export default class GoogleSocialAuth extends Component {
             password: password
         }
 
-        
+
         var axios = require('axios');
         var qs = require('qs');
 
@@ -42,13 +42,13 @@ export default class GoogleSocialAuth extends Component {
         //console.log(data)
         var config = {
             method: 'post',
-            url: 'http://200.14.84.238:443/dj-rest-auth/login/',
+            url: 'http://200.14.84.238:80/dj-rest-auth/login/',
             data: data
         };
-        
+
         await axios(config).then(response => localStorage.setItem('token', response.data.key))
-        
-        if (localStorage.getItem("token")){
+
+        if (localStorage.getItem("token")) {
             //console.log(localStorage.getItem("token"))
             window.location.href = '/users/usr'
         }

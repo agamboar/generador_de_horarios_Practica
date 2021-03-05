@@ -10,9 +10,9 @@ import axios from 'axios';
 
 export default class PriorizarSecciones extends Component {
 
-    state ={
-        ramos : null,
-        malla : null
+    state = {
+        ramos: null,
+        malla: null
 
     }
 
@@ -20,7 +20,7 @@ export default class PriorizarSecciones extends Component {
 
         var config = {
             method: 'get',
-            url: 'http://200.14.84.238:443/PERT/',
+            url: 'http://200.14.84.238:80/PERT/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiar a localStorage
                 'Content-Type': 'application/json'
@@ -37,27 +37,27 @@ export default class PriorizarSecciones extends Component {
     }
 
     render() {
-        if (localStorage.getItem("token")){
+        if (localStorage.getItem("token")) {
             if (this.state.malla === 2010) {
-                return (                    
-                    
-                    <PriorizarSecciones2010 ramos = {this.state.ramos}/>                           
-                
+                return (
+
+                    <PriorizarSecciones2010 ramos={this.state.ramos} />
+
                 )
-            }else if (this.state.malla === 2018) {
-                return (                    
-                    
-                    <PriorizarSecciones2018 ramos = {this.state.ramos}/>                           
-                
+            } else if (this.state.malla === 2018) {
+                return (
+
+                    <PriorizarSecciones2018 ramos={this.state.ramos} />
+
                 )
-            }else{
-                return (                    
-                    
-                    <PriorizarSecciones2020 ramos = {this.state.ramos}/>                           
-                
+            } else {
+                return (
+
+                    <PriorizarSecciones2020 ramos={this.state.ramos} />
+
                 )
             }
-        }else{
+        } else {
             return (<NotAuth />)
         }
     }

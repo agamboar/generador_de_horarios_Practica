@@ -15,7 +15,7 @@ export default class HPosibles extends Component {
 
         var config = {
             method: 'get',
-            url: 'http://200.14.84.238:443/clique',
+            url: 'http://200.14.84.238:80/clique',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"),
                 'Content-Type': 'application/json'
@@ -31,35 +31,35 @@ export default class HPosibles extends Component {
     }
 
     render() {
-        if (localStorage.getItem("token")){
-        if (this.state.Horarios === null) {
-            return (
-                <div>
-                    <Navbar />
+        if (localStorage.getItem("token")) {
+            if (this.state.Horarios === null) {
+                return (
+                    <div>
+                        <Navbar />
 
-                    <br />
-                    <br />
+                        <br />
+                        <br />
 
 
-                    <p className="lead">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        A continuación veras los horarios que te recomendamos tomar para tu semestre actual, esperamos haberte ayudado!
+                        <p className="lead">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            A continuación veras los horarios que te recomendamos tomar para tu semestre actual, esperamos haberte ayudado!
                     </p>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <div class="d-flex justify-content-center">
-                        <h1 class="display-6">Un Momento, Se esta calculando tús horarios</h1>
-                    </div>
-                    <br />
-                    <br />
-                    <div class="d-flex justify-content-center">
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <div class="d-flex justify-content-center">
+                            <h1 class="display-6">Un Momento, Se esta calculando tús horarios</h1>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="d-flex justify-content-center">
 
-                        <div class="spinner-grow text-primary" role="status" />
+                            <div class="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -71,49 +71,49 @@ export default class HPosibles extends Component {
                         &nbsp;&nbsp;&nbsp;&nbsp;
 
                     </div>
-                    <br />
-                    <br />
-                    <br />
+                        <br />
+                        <br />
+                        <br />
 
 
 
 
-                </div>
-            )
+                    </div>
+                )
 
-        } else {
-
-
-            return (
-                <div>
-                    <Navbar />
-
-                    <br />
-                    <br />
+            } else {
 
 
-                    <p className="lead">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        A continuación veras los horarios que te recomendamos tomar para tu semestre actual, esperamos haberte ayudado!
+                return (
+                    <div>
+                        <Navbar />
+
+                        <br />
+                        <br />
+
+
+                        <p className="lead">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            A continuación veras los horarios que te recomendamos tomar para tu semestre actual, esperamos haberte ayudado!
                 </p>
-                    <br />
-                    <br />
+                        <br />
+                        <br />
 
-                    <Horarios horarios={this.state.Horarios} />
-                    
-                    <br />
+                        <Horarios horarios={this.state.Horarios} />
 
-                    <br />
+                        <br />
 
-
+                        <br />
 
 
 
-                </div>
-            )
+
+
+                    </div>
+                )
+            }
+        } else {
+            return (<NotAuth />)
         }
-    }else{
-        return (<NotAuth />)
-    }
     }
 }

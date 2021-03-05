@@ -261,9 +261,9 @@ def get_clique(request):
             for elem in jsons:
 
                 print(elem)
-                solucion_alumno = solucion(json_solucion=elem,
-                                           is_horario=False, to_user=user)
+                solucion_alumno = solucion(is_horario=False, to_user=user)
                 solucion_alumno.save()
+                solucion_alumno.json_solucion = elem
 
                 for elem2 in elem:
 

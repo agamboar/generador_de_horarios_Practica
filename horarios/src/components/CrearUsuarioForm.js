@@ -26,10 +26,10 @@ export default class CrearUsuarioForm extends Component {
     var data = qs.stringify(newUsuario);
     var config = {
       method: 'post',
-      url: 'http://200.14.84.238:443/accounts/signup/',
+      url: 'http://200.14.84.238:80/accounts/signup/',
       headers: {
-        'X-CSRFToken': Cookies.get('csrftoken'), 
-        'Content-Type': 'application/x-www-form-urlencoded',  
+        'X-CSRFToken': Cookies.get('csrftoken'),
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
       data: data
     };

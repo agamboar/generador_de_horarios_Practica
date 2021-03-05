@@ -28,7 +28,7 @@ export default class AvanceManual2018 extends Component {
         var data = JSON.stringify(payload);
         var config = {
             method: 'post',
-            url: 'http://200.14.84.238:443/mimallamanual/',
+            url: 'http://200.14.84.238:80/mimallamanual/',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Token ' + localStorage.getItem("token")
@@ -37,8 +37,8 @@ export default class AvanceManual2018 extends Component {
         };
 
         axios(config)
-        setTimeout(function(){alert("Seras redirigido para calcular tus ramos críticos"); }, 1000); //cambia esto por toast
-        setTimeout(function(){ window.location.href = 'http://200.14.84.238:443/users/usr/PERT'; }, 5000);
+        setTimeout(function () { alert("Seras redirigido para calcular tus ramos críticos"); }, 1000); //cambia esto por toast
+        setTimeout(function () { window.location.href = 'http://200.14.84.238:443/users/usr/PERT'; }, 5000);
     }
 
     render() {
@@ -308,7 +308,7 @@ export default class AvanceManual2018 extends Component {
             CBM1003: !this.state.CBM1003,
             CBF1000: !this.state.CBF1000,
             CIT1010: !this.state.CIT1010,
-            CFG1   : !this.state.CFG1   
+            CFG1: !this.state.CFG1
         }))
     }
     onChange11_15 = (e) => {
@@ -326,7 +326,7 @@ export default class AvanceManual2018 extends Component {
             CBM2000: !this.state.CBM2000,
             CBF1002: !this.state.CBF1002,
             CIT2001: !this.state.CIT2001,
-            CFG2   : !this.state.CFG2   ,
+            CFG2: !this.state.CFG2,
             CIG1012: !this.state.CIG1012
         }))
     }
@@ -336,7 +336,7 @@ export default class AvanceManual2018 extends Component {
             CIT2106: !this.state.CIT2106,
             CIT2200: !this.state.CIT2200,
             CIT2002: !this.state.CIT2002,
-            CFG3   : !this.state.CFG3   ,
+            CFG3: !this.state.CFG3,
             CIG1013: !this.state.CIG1013
         }))
     }
@@ -367,7 +367,7 @@ export default class AvanceManual2018 extends Component {
             CIT2004: !this.state.CIT2004,
             CIT2105: !this.state.CIT2105,
             CIT2201: !this.state.CIT2201,
-            CFG4   : !this.state.CFG4   ,
+            CFG4: !this.state.CFG4,
 
         }))
     }
