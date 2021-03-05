@@ -226,10 +226,10 @@ export default class Horario extends Component {
                             {(this.props.horario)? <RamosH ramos={this.props.horario} />: null}
                             
 
-                            <button type="button" className="btn btn-primary" onClick={this.onChange1}> Ver Horario Graficamente</button>
+                            
                         </div>
 
-                        
+                        <button type="button" className="btn btn-primary" onClick={this.onChange1}> Ver Horario Graficamente</button>                        
 
                     </div>
                     <br />
