@@ -101,9 +101,7 @@ export default class PriorizarRamos extends Component {
                 }) 
             }
           }                       
-        }
-        console.log(this.state.critico)        
-        console.log(this.state.p0)        
+        }    
     }
 
     onSubmit = e => {
