@@ -11,7 +11,7 @@ export default class PriorizarRamos extends Component {
 
     state = {
         ramos: null,
-        critico: [],
+        critico: [null, null, null, null, null, null, null, null, null, null, null],
         p0: [],
         p1: [],
         p2: [],
@@ -46,6 +46,13 @@ export default class PriorizarRamos extends Component {
         for (let i = 0; i < this.state.ramos.length; i++) {
             const mov = i;
             if (this.state.ramos[mov].critico === true) {
+                for (let j=0 ; j < this.state.critico.length; j++){
+                    mov2= j;
+                    if (this.state.critico[mov2]===2){
+                        this.state.critico[mov2]= this.state.ramos[mov];
+                        break;
+                    }
+                }
                 this.setState({
                     critico: [...this.state.critico, this.state.ramos[mov]]
                 })
