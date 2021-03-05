@@ -295,12 +295,14 @@ def get_clique(request):
             for elem in sol:
                 jsons['Solucion'+aux] = elem.json_solucion
                 aux += 1
-            print('uso el json', jsons)
+            print('uso el json')
         # print(jsons)
         # for elem, index in jsons:
         # no entiendo como guardar se guardan las soluciones yo los guardaria en un json y era como el pert
         # aca falta guardar las soluciones a la tabla soluciones xd
         # y guardar el horario que el alumno escoja
+
+        print(json)
         return Response(jsons, status=status.HTTP_200_OK)
 
 
