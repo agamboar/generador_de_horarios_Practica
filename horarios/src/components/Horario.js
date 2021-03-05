@@ -78,12 +78,13 @@ export default class Horario extends Component {
     };
     
     componentDidMount = () => {
-        this.fillSchedule
+        
         this.setState(
             {
                 bool: true
             }
         )
+        this.fillSchedule
         console.log(this.state.bool)
     }
 
