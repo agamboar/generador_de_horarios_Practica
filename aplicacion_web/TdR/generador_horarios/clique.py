@@ -33,18 +33,13 @@ def get_clique_max_pond(current_user):
             elif elem['to_seccion__evento__tipo'][0] == 'L':
                 aux = 'LABORATORIO'
 
-            prof = elem['to_seccion__evento__profesor']
-
-            a, b = 'áéíóúüñÑ', 'aeiouunN'
-            trans = str.maketrans(a, b)
-            prof.translate(trans)
-
             evento = {'bloque': elem['to_seccion__evento__dia'] + '-' + elem['to_seccion__evento__modulo'][0:2],
-                      'tipo': aux, 'profesor': prof}
+                      'tipo': aux, 'profesor': elem['to_seccion__evento__profesor']}
         except:
             evento = '---'
 
         if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_seccion__to_asignatura_real__codigo']:
+
             codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
             if horario not in aux_horario:
                 aux_horario.append(horario)

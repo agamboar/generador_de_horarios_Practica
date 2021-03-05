@@ -59,7 +59,6 @@ def read_eventos(excel_oferta):
                     a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
                     trans = str.maketrans(a, b)
                     prof.translate(trans)
-                    print(elem[2], prof)
 
                     elem1[2] = prof
                     elem2[2] = prof
