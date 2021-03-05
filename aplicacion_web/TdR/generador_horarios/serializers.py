@@ -35,12 +35,12 @@ class eventoSerializer(serializers.ModelSerializer):
 
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
     
-    to_asignatura_real = asignaturaSerializer( many=True)
+    to_asignatura_real = asignaturaSerializer(source="get_codigo",many=True)
 
     class Meta:
         model = nodo_asignatura
         #nombre = generador_horarios.asignatura_real.objects.get(codigo='to_asignatura_real').nombre
-        fields = ['holgura', 'ef', 'es', 'ls', 'kk', 'lf', 'critico', 'to_asignatura_real.nombre']
+        fields = ['holgura', 'ef', 'es', 'ls', 'kk', 'lf', 'critico', 'to_asignatura_real']
 
     def get_nombre_asignatura(self, obj):
         try:
