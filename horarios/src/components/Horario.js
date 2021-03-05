@@ -62,21 +62,20 @@ export default class Horario extends Component {
            }
         */
 
-    /*fillSchedule = () => {
+    fillSchedule = () => {
 
         for (let i = 0; i < this.props.horario.length; i++) {
             const mov = i;
             for (let j = 0; j < this.props.horario[mov].eventos.length; j++) {
                 const mov2 = j;
-                const mov3 = this.props.horario.ramos[mov].eventos[mov2].bloque;
                 this.setState({
-                    [mov3]: this.props.horario[mov]
+                    [this.props.horario.ramos[mov].eventos[mov2].bloque]: this.props.horario[mov]
 
                 })
             }
 
         }
-    };*/
+    };
     
     componentDidMount = () => {
       // this.fillSchedule();
