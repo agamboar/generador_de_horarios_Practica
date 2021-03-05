@@ -75,12 +75,13 @@ export default class Horario extends Component {
             }
 
         }
-    };
+    };*/
     
     componentDidMount = () => {
-        this.fillSchedule();
+       // this.fillSchedule();
+       console.log(this.props)
     }
-    */
+
     onChange1 = () => {
         this.setState({
             show: false
@@ -221,9 +222,6 @@ export default class Horario extends Component {
                         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramos:</h5>
                         <div className="row row-cols-2">
                             {(this.props.horario)? <RamosH ramos={this.props.horario} />: null}
-                            
-
-                            
                         </div>
 
                         
