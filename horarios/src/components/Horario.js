@@ -190,7 +190,7 @@ export default class Horario extends Component {
                         </div>
 
                         <br />
-                        <button type="button" className="btn btn-primary footer" onClick={this.onChange2}> Ver Horario Graficamente</button>
+                        <button type="button" className="btn btn-primary" onClick={this.onChange2}> Ver Horario Graficamente</button>
                     </div>
 
                     {console.log(this.state)}
@@ -226,7 +226,7 @@ export default class Horario extends Component {
                             {(this.props.horario)? <RamosH ramos={this.props.horario} />: null}
                             
 
-                            <button type="button" className="btn btn-primary footer" onClick={this.onChange1}> Ver Horario Graficamente</button>
+                            <button type="button" className="btn btn-primary" onClick={this.onChange1}> Ver Horario Graficamente</button>
                         </div>
 
                         
