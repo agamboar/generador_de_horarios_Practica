@@ -45,7 +45,11 @@ export default class PriorizarRamos extends Component {
         console.log(this.state.ramos)
         for (let i = 0; i < this.state.ramos.length; i++) {
             const mov = i;
-
+            if(this.state.ramos[mov].critico===true){
+                this.setState({
+                    critico: [...this.state.critico,this.state.ramos[mov]]
+                }) 
+            }else{
             if(this.state.ramos[mov].holgura===0){
                 this.setState({
                     p0: [...this.state.p0,this.state.ramos[mov]]
@@ -96,9 +100,9 @@ export default class PriorizarRamos extends Component {
                     p9: [...this.state.p9,this.state.ramos[mov]]
                 }) 
             }
-
-                       
+          }                       
         }
+        console.log(this.state.critico)        
         console.log(this.state.p0)        
     }
 
@@ -124,8 +128,7 @@ export default class PriorizarRamos extends Component {
                     Ahora deberas elegir que ramos prefieres asignarles una mayor prioridad en tu horario
                 </p>
                 <br/>
-                <br/>
-                {/* en ramo critico se filtrara por prioridad  */}
+                <br/>                
                 <RamoCritico name='Críticos' resultado = {this.state.critico} />
                 <RamoCritico name='Prioridad 0' resultado = {this.state.p0} />
                 <RamoCritico name='Prioridad 1' resultado = {this.state.p1} />
