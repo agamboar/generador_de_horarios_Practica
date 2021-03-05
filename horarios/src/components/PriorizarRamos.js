@@ -145,7 +145,12 @@ export default class PriorizarRamos extends Component {
                 }
             }
         }
-
+        this.setState(
+            {
+                bool: true
+            }
+        )
+        console.log(this.state.bool)
     }
 
     onSubmit = e => {
