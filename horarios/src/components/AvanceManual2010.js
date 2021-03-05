@@ -50,7 +50,7 @@ export default class AvanceManual extends Component {
 
         var config = {
             method: 'post',
-            url: 'http://200.14.84.238:443/mimallamanual/',
+            url: 'http://200.14.84.238:80/mimallamanual/',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Token ' + localStorage.getItem("token")
@@ -61,7 +61,7 @@ export default class AvanceManual extends Component {
         axios(config)
 
         setTimeout(function () { alert("Seras redirigido para calcular tus ramos críticos"); }, 1000); //cambia esto por toast
-        setTimeout(function () { window.location.href = 'http://200.14.84.238:443/users/usr/PERT'; }, 5000);
+        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 5000);
 
     }
 

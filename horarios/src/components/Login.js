@@ -6,7 +6,7 @@ import googleLogin from "../services/googleLogin"
 
 
 /*
-const API_HOST = 'http://200.14.84.238:443';
+const API_HOST = 'http://200.14.84.238:80';
 let _csrfToken = null;
 async function getCsrfToken() {
     if (_csrfToken === null) {
@@ -42,7 +42,7 @@ export default class GoogleSocialAuth extends Component {
         //console.log(data)
         var config = {
             method: 'post',
-            url: 'http://200.14.84.238:443/dj-rest-auth/login/',
+            url: 'http://200.14.84.238:80/dj-rest-auth/login/',
             data: data
         };
 
