@@ -65,18 +65,7 @@ export default class Horario extends Component {
 
     
     componentDidMount = () => {
-        console.log(this.state)
-        if(this.state.bool === true){
-            for (let i = 0; i < this.props.horario.length; i++) {
-                for (let j = 0; j < this.props.horario[i].eventos.length; j++) {
-                    console.log(this.props.horario[i],"hola")
-                    this.setState({
-                        [this.props.horario[i].eventos[j].bloque]: this.props.horario[i]
-    
-                    })
-                }
-            }
-        }
+        
         this.forceUpdate();
         console.log(this.state)
         this.setState(
@@ -84,8 +73,19 @@ export default class Horario extends Component {
                 bool: true
             }
         )
-        this.fillSchedule
         console.log(this.state.bool)
+        console.log(this.state)
+        if(this.state.bool === true){
+            for (let i = 0; i < this.props.horario.length; i++) {
+                for (let j = 0; j < this.props.horario[i].eventos.length; j++) {
+                    console.log(this.props.horario[i].eventos[j].bloque,"hola")
+                    this.setState({
+                        [this.props.horario[i].eventos[j].bloque]: this.props.horario[i]
+    
+                    })
+                }
+            }
+        }
     }
 
     onChange = () => {
