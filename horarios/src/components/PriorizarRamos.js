@@ -247,6 +247,7 @@ export default class PriorizarRamos extends Component {
         this.state.p0[3]= this.state.p0[4];
         this.state.p0[4]= aux;
       }
+      this.forceUpdate();
     }
 
     p0onChange4_5 =(e) => {
@@ -255,6 +256,7 @@ export default class PriorizarRamos extends Component {
         this.state.p0[4]= this.state.p0[5];
         this.state.p0[5]= aux;
       }
+      this.forceUpdate();
     }
 
     p0onChange5_6 =(e) => {
@@ -263,6 +265,7 @@ export default class PriorizarRamos extends Component {
         this.state.p0[5]= this.state.p0[6];
         this.state.p0[6]= aux;
       }
+      this.forceUpdate();
     }
     p0onChange6_7 =(e) => {
         if(this.state.p0[7] !== null){
@@ -270,6 +273,7 @@ export default class PriorizarRamos extends Component {
         this.state.p0[6]= this.state.p0[7];
         this.state.p0[7]= aux;
       }
+      this.forceUpdate();
     }
 
     p0onChange7_8 =(e) => {
@@ -278,6 +282,7 @@ export default class PriorizarRamos extends Component {
         this.state.p0[7]= this.state.p0[8];
         this.state.p0[8]= aux;
       }
+      this.forceUpdate();
     }
 
     p0onChange8_9 =(e) => {
@@ -286,6 +291,7 @@ export default class PriorizarRamos extends Component {
         this.state.p0[8]= this.state.p0[9];
         this.state.p0[9]= aux;
       }
+      this.forceUpdate();
     }
 
     p0onChange9_10 =(e) => {
@@ -294,6 +300,7 @@ export default class PriorizarRamos extends Component {
         this.state.p0[9]= this.state.p0[10];
         this.state.p0[10]= aux;
       }
+      this.forceUpdate();
     }
     ///////////////////////////////////////////////
 
@@ -356,6 +363,7 @@ export default class PriorizarRamos extends Component {
         this.state.p1[6]= this.state.p1[7];
         this.state.p1[7]= aux;
       }
+      this.forceUpdate();
     }
 
     p1onChange7_8 =(e) => {
@@ -364,6 +372,7 @@ export default class PriorizarRamos extends Component {
         this.state.p1[7]= this.state.p1[8];
         this.state.p1[8]= aux;
       }
+      this.forceUpdate();
     }
 
     p1onChange8_9 =(e) => {
@@ -372,6 +381,7 @@ export default class PriorizarRamos extends Component {
         this.state.p1[8]= this.state.p1[9];
         this.state.p1[9]= aux;
       }
+      this.forceUpdate();
     }
 
     p1onChange9_10 =(e) => {
@@ -380,6 +390,7 @@ export default class PriorizarRamos extends Component {
         this.state.p1[9]= this.state.p1[10];
         this.state.p1[10]= aux;
       }
+      this.forceUpdate();
     }
     ///////////////////////////////////////////////
 
@@ -389,6 +400,7 @@ export default class PriorizarRamos extends Component {
         this.state.p2[0]= this.state.p2[1];
         this.state.p2[1]= aux;
       }
+      this.forceUpdate();
     }
 
     p2onChange1_2 =(e) => {
@@ -397,6 +409,7 @@ export default class PriorizarRamos extends Component {
         this.state.p2[1]= this.state.p2[2];
         this.state.p2[2]= aux;
       }
+      this.forceUpdate();
     }
 
     p2onChange2_3 =(e) => {
@@ -405,6 +418,7 @@ export default class PriorizarRamos extends Component {
         this.state.p2[2]= this.state.p2[3];
         this.state.p2[3]= aux;
       }
+      this.forceUpdate();
     }
 
     p2onChange3_4 =(e) => {
@@ -413,6 +427,7 @@ export default class PriorizarRamos extends Component {
         this.state.p2[3]= this.state.p2[4];
         this.state.p2[4]= aux;
       }
+      this.forceUpdate();
     }
 
     p2onChange4_5 =(e) => {
@@ -421,6 +436,7 @@ export default class PriorizarRamos extends Component {
         this.state.p2[4]= this.state.p2[5];
         this.state.p2[5]= aux;
       }
+      this.forceUpdate();
     }
 
     p2onChange5_6 =(e) => {
@@ -429,6 +445,7 @@ export default class PriorizarRamos extends Component {
         this.state.p2[5]= this.state.p2[6];
         this.state.p2[6]= aux;
       }
+      this.forceUpdate();
     }
     p2onChange6_7 =(e) => {
         if(this.state.p2[7] !== null){
@@ -436,6 +453,7 @@ export default class PriorizarRamos extends Component {
         this.state.p2[6]= this.state.p2[7];
         this.state.p2[7]= aux;
       }
+      this.forceUpdate();
     }
 
     p2onChange7_8 =(e) => {
@@ -444,6 +462,7 @@ export default class PriorizarRamos extends Component {
         this.state.p2[7]= this.state.p2[8];
         this.state.p2[8]= aux;
       }
+      this.forceUpdate();
     }
 
     p2onChange8_9 =(e) => {
@@ -452,6 +471,7 @@ export default class PriorizarRamos extends Component {
         this.state.p2[8]= this.state.p2[9];
         this.state.p2[9]= aux;
       }
+      this.forceUpdate();
     }
 
     p2onChange9_10 =(e) => {
@@ -460,6 +480,7 @@ export default class PriorizarRamos extends Component {
         this.state.p2[9]= this.state.p2[10];
         this.state.p2[10]= aux;
       }
+      this.forceUpdate();
     }
 
     ///////////////////////////////////////////////
@@ -469,6 +490,7 @@ export default class PriorizarRamos extends Component {
         this.state.p3[0]= this.state.p3[1];
         this.state.p3[1]= aux;
       }
+      this.forceUpdate();
     }
 
     p3onChange1_2 =(e) => {
@@ -477,6 +499,7 @@ export default class PriorizarRamos extends Component {
         this.state.p3[1]= this.state.p3[2];
         this.state.p3[2]= aux;
       }
+      this.forceUpdate();
     }
 
     p3onChange2_3 =(e) => {
@@ -485,6 +508,7 @@ export default class PriorizarRamos extends Component {
         this.state.p3[2]= this.state.p3[3];
         this.state.p3[3]= aux;
       }
+      this.forceUpdate();
     }
 
     p3onChange3_4 =(e) => {
@@ -493,6 +517,7 @@ export default class PriorizarRamos extends Component {
         this.state.p3[3]= this.state.p3[4];
         this.state.p3[4]= aux;
       }
+      this.forceUpdate();
     }
 
     p3onChange4_5 =(e) => {
@@ -501,6 +526,7 @@ export default class PriorizarRamos extends Component {
         this.state.p3[4]= this.state.p3[5];
         this.state.p3[5]= aux;
       }
+      this.forceUpdate();
     }
 
     p3onChange5_6 =(e) => {
@@ -509,6 +535,7 @@ export default class PriorizarRamos extends Component {
         this.state.p3[5]= this.state.p3[6];
         this.state.p3[6]= aux;
       }
+      this.forceUpdate();
     }
     p3onChange6_7 =(e) => {
         if(this.state.p3[7] !== null){
@@ -516,6 +543,7 @@ export default class PriorizarRamos extends Component {
         this.state.p3[6]= this.state.p3[7];
         this.state.p3[7]= aux;
       }
+      this.forceUpdate();
     }
 
     p3onChange7_8 =(e) => {
@@ -524,6 +552,7 @@ export default class PriorizarRamos extends Component {
         this.state.p3[7]= this.state.p3[8];
         this.state.p3[8]= aux;
       }
+      this.forceUpdate();
     }
 
     p3onChange8_9 =(e) => {
@@ -532,6 +561,7 @@ export default class PriorizarRamos extends Component {
         this.state.p3[8]= this.state.p3[9];
         this.state.p3[9]= aux;
       }
+      this.forceUpdate();
     }
 
     p3onChange9_10 =(e) => {
@@ -540,6 +570,7 @@ export default class PriorizarRamos extends Component {
         this.state.p3[9]= this.state.p3[10];
         this.state.p3[10]= aux;
       }
+      this.forceUpdate();
     }
     ///////////////////////////////////////////////
     p4onChange0_1 =(e) => {
@@ -548,6 +579,7 @@ export default class PriorizarRamos extends Component {
         this.state.p4[0]= this.state.p4[1];
         this.state.p4[1]= aux;
       }
+      this.forceUpdate();
     }
 
     p4onChange1_2 =(e) => {
@@ -556,6 +588,7 @@ export default class PriorizarRamos extends Component {
         this.state.p4[1]= this.state.p4[2];
         this.state.p4[2]= aux;
       }
+      this.forceUpdate();
     }
 
     p4onChange2_3 =(e) => {
@@ -564,6 +597,7 @@ export default class PriorizarRamos extends Component {
         this.state.p4[2]= this.state.p4[3];
         this.state.p4[3]= aux;
       }
+      this.forceUpdate();
     }
 
     p4onChange3_4 =(e) => {
@@ -572,6 +606,7 @@ export default class PriorizarRamos extends Component {
         this.state.p4[3]= this.state.p4[4];
         this.state.p4[4]= aux;
       }
+      this.forceUpdate();
     }
 
     p4onChange4_5 =(e) => {
@@ -580,6 +615,7 @@ export default class PriorizarRamos extends Component {
         this.state.p4[4]= this.state.p4[5];
         this.state.p4[5]= aux;
       }
+      this.forceUpdate();
     }
 
     p4onChange5_6 =(e) => {
@@ -588,6 +624,7 @@ export default class PriorizarRamos extends Component {
         this.state.p4[5]= this.state.p4[6];
         this.state.p4[6]= aux;
       }
+      this.forceUpdate();
     }
     p4onChange6_7 =(e) => {
         if(this.state.p4[7] !== null){
@@ -595,6 +632,7 @@ export default class PriorizarRamos extends Component {
         this.state.p4[6]= this.state.p4[7];
         this.state.p4[7]= aux;
       }
+      this.forceUpdate();
     }
 
     p4onChange7_8 =(e) => {
@@ -603,6 +641,7 @@ export default class PriorizarRamos extends Component {
         this.state.p4[7]= this.state.p4[8];
         this.state.p4[8]= aux;
       }
+      this.forceUpdate();
     }
 
     p4onChange8_9 =(e) => {
@@ -611,6 +650,7 @@ export default class PriorizarRamos extends Component {
         this.state.p4[8]= this.state.p4[9];
         this.state.p4[9]= aux;
       }
+      this.forceUpdate();
     }
 
     p4onChange9_10 =(e) => {
@@ -619,6 +659,7 @@ export default class PriorizarRamos extends Component {
         this.state.p4[9]= this.state.p4[10];
         this.state.p4[10]= aux;
       }
+      this.forceUpdate();
     }
     ///////////////////////////////////////////////
     p5onChange0_1 =(e) => {
@@ -627,6 +668,7 @@ export default class PriorizarRamos extends Component {
         this.state.p5[0]= this.state.p5[1];
         this.state.p5[1]= aux;
       }
+      this.forceUpdate();
     }
 
     p5onChange1_2 =(e) => {
@@ -635,6 +677,7 @@ export default class PriorizarRamos extends Component {
         this.state.p5[1]= this.state.p5[2];
         this.state.p5[2]= aux;
       }
+      this.forceUpdate();
     }
 
     p5onChange2_3 =(e) => {
@@ -643,6 +686,7 @@ export default class PriorizarRamos extends Component {
         this.state.p5[2]= this.state.p5[3];
         this.state.p5[3]= aux;
       }
+      this.forceUpdate();
     }
 
     p5onChange3_4 =(e) => {
@@ -651,6 +695,7 @@ export default class PriorizarRamos extends Component {
         this.state.p5[3]= this.state.p5[4];
         this.state.p5[4]= aux;
       }
+      this.forceUpdate();
     }
 
     p5onChange4_5 =(e) => {
@@ -659,6 +704,7 @@ export default class PriorizarRamos extends Component {
         this.state.p5[4]= this.state.p5[5];
         this.state.p5[5]= aux;
       }
+      this.forceUpdate();
     }
 
     p5onChange5_6 =(e) => {
@@ -667,6 +713,7 @@ export default class PriorizarRamos extends Component {
         this.state.p5[5]= this.state.p5[6];
         this.state.p5[6]= aux;
       }
+      this.forceUpdate();
     }
     p5onChange6_7 =(e) => {
         if(this.state.p5[7] !== null){
@@ -674,6 +721,7 @@ export default class PriorizarRamos extends Component {
         this.state.p5[6]= this.state.p5[7];
         this.state.p5[7]= aux;
       }
+      this.forceUpdate();
     }
 
     p5onChange7_8 =(e) => {
@@ -682,6 +730,7 @@ export default class PriorizarRamos extends Component {
         this.state.p5[7]= this.state.p5[8];
         this.state.p5[8]= aux;
       }
+      this.forceUpdate();
     }
 
     p5onChange8_9 =(e) => {
@@ -690,6 +739,7 @@ export default class PriorizarRamos extends Component {
         this.state.p5[8]= this.state.p5[9];
         this.state.p5[9]= aux;
       }
+      this.forceUpdate();
     }
 
     p5onChange9_10 =(e) => {
@@ -698,6 +748,7 @@ export default class PriorizarRamos extends Component {
         this.state.p5[9]= this.state.p5[10];
         this.state.p5[10]= aux;
       }
+      this.forceUpdate();
     }
     ///////////////////////////////////////////////
     p6onChange0_1 =(e) => {
@@ -706,6 +757,7 @@ export default class PriorizarRamos extends Component {
         this.state.p6[0]= this.state.p6[1];
         this.state.p6[1]= aux;
       }
+      this.forceUpdate();
     }
 
     p6onChange1_2 =(e) => {
@@ -714,6 +766,7 @@ export default class PriorizarRamos extends Component {
         this.state.p6[1]= this.state.p6[2];
         this.state.p6[2]= aux;
       }
+      this.forceUpdate();
     }
 
     p6onChange2_3 =(e) => {
@@ -722,6 +775,7 @@ export default class PriorizarRamos extends Component {
         this.state.p6[2]= this.state.p6[3];
         this.state.p6[3]= aux;
       }
+      this.forceUpdate();
     }
 
     p6onChange3_4 =(e) => {
@@ -730,6 +784,7 @@ export default class PriorizarRamos extends Component {
         this.state.p6[3]= this.state.p6[4];
         this.state.p6[4]= aux;
       }
+      this.forceUpdate();
     }
 
     p6onChange4_5 =(e) => {
@@ -738,6 +793,7 @@ export default class PriorizarRamos extends Component {
         this.state.p6[4]= this.state.p6[5];
         this.state.p6[5]= aux;
       }
+      this.forceUpdate();
     }
 
     p6onChange5_6 =(e) => {
@@ -746,6 +802,7 @@ export default class PriorizarRamos extends Component {
         this.state.p6[5]= this.state.p6[6];
         this.state.p6[6]= aux;
       }
+      this.forceUpdate();
     }
     p6onChange6_7 =(e) => {
         if(this.state.p6[7] !== null){
@@ -753,6 +810,7 @@ export default class PriorizarRamos extends Component {
         this.state.p6[6]= this.state.p6[7];
         this.state.p6[7]= aux;
       }
+      this.forceUpdate();
     }
 
     p6onChange7_8 =(e) => {
@@ -761,6 +819,7 @@ export default class PriorizarRamos extends Component {
         this.state.p6[7]= this.state.p6[8];
         this.state.p6[8]= aux;
       }
+      this.forceUpdate();
     }
 
     p6onChange8_9 =(e) => {
@@ -769,6 +828,7 @@ export default class PriorizarRamos extends Component {
         this.state.p6[8]= this.state.p6[9];
         this.state.p6[9]= aux;
       }
+      this.forceUpdate();
     }
 
     p6onChange9_10 =(e) => {
@@ -777,6 +837,7 @@ export default class PriorizarRamos extends Component {
         this.state.p6[9]= this.state.p6[10];
         this.state.p6[10]= aux;
       }
+      this.forceUpdate();
     }
     ///////////////////////////////////////////////
     p7onChange0_1 =(e) => {
@@ -785,6 +846,7 @@ export default class PriorizarRamos extends Component {
         this.state.p7[0]= this.state.p7[1];
         this.state.p7[1]= aux;
       }
+      this.forceUpdate();
     }
 
     p7onChange1_2 =(e) => {
@@ -793,6 +855,7 @@ export default class PriorizarRamos extends Component {
         this.state.p7[1]= this.state.p7[2];
         this.state.p7[2]= aux;
       }
+      this.forceUpdate();
     }
 
     p7onChange2_3 =(e) => {
@@ -801,6 +864,7 @@ export default class PriorizarRamos extends Component {
         this.state.p7[2]= this.state.p7[3];
         this.state.p7[3]= aux;
       }
+      this.forceUpdate();
     }
 
     p7onChange3_4 =(e) => {
@@ -809,6 +873,7 @@ export default class PriorizarRamos extends Component {
         this.state.p7[3]= this.state.p7[4];
         this.state.p7[4]= aux;
       }
+      this.forceUpdate();
     }
 
     p7onChange4_5 =(e) => {
@@ -817,6 +882,7 @@ export default class PriorizarRamos extends Component {
         this.state.p7[4]= this.state.p7[5];
         this.state.p7[5]= aux;
       }
+      this.forceUpdate();
     }
 
     p7onChange5_6 =(e) => {
@@ -825,6 +891,7 @@ export default class PriorizarRamos extends Component {
         this.state.p7[5]= this.state.p7[6];
         this.state.p7[6]= aux;
       }
+      this.forceUpdate();
     }
     p7onChange6_7 =(e) => {
         if(this.state.p7[7] !== null){
@@ -832,6 +899,7 @@ export default class PriorizarRamos extends Component {
         this.state.p7[6]= this.state.p7[7];
         this.state.p7[7]= aux;
       }
+      this.forceUpdate();
     }
 
     p7onChange7_8 =(e) => {
@@ -840,6 +908,7 @@ export default class PriorizarRamos extends Component {
         this.state.p7[7]= this.state.p7[8];
         this.state.p7[8]= aux;
       }
+      this.forceUpdate();
     }
 
     p7onChange8_9 =(e) => {
@@ -848,6 +917,7 @@ export default class PriorizarRamos extends Component {
         this.state.p7[8]= this.state.p7[9];
         this.state.p7[9]= aux;
       }
+      this.forceUpdate();
     }
 
     p7onChange9_10 =(e) => {
@@ -856,6 +926,7 @@ export default class PriorizarRamos extends Component {
         this.state.p7[9]= this.state.p7[10];
         this.state.p7[10]= aux;
       }
+      this.forceUpdate();
     }
     ///////////////////////////////////////////////
     p8onChange0_1 =(e) => {
@@ -864,6 +935,7 @@ export default class PriorizarRamos extends Component {
         this.state.p8[0]= this.state.p8[1];
         this.state.p8[1]= aux;
       }
+      this.forceUpdate();
     }
 
     p8onChange1_2 =(e) => {
@@ -872,6 +944,7 @@ export default class PriorizarRamos extends Component {
         this.state.p8[1]= this.state.p8[2];
         this.state.p8[2]= aux;
       }
+      this.forceUpdate();
     }
 
     p8onChange2_3 =(e) => {
@@ -880,6 +953,7 @@ export default class PriorizarRamos extends Component {
         this.state.p8[2]= this.state.p8[3];
         this.state.p8[3]= aux;
       }
+      this.forceUpdate();
     }
 
     p8onChange3_4 =(e) => {
@@ -888,6 +962,7 @@ export default class PriorizarRamos extends Component {
         this.state.p8[3]= this.state.p8[4];
         this.state.p8[4]= aux;
       }
+      this.forceUpdate();
     }
 
     p8onChange4_5 =(e) => {
@@ -896,6 +971,7 @@ export default class PriorizarRamos extends Component {
         this.state.p8[4]= this.state.p8[5];
         this.state.p8[5]= aux;
       }
+      this.forceUpdate();
     }
 
     p8onChange5_6 =(e) => {
@@ -904,6 +980,7 @@ export default class PriorizarRamos extends Component {
         this.state.p8[5]= this.state.p8[6];
         this.state.p8[6]= aux;
       }
+      this.forceUpdate();
     }
     p8onChange6_7 =(e) => {
         if(this.state.p8[7] !== null){
@@ -911,6 +988,7 @@ export default class PriorizarRamos extends Component {
         this.state.p8[6]= this.state.p8[7];
         this.state.p8[7]= aux;
       }
+      this.forceUpdate();
     }
 
     p8onChange7_8 =(e) => {
@@ -919,6 +997,7 @@ export default class PriorizarRamos extends Component {
         this.state.p8[7]= this.state.p8[8];
         this.state.p8[8]= aux;
       }
+      this.forceUpdate();
     }
 
     p8onChange8_9 =(e) => {
@@ -927,6 +1006,7 @@ export default class PriorizarRamos extends Component {
         this.state.p8[8]= this.state.p8[9];
         this.state.p8[9]= aux;
       }
+      this.forceUpdate();
     }
 
     p8onChange9_10 =(e) => {
@@ -935,6 +1015,7 @@ export default class PriorizarRamos extends Component {
         this.state.p8[9]= this.state.p8[10];
         this.state.p8[10]= aux;
       }
+      this.forceUpdate();
     }
     ///////////////////////////////////////////////
     p9onChange0_1 =(e) => {
@@ -943,6 +1024,7 @@ export default class PriorizarRamos extends Component {
         this.state.p9[0]= this.state.p9[1];
         this.state.p9[1]= aux;
       }
+      this.forceUpdate();
     }
 
     p9onChange1_2 =(e) => {
@@ -951,6 +1033,7 @@ export default class PriorizarRamos extends Component {
         this.state.p9[1]= this.state.p9[2];
         this.state.p9[2]= aux;
       }
+      this.forceUpdate();
     }
 
     p9onChange2_3 =(e) => {
@@ -959,6 +1042,7 @@ export default class PriorizarRamos extends Component {
         this.state.p9[2]= this.state.p9[3];
         this.state.p9[3]= aux;
       }
+      this.forceUpdate();
     }
 
     p9onChange3_4 =(e) => {
@@ -967,6 +1051,7 @@ export default class PriorizarRamos extends Component {
         this.state.p9[3]= this.state.p9[4];
         this.state.p9[4]= aux;
       }
+      this.forceUpdate();
     }
 
     p9onChange4_5 =(e) => {
@@ -975,6 +1060,7 @@ export default class PriorizarRamos extends Component {
         this.state.p9[4]= this.state.p9[5];
         this.state.p9[5]= aux;
       }
+      this.forceUpdate();
     }
 
     p9onChange5_6 =(e) => {
@@ -983,6 +1069,7 @@ export default class PriorizarRamos extends Component {
         this.state.p9[5]= this.state.p9[6];
         this.state.p9[6]= aux;
       }
+      this.forceUpdate();
     }
     p9onChange6_7 =(e) => {
         if(this.state.p9[7] !== null){
@@ -990,6 +1077,7 @@ export default class PriorizarRamos extends Component {
         this.state.p9[6]= this.state.p9[7];
         this.state.p9[7]= aux;
       }
+      this.forceUpdate();
     }
 
     p9onChange7_8 =(e) => {
@@ -998,6 +1086,7 @@ export default class PriorizarRamos extends Component {
         this.state.p9[7]= this.state.p9[8];
         this.state.p9[8]= aux;
       }
+      this.forceUpdate();
     }
 
     p9onChange8_9 =(e) => {
@@ -1006,6 +1095,7 @@ export default class PriorizarRamos extends Component {
         this.state.p9[8]= this.state.p9[9];
         this.state.p9[9]= aux;
       }
+      this.forceUpdate();
     }
 
     p9onChange9_10 =(e) => {
@@ -1014,6 +1104,7 @@ export default class PriorizarRamos extends Component {
         this.state.p9[9]= this.state.p9[10];
         this.state.p9[10]= aux;
       }
+      this.forceUpdate();
     }
     ///////////////////////////////////////////////
 
@@ -1023,6 +1114,7 @@ export default class PriorizarRamos extends Component {
         this.state.critico[0]= this.state.critico[1];
         this.state.critico[1]= aux;
       }
+      this.forceUpdate();
     }
 
     criticoonChange1_2 =(e) => {
@@ -1031,6 +1123,7 @@ export default class PriorizarRamos extends Component {
         this.state.critico[1]= this.state.critico[2];
         this.state.critico[2]= aux;
       }
+      this.forceUpdate();
     }
 
     criticoonChange2_3 =(e) => {
@@ -1039,6 +1132,7 @@ export default class PriorizarRamos extends Component {
         this.state.critico[2]= this.state.critico[3];
         this.state.critico[3]= aux;
       }
+      this.forceUpdate();
     }
 
     criticoonChange3_4 =(e) => {
@@ -1047,6 +1141,7 @@ export default class PriorizarRamos extends Component {
         this.state.critico[3]= this.state.critico[4];
         this.state.critico[4]= aux;
       }
+      this.forceUpdate();
     }
 
     criticoonChange4_5 =(e) => {
@@ -1055,6 +1150,7 @@ export default class PriorizarRamos extends Component {
         this.state.critico[4]= this.state.critico[5];
         this.state.critico[5]= aux;
       }
+      this.forceUpdate();
     }
 
     criticoonChange5_6 =(e) => {
@@ -1063,6 +1159,7 @@ export default class PriorizarRamos extends Component {
         this.state.critico[5]= this.state.critico[6];
         this.state.critico[6]= aux;
       }
+      this.forceUpdate();
     }
     criticoonChange6_7 =(e) => {
         if(this.state.critico[7] !== null){
@@ -1070,6 +1167,7 @@ export default class PriorizarRamos extends Component {
         this.state.critico[6]= this.state.critico[7];
         this.state.critico[7]= aux;
       }
+      this.forceUpdate();
     }
 
     criticoonChange7_8 =(e) => {
@@ -1078,6 +1176,7 @@ export default class PriorizarRamos extends Component {
         this.state.critico[7]= this.state.critico[8];
         this.state.critico[8]= aux;
       }
+      this.forceUpdate();
     }
 
     criticoonChange8_9 =(e) => {
@@ -1086,6 +1185,7 @@ export default class PriorizarRamos extends Component {
         this.state.critico[8]= this.state.critico[9];
         this.state.critico[9]= aux;
       }
+      this.forceUpdate();
     }
 
     criticoonChange9_10 =(e) => {
@@ -1094,6 +1194,7 @@ export default class PriorizarRamos extends Component {
         this.state.critico[9]= this.state.critico[10];
         this.state.critico[10]= aux;
       }
+      this.forceUpdate();
     }
     ///////////////////////////////////////////////
 }
