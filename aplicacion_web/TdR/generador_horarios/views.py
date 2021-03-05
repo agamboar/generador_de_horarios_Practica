@@ -258,6 +258,7 @@ def get_clique(request):
             jsons = get_clique_max_pond(current_user)
 
             for elem in jsons:
+                print(elem)
 
                 solucion_alumno = solucion(is_horario=False, to_user=user)
                 solucion_alumno.json_solucion = elem
