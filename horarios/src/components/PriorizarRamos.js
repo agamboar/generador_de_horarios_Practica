@@ -11,17 +11,17 @@ export default class PriorizarRamos extends Component {
 
     state = {
         ramos: null,
-        critico: [],
-        p0: [],
-        p1: [],
-        p2: [],
-        p3: [],
-        p4: [],
-        p5: [],
-        p6: [],
-        p7: [],
-        p8: [],
-        p9: []
+        critico: [null, null, null, null, null, null, null, null, null, null, null],
+        p0: [null, null, null, null, null, null, null, null, null, null, null],
+        p1: [null, null, null, null, null, null, null, null, null, null, null],
+        p2: [null, null, null, null, null, null, null, null, null, null, null],
+        p3: [null, null, null, null, null, null, null, null, null, null, null],
+        p4: [null, null, null, null, null, null, null, null, null, null, null],
+        p5: [null, null, null, null, null, null, null, null, null, null, null],
+        p6: [null, null, null, null, null, null, null, null, null, null, null],
+        p7: [null, null, null, null, null, null, null, null, null, null, null],
+        p8: [null, null, null, null, null, null, null, null, null, null, null],
+        p9: [null, null, null, null, null, null, null, null, null, null, null]
     }
 
     componentDidMount = async () => {
@@ -46,59 +46,103 @@ export default class PriorizarRamos extends Component {
         for (let i = 0; i < this.state.ramos.length; i++) {
             const mov = i;
             if (this.state.ramos[mov].critico === true) {
-                this.setState({
-                    critico: [...this.state.critico, this.state.ramos[mov]]
-                })
+                for (let j=0 ; j < this.state.critico.length; j++){
+                    const mov2= j;
+                    if (this.state.critico[mov2]===null){
+                        this.state.critico[mov2]= this.state.ramos[mov];
+                        break;
+                    }
+                }
             } else {
                 if (this.state.ramos[mov].holgura === 0) {
-                    this.setState({
-                        p0: [...this.state.p0, this.state.ramos[mov]]
-                    })
+                    for (let j=0 ; j < this.state.p0.length; j++){
+                        const mov2= j;
+                        if (this.state.p0[mov2]===null){
+                            this.state.p0[mov2]= this.state.ramos[mov];
+                            break;
+                        }
+                    }
                 }
                 if (this.state.ramos[mov].holgura === 1) {
-                    this.setState({
-                        p1: [...this.state.p1, this.state.ramos[mov]]
-                    })
+                    for (let j=0 ; j < this.state.p1.length; j++){
+                        const mov2= j;
+                        if (this.state.p1[mov2]===null){
+                            this.state.p1[mov2]= this.state.ramos[mov];
+                            break;
+                        }
+                    }
                 }
                 if (this.state.ramos[mov].holgura === 2) {
-                    this.setState({
-                        p2: [...this.state.p2, this.state.ramos[mov]]
-                    })
+                    for (let j=0 ; j < this.state.p2.length; j++){
+                        const mov2= j;
+                        if (this.state.p2[mov2]===null){
+                            this.state.p2[mov2]= this.state.ramos[mov];
+                            break;
+                        }
+                    }
                 }
                 if (this.state.ramos[mov].holgura === 3) {
-                    this.setState({
-                        p3: [...this.state.p3, this.state.ramos[mov]]
-                    })
+                    for (let j=0 ; j < this.state.p3.length; j++){
+                        const mov2= j;
+                        if (this.state.p3[mov2]===null){
+                            this.state.p3[mov2]= this.state.ramos[mov];
+                            break;
+                        }
+                    }
                 }
                 if (this.state.ramos[mov].holgura === 4) {
-                    this.setState({
-                        p4: [...this.state.p4, this.state.ramos[mov]]
-                    })
+                    for (let j=0 ; j < this.state.p4.length; j++){
+                        const mov2= j;
+                        if (this.state.p4[mov2]===null){
+                            this.state.p4[mov2]= this.state.ramos[mov];
+                            break;
+                        }
+                    }
                 }
                 if (this.state.ramos[mov].holgura === 5) {
-                    this.setState({
-                        p5: [...this.state.p5, this.state.ramos[mov]]
-                    })
+                    for (let j=0 ; j < this.state.p5.length; j++){
+                        const mov2= j;
+                        if (this.state.p5[mov2]===null){
+                            this.state.p5[mov2]= this.state.ramos[mov];
+                            break;
+                        }
+                    }
                 }
                 if (this.state.ramos[mov].holgura === 6) {
-                    this.setState({
-                        p6: [...this.state.p6, this.state.ramos[mov]]
-                    })
+                    for (let j=0 ; j < this.state.p6.length; j++){
+                        const mov2= j;
+                        if (this.state.p6[mov2]===null){
+                            this.state.p6[mov2]= this.state.ramos[mov];
+                            break;
+                        }
+                    }
                 }
                 if (this.state.ramos[mov].holgura === 7) {
-                    this.setState({
-                        p7: [...this.state.p7, this.state.ramos[mov]]
-                    })
+                    for (let j=0 ; j < this.state.p7.length; j++){
+                        const mov2= j;
+                        if (this.state.p7[mov2]===null){
+                            this.state.p7[mov2]= this.state.ramos[mov];
+                            break;
+                        }
+                    }
                 }
                 if (this.state.ramos[mov].holgura === 8) {
-                    this.setState({
-                        p8: [...this.state.p8, this.state.ramos[mov]]
-                    })
+                    for (let j=0 ; j < this.state.p8.length; j++){
+                        const mov2= j;
+                        if (this.state.p8[mov2]===null){
+                            this.state.p8[mov2]= this.state.ramos[mov];
+                            break;
+                        }
+                    }
                 }
                 if (this.state.ramos[mov].holgura === 9) {
-                    this.setState({
-                        p9: [...this.state.p9, this.state.ramos[mov]]
-                    })
+                    for (let j=0 ; j < this.state.p9.length; j++){
+                        const mov2= j;
+                        if (this.state.p9[mov2]===null){
+                            this.state.p9[mov2]= this.state.ramos[mov];
+                            break;
+                        }
+                    }
                 }
             }
         }
