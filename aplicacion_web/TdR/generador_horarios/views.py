@@ -295,12 +295,14 @@ def get_clique(request):
             for elem in sol:
                 jsons['Solucion'+aux] = elem.json_solucion
                 aux += 1
-            print('uso el json', jsons)
+            print('uso el json')
         # print(jsons)
         # for elem, index in jsons:
         # no entiendo como guardar se guardan las soluciones yo los guardaria en un json y era como el pert
         # aca falta guardar las soluciones a la tabla soluciones xd
         # y guardar el horario que el alumno escoja
+
+        print(json)
         return Response(jsons, status=status.HTTP_200_OK)
 
 
@@ -419,20 +421,24 @@ def get_nodo_seccion(request):
 
     current_user = request.user
 
-    json = {}
+    json_array = []
 
     ns = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user)
 
     for elem in ns:
-        print(ns)
+        json = {}
         json['id'] = elem.id
         json['ss'] = elem.ss
+
         json['codigo'] = asignatura_real.objects.filter(
             nodo_asignatura__nodo_seccion__id=elem.id)[0].codigo
         json['nombre'] = asignatura_real.objects.filter(
             nodo_asignatura__nodo_seccion__id=elem.id)[0].nombre
 
-    return JsonResponse(json, safe=False, status=status.HTTP_200_OK)
+        print(json)
+        json_array.append(json)
+
+    return JsonResponse(json_array, safe=False, status=status.HTTP_200_OK)
 
 
 def csrf(request):

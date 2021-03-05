@@ -15,7 +15,7 @@ export default class Bloque extends Component {
                                 <li>Modulos:</li>
                                 <ul> 
                                     {this.props.ramo.eventos.map(modulos => 
-                                        <li>{modulos.bloque}</li>
+                                        {modulos.bloque}
                                         )}
                                     
                                 </ul>

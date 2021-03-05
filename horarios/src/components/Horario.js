@@ -64,23 +64,25 @@ export default class Horario extends Component {
 
     /*fillSchedule = () => {
 
-        for (let i = 0; i < this.props.horario.ramos.length; i++) {
+        for (let i = 0; i < this.props.horario.length; i++) {
             const mov = i;
-            for (let j = 0; j < this.props.horario.ramos[mov].eventos.length; j++) {
-                const mov3 = this.props.horario.ramos[i].eventos[j].bloque;
+            for (let j = 0; j < this.props.horario[mov].eventos.length; j++) {
+                const mov2 = j;
+                const mov3 = this.props.horario.ramos[mov].eventos[mov2].bloque;
                 this.setState({
-                    [mov3]: this.props.horario.ramos[i]
+                    [mov3]: this.props.horario[mov]
 
                 })
             }
 
         }
-    };
+    };*/
     
     componentDidMount = () => {
-        this.fillSchedule();
+      // this.fillSchedule();
+       console.log(this.props)
     }
-    */
+
     onChange1 = () => {
         this.setState({
             show: false
@@ -189,14 +191,11 @@ export default class Horario extends Component {
                             &nbsp;&nbsp;
                         </div>
 
-                        <br />
-                        
+
+                        <button type="button" className="btn btn-primary" onClick={this.onChange2}> Ver Horario</button>
                     </div>
 
-                    {console.log(this.state)}
-                    <br />
-                    <br />
-                    <button type="button" className="btn btn-primary" onClick={this.onChange2}> Ver Horario</button>
+                    <br />            
                 </div>
 
 
@@ -224,17 +223,12 @@ export default class Horario extends Component {
                         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramos:</h5>
                         <div className="row row-cols-2">
                             {(this.props.horario)? <RamosH ramos={this.props.horario} />: null}
-                            
-
-                            
                         </div>
 
                         
-
-                    </div>
-                    <br />
-                    <br />
-                    <button type="button" className="btn btn-primary" onClick={this.onChange1}> Ver Horario Graficamente</button>                        
+                        <button type="button" className="btn btn-primary" onClick={this.onChange1}> Ver Horario Graficamente</button>                        
+                    </div>    
+                    <br />               
                 </div>
 
             )
