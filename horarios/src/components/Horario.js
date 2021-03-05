@@ -75,6 +75,7 @@ export default class Horario extends Component {
                 }
             }
         }
+        this.forceUpdate();
     };
     
     componentDidMount = () => {
