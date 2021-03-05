@@ -173,7 +173,7 @@ export default class PriorizarRamos extends Component {
                         <br />
                         <br />
                         {console.log(this.state.critico[0])/* NO BORRAR */}
-
+                        {this.state.bool && console.log("hola toy funcionando")}
                         {this.state.bool && <RamoCritico name='Críticos' resultado={this.state.critico} />}
                         {this.state.bool && <RamoCritico name='Prioridad 0' resultado={this.state.p0} />}
                         {this.state.bool && <RamoCritico name='Prioridad 1' resultado={this.state.p1} />}
