@@ -259,14 +259,9 @@ def get_clique(request):
 
             for elem in jsons:
 
-                data = {'json_solucion': elem,
-                        'is_horario': False,
-                        'to_user_id': current_user
-                        }
-
                 print(elem)
-                solucion_alumno, created = solucion.objects.update_or_create(
-                    to_user=user, defaults=data)
+                solucion_alumno = solucion(
+                    to_user=user, is_horario=False, json_solucion=elem)
 
                 for elem2 in elem:
 
