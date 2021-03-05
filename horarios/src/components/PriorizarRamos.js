@@ -41,8 +41,6 @@ export default class PriorizarRamos extends Component {
         this.setState({
             ramos: PERT_j.data.PERT
         })
-        console.log(this.state.p)
-        console.log(this.state.ramos)
         for (let i = 0; i < this.state.ramos.length; i++) {
             const mov = i;
             if (this.state.ramos[mov].critico === true) {
