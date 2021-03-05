@@ -144,7 +144,6 @@ export default class PriorizarRamos extends Component {
                 }
             }
         }
-        console.log(this.state.critico)
     }
 
     onSubmit = e => {
@@ -170,6 +169,8 @@ export default class PriorizarRamos extends Component {
                 </p>
                         <br />
                         <br />
+                        {console.log(this.state.critico[0])/* NO BORRAR */}
+                        
                         <RamoCritico name='Críticos' resultado={this.state.critico} />
                         <RamoCritico name='Prioridad 0' resultado={this.state.p0} />
                         <RamoCritico name='Prioridad 1' resultado={this.state.p1} />
