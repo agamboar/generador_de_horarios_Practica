@@ -411,5 +411,25 @@ def mi_malla_manual(request):
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
 
+@api_view(['GET'])
+def get_nodo_seccion(request):
+
+    current_user = request.user
+
+    json = {}
+
+    ns = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user)
+
+    for elem in ns:
+        json['id'] = elem.id
+        json['ss'] = elem.ss
+        json['codigo'] = asignatura_real.objects.filter(
+            nodo_asignatura__nodo_seccion__id=elem.id)[0].codigo
+        json['nombre'] = asignatura_real.objects.filter(
+            nodo_asignatura__nodo_seccion__id=elem.id)[0].nombre
+
+    return JsonResponse(json, safe=False, status=status.HTTP_200_OK)
+
+
 def csrf(request):
     return JsonResponse({'csrfToken': get_token(request)})
