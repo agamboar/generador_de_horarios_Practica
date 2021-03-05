@@ -62,24 +62,24 @@ export default class Horario extends Component {
            }
         */
 
-    /*fillSchedule = () => {
+    fillSchedule = () => {
 
-        for (let i = 0; i < this.props.horario.ramos.length; i++) {
+        for (let i = 0; i < this.props.horario.length; i++) {
             const mov = i;
-            for (let j = 0; j < this.props.horario.ramos[mov].eventos.length; j++) {
-                const mov3 = this.props.horario.ramos[i].eventos[j].bloque;
+            for (let j = 0; j < this.props.horario[mov].eventos.length; j++) {
+                const mov2 = j;
+                console.log(this.props.horario[mov])
                 this.setState({
-                    [mov3]: this.props.horario.ramos[i]
+                    [this.props.horario.ramos[mov].eventos[mov2].bloque]: this.props.horario[mov]
 
                 })
             }
 
         }
-    };*/
+    };
     
     componentDidMount = () => {
-       // this.fillSchedule();
-       console.log(this.props)
+      this.fillSchedule();
     }
 
     onChange1 = () => {
@@ -225,7 +225,7 @@ export default class Horario extends Component {
                         </div>
 
                         
-                        <button type="button" className="btn btn-primary" onClick={this.onChange1}> Ver Horario Graficamente</button>                        
+                        <button type="button" className="btn btn-primary position-absolute bottom-0 end-50" onClick={this.onChange1}> Ver Horario Graficamente</button>                        
                     </div>    
                     <br />               
                 </div>
