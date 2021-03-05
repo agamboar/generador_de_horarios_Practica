@@ -170,7 +170,7 @@ export default class PriorizarRamos extends Component {
                 </p>
                         <br />
                         <br />
-                        <RamoCritico name='Críticos' resultado={this.state.critico[0]} />
+                        <RamoCritico name='Críticos' resultado={this.state.critico} />
                         <RamoCritico name='Prioridad 0' resultado={this.state.p0} />
                         <RamoCritico name='Prioridad 1' resultado={this.state.p1} />
                         <RamoCritico name='Prioridad 2' resultado={this.state.p2} />
