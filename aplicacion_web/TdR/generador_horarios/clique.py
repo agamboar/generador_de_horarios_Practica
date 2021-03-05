@@ -1,6 +1,8 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
+import re
+from unicodedata import normalize
 from .models import *
 
 
@@ -33,7 +35,9 @@ def get_clique_max_pond(current_user):
 
             prof = elem['to_seccion__evento__profesor']
 
-            prof.encode('utf-8')
+            a, b = 'áéíóúüñÑ', 'aeiouunN'
+            trans = str.maketrans(a, b)
+            prof.translate(trans)
 
             evento = {'bloque': elem['to_seccion__evento__dia'] + '-' + elem['to_seccion__evento__modulo'][0:2],
                       'tipo': aux, 'profesor': prof}
