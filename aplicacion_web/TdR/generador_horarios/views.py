@@ -18,7 +18,7 @@ from django.middleware.csrf import get_token
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 
 import json
-from datetime import date
+from datetime import date, datetime
 
 from .serializers import *
 from .models import *
@@ -244,22 +244,27 @@ def get_clique(request):
         # guardadas de los usuarios, pero NO la tabla horario, esa no se toca hasta que el pibe
         # guarda otra solucion
         no_existen_soluciones = True
+
         try:
             sol = solucion.objects.filter(to_user=current_user)
-
             if sol == []:
-
                 no_existen_soluciones = False
         except:
             pass
 
+        current_timestamp = datetime.datetime.now()
+        diff = current_timestamp-sol[0].fecha_mod
+        segundos = diff.seconds
+
         if no_existen_soluciones:
 
             jsons = get_clique_max_pond(current_user)
-
             for elem in jsons:
-                print(elem)
 
+                counters = {'json_solucion': elem,
+                            'is_horario': False,
+                            'to_user': user
+                            }
                 solucion_alumno = solucion(is_horario=False, to_user=user)
                 solucion_alumno.json_solucion = elem
                 solucion_alumno.save()
@@ -271,12 +276,21 @@ def get_clique(request):
 
                     solucion_alumno.to_nodo_seccion.add(nodoSeccion)
 
-            print('guardo el json', jsons)
+            print('guardo el json')
+        elif 90 < segundos < 3600:
+
+            jsons = get_clique_max_pond(current_user)
+            counter = 0
+            for elem in jsons:
+                sol[counter].json_solucion = elem
+                sol[counter].save()
+                counter += 1
+                print('pasaron más de 90 segundos')
         else:
             aux = 1
             jsons = {}
             for elem in sol:
-                jsons['Solucion'+aux] = elem
+                jsons['Solucion'+aux] = elem.json_solucion
                 aux += 1
             print('uso el json', jsons)
         # print(jsons)
