@@ -34,10 +34,12 @@ def get_clique_max_pond(current_user):
                 aux = 'LABORATORIO'
 
             prof = elem['to_seccion__evento__profesor']
+            print(prof)
 
             a, b = 'áéíóúüñÑ', 'aeiouunN'
             trans = str.maketrans(a, b)
             prof.translate(trans)
+            print(prof)
 
             evento = {'bloque': elem['to_seccion__evento__dia'] + '-' + elem['to_seccion__evento__modulo'][0:2],
                       'tipo': aux, 'profesor': prof}
