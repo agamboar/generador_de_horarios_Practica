@@ -62,8 +62,8 @@ export default class Horario extends Component {
            }
         */
 
-    fillSchedule = () => {
-
+    
+    componentDidMount = () => {
         for (let i = 0; i < this.props.horario.length; i++) {
             const mov = i;
             for (let j = 0; j < this.props.horario[mov].eventos.length; j++) {
@@ -76,16 +76,6 @@ export default class Horario extends Component {
             }
 
         }
-    };
-    
-    componentDidMount = () => {
-       this.fillSchedule();
-       console.log(this.props)
-       console.log(this.props.horario)
-       console.log(this.props.horario[0])
-       console.log(this.props.horario[0].eventos)
-       console.log(this.props.horario[0].eventos[0])
-       console.log(this.props.horario[0].eventos[0].bloque)
     }
 
     onChange1 = () => {
