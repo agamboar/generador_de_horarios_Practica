@@ -263,6 +263,8 @@ def get_clique(request):
                         'is_horario': False,
                         'to_user_id': current_user
                         }
+
+                print(elem)
                 solucion_alumno, created = solucion.objects.update_or_create(
                     to_user=user, defaults=data)
 
@@ -272,6 +274,7 @@ def get_clique(request):
                         to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
 
                     solucion_alumno.to_nodo_seccion.add(nodoSeccion)
+
             print('guardo el json', jsons)
         else:
             aux = 1
