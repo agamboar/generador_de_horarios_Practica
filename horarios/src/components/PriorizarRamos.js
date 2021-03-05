@@ -11,17 +11,17 @@ export default class PriorizarRamos extends Component {
 
     state = {
         ramos: null,
-        critico: [null, null, null, null, null, null, null, null, null, null, null],
-        p0: [null, null, null, null, null, null, null, null, null, null, null],
-        p1: [null, null, null, null, null, null, null, null, null, null, null],
-        p2: [null, null, null, null, null, null, null, null, null, null, null],
-        p3: [null, null, null, null, null, null, null, null, null, null, null],
-        p4: [null, null, null, null, null, null, null, null, null, null, null],
-        p5: [null, null, null, null, null, null, null, null, null, null, null],
-        p6: [null, null, null, null, null, null, null, null, null, null, null],
-        p7: [null, null, null, null, null, null, null, null, null, null, null],
-        p8: [null, null, null, null, null, null, null, null, null, null, null],
-        p9: [null, null, null, null, null, null, null, null, null, null, null]
+        critico: ['', '', '', '', '', '', '', '', '', '', ''],
+        p0: ['', '', '', '', '', '', '', '', '', '', ''],
+        p1: ['', '', '', '', '', '', '', '', '', '', ''],
+        p2: ['', '', '', '', '', '', '', '', '', '', ''],
+        p3: ['', '', '', '', '', '', '', '', '', '', ''],
+        p4: ['', '', '', '', '', '', '', '', '', '', ''],
+        p5: ['', '', '', '', '', '', '', '', '', '', ''],
+        p6: ['', '', '', '', '', '', '', '', '', '', ''],
+        p7: ['', '', '', '', '', '', '', '', '', '', ''],
+        p8: ['', '', '', '', '', '', '', '', '', '', ''],
+        p9: ['', '', '', '', '', '', '', '', '', '', '']
     }
 
     componentDidMount = async () => {
@@ -46,7 +46,7 @@ export default class PriorizarRamos extends Component {
             if (this.state.ramos[mov].critico === true) {
                 for (let j=0 ; j < this.state.critico.length; j++){
                     const mov2= j;
-                    if (this.state.critico[mov2]===null){
+                    if (this.state.critico[mov2]===''){
                         this.state.critico[mov2]= this.state.ramos[mov];
                         break;
                     }
