@@ -18,7 +18,8 @@ from django.middleware.csrf import get_token
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 
 import json
-from datetime import date, datetime
+from datetime import date
+import datetime
 
 from .serializers import *
 from .models import *
