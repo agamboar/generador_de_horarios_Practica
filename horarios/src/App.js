@@ -38,7 +38,7 @@ import PriorizarSecciones from './components/PriorizarSecciones'
 import Cookies from 'js-cookie';
 
 
-const API_HOST = 'http://200.14.84.238:80';
+const API_HOST = 'http://200.14.84.238:443/';
 let _csrfToken = null;
 async function getCsrfToken() {
     if (_csrfToken === null) {
