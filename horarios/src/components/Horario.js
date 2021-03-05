@@ -48,7 +48,8 @@ export default class Horario extends Component {
         VI_13: null,
         VI_14: null,
         VI_16: null,
-        VI_17: null
+        VI_17: null,
+        bool: "0"
 
     }
 
@@ -63,7 +64,7 @@ export default class Horario extends Component {
         */
 
     
-   /* componentDidMount = () => {
+    componentDidMount = () => {
         for (let i = 0; i < this.props.horario.length; i++) {
             const mov = i;
             for (let j = 0; j < this.props.horario[mov].eventos.length; j++) {
@@ -74,9 +75,15 @@ export default class Horario extends Component {
 
                 })
             }
+            this.setState(
+            {
+                bool: true
+            }
+        )
+        console.log(this.state.bool)
 
         }
-    }*/
+    }
 
     onChange1 = () => {
         this.setState({
@@ -98,6 +105,7 @@ export default class Horario extends Component {
                 <div className="container" >
                     <div className="card border-primary text-center custom2">
                         <br />
+                        {console.log(this.state.bool)/* NO BORRAR */}
                         <div className="row row-cols-10">
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <div className="col">
@@ -198,6 +206,7 @@ export default class Horario extends Component {
             return (
                 <div className="container " >
                     <div className="card border-primary border-5 custom2 ">
+                        {console.log(this.state.bool)/* NO BORRAR */}
                         &nbsp;
                         <div className="row row-cols-5">
                             <div className="col"> </div>
