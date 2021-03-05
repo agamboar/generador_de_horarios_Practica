@@ -1,8 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
-import re
-from unicodedata import normalize
 from .models import *
 
 
@@ -39,7 +37,6 @@ def get_clique_max_pond(current_user):
             evento = '---'
 
         if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_seccion__to_asignatura_real__codigo']:
-
             codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
             if horario not in aux_horario:
                 aux_horario.append(horario)
