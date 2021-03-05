@@ -13,16 +13,9 @@ export default class Bloque extends Component {
                                 <li>Profesor: {this.props.ramo.eventos[0].profesor}</li>  
                                
                                 <li>Modulos:</li>
-                                <ul> 
-                                    {this.props.ramo.eventos.map(modulos => 
-                                        {modulos.bloque}
-                                        )}
-                                    
-                                </ul>
-                                {/*<li>Ayudantia:</li>
-                                <ul>
-                                    <li>{this.props.ayudantia}</li>
-                                </ul>*/}
+                                <ul>  {this.props.ramo.horario} </ul>
+                                <br/>
+                                <br/>
                             </ul>
                         </ul>
                         </div>   
