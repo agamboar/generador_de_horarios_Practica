@@ -34,7 +34,6 @@ def get_clique_max_pond(current_user):
                 aux = 'LABORATORIO'
 
             prof = elem['to_seccion__evento__profesor']
-            print(prof)
 
             a, b = 'áéíóúüñÑ', 'aeiouunN'
             trans = str.maketrans(a, b)
