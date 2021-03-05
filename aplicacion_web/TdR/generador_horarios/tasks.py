@@ -54,6 +54,15 @@ def read_eventos(excel_oferta):
                     elem1 = elem.copy()
                     elem2 = elem.copy()
 
+                    prof = elem1[2]
+
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
+                    prof.translate(trans)
+
+                    elem1[2] = prof
+                    elem[2] = prof
+
                     bloque = arr_horario[2]+" - "+arr_horario[4]
                     dia1 = arr_horario[0]
                     dia2 = arr_horario[1]
@@ -73,6 +82,16 @@ def read_eventos(excel_oferta):
                     elem1 = elem.copy()
                     elem2 = elem.copy()
                     elem3 = elem.copy()
+
+                    prof = elem1[2]
+
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
+                    prof.translate(trans)
+
+                    elem1[2] = prof
+                    elem2[2] = prof
+                    elem3[2] = prof
 
                     bloque = arr_horario[3]+" - "+arr_horario[5]
                     dia1 = arr_horario[0]
@@ -97,6 +116,15 @@ def read_eventos(excel_oferta):
 
                     elem1 = elem.copy()
                     elem2 = elem.copy()
+
+                    prof = elem1[2]
+
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
+                    prof.translate(trans)
+
+                    elem1[2] = prof
+                    elem2[2] = prof
 
                     bloque1 = arr_horario[1]+" - "+arr_horario[3].strip(';')
                     bloque2 = arr_horario[5]+" - "+arr_horario[7].strip(';')
@@ -193,6 +221,15 @@ def read_evento_cfg(excel_file):
                     elem1 = elem.copy()
                     elem2 = elem.copy()
 
+                    prof = elem1[2]
+
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
+                    prof.translate(trans)
+
+                    elem1[2] = prof
+                    elem2[2] = prof
+
                     bloque = arr_horario[2]+" - "+arr_horario[4]
                     dia1 = arr_horario[0]
                     dia2 = arr_horario[1]
@@ -239,6 +276,15 @@ def read_evento_cfg(excel_file):
 
                     dia = arr_horario[0]
 
+                    prof = elem1[2]
+
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
+                    prof.translate(trans)
+
+                    elem1[2] = prof
+                    elem2[2] = prof
+
                     elem1[1] = dia
                     elem1 = np.append(elem1.tolist(), bloque)
                     cfg_eventos.append(elem1.tolist())
@@ -253,6 +299,15 @@ def read_evento_cfg(excel_file):
 
                     elem1 = elem.copy()
                     elem2 = elem.copy()
+
+                    prof = elem1[2]
+
+                    a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                    trans = str.maketrans(a, b)
+                    prof.translate(trans)
+
+                    elem1[2] = prof
+                    elem2[2] = prof
 
                     bloque1 = arr_horario[1]+" - "+arr_horario[3].strip(';')
                     bloque2 = arr_horario[5]+" - "+arr_horario[7].strip(';')
@@ -271,6 +326,14 @@ def read_evento_cfg(excel_file):
                 arr_horario = elem[1].split()
 
                 elem1 = elem.copy()
+
+                prof = elem1[2]
+
+                a, b = 'ÁÉÍÓÚÑ', 'AEIOUN'
+                trans = str.maketrans(a, b)
+                prof.translate(trans)
+
+                elem1[2] = prof
 
                 dia = arr_horario[0]
                 bloque = arr_horario[1]+" - "+arr_horario[3]
