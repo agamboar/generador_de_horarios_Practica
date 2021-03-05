@@ -13,15 +13,11 @@ class asignaturaSerializer(serializers.ModelSerializer):
         model = asignatura_real
         fields = '__all__'
 
-class asignaturaSerializer_codigo(serializers.ModelSerializer):
-    class Meta:
-        model = asignatura_real
-        fields = ['codigo']
 
 class asignaturaSerializer_nombre(serializers.ModelSerializer):
     class Meta:
         model = asignatura_real
-        fields = ['nombre']
+        fields = ['nombre','codigo']
 
 
 
