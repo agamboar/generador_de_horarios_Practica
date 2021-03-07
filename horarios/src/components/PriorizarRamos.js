@@ -97,6 +97,8 @@ export default class PriorizarRamos extends Component {
       }
       priorizaciones[10] = this.state.aux;
       console.log(priorizaciones)
+
+      // aqui va el axios que envia priorizaciones enviando datos ->  [ ramo, puntaje ]
       
   }
 
