@@ -89,7 +89,8 @@ export default class CrearHorario extends Component {
                                             <p className="card-text">En el siguiente link se encuentra un archivo Excel que te permitira ingresar el avance curricular que has logrado durante la carrera, una vez rellenado ingresalo en la casilla continua.</p>
                                             <div className="form-group">
                                                 <input type="file" name="file" onChange={this.onChange} />
-                                                <button type="button" className="btn btn-success btn-block" onClick={this.onClick}>Subir mi Excel</button>
+                                                <br/>
+                                                <button type="button" className="btn btn-primary btn-block" onClick={this.onClick}>Subir mi Excel</button>
                                             </div>
                                         </div>
                                     </div>
