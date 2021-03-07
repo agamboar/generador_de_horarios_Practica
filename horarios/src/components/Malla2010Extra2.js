@@ -3,7 +3,7 @@ import RamoE from './RamoE'
 import Semestre from './Semestre'
 import {Link} from 'react-router-dom';
 
-/*  fillRule  className*/
+
 
 export default class Malla2010Extra2 extends Component {
     render() {
