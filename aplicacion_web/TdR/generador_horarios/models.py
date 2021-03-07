@@ -12,7 +12,7 @@ class asignatura_real(models.Model):
     nro_correlativo = models.CharField(max_length=30)
     semestre = models.CharField(max_length=30)
     tipo = models.IntegerField(default=0)
-    equivale = models.ManyToManyField('self', default=None)
+    equivale = models.ManyToManyField('self', default=None, symmetrical=False)
     prerrequisito = models.ManyToManyField('self')
     importancia = models.IntegerField(default=3)
 
