@@ -31,10 +31,9 @@ export default class PriorizarRamos extends Component {
       e.preventDefault();
       const priorizaciones = [null, null, null, null, null, null, null, null, null, null, null];
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
-      let aux2= null; 
       for (let i = 0; i < this.state.critico.length; i++){
-        aux2 = this.state.critico[i];
-        this.state.aux[i]= [aux2.to_asignatura_real[0].codigo,this.state.puntaje[i]];
+        
+        this.state.aux[i]= [this.state.critico[i],this.state.puntaje[i]];
       }
       priorizaciones[0] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
