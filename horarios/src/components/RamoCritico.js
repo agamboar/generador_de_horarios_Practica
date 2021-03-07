@@ -7,31 +7,6 @@ import RamoPrioridad from './RamoPrioridad'
 */
 export default class RamoCritico extends Component {
 
-    state ={
-      s1: null,
-      s2: null,
-      s3: null,
-      s4: null,
-      s5: null,
-      s6: null,
-      s7: null,
-      s8: null,
-      s9: null,
-      s10: null,
-      s11: null,
-      ps1: 11,
-      ps2: 10,
-      ps3: 9,
-      ps4: 8,
-      ps5: 7,
-      ps6: 6,
-      ps7: 5,
-      ps8: 4,
-      ps9: 3,
-      ps10: 2,
-      ps11: 1
-
-    }
 
 
     render() {
