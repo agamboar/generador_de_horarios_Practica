@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Horarios from './Horarios'
-import Horario from './Horario'
 import axios from 'axios';
 import NotAuth from './NotAuth'
 
@@ -51,22 +50,22 @@ export default class HPosibles extends Component {
                         <br />
                         <br />
                         <br />
-                        <div class="d-flex justify-content-center">
-                            <h1 class="display-6">Un Momento, Se están calculando tús horarios</h1>
+                        <div className="d-flex justify-content-center">
+                            <h1 className="display-6">Un Momento, Se están calculando tús horarios</h1>
                         </div>
                         <br />
                         <br />
-                        <div class="d-flex justify-content-center">
+                        <div className="d-flex justify-content-center">
 
-                            <div class="spinner-grow text-primary" role="status" />
+                            <div className="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="spinner-grow text-primary" role="status" />
+                        <div className="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="spinner-border text-primary" role="status" />
+                        <div className="spinner-border text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="spinner-grow text-primary" role="status" />
+                        <div className="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="spinner-grow text-primary" role="status" />
+                        <div className="spinner-grow text-primary" role="status" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
 
                     </div>
