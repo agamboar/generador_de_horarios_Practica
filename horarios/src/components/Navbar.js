@@ -41,9 +41,6 @@ export default class Navbar extends Component {
                         <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} style={{ color: '#FFF' }} >Priorizar Ramos</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarSecciones' }} style={{ color: '#FFF' }} >Priorizar Secciones</Link>
-                    </li>
-                    <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >Horarios Posibles</Link>
                     </li>
                     <li className="nav-item">
