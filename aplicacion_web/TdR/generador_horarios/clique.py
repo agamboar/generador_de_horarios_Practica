@@ -42,7 +42,7 @@ def get_clique_max_pond(current_user):
             else:
                 prof_modificado = ''
 
-            evento = {'bloque': elem['to_seccion__evento__dia'] + '-' + elem['to_seccion__evento__modulo'][0:2],
+            evento = {'bloque': elem['to_seccion__evento__dia'] + '_' + elem['to_seccion__evento__modulo'][0:2],
                       'tipo': aux, 'profesor': prof_modificado}
 
         except:
