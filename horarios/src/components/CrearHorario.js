@@ -71,8 +71,8 @@ export default class CrearHorario extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-4 ">
-                                    <div className="card custom3">
+                                <div className="col-sm-4 custom3">
+                                    <div className="card ">
                                         <div className="container">
 
                                             <h1 className="title text-primary text-center">
