@@ -109,7 +109,6 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
             codigo=elem).nro_correlativo)
         aux_kk = str(60-nro_correlativo)
         kk = aux_kk if len(aux_kk) > 1 else str("0"+aux_kk)
-        
 
         if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
             aux_critico = True
@@ -120,9 +119,9 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         aux_UU = str(10-holgura)
         uu = aux_UU if len(aux_UU) > 1 else str("0" + aux_UU)
 
-        #modificar ya que setea KK y SS y no toma en cuenta la asignacion de pesos hecha por el alumno
+        # modificar ya que setea KK y SS y no toma en cuenta la asignacion de pesos hecha por el alumno
         r = nodo_asignatura(holgura=PERT.nodes[elem]["H"], ef=PERT.nodes[elem][
-            "EF"], es=PERT.nodes[elem]["ES"], ls=PERT.nodes[elem]["LS"], lf=PERT.nodes[elem]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)  
+            "EF"], es=PERT.nodes[elem]["ES"], ls=PERT.nodes[elem]["LS"], lf=PERT.nodes[elem]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)
 
         r.save()
         n = nodo_asignatura.objects.get(id=r.id)
@@ -155,18 +154,29 @@ def get_secciones_disponibles(current_user):
 
     for elem in nodos_asignatura_user:
 
+        codigo_asignatura = asignatura_real.objects.filter(
+            nodo_asignatura__id=elem.id)[0].codigo
+
+        aux_arr = []
         secciones_ramo_user = seccion.objects.filter(
             to_asignatura_real__nodo_asignatura=elem)  # las secciones de los ramos que no ha dado el alumno
 
         # equivalencias
-        if len(secciones_ramo_user) == 0:
+        if len(secciones_ramo_user) == 0 or codigo_asignatura[0:5] == 'CIT33' or codigo_asignatura[0:5] == 'CIT34':
             try:
                 codigo_box = asignatura_real.objects.get(
                     nodo_asignatura__id=elem.id).codigo
                 codigo_real = asignatura_real.objects.get(
                     equivale=codigo_box).codigo
-                secciones_ramo_user = seccion.objects.filter(
-                    to_asignatura_real__codigo=codigo_real)
+
+                # para no ofrecer el mismo electivo o cfg para una 'cajita'
+
+                if codigo_real not in aux_arr:
+                    secciones_ramo_user = seccion.objects.filter(
+                        to_asignatura_real__codigo=codigo_real)
+                    aux_arr.append(codigo_real)
+                else:
+                    continue
             except:
                 continue
 
