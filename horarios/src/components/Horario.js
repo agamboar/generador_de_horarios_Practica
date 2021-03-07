@@ -10,45 +10,45 @@ export default class Horario extends Component {
    
     state = {
         show: true,
-        LU_8: null,
-        LU_10: null,
-        LU_11: null,
-        LU_13: null,
-        LU_14: null,
-        LU_16: null,
-        LU_17: null,
+        'LU-8': null,
+        'LU-10': null,
+        'LU-11': null,
+        'LU-13': null,
+        'LU-14': null,
+        'LU-16': null,
+        'LU-17': null,
 
-        MA_8: null,
-        MA_10: null,
-        MA_11: null,
-        MA_13: null,
-        MA_14: null,
-        MA_16: null,
-        MA_17: null,
+        'MA-8': null,
+        'MA-10': null,
+        'MA-11': null,
+        'MA-13': null,
+        'MA-14': null,
+        'MA-16': null,
+        'MA-17': null,
 
-        MI_8: null,
-        MI_10: null,
-        MI_11: null,
-        MI_13: null,
-        MI_14: null,
-        MI_16: null,
-        MI_17: null,
+        'MI-8': null,
+        'MI-10': null,
+        'MI-11': null,
+        'MI-13': null,
+        'MI-14': null,
+        'MI-16': null,
+        'MI-17': null,
 
         JU_8: null,
-        JU_10: null,
-        JU_11: null,
-        JU_13: null,
-        JU_14: null,
-        JU_16: null,
-        JU_17: null,
+        'JU-10': null,
+        'JU-11': null,
+        'JU-13': null,
+        'JU-14': null,
+        'JU-16': null,
+        'JU-17': null,
 
-        VI_8: null,
-        VI_10: null,
-        VI_11: null,
-        VI_13: null,
-        VI_14: null,
-        VI_16: null,
-        VI_17: null,
+        'VI-8': null,
+        'VI-10': null,
+        'VI-11': null,
+        'VI-13': null,
+        'VI-14': null,
+        'VI-16': null,
+        'VI-17': null,
         bool: "0"
 
     }
@@ -65,7 +65,7 @@ export default class Horario extends Component {
     fillSchedule = () => {
             for (let i = 0; i < this.props.horario.length; i++) {
                 for (let j = 0; j < this.props.horario[i].eventos.length; j++) {
-                    console.log(this.props.horario[i],"hola")
+                    console.log(this.props.horario[i].eventos[j].bloque,"funcion")
                     this.setState({
                         [this.props.horario[i].eventos[j].bloque]: this.props.horario[i]
     
@@ -76,7 +76,7 @@ export default class Horario extends Component {
     };
     
     componentDidMount = () => {
-         console.log(this.state,"primero")
+         console.log(this.state,"primero component")
         
 
         this.setState(
@@ -87,7 +87,7 @@ export default class Horario extends Component {
         this.fillSchedule()
         console.log(this.state.bool)
         this.forceUpdate();
-        console.log(this.state,"segundo")
+        console.log(this.state,"segundo component")
     }
 
     onChange = () => {
@@ -104,7 +104,6 @@ export default class Horario extends Component {
 
             return (
                 <div className="container" >
-                    {this.fillSchedule}
                     <div className="card border-primary text-center custom2">
                         <br />
                         <div className="row row-cols-10">

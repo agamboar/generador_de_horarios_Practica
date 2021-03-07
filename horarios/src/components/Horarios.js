@@ -10,7 +10,7 @@ class Horarios extends Component {
         
         console.log(this.props.horarios) //soluciones y adentro hay ramos tambien es un arreglo
         
-        return this.props.horarios.map((solucion, index) => (solucion)? <Horario horario={solucion} index={index}/>:null)
+        return this.props.horarios.map((solucion, index) => (solucion)? <Horario horario={solucion} key={index}/>:null)
 
 
     }
