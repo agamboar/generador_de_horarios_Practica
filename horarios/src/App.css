@@ -99,6 +99,7 @@ header, #footer{
 .custom { width: 84px !important; height: 86px; }
 .custom2 { min-width: 1110px; max-width: 1110px; min-height: 622px; max-height: 622px; }
 .custom3 { width: 380px !important; height: 506px; }
+.custom4 { width: 350px !important; height: 506px; }
 
 .bordes {
   border: 1px solid;
