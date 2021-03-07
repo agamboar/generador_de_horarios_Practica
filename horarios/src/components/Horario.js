@@ -10,7 +10,7 @@ export default class Horario extends Component {
    
     state = {
         show: true,
-        LU_8: null,
+        'LU-8': null,
         LU_10: null,
         LU_11: null,
         LU_13: null,
