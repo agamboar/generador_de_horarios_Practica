@@ -34,67 +34,67 @@ export default class PriorizarRamos extends Component {
       for (let i = 0; i < this.state.critico.length; i++){
         this.state.aux[i]= [this.state.critico[i],this.state.puntaje[i]];
       }
-      priorizaciones[0] = aux;
+      priorizaciones[0] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p0.length; i++){
         this.state.aux[i]= [this.state.p0[i],this.state.puntaje[i]];
       }
-      priorizaciones[1] = aux;
+      priorizaciones[1] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p1.length; i++){
         this.state.aux[i]= [this.state.p1[i],this.state.puntaje[i]];
       }
-      priorizaciones[2] = aux;
+      priorizaciones[2] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p2.length; i++){
         this.state.aux[i]= [this.state.p2[i],this.state.puntaje[i]];
       }
-      priorizaciones[3] = aux;
+      priorizaciones[3] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p3.length; i++){
         this.state.aux[i]= [this.state.p3[i],this.state.puntaje[i]];
       }
-      priorizaciones[4] = aux;
+      priorizaciones[4] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p4.length; i++){
         this.state.aux[i]= [this.state.p4[i],this.state.puntaje[i]];
       }
-      priorizaciones[5] = aux;
+      priorizaciones[5] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p5.length; i++){
         this.state.aux[i]= [this.state.p5[i],this.state.puntaje[i]];
       }
-      priorizaciones[6] = aux;
+      priorizaciones[6] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p6.length; i++){
         this.state.aux[i]= [this.state.p6[i],this.state.puntaje[i]];
       }
-      priorizaciones[7] = aux;
+      priorizaciones[7] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p7.length; i++){
         this.state.aux[i]= [this.state.p7[i],this.state.puntaje[i]];
       }
-      priorizaciones[8] = aux;
+      priorizaciones[8] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p8.length; i++){
         this.state.aux[i]= [this.state.p8[i],this.state.puntaje[i]];
       }
-      priorizaciones[9] = aux;
+      priorizaciones[9] = this.state.aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p9.length; i++){
         this.state.aux[i]= [this.state.p9[i],this.state.puntaje[i]];
       }
-      priorizaciones[10] = aux;
+      priorizaciones[10] = this.state.aux;
       console.log(priorizaciones)
       
   }
