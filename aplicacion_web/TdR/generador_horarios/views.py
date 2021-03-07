@@ -241,10 +241,6 @@ def get_clique(request):
 
         current_user = request.user.id
         user = User.objects.get(id=current_user)
-
-        # ojo cada vez q se suba la oferta academica se deben borrar todas las soluciones
-        # guardadas de los usuarios, pero NO la tabla horario, esa no se toca hasta que el pibe
-        # guarda otra solucion
         no_existen_soluciones = True
 
         try:
@@ -274,6 +270,9 @@ def get_clique(request):
 
                 for elem2 in elem:
 
+                    # if elem2['nombre'][0:3] == 'CFG':
+                    #    elem2['nombre']
+
                     nodoSeccion = nodo_seccion.objects.filter(
                         to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
 
@@ -296,11 +295,6 @@ def get_clique(request):
                 jsons['Solucion'+aux] = elem.json_solucion
                 aux += 1
             print('uso el json')
-        # print(jsons)
-        # for elem, index in jsons:
-        # no entiendo como guardar se guardan las soluciones yo los guardaria en un json y era como el pert
-        # aca falta guardar las soluciones a la tabla soluciones xd
-        # y guardar el horario que el alumno escoja
 
         print(json)
         return Response(jsons, status=status.HTTP_200_OK)
