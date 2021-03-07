@@ -65,7 +65,7 @@ export default class Horario extends Component {
     fillSchedule = () => {
             for (let i = 0; i < this.props.horario.length; i++) {
                 for (let j = 0; j < this.props.horario[i].eventos.length; j++) {
-                    console.log(this.props.horario[i],"funcion")
+                    console.log(this.props.horario[i].eventos[j].bloque,"funcion")
                     this.setState({
                         [this.props.horario[i].eventos[j].bloque]: this.props.horario[i]
     
