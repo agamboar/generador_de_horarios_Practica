@@ -72,10 +72,9 @@ export default class CrearHorario extends Component {
                                     </div>
                                 </div>
                                 <div className="col-sm-4 ">
-                                    <div className="card ">
+                                    <div className="card custom3">
                                         <div className="container">
-                                            <br />
-                                            <br />
+
                                             <h1 className="title text-primary text-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" className="bi bi-file-excel" viewBox="0 0 16 16">
                                                     <path d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z" />
@@ -87,11 +86,12 @@ export default class CrearHorario extends Component {
                                         <div className="card-body">
                                             <h5 className="card-title text-center">Ingreso de Avance Curricular Excel</h5>
                                             <p className="card-text">En el siguiente link se encuentra un archivo Excel que te permitira ingresar el avance curricular que has logrado durante la carrera, una vez rellenado ingresalo en la casilla continua.</p>
-                                            <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/malla2018' }} style={{ color: '#0d6efd' }} >  Archivo Excel  </Link>
-                                            <br />
                                             <div className="form-group">
+                                                <div>
                                                 <input type="file" name="file" onChange={this.onChange} />
-                                                <button type="button" class="btn btn-success btn-block" onClick={this.onClick}>Subir mi Excel</button>
+
+                                                </div>
+                                                <button type="button" className="btn btn-primary btn-block" onClick={this.onClick}>Subir mi Excel</button>
                                             </div>
                                         </div>
                                     </div>
