@@ -104,7 +104,6 @@ export default class Horario extends Component {
 
             return (
                 <div className="container" >
-                    {this.fillSchedule}
                     <div className="card border-primary text-center custom2">
                         <br />
                         <div className="row row-cols-10">
