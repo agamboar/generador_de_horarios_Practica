@@ -32,67 +32,67 @@ export default class PriorizarRamos extends Component {
       const priorizaciones = [null, null, null, null, null, null, null, null, null, null, null];
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.critico.length; i++){
-        aux[i]= [this.state.critico[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.critico[i],this.state.puntaje[i]];
       }
       priorizaciones[0] = aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p0.length; i++){
-        aux[i]= [this.state.p0[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.p0[i],this.state.puntaje[i]];
       }
       priorizaciones[1] = aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p1.length; i++){
-        aux[i]= [this.state.p1[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.p1[i],this.state.puntaje[i]];
       }
       priorizaciones[2] = aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p2.length; i++){
-        aux[i]= [this.state.p2[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.p2[i],this.state.puntaje[i]];
       }
       priorizaciones[3] = aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p3.length; i++){
-        aux[i]= [this.state.p3[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.p3[i],this.state.puntaje[i]];
       }
       priorizaciones[4] = aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p4.length; i++){
-        aux[i]= [this.state.p4[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.p4[i],this.state.puntaje[i]];
       }
       priorizaciones[5] = aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p5.length; i++){
-        aux[i]= [this.state.p5[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.p5[i],this.state.puntaje[i]];
       }
       priorizaciones[6] = aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p6.length; i++){
-        aux[i]= [this.state.p6[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.p6[i],this.state.puntaje[i]];
       }
       priorizaciones[7] = aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p7.length; i++){
-        aux[i]= [this.state.p7[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.p7[i],this.state.puntaje[i]];
       }
       priorizaciones[8] = aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p8.length; i++){
-        aux[i]= [this.state.p8[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.p8[i],this.state.puntaje[i]];
       }
       priorizaciones[9] = aux;
       /////////////////////////////////////////////////////////////////////////////////////////////////
       this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
       for (let i = 0; i < this.state.p9.length; i++){
-        aux[i]= [this.state.p9[i],this.state.puntaje[i]];
+        this.state.aux[i]= [this.state.p9[i],this.state.puntaje[i]];
       }
       priorizaciones[10] = aux;
       console.log(priorizaciones)
