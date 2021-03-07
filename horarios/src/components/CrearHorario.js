@@ -90,6 +90,8 @@ export default class CrearHorario extends Component {
                                             <div className="form-group">
                                                 <div>
                                                 <input type="file" name="file" onChange={this.onChange} />
+                                                <br/>
+                                                <br/>
                                                 </div>
                                                 <button type="button" className="btn btn-primary btn-block" onClick={this.onClick}>Subir mi Excel</button>
                                             </div>
