@@ -244,7 +244,7 @@ export default class PriorizarRamos extends Component {
                         <br />
 
 
-                        <p class="lead">
+                        <p className="lead">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             Ahora deberas elegir que ramos prefieres asignarles una mayor prioridad en tu horario
                 </p>

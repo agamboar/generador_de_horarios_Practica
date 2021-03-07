@@ -4,7 +4,7 @@ import BloqueH from './BloqueH'
 import RamosH from './RamosH'
 import Dia from './Dia'
 
-
+console.log
 
 export default class Horario extends Component {
    
@@ -65,7 +65,6 @@ export default class Horario extends Component {
     fillSchedule = () => {
             for (let i = 0; i < this.props.horario.length; i++) {
                 for (let j = 0; j < this.props.horario[i].eventos.length; j++) {
-                    console.log(this.props.horario[i].eventos[j].bloque,"funcion")
                     this.setState({
                         [this.props.horario[i].eventos[j].bloque]: this.props.horario[i]
     
@@ -76,7 +75,6 @@ export default class Horario extends Component {
     };
     
     componentDidMount = () => {
-         console.log(this.state,"primero component")
         
 
         this.setState(
@@ -85,9 +83,7 @@ export default class Horario extends Component {
             }
         )
         this.fillSchedule()
-        console.log(this.state.bool)
         this.forceUpdate();
-        console.log(this.state,"segundo component")
     }
 
     onChange = () => {
@@ -206,7 +202,6 @@ export default class Horario extends Component {
             return (
                 <div className="container " >
                     <div className="card border-primary border-5 custom2 ">
-                        {console.log(this.state.bool)/* NO BORRAR */}
                         &nbsp;
                         <div className="row row-cols-5">
                             <div className="col"> </div>
