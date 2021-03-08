@@ -103,7 +103,7 @@ export default class PriorizarRamos extends Component {
 
     var data = JSON.stringify(payload);
     console.log('---------------------------------------------------------------')
-    console.log(data)
+    //console.log(data)
 
     var config = {
       method: 'post',
@@ -266,7 +266,7 @@ export default class PriorizarRamos extends Component {
                 </p>
             <br />
             <br />
-            {console.log(this.state.critico)/* NO BORRAR */}
+            {/*console.log(this.state.critico) NO BORRAR */}
             <RamoCritico name='Críticos' resultado={this.state.critico} onChange0_1={this.criticoonChange0_1} onChange1_2={this.criticoonChange1_2} onChange2_3={this.criticoonChange2_3} onChange3_4={this.criticoonChange3_4} onChange4_5={this.criticoonChange4_5} onChange5_6={this.criticoonChange5_6} onChange6_7={this.criticoonChange6_7} onChange7_8={this.criticoonChange7_8} onChange8_9={this.criticoonChange8_9} onChange9_10={this.criticoonChange9_10} />
             <RamoCritico name='Prioridad 0' resultado={this.state.p0} onChange0_1={this.p0onChange0_1} onChange1_2={this.p0onChange1_2} onChange2_3={this.p0onChange2_3} onChange3_4={this.p0onChange3_4} onChange4_5={this.p0onChange4_5} onChange5_6={this.p0onChange5_6} onChange6_7={this.p0onChange6_7} onChange7_8={this.p0onChange7_8} onChange8_9={this.p0onChange8_9} onChange9_10={this.p0onChange9_10} />
             <RamoCritico name='Prioridad 1' resultado={this.state.p1} onChange0_1={this.p1onChange0_1} onChange1_2={this.p1onChange1_2} onChange2_3={this.p1onChange2_3} onChange3_4={this.p1onChange3_4} onChange4_5={this.p1onChange4_5} onChange5_6={this.p1onChange5_6} onChange6_7={this.p1onChange6_7} onChange7_8={this.p1onChange7_8} onChange8_9={this.p1onChange8_9} onChange9_10={this.p1onChange9_10} />
