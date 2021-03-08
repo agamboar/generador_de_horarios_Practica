@@ -50,15 +50,6 @@ export default class PERT extends Component {
                             <div className="col"></div>
                             <div className="col">
                                 <br />
-                                <div className="align-self-center">
-                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <font size="3">Generar Horarios</font>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                </Link>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                         <br />
