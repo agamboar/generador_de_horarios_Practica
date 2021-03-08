@@ -314,7 +314,7 @@ def asignar_kk(request):
         json_data = request.data
         for elem in json_data:
 
-            print(elem)
+            print(elem[0])
 
         for aux in json_data:
 
