@@ -318,7 +318,7 @@ def asignar_kk(request):
 
             for aux in elem:
                 if aux[0] != None:
-                    print(aux[0]['to_asignatura_real']['codigo'])
+                    print(aux[0]['to_asignatura_real'][0]['codigo'])
 
         for aux in json_data:
 

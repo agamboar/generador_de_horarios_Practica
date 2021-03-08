@@ -131,7 +131,7 @@ export default class PriorizarRamos extends Component {
 
     var PERT_j = await axios(config)
 
-    console.log(PERT_j)
+    //console.log(PERT_j)
     this.setState({
       ramos: PERT_j.data.PERT
     })
