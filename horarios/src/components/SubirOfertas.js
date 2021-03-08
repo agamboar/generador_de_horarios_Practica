@@ -84,9 +84,9 @@ export default class CrearHorario extends Component {
                                         <br />
                                         <div className="form-group">
                                             <input type="file" name="file" onChange={this.onChange_oferta} />
-
-
-                                            <button type="button" class="btn btn-success btn-block" onClick={this.onClick_oferta}>Subir Oferta Informática </button> {/* mejorar front*/}
+                                            <br/>
+                                            <br/>
+                                            <button type="button" class="btn btn-primary btn-block" onClick={this.onClick_oferta}>Subir Oferta Informática </button> {/* mejorar front*/}
                                         </div>
 
                                     </div>
@@ -122,7 +122,9 @@ export default class CrearHorario extends Component {
                                         <br />
                                         <div className="form-group">
                                             <input type="file" name="file" onChange={this.onChange_cfg} />
-                                            <button type="button" class="btn btn-success btn-block" onClick={this.onClick_cfg}>Subir Oferta CFG</button>
+                                            <br/>
+                                            <br/>
+                                            <button type="button" class="btn btn-primary btn-block" onClick={this.onClick_cfg}>Subir Oferta CFG</button>
                                         </div>
 
 
