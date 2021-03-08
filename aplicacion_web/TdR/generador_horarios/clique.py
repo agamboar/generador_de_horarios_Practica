@@ -133,15 +133,15 @@ def get_clique_max_pond(current_user):
             continue
         else:
 
-            # print("---------------")
-            # print("\nSolucion Recomendada #", i+1, ": \n")
+            print("---------------")
+            print("\nSolucion Recomendada #", i+1, ": \n")
             for elem in arr_aux_delete:  # muestra las secciones a tomar
                 aux_modulos = ""
                 for beta in G.nodes[elem[0]]["horario"]:
                     aux_modulos += " "+beta[0:8]
                 solucion.append(
                     {'nombre': G.nodes[elem[0]]["nombre"], 'horario': aux_modulos, 'nro_seccion': G.nodes[elem[0]]["nro_seccion"], 'cod_asignatura_real': G.nodes[elem[0]]["cod_asignatura_real"], 'eventos': G.nodes[elem[0]]["eventos"], 'cod_seccion': G.nodes[elem[0]]["cod_seccion"]})
-                #print(elem[0][0: 7], " || ", "| Horario -> ", G.nodes[elem[0]]["horario"], "||",G.nodes[elem[0]]["prioridad"], "codigo seccion ->", G.nodes[elem[0]]["cod_seccion"])
+                print(elem[0][0: 7], " || ", "| Horario -> ", G.nodes[elem[0]]["horario"], "||",G.nodes[elem[0]]["prioridad"], "codigo seccion ->", G.nodes[elem[0]]["cod_seccion"])
 
             aux_retornar.append(solucion)
         prev_solution = arr_aux_delete
