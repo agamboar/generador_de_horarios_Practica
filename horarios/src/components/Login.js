@@ -49,9 +49,22 @@ export default class GoogleSocialAuth extends Component {
         await axios(config).then(response => localStorage.setItem('token', response.data.key))
 
         if (localStorage.getItem("token")) {
-            //console.log(localStorage.getItem("token"))
+
+            console.log(localStorage.getItem("token"))
+            //console.log(localStorage.getItem("user_id"))
+            
+            var config = {
+                method: 'get',
+                url: 'http://200.14.84.238:80/is_staff/',
+                headers: {
+                    'Authorization': 'Token ' + localStorage.getItem("token"), 
+                    'Content-Type': 'application/json'
+                }
+            };
+    
+            await axios(config).then(response =>   localStorage.setItem('is_staff', response.data.is_staff))
             window.location.href = '/users/usr'
-        }
+            }
 
 
     }

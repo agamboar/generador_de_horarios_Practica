@@ -460,3 +460,17 @@ def get_nodo_seccion(request):
 
 def csrf(request):
     return JsonResponse({'csrfToken': get_token(request)})
+    
+@api_view(['GET'])
+def is_staff(request):
+
+    if request.method == "GET":
+
+        current_user = request.user
+        aux_staff = User.objects.get(id=current_user.id).is_staff
+        if aux_staff == True:
+        	aux_staff = "si"
+        else:
+        	aux_staff = "no"
+
+    return JsonResponse({'is_staff': aux_staff})

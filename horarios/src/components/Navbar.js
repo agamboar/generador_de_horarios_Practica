@@ -9,7 +9,7 @@ export default class Navbar extends Component {
     render() {
         return (
 
-
+            
             <nav className="navbar navbar-dark bg-primary">
                 <a className="navbar-brand" href="/users/usr">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -23,7 +23,7 @@ export default class Navbar extends Component {
 
                 <ul className="nav justify-content-end">
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link>
+                    {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link>:null}
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >Home</Link>

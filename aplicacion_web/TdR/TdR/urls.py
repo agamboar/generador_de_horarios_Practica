@@ -38,4 +38,5 @@ urlpatterns = [
     path('mimallamanual/', views.mi_malla_manual, name='manual'),
     path('csrf/', views.csrf),
     path('get_nodos/', views.get_nodo_seccion, name='get_ns'),
+    path('is_staff/', views.is_staff),
 ]
