@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Derechos from './Derechos'
 import axios from 'axios';
+import NotAuth from './NotAuth';
 
 
 
@@ -48,6 +49,7 @@ export default class CrearHorario extends Component {
     }
     render() {
         return (
+            <div>{localStorage.getItem("is_staff") === "si" ?
             <div>
                 <Navbar />
 
@@ -141,38 +143,9 @@ export default class CrearHorario extends Component {
                 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <Derechos />
             </div>
+            : <NotAuth/> }</div>
         )
     }
 }
