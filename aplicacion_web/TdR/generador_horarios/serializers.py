@@ -50,7 +50,7 @@ class nodoAsignaturaSerializer(serializers.ModelSerializer):
                   'lf', 'critico', 'to_asignatura_real']
 
 
-class nodoAsignaturaSerializer(serializers.ModelSerializer):
+class nodoAsignaturaPesoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = nodo_asignatura

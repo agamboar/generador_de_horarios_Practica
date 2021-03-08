@@ -317,22 +317,21 @@ def asignar_kk(request):
         for elem in json_data:
 
             for aux in elem:
+
                 if aux[0] != None:
                     codigo_asignatura = (
                         aux[0]['to_asignatura_real'][0]['codigo'])
                     id_ns = nodo_asignatura.objects.get(
                         to_asignatura_real__codigo=codigo_asignatura, to_user=current_user).id
-                    print(aux[1])
+                    peso_asignado = aux[1]
 
-        for aux in json_data:
+                    nodo = nodo_asignatura.objects.get(id=codigo_asignatura)
 
-            nodo = nodo_asignatura.objects.get(id=aux['id'])
+                    serializer = nodoAsignaturaPesoSerializer(
+                        nodo, data={'kk': peso_asignado}, partial=True)
 
-            serializer = nodoAsignaturaSerializer(
-                nodo, data={'kk': aux['kk']}, partial=True)
-
-            if serializer.is_valid():
-                serializer.save()
+                    if serializer.is_valid():
+                        serializer.save()
 
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
