@@ -11,6 +11,9 @@ export default class RamoCritico extends Component {
 
     render() {
 
+      if(this.props.resultado[0]===null){
+        return (<div/>)
+      }else{
       return ( 
         <div className = 'container'>
         <Accordion defaultActiveKey="1">
@@ -45,6 +48,7 @@ export default class RamoCritico extends Component {
       
       </div>
         ) 
+      }
       }
 
 }
