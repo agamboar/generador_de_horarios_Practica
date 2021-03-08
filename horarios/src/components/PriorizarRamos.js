@@ -102,6 +102,7 @@ export default class PriorizarRamos extends Component {
     const payload = priorizaciones
 
     var data = JSON.stringify(payload);
+    console.log('---------------------------------------------------------------')
     console.log(data)
 
     var config = {
