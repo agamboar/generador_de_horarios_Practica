@@ -325,7 +325,7 @@ def asignar_kk(request):
                         to_asignatura_real__codigo=codigo_asignatura, to_user=current_user).id
                     peso_asignado = aux[1]
 
-                    nodo = nodo_asignatura.objects.get(id=codigo_asignatura)
+                    nodo = nodo_asignatura.objects.get(id=id_ns)
 
                     serializer = nodoAsignaturaPesoSerializer(
                         nodo, data={'kk': peso_asignado}, partial=True)
