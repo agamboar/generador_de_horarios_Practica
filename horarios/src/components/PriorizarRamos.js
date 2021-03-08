@@ -27,7 +27,7 @@ export default class PriorizarRamos extends Component {
     bool: "0"
   }
 
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault();
     const priorizaciones = [null, null, null, null, null, null, null, null, null, null, null];
     this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
@@ -113,7 +113,7 @@ export default class PriorizarRamos extends Component {
       data: data
     };
 
-    axios(config)
+    await axios(config)
   }
 
 
