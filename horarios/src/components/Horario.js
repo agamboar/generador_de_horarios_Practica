@@ -208,11 +208,7 @@ export default class Horario extends Component {
                             <div className="col"> </div>
                             <div className="col"> <h3 className="card-title text-primary text-center">Horario n°{this.props.index+1}</h3> </div>
                             <div className="col"> </div>
-                            <div className="col ">
-                                <div className="card border-0">
-                                    <button className="btn btn-primary rounded-pill " type="submit">Elegir Horario</button>
-                                </div>
-                            </div>
+                            <div className="col"> </div>
                         </div>
                     
 
