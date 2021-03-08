@@ -312,9 +312,11 @@ def asignar_kk(request):
     if request.method == "POST":
 
         json_data = request.data
+
         for elem in json_data:
 
-            print(elem[0][0]['to_asignatura_real'])
+            for aux in elem:
+                print(aux)
 
         for aux in json_data:
 
