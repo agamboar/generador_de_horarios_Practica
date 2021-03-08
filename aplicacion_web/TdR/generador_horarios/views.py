@@ -312,6 +312,7 @@ def asignar_kk(request):
     if request.method == "POST":
 
         json_data = request.data
+        print(json_data)
 
         for aux in json_data:
 
