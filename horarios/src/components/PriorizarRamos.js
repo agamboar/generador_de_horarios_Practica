@@ -244,7 +244,7 @@ export default class PriorizarRamos extends Component {
         bool: true
       }
     )
-    console.log(this.state.bool)
+    //console.log(this.state.bool)
   }
 
 
