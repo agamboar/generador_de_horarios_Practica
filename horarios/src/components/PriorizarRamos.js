@@ -101,9 +101,9 @@ export default class PriorizarRamos extends Component {
 
     const payload = priorizaciones
 
-    let data = JSON.stringify(payload);
+    var data = JSON.stringify(payload);
 
-    let config = {
+    var config = {
       method: 'post',
       url: 'http://200.14.84.238:80/kk/',
       headers: {
