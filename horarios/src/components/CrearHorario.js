@@ -85,8 +85,8 @@ export default class CrearHorario extends Component {
                                             <br />
                                         </div>
                                         <div className="card-body">
-                                            <h5 className="card-title text-center">Ingreso de Avance Curricular Excel</h5>
-                                            <p className="card-text">En la siguiente casilla debes ingresar el excel que contiene tú avance curricular logrado durante la carrera, adjuntalo en la casilla continua.</p>
+                                            <h5 className="card-title text-center">Ingreso de Avance Curricular Excel Pt.1</h5>
+                                            <p className="card-text">En los siguientes link podras descargar la malla que te corresponde, para que la puedas rellenar con tu avance curricular y ingresarla en el siguiente punto.</p>
                                             <br/>
                                             <div className="form-group">
                                                 <div>
@@ -102,21 +102,28 @@ export default class CrearHorario extends Component {
                                 <div className="col-sm-4 custom3">
                                     <div className="card custom4">
                                         <div className="container">
-                                            <br />
-                                            <br />
+                                            <br/>
+                                            <br/>
                                             <h1 className="title text-primary text-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" className="bi bi-cpu" viewBox="0 0 16 16">
-                                                    <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0zm-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" className="bi bi-file-excel" viewBox="0 0 16 16">
+                                                    <path d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z" />
+                                                    <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
                                                 </svg>
                                             </h1>
                                             <br />
                                         </div>
                                         <div className="card-body">
-                                            <h5 className="card-title text-center">Ingreso de Avance Curricular Automático</h5>
-                                            <p className="card-text">En el siguiente link se encuentra una página donde podras ingresar tus datos de ingreso del portal académico, esto para poder extraer tus datos a través del. Si no te sientes comodo ingresando tus datos te recomendamos las otras dos opciones. </p>
-                                            <br />
-                                            <Link className="nav-link text-center" to={{ href: "https://portal.udp.cl/irj" }} style={{ color: '#0d6efd' }} >  Presiona Aquí   </Link>
-                                            <br />
+                                            <h5 className="card-title text-center">Ingreso de Avance Curricular Excel Pt.2</h5>
+                                            <p className="card-text">En la siguiente casilla debes ingresar el excel que contiene tú avance curricular logrado durante la carrera, adjuntalo en la casilla continua.</p>
+                                            <br/>
+                                            <div className="form-group">
+                                                <div>
+                                                <input type="file" name="file" onChange={this.onChange} />
+                                                <br/>
+                                                <br/>
+                                                </div>
+                                                <button type="button" className="btn btn-primary btn-block" onClick={this.onClick}>Subir mi Excel</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
