@@ -59,7 +59,7 @@ export default class CrearHorario extends Component {
                 <div className="container">
 
                     <div className="row">
-                        <div className="col-sm-2 " />
+                        
 
                         <div className="col-sm-4 ">
                             <div className="card custom3">
@@ -133,7 +133,7 @@ export default class CrearHorario extends Component {
                         </div>
 
 
-                        <div className="col-sm-2 " />
+                        
                     </div>
 
                 </div>
