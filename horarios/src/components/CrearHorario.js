@@ -88,14 +88,10 @@ export default class CrearHorario extends Component {
                                             <h5 className="card-title text-center">Ingreso de Avance Curricular Excel Pt.1</h5>
                                             <p className="card-text">En los siguientes link podras descargar la malla que te corresponde, para que la puedas rellenar con tu avance curricular y ingresarla en el siguiente punto.</p>
                                             <br/>
-                                            <div className="form-group">
-                                                <div>
-                                                <input type="file" name="file" onChange={this.onChange} />
-                                                <br/>
-                                                <br/>
-                                                </div>
-                                                <button type="button" className="btn btn-primary btn-block" onClick={this.onClick}>Subir mi Excel</button>
-                                            </div>
+                                            <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/' }} style={{ color: '#0d6efd' }} >  Malla 2010 </Link>
+                                            <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/' }} style={{ color: '#0d6efd' }} >  Malla 2018  </Link>
+                                            <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/' }} style={{ color: '#0d6efd' }} >  Malla 2020  </Link>
+                                            
                                         </div>
                                     </div>
                                 </div>
