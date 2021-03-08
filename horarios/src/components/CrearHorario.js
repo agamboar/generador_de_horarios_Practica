@@ -74,8 +74,8 @@ export default class CrearHorario extends Component {
                                 <div className="col-sm-4 custom3">
                                     <div className="card custom4">
                                         <div className="container">
-                                            <br/>
-                                            <br/>
+                                            <br />
+                                            <br />
                                             <h1 className="title text-primary text-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" className="bi bi-file-excel" viewBox="0 0 16 16">
                                                     <path d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z" />
@@ -87,19 +87,20 @@ export default class CrearHorario extends Component {
                                         <div className="card-body">
                                             <h5 className="card-title text-center">Ingreso de Avance Curricular Excel Pt.1</h5>
                                             <p className="card-text">En los siguientes link podras descargar la malla que te corresponde, para que la puedas rellenar con tu avance curricular y ingresarla en el siguiente punto.</p>
-                                            <br/>
+                                            <br />
+                                            <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/' }} style={{ color: '#0d6efd' }} >  Plantilla de Mi Malla </Link>
                                             <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/' }} style={{ color: '#0d6efd' }} >  Malla 2010 </Link>
                                             <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/' }} style={{ color: '#0d6efd' }} >  Malla 2018  </Link>
                                             <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/' }} style={{ color: '#0d6efd' }} >  Malla 2020  </Link>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-sm-4 custom3">
                                     <div className="card custom4">
                                         <div className="container">
-                                            <br/>
-                                            <br/>
+                                            <br />
+                                            <br />
                                             <h1 className="title text-primary text-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" className="bi bi-file-excel" viewBox="0 0 16 16">
                                                     <path d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z" />
@@ -111,12 +112,12 @@ export default class CrearHorario extends Component {
                                         <div className="card-body">
                                             <h5 className="card-title text-center">Ingreso de Avance Curricular Excel Pt.2</h5>
                                             <p className="card-text">En la siguiente casilla debes ingresar el excel que contiene tú avance curricular logrado durante la carrera, adjuntalo en la casilla continua.</p>
-                                            <br/>
+                                            <br />
                                             <div className="form-group">
                                                 <div>
-                                                <input type="file" name="file" onChange={this.onChange} />
-                                                <br/>
-                                                <br/>
+                                                    <input type="file" name="file" onChange={this.onChange} />
+                                                    <br />
+                                                    <br />
                                                 </div>
                                                 <button type="button" className="btn btn-primary btn-block" onClick={this.onClick}>Subir mi Excel</button>
                                             </div>
