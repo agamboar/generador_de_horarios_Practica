@@ -96,12 +96,13 @@ export default class PriorizarRamos extends Component {
       this.state.aux[i] = [this.state.p9[i], this.state.puntaje[i]];
     }
     priorizaciones[10] = this.state.aux;
-    console.log(priorizaciones)
 
+    //console.log(priorizaciones)
 
     const payload = priorizaciones
 
     var data = JSON.stringify(payload);
+    console.log(data)
 
     var config = {
       method: 'post',
