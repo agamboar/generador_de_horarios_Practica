@@ -314,7 +314,7 @@ def asignar_kk(request):
         json_data = request.data
         for elem in json_data:
 
-            print(elem[0][0])
+            print(elem[0][0]['to_asignatura_real'])
 
         for aux in json_data:
 
