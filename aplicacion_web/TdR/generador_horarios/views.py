@@ -318,7 +318,11 @@ def asignar_kk(request):
 
             for aux in elem:
                 if aux[0] != None:
-                    print(aux[0]['to_asignatura_real'][0]['codigo'])
+                    codigo_asignatura = (
+                        aux[0]['to_asignatura_real'][0]['codigo'])
+                    id_ns = nodo_asignatura.objects.get(
+                        to_asignatura_real__codigo=codigo_asignatura, to_user=current_user).id
+                    print(aux[0])
 
         for aux in json_data:
 

@@ -17,8 +17,7 @@ class asignaturaSerializer(serializers.ModelSerializer):
 class asignaturaSerializer_nombre(serializers.ModelSerializer):
     class Meta:
         model = asignatura_real
-        fields = ['nombre','codigo']
-
+        fields = ['nombre', 'codigo']
 
 
 class mallaSerializer(serializers.ModelSerializer):
@@ -41,16 +40,21 @@ class eventoSerializer(serializers.ModelSerializer):
 
 
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
-    
+
     to_asignatura_real = asignaturaSerializer_nombre(many=True)
-    
 
     class Meta:
         model = nodo_asignatura
         #nombre = generador_horarios.asignatura_real.objects.get(codigo='to_asignatura_real').nombre
-        fields = ['holgura', 'ef', 'es', 'ls', 'kk', 'lf', 'critico', 'to_asignatura_real']
+        fields = ['holgura', 'ef', 'es', 'ls', 'kk',
+                  'lf', 'critico', 'to_asignatura_real']
 
-    
+
+class nodoAsignaturaSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = nodo_asignatura
+        fields = ['id', 'kk']
 
 
 class nodoSeccionSerializer(serializers.ModelSerializer):
