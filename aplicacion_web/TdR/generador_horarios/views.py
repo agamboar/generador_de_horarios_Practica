@@ -311,13 +311,14 @@ def get_clique(request):
 def asignar_kk(request):
     if request.method == "POST":
 
+        current_user = request.user.id
         json_data = request.data
 
         for elem in json_data:
 
             for aux in elem:
                 if aux[0] != None:
-                    print(aux[0])
+                    print(aux[0]['to_asignatura_real']['codigo'])
 
         for aux in json_data:
 
