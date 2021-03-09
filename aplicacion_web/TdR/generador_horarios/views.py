@@ -247,8 +247,8 @@ def get_clique(request):
             sol = solucion.objects.filter(to_user=current_user)
 
             if sol:
-                # print('---------------')
-                #existen_soluciones = True
+                print('---------------')
+                existen_soluciones = True
                 tz = pytz.timezone('UTC')
                 current_timestamp = datetime.datetime.now(tz)
 
@@ -299,11 +299,10 @@ def get_clique(request):
                 counter += 1
                 print('pasaron más de 90 segundos')
         else:
-            aux = 1
-            jsons = {}
+
+            jsons = []
             for elem in sol:
-                jsons['Solucion'+aux] = elem.json_solucion
-                aux += 1
+                jsons.append(elem.json_solucion)
             print('uso el json')
 
         print(json)
