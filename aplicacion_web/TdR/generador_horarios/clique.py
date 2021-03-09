@@ -71,8 +71,15 @@ def get_clique_max_pond(current_user):
             prioridad = int(cc+uu+kk+ss)
             nombre_ramo = elem['to_seccion__to_asignatura_real__nombre']
 
-            # nombre_ramo = asignatura_real.objects.get(
-            #    codigo=cod_ramo).nombre
+            if nombre_ramo == 'CFG':
+
+                try:
+                    cod_asignatura = elem["to_seccion__cod_seccion"][0:7]
+                    nombre_ramo = asignatura_real.objects.get(
+                        codigo=cod_asignatura).nombre
+
+                except:
+                    nombre_ramo = 'CURSO FORMACION GENERAL'
 
             nro_seccion = elem['to_seccion__num_seccion']
 
@@ -133,8 +140,8 @@ def get_clique_max_pond(current_user):
             continue
         else:
 
-            #print("---------------")
-            #print("\nSolucion Recomendada #", i+1, ": \n")
+            # print("---------------")
+            # print("\nSolucion Recomendada #", i+1, ": \n")
             for elem in arr_aux_delete:  # muestra las secciones a tomar
                 aux_modulos = ""
                 for beta in G.nodes[elem[0]]["horario"]:
