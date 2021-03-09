@@ -241,14 +241,14 @@ def get_clique(request):
 
         current_user = request.user.id
         user = User.objects.get(id=current_user)
-        no_existen_soluciones = True
+        existen_soluciones = False
 
         try:
             sol = solucion.objects.filter(to_user=current_user)
-            print(sol)
-            if sol == []:
-                print('---------------')
-                no_existen_soluciones = False
+
+            if sol:
+                # print('---------------')
+                #existen_soluciones = True
                 tz = pytz.timezone('UTC')
                 current_timestamp = datetime.datetime.now(tz)
 
@@ -257,9 +257,10 @@ def get_clique(request):
         except:
             pass
 
-        if no_existen_soluciones:
+        if not existen_soluciones:
 
             jsons = get_clique_max_pond(current_user)
+            print(jsons)
             for elem in jsons:
 
                 counters = {'json_solucion': elem,
