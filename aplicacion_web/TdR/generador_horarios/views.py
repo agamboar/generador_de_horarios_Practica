@@ -274,16 +274,6 @@ def get_clique(request):
 
                 for elem2 in elem:
 
-                    if elem2['nombre'][0:3] == 'CFG':
-
-                        try:
-                            cod_asignatura = elem2['cod_seccion'][0:7]
-                            elem2['nombre'] = asignatura_real.objects.get(
-                                codigo=cod_asignatura).nombre
-
-                        except:
-                            continue
-
                     nodoSeccion = nodo_seccion.objects.filter(
                         to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
 
@@ -303,7 +293,7 @@ def get_clique(request):
 
             jsons = []
             for elem in sol:
-                jsons.append(elem.json_solucion[-5:])
+                jsons.append(elem.json_solucion)
             print('uso el json')
 
         print(jsons)
