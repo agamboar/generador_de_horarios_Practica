@@ -245,7 +245,9 @@ def get_clique(request):
 
         try:
             sol = solucion.objects.filter(to_user=current_user)
+            print(sol)
             if sol == []:
+                print('---------------')
                 no_existen_soluciones = False
                 tz = pytz.timezone('UTC')
                 current_timestamp = datetime.datetime.now(tz)
@@ -460,7 +462,8 @@ def get_nodo_seccion(request):
 
 def csrf(request):
     return JsonResponse({'csrfToken': get_token(request)})
-    
+
+
 @api_view(['GET'])
 def is_staff(request):
 
@@ -469,8 +472,8 @@ def is_staff(request):
         current_user = request.user
         aux_staff = User.objects.get(id=current_user.id).is_staff
         if aux_staff == True:
-        	aux_staff = "si"
+            aux_staff = "si"
         else:
-        	aux_staff = "no"
+            aux_staff = "no"
 
     return JsonResponse({'is_staff': aux_staff})
