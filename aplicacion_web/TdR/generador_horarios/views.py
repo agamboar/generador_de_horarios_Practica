@@ -280,7 +280,7 @@ def get_clique(request):
                     solucion_alumno.to_nodo_seccion.add(nodoSeccion)
 
             print('guardo el json')
-        elif 90 < segundos < 3600:
+        elif 30 < segundos < 3600:
 
             jsons = get_clique_max_pond(current_user)
             counter = 0
