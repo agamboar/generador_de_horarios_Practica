@@ -254,6 +254,7 @@ def get_clique(request):
 
                 diff = current_timestamp-sol[0].fecha_mod
                 segundos = diff.seconds
+                print(segundos)
         except:
             pass
 
