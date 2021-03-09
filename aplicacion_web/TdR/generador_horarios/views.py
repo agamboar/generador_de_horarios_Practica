@@ -288,7 +288,7 @@ def get_clique(request):
                 sol[counter].json_solucion = elem
                 sol[counter].save()
                 counter += 1
-                print('pasaron más de 90 segundos')
+            print('pasaron más de 30 segundos')
         else:
 
             jsons = []
