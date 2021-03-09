@@ -23,13 +23,14 @@ def get_clique_max_pond(current_user):
             horario = '---'
 
         try:
+            # elimina las tildes de catedra y ayudantia
 
             if elem['to_seccion__evento__tipo'][0] == 'C':
-                aux = 'CATEDRA'
+                tipo = 'CATEDRA'
             elif elem['to_seccion__evento__tipo'][0] == 'A':
-                aux = 'AYUDANTIA'
+                tipo = 'AYUDANTIA'
             elif elem['to_seccion__evento__tipo'][0] == 'L':
-                aux = 'LABORATORIO'
+                tipo = 'LABORATORIO'
 
             prof = elem['to_seccion__evento__profesor']
 
@@ -43,7 +44,7 @@ def get_clique_max_pond(current_user):
                 prof_modificado = ''
 
             evento = {'bloque': elem['to_seccion__evento__dia'] + '_' + elem['to_seccion__evento__modulo'][0:2],
-                      'tipo': aux, 'profesor': prof_modificado}
+                      'tipo': tipo, 'profesor': prof_modificado}
 
         except:
             evento = '---'
@@ -71,6 +72,7 @@ def get_clique_max_pond(current_user):
             prioridad = int(cc+uu+kk+ss)
             nombre_ramo = elem['to_seccion__to_asignatura_real__nombre']
 
+            # cambia el nombre de la cajita "CFG" por el nombre real del curso.
             if nombre_ramo == 'CFG':
 
                 try:
@@ -149,7 +151,7 @@ def get_clique_max_pond(current_user):
                 solucion.append(
                     {'nombre': G.nodes[elem[0]]["nombre"], 'horario': aux_modulos, 'nro_seccion': G.nodes[elem[0]]["nro_seccion"], 'cod_asignatura_real': G.nodes[elem[0]]["cod_asignatura_real"], 'eventos': G.nodes[elem[0]]["eventos"], 'cod_seccion': G.nodes[elem[0]]["cod_seccion"]})
                 #print(elem[0][0: 7], " || ", "| Horario -> ", G.nodes[elem[0]]["horario"], "||",G.nodes[elem[0]]["prioridad"], "codigo seccion ->", G.nodes[elem[0]]["cod_seccion"])
-
+                print(solucion)
             aux_retornar.append(solucion)
         prev_solution = arr_aux_delete
         G.remove_node(arr_aux_delete[0][0])
