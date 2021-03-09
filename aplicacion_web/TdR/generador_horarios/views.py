@@ -296,7 +296,7 @@ def get_clique(request):
                 jsons.append(elem.json_solucion)
             print('uso el json')
 
-        print(jsons)
+        # print(jsons)
         return Response(jsons, status=status.HTTP_200_OK)
 
 
