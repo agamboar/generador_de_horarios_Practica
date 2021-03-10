@@ -43,7 +43,7 @@ export default class CrearUsuarioForm extends Component {
         if (error.response.data.password1){alert(`contraseña 1:  ${error.response.data.password1[0]}`);}
         if (error.response.data.password2){alert(`contraseña 2:  ${error.response.data.password2[0]}`);}
         if (error.response.data.email){alert(`email:  ${error.response.data.email[0]}`);}
-
+        if (error.response.data.non_field_errors){alert(`error:  ${error.response.data.non_field_errors[0]}`);} 
         console.log(error.response.data);
       }
     });
