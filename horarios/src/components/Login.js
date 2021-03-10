@@ -41,7 +41,7 @@ export default class GoogleSocialAuth extends Component {
         }
 
         const notify = (e) => {
-            toast.error(e, { position: toast.POSITION.TOP_CENTER, autoClose=5000 })
+            toast.error(e, { position: toast.POSITION.TOP_CENTER })
         }
 
 
