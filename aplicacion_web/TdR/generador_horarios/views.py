@@ -247,7 +247,7 @@ def get_clique(request):
             sol = solucion.objects.filter(to_user=current_user)
 
             if sol:
-                print('---------------')
+
                 existen_soluciones = True
                 tz = pytz.timezone('UTC')
                 current_timestamp = datetime.datetime.now(tz)
@@ -261,7 +261,7 @@ def get_clique(request):
         if not existen_soluciones:
 
             jsons = get_clique_max_pond(current_user)
-            print(jsons[0])
+
             for elem in jsons:
 
                 counters = {'json_solucion': elem,
@@ -468,3 +468,15 @@ def is_staff(request):
             aux_staff = "no"
 
     return JsonResponse({'is_staff': aux_staff})
+
+
+@api_view(['GET'])
+def PERT_es1(request):
+
+    if request.method == "GET":
+
+        current_user = request.user.id
+        ns = nodo_asignatura.objects.filter(to_user=current_user, es=1)
+        serializer = nodoAsignaturaSerializer(ns, many=True)
+
+    return JsonResponse(serializer.data, status=status.HTTP_200_OK)
