@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Ramo from './RamoP'
 import Semestre from './Semestre'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -22,103 +22,103 @@ export default class Malla2010Extra4 extends Component {
             const mov = i;
             const mov2 = this.props.ramos[mov].to_asignatura_real[0].codigo;
             this.setState({
-                [mov2]: [this.props.ramos[mov].es , this.props.ramos[mov].ls, this.props.ramos[mov].ef , this.props.ramos[mov].lf, this.props.ramos[mov].holgura]
+                [mov2]: [this.props.ramos[mov].es, this.props.ramos[mov].ls, this.props.ramos[mov].ef, this.props.ramos[mov].lf, this.props.ramos[mov].holgura]
             })
         }
     }
 
     render() {
         return (
-        
-            
+
+
 
             <div className="container">
                 <div className="row justify-content-around">
-                    <div className="col col-md-1"> </div>  
-                    <Semestre semestre = {"9"}/>
-                    <Semestre semestre = {"10"}/>
-                    <div className="col col-md-1"> </div>  
+                    <div className="col col-md-1"> </div>
+                    <Semestre semestre={"9"} />
+                    <Semestre semestre={"10"} />
+                    <div className="col col-md-1"> </div>
                 </div>
 
-                <br/>
-               
-            
+                <br />
+
+
 
                 <div className="row row-cols-10 align-items-start">
-                    <div className="col col-md-1"> </div>  
+                    <div className="col col-md-1"> </div>
                     <Ramo codigo={"CIT3310"} ramo={"Electivo Profesional"} state={this.state.CIT3310} />
                     <Ramo codigo={"CIT3311"} ramo={"Electivo Profesional"} state={this.state.CIT3311} />
-                    <div className="col col-md-1"> </div>  
+                    <div className="col col-md-1"> </div>
                 </div>
 
-                <br/>
+                <br />
 
                 <div className="row row-cols-10">
-                    <div className="col col-md-1"> </div>  
+                    <div className="col col-md-1"> </div>
                     <Ramo codigo={"CIT3410"} ramo={"Electivo Profesional"} state={this.state.CIT3410} />
                     <Ramo codigo={"CIT3411"} ramo={"Electivo Profesional"} state={this.state.CIT3411} />
-                    <div className="col col-md-1"> </div>  
+                    <div className="col col-md-1"> </div>
                 </div>
 
-                <br/>
+                <br />
 
                 <div className="row row-cols-10">
-                    <div className="col col-md-1"> 
-                        <Link className="nav-link" to={{ pathname: '/users/usr/PERT/PERTExtra3'}} >
+                    <div className="col col-md-1">
+                        <Link className="nav-link" to={{ pathname: '/users/usr/PERT/PERTExtra3' }} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-                                
+
                             </svg>
                         </Link>
-                    </div> 
+                    </div>
                     <Ramo codigo={"CIT3412"} ramo={"Electivo Profesional"} state={this.state.CIT3412} />
                     <Ramo codigo={"CIT3413"} ramo={"Electivo Profesional"} state={this.state.CIT3413} />
-                    <div className="col col-md-1"> 
+                    <div className="col col-md-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
                         </svg>
-                    </div> 
+                    </div>
 
                 </div>
 
-                <br/>
+                <br />
 
                 <div className="row row-cols-10">
-                    <div className="col col-md-1"> </div> 
+                    <div className="col col-md-1"> </div>
                     <Ramo codigo={"CIT3200"} ramo={"Evaluación de Proyectos TIC"} state={this.state.CIT3200} />
-                    <Ramo codigo={"CIT3201"} ramo={"Proyecto en TICs III"} state={this.state.CIT3201} />               
-                    <div className="col col-md-1"> </div>                 
+                    <Ramo codigo={"CIT3201"} ramo={"Proyecto en TICs III"} state={this.state.CIT3201} />
+                    <div className="col col-md-1"> </div>
                 </div>
 
-                <br/>
+                <br />
 
                 <div className="row row-cols-10">
-                    <div className="col col-md-1"> </div> 
+                    <div className="col col-md-1"> </div>
                     <Ramo codigo={"CIT3312"} ramo={"Electivo Profesional"} state={this.state.CIT3312} />
-                    <Ramo codigo={"CIT3313"} ramo={"Electivo Profesional"} state={this.state.CIT3313} />  
-                    <div className="col col-md-1"> </div>                     
-                   
+                    <Ramo codigo={"CIT3313"} ramo={"Electivo Profesional"} state={this.state.CIT3313} />
+                    <div className="col col-md-1"> </div>
+
                 </div>
 
-                <br/>
-                
+                <br />
+
                 <div className="row row-cols-10">
-                <div className="col"> 
-                    <Link className="nav-link" to={{ pathname: '/users/usr/PERT'}} >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-arrow-return-left" viewBox="0 0 16 16">
-                            
-                        </svg>
-                    </Link>
-                </div>
-                <div className="col"> </div>
-                <div className="col"> </div>  
+                    <div className="col">
+                        <Link className="nav-link" to={{ pathname: '/users/usr/mallas/malla2010' }} >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-arrow-return-left" viewBox="0 0 16 16">
 
-             
+                            </svg>
+                        </Link>
+                    </div>
+                    <div className="col"> </div>
+                    <div className="col"> </div>
+
+
                 </div>
 
-                
-           </div>
-     
-           
+
+            </div>
+
+
         )
     }
 }
