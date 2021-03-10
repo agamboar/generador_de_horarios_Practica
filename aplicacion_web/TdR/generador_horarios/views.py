@@ -479,4 +479,4 @@ def PERT_es1(request):
         ns = nodo_asignatura.objects.filter(to_user=current_user, es=1)
         serializer = nodoAsignaturaSerializer(ns, many=True)
 
-    return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+    return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
