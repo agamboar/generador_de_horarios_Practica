@@ -35,12 +35,13 @@ export default class CrearUsuarioForm extends Component {
     };
 
     await axios(config).then((response) => {
+      console.log(response)
 
       if (response.status === 201) {
         alert("Se ha creado el usuario correctamente ");
         setTimeout(() => { window.history.back(); }, 1500);
         window.location.href = '/'
-        
+
       } else if(response.status === 400 ) {
         alert("Usuario o email ya registrado");
 
