@@ -142,7 +142,7 @@ export default class PriorizarRamos extends Component {
 
     //console.log(PERT_j)
     this.setState({
-      ramos: PERT_j.data.PERT
+      ramos: PERT_j.data
     })
     for (let i = 0; i < this.state.ramos.length; i++) {
       const mov = i;
