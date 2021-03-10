@@ -35,7 +35,9 @@ export default class CrearUsuarioForm extends Component {
       data: data
     };
 
-    await axios(config)
+    const response = await axios(config);
+    const data = await response.json();
+    console.log(data)
     
    
   }
