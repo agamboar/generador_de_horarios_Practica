@@ -36,13 +36,14 @@ export default class CrearUsuarioForm extends Component {
     };
 
     await axios(config)
-    
-   
+
+
   }
 
   onSubmit = e => {
     e.preventDefault();
     this.addUsuario(this.state.username, this.state.email, this.state.password1, this.state.password2)
+    console.log('aloooooooooooooo')
 
   }
 
