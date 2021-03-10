@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import GoogleLogin from 'react-google-login';
 import googleLogin from "../services/googleLogin"
 //import Cookies from 'js-cookie';
@@ -21,6 +23,8 @@ async function getCsrfToken() {
 */
 //getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '' }))
 
+toast.configure()
+
 export default class GoogleSocialAuth extends Component {
 
     state = {
@@ -28,10 +32,16 @@ export default class GoogleSocialAuth extends Component {
         password: null
     }
 
+
+
     verificar_user = async (login, password) => {
         const newUser = {
             username: login,
             password: password
+        }
+
+        const notify = (e) => {
+            toast(e)
         }
 
 
@@ -49,7 +59,7 @@ export default class GoogleSocialAuth extends Component {
         await axios(config).then(response => localStorage.setItem('token', response.data.key)).catch(function (error) {
             if (error.response) {
 
-                if (error.response.data.non_field_errors) { alert(`error:  ${error.response.data.non_field_errors[0]}`); }
+                if (error.response.data.non_field_errors) { notify(`error:  ${error.response.data.non_field_errors[0]}`); }
                 console.log(error.response);
             }
         });
