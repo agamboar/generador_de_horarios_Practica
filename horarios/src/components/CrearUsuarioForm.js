@@ -22,7 +22,6 @@ export default class CrearUsuarioForm extends Component {
 
     }
     console.log(Cookies.get('csrftoken'))
-    console.log(alo)
     console.log("alo")
     var qs = require('qs');
     var data = qs.stringify(newUsuario);
