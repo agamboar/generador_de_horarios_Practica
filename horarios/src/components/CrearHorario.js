@@ -28,6 +28,8 @@ export default class CrearHorario extends Component {
         axios.post("http://200.14.84.238::443/ramosaprobados/", data).then(res => {
             console.log(res.statusText)
         })
+        setTimeout(function () { alert("Seras redirigido para calcular tus ramos críticos"); }, 1000);
+        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 4500);
     }
 
     render() {

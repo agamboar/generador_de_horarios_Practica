@@ -41,7 +41,7 @@ export default class AvanceManual2020 extends Component {
 
         axios(config)
         setTimeout(function () { alert("Seras redirigido para calcular tus ramos críticos"); }, 1000); //cambia esto por toast
-        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 5000);
+        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 3000);
     }
 
 

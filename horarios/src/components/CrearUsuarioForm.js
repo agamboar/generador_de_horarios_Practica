@@ -37,7 +37,7 @@ export default class CrearUsuarioForm extends Component {
     axios(config) .then(response => {
       if (response.status === 201){
         alert("Se ha creado el usuario correctamente")
-        window.location.href = '/users/usr'
+        window.location.href = '/'
       }else{
         alert("No se ha podido crear la  cuenta correctamente")
       }
