@@ -36,7 +36,7 @@ export default class CrearUsuarioForm extends Component {
 
     axios(config).then((response) => {
 
-      if (response.status === 201) {
+      if (response.data.status === 201) {
         
         alert("siii wei")
       } else {
