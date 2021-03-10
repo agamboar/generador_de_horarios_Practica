@@ -122,7 +122,7 @@ export default class PriorizarRamos extends Component {
 
     await axios(config)
     setTimeout(function () { notify("Seras redirigido para ver tus horarios posibles"); }, 1000);
-    setTimeout(function () { window.location.href = 'http://200.14.84.238/users/usr/horariosPosibles'; }, 3000);
+    setTimeout(function () { window.location.href = 'http://200.14.84.238/users/usr/horariosPosibles'; }, 4500);
   }
 
 
