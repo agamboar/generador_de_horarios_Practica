@@ -40,8 +40,8 @@ export default class CrearUsuarioForm extends Component {
       if (error.response) {
         
         
-        console.log(error.response.data);
-        console.log(error.response.status);
+        alert(error.response.data);
+        
       }
     });
    
