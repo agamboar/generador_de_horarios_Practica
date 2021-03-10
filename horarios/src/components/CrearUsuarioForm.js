@@ -22,6 +22,8 @@ export default class CrearUsuarioForm extends Component {
 
     }
     console.log(Cookies.get('csrftoken'))
+    console.log(alo)
+    console.log("alo")
     var qs = require('qs');
     var data = qs.stringify(newUsuario);
     var config = {
@@ -34,12 +36,8 @@ export default class CrearUsuarioForm extends Component {
       data: data
     };
 
-    var alo=await axios(config).then((response) => {
-      console.log(response)
-      console.log("wei si")
-    })
-    console.log(alo)
-    console.log("alo")
+    await axios(config)
+    
    
   }
 
