@@ -39,6 +39,7 @@ export default class CrearUsuarioForm extends Component {
       console.log("wei si")
     })
     console.log(alo)
+    console.log("alo")
    
   }
 
