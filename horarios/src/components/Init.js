@@ -8,7 +8,7 @@ export default class Init extends Component {
             <div>
                 <br/>
                 <div class="text-center">
-                    <img src="https://drive.google.com/file/d/1DDwLdZo3HurA2Ap7Kp2Plgt50Wvqqri3/view?usp=sharing" class="rounded" alt="logo"/>     
+                    <img src="logo2.png" class="rounded" alt="logo"/>     
                 </div>
                 <br/>
                 <div className="text-center">
