@@ -154,6 +154,9 @@ def get_clique_max_pond(current_user):
                 print(solucion)
             aux_retornar.append(solucion)
         prev_solution = arr_aux_delete
-        G.remove_node(arr_aux_delete[0][0])
+        try:
+            G.remove_node(arr_aux_delete[0][0])
+        except:
+            break
 
     return aux_retornar
