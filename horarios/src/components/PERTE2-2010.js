@@ -124,7 +124,7 @@ export default class Malla2010Extra2 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/mallas/malla2010' }} >
+                        <Link className="nav-link" to={{ pathname: '/users/usr/PERT' }} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-arrow-return-left" viewBox="0 0 16 16">
 
                             </svg>
