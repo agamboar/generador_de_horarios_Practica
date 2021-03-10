@@ -40,7 +40,7 @@ export default class CrearUsuarioForm extends Component {
       if (error.response) {
         
         
-        alert(error.response.data.password1[0]);
+        alert(error.response.data.password1[0], error.response.data.email[0]);
         
       }
     });
