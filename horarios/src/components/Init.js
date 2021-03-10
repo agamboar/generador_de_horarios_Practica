@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Derechos from './Derechos'
 import Login from './Login'
+import logo from './logo.png'
 
 export default class Init extends Component {
     render() {
@@ -8,7 +9,7 @@ export default class Init extends Component {
             <div>
                 <br/>
                 <div class="text-center">
-                    <img src="logo2.png" class="rounded" alt="logo"/>     
+                    <img src={logo} class="rounded" alt="logo"></img>     
                 </div>
                 <br/>
                 <div className="text-center">
