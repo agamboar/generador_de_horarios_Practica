@@ -9,7 +9,7 @@ export default class Navbar extends Component {
     render() {
         return (
 
-            
+
             <nav className="navbar navbar-dark bg-primary">
                 <a className="navbar-brand" href="/users/usr">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -23,16 +23,16 @@ export default class Navbar extends Component {
 
                 <ul className="nav justify-content-end">
                     <li className="nav-item">
-                    {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link>:null}
+                        {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link> : null}
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/crearHorario' }} style={{ color: '#FFF' }} >Mi Avance</Link>
+                        <Link className="nav-link" to={{ pathname: '/users/usr/mallas' }} style={{ color: '#FFF' }} >Mi Malla</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/mallas' }} style={{ color: '#FFF' }} >Mi Malla</Link>
+                        <Link className="nav-link" to={{ pathname: '/users/usr/crearHorario' }} style={{ color: '#FFF' }} >Mi Avance</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/PERT' }} style={{ color: '#FFF' }} >Mis Ramos Críticos</Link>
