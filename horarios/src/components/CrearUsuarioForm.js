@@ -38,9 +38,8 @@ export default class CrearUsuarioForm extends Component {
       console.log(response);
     }).catch(function (error) {
       if (error.response) {
-        console.log(error.response.data);
+        json.forEach(function(obj) { console.log(obj.id); });
         console.log(error.response.status);
-        console.log(error.response.headers);
       }
     });
    
