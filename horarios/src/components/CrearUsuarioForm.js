@@ -35,12 +35,18 @@ export default class CrearUsuarioForm extends Component {
     };
 
     axios(config) .then(response => {
-      console.log(response);
+      if (response.status === 201){
+        alert("Se ha creado el usuario correctamente")
+        window.location.href = '/users/usr'
+      }else{
+        alert("No se ha podido crear la  cuenta correctamente")
+      }
+      
     }).catch(function (error) {
       if (error.response) {
         
         if (error.response.data.username){alert(`usuario:  ${error.response.data.username[0]}`);}
-        if (error.response.data.password1){alert(`contraseña 1:  ${error.response.data.password1[0]}`);}
+        if (error.response.data.password1){alert(`contraseña:  ${error.response.data.password1[0]}`);}
         if (error.response.data.password2){alert(`contraseña 2:  ${error.response.data.password2[0]}`);}
         if (error.response.data.email){alert(`email:  ${error.response.data.email[0]}`);}
         if (error.response.data.non_field_errors){alert(`error:  ${error.response.data.non_field_errors[0]}`);} 
