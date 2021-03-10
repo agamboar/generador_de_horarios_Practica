@@ -7,7 +7,7 @@ export default class Init extends Component {
         return (
             <div>
                 <br/>
-                <img src="logo.png" class="rounded"></img> 
+                <img src="logo" class="rounded"></img> 
                 <br/>
                 <div className="text-center">
                     <p className="title text-primary">Generador de Horarios</p>
