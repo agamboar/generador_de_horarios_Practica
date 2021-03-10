@@ -34,10 +34,11 @@ export default class CrearUsuarioForm extends Component {
       data: data
     };
 
-    await axios(config).then((response) => {
+    var alo=await axios(config).then((response) => {
       console.log(response)
       console.log("wei si")
-})
+    })
+    console.log(alo)
    
   }
 
