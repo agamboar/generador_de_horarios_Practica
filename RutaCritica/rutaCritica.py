@@ -101,7 +101,7 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
         if PERT.nodes[elem]["H"] != 0 and PERT.nodes[elem]["ES"] == 1: #otros ramos que se pueden tomar
             ramos_disponibles[PERT.nodes[elem]["codigo"]]= {"codigo":PERT.nodes[elem]["codigo"],"numb_correlativo":elem, "nombre":PERT.nodes[elem]["nombre"],"holgura":PERT.nodes[elem]["H"],"critico":False,"codigo_ref":None }
             
-        #print(elem," ",PERT.nodes[elem])# imprime todos los nodos agregados en el grafo
+        print(elem," ",PERT.nodes[elem])# imprime todos los nodos agregados en el grafo
       
     # hasta aca
     print("Ramos criticos: ")
@@ -122,7 +122,7 @@ def getRamoCritico(excel_ramos_aprobados='MiMalla.xlsx'):
     #retornar un json con los ramos que puede tomar y con su holgura. -> se puede hacer una consulta
     return ramos_disponibles, nombre_excel_malla
 
-#getRamoCritico('MiMalla.xlsx')
+getRamoCritico('MiMalla.xlsx')
 
                 
 #Nombre de la actividad;
