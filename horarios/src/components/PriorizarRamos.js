@@ -3,8 +3,10 @@ import Navbar from './Navbar'
 import RamoCritico from './RamoCritico'
 import NotAuth from './NotAuth'
 import axios from 'axios';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-
+toast.configure()
 
 
 export default class PriorizarRamos extends Component {
@@ -29,6 +31,10 @@ export default class PriorizarRamos extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
+
+    const notify = (e) => {
+      toast.info(e, { position: toast.POSITION.TOP_CENTER })
+    }
     const priorizaciones = [null, null, null, null, null, null, null, null, null, null, null];
     this.state.aux = [null, null, null, null, null, null, null, null, null, null, null];
     for (let i = 0; i < this.state.critico.length; i++) {
@@ -115,7 +121,7 @@ export default class PriorizarRamos extends Component {
     };
 
     await axios(config)
-    setTimeout(function () { alert("Seras redirigido para ver tus horarios posibles"); }, 5000);
+    setTimeout(function () { notify("Seras redirigido para ver tus horarios posibles"); }, 1000);
     setTimeout(function () { window.location.href = 'http://200.14.84.238/users/usr/horariosPosibles'; }, 3000);
   }
 

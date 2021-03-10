@@ -3,6 +3,10 @@ import ARamo from './ARamo'
 import Semestre from './Semestre'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+toast.configure()
 
 
 export default class AvanceManual2020 extends Component {
@@ -20,9 +24,11 @@ export default class AvanceManual2020 extends Component {
 
     onSubmit = async (e) => {
         e.preventDefault();
-        //const token = sessionStorage.getItem("token").toString('base64')
-        //var csrftoken = getCookie('csrftoken');
-        //axios.defaults.url = 'http://127.0.0.1:8000/';
+
+        const notify = (e) => {
+            toast.info(e, { position: toast.POSITION.TOP_CENTER })
+        }
+
         const Avance = { state: this.state }
         const payload = Avance.state
         //console.log(Avance)
@@ -40,7 +46,7 @@ export default class AvanceManual2020 extends Component {
         };
 
         axios(config)
-        setTimeout(function () { alert("Seras redirigido para calcular tus ramos críticos"); }, 1000); //cambia esto por toast
+        setTimeout(function () { notify("Seras redirigido para calcular tus ramos críticos"); }, 1000); //cambia esto por toast
         setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 3000);
     }
 

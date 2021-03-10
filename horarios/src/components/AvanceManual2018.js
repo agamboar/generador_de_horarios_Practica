@@ -3,6 +3,10 @@ import ARamo from './ARamo'
 import Semestre from './Semestre'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+toast.configure()
 
 
 export default class AvanceManual2018 extends Component {
@@ -22,6 +26,10 @@ export default class AvanceManual2018 extends Component {
     onSubmit = e => {
         e.preventDefault();
 
+        const notify = (e) => {
+            toast.info(e, { position: toast.POSITION.TOP_CENTER })
+        }
+
         const Avance = { state: this.state }
         const payload = Avance.state
         var data = JSON.stringify(payload);
@@ -36,7 +44,7 @@ export default class AvanceManual2018 extends Component {
         };
 
         axios(config)
-        setTimeout(function () { alert("Seras redirigido para calcular tus ramos críticos"); }, 1000); //cambia esto por toast
+        setTimeout(function () { notify("Seras redirigido para calcular tus ramos críticos"); }, 1000); //cambia esto por toast
         setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 3000);
     }
 

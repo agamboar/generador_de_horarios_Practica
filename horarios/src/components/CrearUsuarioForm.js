@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
+toast.configure()
 
 export default class CrearUsuarioForm extends Component {
 
@@ -21,7 +24,11 @@ export default class CrearUsuarioForm extends Component {
       password2: password2
 
     }
-    
+
+    const notify = (e) => {
+      toast.error(e, { position: toast.POSITION.TOP_CENTER })
+    }
+
     var qs = require('qs');
     var data = qs.stringify(newUsuario);
     var config = {
@@ -34,29 +41,29 @@ export default class CrearUsuarioForm extends Component {
       data: data
     };
 
-    axios(config) .then(response => {
-      if (response.status === 201){
+    axios(config).then(response => {
+      if (response.status === 201) {
         alert("Se ha creado el usuario correctamente")
         window.location.href = 'http://200.14.84.238:80'
-      }else{
+      } else {
         alert("No se ha podido crear la  cuenta correctamente")
       }
-      
+
     }).catch(function (error) {
       if (error.response) {
-        
-        if (error.response.data.username){alert(`usuario:  ${error.response.data.username[0]}`);}
-        if (error.response.data.password1){alert(`contraseña:  ${error.response.data.password1[0]}`);}
-        if (error.response.data.password2){alert(`contraseña 2:  ${error.response.data.password2[0]}`);}
-        if (error.response.data.email){alert(`email:  ${error.response.data.email[0]}`);}
-        if (error.response.data.non_field_errors){alert(`error:  ${error.response.data.non_field_errors[0]}`);} 
+
+        if (error.response.data.username) { notify(`usuario:  ${error.response.data.username[0]}`); }
+        if (error.response.data.password1) { notify(`contraseña:  ${error.response.data.password1[0]}`); }
+        if (error.response.data.password2) { notify(`contraseña 2:  ${error.response.data.password2[0]}`); }
+        if (error.response.data.email) { notify(`email:  ${error.response.data.email[0]}`); }
+        if (error.response.data.non_field_errors) { notify(`error:  ${error.response.data.non_field_errors[0]}`); }
         console.log(error.response.data);
       }
     });
-   
-   
-    
-   
+
+
+
+
   }
 
   onSubmit = e => {

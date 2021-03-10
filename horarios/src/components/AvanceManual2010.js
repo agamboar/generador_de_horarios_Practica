@@ -4,8 +4,10 @@ import ARamo from './ARamo'
 import Semestre from './Semestre'
 import NotAuth from './NotAuth'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-
+toast.configure()
 
 export default class AvanceManual extends Component {
     state = {
@@ -21,6 +23,10 @@ export default class AvanceManual extends Component {
     show_alert = false
     onSubmit = async (e) => {
         e.preventDefault();
+
+        const notify = (e) => {
+            toast.info(e, { position: toast.POSITION.TOP_CENTER })
+        }
 
         const Avance = { state: this.state }
         const payload = Avance.state
