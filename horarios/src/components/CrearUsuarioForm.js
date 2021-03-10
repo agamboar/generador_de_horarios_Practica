@@ -34,7 +34,9 @@ export default class CrearUsuarioForm extends Component {
       data: data
     };
 
-    axios(config).catch(function (error) {
+    axios(config) .then(response => {
+      console.log(response);
+    }).catch(function (error) {
       if (error.response) {
         console.log(error.response.data);
         console.log(error.response.status);
