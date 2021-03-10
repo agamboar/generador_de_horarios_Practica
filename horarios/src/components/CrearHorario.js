@@ -25,7 +25,7 @@ export default class CrearHorario extends Component {
         const data = new FormData()
         console.log(this.state.selectedFile)
         data.append('file', this.state.selectedFile)
-        axios.post("http://200.14.84.238::443/ramosaprobados/", data).then(res => {
+        axios.post("http://200.14.84.238:80/ramosaprobados/", data).then(res => {
             console.log(res.statusText)
         })
         setTimeout(function () { alert("Seras redirigido para calcular tus ramos críticos"); }, 1000);
