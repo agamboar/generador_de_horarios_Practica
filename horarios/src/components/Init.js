@@ -9,9 +9,8 @@ export default class Init extends Component {
             <div>
                 <br/>
                 <div class="text-center">
-                    <img src={logo} class="rounded " width="200" height="200" alt="logo"></img>     
+                    <img src={logo} class="rounded " width="100" height="100" alt="logo"></img>     
                 </div>
-                <br/>
                 <div className="text-center">
                     <p className="title text-primary">Generador de Horarios</p>
                 </div>
