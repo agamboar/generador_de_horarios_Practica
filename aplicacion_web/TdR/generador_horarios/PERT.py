@@ -128,7 +128,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         n.to_user.add(u)
         a = asignatura_real.objects.get(codigo=elem)
         n.to_asignatura_real.add(a)
-        print(ramos_disponibles)
+    print(ramos_disponibles)
 
     return ramos_disponibles
 
