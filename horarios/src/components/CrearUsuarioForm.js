@@ -34,17 +34,16 @@ export default class CrearUsuarioForm extends Component {
       data: data
     };
 
-    axios(config).then((response) => {
-      console.log(response)
-      console.log(response.data)
-      if (response.data.status === 201) {
+    axios(config) .then(response => {
+      console.log(response);
+    }).catch(function (error) {
+      if (error.response) {
         
-        alert("siii wei")
-      } else {
-        alert("que no wei")
-
+        var aux_arr = [error.response.data];
+        console.log(aux_arr);
+        console.log(error.response.status);
       }
-    })
+    });
    
    
     
