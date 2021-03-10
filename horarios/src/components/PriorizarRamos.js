@@ -130,7 +130,7 @@ export default class PriorizarRamos extends Component {
 
     var config = {
       method: 'get',
-      url: 'http://200.14.84.238:80/PERT_es1',
+      url: 'http://200.14.84.238:80/PERT_es1/',
       headers: {
         'Authorization': 'Token ' + localStorage.getItem("token"), //cambiar a localStorage
         'Content-Type': 'application/json'
@@ -138,10 +138,11 @@ export default class PriorizarRamos extends Component {
     };
 
     var PERT_j = await axios(config)
+    console.log(PERT_j)
 
     //console.log(PERT_j)
     this.setState({
-      ramos: PERT_j.data.PERT
+      ramos: PERT_j.data
     })
     for (let i = 0; i < this.state.ramos.length; i++) {
       const mov = i;
