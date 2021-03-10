@@ -49,6 +49,7 @@ export default class GoogleSocialAuth extends Component {
         await axios(config).then(response => localStorage.setItem('token', response.data.key)).catch(function (error) {
             if (error.response) {
 
+                if (error.response.data.non_field_errors) { alert(`error:  ${error.response.data.non_field_errors[0]}`); }
                 console.log(error.response);
             }
         });
