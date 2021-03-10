@@ -4,7 +4,7 @@ import BloqueH from './BloqueH'
 import RamosH from './RamosH'
 import Dia from './Dia'
 
-console.log
+
 
 export default class Horario extends Component {
    
