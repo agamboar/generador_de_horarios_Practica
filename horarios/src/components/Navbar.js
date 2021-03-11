@@ -19,18 +19,31 @@ export default class Navbar extends Component {
                     </svg>
                     Generador de Horarios
                 </a>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a>Usuario: {localStorage.getItem("username")} </a>
+                    </li>
+                </ul>
 
 
                 <ul className="nav justify-content-end">
-                    <li className="nav-item">
-                        {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link> : null}
-                    </li>
-                    <li className="nav-item">
-                        {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#FFF' }} >Usuarios</Link> : null}
-                    </li>
-                    <li className="nav-item">
+                    {localStorage.getItem("is_staff") === "si" ?
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Funciones Administrador</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item">
+                                        {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link> : null}
+                                    </li>
+                                    <li class="dropdown-item">
+                                        {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#FFF' }} >Usuarios</Link> : null}
+                                    </li>
+                                </ul>
+                            </li>
+                    : null}
+
+                   {/*<li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >Home</Link>
-                    </li>
+                    </li>*/}
                     <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/mallas' }} style={{ color: '#FFF' }} >Mi Malla</Link>
                     </li>

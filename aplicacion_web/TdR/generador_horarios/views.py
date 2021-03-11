@@ -488,13 +488,15 @@ def is_staff(request):
 
         current_user = request.user
         aux_id = current_user.id
-        aux_staff = User.objects.get(id=current_user.id).is_staff
+        aux_user = User.objects.get(id=current_user.id)
+        aux_staff = aux_user.is_staff
+        aux_username = aux_user.username
         if aux_staff == True:
             aux_staff = "si"
         else:
             aux_staff = "no"
 
-    return JsonResponse({'is_staff': aux_staff, 'id': aux_id})
+    return JsonResponse({'is_staff': aux_staff, 'id': aux_id, "username":aux_username })
 
 
 @api_view(['GET'])
