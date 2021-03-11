@@ -26,6 +26,9 @@ export default class Navbar extends Component {
                         {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link> : null}
                     </li>
                     <li className="nav-item">
+                        {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#FFF' }} >Usuarios</Link> : null}
+                    </li>
+                    <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >Home</Link>
                     </li>
                     <li className="nav-item">
