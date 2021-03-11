@@ -56,6 +56,7 @@ export default class CrearHorario extends Component {
       
           var qs = require('qs');
           var data = qs.stringify(this.state);
+          console.log(this.state)
           var config = {
             method: 'post',
             url: 'http://200.14.84.238:80/remove_staff/',
@@ -104,7 +105,7 @@ export default class CrearHorario extends Component {
                         <div className="form-group">
                                 <input
                                     type="Tel"
-                                    name="user"
+                                    name="username"
                                     className="form-control rounded-pill"
                                     placeholder="Ej: usuario"
                                     onChange={this.onChange}
