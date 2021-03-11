@@ -41,18 +41,7 @@ export default class CrearHorario extends Component {
             data: data
           };
       
-          axios(config).then(response => {
-            if (response.status === 201) {
-              notify("Se ha modificado el usuario correctamente")
-            } else {
-              notify("No se ha podido modifiar")
-            }
-      
-          }).catch(function (error) {
-            if (error.response) {
-              if (error.response.data.username) { notify(`error:  ${error.response.data.error[0]}`); }
-            }
-          });
+          axios(config)
     }
     remove_staff(){
         const notify = (e) => {

@@ -531,8 +531,8 @@ def get_asignaturas_cursadas(request):
 
 @api_view(['POST'])
 def set_staff(request):
-    print(request.data)
-    print(request.headers)
+    print(request.body)
+    print("hola")
     print(request.method)
     if request.method == "POST":
         current_user = request.user.id
@@ -542,8 +542,8 @@ def set_staff(request):
             aux_new_staff.is_staff = True
             aux_new_staff.save()
             return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False, status=status.HTTP_200_OK)
-        else:
-            return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED)
+    else:
+        return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED)
 
 """ @api_view(['POST'])
 def remove_staff(request):
