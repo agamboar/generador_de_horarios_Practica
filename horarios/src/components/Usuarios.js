@@ -22,7 +22,7 @@ export default class CrearHorario extends Component {
                 <br />
                 <br />
 
-                <div className="container">
+                <div className="container centering">
                    <div className = "card border-primary text-center custom5">
 
 
