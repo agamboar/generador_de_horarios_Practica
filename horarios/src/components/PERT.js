@@ -6,6 +6,8 @@ import PERTMalla2020 from './PERTMalla2020'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import NotAuth from './NotAuth'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 
@@ -36,6 +38,14 @@ export default class PERT extends Component {
         })
     }
 
+    onSubmit = () => {
+        const notify = (e) => {
+            toast.info(e, { position: toast.POSITION.TOP_CENTER })
+          }
+        setTimeout(function () { notify("Seras redirigido para priorizar tus Ramos"); }, 1000);
+        setTimeout(function () { window.location.href = 'http://200.14.84.238/users/usr/priorizarRamos'; }, 4500);
+    }
+
     render() {
         if (localStorage.getItem("token")) {
             if (this.state.malla === 2010) {
@@ -51,12 +61,7 @@ export default class PERT extends Component {
                             <div className="col">
                                 <br/>
                                 <div className = "align-self-center">
-                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos'}}style={{ color: '#FFF' }} >
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            Priorizar Ramos
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </Link>
+                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm" onClick = {this.onSubmit}>
                                     </button>
                                 </div>
                             </div>
