@@ -155,14 +155,11 @@ def upload_mi_malla(request):
         codigos = read_mi_malla(excel_file)
         user = User.objects.get(id=current_user)
 
-        try:
-            asignatura_cursada.objects.filter(to_User=current_user).delete()
-            nodo_asignatura.objects.filter(to_user=current_user).delete()
-            nodo_seccion.objects.filter(
-                to_nodo_asignatura__to_user=current_user).delete()
-            solucion.objects.filter(to_user=current_user).delete()
-        except:
-            pass
+        asignatura_cursada.objects.filter(to_User=current_user).delete()
+        nodo_asignatura.objects.filter(to_user=current_user).delete()
+        nodo_seccion.objects.filter(
+            to_nodo_asignatura__to_user=current_user).delete()
+        solucion.objects.filter(to_user=current_user).delete()
 
         counters = {'semestre': codigos[1],
                     'cfg_count': codigos[2],
