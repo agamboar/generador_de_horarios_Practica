@@ -30,7 +30,7 @@ export default class Navbar extends Component {
                 <ul className="nav justify-content-end">
                     {localStorage.getItem("is_staff") === "si" ?
                     <Dropdown size="sm">
-                        <DropdownButton id="dropdown-basic-button" title="Funciones Administrador">
+                        <DropdownButton id="dropdown-basic-button" title="Administrador">
                         <Dropdown.Item><Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#000000' }} >Subir Ofertas</Link> </Dropdown.Item>
                         <Dropdown.Item ><Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#000000' }} >Usuarios</Link></Dropdown.Item>
                         </DropdownButton>
@@ -40,12 +40,18 @@ export default class Navbar extends Component {
                    {/*<li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >Home</Link>
                     </li>*/}
-                    <li className="nav-item">
+                    <Dropdown size="sm">
+                        <DropdownButton id="dropdown-basic-button" title="Avance Academico">
+                        <Dropdown.Item><Link className="nav-link" to={{ pathname: '/users/usr/mallas' }} style={{ color: '#000000' }} >Mi Malla</Link> </Dropdown.Item>
+                        <Dropdown.Item ><Link className="nav-link" to={{ pathname: '/users/usr/crearHorario' }} style={{ color: '#000000' }} >Actualizar avance</Link></Dropdown.Item>
+                        </DropdownButton>
+                    </Dropdown>
+                    {/*<li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/mallas' }} style={{ color: '#FFF' }} >Mi Malla</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/crearHorario' }} style={{ color: '#FFF' }} >Mi Avance</Link>
-                    </li>
+                    </li>*/}
                     <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/PERT' }} style={{ color: '#FFF' }} >Mis Ramos Críticos</Link>
                     </li>

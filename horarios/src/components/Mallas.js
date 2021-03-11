@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import {Link} from 'react-router-dom';
 import Derechos from './Derechos'
 import NotAuth from './NotAuth'
-
+import { Redirect } from 'react-router';
 
 export default class Mallas extends Component {
     
@@ -12,7 +12,7 @@ export default class Mallas extends Component {
             return (
                 <div>
                     {(localStorage.getItem("malla"))?
-                    window.location.href = `http://200.14.84.238/users/usr/mallas/malla${localStorage.getItem("malla")}` : 
+                    <Redirect to={`http://200.14.84.238/users/usr/mallas/malla${localStorage.getItem("malla")}`} /> : 
                     
                     <div>
                         <Navbar/>
