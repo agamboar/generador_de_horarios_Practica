@@ -34,7 +34,7 @@ export default class AManual extends Component {
             <div>
                 <Navbar/>
                 {console.log(this.state.ramos_aprobados)}
-                {this.state.ramos_aprobados ?<AvanceManual2010 ramos={this.state.ramos_aprobados}/>: <AvanceManual2010/>   }
+                { setTimeout(function () { this.state.ramos_aprobados ?<AvanceManual2010 ramos={this.state.ramos_aprobados}/>: <AvanceManual2010/>   }, 2000) }
                 
 
                 
