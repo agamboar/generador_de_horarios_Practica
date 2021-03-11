@@ -20,6 +20,7 @@ export default class M2010 extends Component {
                     </div>
                     
                     <div className="col">
+                        <br/>
                         <div className = "align-self-center">
                             <button type="submit" className="btn btn-secondary rounded-pill btn-sm">    
                                 <Link className="nav-link" to={{ pathname: '/users/usr/mallas'}}style={{ color: '#FFF' }}  onClick={this.deleteMalla} >
