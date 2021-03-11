@@ -156,6 +156,10 @@ def upload_mi_malla(request):
 
         try:
             asignatura_cursada.objects.filter(to_User=user).delete()
+            nodo_asignatura.objects.filter(to_user=current_user).delete()
+            nodo_seccion.objects.filter(
+                to_nodo_asignatura__to_user=current_user).delete()
+            solucion.objects.filter(to_user=current_user).delete()
         except:
             pass
 
@@ -353,8 +357,8 @@ def mi_malla_manual(request):
 
     if request.method == "POST":
 
-        current_user = request.user
-        user = User.objects.get(id=current_user.id)
+        current_user = request.user.id
+        user = User.objects.get(id=current_user)
 
         json_data = request.data
         cfg_count = 0
@@ -401,7 +405,11 @@ def mi_malla_manual(request):
 
 
         try:
-            asignatura_cursada.objects.filter(to_User=user).delete()
+            asignatura_cursada.objects.filter(to_User=current_user).delete()
+            nodo_asignatura.objects.filter(to_user=current_user).delete()
+            nodo_seccion.objects.filter(
+                to_nodo_asignatura__to_user=current_user).delete()
+            solucion.objects.filter(to_user=current_user).delete()
         except:
             pass
 
@@ -409,12 +417,12 @@ def mi_malla_manual(request):
                     'cfg_count': cfg_count,
                     'einf_count': einf_count,
                     'etele_count': etele_count,
-                    'to_user': current_user,
+                    'to_user': user,
                     'agno_malla': malla
                     }
 
         av, created = avance_academico.objects.update_or_create(
-            semestre=semestre, to_user=current_user,
+            semestre=semestre, to_user=user,
             defaults=counters)
 
         avance = avance_academico.objects.get(

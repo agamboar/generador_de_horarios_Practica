@@ -14,14 +14,17 @@ import M2010Extra1 from './components/M2010Extra1';
 import M2010Extra2 from './components/M2010Extra2';
 import M2010Extra3 from './components/M2010Extra3';
 import M2010Extra4 from './components/M2010Extra4';
+import M2010Extra5 from './components/M2010Extra5';
 import M2018Extra1 from './components/M2018Extra1';
 import M2018Extra2 from './components/M2018Extra2';
 import M2018Extra3 from './components/M2018Extra3';
 import M2018Extra4 from './components/M2018Extra4';
+import M2018Extra5 from './components/M2018Extra5';
 import M2020Extra1 from './components/M2020Extra1';
 import M2020Extra2 from './components/M2020Extra2';
 import M2020Extra3 from './components/M2020Extra3';
 import M2020Extra4 from './components/M2020Extra4';
+import M2020Extra5 from './components/M2020Extra5';
 import CrearHorario from './components/CrearHorario';
 import AManual2010 from './components/AManual2010';
 import AManual2018 from './components/AManual2018';
@@ -68,6 +71,7 @@ function App() {
       <Route path="/users/usr/mallas/malla2010/DatosExtraM2010-2" exact component={M2010Extra2}/>
       <Route path="/users/usr/mallas/malla2010/DatosExtraM2010-3" exact component={M2010Extra3}/>
       <Route path="/users/usr/mallas/malla2010/DatosExtraM2010-4" exact component={M2010Extra4}/>
+      <Route path="/users/usr/mallas/malla2010/DatosExtraM2010-5" exact component={M2010Extra5}/>
 
       <Route path="/users/usr/mallas/malla2018" exact component={M2018}/>
       <Route path="/users/usr/mallas/malla2018/AvanceCurricular" exact component={AManual2018}/>
@@ -75,6 +79,7 @@ function App() {
       <Route path="/users/usr/mallas/malla2018/DatosExtraM2018-2" exact component={M2018Extra2}/>
       <Route path="/users/usr/mallas/malla2018/DatosExtraM2018-3" exact component={M2018Extra3}/>
       <Route path="/users/usr/mallas/malla2018/DatosExtraM2018-4" exact component={M2018Extra4}/>
+      <Route path="/users/usr/mallas/malla2018/DatosExtraM2018-5" exact component={M2018Extra5}/>
 
       <Route path="/users/usr/mallas/malla2020" exact component={M2020}/>
       <Route path="/users/usr/mallas/malla2020/AvanceCurricular" exact component={AManual2020}/>
@@ -82,6 +87,7 @@ function App() {
       <Route path="/users/usr/mallas/malla2020/DatosExtraM2020-2" exact component={M2020Extra2}/>
       <Route path="/users/usr/mallas/malla2020/DatosExtraM2020-3" exact component={M2020Extra3}/>
       <Route path="/users/usr/mallas/malla2020/DatosExtraM2020-4" exact component={M2020Extra4}/>
+      <Route path="/users/usr/mallas/malla2020/DatosExtraM2020-5" exact component={M2020Extra5}/>
 
       <Route path="/users/usr/crearHorario" exact component={CrearHorario}/>
 
