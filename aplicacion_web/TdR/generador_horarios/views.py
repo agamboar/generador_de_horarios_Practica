@@ -154,6 +154,7 @@ def upload_mi_malla(request):
         excel_file = request.FILES["file"]
         codigos = read_mi_malla(excel_file)
         user = User.objects.get(id=current_user)
+        print
 
         asignatura_cursada.objects.filter(to_User=current_user).delete()
         nodo_asignatura.objects.filter(to_user=current_user).delete()
@@ -187,7 +188,7 @@ def upload_mi_malla(request):
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
-    return JsonResponse({'description': "Malla Subida."}, status=200)
+    return JsonResponse({'description': "Malla Subida."}, status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET'])
