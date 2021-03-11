@@ -35,8 +35,8 @@ export default class CrearHorario extends Component {
             method: 'post',
             url: 'http://200.14.84.238:80/set_staff/',
             headers: {
-              'X-CSRFToken': Cookies.get('csrftoken'),
-              'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + localStorage.getItem("token")
             },
             data: data
           };
