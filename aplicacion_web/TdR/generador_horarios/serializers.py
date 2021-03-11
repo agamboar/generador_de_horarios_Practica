@@ -67,4 +67,4 @@ class nodoSeccionSerializer(serializers.ModelSerializer):
 class asignaturaCursadaSerializer(serializers.ModelSerializer):
     class Meta:
         model = asignatura_cursada
-        fields = 'codigo'
+        fields = ['codigo']
