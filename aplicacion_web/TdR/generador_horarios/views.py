@@ -488,13 +488,15 @@ def is_staff(request):
 
         current_user = request.user
         aux_id = current_user.id
-        aux_staff = User.objects.get(id=current_user.id).is_staff
+        aux_user = User.objects.get(id=current_user.id)
+        aux_staff = aux_user.is_staff
+        aux_username = aux_user.username
         if aux_staff == True:
             aux_staff = "si"
         else:
             aux_staff = "no"
 
-    return JsonResponse({'is_staff': aux_staff, 'id': aux_id})
+    return JsonResponse({'is_staff': aux_staff, 'id': aux_id, "username":aux_username })
 
 
 @api_view(['GET'])
@@ -526,3 +528,29 @@ def get_asignaturas_cursadas(request):
     serializer = asignaturaCursadaSerializer(asignaturas, many=True)
 
     return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+def set_staff(request):
+    if request.method == "POST":
+        current_user = request.user.id
+        print(request.data)
+        if User.objects.get(id=current_user).is_staff:
+            aux_new_staff=User.objects.get(username=request.data.username)
+            aux_new_staff.is_staff = True
+            aux_new_staff.save()
+            return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False, status=status.HTTP_200_OK)
+    else:
+        return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view(['POST'])
+def remove_staff(request):
+    if request.method == "POST":
+        current_user = request.user.id
+        print(request.data)
+        if User.objects.get(id=current_user).is_staff:
+            aux_new_staff=User.objects.get(username=request.data.username)
+            aux_new_staff.is_staff = False
+            aux_new_staff.save()
+            return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False,status=status.HTTP_200_OK)
+        else:
+            return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED) 

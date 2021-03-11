@@ -10,7 +10,7 @@ export default class CrearHorario extends Component {
 
 
     state = {
-        user: null
+        username: null
     }
 
     onChange = e => {
@@ -19,8 +19,20 @@ export default class CrearHorario extends Component {
         })
     }
 
-    onSubmit(){
-        //
+    set_staff = async ()=>{
+         //axios(config) //url: 'http://200.14.84.238:80/set_staff/',
+    }
+    remove_staff(){
+          //axios(config) //url: 'http://200.14.84.238:80/remove_staff/',
+    }
+
+    onSubmit = e => {
+        /*e.preventDefault();
+        this.set_staff(this.state.username)*/
+    }
+    onClick = e =>{
+        /*e.preventDefault();
+        this.remove_staff(this.state.username)*/
     }
 
     render() {
@@ -41,21 +53,21 @@ export default class CrearHorario extends Component {
                        <br/>
                         <h3 className="text-center ">Usuarios</h3>
                         <br/>
-                        <h5>Buscar un Usuario</h5>
+                        <h5>Hacer parte del staff a un usuario</h5>
                         <form onSubmit={this.onSubmit}>
                         
                         <div className="form-group">
                                 <input
                                     type="Tel"
-                                    name="user"
+                                    name="username"
                                     className="form-control rounded-pill"
                                     placeholder="Ej: usuario"
                                     onChange={this.onChange}
-                                    value={this.state.user}
+                                    value={this.state.username}
                                 />
                             </div>
-                            <button type="submit" className="btn btn-outline-primary rounded-pill"> Buscar
-                        </button>
+                            <button type="submit" class="btn btn-primary"> Hacer Staff</button>&nbsp;&nbsp;
+                           <button type="button" class="btn btn-danger"  onClick={this.onClick} > Eliminar de Staff</button>
                         </form>
 
                     </div> 

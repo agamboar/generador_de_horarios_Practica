@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-
+import  { Dropdown ,DropdownButton } from 'react-bootstrap';
 
 export default class Navbar extends Component {
     deleteToken = (e) => {
         localStorage.removeItem("token")
     }
+    
     render() {
         return (
 
@@ -19,35 +20,49 @@ export default class Navbar extends Component {
                     </svg>
                     Generador de Horarios
                 </a>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a style={{ color: '#FFF' }} >Usuario: {localStorage.getItem("username")} </a>
+                    </li>
+                </ul>
 
 
                 <ul className="nav justify-content-end">
-                    <li className="nav-item">
-                        {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link> : null}
-                    </li>
-                    <li className="nav-item">
-                        {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#FFF' }} >Usuarios</Link> : null}
-                    </li>
-                    <li className="nav-item">
+                    {localStorage.getItem("is_staff") === "si" ?
+                    <Dropdown size="sm">
+                        <DropdownButton id="dropdown-basic-button" title="Administrador">
+                        <Dropdown.Item><Link className="nav-link" to='/admin/subirOferta' style={{ color: '#000000' }} >Subir Ofertas</Link> </Dropdown.Item>
+                        <Dropdown.Item ><Link className="nav-link" to= '/admin/Usuarios' style={{ color: '#000000' }} >Hacer Staff</Link></Dropdown.Item>
+                        </DropdownButton>
+                    </Dropdown>
+                    : null}
+
+                   {/*<li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr' }} style={{ color: '#FFF' }} >Home</Link>
-                    </li>
-                    <li className="nav-item">
+                    </li>*/}
+                    <Dropdown size="sm">
+                        <DropdownButton id="dropdown-basic-button" title="Avance Academico">
+                        <Dropdown.Item><Link className="nav-link" to= '/users/usr/mallas'  style={{ color: '#000000' }} >Mi Malla</Link> </Dropdown.Item>
+                        <Dropdown.Item ><Link className="nav-link" to='/users/usr/crearHorario'  style={{ color: '#000000' }} >Actualizar avance</Link></Dropdown.Item>
+                        </DropdownButton>
+                    </Dropdown>
+                    {/*<li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/mallas' }} style={{ color: '#FFF' }} >Mi Malla</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to={{ pathname: '/users/usr/crearHorario' }} style={{ color: '#FFF' }} >Mi Avance</Link>
+                    </li>*/}
+                    <li className="nav-item">
+                        <Link className="nav-link" to='/users/usr/PERT' style={{ color: '#FFF' }} >Mis Ramos Críticos</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/PERT' }} style={{ color: '#FFF' }} >Mis Ramos Críticos</Link>
+                        <Link className="nav-link" to= '/users/usr/priorizarRamos' style={{ color: '#FFF' }} >Priorizar Ramos</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} style={{ color: '#FFF' }} >Priorizar Ramos</Link>
+                        <Link className="nav-link" to='/users/usr/horariosPosibles' style={{ color: '#FFF' }} >Horarios Posibles</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >Horarios Posibles</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to={{ pathname: '/' }} style={{ color: '#FFF' }} onClick={this.deleteToken}>Salir</Link>
+                        <Link className="nav-link" to='/' style={{ color: '#FFF' }} onClick={this.deleteToken}>Salir</Link>
                     </li>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </ul>
