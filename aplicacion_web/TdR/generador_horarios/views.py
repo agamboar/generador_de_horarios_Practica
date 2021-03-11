@@ -399,7 +399,7 @@ def mi_malla_manual(request):
                     codigos_aprobados.append(elem)
                 else: 
                     return JsonResponse({
-            'error': 'Existe una incoherencia entre tus ramos aprobados y los prerrequisitos. Comprueba que los datos ingresados sean válidos.'
+            'error': 'Comprueba que los datos ingresados sean válidos.'
         }, safe=True,status=status.HTTP_409_CONFLICT)
                 
 
