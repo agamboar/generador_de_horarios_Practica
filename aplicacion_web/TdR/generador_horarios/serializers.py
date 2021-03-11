@@ -62,7 +62,8 @@ class nodoSeccionSerializer(serializers.ModelSerializer):
         model = nodo_seccion
         fields = '__all__'
 
-class CurrentUserSerializer(serializers.Serializer):
+
+class asignaturaCursadaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = '__all__'
+        model = asignatura_cursada
+        fields = 'codigo'

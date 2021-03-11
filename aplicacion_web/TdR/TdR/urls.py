@@ -40,5 +40,6 @@ urlpatterns = [
     path('get_nodos/', views.get_nodo_seccion, name='get_ns'),
     path('is_staff/', views.is_staff),
     path('PERT_es1/', views.PERT_es1, name='get_es1'),
-    path('list_users/', views.list_users_not_staff, name='list_users_not_staff'),
+    path('asignaturasCursadas/', views.get_asignaturas_cursadas,
+         name='asignaturas_cursadas'),
 ]
