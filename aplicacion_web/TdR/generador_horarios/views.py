@@ -149,8 +149,8 @@ def upload_mi_malla(request):
 
     if request.method == "POST":
 
-        current_user = request.POST.id[0]
-        print(current_user)
+        aux_dict = json.loads(request.body)
+        print(aux_dict)
         excel_file = request.FILES["file"]
         codigos = read_mi_malla(excel_file)
         user = User.objects.get(id=current_user)
