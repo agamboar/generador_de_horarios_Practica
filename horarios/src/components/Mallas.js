@@ -19,7 +19,7 @@ export default class Mallas extends Component {
             return (
                 <div>
                     {(localStorage.getItem("malla"))?
-                     : 
+                     this.redireccionar: 
                     
                     <div>
                         <Navbar/>
