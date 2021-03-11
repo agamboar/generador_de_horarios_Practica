@@ -37,7 +37,7 @@ export default class CrearHorario extends Component {
             console.log(res.statusText)
         })
         setTimeout(function () { notify("Seras redirigido para calcular tus ramos críticos"); }, 1000);
-        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 4500);
+        //setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 4500);
     }
 
     render() {
