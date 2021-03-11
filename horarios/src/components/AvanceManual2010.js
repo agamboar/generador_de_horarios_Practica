@@ -31,7 +31,7 @@ export default class AvanceManual extends Component {
             }
         };
 
-        await axios(config).then(response => {            
+        axios(config).then(response => {            
             if (response.data){
                 for (let i = 0; i < response.data; i++) {
                     const mov = i;
