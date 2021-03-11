@@ -21,15 +21,27 @@ export default class AvanceManual extends Component {
         CIT3413: false, CIT3201: false, CIT3313: false, CIT5001: false, CIT5002: false
     }
     componentDidMount = () => {
-        console.log(this.props.ramos)
-        if (this.props.ramos){
-        for (let i = 0; i < this.props.ramos.length; i++) {
-            const mov = i;
-            const mov2 = this.props.ramos[mov].codigo;
-            this.setState({
-                [mov2]: true
-            })
-        }}
+
+        var config = {
+            method: 'get',
+            url: 'http://200.14.84.238:80/asignaturasCursadas/',
+            headers: {
+                'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
+                'Content-Type': 'application/json'
+            }
+        };
+
+        await axios(config).then(response => {            
+            if (response.data){
+                for (let i = 0; i < response.data; i++) {
+                    const mov = i;
+                    const mov2 = response.data[mov].codigo;
+                    this.setState({[mov2]: true})
+                }
+            }
+        } )
+
+        
     }
 
     show_alert = false

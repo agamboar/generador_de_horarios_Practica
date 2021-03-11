@@ -6,36 +6,13 @@ import axios from 'axios';
 
 export default class AManual extends Component {
 
-    state = {
-        ramos: null
-    }
-
-    componentDidMount = async () => {
-
-        var config = {
-            method: 'get',
-            url: 'http://200.14.84.238:80/asignaturasCursadas/',
-            headers: {
-                'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
-                'Content-Type': 'application/json'
-            }
-        };
-
-        var ramos_aprobados= await axios(config)
-
-        this.setState( {ramos: ramos_aprobados.data})
-    }
-
+ 
     render() {
         return (
             <div>
-                <Navbar/>
-               
-                {  this.state.ramos ?<AvanceManual2010 ramos={this.state.ramos}/>: <AvanceManual2010/>  }
-                
+                <Navbar/>     
+                <AvanceManual2010/> 
 
-                
-                
             </div>
         )
     }
