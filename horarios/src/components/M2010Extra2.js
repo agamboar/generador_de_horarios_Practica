@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import Malla2010Extra2 from './Malla2010Extra2'
+import {Link} from 'react-router-dom';
 
 
 
