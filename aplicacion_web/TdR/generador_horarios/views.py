@@ -354,7 +354,7 @@ def mi_malla_manual(request):
     if request.method == "POST":
 
         current_user = request.user.id
-        user = User.objects.get(id=current_user)
+        user = User.objects.get(id=current_user.id)
 
         json_data = request.data
         cfg_count = 0
