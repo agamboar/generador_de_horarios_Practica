@@ -354,6 +354,7 @@ def mi_malla_manual(request):
     if request.method == "POST":
 
         current_user = request.user.id
+        user = request.user
 
         json_data = request.data
         cfg_count = 0
@@ -401,7 +402,7 @@ def mi_malla_manual(request):
                     }
 
         av, created = avance_academico.objects.update_or_create(
-            semestre=semestre, to_user=current_user,
+            semestre=semestre, to_user=user,
             defaults=counters)
 
         avance = avance_academico.objects.get(
