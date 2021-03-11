@@ -168,12 +168,12 @@ def upload_mi_malla(request):
                     'cfg_count': codigos[2],
                     'einf_count': codigos[3],
                     'etele_count': codigos[4],
-                    'to_user': current_user,
+                    'to_user': user,
                     'agno_malla': codigos[0]
                     }
 
         av, created = avance_academico.objects.update_or_create(
-            semestre=codigos[1], to_user=current_user,
+            semestre=codigos[1], to_user=user,
             defaults=counters)
 
         semestre = codigos[1]
