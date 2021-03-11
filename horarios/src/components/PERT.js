@@ -39,6 +39,9 @@ export default class PERT extends Component {
     }
 
     onSubmit = () => {
+        const notify = (e) => {
+            toast.info(e, { position: toast.POSITION.TOP_CENTER })
+          }
         setTimeout(function () { notify("Seras redirigido para priorizar tus Ramos"); }, 1000);
         setTimeout(function () { window.location.href = 'http://200.14.84.238/users/usr/priorizarRamos'; }, 4500);
     }
