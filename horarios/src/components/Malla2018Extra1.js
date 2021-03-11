@@ -16,7 +16,6 @@ export default class Malla2018Extra1 extends Component {
                     <div className="col col-md-1"> </div>
                     <Semestre semestre={"1"} />
                     <Semestre semestre={"2"} />
-                    <Semestre semestre={"3"} />
                     <div className="col col-md-1"> </div>
                 </div>
 
@@ -28,7 +27,6 @@ export default class Malla2018Extra1 extends Component {
                     <div className="col col-md-1"> </div>
                     <RamoE codigo={"CBM-1000"} ramo={"Álgebra y Geometría"} numero={"1"} creditos={"7"} prerequisitos={" - "} formacion={"Ciencias Básicas"} />
                     <RamoE codigo={"CBM-1002"} ramo={"Álgebra Lineal"} numero={"6"} creditos={"6"} prerequisitos={"Álgebra y Geometría"} formacion={"Ciencias Básicas"} />
-                    <RamoE codigo={"CBM-1005"} ramo={"Ecuaciones Diferenciales"} numero={"11"} creditos={"6"} prerequisitos={"Álgebra Lineal - Cálculo II"} formacion={"Ciencias Básicas"} />
                     <div className="col col-md-1"> </div>
                 </div>
 
@@ -38,7 +36,7 @@ export default class Malla2018Extra1 extends Component {
                     <div className="col col-md-1"> </div>
                     <RamoE codigo={"CBM-1001"} ramo={"Cálculo I"} numero={"2"} creditos={"7"} prerequisitos={" - "} formacion={"Ciencias Básicas"} />
                     <RamoE codigo={"CBM-1003"} ramo={"Cálculo II"} numero={"7"} creditos={"6"} prerequisitos={"Cálculo I"} formacion={"Ciencias Básicas"} />
-                    <RamoE codigo={"CBM-1006"} ramo={"Cálculo III"} numero={"12"} creditos={"6"} prerequisitos={"Cálculo II"} formacion={"Ciencias Básicas"} />
+                    
                     <div className="col col-md-1"> </div>
                 </div>
 
@@ -52,7 +50,7 @@ export default class Malla2018Extra1 extends Component {
                     </div>
                     <RamoE codigo={"CBQ-1000"} ramo={"Química"} numero={"3"} creditos={"6"} prerequisitos={""} formacion={"Ciencias Básicas"} />
                     <RamoE codigo={"CBF-1000"} ramo={"Mecánica"} numero={"8"} creditos={"7"} prerequisitos={"Cálculo I"} formacion={"Ciencias Básicas"} />
-                    <RamoE codigo={"CBF-1001"} ramo={"Calor y Ondas"} numero={"13"} creditos={"7"} prerequisitos={"Cálculo II - Mecánica"} formacion={"Ciencias Básicas"} />
+                    
                     <div className="col col-md-1">
                         <Link className="nav-link" to={{ pathname: '/users/usr/mallas/malla2018/DatosExtraM2018-2' }} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-arrow-right-circle" viewBox="0 0 16 16">
@@ -69,7 +67,7 @@ export default class Malla2018Extra1 extends Component {
                     <div className="col col-md-1"> </div>
                     <RamoE codigo={"CIT-1000"} ramo={"Programación"} numero={"4"} creditos={"6"} prerequisitos={" - "} formacion={"Ciencias de la Ingeniería"} />
                     <RamoE codigo={"CIT-1010"} ramo={"Programación Avanzada"} numero={"9"} creditos={"6"} prerequisitos={"Programación"} formacion={"Ciencias de la Ingeniería"} />
-                    <RamoE codigo={"CIT-2000"} ramo={"Estructura de Datos"} numero={"14"} creditos={"6"} prerequisitos={"Programación Avanzada"} formacion={"Ingeniería Aplicada"} />
+                    
                     <div className="col col-md-1"> </div>
                 </div>
 
@@ -79,7 +77,7 @@ export default class Malla2018Extra1 extends Component {
                     <div className="col col-md-1"> </div>
                     <RamoE codigo={"FIC-1000"} ramo={"Comunicación para la Ingeniería"} numero={"5"} creditos={"5"} prerequisitos={" - "} formacion={"Transversal"} />
                     <RamoE codigo={" - "} ramo={"Minor / CFG"} numero={"10"} creditos={"5"} prerequisitos={" - "} formacion={"Transversal"} />
-                    <RamoE codigo={"CIT-2100"} ramo={"Redes de Datos"} numero={"15"} creditos={"6"} prerequisitos={"Programación Avanzada"} formacion={"Ingeniería Aplicada"} />
+                    
                     <div className="col col-md-1"> </div>
 
                 </div>
