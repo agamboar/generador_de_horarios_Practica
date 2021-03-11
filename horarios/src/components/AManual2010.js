@@ -22,7 +22,7 @@ export default class AManual extends Component {
         };
 
         var ramos_aprobados= await axios(config)
-        console.log(ramos_aprobados)
+        
 
         this.setState({
             ramos: ramos_aprobados.data
@@ -33,6 +33,7 @@ export default class AManual extends Component {
         return (
             <div>
                 <Navbar/>
+                {console.log(this.state.ramos_aprobados)}
                 {this.state.ramos_aprobados ?<AvanceManual2010 ramos={this.state.ramos_aprobados}/>: <AvanceManual2010/>   }
                 
 
