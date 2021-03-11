@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-
+import Dropdown from 'react-bootstrap/Button';
 
 export default class Navbar extends Component {
     deleteToken = (e) => {
@@ -29,17 +29,12 @@ export default class Navbar extends Component {
 
                 <ul className="nav justify-content-end">
                     {localStorage.getItem("is_staff") === "si" ?
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Funciones Administrador</a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-item">
-                                        <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link> 
-                                    </li>
-                                    <li class="dropdown-item">
-                                       <Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#FFF' }} >Usuarios</Link>
-                                    </li>
-                                </ul>
-                            </li>
+                    <Dropdown>
+                        <DropdownButton id="dropdown-basic-button" title="Funciones Administrador">
+                        <Dropdown.Item href="#/action-1"><Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link> </Dropdown.Item>
+                        <Dropdown.Item href="#/action-2"><Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#FFF' }} >Usuarios</Link></Dropdown.Item>
+                        </DropdownButton>
+                    </Dropdown>
                     : null}
 
                    {/*<li className="nav-item">
