@@ -382,7 +382,23 @@ def mi_malla_manual(request):
                 etele_count += 1
 
             if json_data[elem] == True:
-                codigos_aprobados.append(elem)
+                count_pre_req = 0 
+                pre_req=asignatura_real.objects.get(codigo=elem).prerrequisito.all().values_list('codigo', flat=True)
+                
+                for i in pre_req:
+                    try:
+                        if json_data[i] == True:
+                            count_pre_req+=1
+                    except:
+                        break
+                if count_pre_req == len(pre_req):
+                    codigos_aprobados.append(elem)
+                else: 
+                    return JsonResponse({
+            'error': 'Existe una incoherencia entre tus ramos aprobados y los prerrequisitos. Comprueba que los datos ingresados sean válidos.'
+        }, status=418)
+                
+
 
         try:
             asignatura_cursada.objects.filter(to_User=user).delete()
