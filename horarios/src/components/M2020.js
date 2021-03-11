@@ -18,7 +18,7 @@ export default class M2020 extends Component {
                     <div className="col">
                         <br/>
                         <div className = "align-self-center">
-                            <button type="submit" className="btn btn-secondary rounded-pill btn-sm">    
+                            <button type="submit" className="btn btn-warning rounded-pill btn-sm">    
                                 <Link className="nav-link" to={{ pathname: '/users/usr/mallas'}}style={{ color: '#FFF' }}  onClick={this.deleteMalla} >
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 Elegir otra malla
@@ -30,7 +30,7 @@ export default class M2020 extends Component {
                     <div className="col">
                         <br/>
                         <div className = "align-self-center">
-                            <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                            <button type="submit" className="btn btn-primary rounded-pill btn-sm">
                                 <Link className="nav-link" to={{ pathname: '/users/usr/mallas/malla2020/AvanceCurricular'}}style={{ color: '#FFF' }} >
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 Elegir Malla 2020
