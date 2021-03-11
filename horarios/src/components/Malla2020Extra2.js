@@ -45,9 +45,7 @@ export default class Malla2020Extra2 extends Component {
                                 <br/>
                                 &nbsp;&nbsp;° Creditos: 6
                                 <br/>
-                                &nbsp;&nbsp;° Pre-Requisitos: Mecánica - Ecuaciones  
-                                <br/>
-                                &nbsp; &nbsp; Diferenciales - Calculo III  
+                                &nbsp;&nbsp;° Pre-Requisitos: Mecánica - Ecuaciones Diferenciales - Calculo III   
                                 <br/>
                                 &nbsp;&nbsp;° Formación: Ciencias de la Ingeniería
                                 <br/>
@@ -79,9 +77,7 @@ export default class Malla2020Extra2 extends Component {
                                 <br/>
                                 &nbsp;&nbsp;° Creditos: 7
                                 <br/>
-                                &nbsp;&nbsp;° Pre-Requisitos: Ecuaciones Diferenciales -
-                                <br/>
-                                &nbsp;&nbsp;&nbsp; Cálculo III
+                                &nbsp;&nbsp;° Pre-Requisitos: Ecuaciones Diferenciales - Cálculo III
                                 <br/>
                                 &nbsp;&nbsp;° Formación: Ciencias Básicas
                                 <br/>
@@ -115,9 +111,7 @@ export default class Malla2020Extra2 extends Component {
                                 <br/>
                                 &nbsp;&nbsp;° Creditos: 6
                                 <br/>
-                                &nbsp;&nbsp;° Pre-Requisitos: Estructura de Datos y 
-                                <br/>
-                                &nbsp; &nbsp; Algoritmos
+                                &nbsp;&nbsp;° Pre-Requisitos: Estructura de Datos y Algoritmos
                                 <br/>
                                 &nbsp;&nbsp;° Formación: Ingeniería Aplicada - Informática
                                 <br/>

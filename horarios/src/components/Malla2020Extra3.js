@@ -44,9 +44,7 @@ export default class Malla2020Extra3 extends Component {
                                 <br/>
                                 &nbsp;&nbsp;° Creditos: 6
                                 <br/>
-                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos - 
-                                <br/>
-                                &nbsp; &nbsp; Probabilidades y Estadistica
+                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos - Probabilidades y Estadistica
                                 <br/>
                                 &nbsp;&nbsp;° Formación: Ingeniería Aplicada - Telec.
                                 <br/>
@@ -63,9 +61,7 @@ export default class Malla2020Extra3 extends Component {
                                 <br/>
                                 &nbsp;&nbsp;° Creditos: 6
                                 <br/>
-                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos - 
-                                <br/>
-                                &nbsp;&nbsp;&nbsp; Electrónica y Electrotecnia
+                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos - Electrónica y Electrotecnia
                                 <br/>
                                 &nbsp;&nbsp;° Formación: Ingeniería Aplicada - Telec.
                                 <br/>
@@ -94,9 +90,7 @@ export default class Malla2020Extra3 extends Component {
                                 <br/>
                                 &nbsp;&nbsp;° Creditos: 6
                                 <br/>
-                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos - 
-                                <br/>
-                                &nbsp;&nbsp;&nbsp; Desarrollo Web y Móvil
+                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos - Desarrollo Web y Móvil 
                                 <br/>
                                 &nbsp;&nbsp;° Formación: Ingeniería Aplicada - Proy. e Int.
                                 <br/>
@@ -114,9 +108,7 @@ export default class Malla2020Extra3 extends Component {
                                 <br/>
                                 &nbsp;&nbsp;° Creditos: 6
                                 <br/>
-                                &nbsp;&nbsp;° Pre-Requisitos: Calor y Ondas - 
-                                <br/>
-                                &nbsp;&nbsp;&nbsp; Electrónica y Electrotecnia
+                                &nbsp;&nbsp;° Pre-Requisitos: Calor y Ondas - Electrónica y Electrotecnia
                                 <br/>
                                 &nbsp;&nbsp;° Formación: Ingeniería Aplicada - Telec.
                                 <br/>
@@ -166,7 +158,7 @@ export default class Malla2020Extra3 extends Component {
                                 <br/>
                                 &nbsp;&nbsp;° Creditos: 6
                                 <br/>
-                                &nbsp;&nbsp;° Pre-Requisitos: Estructura de Datos y Alg. 
+                                &nbsp;&nbsp;° Pre-Requisitos: Estructura de Datos y Algoritmos
                                 <br/>
                                 &nbsp;&nbsp;&nbsp; - Taller de Redes y Servicios 
                                 <br/>
