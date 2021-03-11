@@ -9,7 +9,19 @@ import NotAuth from './NotAuth';
 export default class CrearHorario extends Component {
 
 
+    state = {
+        user: null
+    }
 
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    onSubmit(){
+        //
+    }
 
     render() {
         return (
@@ -25,8 +37,25 @@ export default class CrearHorario extends Component {
                 <div className = 'col'> </div>
                 <div className = 'col'> 
                 <div className="container align-self-center">
-                   <div className = "card border-primary text-center custom5">
-                        <h5>Buscar Usuarios</h5>
+                   <div className = "card border-primary custom5">
+                       <br/>
+                        <h3 className="text-center ">Usuarios</h3>
+                        <br/>
+                        <h5>Buscar un Usuario</h5>
+                        <form onSubmit={this.onSubmit}>
+                        
+                        <div className="form-group">
+                                <input
+                                    type="Tel"
+                                    name="user"
+                                    className="form-control rounded-pill"
+                                    placeholder="Ej: usuario"
+                                    onChange={this.onChange}
+                                    value={this.state.user}
+                                />
+                            </div>
+                            <button type="submit" className="btn btn-outline-primary rounded-pill"> Buscar</button>
+                        </form>
 
                     </div> 
                 </div>
