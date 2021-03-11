@@ -14,7 +14,7 @@ export default class AManual extends Component {
 
         var config = {
             method: 'get',
-            url: 'http://200.14.84.238:80/',
+            url: 'http://200.14.84.238:80/asignaturasCursadas/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'
