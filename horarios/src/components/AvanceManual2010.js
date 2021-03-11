@@ -27,6 +27,9 @@ export default class AvanceManual extends Component {
         const notify = (e) => {
             toast.info(e, { position: toast.POSITION.TOP_CENTER })
         }
+        const err = (e) => {
+            toast.error(e, { position: toast.POSITION.TOP_CENTER })
+        }
 
         const Avance = { state: this.state }
         const payload = Avance.state
@@ -48,17 +51,17 @@ export default class AvanceManual extends Component {
                 setTimeout(function () { notify("Ahora puedes obtener tus ramos críticos"); }, 1000); //cambia esto por toast
                 //setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 4500);
             } else {
-              notify("Error verifica los seleccionados")
+                err("Error verifica los seleccionados")
             }
-      
-          }).catch(function (error) {
-            if (error.response) {
-              if (error.response.data.error) { notify(`error:  ${error.response.data.error}`); }
-            
-            }
-          });
 
-       
+        }).catch(function (error) {
+            if (error.response) {
+                if (error.response.data.error) { err(`error:  ${error.response.data.error}`); }
+
+            }
+        });
+
+
     }
 
     render() {
