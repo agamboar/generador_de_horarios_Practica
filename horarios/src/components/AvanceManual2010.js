@@ -20,6 +20,17 @@ export default class AvanceManual extends Component {
         CIT2105: false, CIT2201: false, CFG4: false, CIT3310: false, CIT3410: false, CIT3411: false, CIT3200: false, CIT3311: false, CIT3312: false, CIT3412: false,
         CIT3413: false, CIT3201: false, CIT3313: false, CIT5001: false, CIT5002: false
     }
+    componentDidMount = () => {
+        console.log(this.props.ramos)
+        for (let i = 0; i < this.props.ramos.length; i++) {
+            const mov = i;
+            const mov2 = this.props.ramos[mov].codigo;
+            this.setState({
+                [mov2]: true
+            })
+        }
+    }
+
     show_alert = false
     onSubmit = async (e) => {
         e.preventDefault();
