@@ -154,7 +154,7 @@ def upload_mi_malla(request):
         excel_file = request.FILES["file"]
         codigos = read_mi_malla(excel_file)
         user = User.objects.get(id=current_user)
-        print
+        print(user)
 
         asignatura_cursada.objects.filter(to_User=current_user).delete()
         nodo_asignatura.objects.filter(to_user=current_user).delete()
