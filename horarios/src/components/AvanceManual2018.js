@@ -43,9 +43,21 @@ export default class AvanceManual2018 extends Component {
             data: data
         };
 
-        axios(config)
-        setTimeout(function () { notify("Seras redirigido para calcular tus ramos críticos"); }, 1000); //cambia esto por toast
-        //setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 4500);
+        axios(config).then(response => {
+            if (response.status === 201) {
+                setTimeout(function () { notify("Ahora puedes obtener tus ramos críticos"); }, 1000); //cambia esto por toast
+                //setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 4500);
+            } else {
+              notify("Error verifica los seleccionados")
+            }
+      
+          }).catch(function (error) {
+            if (error.response) {
+              if (error.response.data.error) { notify(`error:  ${error.response.data.error}`); }
+            
+            }
+          });
+        
     }
 
     render() {
