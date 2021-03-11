@@ -53,7 +53,7 @@ export default class AvanceManual extends Component {
       
           }).catch(function (error) {
             if (error.response) {
-              if (error.response.data.error) { notify(`error:  ${error.response.data.error[0]}`); }
+              if (error.response.data.error) { notify(`error:  ${error.response.data.error}`); }
             
             }
           });
