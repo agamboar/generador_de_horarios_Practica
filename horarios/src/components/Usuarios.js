@@ -17,68 +17,20 @@ export default class CrearHorario extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-        console.log(this.state.username)
     }
 
-    set_staff = async (login)=>{
-        const newUser = {
-            username: login,
-        }
-        const notify = (e) => {
-            toast.error(e, { position: toast.POSITION.TOP_CENTER })
-          }
-      
-          var qs = require('qs');
-          console.log(this.state)
-          var data = qs.stringify(this.state);
-          var config = {
-            method: 'post',
-            url: 'http://200.14.84.238:80/set_staff/',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Token ' + localStorage.getItem("token")
-            },
-            data: data
-          };
-      
-          axios(config)
+    set_staff = async ()=>{
+         //axios(config) //url: 'http://200.14.84.238:80/set_staff/',
     }
     remove_staff(){
-        const notify = (e) => {
-            toast.error(e, { position: toast.POSITION.TOP_CENTER })
-          }
-      
-          var qs = require('qs');
-          var data = qs.stringify(this.state);
-          console.log(this.state)
-          var config = {
-            method: 'post',
-            url: 'http://200.14.84.238:80/remove_staff/',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Token ' + localStorage.getItem("token")
-            },
-            data: data
-          };
-      
-          axios(config).then(response => {
-            if (response.status === 201) {
-              notify("Se ha modificado el usuario correctamente")
-            } else {
-              notify("No se ha podido modifiar")
-            }
-      
-          }).catch(function (error) {
-            if (error.response) {
-              if (error.response.data.username) { notify(`error:  ${error.response.data.error[0]}`); }
-            }
-          });
+          //axios(config) //url: 'http://200.14.84.238:80/remove_staff/',
     }
-    onSubmit = e => {
-        e.preventDefault();
-        this.set_staff(this.state.username)
 
+    onSubmit = e => {
+        /*e.preventDefault();
+        this.set_staff(this.state.username)*/
     }
+
     render() {
         return (
             <div>{localStorage.getItem("is_staff") === "si" ?
@@ -111,7 +63,7 @@ export default class CrearHorario extends Component {
                                 />
                             </div>
                             <button type="submit" class="btn btn-primary"> Hacer Staff</button>&nbsp;&nbsp;
-                            <button type="button" class="btn btn-danger"  onClick={this.remove_staff} > Eliminar de Staff</button>
+                           { /*<button type="button" class="btn btn-danger"  onClick={this.remove_staff} > Eliminar de Staff</button>*/}
                         </form>
 
                     </div> 
