@@ -29,10 +29,10 @@ export default class Navbar extends Component {
 
                 <ul className="nav justify-content-end">
                     {localStorage.getItem("is_staff") === "si" ?
-                    <Dropdown>
+                    <Dropdown size="sm">
                         <DropdownButton id="dropdown-basic-button" title="Funciones Administrador">
-                        <Dropdown.Item href="#/action-1"><Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link> </Dropdown.Item>
-                        <Dropdown.Item href="#/action-2"><Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#FFF' }} >Usuarios</Link></Dropdown.Item>
+                        <Dropdown.Item><Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#000000' }} >Subir Ofertas</Link> </Dropdown.Item>
+                        <Dropdown.Item ><Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#000000' }} >Usuarios</Link></Dropdown.Item>
                         </DropdownButton>
                     </Dropdown>
                     : null}
