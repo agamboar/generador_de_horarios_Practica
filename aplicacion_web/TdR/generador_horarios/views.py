@@ -156,11 +156,11 @@ def upload_mi_malla(request):
         user = User.objects.get(id=current_user)
 
         try:
-            asignatura_cursada.objects.filter(to_User=user).delete()
-            nodo_asignatura.objects.filter(to_user=user).delete()
+            asignatura_cursada.objects.filter(to_User=current_user).delete()
+            nodo_asignatura.objects.filter(to_user=current_user).delete()
             nodo_seccion.objects.filter(
-                to_nodo_asignatura__to_user=user).delete()
-            solucion.objects.filter(to_user=user).delete()
+                to_nodo_asignatura__to_user=current_user).delete()
+            solucion.objects.filter(to_user=current_user).delete()
         except:
             pass
 
