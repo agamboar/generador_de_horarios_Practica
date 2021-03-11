@@ -65,11 +65,8 @@ export default class AvanceManual2020 extends Component {
         });
     }
 
-
     render() {
         return (
-
-
 
             <div className="container">
                 <br />
