@@ -44,5 +44,5 @@ urlpatterns = [
     path('asignaturasCursadas/', views.get_asignaturas_cursadas,
          name='asignaturas_cursadas'),
     path('set_staff/', views.set_staff),
-    path('remove_staff/', views.remove_staff),
+    #path('remove_staff/', views.remove_staff),
 ]
