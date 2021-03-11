@@ -148,12 +148,16 @@ def get_clique_max_pond(current_user):
                 aux_modulos = ""
                 for beta in G.nodes[elem[0]]["horario"]:
                     aux_modulos += " "+beta[0:8]
-                solucion.append(
-                    {'nombre': G.nodes[elem[0]]["nombre"], 'horario': aux_modulos, 'nro_seccion': G.nodes[elem[0]]["nro_seccion"], 'cod_asignatura_real': G.nodes[elem[0]]["cod_asignatura_real"], 'eventos': G.nodes[elem[0]]["eventos"], 'cod_seccion': G.nodes[elem[0]]["cod_seccion"]})
+                
+                solucion.append({'nombre': G.nodes[elem[0]]["nombre"], 'horario': aux_modulos, 'nro_seccion': G.nodes[elem[0]]["nro_seccion"], 'cod_asignatura_real': G.nodes[elem[0]]["cod_asignatura_real"], 'eventos': G.nodes[elem[0]]["eventos"], 'cod_seccion': G.nodes[elem[0]]["cod_seccion"]})
                 #print(elem[0][0: 7], " || ", "| Horario -> ", G.nodes[elem[0]]["horario"], "||",G.nodes[elem[0]]["prioridad"], "codigo seccion ->", G.nodes[elem[0]]["cod_seccion"])
                 print(solucion)
-            aux_retornar.append(solucion)
+            if solucion != []:
+                aux_retornar.append(solucion)
         prev_solution = arr_aux_delete
-        G.remove_node(arr_aux_delete[0][0])
+        try:
+            G.remove_node(arr_aux_delete[0][0])
+        except:
+            break
 
     return aux_retornar

@@ -14,8 +14,8 @@ export default class Malla2010Extra3 extends Component {
             <div className="container">
                 <div className="row justify-content-around">
                     <div className="col col-md-1"> </div>
-                    <Semestre semestre={"7"} />
-                    <Semestre semestre={"8"} />
+                    <Semestre semestre={"5"} />
+                    <Semestre semestre={"6"} />
                     <div className="col col-md-1"> </div>
                 </div>
 
@@ -25,9 +25,8 @@ export default class Malla2010Extra3 extends Component {
 
                 <div className="row row-cols-10 align-items-start">
                     <div className="col col-md-1"> </div>
-                    <RamoE codigo={"CII-1000"} ramo={"Contabilidad y Costos"} numero={"33"} creditos={"6"} prerequisitos={"Cálculo I"} formacion={"Ciencias de la Ingeniería"} />
-                    <RamoE codigo={"CIT-2203"} ramo={"Gestión Organizacional"} numero={"38"} creditos={"6"} prerequisitos={"Comuniación para la Ingeniería"} formacion={"Ciencias de la Ingeniería"} />
-
+                    <RamoE codigo={"CII-2750"} ramo={"Optimización"} numero={"22"} creditos={"6"} prerequisitos={"Álgebra Lineal - Cálculo II"} formacion={"Ciencias de la Ingeniería"} />
+                    <RamoE codigo={"CII-2000"} ramo={"Introducción a la Economia"} numero={"28"} creditos={"6"} prerequisitos={"Cálculo II"} formacion={"Ciencias de la Ingeniería"} />
                     <div className="col col-md-1"> </div>
                 </div>
 
@@ -35,8 +34,43 @@ export default class Malla2010Extra3 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div>
-                    <RamoE codigo={"CIT-2005"} ramo={"Ingeniería de Software"} numero={"34"} creditos={"6"} prerequisitos={"Proyecto en TICs I - Bases de Datos"} formacion={"Ingeniería Aplicada "} />
-                    <RamoE codigo={"CIT-2004"} ramo={"Arquitectura de Sistemas"} numero={"39"} creditos={"6"} prerequisitos={"Ingeniería de Software"} formacion={"Ingeniería Aplicada"} />
+                    <div className="col">
+                        <div className="card border-primary">
+                            <h6 className="card-title text-center"><font size="2">CIT-2106</font></h6>
+                            <p className="card-text"><font size="2">
+                                &nbsp;&nbsp;° Nombre: Electrónica y Electrotecnia
+                                <br />
+                                &nbsp;&nbsp;° Número: 23
+                                <br />
+                                &nbsp;&nbsp;° Creditos: 6
+                                <br />
+                                &nbsp;&nbsp;° Pre-Requisitos: Electricidad y Magnetismo
+                                <br />
+                                &nbsp;&nbsp;° Formación: Ciencias de la Ingeniería
+                                <br />
+                                <br />
+                            </font></p>
+                        </div>
+                    </div>
+                    <div className="col">
+                        <div className="card border-primary">
+                            <h6 className="card-title text-center"><font size="2">CIT-2202</font></h6>
+                            <p className="card-text"><font size="2">
+                                &nbsp;&nbsp;° Nombre: Modelos Estocasticos y Simulación
+                                <br />
+                                &nbsp;&nbsp;° Número: 29
+                                <br />
+                                &nbsp;&nbsp;° Creditos: 6
+                                <br />
+                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos -
+                                <br />
+                                &nbsp;&nbsp;&nbsp; Probabilidades y Estadistica - Optimización
+                                <br />
+                                &nbsp;&nbsp;° Formación: Ciencias de la Ingeniería
+                                <br />
+                            </font></p>
+                        </div>
+                    </div>
                     <div className="col col-md-1"> </div>
                 </div>
 
@@ -50,8 +84,45 @@ export default class Malla2010Extra3 extends Component {
                             </svg>
                         </Link>
                     </div>
-                    <RamoE codigo={"CIT-2102"} ramo={"Comunicaciones Digitales"} numero={"35"} creditos={"6"} prerequisitos={"Señales y Sistemas"} formacion={"Ingeniería Aplicada"} />
-                    <RamoE codigo={"CIT-2105"} ramo={"Criptografía y Seguridad en Redes"} numero={"40"} creditos={"6"} prerequisitos={"Sistemas Operativos"} formacion={"Ingeniería Aplicada"} />
+                    <div className="col">
+                        <div className="card border-primary">
+                            <h6 className="card-title text-center"><font size="2">CIT-2200</font></h6>
+                            <p className="card-text"><font size="2">
+                                &nbsp;&nbsp;° Nombre: Proyectos en TICs I
+                                <br />
+                                &nbsp;&nbsp;° Número: 24
+                                <br />
+                                &nbsp;&nbsp;° Creditos: 6
+                                <br />
+                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos -
+                                <br />
+                                &nbsp;&nbsp;&nbsp; Diseño y Análisis de Algoritmos
+                                <br />
+                                &nbsp;&nbsp;° Formación: Ingeniería Aplicada
+                                <br />
+
+                            </font></p>
+                        </div>
+                    </div>
+                    <div className="col">
+                        <div className="card border-primary">
+                            <h6 className="card-title text-center"><font size="2">CIT-2101</font></h6>
+                            <p className="card-text"><font size="2">
+                                &nbsp;&nbsp;° Nombre: Señales y Sistemas
+                                <br />
+                                &nbsp;&nbsp;° Número: 30
+                                <br />
+                                &nbsp;&nbsp;° Creditos: 6
+                                <br />
+                                &nbsp;&nbsp;° Pre-Requisitos: Probabilidades y Estadistica -
+                                <br />
+                                &nbsp;&nbsp;&nbsp; Electrónica y Electrotecnia
+                                <br />
+                                &nbsp;&nbsp;° Formación: Ingeniería Aplicada
+                                <br />
+                            </font></p>
+                        </div>
+                    </div>
                     <div className="col col-md-1">
                         <Link className="nav-link" to={{ pathname: '/users/usr/mallas/malla2010/DatosExtraM2010-4' }} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-arrow-right-circle" viewBox="0 0 16 16">
@@ -68,40 +139,43 @@ export default class Malla2010Extra3 extends Component {
                     <div className="col col-md-1"> </div>
                     <div className="col">
                         <div className="card border-primary">
-                            <h6 className="card-title text-center"><font size="2">FIC-1003</font></h6>
+                            <h6 className="card-title text-center"><font size="2">CIT-2002</font></h6>
                             <p className="card-text"><font size="2">
-                                &nbsp;&nbsp;° Nombre: Derecho en Ingeniería
+                                &nbsp;&nbsp;° Nombre: Bases de Datos
                                 <br />
-                                &nbsp;&nbsp;° Número: 35
+                                &nbsp;&nbsp;° Número: 25
                                 <br />
-                                &nbsp;&nbsp;° Creditos: 5
+                                &nbsp;&nbsp;° Creditos: 6
                                 <br />
-                                &nbsp;&nbsp;° Pre-Requisitos: 180 Creditos
+                                &nbsp;&nbsp;° Pre-Requisitos: Diseño y Análisis de
                                 <br />
-                                &nbsp;&nbsp;° Formación: Transversal
+                                &nbsp;&nbsp;&nbsp; Algoritmos
                                 <br />
+                                &nbsp;&nbsp;° Formación: Ingeniería Aplicada
                                 <br />
+
                             </font></p>
                         </div>
                     </div>
                     <div className="col">
                         <div className="card border-primary">
-                            <h6 className="card-title text-center"><font size="2">CIT-2201</font></h6>
+                            <h6 className="card-title text-center"><font size="2">CIT-2003</font></h6>
                             <p className="card-text"><font size="2">
-                                &nbsp;&nbsp;° Nombre: Proyecto en TICs II
+                                &nbsp;&nbsp;° Nombre: Sistemas Operativos
                                 <br />
-                                &nbsp;&nbsp;° Número: 41
+                                &nbsp;&nbsp;° Número: 31
                                 <br />
                                 &nbsp;&nbsp;° Creditos: 6
                                 <br />
-                                &nbsp;&nbsp;° Pre-Requisitos: Proyecto en TICs I - Ingeniería de Software -
-                                &nbsp;&nbsp;&nbsp;Comunicaciones Digitales
+                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos -
+                                <br />
+                                &nbsp;&nbsp;&nbsp; Bases de Datos
                                 <br />
                                 &nbsp;&nbsp;° Formación: Ingeniería Aplicada
                                 <br />
                             </font></p>
                         </div>
-                    </div>
+                    </div> 
                     <div className="col col-md-1"> </div>
                 </div>
 
@@ -109,13 +183,23 @@ export default class Malla2010Extra3 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div>
-                    <RamoE codigo={"CIT-2104"} ramo={"Arquitectura de Computadores"} numero={"37"} creditos={"6"} prerequisitos={"Sistemas Digitales"} formacion={"Ingeniería Aplicada"} />
-                    <RamoE codigo={" - "} ramo={"Minor / CFG"} numero={"42"} creditos={"5"} prerequisitos={" - "} formacion={"Transversal"} />
+                    <RamoE codigo={" - "} ramo={"Minor / CFG"} numero={"26"} creditos={"5"} prerequisitos={" - "} formacion={"Transversal"} />
+                    <RamoE codigo={"CIT-2103"} ramo={"Sistemas Digitales"} numero={"32"} creditos={"6"} prerequisitos={"Electrónica y Electrotecnia"} formacion={"Ingeniería Aplicada"} />
                     <div className="col col-md-1"> </div>
 
                 </div>
 
                 <br />
+
+                <div className="row row-cols-10">
+                    <div className="col col-md-1"> </div>
+                    <RamoE codigo={"CIG-1002"} ramo={"Inglés II"} numero={"27"} creditos={"5"} prerequisitos={"Inglés I"} formacion={"Transversal"} />
+                    <div className="col"> </div>
+                    <div className="col col-md-1"> </div>
+
+                </div>
+
+                <br/>
 
                 <div className="row row-cols-10">
                     <div className="col">
