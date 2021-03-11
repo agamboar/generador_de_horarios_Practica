@@ -20,7 +20,7 @@ export default class CrearHorario extends Component {
         console.log(this.state.username)
     }
 
-    set_staff(){
+    set_staff = async (login)=>{
         const newUser = {
             username: login,
         }
