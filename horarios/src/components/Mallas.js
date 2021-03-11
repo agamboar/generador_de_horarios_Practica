@@ -6,12 +6,20 @@ import NotAuth from './NotAuth'
 
 
 export default class Mallas extends Component {
+    redireccionar = (e) => {
+        
+        <div>
+            {window.location.href = `http://200.14.84.238/users/usr/mallas/malla${localStorage.getItem("malla")}`}
+            Cargando...
+        </div>
+        
+    }
     render() {
         if (localStorage.getItem("token")){
             return (
                 <div>
                     {(localStorage.getItem("malla"))?
-                    ()=>{window.location.href = `http://200.14.84.238/users/usr/mallas/malla${localStorage.getItem("malla")}`} : 
+                     : 
                     
                     <div>
                         <Navbar/>
