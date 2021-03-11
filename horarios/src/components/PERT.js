@@ -63,7 +63,7 @@ export default class PERT extends Component {
                                 <div className = "align-self-center">
                                     <button type="submit" className="btn btn-secondary rounded-pill btn-sm" onClick = {this.onSubmit}>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="3">Priorizar Ramos</font>
+                                    Priorizar Ramos
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </button>
                                 </div>
