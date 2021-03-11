@@ -6,6 +6,7 @@ export default class Navbar extends Component {
     deleteToken = (e) => {
         localStorage.removeItem("token")
     }
+    
     render() {
         return (
 
@@ -21,7 +22,7 @@ export default class Navbar extends Component {
                 </a>
                 <ul class="nav">
                     <li class="nav-item">
-                        <a>Usuario: {localStorage.getItem("username")} </a>
+                        <a style={{ color: '#FFF' }} >Usuario: {localStorage.getItem("username")} </a>
                     </li>
                 </ul>
 
