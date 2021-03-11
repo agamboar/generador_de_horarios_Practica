@@ -159,7 +159,7 @@ export default class Malla2010 extends Component {
                         </div>
                     </div>
                     <div className="col mt-1">
-                        Ramo Crítico
+                        Ramo Crítico: si no lo inscribes, te atrasarás.
                     </div>
                 </div>
                 <div className="row row-cols-10">
@@ -169,7 +169,7 @@ export default class Malla2010 extends Component {
                         </div>
                     </div>
                     <div className="col mt-1">
-                        Ramo No Crítico Cursable
+                        Ramo No Crítico Cursable: lo puedes inscribir, pero no te atrasa si no lo haces.
                     </div>
                 </div>
                 <div className="row row-cols-10">
@@ -179,7 +179,7 @@ export default class Malla2010 extends Component {
                         </div>
                     </div>
                     <div className="col mt-1">
-                        Ramo Aprobado
+                        Ramo Aprobado.
                     </div>
                 </div>
                 <div className="row row-cols-10">
@@ -189,7 +189,7 @@ export default class Malla2010 extends Component {
                         </div>
                     </div>
                     <div className="col mt-1">
-                        Ramo No Cursado
+                        Ramo No Cursado.
                     </div>
                 </div>
 

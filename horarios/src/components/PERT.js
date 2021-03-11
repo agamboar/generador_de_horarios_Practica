@@ -146,7 +146,7 @@ export default class PERT extends Component {
                         <br />
                         <div className="row row-cols-3">
                             <div className="col">
-                                <h1 className="title text-primary text-center">PERT</h1>
+                                <h1 className="title text-primary text-center">Ramos Críticos</h1>
                             </div>
                             <div className="col"></div>
                             <div className="col"></div>
@@ -157,7 +157,7 @@ export default class PERT extends Component {
                         <br />
                         <br />
                         <div className="d-flex justify-content-center">
-                            <h1 className="display-6">Un Momento, Se esta calculando tú PERT</h1>
+                            <h1 className="display-6">Un Momento, Se esta obteniendo tú ramos críticos...</h1>
                         </div>
                         <br />
                         <br />

@@ -160,7 +160,7 @@ export default class AvanceManual2020 extends Component {
                         </div>
                     </div>
                     <div className="col mt-1">
-                        Ramo Crítico
+                        Ramo Crítico: si no lo inscribes, te atrasarás.
                     </div>
                 </div>
 
@@ -171,7 +171,7 @@ export default class AvanceManual2020 extends Component {
                         </div>
                     </div>
                     <div className="col mt-1">
-                        Ramo No Crítico Cursable
+                        Ramo No Crítico Cursable: lo puedes inscribir, pero no te atrasa si no lo haces.
                     </div>
                 </div>
 
