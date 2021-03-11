@@ -22,7 +22,7 @@ export default class CrearHorario extends Component {
                 <br />
                 <br />
                 <div className = 'row row-cols-3'>
-                <div className = 'col-2'> </div>
+                <div className = 'col'> </div>
                 <div className = 'col'> 
                 <div className="container align-self-center">
                    <div className = "card border-primary text-center custom5">
@@ -31,7 +31,7 @@ export default class CrearHorario extends Component {
                     </div> 
                 </div>
                 </div>
-                <div className = 'col-2'> </div>
+                <div className = 'col'> </div>
                 </div>
 
                 <Derechos />
