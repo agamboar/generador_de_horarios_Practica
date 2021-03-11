@@ -36,7 +36,7 @@ export default class CrearHorario extends Component {
                 <div className = 'row row-cols-3'>
                 <div className = 'col'> </div>
                 <div className = 'col'> 
-                <div className="col-20">
+                <div className="col-28">
                    <div className = "card card-body border border-primary shadow-lg p-3 mb-5 bg-white rounded custom5">
                        <br/>
                         <h3 className="text-center ">Usuarios</h3>
