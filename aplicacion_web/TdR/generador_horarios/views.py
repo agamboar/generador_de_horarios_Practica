@@ -145,15 +145,16 @@ def import_cfg(request):
 
 
 @csrf_exempt
+@api_view(['POST'])
 def upload_mi_malla(request):
 
     if request.method == "POST":
 
-        current_user = request.user
-        print(current_user.id)
+        current_user = request.user.id
+        print(current_user)
         excel_file = request.FILES["file"]
         codigos = read_mi_malla(excel_file)
-        user = User.objects.get(id=current_user.id)
+        user = User.objects.get(id=current_user)
 
         try:
             asignatura_cursada.objects.filter(to_User=user).delete()
