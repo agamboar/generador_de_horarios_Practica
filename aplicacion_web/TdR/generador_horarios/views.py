@@ -513,7 +513,5 @@ def PERT_es1(request):
 def list_users_not_staff(request):
 
     users = User.objects.filter(is_staff=False).values("username")
-    
 
-    
     return JsonResponse({'list_user': list(users)}, safe=False, status=status.HTTP_200_OK)
