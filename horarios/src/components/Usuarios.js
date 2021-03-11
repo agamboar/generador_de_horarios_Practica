@@ -29,8 +29,8 @@ export default class CrearHorario extends Component {
           }
       
           var qs = require('qs');
-          console.log(this.state.username)
-          var data = qs.stringify(newUser);
+          console.log(this.state)
+          var data = qs.stringify(this.state);
           var config = {
             method: 'post',
             url: 'http://200.14.84.238:80/set_staff/',
