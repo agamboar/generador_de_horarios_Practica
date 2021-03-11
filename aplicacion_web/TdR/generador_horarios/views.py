@@ -537,7 +537,7 @@ def set_staff(request):
             aux_new_staff=User.objects.get(username=request.data.username)
             aux_new_staff.is_staff = True
             aux_new_staff.save()
-            return JsonResponse('mensaje': 'Se ha modificado el usuario correctamente.', safe=False, status= status=status.HTTP_200_OK)
+            return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False, status= status=status.HTTP_200_OK)
         else:
             return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED)
 
