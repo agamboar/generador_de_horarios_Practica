@@ -149,31 +149,33 @@ def upload_mi_malla(request):
 
     if request.method == "POST":
 
-        aux_dict = json.loads(request.body)
-        print(aux_dict)
+        current_user = request.POST.getlist('id')[0]
+        print(current_user)
         excel_file = request.FILES["file"]
         codigos = read_mi_malla(excel_file)
         user = User.objects.get(id=current_user)
+        print(user)
 
-        try:
-            asignatura_cursada.objects.filter(to_User=user).delete()
-            nodo_asignatura.objects.filter(to_user=current_user).delete()
-            nodo_seccion.objects.filter(
-                to_nodo_asignatura__to_user=current_user).delete()
-            solucion.objects.filter(to_user=current_user).delete()
-        except:
-            pass
+        asignatura_cursada.objects.filter(to_User=current_user).delete()
+        nodo_asignatura.objects.filter(to_user=current_user).delete()
+        nodo_seccion.objects.filter(
+            to_nodo_asignatura__to_user=current_user).delete()
+        solucion.objects.filter(to_user=current_user).delete()
+        avance_academico_user = avance_academico.objects.get(
+            to_user_id=current_user)
+        avance_academico_user.json_avance = {}
+        avance_academico_user.save()
 
         counters = {'semestre': codigos[1],
                     'cfg_count': codigos[2],
                     'einf_count': codigos[3],
                     'etele_count': codigos[4],
-                    'to_user': current_user,
+                    'to_user': user,
                     'agno_malla': codigos[0]
                     }
 
         av, created = avance_academico.objects.update_or_create(
-            semestre=codigos[1], to_user=current_user,
+            semestre=codigos[1], to_user=user,
             defaults=counters)
 
         semestre = codigos[1]
@@ -190,7 +192,7 @@ def upload_mi_malla(request):
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
 
-    return JsonResponse({'description': "Malla Subida."}, status=200)
+    return JsonResponse({'description': "Malla Subida."}, status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET'])

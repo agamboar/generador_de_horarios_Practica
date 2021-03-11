@@ -41,9 +41,9 @@ export default class PERT extends Component {
     onSubmit = () => {
         const notify = (e) => {
             toast.info(e, { position: toast.POSITION.TOP_CENTER })
-          }
+        }
         setTimeout(function () { notify("Seras redirigido para priorizar tus Ramos"); }, 1000);
-        setTimeout(function () { window.location.href = 'http://200.14.84.238/users/usr/priorizarRamos'; }, 4500);
+        //setTimeout(function () { window.location.href = 'http://200.14.84.238/users/usr/priorizarRamos'; }, 4500);
     }
 
     render() {
@@ -59,12 +59,14 @@ export default class PERT extends Component {
                             </div>
                             <div className="col"></div>
                             <div className="col">
-                                <br/>
-                                <div className = "align-self-center">
-                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm" onClick = {this.onSubmit}>
+                                <br />
+                                <div className="align-self-center">
+                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} style={{ color: '#FFF' }} >
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <font size="3">Priorizar Ramos</font>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    Priorizar Ramos
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </Link>
                                     </button>
                                 </div>
                             </div>
@@ -90,9 +92,9 @@ export default class PERT extends Component {
                                 <br />
                                 <div className="align-self-center">
                                     <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
+                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} style={{ color: '#FFF' }} >
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="3">Generar Horarios</font>
+                                    <font size="3">Priorizar Ramos</font>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </Link>
                                     </button>
@@ -120,9 +122,9 @@ export default class PERT extends Component {
                                 <br />
                                 <div className="align-self-center">
                                     <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
+                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} style={{ color: '#FFF' }} >
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="3">Generar Horarios</font>
+                                    <font size="3">Priorizar Ramos</font>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </Link>
                                     </button>
