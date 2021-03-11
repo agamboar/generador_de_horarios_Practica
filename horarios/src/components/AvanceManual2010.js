@@ -34,7 +34,7 @@ export default class AvanceManual extends Component {
         axios(config).then(response => { 
             console.log(response)           
             if (response.data){
-                for (let i = 0; i < response.data; i++) {
+                for (let i = 0; i < response.data.length; i++) {
                     const mov = i;
                     const mov2 = response.data[mov].codigo;
                     this.setState({[mov2]: true})
