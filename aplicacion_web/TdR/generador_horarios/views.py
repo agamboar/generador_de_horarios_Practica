@@ -397,7 +397,7 @@ def mi_malla_manual(request):
                     'cfg_count': cfg_count,
                     'einf_count': einf_count,
                     'etele_count': etele_count,
-                    'to_user': current_user,
+                    'to_user': user,
                     'agno_malla': malla
                     }
 
