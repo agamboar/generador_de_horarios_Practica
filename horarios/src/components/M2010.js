@@ -6,6 +6,9 @@ import {Link} from 'react-router-dom';
 
 
 export default class M2010 extends Component {
+    deleteMalla = (e) => {
+        localStorage.removeItem("malla")
+    }
     render() {
         return (
             <div>
@@ -14,6 +17,14 @@ export default class M2010 extends Component {
                 <div className="row row-cols-3">
                     <div className="col">
                         <h1 className="title text-primary text-center">Malla 2010</h1>
+                        <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                                {localStorage.removeItem("malla")}
+                                <Link className="nav-link" to={{ pathname: '/users/usr/mallas'}}style={{ color: '#FFF' }}  onClick={this.deleteMalla} >
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Elegir otra malla
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </Link>
+                            </button>
                     </div>
                     <div className="col"></div>
                     <div className="col">

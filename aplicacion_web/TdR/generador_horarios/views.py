@@ -505,3 +505,8 @@ def PERT_es1(request):
         serializer = nodoAsignaturaSerializer(ns, many=True)
 
     return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
+
+def list_users_not_staff(request):
+    users = User.objects.filter(is_staff=False).values_list("username")
+    serializer = CurrentUserSerializer(users, many=True)
+    return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
