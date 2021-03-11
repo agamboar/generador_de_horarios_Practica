@@ -59,9 +59,10 @@ export default class CrearHorario extends Component {
                 <br />
 
                 <div className="container">
+                   <div className = "card custom3">
 
-                   
 
+                    </div> 
                 </div>
 
 
