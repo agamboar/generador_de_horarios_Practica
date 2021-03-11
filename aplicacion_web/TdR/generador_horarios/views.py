@@ -400,7 +400,7 @@ def mi_malla_manual(request):
                 else: 
                     return JsonResponse({
             'error': 'Existe una incoherencia entre tus ramos aprobados y los prerrequisitos. Comprueba que los datos ingresados sean válidos.'
-        }, status=418)
+        }, safe=True,status=status.HTTP_409_CONFLICT)
                 
 
 
