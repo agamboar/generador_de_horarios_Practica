@@ -30,6 +30,10 @@ export default class CrearHorario extends Component {
         /*e.preventDefault();
         this.set_staff(this.state.username)*/
     }
+    onClick = e =>{
+        /*e.preventDefault();
+        this.remove_staff(this.state.username)*/
+    }
 
     render() {
         return (
@@ -63,7 +67,7 @@ export default class CrearHorario extends Component {
                                 />
                             </div>
                             <button type="submit" class="btn btn-primary"> Hacer Staff</button>&nbsp;&nbsp;
-                           { /*<button type="button" class="btn btn-danger"  onClick={this.remove_staff} > Eliminar de Staff</button>*/}
+                           <button type="button" class="btn btn-danger"  onClick={this.onClick} > Eliminar de Staff</button>
                         </form>
 
                     </div> 
