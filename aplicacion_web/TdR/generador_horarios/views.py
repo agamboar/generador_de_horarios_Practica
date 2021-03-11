@@ -144,11 +144,12 @@ def import_cfg(request):
     return JsonResponse({'description': "CFG subidos!"}, status=200)
 
 
+@csrf_exempt
 def upload_mi_malla(request):
 
     if request.method == "POST":
 
-        current_user = request.user.id
+        current_user = request.data.id
         print(current_user)
         excel_file = request.FILES["file"]
         codigos = read_mi_malla(excel_file)
@@ -484,13 +485,14 @@ def is_staff(request):
     if request.method == "GET":
 
         current_user = request.user
+        aux_id = current_user.id
         aux_staff = User.objects.get(id=current_user.id).is_staff
         if aux_staff == True:
             aux_staff = "si"
         else:
             aux_staff = "no"
 
-    return JsonResponse({'is_staff': aux_staff})
+    return JsonResponse({'is_staff': aux_staff, 'id': aux_id})
 
 
 @api_view(['GET'])

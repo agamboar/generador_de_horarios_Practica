@@ -78,7 +78,10 @@ export default class GoogleSocialAuth extends Component {
                 }
             };
 
-            await axios(config).then(response => localStorage.setItem('is_staff', response.data.is_staff))
+            await axios(config).then(response => {
+                localStorage.setItem('is_staff', response.data.is_staff)
+                localStorage.setItem('id', response.data.id)
+            })
             window.location.href = '/users/usr'
         }
 

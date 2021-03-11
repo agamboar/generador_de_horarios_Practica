@@ -33,6 +33,7 @@ export default class CrearHorario extends Component {
         const data = new FormData()
         console.log(this.state.selectedFile)
         data.append('file', this.state.selectedFile)
+        data.append('id', localStorage.getItem('id'))
         axios.post("http://200.14.84.238:80/ramosaprobados/", data).then(res => {
             console.log(res.statusText)
         })
