@@ -22,7 +22,7 @@ export default class AManual extends Component {
         };
 
         var ramos_aprobados= await axios(config)
-
+        console.log(ramos_aprobados)
 
         this.setState({
             ramos: ramos_aprobados.data
