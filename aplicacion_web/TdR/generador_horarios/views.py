@@ -508,6 +508,8 @@ def PERT_es1(request):
 
     return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
 
+
+@api_view(['GET'])
 def list_users_not_staff(request):
     users = User.objects.filter(is_staff=False).values_list("username")
     serializer = CurrentUserSerializer(users, many=True)
