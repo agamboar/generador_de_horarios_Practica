@@ -62,7 +62,7 @@ class nodoSeccionSerializer(serializers.ModelSerializer):
         model = nodo_seccion
         fields = '__all__'
 
-class CurrentUserSerializer(serializers.ModelSerializer):
+class CurrentUserSerializer(serializers.Serializer):
     class Meta:
         model = User
-        fields = ['username']
+        fields = '__all__'
