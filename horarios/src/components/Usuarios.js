@@ -21,13 +21,16 @@ export default class CrearHorario extends Component {
     }
 
     set_staff(){
+        const newUser = {
+            username: login,
+        }
         const notify = (e) => {
             toast.error(e, { position: toast.POSITION.TOP_CENTER })
           }
       
           var qs = require('qs');
           console.log(this.state.username)
-          var data = qs.stringify(this.state.username);
+          var data = qs.stringify(newUser);
           var config = {
             method: 'post',
             url: 'http://200.14.84.238:80/set_staff/',
@@ -82,7 +85,11 @@ export default class CrearHorario extends Component {
             }
           });
     }
+    onSubmit = e => {
+        e.preventDefault();
+        this.set_staff(this.state.username)
 
+    }
     render() {
         return (
             <div>{localStorage.getItem("is_staff") === "si" ?
@@ -114,7 +121,7 @@ export default class CrearHorario extends Component {
                                     value={this.state.username}
                                 />
                             </div>
-                            <button type="button" onClick={this.set_staff} class="btn btn-primary"> Hacer Staff</button>&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-primary"> Hacer Staff</button>&nbsp;&nbsp;
                             <button type="button" class="btn btn-danger"  onClick={this.remove_staff} > Eliminar de Staff</button>
                         </form>
 
