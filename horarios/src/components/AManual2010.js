@@ -22,19 +22,16 @@ export default class AManual extends Component {
         };
 
         var ramos_aprobados= await axios(config)
-        
 
-        this.setState({
-            ramos: ramos_aprobados.data
-        })
+        this.setState( {ramos: ramos_aprobados.data})
     }
 
     render() {
         return (
             <div>
                 <Navbar/>
-                {console.log(this.state.ramos_aprobados)}
-                { setTimeout(function () { this.state.ramos ?<AvanceManual2010 ramos={this.state.ramos}/>: <AvanceManual2010/>   }, 2000) }
+               
+                {  this.state.ramos ?<AvanceManual2010 ramos={this.state.ramos}/>: <AvanceManual2010/>  }
                 
 
                 
