@@ -19,7 +19,7 @@ export default class CrearHorario extends Component {
         })
     }
 
-    onSubmit(){
+    set_staff(){
         const notify = (e) => {
             toast.error(e, { position: toast.POSITION.TOP_CENTER })
           }
@@ -49,7 +49,7 @@ export default class CrearHorario extends Component {
             }
           });
     }
-    onSubmit2(){
+    remove_staff(){
         const notify = (e) => {
             toast.error(e, { position: toast.POSITION.TOP_CENTER })
           }
@@ -111,8 +111,8 @@ export default class CrearHorario extends Component {
                                     value={this.state.username}
                                 />
                             </div>
-                            <button type="submit" className="btn btn-outline-primary rounded-pill"> Hacer Staff</button>&nbsp;&nbsp;
-                            <button type="button" class="btn btn-danger"  onClick={this.onSubmit2} > Eliminar de Staff</button>
+                            <button type="button" onClick={this.set_staff} class="btn btn-primary"> Hacer Staff</button>&nbsp;&nbsp;
+                            <button type="button" class="btn btn-danger"  onClick={this.remove_staff} > Eliminar de Staff</button>
                         </form>
 
                     </div> 
