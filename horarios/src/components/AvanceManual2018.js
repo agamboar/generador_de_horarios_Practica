@@ -22,6 +22,30 @@ export default class AvanceManual2018 extends Component {
         CIT3413: false, CIT3201: false, CIT3313: false, CIG1014: false, CIT6001: false, CIT6002: false
 
     }
+    componentDidMount = () => {
+
+        var config = {
+            method: 'get',
+            url: 'http://200.14.84.238:80/asignaturasCursadas/',
+            headers: {
+                'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
+                'Content-Type': 'application/json'
+            }
+        };
+
+        axios(config).then(response => { 
+            console.log(response)           
+            if (response.data){
+                for (let i = 0; i < response.data.length; i++) {
+                    const mov = i;
+                    const mov2 = response.data[mov].codigo;
+                    this.setState({[mov2]: true})
+                }
+            }
+        } )
+
+        
+    }
 
     onSubmit = e => {
         e.preventDefault();
