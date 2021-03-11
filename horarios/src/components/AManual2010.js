@@ -7,7 +7,7 @@ import axios from 'axios';
 export default class AManual extends Component {
 
     state = {
-        ramos_aprobados: null
+        ramos: null
     }
 
     componentDidMount = async () => {
@@ -34,7 +34,7 @@ export default class AManual extends Component {
             <div>
                 <Navbar/>
                 {console.log(this.state.ramos_aprobados)}
-                { setTimeout(function () { this.state.ramos_aprobados ?<AvanceManual2010 ramos={this.state.ramos_aprobados}/>: <AvanceManual2010/>   }, 2000) }
+                { setTimeout(function () { this.state.ramos ?<AvanceManual2010 ramos={this.state.ramos}/>: <AvanceManual2010/>   }, 2000) }
                 
 
                 
