@@ -144,7 +144,6 @@ def import_cfg(request):
     return JsonResponse({'description': "CFG subidos!"}, status=200)
 
 
-@csrf_exempt
 def upload_mi_malla(request):
 
     if request.method == "POST":
