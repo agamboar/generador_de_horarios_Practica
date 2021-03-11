@@ -531,7 +531,7 @@ def get_asignaturas_cursadas(request):
 
 @api_view(['POST'])
 def set_staff(request):
-    print(request.body.username)
+    print(request.data)
     print("hola")
     print(request.method)
     if request.method == "POST":
