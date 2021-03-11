@@ -15,11 +15,22 @@ export default class M2018 extends Component {
                     <div className="col">
                         <h1 className="title text-primary text-center">Malla 2018</h1>
                     </div>
-                    <div className="col"></div>
                     <div className="col">
                         <br/>
                         <div className = "align-self-center">
-                            <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                            <button type="submit" className="btn btn-warning rounded-pill btn-sm">    
+                                <Link className="nav-link" to={{ pathname: '/users/usr/mallas'}}style={{ color: '#FFF' }}  onClick={this.deleteMalla} >
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Elegir otra malla
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </Link>
+                            </button>
+                        </div>
+                    </div>
+                    <div className="col">
+                        <br/>
+                        <div className = "align-self-center">
+                            <button type="submit" className="btn btn-primary rounded-pill btn-sm">
                                 <Link className="nav-link" to={{ pathname: '/users/usr/mallas/malla2018/AvanceCurricular'}}style={{ color: '#FFF' }} >
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 Elegir Malla 2018
