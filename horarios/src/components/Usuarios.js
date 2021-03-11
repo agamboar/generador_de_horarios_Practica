@@ -37,7 +37,7 @@ export default class CrearHorario extends Component {
                 <div className = 'col'> </div>
                 <div className = 'col'> 
                 <div className="container align-self-center">
-                   <div className = "card card-body border border-primary shadow-lg p-3 mb-5 bg-white rounded custom5">
+                   <div className = "card border-primary shadow-lg p-3 mb-5 bg-white custom5">
                        <br/>
                         <h3 className="text-center ">Usuarios</h3>
                         <br/>
