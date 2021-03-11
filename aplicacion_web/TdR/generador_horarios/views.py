@@ -353,8 +353,7 @@ def mi_malla_manual(request):
 
     if request.method == "POST":
 
-        current_user = request.user
-        user = User.objects.get(id=current_user.id)
+        current_user = request.user.id
 
         json_data = request.data
         cfg_count = 0
@@ -385,7 +384,11 @@ def mi_malla_manual(request):
                 codigos_aprobados.append(elem)
 
         try:
-            asignatura_cursada.objects.filter(to_User=user).delete()
+            asignatura_cursada.objects.filter(to_User=current_user).delete()
+            nodo_asignatura.objects.filter(to_user=current_user).delete()
+            nodo_seccion.objects.filter(
+                to_nodo_asignatura__to_user=current_user).delete()
+            solucion.objects.filter(to_user=current_user).delete()
         except:
             pass
 
