@@ -32,7 +32,7 @@ export default class Navbar extends Component {
                     <Dropdown size="sm">
                         <DropdownButton id="dropdown-basic-button" title="Administrador">
                         <Dropdown.Item><Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#000000' }} >Subir Ofertas</Link> </Dropdown.Item>
-                        <Dropdown.Item ><Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#000000' }} >Usuarios</Link></Dropdown.Item>
+                        <Dropdown.Item ><Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#000000' }} >Hacer Staff</Link></Dropdown.Item>
                         </DropdownButton>
                     </Dropdown>
                     : null}

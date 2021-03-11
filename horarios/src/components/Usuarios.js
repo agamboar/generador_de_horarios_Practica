@@ -10,7 +10,7 @@ export default class CrearHorario extends Component {
 
 
     state = {
-        user: null
+        username: null
     }
 
     onChange = e => {
@@ -20,7 +20,64 @@ export default class CrearHorario extends Component {
     }
 
     onSubmit(){
-        //
+        const notify = (e) => {
+            toast.error(e, { position: toast.POSITION.TOP_CENTER })
+          }
+      
+          var qs = require('qs');
+          var data = qs.stringify(this.state);
+          var config = {
+            method: 'post',
+            url: 'http://200.14.84.238:80/set_staff/',
+            headers: {
+              'X-CSRFToken': Cookies.get('csrftoken'),
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            data: data
+          };
+      
+          axios(config).then(response => {
+            if (response.status === 201) {
+              notify("Se ha modificado el usuario correctamente")
+            } else {
+              notify("No se ha podido modifiar")
+            }
+      
+          }).catch(function (error) {
+            if (error.response) {
+              if (error.response.data.username) { notify(`error:  ${error.response.data.error[0]}`); }
+            }
+          });
+    }
+    onSubmit2(){
+        const notify = (e) => {
+            toast.error(e, { position: toast.POSITION.TOP_CENTER })
+          }
+      
+          var qs = require('qs');
+          var data = qs.stringify(this.state);
+          var config = {
+            method: 'post',
+            url: 'http://200.14.84.238:80/remove_staff/',
+            headers: {
+              'X-CSRFToken': Cookies.get('csrftoken'),
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            data: data
+          };
+      
+          axios(config).then(response => {
+            if (response.status === 201) {
+              notify("Se ha modificado el usuario correctamente")
+            } else {
+              notify("No se ha podido modifiar")
+            }
+      
+          }).catch(function (error) {
+            if (error.response) {
+              if (error.response.data.username) { notify(`error:  ${error.response.data.error[0]}`); }
+            }
+          });
     }
 
     render() {
@@ -41,7 +98,7 @@ export default class CrearHorario extends Component {
                        <br/>
                         <h3 className="text-center ">Usuarios</h3>
                         <br/>
-                        <h5>Buscar un Usuario</h5>
+                        <h5>Hacer parte del staff a un usuario</h5>
                         <form onSubmit={this.onSubmit}>
                         
                         <div className="form-group">
@@ -51,11 +108,11 @@ export default class CrearHorario extends Component {
                                     className="form-control rounded-pill"
                                     placeholder="Ej: usuario"
                                     onChange={this.onChange}
-                                    value={this.state.user}
+                                    value={this.state.username}
                                 />
                             </div>
-                            <button type="submit" className="btn btn-outline-primary rounded-pill"> Buscar
-                        </button>
+                            <button type="submit" className="btn btn-outline-primary rounded-pill"> Hacer Staff</button>
+                            <button type="button" class="btn btn-danger"  onClick={onSubmit2} className="btn btn-outline-primary rounded-pill"> Elimar de Staff</button>
                         </form>
 
                     </div> 
