@@ -521,7 +521,7 @@ def list_users_not_staff(request):
 def get_asignaturas_cursadas(request):
 
     current_user = request.user.id
-    asignaturas = asignaturas_cursadas.objects.filter(to_User_id=current_user)
+    asignaturas = asignatura_cursada.objects.filter(to_User_id=current_user)
 
     serializer = asignaturaCursadaSerializer(asignaturas, many=True)
 
