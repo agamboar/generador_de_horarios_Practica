@@ -150,6 +150,7 @@ def upload_mi_malla(request):
     if request.method == "POST":
 
         current_user = request.user
+        print(current_user.id)
         excel_file = request.FILES["file"]
         codigos = read_mi_malla(excel_file)
         user = User.objects.get(id=current_user.id)
@@ -386,23 +387,22 @@ def mi_malla_manual(request):
                 etele_count += 1
 
             if json_data[elem] == True:
-                count_pre_req = 0 
-                pre_req=asignatura_real.objects.get(codigo=elem).prerrequisito.all().values_list('codigo', flat=True)
-                
+                count_pre_req = 0
+                pre_req = asignatura_real.objects.get(
+                    codigo=elem).prerrequisito.all().values_list('codigo', flat=True)
+
                 for i in pre_req:
                     try:
                         if json_data[i] == True:
-                            count_pre_req+=1
+                            count_pre_req += 1
                     except:
                         break
                 if count_pre_req == len(pre_req):
                     codigos_aprobados.append(elem)
-                else: 
+                else:
                     return JsonResponse({
-            'error': 'Existe una incoherencia entre tus ramos aprobados y los prerrequisitos. Comprueba que los datos ingresados sean válidos.'
-        }, safe=True,status=status.HTTP_409_CONFLICT)
-                
-
+                        'error': 'Existe una incoherencia entre tus ramos aprobados y los prerrequisitos. Comprueba que los datos ingresados sean válidos.'
+                    }, safe=True, status=status.HTTP_409_CONFLICT)
 
         try:
             asignatura_cursada.objects.filter(to_User=current_user).delete()
