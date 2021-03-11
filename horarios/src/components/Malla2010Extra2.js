@@ -51,7 +51,6 @@ export default class Malla2010Extra2 extends Component {
                                 <br />
                                 &nbsp;&nbsp;° Formación: Ciencias de la Ingeniería
                                 <br />
-                                <br />
                             </font></p>
                         </div>
                     </div>
@@ -80,9 +79,7 @@ export default class Malla2010Extra2 extends Component {
                                 <br />
                                 &nbsp;&nbsp;° Creditos: 7
                                 <br />
-                                &nbsp;&nbsp;° Pre-Requisitos: Ecuaciones Diferenciales -
-                                <br />
-                                &nbsp;&nbsp;&nbsp; Cálculo III
+                                &nbsp;&nbsp;° Pre-Requisitos: Ecuaciones Diferenciales - Cálculo III
                                 <br />
                                 &nbsp;&nbsp;° Formación: Ciencias Básicas
                                 <br />
@@ -119,7 +116,6 @@ export default class Malla2010Extra2 extends Component {
                                 &nbsp;&nbsp;° Pre-Requisitos: Estructura de Datos
                                 <br />
                                 &nbsp;&nbsp;° Formación: Ingeniería Aplicada
-                                <br />
                                 <br />
 
                             </font></p>

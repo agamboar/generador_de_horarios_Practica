@@ -94,9 +94,7 @@ export default class Malla2010Extra3 extends Component {
                                 <br />
                                 &nbsp;&nbsp;° Creditos: 6
                                 <br />
-                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos -
-                                <br />
-                                &nbsp;&nbsp;&nbsp; Diseño y Análisis de Algoritmos
+                                &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos - Diseño y Análisis de Algoritmos
                                 <br />
                                 &nbsp;&nbsp;° Formación: Ingeniería Aplicada
                                 <br />
@@ -114,9 +112,7 @@ export default class Malla2010Extra3 extends Component {
                                 <br />
                                 &nbsp;&nbsp;° Creditos: 6
                                 <br />
-                                &nbsp;&nbsp;° Pre-Requisitos: Probabilidades y Estadistica -
-                                <br />
-                                &nbsp;&nbsp;&nbsp; Electrónica y Electrotecnia
+                                &nbsp;&nbsp;° Pre-Requisitos: Probabilidades y Estadistica - Electrónica y Electrotecnia
                                 <br />
                                 &nbsp;&nbsp;° Formación: Ingeniería Aplicada
                                 <br />
