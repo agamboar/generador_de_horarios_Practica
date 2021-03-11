@@ -150,7 +150,7 @@ def upload_mi_malla(request):
     if request.method == "POST":
 
         #current_user = request.data.id
-        print(request.id)
+        print(request.data)
         excel_file = request.FILES["file"]
         codigos = read_mi_malla(excel_file)
         user = User.objects.get(id=current_user)
