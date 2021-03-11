@@ -145,7 +145,6 @@ def import_cfg(request):
 
 
 @csrf_exempt
-@api_view(['POST'])
 def upload_mi_malla(request):
 
     if request.method == "POST":
