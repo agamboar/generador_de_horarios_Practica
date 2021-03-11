@@ -161,6 +161,10 @@ def upload_mi_malla(request):
         nodo_seccion.objects.filter(
             to_nodo_asignatura__to_user=current_user).delete()
         solucion.objects.filter(to_user=current_user).delete()
+        avance_academico_user = avance_academico.objects.get(
+            to_user_id=current_user)
+        avance_academico_user.json_avance = {}
+        avance_academico_user.save()
 
         counters = {'semestre': codigos[1],
                     'cfg_count': codigos[2],
