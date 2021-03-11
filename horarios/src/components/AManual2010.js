@@ -33,8 +33,8 @@ export default class AManual extends Component {
         return (
             <div>
                 <Navbar/>
+                {this.state.ramos_aprobados ?<AvanceManual2010 ramos={this.state.ramos_aprobados}/>: <AvanceManual2010/>   }
                 
-                <AvanceManual2010 ramos={this.state.ramos_aprobados}/>
 
                 
                 

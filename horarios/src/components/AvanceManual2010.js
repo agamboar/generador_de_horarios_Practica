@@ -22,13 +22,14 @@ export default class AvanceManual extends Component {
     }
     componentDidMount = () => {
         console.log(this.props.ramos)
+        if (this.props.ramos){
         for (let i = 0; i < this.props.ramos.length; i++) {
             const mov = i;
             const mov2 = this.props.ramos[mov].codigo;
             this.setState({
                 [mov2]: true
             })
-        }
+        }}
     }
 
     show_alert = false
