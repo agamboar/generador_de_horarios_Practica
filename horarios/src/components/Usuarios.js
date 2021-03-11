@@ -21,14 +21,18 @@ export default class CrearHorario extends Component {
                 <br />
                 <br />
                 <br />
-                
+                <div className = 'row row-cols-3'>
+                <div className = 'col'> </div>
+                <div className = 'col'> 
                 <div className="container align-self-center">
-                   <div className = "card border-primary text-center custom5 align-self-center">
+                   <div className = "card border-primary text-center custom5">
 
 
                     </div> 
                 </div>
-                
+                </div>
+                <div className = 'col'> </div>
+                </div>
 
                 <Derechos />
             </div>
