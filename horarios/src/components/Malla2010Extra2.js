@@ -142,8 +142,9 @@ export default class Malla2010Extra2 extends Component {
 
                 <div className="row row-cols-10">
                     <div className="col col-md-1"> </div>
-                    <RamoE codigo={"CIG-1001"} ramo={"Inglés I"} numero={"21"} creditos={"5"} prerequisitos={""} formacion={"Transversal"} />
                     <div className="col"> </div>
+                    <RamoE codigo={"CIG-1001"} ramo={"Inglés I"} numero={"21"} creditos={"5"} prerequisitos={""} formacion={"Transversal"} />
+                    
                     <div className="col col-md-1"> </div>
 
                 </div>
