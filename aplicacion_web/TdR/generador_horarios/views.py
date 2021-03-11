@@ -401,8 +401,15 @@ def mi_malla_manual(request):
                     codigos_aprobados.append(elem)
                 else:
                     return JsonResponse({
+<<<<<<< HEAD
                         'error': 'Existe una incoherencia entre tus ramos aprobados y los prerrequisitos. Comprueba que los datos ingresados sean válidos.'
                     }, safe=True, status=status.HTTP_409_CONFLICT)
+=======
+            'error': 'Comprueba que los datos ingresados sean válidos.'
+        }, safe=True,status=status.HTTP_409_CONFLICT)
+                
+
+>>>>>>> c64e27a66faf21c431878e8ecb2b201a402fa2ae
 
         try:
             asignatura_cursada.objects.filter(to_User=current_user).delete()
