@@ -6,6 +6,9 @@ import {Link} from 'react-router-dom';
 
 
 export default class M2020 extends Component {
+    deleteMalla = (e) => {
+        localStorage.removeItem("malla")
+    }
     render() {
         return (
             <div>

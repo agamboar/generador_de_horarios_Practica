@@ -6,6 +6,7 @@
 
 from rest_framework import serializers
 from .models import *
+from django.contrib.auth import get_user_model
 
 
 class asignaturaSerializer(serializers.ModelSerializer):
@@ -64,5 +65,5 @@ class nodoSeccionSerializer(serializers.ModelSerializer):
 
 class CurrentUserSerializer(serializers.Serializer):
     class Meta:
-        model = User
+        model = get_user_model()
         fields = '__all__'
