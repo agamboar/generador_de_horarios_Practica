@@ -111,8 +111,8 @@ export default class CrearHorario extends Component {
                                     value={this.state.username}
                                 />
                             </div>
-                            <button type="submit" className="btn btn-outline-primary rounded-pill"> Hacer Staff</button>
-                            <button type="button" class="btn btn-danger"  onClick={this.onSubmit2} className="btn btn-outline-primary rounded-pill"> Elimar de Staff</button>
+                            <button type="submit" className="btn btn-outline-primary rounded-pill"> Hacer Staff</button>&nbsp;&nbsp;
+                            <button type="button" class="btn btn-danger"  onClick={this.onSubmit2} > Eliminar de Staff</button>
                         </form>
 
                     </div> 
