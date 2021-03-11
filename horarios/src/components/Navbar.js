@@ -32,10 +32,10 @@ export default class Navbar extends Component {
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Funciones Administrador</a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-item">
-                                        {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link> : null}
+                                        <Link className="nav-link" to={{ pathname: '/admin/subirOferta' }} style={{ color: '#FFF' }} >Subir Ofertas</Link> 
                                     </li>
                                     <li class="dropdown-item">
-                                        {localStorage.getItem("is_staff") === "si" ? <Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#FFF' }} >Usuarios</Link> : null}
+                                       <Link className="nav-link" to={{ pathname: '/admin/Usuarios' }} style={{ color: '#FFF' }} >Usuarios</Link>
                                     </li>
                                 </ul>
                             </li>
