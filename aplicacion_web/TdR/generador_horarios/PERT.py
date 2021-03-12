@@ -158,7 +158,6 @@ def get_secciones_disponibles(current_user):
         codigo_asignatura = asignatura_real.objects.filter(
             nodo_asignatura__id=elem.id)[0].codigo
 
-        aux_arr = []
         secciones_ramo_user = list(seccion.objects.filter(to_asignatura_real__nodo_asignatura=elem))  # las secciones de los ramos que no ha dado el alumno
 
         # equivalencias
