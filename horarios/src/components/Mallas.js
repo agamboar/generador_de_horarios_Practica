@@ -44,7 +44,7 @@ export default class Mallas extends Component {
                                     <div className="card-body">
                                         <h5 className="card-title text-center">Malla Curricular Año 2010</h5>
                                         <p className="card-text">En el siguiente link podras elegir la malla que te corresponde, tambien podras ver información adicional a esta y agregar tu avance curricular</p>
-                                        <Link className="nav-link text-center" to={`mallas/malla${localStorage.getItem("malla")}/AvanceCurricular`}style={{ color: '#0d6efd' }} >  Presiona Aquí   </Link>
+                                        <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/malla2010'}}style={{ color: '#0d6efd' }} >  Presiona Aquí   </Link>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@ export default class Mallas extends Component {
                                     <div className="card-body">
                                         <h5 className="card-title text-center">Malla Curricular Año 2018</h5>
                                         <p className="card-text">En el siguiente link podras elegir la malla que te corresponde, tambien podras ver información adicional a esta y agregar tu avance curricular</p>
-                                        <Link className="nav-link text-center" to={`mallas/malla${localStorage.getItem("malla")}/AvanceCurricular`}style={{ color: '#0d6efd' }} >  Presiona Aquí   </Link>
+                                        <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/malla2018'}}style={{ color: '#0d6efd' }} >  Presiona Aquí   </Link>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@ export default class Mallas extends Component {
                                     <div className="card-body">
                                         <h5 className="card-title text-center">Malla Curricular Año 2020</h5>
                                         <p className="card-text">En el siguiente link podras elegir la malla que te corresponde, tambien podras ver información adicional a esta y agregar tu avance curricular</p>
-                                        <Link className="nav-link text-center" to={`mallas/malla${localStorage.getItem("malla")}/AvanceCurricular`}style={{ color: '#0d6efd' }} >  Presiona Aquí   </Link>
+                                        <Link className="nav-link text-center" to={{ pathname: '/users/usr/mallas/malla2020'}}style={{ color: '#0d6efd' }} >  Presiona Aquí   </Link>
                                     </div>
                                 </div>
                             </div>
