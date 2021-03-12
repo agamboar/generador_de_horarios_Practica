@@ -171,7 +171,7 @@ def get_secciones_disponibles(current_user):
 
                 for asig_real in asignaturas_reales:
 
-                    seccion_real = seccion.objects.get(to_asignatura_real=asig_real.codigo)
+                    seccion_real = seccion.objects.filter(to_asignatura_real=asig_real.codigo)[0]
                     if seccion_real and seccion_real not in secciones_ramo_user:
                         secciones_ramo_user.append(seccion_real)      
                     else:
