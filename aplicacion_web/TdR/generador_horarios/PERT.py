@@ -178,7 +178,8 @@ def get_secciones_disponibles(current_user):
                         continue
             except:
                 continue
-
+            
+        print(secciones_ramo_user)
         for s in secciones_ramo_user:
 
             nro_seccion = s.num_seccion
