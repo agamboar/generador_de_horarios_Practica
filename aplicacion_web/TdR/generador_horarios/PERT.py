@@ -159,33 +159,30 @@ def get_secciones_disponibles(current_user):
             nodo_asignatura__id=elem.id)[0].codigo
 
         aux_arr = []
-        secciones_ramo_user = seccion.objects.filter(
-            to_asignatura_real__nodo_asignatura=elem)  # las secciones de los ramos que no ha dado el alumno
+        secciones_ramo_user = list(seccion.objects.filter(to_asignatura_real__nodo_asignatura=elem))  # las secciones de los ramos que no ha dado el alumno
 
         # equivalencias
-        if len(secciones_ramo_user) == 0 or codigo_asignatura[0:5] == 'CIT33' or codigo_asignatura[0:5] == 'CIT34':
+        if len(secciones_ramo_user) == 0:
             try:
                 codigo_box = asignatura_real.objects.get(
                     nodo_asignatura__id=elem.id).codigo
-                codigo_real = asignatura_real.objects.get(
-                    equivale=codigo_box).codigo
+                asignaturas_reales = list(asignatura_real.objects.filter(
+                    equivale=codigo_box))
 
-                # para no ofrecer el mismo electivo o cfg para una 'cajita'
+                for asig_real in asignaturas_reales:
 
-                if codigo_real not in aux_arr:
-                    secciones_ramo_user = seccion.objects.filter(
-                        to_asignatura_real__codigo=codigo_real)
-                    aux_arr.append(codigo_real)
-                else:
-                    continue
+                    seccion_real = seccion.objects.filter(to_asignatura_real=asig_real.codigo)
+                    if seccion_real and seccion_real not in secciones_ramo_user:
+                        secciones_ramo_user.append(seccion_real)      
+                    else:
+                        continue
             except:
                 continue
 
         for s in secciones_ramo_user:
 
             nro_seccion = s.num_seccion
-            ss = str(nro_seccion) if len(str(nro_seccion)
-                                         ) > 1 else ("0" + str(nro_seccion))
+            ss = str(nro_seccion) if len(str(nro_seccion)) > 1 else ("0" + str(nro_seccion))
             codigo_seccion = s.cod_seccion
             sec = seccion.objects.get(cod_seccion=codigo_seccion)
 
