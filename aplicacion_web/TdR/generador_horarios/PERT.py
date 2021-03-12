@@ -163,21 +163,18 @@ def get_secciones_disponibles(current_user):
 
         # equivalencias
         if len(secciones_ramo_user) == 0:
-            try:
-                codigo_box = asignatura_real.objects.get(
-                    nodo_asignatura__id=elem.id).codigo
-                asignaturas_reales = list(asignatura_real.objects.filter(
-                    equivale=codigo_box))
+            
+            codigo_box = asignatura_real.objects.get(nodo_asignatura__id=elem.id).codigo
+            asignaturas_reales = list(asignatura_real.objects.filter(equivale=codigo_box))
 
-                for asig_real in asignaturas_reales:
+            for asig_real in asignaturas_reales:
 
-                    seccion_real = seccion.objects.filter(to_asignatura_real=asig_real.codigo)[0]
-                    if seccion_real and seccion_real not in secciones_ramo_user:
-                        secciones_ramo_user.append(seccion_real)      
-                    else:
-                        continue
-            except:
-                continue
+                seccion_real = seccion.objects.filter(to_asignatura_real=asig_real.codigo)[0]
+                if seccion_real and seccion_real not in secciones_ramo_user:
+                    secciones_ramo_user.append(seccion_real)      
+                else:
+                    continue
+         
             
         print(secciones_ramo_user)
         for s in secciones_ramo_user:
