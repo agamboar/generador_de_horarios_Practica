@@ -12,7 +12,7 @@ export default class Mallas extends Component {
             return (
                 <div>
                     {(localStorage.getItem("malla"))?
-                    <Redirect to={`mallas/malla${localStorage.getItem("malla")}`} /> : 
+                    <Redirect to={`mallas/malla${localStorage.getItem("malla")}/AvanceCurricular`} /> : 
                     
                     <div>
                         <Navbar/>
