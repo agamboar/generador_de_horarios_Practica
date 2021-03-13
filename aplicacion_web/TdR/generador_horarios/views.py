@@ -560,4 +560,18 @@ def delete_asignaturas_cursadas(request):
 
     current_user = request.user.id
     asignatura_cursada.objects.filter(to_User_id=current_user).delete()
-    return JsonResponse({"mensaje":"Se ha borrado el avance academico"}, safe=False, status=status.HTTP_200_OK)
+    avance_academico.objects.get(to_user_id=current_user).delete()
+    """
+    #aca, ademas, se puede colocar el semestre actual como filtro
+    semestre = []
+    today = date.today()
+        if 1 <= today.month <= 6:
+            s = str(today.year)+'-1'
+            semestre.append(s)
+        elif 7 <= today.month <= 12:
+            s = str(today.year)+'-2'
+            semestre.append(s) 
+    avance_academico.objects.get(to_user_id=current_user,semestre=semestre).delete()
+    """
+
+    return JsonResponse({"mensaje":"Se ha borrado el avance academico, junto con el año de la malla escogida previamente"}, safe=False, status=status.HTTP_200_OK)

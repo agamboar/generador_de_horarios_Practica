@@ -29,7 +29,7 @@ export default class PERT extends Component {
             }
         };
 
-        var PERT_j = await axios(config)
+        var PERT_j = await axios(config) //aqui creo que va un the para setear los stear los state y asi poder decirle al alumno cuando no escogido una malla
 
 
         this.setState({
@@ -143,6 +143,8 @@ export default class PERT extends Component {
                 return (
                     <div>
                         <Navbar />
+                        {//aca deberia haber algo que diga que no se escogio una malla
+                        }
                         <br />
                         <div className="row row-cols-3">
                             <div className="col">
