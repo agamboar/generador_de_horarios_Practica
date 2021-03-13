@@ -79,7 +79,56 @@ export default class HPosibles extends Component {
                     </div>
                 )
 
-            } else {
+            } else if(this.state.Horarios === "empty"){
+                return (
+                    <div>
+                        <Navbar />
+
+                        <br />
+                        <br />
+
+
+                       
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <div className="d-flex justify-content-center">
+                            <h2 className="display-6">No has calculado tus ramos criticos</h2>
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <h3 className="display-6">Seras redirigido</h3>
+                        </div>
+                        <br />
+                        <br />
+                        <div className="d-flex justify-content-center">
+
+                            <div className="spinner-grow text-primary" role="status" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div className="spinner-grow text-primary" role="status" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div className="spinner-border text-primary" role="status" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div className="spinner-grow text-primary" role="status" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div className="spinner-grow text-primary" role="status" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+                    </div>
+                        <br />
+                        <br />
+                        <br />
+
+
+
+
+                    </div>
+                )
+            }
+            else {
 
 
                 return (
