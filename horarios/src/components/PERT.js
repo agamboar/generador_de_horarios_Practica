@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import NotAuth from './NotAuth'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+import { Redirect } from 'react-router';
 
 
 export default class PERT extends Component {
@@ -146,45 +146,6 @@ export default class PERT extends Component {
                         <Navbar />
                         {/*aca deberia haber algo que diga que no se escogio una malla*/}
                         {this.state.malla === "empty"?
-                         <div> 
-                                <br />
-                                <div className="row row-cols-3">
-                                    <div className="col">
-                                        <h1 className="title text-primary text-center">Ramos Críticos</h1>
-                                    </div>
-                                    <div className="col"></div>
-                                    <div className="col"></div>
-                                </div>
-
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <div className="d-flex justify-content-center">
-                                    <h1 className="display-6">Un Momento, Se esta obteniendo tú ramos críticos...</h1>
-                                </div>
-                                <br />
-                                <br />
-                                <div className="d-flex justify-content-center">
-
-                                    <div className="spinner-grow text-primary" role="status" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <div className="spinner-grow text-primary" role="status" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <div className="spinner-border text-primary" role="status" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <div className="spinner-grow text-primary" role="status" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <div className="spinner-grow text-primary" role="status" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-
-                                </div>
-                                <br />
-                                <br />
-                                <br />
-                            </div>
-                            :
                             <div>
                                 <br />
                                 <div className="row row-cols-3">
@@ -226,7 +187,45 @@ export default class PERT extends Component {
                                 <br />
                                 <br />
                                 <br />
-                            </div>}
+                            </div>:
+                            <div> 
+                            <br />
+                            <div className="row row-cols-3">
+                                <div className="col">
+                                    <h1 className="title text-primary text-center">Ramos Críticos</h1>
+                                </div>
+                                <div className="col"></div>
+                                <div className="col"></div>
+                            </div>
+
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <div className="d-flex justify-content-center">
+                                <h1 className="display-6">Un Momento, Se esta obteniendo tú ramos críticos...</h1>
+                            </div>
+                            <br />
+                            <br />
+                            <div className="d-flex justify-content-center">
+
+                                <div className="spinner-grow text-primary" role="status" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <div className="spinner-grow text-primary" role="status" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <div className="spinner-border text-primary" role="status" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <div className="spinner-grow text-primary" role="status" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <div className="spinner-grow text-primary" role="status" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                        </div>}
                         
 
                     </div>
