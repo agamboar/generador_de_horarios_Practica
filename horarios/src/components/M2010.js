@@ -18,7 +18,7 @@ export default class M2010 extends Component {
             }
         };
 
-        axios(config).then(response => console.log(response.mensaje)).catch(function (error) {
+        axios(config).then(response => console.log(response.data.mensaje)).catch(function (error) {
             if (error.response) {
                 if (error.response.data.non_field_errors) {console.log(error.response);}
                 //notify(`error:  ${error.response.data.non_field_errors[0]}`); 
