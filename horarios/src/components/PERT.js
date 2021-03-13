@@ -35,8 +35,9 @@ export default class PERT extends Component {
                 malla: PERT_j.data.malla,
                 ramos: PERT_j.data.PERT
             }).catch(function (error) {
+                console.log(error)
                 if (error.response) {
-                    if (error.response.data.non_field_errors) {console.log(error.response);}
+                    console.log(error.response)
                     //notify(`error:  ${error.response.data.non_field_errors[0]}`); 
                 }
             });
