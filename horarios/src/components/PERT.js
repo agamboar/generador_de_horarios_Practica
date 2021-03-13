@@ -34,8 +34,7 @@ export default class PERT extends Component {
             this.setState({
                 malla: PERT_j.data.malla,
                 ramos: PERT_j.data.PERT
-            }).catch(function (error) {
-                console.log(error)
+            }).catch(function (error) { 
                 if (error.response) {
                     console.log(error.response)
                     //notify(`error:  ${error.response.data.non_field_errors[0]}`); 
@@ -153,43 +152,90 @@ export default class PERT extends Component {
                 return (
                     <div>
                         <Navbar />
-                        {//aca deberia haber algo que diga que no se escogio una malla
-                        }
-                        <br />
-                        <div className="row row-cols-3">
-                            <div className="col">
-                                <h1 className="title text-primary text-center">Ramos Críticos</h1>
+                        {/*aca deberia haber algo que diga que no se escogio una malla*/}
+                        {this.state.malla === "empty"?
+                         <div> 
+                                <br />
+                                <div className="row row-cols-3">
+                                    <div className="col">
+                                        <h1 className="title text-primary text-center">Ramos Críticos</h1>
+                                    </div>
+                                    <div className="col"></div>
+                                    <div className="col"></div>
+                                </div>
+
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <div className="d-flex justify-content-center">
+                                    <h1 className="display-6">Un Momento, Se esta obteniendo tú ramos críticos...</h1>
+                                </div>
+                                <br />
+                                <br />
+                                <div className="d-flex justify-content-center">
+
+                                    <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-border text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                </div>
+                                <br />
+                                <br />
+                                <br />
                             </div>
-                            <div className="col"></div>
-                            <div className="col"></div>
-                        </div>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <div className="d-flex justify-content-center">
-                            <h1 className="display-6">Un Momento, Se esta obteniendo tú ramos críticos...</h1>
-                        </div>
-                        <br />
-                        <br />
-                        <div className="d-flex justify-content-center">
+                            :
+                            <div>
+                                <br />
+                                <div className="row row-cols-3">
+                                    <div className="col">
+                                        <h1 className="title text-primary text-center">Ramos Críticos</h1>
+                                    </div>
+                                    <div className="col"></div>
+                                    <div className="col"></div>
+                                </div>
 
-                            <div className="spinner-grow text-primary" role="status" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div className="spinner-grow text-primary" role="status" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div className="spinner-border text-primary" role="status" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div className="spinner-grow text-primary" role="status" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div className="spinner-grow text-primary" role="status" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <div className="d-flex justify-content-center">
+                                    <h2 className="display-6">No has elegido ninguna malla</h2>
+                                </div>
+                                <div className="d-flex justify-content-center">
+                                    <h4 className="display-6">Seras redirigido</h4>
+                                    {setTimeout(function () { <Redirect to="http://200.14.84.238/users/usr/crearHorario" />}, 4500)}
+                                </div>
+                                <br />
+                                <br />
+                                <div className="d-flex justify-content-center">
 
-                    </div>
-                        <br />
-                        <br />
-                        <br />
+                                    <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-border text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                </div>
+                                <br />
+                                <br />
+                                <br />
+                            </div>}
+                        
 
                     </div>
 

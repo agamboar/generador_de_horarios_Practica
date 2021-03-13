@@ -201,11 +201,18 @@ def get_PERT(request):
     if request.method == "GET":
 
         current_user = request.user.id
-        avance_academico_user = avance_academico.objects.get(
-            to_user_id=current_user)
-        avance_academico_user_json = avance_academico_user.json_avance
-        año_malla = avance_academico.objects.get(
-            to_user=current_user).agno_malla
+        try: 
+            avance_academico_user = avance_academico.objects.get(
+                to_user_id=current_user)
+            avance_academico_user_json = avance_academico_user.json_avance
+            año_malla = avance_academico.objects.get(
+                to_user=current_user).agno_malla
+        except:
+            new_dict = {}
+            new_dict.update({"PERT": {}})
+            new_dict["malla"] = "empty"
+            # print(new_dict)
+            return Response(new_dict)
 
         # falta colocar una condicion -> si se cambio recientemente los ramos aprobados
         if avance_academico_user.json_avance == {}:
