@@ -30,21 +30,13 @@ export default class PERT extends Component {
         };
         //aqui creo que va un the para setear los stear los state y asi poder decirle al alumno cuando no escogido una malla
 
-        axios(config).then((PERT_j)=>{
-            this.setState({
-                malla: PERT_j.data.malla,
-                ramos: PERT_j.data.PERT
-            }).catch(function (error) { 
-                if (error.response) {
-                    console.log(error.response)
-                    //notify(`error:  ${error.response.data.non_field_errors[0]}`); 
-                }
-            });
-
-        })
+        var PERT_j = await axios(config)
 
 
-      
+        this.setState({
+            malla: PERT_j.data.malla,
+            ramos: PERT_j.data.PERT
+        })     
     }
 
     onSubmit = () => {
