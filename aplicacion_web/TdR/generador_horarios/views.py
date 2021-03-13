@@ -560,6 +560,4 @@ def delete_asignaturas_cursadas(request):
 
     current_user = request.user.id
     asignatura_cursada.objects.filter(to_User_id=current_user).delete()
-    
-
     return JsonResponse({"mensaje":"Se ha borrado el avance academico"}, safe=False, status=status.HTTP_200_OK)
