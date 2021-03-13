@@ -567,7 +567,8 @@ def delete_asignaturas_cursadas(request):
 
     current_user = request.user.id
     asignatura_cursada.objects.filter(to_User_id=current_user).delete()
-    avance_academico.objects.get(to_user_id=current_user).delete()
+    avance_academico.objects.filter(to_user_id=current_user).delete() # o es un get ?
+    nodo_asignatura.objects.filter(to_user=current_user).delete()
     """
     #aca, ademas, se puede colocar el semestre actual como filtro
     semestre = []
