@@ -554,3 +554,12 @@ def remove_staff(request):
             return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False,status=status.HTTP_200_OK)
         else:
             return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED) 
+
+@api_view(['GET'])
+def delete_asignaturas_cursadas(request):
+
+    current_user = request.user.id
+    asignaturas = asignatura_cursada.objects.filter(to_User_id=current_user)
+    asignaturas.delete()
+
+    return JsonResponse({"mensaje":"Se ha borrado el avance academico"}, safe=False, status=status.HTTP_200_OK)
