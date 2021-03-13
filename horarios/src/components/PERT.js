@@ -167,7 +167,7 @@ export default class PERT extends Component {
                                 </div>
                                 <div className="d-flex justify-content-center">
                                     <h4 className="display-6">Seras redirigido</h4>
-                                    <Redirect to="http://200.14.84.238/users/usr/crearHorario" />
+                                    {setTimeout(() => {<Redirect to="crearHorario" />}, 3000)}
                                 </div>
                                 <br />
                                 <br />
