@@ -275,8 +275,7 @@ def get_clique(request):
         if not existen_soluciones:
 
             jsons = get_clique_max_pond(current_user)
-            if json == "empty":
-                return Response("empty", status=status.HTTP_200_OK)
+            
             for elem in jsons:
 
                 counters = {'json_solucion': elem,
