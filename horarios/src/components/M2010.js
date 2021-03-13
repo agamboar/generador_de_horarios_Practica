@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 export default class M2010 extends Component {
     deleteMalla = (e) => {
         localStorage.removeItem("malla")
-
+        var axios = require('axios');
         var config = {
             method: 'get',
             url: 'http://200.14.84.238:80/delete_asignaturasCursadas/', 
