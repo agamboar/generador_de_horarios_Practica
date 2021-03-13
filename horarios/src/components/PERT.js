@@ -13,7 +13,9 @@ import { Redirect } from 'react-router';
 
 export default class PERT extends Component {
 
-    
+    aux =()=>{
+        setTimeout(function () { <Redirect to="crearHorario" />  }, 3000);
+    }    
     state = {
         malla: null,
         ramos: null
@@ -167,7 +169,7 @@ export default class PERT extends Component {
                                 </div>
                                 <div className="d-flex justify-content-center">
                                     <h4 className="display-6">Seras redirigido</h4>
-                                    {setTimeout(() => {<Redirect to="crearHorario" />}, 3000)}
+                                    {this.aux}
                                 </div>
                                 <br />
                                 <br />
