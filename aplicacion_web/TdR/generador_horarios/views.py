@@ -546,9 +546,12 @@ def set_staff(request):
                 aux_new_staff=User.objects.get(username=request.data.get("username"))
             except:
                 return JsonResponse({'error': 'Usuario ingresado no existe.'}, safe=False,status=status.HTTP_404_NOT_FOUND)
-            aux_new_staff.is_staff = True
-            aux_new_staff.save()
-            return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False, status=status.HTTP_200_OK)
+            if aux_new_staff.is_staff:
+                return JsonResponse({'error': 'El usuario ingresado ya es staff.'}, safe=False,status=status.HTTP_409_CONFLICT)
+            else:
+                aux_new_staff.is_staff = True
+                aux_new_staff.save()
+                return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False, status=status.HTTP_200_OK)
     else:
         return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED)
 
@@ -562,8 +565,11 @@ def remove_staff(request):
                 aux_new_staff=User.objects.get(username=request.data.get("username"))
             except:
                 return JsonResponse({'error': 'Usuario ingresado no existe.'}, safe=False,status=status.HTTP_404_NOT_FOUND)
-            aux_new_staff.is_staff = False
-            aux_new_staff.save()
+            if not aux_new_staff.is_staff:
+                return JsonResponse({'error': 'Usuario ingresado no es staff.'}, safe=False,status=status.HTTP_409_CONFLICT)
+            else:
+                aux_new_staff.is_staff = False
+                aux_new_staff.save()
             return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False,status=status.HTTP_200_OK)
         else:
             return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED) 
