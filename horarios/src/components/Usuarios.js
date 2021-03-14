@@ -69,7 +69,7 @@ export default class CrearHorario extends Component {
                             <button type="submit" class="btn btn-primary"> Buscar Usuario</button>&nbsp;&nbsp;
                            
                         </form>
-                        <div className = "card border-primary shadow-lg p-3 mb-5 bg-white custom5"> 
+                        <div className = "card border-primary shadow-lg p-3 mb-5 bg-white"> 
                             Nombre Usuario: ejemplo 
                             Usuario Staff: false
                             <button type="button" class="btn btn-success"  onClick={this.onClick} > Agregarlo a Staff</button>
