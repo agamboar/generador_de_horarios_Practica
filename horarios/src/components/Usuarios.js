@@ -11,7 +11,8 @@ export default class CrearHorario extends Component {
 
 
     state = {
-        username: true
+        username: null,
+        username2: true
     }
 
     onChange = e => {
@@ -112,7 +113,7 @@ export default class CrearHorario extends Component {
                 <div className = 'col'> </div>
                 </div>
 
-                <Derechos staff = {this.state.username}/>
+                <Derechos staff = {this.state.username2}/>
             </div>
             : <NotAuth/> }</div>
         )
