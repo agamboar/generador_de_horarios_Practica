@@ -66,10 +66,17 @@ export default class CrearHorario extends Component {
                                     value={this.state.username}
                                 />
                             </div>
-                            <button type="submit" class="btn btn-primary"> Hacer Staff</button>&nbsp;&nbsp;
-                           <button type="button" class="btn btn-danger"  onClick={this.onClick} > Eliminar de Staff</button>
+                            <button type="submit" class="btn btn-primary"> Buscar Usuario</button>&nbsp;&nbsp;
+                           
                         </form>
-                        <div className = "container"> </div>
+                        <div className = "card border-primary shadow-lg p-3 mb-5 bg-white custom5"> 
+                            Nombre Usuario: ejemplo 
+                            Usuario Staff:  
+                            <button type="button" class="btn btn-success"  onClick={this.onClick} > Agregarlo a Staff</button>
+                            <button type="button" class="btn btn-danger"  onClick={this.onClick} > Eliminar de Staff</button>
+
+
+                        </div>
                     </div> 
                 </div>
                 </div>
