@@ -101,7 +101,7 @@ export default class CrearHorario extends Component {
                                     value={this.state.username}
                                 />
                             </div>
-                            <button type="submit" class="btn btn-primary"> Buscar Usuario</button>&nbsp;&nbsp;
+                            <button type="submit" className="btn btn-primary"> Buscar Usuario</button>&nbsp;&nbsp;
                            
                         </form>
 

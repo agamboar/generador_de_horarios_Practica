@@ -12,7 +12,7 @@ export default class RamoE extends Component {
                     Nombre Usuario: ejemplo 
                     <br/>
                     Usuario Staff: true
-                    <button type="button" class="btn btn-danger"  > Eliminar de Staff</button>
+                    <button type="button" className="btn btn-danger"  > Eliminar de Staff</button>
                 </div>
             )
 
@@ -23,7 +23,7 @@ export default class RamoE extends Component {
                     Nombre Usuario: ejemplo 
                     <br/>
                     Usuario Staff: false
-                    <button type="button" class="btn btn-success"  > Agregarlo a Staff</button>
+                    <button type="button" className="btn btn-success"  > Agregarlo a Staff</button>
                 </div>
             )
         }else{
