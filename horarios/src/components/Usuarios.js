@@ -57,7 +57,7 @@ export default class CrearHorario extends Component {
         data: data
         };
 
-        await axios(config)
+        //await axios(config)
           //axios(config) //url: 'http://200.14.84.238:80/remove_staff/',
     }
 
