@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Derechos from './Derechos'
 import axios from 'axios';
 import NotAuth from './NotAuth';
+import UserStaff from './UserStaff'
 
 
 
@@ -10,7 +11,7 @@ export default class CrearHorario extends Component {
 
 
     state = {
-        username: null
+        username: true
     }
 
     onChange = e => {
@@ -69,21 +70,16 @@ export default class CrearHorario extends Component {
                             <button type="submit" class="btn btn-primary"> Buscar Usuario</button>&nbsp;&nbsp;
                            
                         </form>
-                        <div className = "card border-primary shadow-lg p-3 mb-5 bg-white"> 
-                            Nombre Usuario: ejemplo 
-                            Usuario Staff: false
-                            <button type="button" class="btn btn-success"  onClick={this.onClick} > Agregarlo a Staff</button>
-                            <button type="button" class="btn btn-danger"  onClick={this.onClick} > Eliminar de Staff</button>
 
-
-                        </div>
+                        <br/>
+                        <UserStaff/>
                     </div> 
                 </div>
                 </div>
                 <div className = 'col'> </div>
                 </div>
 
-                <Derechos />
+                <Derechos staff = {this.state.username}/>
             </div>
             : <NotAuth/> }</div>
         )
