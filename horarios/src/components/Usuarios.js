@@ -54,9 +54,9 @@ export default class CrearHorario extends Component {
           }).catch(function (error) {
             if (error.response) {
       
-              if (error.response.data.noUser){ err(`No User:  ${error.response.data.noUser[0]}`); }
-              if (error.response.data.notStaff) { err(`Not Staff:  ${error.response.data.notStaff[0]}`); }
-              if (error.response.data.unauthorized) { err(`Not Authorized:  ${error.response.data.unauthorized[0]}`);}
+              if (error.response.data.noUser){ notify(`No User:  ${error.response.data.noUser[0]}`); }
+              if (error.response.data.notStaff) { notify(`Not Staff:  ${error.response.data.notStaff[0]}`); }
+              if (error.response.data.unauthorized) { notify(`Not Authorized:  ${error.response.data.unauthorized[0]}`);}
               console.log(error.response.data);
             }
           });
@@ -96,9 +96,9 @@ export default class CrearHorario extends Component {
           }).catch(function (error) {
             if (error.response) {
       
-              if (error.response.data.noUser){ err(`No User:  ${error.response.data.noUser[0]}`); }
-              if (error.response.data.notStaff) { err(`Not Staff:  ${error.response.data.notStaff[0]}`); }
-              if (error.response.data.unauthorized) { err(`Not Authorized:  ${error.response.data.unauthorized[0]}`);}
+              if (error.response.data.noUser){ notify(`No User:  ${error.response.data.noUser[0]}`); }
+              if (error.response.data.notStaff) { notify(`Not Staff:  ${error.response.data.notStaff[0]}`); }
+              if (error.response.data.unauthorized) { notify(`Not Authorized:  ${error.response.data.unauthorized[0]}`);}
               console.log(error.response.data);
             }
           });
