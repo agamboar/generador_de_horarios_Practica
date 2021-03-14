@@ -553,9 +553,9 @@ def set_staff(request):
 def remove_staff(request):
     if request.method == "POST":
         current_user = request.user.id
-        print(request.data)
+        print(request.data.get("username"))
         if User.objects.get(id=current_user).is_staff:
-            aux_new_staff=User.objects.get(username=request.data.username)
+            aux_new_staff=User.objects.get(username=request.data.get("username"))
             aux_new_staff.is_staff = False
             aux_new_staff.save()
             return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False,status=status.HTTP_200_OK)
