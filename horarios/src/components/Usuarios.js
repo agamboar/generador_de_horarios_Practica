@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Derechos from './Derechos'
 import axios from 'axios';
 import NotAuth from './NotAuth';
+import UserStaff from './UserStaff'
 
 
 
@@ -10,7 +11,8 @@ export default class CrearHorario extends Component {
 
 
     state = {
-        username: null
+        username: null,
+        username2: true
     }
 
     onChange = e => {
@@ -55,7 +57,7 @@ export default class CrearHorario extends Component {
         data: data
         };
 
-        await axios(config)
+        //await axios(config)
           //axios(config) //url: 'http://200.14.84.238:80/remove_staff/',
     }
 
@@ -99,24 +101,19 @@ export default class CrearHorario extends Component {
                                     value={this.state.username}
                                 />
                             </div>
-                            <button type="submit" class="btn btn-primary"> Buscar Usuario</button>&nbsp;&nbsp;
+                            <button type="submit" className="btn btn-primary"> Buscar Usuario</button>&nbsp;&nbsp;
                            
                         </form>
-                        <div className = "card border-primary shadow-lg p-3 mb-5 bg-white"> 
-                            Nombre Usuario: ejemplo 
-                            Usuario Staff: false
-                            <button type="button" class="btn btn-success"  onClick={this.onClick} > Agregarlo a Staff</button>
-                            <button type="button" class="btn btn-danger"  onClick={this.onClick} > Eliminar de Staff</button>
 
-
-                        </div>
+                        <br/>
+                        <UserStaff/>
                     </div> 
                 </div>
                 </div>
                 <div className = 'col'> </div>
                 </div>
-
-                <Derechos />
+                {console.log(this.state.username2)}
+                <Derechos staff = {this.state.username2}/>
             </div>
             : <NotAuth/> }</div>
         )
