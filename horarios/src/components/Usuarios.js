@@ -61,7 +61,7 @@ export default class CrearHorario extends Component {
             }
           });
     }
-    remove_staff(){
+    remove_staff = async ()=>{
 
         const payload = this.state.username
 
