@@ -65,6 +65,14 @@ export default class CrearHorario extends Component {
 
         const payload = this.state.username
 
+        const notify = (e) => {
+            toast.info(e, { position: toast.POSITION.TOP_CENTER })
+          }
+
+        const err = (e) => {
+            toast.error(e, { position: toast.POSITION.TOP_CENTER })
+          }
+
         var data = JSON.stringify(payload);
         console.log(data)
 
