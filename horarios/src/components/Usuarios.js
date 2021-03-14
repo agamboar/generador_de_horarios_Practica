@@ -78,8 +78,23 @@ export default class CrearHorario extends Component {
         data: data
         };
 
-        //await axios(config)
-          //axios(config) //url: 'http://200.14.84.238:80/remove_staff/',
+        await axios(config).then(response => {
+            if (response.status === 200) {
+              notify("Se ha modificado el usuario satisfactoriamente.")
+            } else {
+              err("No se ha podido modificar el usuario.")
+            }
+      
+          }).catch(function (error) {
+            if (error.response) {
+      
+              if (error.response.data.noUser){ err(`No User:  ${error.response.data.noUser[0]}`); }
+              if (error.response.data.notStaff) { err(`Not Staff:  ${error.response.data.notStaff[0]}`); }
+              if (error.response.data.unauthorized) { err(`Not Authorized:  ${error.response.data.unauthorized[0]}`);}
+              console.log(error.response.data);
+            }
+          });
+          
     }
 
 
