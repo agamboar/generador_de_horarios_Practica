@@ -8,6 +8,22 @@ import {Link} from 'react-router-dom';
 export default class M2010 extends Component {
     deleteMalla = (e) => {
         localStorage.removeItem("malla")
+        var axios = require('axios');
+        var config = {
+            method: 'get',
+            url: 'http://200.14.84.238:80/delete_asignaturasCursadas/', 
+            headers: {
+                'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
+                'Content-Type': 'application/json'
+            }
+        };
+
+        axios(config).then(response => console.log(response.data.mensaje)).catch(function (error) {
+            if (error.response) {
+                if (error.response.data.non_field_errors) {console.log(error.response);}
+                //notify(`error:  ${error.response.data.non_field_errors[0]}`); 
+            }
+        });
     }
     render() {
         return (

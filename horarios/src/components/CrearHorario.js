@@ -74,7 +74,7 @@ export default class CrearHorario extends Component {
                                             <h5 className="card-title text-center">Ingreso de Avance Curricular Manual</h5>
                                             <p className="card-text">En el siguiente link se encentra una página en la que podras ingrear el avance curricular que has logrado durante la carrera de manera manual. Tambien podras ver información correspondiente a cada malla curricular</p>
                                             <br />
-                                            <Link className="nav-link text-center" to={`mallas/malla${localStorage.getItem("malla")}/AvanceCurricular`} style={{ color: '#0d6efd' }} >  Presiona Aquí   </Link>
+                                            <Link className="nav-link text-center" to={ (localStorage.getItem("malla")) ? `mallas/malla${localStorage.getItem("malla")}/AvanceCurricular`: '/users/usr/mallas'} style={{ color: '#0d6efd' }} >  Presiona Aquí   </Link>
                                             <br />
 
 

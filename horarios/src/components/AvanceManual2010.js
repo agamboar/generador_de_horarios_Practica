@@ -94,8 +94,11 @@ export default class AvanceManual extends Component {
         return (
             <div>
                 {(localStorage.getItem("token")) ?
-
+                    
                     <div className="container">
+                        <div className="col">
+                            <h1 className="title text-primary text-center">Malla 2010</h1>
+                        </div>
                         <br />
 
                         <br />

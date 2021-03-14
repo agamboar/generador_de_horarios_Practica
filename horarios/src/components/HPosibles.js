@@ -79,7 +79,7 @@ export default class HPosibles extends Component {
                     </div>
                 )
 
-            } else {
+            }else {
 
 
                 return (

@@ -92,6 +92,9 @@ export default class AvanceManual2018 extends Component {
     render() {
         return (
             <div className="container">
+                <div className="col">
+                            <h1 className="title text-primary text-center">Malla 2018</h1>
+                        </div>
                 <br />
 
                 <div className="row row-cols-10">

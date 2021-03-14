@@ -201,11 +201,18 @@ def get_PERT(request):
     if request.method == "GET":
 
         current_user = request.user.id
-        avance_academico_user = avance_academico.objects.get(
-            to_user_id=current_user)
-        avance_academico_user_json = avance_academico_user.json_avance
-        año_malla = avance_academico.objects.get(
-            to_user=current_user).agno_malla
+        try: 
+            avance_academico_user = avance_academico.objects.get(
+                to_user_id=current_user)
+            avance_academico_user_json = avance_academico_user.json_avance
+            año_malla = avance_academico.objects.get(
+                to_user=current_user).agno_malla
+        except:
+            new_dict = {}
+            new_dict.update({"PERT": {}})
+            new_dict["malla"] = "empty"
+            # print(new_dict)
+            return Response(new_dict)
 
         # falta colocar una condicion -> si se cambio recientemente los ramos aprobados
         if avance_academico_user.json_avance == {}:
@@ -268,7 +275,7 @@ def get_clique(request):
         if not existen_soluciones:
 
             jsons = get_clique_max_pond(current_user)
-
+            
             for elem in jsons:
 
                 counters = {'json_solucion': elem,
@@ -554,3 +561,25 @@ def remove_staff(request):
             return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False,status=status.HTTP_200_OK)
         else:
             return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED) 
+
+@api_view(['GET'])
+def delete_asignaturas_cursadas(request):
+
+    current_user = request.user.id
+    asignatura_cursada.objects.filter(to_User_id=current_user).delete()
+    avance_academico.objects.filter(to_user_id=current_user).delete() # o es un get ?
+    nodo_asignatura.objects.filter(to_user=current_user).delete()
+    """
+    #aca, ademas, se puede colocar el semestre actual como filtro
+    semestre = []
+    today = date.today()
+        if 1 <= today.month <= 6:
+            s = str(today.year)+'-1'
+            semestre.append(s)
+        elif 7 <= today.month <= 12:
+            s = str(today.year)+'-2'
+            semestre.append(s) 
+    avance_academico.objects.get(to_user_id=current_user,semestre=semestre).delete()
+    """
+
+    return JsonResponse({"mensaje":"Se ha borrado el avance academico, junto con el año de la malla escogida previamente"}, safe=False, status=status.HTTP_200_OK)

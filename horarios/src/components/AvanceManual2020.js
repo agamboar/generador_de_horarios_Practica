@@ -93,6 +93,9 @@ export default class AvanceManual2020 extends Component {
         return (
 
             <div className="container">
+                <div className="col">
+                    <h1 className="title text-primary text-center">Malla 2020   </h1>
+                </div>
                 <br />
                 <div className="row  row-cols-10">
                     <Semestre semestre={"1"} />
