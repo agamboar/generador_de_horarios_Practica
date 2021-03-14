@@ -69,7 +69,7 @@ export default class CrearHorario extends Component {
                             <button type="submit" class="btn btn-primary"> Hacer Staff</button>&nbsp;&nbsp;
                            <button type="button" class="btn btn-danger"  onClick={this.onClick} > Eliminar de Staff</button>
                         </form>
-
+                        <div className = "container"> </div>
                     </div> 
                 </div>
                 </div>
