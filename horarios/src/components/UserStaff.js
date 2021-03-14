@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 export default class RamoE extends Component {
 
     render() {
+        console.log(this.props)
         if (this.props.staff === true) {
             return (
                 <div className = "card border-primary shadow-lg p-3 mb-5 bg-white"> 
