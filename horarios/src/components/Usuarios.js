@@ -3,7 +3,6 @@ import Navbar from './Navbar'
 import Derechos from './Derechos'
 import axios from 'axios';
 import NotAuth from './NotAuth';
-import UserStaff from './UserStaff'
 import { toast } from 'react-toastify'
 
 toast.configure()
@@ -12,8 +11,7 @@ export default class CrearHorario extends Component {
 
 
     state = {
-        username: null,
-        username2: true
+        username: null
     }
 
     onChange = e => {
@@ -22,9 +20,9 @@ export default class CrearHorario extends Component {
         })
     }
 
-    set_staff = async (username)=>{
+    set_staff = async ()=>{
 
-        const payload = username
+        const payload = this.state.username
 
         const notify = (e) => {
             toast.info(e, { position: toast.POSITION.TOP_CENTER })
@@ -63,9 +61,9 @@ export default class CrearHorario extends Component {
             }
           });
     }
-    remove_staff(username){
+    remove_staff(){
 
-        const payload = username
+        const payload = this.state.username
 
         var data = JSON.stringify(payload);
         console.log(data)
@@ -84,23 +82,6 @@ export default class CrearHorario extends Component {
           //axios(config) //url: 'http://200.14.84.238:80/remove_staff/',
     }
 
-    onSubmit1 = e => {
-        /*e.preventDefault();
-        this.set_staff(this.state.username)*/
-    }
-    onSubmit2 = e => {
-        /*e.preventDefault();
-        this.remove_staff(this.state.username)*/
-    }
-    onClick1 = e =>{
-        /*e.preventDefault();
-        this.set_staff(this.state.username)*/
-    }
-    
-    onClick2 = e =>{
-        /*e.preventDefault();
-        this.remove_staff(this.state.username)*/
-    }
 
     render() {
         return (
@@ -121,7 +102,6 @@ export default class CrearHorario extends Component {
                         <h3 className="text-center ">Usuarios</h3>
                         <br/>
                         <h5>Hacer parte del staff a un usuario</h5>
-                        <form onSubmit={this.onSubmit}>
                         
                             <div className="form-group">
                                 <input
@@ -133,12 +113,12 @@ export default class CrearHorario extends Component {
                                     value={this.state.username}
                                 />
                             </div>
-                            <button type="submit" className="btn btn-primary"> Buscar Usuario</button>&nbsp;&nbsp;
-                           
-                        </form>
+                            <div> 
+                            <button type="submit" className="btn btn-success" onClick= { this.set_staff}> Hacer Staff</button>&nbsp;&nbsp;
+                            <button type="submit" className="btn btn-danger" onClick= { this.remove_staff}> Eliminar de Staff</button>&nbsp;&nbsp;
+                            </div>
 
                         <br/>
-                        <UserStaff/>
                     </div> 
                 </div>
                 </div>
