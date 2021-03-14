@@ -4,8 +4,9 @@ import Derechos from './Derechos'
 import axios from 'axios';
 import NotAuth from './NotAuth';
 import UserStaff from './UserStaff'
+import { toast } from 'react-toastify'
 
-
+toast.configure()
 
 export default class CrearHorario extends Component {
 
@@ -25,6 +26,13 @@ export default class CrearHorario extends Component {
 
         const payload = username
 
+        const notify = (e) => {
+            toast.info(e, { position: toast.POSITION.TOP_CENTER })
+          }
+
+        const err = (e) => {
+            toast.error(e, { position: toast.POSITION.TOP_CENTER })
+          }
         var data = JSON.stringify(payload);
         console.log(data)
 
@@ -38,7 +46,22 @@ export default class CrearHorario extends Component {
         data: data
         };
 
-        await axios(config) //url: 'http://200.14.84.238:80/set_staff/',
+        await axios(config).then(response => {
+            if (response.status === 200) {
+              notify("Se ha modificado el usuario satisfactoriamente.")
+            } else {
+              err("No se ha podido modificar el usuario.")
+            }
+      
+          }).catch(function (error) {
+            if (error.response) {
+      
+              if (error.response.data.noUser){ err(`No User:  ${error.response.data.noUser[0]}`); }
+              if (error.response.data.notStaff) { err(`Not Staff:  ${error.response.data.notStaff[0]}`); }
+              if (error.response.data.unauthorized) { err(`Not Authorized:  ${error.response.data.unauthorized[0]}`);}
+              console.log(error.response.data);
+            }
+          });
     }
     remove_staff(username){
 
