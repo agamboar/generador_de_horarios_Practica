@@ -28,7 +28,12 @@ export default class RamoE extends Component {
             )
         }else{
             return (
-                <div/>
+                <div className = "card border-primary shadow-lg p-3 mb-5 bg-white"> 
+                    Nombre Usuario: ejemplo 
+                    <br/>
+                    Usuario Staff: false
+                    <button type="button" className="btn btn-success"  > Agregarlo a Staff</button>
+                </div>
             )
         }
     }
