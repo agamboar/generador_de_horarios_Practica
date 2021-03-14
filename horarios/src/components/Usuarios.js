@@ -112,7 +112,7 @@ export default class CrearHorario extends Component {
                 </div>
                 <div className = 'col'> </div>
                 </div>
-
+                {console.log(this.state.username2)}
                 <Derechos staff = {this.state.username2}/>
             </div>
             : <NotAuth/> }</div>
