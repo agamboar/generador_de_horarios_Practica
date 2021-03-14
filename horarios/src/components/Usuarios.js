@@ -19,10 +19,43 @@ export default class CrearHorario extends Component {
         })
     }
 
-    set_staff = async ()=>{
-         //axios(config) //url: 'http://200.14.84.238:80/set_staff/',
+    set_staff = async (username)=>{
+
+        const payload = username
+
+        var data = JSON.stringify(payload);
+        console.log(data)
+
+        var config = {
+        method: 'post',
+        url: 'http://200.14.84.238:80/set_staff/',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Token ' + localStorage.getItem("token")
+        },
+        data: data
+        };
+
+        await axios(config) //url: 'http://200.14.84.238:80/set_staff/',
     }
-    remove_staff(){
+    remove_staff(username){
+
+        const payload = username
+
+        var data = JSON.stringify(payload);
+        console.log(data)
+
+        var config = {
+        method: 'post',
+        url: 'http://200.14.84.238:80/remove_staff/',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Token ' + localStorage.getItem("token")
+        },
+        data: data
+        };
+
+        await axios(config)
           //axios(config) //url: 'http://200.14.84.238:80/remove_staff/',
     }
 
