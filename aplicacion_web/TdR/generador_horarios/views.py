@@ -543,7 +543,7 @@ def set_staff(request):
         print(request.data)
         if User.objects.get(id=current_user).is_staff:
             try:
-                aux_new_staff=User.objects.get(username=request.data.get("username"))
+                aux_new_staff=User.objects.get(username=request.data)
             except:
                 return JsonResponse({'noUser': 'Usuario ingresado no existe.'}, safe=False,status=status.HTTP_404_NOT_FOUND)
             if aux_new_staff.is_staff:
@@ -562,7 +562,7 @@ def remove_staff(request):
         print(request.data)
         if User.objects.get(id=current_user).is_staff:
             try:
-                aux_new_staff=User.objects.get(username=request.data.get("username"))
+                aux_new_staff=User.objects.get(username=request.data)
             except:
                 return JsonResponse({'noUser': 'Usuario ingresado no existe.'}, safe=False,status=status.HTTP_404_NOT_FOUND)
             if not aux_new_staff.is_staff:
