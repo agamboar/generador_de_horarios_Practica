@@ -20,8 +20,8 @@ export default class Navbar extends Component {
                     </svg>
                     Generador de Horarios
                 </a>
-                <ul class="nav">
-                    <li class="nav-item">
+                <ul className="nav">
+                    <li className="nav-item">
                         <a style={{ color: '#FFF' }} >Usuario: {localStorage.getItem("username")} </a>
                     </li>
                 </ul>
