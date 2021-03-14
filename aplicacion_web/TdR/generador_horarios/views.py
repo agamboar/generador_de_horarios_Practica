@@ -545,15 +545,15 @@ def set_staff(request):
             try:
                 aux_new_staff=User.objects.get(username=request.data.get("username"))
             except:
-                return JsonResponse({'error': 'Usuario ingresado no existe.'}, safe=False,status=status.HTTP_404_NOT_FOUND)
+                return JsonResponse({'noUser': 'Usuario ingresado no existe.'}, safe=False,status=status.HTTP_404_NOT_FOUND)
             if aux_new_staff.is_staff:
-                return JsonResponse({'error': 'El usuario ingresado ya es staff.'}, safe=False,status=status.HTTP_409_CONFLICT)
+                return JsonResponse({'isStaff': 'El usuario ingresado ya es staff.'}, safe=False,status=status.HTTP_409_CONFLICT)
             else:
                 aux_new_staff.is_staff = True
                 aux_new_staff.save()
                 return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False, status=status.HTTP_200_OK)
     else:
-        return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED)
+        return JsonResponse({'unauthorized': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED)
 
 @api_view(['POST'])
 def remove_staff(request):
@@ -564,15 +564,15 @@ def remove_staff(request):
             try:
                 aux_new_staff=User.objects.get(username=request.data.get("username"))
             except:
-                return JsonResponse({'error': 'Usuario ingresado no existe.'}, safe=False,status=status.HTTP_404_NOT_FOUND)
+                return JsonResponse({'noUser': 'Usuario ingresado no existe.'}, safe=False,status=status.HTTP_404_NOT_FOUND)
             if not aux_new_staff.is_staff:
-                return JsonResponse({'error': 'Usuario ingresado no es staff.'}, safe=False,status=status.HTTP_409_CONFLICT)
+                return JsonResponse({'notStaff': 'Usuario ingresado no es staff.'}, safe=False,status=status.HTTP_409_CONFLICT)
             else:
                 aux_new_staff.is_staff = False
                 aux_new_staff.save()
             return JsonResponse({'mensaje': 'Se ha modificado el usuario correctamente.'}, safe=False,status=status.HTTP_200_OK)
         else:
-            return JsonResponse({'error': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED) 
+            return JsonResponse({'unauthorized': 'No autorizado'}, safe=True, status=status.HTTP_401_UNAUTHORIZED) 
 
 @api_view(['GET'])
 def delete_asignaturas_cursadas(request):
