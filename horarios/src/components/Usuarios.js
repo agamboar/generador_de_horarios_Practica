@@ -61,11 +61,20 @@ export default class CrearHorario extends Component {
           //axios(config) //url: 'http://200.14.84.238:80/remove_staff/',
     }
 
-    onSubmit = e => {
+    onSubmit1 = e => {
         /*e.preventDefault();
         this.set_staff(this.state.username)*/
     }
-    onClick = e =>{
+    onSubmit2 = e => {
+        /*e.preventDefault();
+        this.remove_staff(this.state.username)*/
+    }
+    onClick1 = e =>{
+        /*e.preventDefault();
+        this.set_staff(this.state.username)*/
+    }
+    
+    onClick2 = e =>{
         /*e.preventDefault();
         this.remove_staff(this.state.username)*/
     }
@@ -91,7 +100,7 @@ export default class CrearHorario extends Component {
                         <h5>Hacer parte del staff a un usuario</h5>
                         <form onSubmit={this.onSubmit}>
                         
-                        <div className="form-group">
+                            <div className="form-group">
                                 <input
                                     type="Tel"
                                     name="username"
