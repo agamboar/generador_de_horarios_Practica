@@ -540,7 +540,7 @@ def get_asignaturas_cursadas(request):
 def set_staff(request):
     if request.method == "POST":
         current_user = request.user.id
-        print(request.data.get("username"))
+        print(request.data)
         if User.objects.get(id=current_user).is_staff:
             try:
                 aux_new_staff=User.objects.get(username=request.data.get("username"))
