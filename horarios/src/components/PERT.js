@@ -147,7 +147,7 @@ export default class PERT extends Component {
             } else {
                 return (
                     <div>
-                        <Navbar />
+                        
                         {/*aca deberia haber algo que diga que no se escogio una malla*/}
                         {this.state.malla === "empty"?
                             <div>
