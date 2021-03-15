@@ -516,7 +516,7 @@ def PERT_es1(request):
         serializer = nodoAsignaturaSerializer(ns, many=True)
         print(serializer.data)
     if serializer.data  == []:
-         return JsonResponse("no", safe=False, status=status.HTTP_406_NOT_ACCEPTABLE)
+         return JsonResponse("no", safe=False, status=status.HTTP_200_OK)
     else:
         return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
 
