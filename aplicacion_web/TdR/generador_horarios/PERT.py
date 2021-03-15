@@ -122,7 +122,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         # modificar ya que setea KK y SS y no toma en cuenta la asignacion de pesos hecha por el alumno
         r = nodo_asignatura(holgura=PERT.nodes[elem]["H"], ef=PERT.nodes[elem][
             "EF"], es=PERT.nodes[elem]["ES"], ls=PERT.nodes[elem]["LS"], lf=PERT.nodes[elem]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)
-        print(elem, PERT.nodes[elem]["H"], PERT.nodes[elem]["EF"], PERT.nodes[elem]["ES"],
+        #print(elem, PERT.nodes[elem]["H"], PERT.nodes[elem]["EF"], PERT.nodes[elem]["ES"],
               PERT.nodes[elem]["LS"], PERT.nodes[elem]["LF"], aux_critico, cc, uu, kk)
         r.save()
         n = nodo_asignatura.objects.get(id=r.id)
