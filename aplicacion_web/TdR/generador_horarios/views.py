@@ -313,7 +313,7 @@ def get_clique(request):
                 jsons ="n"
             print('uso el json')
 
-        # print(jsons)
+        print(jsons)
         return Response(jsons, status=status.HTTP_200_OK)
 
 
