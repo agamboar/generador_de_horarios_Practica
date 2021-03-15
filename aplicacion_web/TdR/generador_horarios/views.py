@@ -287,12 +287,15 @@ def get_clique(request):
                     solucion_alumno.json_solucion = elem
                     solucion_alumno.save()
 
+            try:                
                 for elem2 in elem:
 
                     nodoSeccion = nodo_seccion.objects.filter(
                         to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
 
                     solucion_alumno.to_nodo_seccion.add(nodoSeccion)
+            except:
+                 return Response("n", status=status.HTTP_200_OK)
 
             print('guardo el json')
         elif segundos > 30:
