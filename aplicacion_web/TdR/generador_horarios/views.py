@@ -309,7 +309,7 @@ def get_clique(request):
             jsons = []
             for elem in sol:
                 jsons.append(elem.json_solucion)
-            if jsons == []:
+            if jsons == ['n']:
                 jsons ="n"
             print('uso el json')
 
