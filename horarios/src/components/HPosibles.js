@@ -85,7 +85,7 @@ export default class HPosibles extends Component {
 
             }else {
 
-                if (this.state.Horarios === [] ){
+                if (this.state.Horarios === "no" ){
                     return(
                         <div>
                         <Navbar />
