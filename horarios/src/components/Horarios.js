@@ -6,7 +6,7 @@ class Horarios extends Component {
 
     render() {
         console.log(this.props.horarios  )
-        if (this.props.horarios == "no"){
+        if (this.props.horarios == "n"){
             return null
         }else{
             return this.props.horarios.map((solucion, index) => (solucion)? <Horario horario={solucion} key={index} index={index}/>:null)}
