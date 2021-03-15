@@ -283,8 +283,9 @@ def get_clique(request):
                             'to_user': user
                             }
                 solucion_alumno = solucion(is_horario=False, to_user=user)
-                solucion_alumno.json_solucion = elem
-                solucion_alumno.save()
+                if elem == "n":
+                    solucion_alumno.json_solucion = elem
+                    solucion_alumno.save()
 
                 for elem2 in elem:
 
