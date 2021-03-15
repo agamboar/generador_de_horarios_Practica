@@ -92,10 +92,11 @@ export default class HPosibles extends Component {
                         <div>
                         <Navbar />
                         <br />
-                                <div className="row row-cols-3">
+                                <div className="row row-cols-4">
                                     <div className="col">
                                         <h1 className="title text-primary text-center">Generador de horarios</h1>
                                     </div>
+                                    <div className="col"></div>
                                     <div className="col"></div>
                                     <div className="col"></div>
                                 </div>
