@@ -266,8 +266,7 @@ export default class PriorizarRamos extends Component {
           <div>
             <Navbar />
             
-            <br />
-            <br />
+            
             {console.log(this.state.ramos)}
             {(this.state.ramos === "no") ? 
               <div>

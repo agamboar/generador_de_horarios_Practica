@@ -7,7 +7,8 @@ import NotAuth from './NotAuth'
 export default class HPosibles extends Component {
     aux =()=>{
         //console.log("si")
-        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/crearHorario' }, 3000);
+        return(<Redirect to="/crearHorario" />)
+        //setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/crearHorario' }, 5000);
     } 
     state = {
         Horarios: null
@@ -92,7 +93,7 @@ export default class HPosibles extends Component {
                         <br />
                                 <div className="row row-cols-3">
                                     <div className="col">
-                                        <h1 className="title text-primary text-center">Ramos Críticos</h1>
+                                        <h1 className="title text-primary text-center">Generador de horarios</h1>
                                     </div>
                                     <div className="col"></div>
                                     <div className="col"></div>
