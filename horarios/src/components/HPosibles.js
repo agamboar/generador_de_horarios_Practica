@@ -9,7 +9,7 @@ export default class HPosibles extends Component {
     aux =()=>{
         //console.log("si")
         
-        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/crearHorario' }, 5000);
+        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT' }, 5000);
     } 
     state = {
         Horarios: null
@@ -90,7 +90,7 @@ export default class HPosibles extends Component {
                 if (this.state.Horarios === "n" ){
                     return(
                         <div>
-                        <Navbar />
+                        
                         <br />
                                 <div className="row row-cols-4">
                                     <div className="col">
@@ -107,7 +107,7 @@ export default class HPosibles extends Component {
                                 <br />
                                 <br />
                                 <div className="d-flex justify-content-center">
-                                    <h2 className="display-6">No has elegido ninguna malla</h2>
+                                    <h2 className="display-6">Te has saltado un paso</h2>
                                 </div>
                                 <div className="d-flex justify-content-center">
                                     <h4 className="display-6">Seras redirigido</h4>

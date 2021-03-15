@@ -126,7 +126,7 @@ export default class PriorizarRamos extends Component {
   }
 
   aux =()=>{
-    setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/crearHorario' }, 3000);
+    setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT' }, 3000);
 }  
   componentDidMount = async () => {
 
@@ -264,7 +264,7 @@ export default class PriorizarRamos extends Component {
       <div>
         {(localStorage.getItem("token")) ?
           <div>
-            <Navbar />
+            
             
             <br />
             <br />
@@ -286,7 +286,7 @@ export default class PriorizarRamos extends Component {
                                 <br />
                                 <br />
                                 <div className="d-flex justify-content-center">
-                                    <h2 className="display-6">No has elegido ninguna malla</h2>
+                                    <h2 className="display-6">Te has saltado un paso</h2>
                                 </div>
                                 <div className="d-flex justify-content-center">
                                     <h4 className="display-6">Seras redirigido</h4>
@@ -316,6 +316,7 @@ export default class PriorizarRamos extends Component {
             
             :
               <div> 
+                <Navbar />
             <p className="lead">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               Ahora deberas elegir que ramos prefieres asignarles una mayor prioridad en tu horario
