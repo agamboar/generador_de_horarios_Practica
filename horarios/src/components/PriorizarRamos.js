@@ -264,10 +264,6 @@ export default class PriorizarRamos extends Component {
       <div>
         {(localStorage.getItem("token")) ?
           <div>
-            
-            
-            <br />
-            <br />
             {console.log(this.state.ramos)}
             {(this.state.ramos === "no") ? 
               <div>
