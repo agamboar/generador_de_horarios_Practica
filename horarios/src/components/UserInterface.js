@@ -17,7 +17,7 @@ export default class UserInterface extends Component {
                         <br/>
                         <br/>
                         <br/>  
-                        <h1 className="title text-primary">BIENVENIDO/A AL GENERADOR DE HORARIOS</h1>
+                        <h1 className="title text-primary">BIENVENIDO/A AL ASISTENTE DE TOMA DE RAMOS</h1>
                         <br/>
                         <p className="lead">Que tengas una buena toma de ramos!!!</p>
                     </div> 
