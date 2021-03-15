@@ -30,6 +30,7 @@ export default class HPosibles extends Component {
 
     render() {
         if (localStorage.getItem("token")) {
+            console.log(this.state.Horarios)
             if (this.state.Horarios === null) {
                 return (
                     <div>
