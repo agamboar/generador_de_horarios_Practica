@@ -94,7 +94,7 @@ export default class HPosibles extends Component {
                         <br />
                                 <div className="row row-cols-4">
                                     <div className="col">
-                                        <h1 className="title text-primary text-center">Ramos Críticos</h1>
+                                        <h2 className="title text-primary text-center">Ramos Críticos</h2>
                                     </div>
                                     <div className="col"></div>
                                     <div className="col"></div>
