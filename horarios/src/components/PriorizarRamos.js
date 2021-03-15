@@ -269,7 +269,7 @@ export default class PriorizarRamos extends Component {
             <br />
             <br />
             {console.log(this.state.ramos)}
-            {(this.state.ramos === []) ? 
+            {(this.state.ramos === "no") ? 
               <div>
                                 <br />
                                 <div className="row row-cols-3">

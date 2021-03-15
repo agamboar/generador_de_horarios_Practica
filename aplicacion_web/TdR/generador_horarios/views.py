@@ -515,7 +515,10 @@ def PERT_es1(request):
         ns = nodo_asignatura.objects.filter(to_user=current_user, es=1)
         serializer = nodoAsignaturaSerializer(ns, many=True)
         print(serializer.data)
-    return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
+    if serializer.data  == []:
+         return JsonResponse("no", safe=False, status=status.HTTP_406_NOT_ACCEPTABLE)
+    else:
+        return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
