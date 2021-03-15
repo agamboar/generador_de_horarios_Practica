@@ -9,7 +9,7 @@ export default class HPosibles extends Component {
     aux =()=>{
         //console.log("si")
         
-        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT' }, 5000);
+        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT' }, 3000);
     } 
     state = {
         Horarios: null
