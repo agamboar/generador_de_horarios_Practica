@@ -283,7 +283,7 @@ def get_clique(request):
                             'to_user': user
                             }
                 solucion_alumno = solucion(is_horario=False, to_user=user)
-                if elem == "n":
+                if elem != "n":
                     solucion_alumno.json_solucion = elem
                     solucion_alumno.save()
 
@@ -311,7 +311,7 @@ def get_clique(request):
                 jsons.append(elem.json_solucion)
             if jsons == ['n']:
                 jsons ="n"
-            print('uso el json')
+            print('uso el json') # esto no va aca
 
         print(jsons)
         return Response(jsons, status=status.HTTP_200_OK)
