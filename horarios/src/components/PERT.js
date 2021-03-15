@@ -14,7 +14,7 @@ import { Redirect } from 'react-router';
 export default class PERT extends Component {
 
     aux =()=>{
-        console.log("si")
+        //console.log("si")
         setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/crearHorario' }, 3000);
     }    
     state = {

@@ -125,7 +125,9 @@ export default class PriorizarRamos extends Component {
     //setTimeout(function () { window.location.href = 'http://200.14.84.238/users/usr/horariosPosibles'; }, 4500);
   }
 
-
+  aux =()=>{
+    setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/crearHorario' }, 3000);
+}  
   componentDidMount = async () => {
 
     var config = {
@@ -263,11 +265,57 @@ export default class PriorizarRamos extends Component {
         {(localStorage.getItem("token")) ?
           <div>
             <Navbar />
-
+            
             <br />
             <br />
 
+            {this.state.ramos == [] ? 
+              <div>
+                                <br />
+                                <div className="row row-cols-3">
+                                    <div className="col">
+                                        <h1 className="title text-primary text-center">Priorizar Ranis</h1>
+                                    </div>
+                                    <div className="col"></div>
+                                    <div className="col"></div>
+                                </div>
 
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <div className="d-flex justify-content-center">
+                                    <h2 className="display-6">No has elegido ninguna malla</h2>
+                                </div>
+                                <div className="d-flex justify-content-center">
+                                    <h4 className="display-6">Seras redirigido</h4>
+                                    {this.aux()}
+                                </div>
+                                <br />
+                                <br />
+                                <div className="d-flex justify-content-center">
+
+                                    <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-border text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                </div>
+                                <br />
+                                <br />
+                                <br />
+                            </div>
+
+            
+            :
+              <div> 
             <p className="lead">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               Ahora deberas elegir que ramos prefieres asignarles una mayor prioridad en tu horario
@@ -302,7 +350,7 @@ export default class PriorizarRamos extends Component {
             <br />
             <br />
             <br />
-
+            </div>}
           </div>
           : <NotAuth />}
       </div>
