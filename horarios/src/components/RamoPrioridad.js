@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 
 export default class RamoPrioridad extends Component {
     render() {
+      console.log("sda")
       console.log(this.props)
       if(this.props.ramo !== null){
         return (
