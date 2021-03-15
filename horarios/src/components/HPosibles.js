@@ -5,7 +5,10 @@ import axios from 'axios';
 import NotAuth from './NotAuth'
 
 export default class HPosibles extends Component {
-
+    aux =()=>{
+        //console.log("si")
+        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/crearHorario' }, 3000);
+    } 
     state = {
         Horarios: null
     }
@@ -82,6 +85,53 @@ export default class HPosibles extends Component {
 
             }else {
 
+                if (this.state.Horarios === [] ){
+                    return(
+                        <div>
+                        <Navbar />
+                        <br />
+                                <div className="row row-cols-3">
+                                    <div className="col">
+                                        <h1 className="title text-primary text-center">Ramos Críticos</h1>
+                                    </div>
+                                    <div className="col"></div>
+                                    <div className="col"></div>
+                                </div>
+
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <div className="d-flex justify-content-center">
+                                    <h2 className="display-6">No has elegido ninguna malla</h2>
+                                </div>
+                                <div className="d-flex justify-content-center">
+                                    <h4 className="display-6">Seras redirigido</h4>
+                                    {this.aux()}
+                                </div>
+                                <br />
+                                <br />
+                                <div className="d-flex justify-content-center">
+
+                                    <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-border text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div className="spinner-grow text-primary" role="status" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                </div>
+                                <br />
+                                <br />
+                                <br />
+                        </div>
+                    )
+                }
 
                 return (
                     <div>

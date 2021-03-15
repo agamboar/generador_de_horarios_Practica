@@ -274,7 +274,7 @@ export default class PriorizarRamos extends Component {
                                 <br />
                                 <div className="row row-cols-3">
                                     <div className="col">
-                                        <h1 className="title text-primary text-center">Priorizar Ranis</h1>
+                                        <h1 className="title text-primary text-center">Priorizar Ramos</h1>
                                     </div>
                                     <div className="col"></div>
                                     <div className="col"></div>
