@@ -93,7 +93,7 @@ export default class HPosibles extends Component {
                         
                         <br />
                                 <div className="row row-cols-4">
-                                    <div className="col">
+                                    <div className="col-6">
                                         <h2 className="title text-primary text-center">Generador de Horarios</h2>
                                     </div>
                                     <div className="col"></div>
