@@ -32,7 +32,7 @@ export default class RamoPrioridad extends Component {
         )
       }else{
         return (
-          <div></div>
+          <div>rrr</div>
         )
       }
     }
