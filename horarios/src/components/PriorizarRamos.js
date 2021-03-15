@@ -268,7 +268,7 @@ export default class PriorizarRamos extends Component {
             
             <br />
             <br />
-
+            {console.log(this.state.ramos)}
             {this.state.ramos == [] ? 
               <div>
                                 <br />
