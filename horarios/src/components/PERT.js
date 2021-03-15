@@ -153,7 +153,7 @@ export default class PERT extends Component {
                             <div>
                                 <br />
                                 <div className="row row-cols-3">
-                                    <div className="col">
+                                    <div className="col-6">
                                         <h1 className="title text-primary text-center">Ramos Críticos</h1>
                                     </div>
                                     <div className="col"></div>
