@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Horarios from './Horarios'
 import axios from 'axios';
 import NotAuth from './NotAuth'
+import { Redirect } from 'react-router';
 
 export default class HPosibles extends Component {
     aux =()=>{
