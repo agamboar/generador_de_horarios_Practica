@@ -289,11 +289,11 @@ export default class AvanceManual2018 extends Component {
                         <div className="col"> </div>
                         <div className="col"> </div>
                         <div className="col"> </div>
-                        <ARamo codigo={"CIT6001"} ramo={"Practia I"} show={this.state.CIT6001} onChange1={this.onChangePR1} />
+                        <ARamo codigo={"CIT6001"} ramo={"Práctia I"} show={this.state.CIT6001} onChange1={this.onChangePR1} />
                         <div className="col"> </div>
                         <div className="col"> </div>
                         <div className="col"> </div>
-                        <ARamo codigo={"CIT6002"} ramo={"Practica II"} show={this.state.CIT6002} onChange1={this.onChangePR2} />
+                        <ARamo codigo={"CIT6002"} ramo={"Práctica II"} show={this.state.CIT6002} onChange1={this.onChangePR2} />
                         <div className="col"> </div>
 
                     </div>
