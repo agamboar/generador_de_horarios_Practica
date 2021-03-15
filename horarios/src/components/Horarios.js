@@ -5,7 +5,7 @@ import Horario from './Horario.js';
 class Horarios extends Component {
 
     render() {
-
+        console.log(this.props.horarios  )
         if (this.props.horarios == "no"){
             return null
         }else{
