@@ -69,7 +69,7 @@ FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost','200.14.84.238','asistente-eit.udp.cl']
-CSRF_TRUSTED_ORIGINS = ['127.0.0.1', 'localhost', "http://200.14.84.238:80/"]
+CSRF_TRUSTED_ORIGINS = ['127.0.0.1', 'localhost', 'http://200.14.84.238:80/']
 
 
 MIDDLEWARE = [
@@ -198,6 +198,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/static'
 
 # super usuario admin: tdr
 # password: tdr2021
