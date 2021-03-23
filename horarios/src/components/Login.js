@@ -71,7 +71,7 @@ export default class GoogleSocialAuth extends Component {
 
             var config = {
                 method: 'get',
-                url: '127.0.0.1/is_staff/',
+                url: '/is_staff/',
                 headers: {
                     'Authorization': 'Token ' + localStorage.getItem("token"),
                     'Content-Type': 'application/json'

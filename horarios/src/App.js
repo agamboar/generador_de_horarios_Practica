@@ -46,14 +46,15 @@ import Cookies from 'js-cookie';
 let _csrfToken = null;
 async function getCsrfToken() {
     if (_csrfToken === null) {
-        const response = await fetch(`/csrf/`, {
+        const response = await fetch('/csrf/', {
             credentials: 'include',
-        }).then(response=>{Cookies.set('csrftoken', response.data.csrfToken, { path: '/' }) });
-      
-        
+        });
+        const data = await response.json();
+        _csrfToken = data.csrfToken;
     }
+    return _csrfToken;
 }
-
+getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '/' }))
 
 getCsrfToken()
 console.log(Cookies.get('csrftoken'))
