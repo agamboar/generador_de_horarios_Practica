@@ -12,7 +12,7 @@ export default class HPosibles extends Component {
         setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT' }, 3000);
     } 
     state = {
-        Horarios: []
+        Horarios: ["test"]
     }
 
     componentDidMount = async () => {
