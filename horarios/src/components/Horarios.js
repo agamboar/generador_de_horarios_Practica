@@ -9,9 +9,11 @@ class Horarios extends Component {
         console.log(this.props.horarios  )
         if (this.props.horarios == "n"){
             setTimeout(function () { return( <Redirect to="/users/usr/PERT" />)}, 5000);
-        }else {
+        }else if  (this.props.horarios !=null) {
             console.log(this.props.horarios)
             return this.props.horarios.map((solucion, index) => (solucion)? <Horario horario={solucion} key={index} index={index}/>:<div></div>)
+        }else{
+            return <div></div>
         }
 
         

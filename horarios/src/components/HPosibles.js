@@ -12,7 +12,7 @@ export default class HPosibles extends Component {
         setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT' }, 3000);
     } 
     state = {
-        Horarios: ["test"]
+        Horarios: null
     }
 
     componentDidMount = async () => {
@@ -83,9 +83,8 @@ export default class HPosibles extends Component {
                     </div>
                 )
 
-            }else {
+            }else  if (this.state.Horarios === "n" ) {
 
-                if (this.state.Horarios === "n" ){
                     return(
                         <div>
                         
@@ -141,7 +140,7 @@ export default class HPosibles extends Component {
                         <br />
                         <br />
 
-
+                        {console.log(this.state.Horarios)}
                         <p className="lead">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             A continuación veras los horarios que te recomendamos tomar para tu semestre actual, esperamos haberte ayudado!
@@ -161,7 +160,7 @@ export default class HPosibles extends Component {
                     </div>
                 )
             }
-        }
+        
         } else {
             return (<NotAuth />)
         }
