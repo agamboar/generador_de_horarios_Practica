@@ -24,6 +24,7 @@
     "zepto-browserify": "^1.1.6-1"
   },
   "scripts": {
+    "relocate": "react-scripts build && rm -rf ../backend/build && mv -f build ../generador_horarios",
     "start": "PORT=80 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

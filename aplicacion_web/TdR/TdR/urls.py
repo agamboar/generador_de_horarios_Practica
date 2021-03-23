@@ -14,10 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from generador_horarios import views
 from generador_horarios.views import GoogleLogin
+from django.shortcuts import render
 
+def render_react(request):
+    return render(request, "index.html")
 
 urlpatterns = [
 
@@ -46,4 +49,6 @@ urlpatterns = [
     path('set_staff/', views.set_staff),
     path('remove_staff/', views.remove_staff),
     path('delete_asignaturasCursadas/', views.delete_asignaturas_cursadas),
+    re_path(r"^$", render_react),
+    re_path(r"^(?:.*)/?$", render_react),
 ]
