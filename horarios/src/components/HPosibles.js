@@ -12,7 +12,7 @@ export default class HPosibles extends Component {
         setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT' }, 3000);
     } 
     state = {
-        Horarios: null
+        Horarios: []
     }
 
     componentDidMount = async () => {
@@ -26,11 +26,9 @@ export default class HPosibles extends Component {
             }
         };
 
-        var horarios_posibles = await axios(config)
-
-        this.setState({
-            Horarios: horarios_posibles.data
-        })
+        await axios(config).then(response => { this.setState({Horarios: response.data})})
+        
+       
     }
 
     render() {
