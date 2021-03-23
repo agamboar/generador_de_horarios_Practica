@@ -132,7 +132,7 @@ export default class HPosibles extends Component {
                                 <br />
                         </div>
                     )
-                }
+                }else{
 
                 return (
                     <div>
@@ -161,6 +161,7 @@ export default class HPosibles extends Component {
                     </div>
                 )
             }
+        }
         } else {
             return (<NotAuth />)
         }
