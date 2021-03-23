@@ -26,7 +26,7 @@ export default class HPosibles extends Component {
             }
         };
 
-        await axios(config).then(response => { this.setState({Horarios: response.data})})
+       axios(config).then(response => { this.setState({Horarios: response.data})})
         
        
     }
