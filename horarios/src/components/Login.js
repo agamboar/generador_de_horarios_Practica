@@ -52,7 +52,7 @@ export default class GoogleSocialAuth extends Component {
         //console.log(data)
         var config = {
             method: 'post',
-            url: 'http://200.14.84.238:80/dj-rest-auth/login/',
+            url: '127.0.0.1/dj-rest-auth/login/',
             data: data
         };
 
@@ -71,7 +71,7 @@ export default class GoogleSocialAuth extends Component {
 
             var config = {
                 method: 'get',
-                url: 'http://200.14.84.238:80/is_staff/',
+                url: '127.0.0.1/is_staff/',
                 headers: {
                     'Authorization': 'Token ' + localStorage.getItem("token"),
                     'Content-Type': 'application/json'
