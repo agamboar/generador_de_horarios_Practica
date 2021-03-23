@@ -52,7 +52,7 @@ export default class GoogleSocialAuth extends Component {
         //console.log(data)
         var config = {
             method: 'post',
-            url: '127.0.0.1/dj-rest-auth/login/',
+            url: '/dj-rest-auth/login/',
             data: data
         };
 
