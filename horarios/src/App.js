@@ -56,8 +56,7 @@ async function getCsrfToken() {
 }
 getCsrfToken().then(val => Cookies.set('csrftoken', val, { path: '/' }))
 
-getCsrfToken()
-console.log(Cookies.get('csrftoken'))
+
 
 function App() {
   return (
