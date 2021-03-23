@@ -42,11 +42,11 @@ import PriorizarSecciones from './components/PriorizarSecciones'
 import Cookies from 'js-cookie';
 
 
-const API_HOST = '127.0.0.1';
+//const API_HOST = '127.0.0.1';
 let _csrfToken = null;
 async function getCsrfToken() {
     if (_csrfToken === null) {
-        const response = await fetch(`${API_HOST}/csrf/`, {
+        const response = await fetch(`/csrf/`, {
             credentials: 'include',
         }).then(response=>{Cookies.set('csrftoken', response.data.csrfToken, { path: '/' }) });
       
