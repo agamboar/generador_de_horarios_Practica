@@ -160,8 +160,8 @@ export default class GoogleSocialAuth extends Component {
                             </div>
 
                             <button type="submit" className="btn btn-outline-primary rounded-pill"> Ingresar</button>
-                        </form>
-                        <div className="App">
+
+                            <div className="App">
                             <h1> Ingresa con Gmail </h1>
 
                             <GoogleLogin
@@ -174,6 +174,8 @@ export default class GoogleSocialAuth extends Component {
                             />
 
                         </div>
+                        </form>
+
                         <p className="lead align-self-center"> o </p>
 
                         <br />
