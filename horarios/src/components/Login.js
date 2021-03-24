@@ -85,7 +85,7 @@ export default class GoogleSocialAuth extends Component {
             }).catch(function (error) {
                 if (error.response) {
                     if (error.response.data.error) { console.log("fallo") }
-    
+                    window.location.href = '/users/usr'
                 }
             });
             window.location.href = '/users/usr'
