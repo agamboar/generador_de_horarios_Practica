@@ -497,17 +497,16 @@ def csrf(request):
 #@api_view(['GET'])
 def is_staff(request):
 
-    if request.method == "GET":
 
-        current_user = request.user
-        aux_id = 16#current_user.id
-        aux_user = User.objects.get(id=aux_id)
-        aux_staff = aux_user.is_staff
-        aux_username = aux_user.username
-        if aux_staff == True:
-            aux_staff = "si"
-        else:
-            aux_staff = "no"
+    current_user = request.user
+    aux_id = 16#current_user.id
+    aux_user = User.objects.get(id=aux_id)
+    aux_staff = aux_user.is_staff
+    aux_username = aux_user.username
+    if aux_staff == True:
+        aux_staff = "si"
+    else:
+        aux_staff = "no"
 
     return JsonResponse({'is_staff': aux_staff, 'id': aux_id, "username":aux_username })
 
