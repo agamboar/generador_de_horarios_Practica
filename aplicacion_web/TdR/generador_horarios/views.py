@@ -354,19 +354,19 @@ def asignar_kk(request):
 def asignar_ss(request):
     if request.method == "POST":
 
-    json_data = request.data
+        json_data = request.data
 
-    for aux in json_data:
+        for aux in json_data:
 
-        nodo = nodo_seccion.objects.get(id=aux['id'])
+            nodo = nodo_seccion.objects.get(id=aux['id'])
 
-        serializer = nodoSeccionSerializer(
-            nodo, data={'ss': aux['ss']}, partial=True)
+            serializer = nodoSeccionSerializer(
+                nodo, data={'ss': aux['ss']}, partial=True)
 
-        if serializer.is_valid():
-            serializer.save()
+            if serializer.is_valid():
+                serializer.save()
 
-    return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
+        return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
 
 @api_view(['POST'])
