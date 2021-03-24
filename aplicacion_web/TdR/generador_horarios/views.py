@@ -499,6 +499,8 @@ def is_staff(request):
 
 
     current_user = request.user
+    print(current_user)
+    print("prueba")
     print(current_user.id)
     aux_id = 16#current_user.id
     aux_user = User.objects.get(id=aux_id)
