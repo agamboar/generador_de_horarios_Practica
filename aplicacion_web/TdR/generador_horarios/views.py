@@ -371,7 +371,7 @@ def asignar_ss(request):
 
 #@api_view(['POST'])
 def mi_malla_manual(request):
-    return request.POST.get('data','')
+    return request.POST
     #if request.method == "POST":
     current_user = request.user.id
     user = User.objects.get(id=current_user)
