@@ -63,7 +63,7 @@ export default class AvanceManual extends Component {
 
         var config = {
             method: 'post',
-            url: 'mimallamanual/',
+            url: 'https://asistente-eit.udp.cl/mimallamanual/',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Token ' + localStorage.getItem("token")
