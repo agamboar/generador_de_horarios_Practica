@@ -371,92 +371,92 @@ def asignar_ss(request):
 
 @api_view(['POST'])
 def mi_malla_manual(request):
-    return request.POST["data"]
-    #if request.method == "POST":
-    current_user = request.user.id
-    user = User.objects.get(id=current_user)
+    
+    if request.method == "POST":
+        current_user = request.user.id
+        user = User.objects.get(id=current_user)
 
-    json_data = request.data
-    cfg_count = 0
-    einf_count = 0
-    etele_count = 0
-    today = date.today()
-    codigos_aprobados = []
-    malla = json_data['malla']
-    semestre = []
+        json_data = request.data
+        cfg_count = 0
+        einf_count = 0
+        etele_count = 0
+        today = date.today()
+        codigos_aprobados = []
+        malla = json_data['malla']
+        semestre = []
 
-    if 1 <= today.month <= 6:
-        s = str(today.year)+'-1'
-        semestre.append(s)
-    elif 7 <= today.month <= 12:
-        s = str(today.year)+'-2'
-        semestre.append(s)
+        if 1 <= today.month <= 6:
+            s = str(today.year)+'-1'
+            semestre.append(s)
+        elif 7 <= today.month <= 12:
+            s = str(today.year)+'-2'
+            semestre.append(s)
 
-    for elem in json_data:
+        for elem in json_data:
 
-        if 'CFG' in elem and json_data[elem] == True:
-            cfg_count += 1
-        elif 'CIT33' in elem and json_data[elem] == True:
-            einf_count += 1
-        elif 'CIT34' in elem and json_data[elem] == True:
-            etele_count += 1
+            if 'CFG' in elem and json_data[elem] == True:
+                cfg_count += 1
+            elif 'CIT33' in elem and json_data[elem] == True:
+                einf_count += 1
+            elif 'CIT34' in elem and json_data[elem] == True:
+                etele_count += 1
 
-        if json_data[elem] == True:
-            count_pre_req = 0
-            pre_req = asignatura_real.objects.get(
-                codigo=elem).prerrequisito.all().values_list('codigo', flat=True)
+            if json_data[elem] == True:
+                count_pre_req = 0
+                pre_req = asignatura_real.objects.get(
+                    codigo=elem).prerrequisito.all().values_list('codigo', flat=True)
 
-            for i in pre_req:
-                try:
-                    if json_data[i] == True:
-                        count_pre_req += 1
-                except:
-                    break
-            if count_pre_req == len(pre_req):
-                codigos_aprobados.append(elem)
-            else:
-                return JsonResponse({
-                    'error': 'Comprueba que los datos ingresados sean válidos.'
-                }, safe=True, status=status.HTTP_409_CONFLICT)
+                for i in pre_req:
+                    try:
+                        if json_data[i] == True:
+                            count_pre_req += 1
+                    except:
+                        break
+                if count_pre_req == len(pre_req):
+                    codigos_aprobados.append(elem)
+                else:
+                    return JsonResponse({
+                        'error': 'Comprueba que los datos ingresados sean válidos.'
+                    }, safe=True, status=status.HTTP_409_CONFLICT)
 
-    try:
-        asignatura_cursada.objects.filter(to_User=current_user).delete()
-        nodo_asignatura.objects.filter(to_user=current_user).delete()
-        nodo_seccion.objects.filter(
-            to_nodo_asignatura__to_user=current_user).delete()
-        solucion.objects.filter(to_user=current_user).delete()
-    except:
-        pass
+        try:
+            asignatura_cursada.objects.filter(to_User=current_user).delete()
+            nodo_asignatura.objects.filter(to_user=current_user).delete()
+            nodo_seccion.objects.filter(
+                to_nodo_asignatura__to_user=current_user).delete()
+            solucion.objects.filter(to_user=current_user).delete()
+        except:
+            pass
 
-    counters = {'semestre': semestre,
-                'cfg_count': cfg_count,
-                'einf_count': einf_count,
-                'etele_count': etele_count,
-                'to_user': user,
-                'agno_malla': malla
-                }
+        counters = {'semestre': semestre,
+                    'cfg_count': cfg_count,
+                    'einf_count': einf_count,
+                    'etele_count': etele_count,
+                    'to_user': user,
+                    'agno_malla': malla
+                    }
 
-    av, created = avance_academico.objects.update_or_create(
-        semestre=semestre, to_user=user,
-        defaults=counters)
+        av, created = avance_academico.objects.update_or_create(
+            semestre=semestre, to_user=user,
+            defaults=counters)
 
-    avance = avance_academico.objects.get(
-        semestre=semestre, to_user=user)
+        avance = avance_academico.objects.get(
+            semestre=semestre, to_user=user)
 
-    for elem in codigos_aprobados:
+        for elem in codigos_aprobados:
 
-        asignatura = asignatura_real.objects.get(codigo=elem)
+            asignatura = asignatura_real.objects.get(codigo=elem)
 
-        a = asignatura_cursada(
-            codigo=elem, to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
-        a.save()
+            a = asignatura_cursada(
+                codigo=elem, to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
+            a.save()
 
-    avance_academico_user = avance_academico.objects.get(
-        to_user_id=current_user)
-    avance_academico_user.json_avance = {}
-    avance_academico_user.save()
+        avance_academico_user = avance_academico.objects.get(
+            to_user_id=current_user)
+        avance_academico_user.json_avance = {}
+        avance_academico_user.save()
 
-    return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
+        return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
 
 #@api_view(['GET'])
