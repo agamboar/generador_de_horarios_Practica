@@ -102,6 +102,7 @@ export default class GoogleSocialAuth extends Component {
     }
 
     render() {
+
         const googleResponse = async (response) => {
             let responseGoogle = await googleLogin(response.accessToken)
             console.log(responseGoogle);
@@ -146,7 +147,7 @@ export default class GoogleSocialAuth extends Component {
                                     <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
                                 </svg>
                 Password
-                </h5>
+                            </h5>
                             <div className="form-group">
                                 <input
                                     type="password"
@@ -158,12 +159,11 @@ export default class GoogleSocialAuth extends Component {
                                 />
                             </div>
 
-                            <button type="submit" className="btn btn-outline-primary rounded-pill"> Ingresar
-                        </button>
+                            <button type="submit" className="btn btn-outline-primary rounded-pill"> Ingresar</button>
                         </form>
                         <p className="lead align-self-center"> o </p>
                         <div className="App">
-                            <h1> Login con Google </h1>
+                            <h1> Ingresa con Gmail </h1>
 
                             <GoogleLogin
                                 clientId="822886799677-jgmhd4dtp3v0jqqleaj04k832uv14sb8.apps.googleusercontent.com"
@@ -171,7 +171,7 @@ export default class GoogleSocialAuth extends Component {
                                 onSuccess={googleResponse}
                                 onFailure={googleResponse}
                                 uxMode='redirect'
-                                redirectUri='http://localhost:3000/users/usr/'
+                                redirectUri='https://asistente-eit.udp.cl/users/usr/'
                             />
 
                         </div>
