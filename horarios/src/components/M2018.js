@@ -11,7 +11,7 @@ export default class M2018 extends Component {
         var axios = require('axios');
         var config = {
             method: 'get',
-            url: 'http://200.14.84.238:80/delete_asignaturasCursadas/', 
+            url: '/delete_asignaturasCursadas/', 
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'

@@ -112,7 +112,7 @@ export default class PriorizarRamos extends Component {
 
     var config = {
       method: 'post',
-      url: 'http://200.14.84.238:80/kk/',
+      url: '/kk/',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Token ' + localStorage.getItem("token")
@@ -126,13 +126,13 @@ export default class PriorizarRamos extends Component {
   }
 
   aux =()=>{
-    setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT' }, 3000);
+    setTimeout(function () { window.location.href = '/users/usr/PERT' }, 3000);
 }  
   componentDidMount = async () => {
 
     var config = {
       method: 'get',
-      url: 'http://200.14.84.238:80/PERT_es1/',
+      url: '/PERT_es1/',
       headers: {
         'Authorization': 'Token ' + localStorage.getItem("token"), //cambiar a localStorage
         'Content-Type': 'application/json'

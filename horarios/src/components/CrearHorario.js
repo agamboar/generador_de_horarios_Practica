@@ -34,7 +34,7 @@ export default class CrearHorario extends Component {
         console.log(this.state.selectedFile)
         data.append('file', this.state.selectedFile)
         data.append('id', localStorage.getItem('id'))
-        axios.post("http://200.14.84.238:80/ramosaprobados/", data).then(res => {
+        axios.post("/ramosaprobados/", data).then(res => {
             console.log(res.statusText)
         })
         setTimeout(function () { notify("Seras redirigido para calcular tus ramos críticos"); }, 1000);

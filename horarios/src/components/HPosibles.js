@@ -9,7 +9,7 @@ export default class HPosibles extends Component {
     aux =()=>{
         //console.log("si")
         
-        setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT' }, 3000);
+        setTimeout(function () { window.location.href = 'users/usr/PERT' }, 3000);
     } 
     state = {
         Horarios: null
@@ -19,7 +19,7 @@ export default class HPosibles extends Component {
 
         var config = {
             method: 'get',
-            url: 'http://200.14.84.238:80/clique',
+            url: '/clique/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"),
                 'Content-Type': 'application/json'
