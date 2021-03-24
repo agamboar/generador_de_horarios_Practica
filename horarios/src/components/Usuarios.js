@@ -36,7 +36,7 @@ export default class CrearHorario extends Component {
 
         var config = {
         method: 'post',
-        url: 'http://200.14.84.238:80/set_staff/',
+        url: '/set_staff/',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Token ' + localStorage.getItem("token")
@@ -78,7 +78,7 @@ export default class CrearHorario extends Component {
 
         var config = {
         method: 'post',
-        url: 'http://200.14.84.238:80/remove_staff/',
+        url: '/remove_staff/',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Token ' + localStorage.getItem("token")
