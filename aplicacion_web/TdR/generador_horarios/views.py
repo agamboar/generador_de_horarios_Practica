@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from django import forms
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
 
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
@@ -369,6 +370,7 @@ def asignar_ss(request):
 
 
 #@api_view(['POST'])
+@require_http_methods(["POST"])
 def mi_malla_manual(request):
 
     #if request.method == "POST":
