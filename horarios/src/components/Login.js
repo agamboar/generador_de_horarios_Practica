@@ -132,7 +132,7 @@ export default class GoogleSocialAuth extends Component {
                         <form onSubmit={this.onSubmit}>
                             <div className="form-group">
                                 <input
-                                    type="Tel"
+                                    type="text"
                                     name="user"
                                     className="form-control rounded-pill"
                                     placeholder="Ej: usuario"
