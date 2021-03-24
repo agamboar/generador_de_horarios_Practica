@@ -24,7 +24,7 @@ export default class AvanceManual extends Component {
 
         var config = {
             method: 'get',
-            url: '/asignaturasCursadas/',
+            url: 'https://asistente-eit.udp.cl/asignaturasCursadas/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'

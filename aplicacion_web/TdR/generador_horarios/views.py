@@ -369,7 +369,7 @@ def asignar_ss(request):
     return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
 
-#@api_view(['POST'])
+@api_view(['POST'])
 def mi_malla_manual(request):
 
     #if request.method == "POST":
