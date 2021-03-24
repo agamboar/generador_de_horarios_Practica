@@ -494,7 +494,7 @@ def csrf(request):
     return JsonResponse({'csrfToken': get_token(request)})
 
 
-#@api_view(['GET'])
+@api_view(['GET'])
 def is_staff(request):
 
 
