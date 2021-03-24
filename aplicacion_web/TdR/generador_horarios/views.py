@@ -369,7 +369,6 @@ def asignar_ss(request):
 
 
 #@api_view(['POST'])
-@csrf_exempt
 def mi_malla_manual(request):
 
     #if request.method == "POST":
