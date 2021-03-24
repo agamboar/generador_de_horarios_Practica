@@ -371,7 +371,7 @@ def asignar_ss(request):
 
 @csrf_exempt
 def mi_malla_manual(request):
-    return JsonResponse(request, safe=False, status=status.HTTP_201_CREATED)
+    return JsonResponse({'info': request)
     #if request.method == "POST":
     print(request)
     current_user = request.user.id
