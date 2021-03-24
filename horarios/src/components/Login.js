@@ -160,8 +160,9 @@ export default class GoogleSocialAuth extends Component {
                             </div>
 
                             <button type="submit" className="btn btn-outline-primary rounded-pill"> Ingresar</button>
-
-                            <div className="App">
+                        </form>
+                        <p className="lead align-self-center"> o </p>
+                        <div className="App">
                             <h1> Ingresa con Gmail </h1>
 
                             <GoogleLogin
@@ -174,10 +175,6 @@ export default class GoogleSocialAuth extends Component {
                             />
 
                         </div>
-                        </form>
-
-                        <p className="lead align-self-center"> o </p>
-
                         <br />
                         <div className=" align-self-end">
                             <Link className="nav-link" to={{ pathname: '/Registro' }} >Registrarse </Link>
