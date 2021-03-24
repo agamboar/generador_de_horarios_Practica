@@ -105,7 +105,7 @@ export default class GoogleSocialAuth extends Component {
 
         const googleResponse = async (response) => {
             let responseGoogle = await googleLogin(response.accessToken)
-            console.log(responseGoogle);
+            console.log(responseGoogle)
             sessionStorage.setItem('token', response.accessToken)
             sessionStorage.setItem('key', responseGoogle.key)
             console.log(responseGoogle.data)
@@ -161,7 +161,6 @@ export default class GoogleSocialAuth extends Component {
 
                             <button type="submit" className="btn btn-outline-primary rounded-pill"> Ingresar</button>
                         </form>
-                        <p className="lead align-self-center"> o </p>
                         <div className="App">
                             <h1> Ingresa con Gmail </h1>
 
@@ -175,6 +174,8 @@ export default class GoogleSocialAuth extends Component {
                             />
 
                         </div>
+                        <p className="lead align-self-center"> o </p>
+
                         <br />
                         <div className=" align-self-end">
                             <Link className="nav-link" to={{ pathname: '/Registro' }} >Registrarse </Link>
