@@ -494,14 +494,14 @@ def csrf(request):
     return JsonResponse({'csrfToken': get_token(request)})
 
 
-@api_view(['GET'])
+#@api_view(['GET'])
 def is_staff(request):
 
     if request.method == "GET":
 
         current_user = request.user
         aux_id = current_user.id
-        aux_user = User.objects.get(id=current_user.id)
+        aux_user = User.objects.get(id=16)
         aux_staff = aux_user.is_staff
         aux_username = aux_user.username
         if aux_staff == True:
