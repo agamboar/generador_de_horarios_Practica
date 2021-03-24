@@ -52,7 +52,7 @@ export default class GoogleSocialAuth extends Component {
         //console.log(data)
         var config = {
             method: 'post',
-            url: 'dj-rest-auth/login/',
+            url: '/dj-rest-auth/login/',
             data: data
         };
 
@@ -71,7 +71,7 @@ export default class GoogleSocialAuth extends Component {
 
             var config = {
                 method: 'get',
-                url: 'is_staff/',
+                url: '127.0.0.1/is_staff/',
                 headers: {
                     'Authorization': 'Token ' + localStorage.getItem("token"),
                     'Content-Type': 'application/json'
@@ -82,12 +82,7 @@ export default class GoogleSocialAuth extends Component {
                 localStorage.setItem('is_staff', response.data.is_staff)
                 localStorage.setItem('id', response.data.id)
                 localStorage.setItem('username', response.data.username)
-            }).catch(function (error) {
-                if (error.response) {
-                    if (error.response.data.error) { console.log("fallo") }
-                    window.location.href = '/users/usr'
-                }
-            });
+            })
             window.location.href = '/users/usr'
         }
 
@@ -107,13 +102,13 @@ export default class GoogleSocialAuth extends Component {
     }
 
     render() {
-        const googleResponse = async (response) => {
+        /*const googleResponse = async (response) => {
             let responseGoogle = await googleLogin(response.accessToken)
             console.log(responseGoogle);
             sessionStorage.setItem('token', response.accessToken)
             sessionStorage.setItem('key', responseGoogle.key)
             console.log(responseGoogle.data)
-        }
+        }*/
 
         if (!localStorage.getItem("token")) {
             return (
@@ -166,8 +161,8 @@ export default class GoogleSocialAuth extends Component {
                             <button type="submit" className="btn btn-outline-primary rounded-pill"> Ingresar
                         </button>
                         </form>
-                        <p className="lead align-self-center"> o </p>
-                        <div className="App">
+                        {/*<p className="lead align-self-center"> o </p>
+                    <div className="App">
                         <h1> Login con Google </h1>
 
                          <GoogleLogin
@@ -179,7 +174,7 @@ export default class GoogleSocialAuth extends Component {
                             redirectUri='http://localhost:3000/users/usr/'
                         />
 
-                        </div>
+                    </div>*/}
                         <br />
                         <div className=" align-self-end">
                             <Link className="nav-link" to={{ pathname: '/Registro' }} >Registrarse </Link>
