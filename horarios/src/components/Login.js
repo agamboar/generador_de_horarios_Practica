@@ -52,7 +52,7 @@ export default class GoogleSocialAuth extends Component {
         //console.log(data)
         var config = {
             method: 'post',
-            url: '/dj-rest-auth/login/',
+            url: 'dj-rest-auth/login/',
             data: data
         };
 
@@ -71,7 +71,7 @@ export default class GoogleSocialAuth extends Component {
 
             var config = {
                 method: 'get',
-                url: '127.0.0.1/is_staff/',
+                url: 'is_staff/',
                 headers: {
                     'Authorization': 'Token ' + localStorage.getItem("token"),
                     'Content-Type': 'application/json'
@@ -82,7 +82,12 @@ export default class GoogleSocialAuth extends Component {
                 localStorage.setItem('is_staff', response.data.is_staff)
                 localStorage.setItem('id', response.data.id)
                 localStorage.setItem('username', response.data.username)
-            })
+            }).catch(function (error) {
+                if (error.response) {
+                    if (error.response.data.error) { console.log("fallo") }
+                    window.location.href = '/users/usr'
+                }
+            });
             window.location.href = '/users/usr'
         }
 

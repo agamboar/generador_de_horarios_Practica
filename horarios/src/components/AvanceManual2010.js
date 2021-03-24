@@ -24,7 +24,7 @@ export default class AvanceManual extends Component {
 
         var config = {
             method: 'get',
-            url: 'http://200.14.84.238:80/asignaturasCursadas/',
+            url: 'asignaturasCursadas/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ export default class AvanceManual extends Component {
 
         var config = {
             method: 'post',
-            url: 'http://200.14.84.238:80/mimallamanual/',
+            url: 'mimallamanual/',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Token ' + localStorage.getItem("token")

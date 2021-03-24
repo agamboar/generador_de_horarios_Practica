@@ -64,7 +64,7 @@ export default class AvanceManual2020 extends Component {
 
         var config = {
             method: 'post',
-            url: 'http://200.14.84.238:80/mimallamanual/',
+            url: 'mimallamanual/',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Token ' + localStorage.getItem("token")
