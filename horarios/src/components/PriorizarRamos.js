@@ -112,7 +112,7 @@ export default class PriorizarRamos extends Component {
 
     var config = {
       method: 'post',
-      url: '/kk/',
+      url: 'https://asistente-eit.udp.cl/kk/',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Token ' + localStorage.getItem("token")
@@ -122,7 +122,7 @@ export default class PriorizarRamos extends Component {
 
     await axios(config)
     setTimeout(function () { notify("Prioridadas guardadas. Ahora puedes obtener los horarios posibles."); }, 1000);
-    //setTimeout(function () { window.location.href = 'http://200.14.84.238/users/usr/horariosPosibles'; }, 4500);
+    //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/horariosPosibles'; }, 4500);
   }
 
   aux =()=>{
@@ -132,7 +132,7 @@ export default class PriorizarRamos extends Component {
 
     var config = {
       method: 'get',
-      url: '/PERT_es1/',
+      url: 'https://asistente-eit.udp.cl/PERT_es1/',
       headers: {
         'Authorization': 'Token ' + localStorage.getItem("token"), //cambiar a localStorage
         'Content-Type': 'application/json'

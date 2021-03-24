@@ -8,7 +8,7 @@ import googleLogin from "../services/googleLogin"
 
 
 /*
-const API_HOST = 'http://200.14.84.238:80';
+const API_HOST = 'https://asistente-eit.udp.cl/';
 let _csrfToken = null;
 async function getCsrfToken() {
     if (_csrfToken === null) {
@@ -52,7 +52,7 @@ export default class GoogleSocialAuth extends Component {
         //console.log(data)
         var config = {
             method: 'post',
-            url: '/dj-rest-auth/login/',
+            url: 'https://asistente-eit.udp.cl/dj-rest-auth/login/',
             data: data
         };
 
@@ -71,7 +71,7 @@ export default class GoogleSocialAuth extends Component {
 
             var config = {
                 method: 'get',
-                url: '/is_staff/',
+                url: 'https://asistente-eit.udp.cl/is_staff/',
                 headers: {
                     'Authorization': 'Token ' + localStorage.getItem("token"),
                     'Content-Type': 'application/json'

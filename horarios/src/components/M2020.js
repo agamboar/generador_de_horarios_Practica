@@ -11,7 +11,7 @@ export default class M2020 extends Component {
         var axios = require('axios');
         var config = {
             method: 'get',
-            url: '/delete_asignaturasCursadas/', 
+            url: 'https://asistente-eit.udp.cl/delete_asignaturasCursadas/', 
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'

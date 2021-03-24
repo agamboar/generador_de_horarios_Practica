@@ -26,7 +26,7 @@ export default class AvanceManual2018 extends Component {
 
         var config = {
             method: 'get',
-            url: '/asignaturasCursadas/',
+            url: 'https://asistente-eit.udp.cl/asignaturasCursadas/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ export default class AvanceManual2018 extends Component {
         var data = JSON.stringify(payload);
         var config = {
             method: 'post',
-            url: 'mimallamanual/',
+            url: 'https://asistente-eit.udp.cl/mimallamanual/',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Token ' + localStorage.getItem("token")
@@ -75,7 +75,7 @@ export default class AvanceManual2018 extends Component {
             if (response.status === 201) {
                 setTimeout(function () { notify("Ahora puedes obtener tus ramos críticos"); }, 1000); //cambia esto por toast
                 localStorage.setItem("malla",this.state.malla) //se borra cuando apreto un boton
-                //setTimeout(function () { window.location.href = 'http://200.14.84.238:80/users/usr/PERT'; }, 4500);
+                //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/PERT'; }, 4500);
             } else {
                 err("Error verifica los seleccionados")
             }

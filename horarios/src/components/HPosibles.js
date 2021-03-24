@@ -19,7 +19,7 @@ export default class HPosibles extends Component {
 
         var config = {
             method: 'get',
-            url: '/clique/',
+            url: 'https://asistente-eit.udp.cl/clique/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"),
                 'Content-Type': 'application/json'

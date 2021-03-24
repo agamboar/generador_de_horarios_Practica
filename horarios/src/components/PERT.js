@@ -26,7 +26,7 @@ export default class PERT extends Component {
 
         var config = {
             method: 'get',
-            url: '/PERT/',
+            url: 'https://asistente-eit.udp.cl/PERT/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ export default class PERT extends Component {
             toast.info(e, { position: toast.POSITION.TOP_CENTER })
         }
         setTimeout(function () { notify("Seras redirigido para priorizar tus Ramos"); }, 1000);
-        //setTimeout(function () { window.location.href = 'http://200.14.84.238/users/usr/priorizarRamos'; }, 4500);
+        //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarRamos'; }, 4500);
     }
 
     render() {

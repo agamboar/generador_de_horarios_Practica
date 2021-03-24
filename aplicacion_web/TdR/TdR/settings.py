@@ -59,8 +59,8 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 # cambiar despues por la URL para que alumno indique ramos aprobados
-LOGIN_REDIRECT_URL = 'http://200.14.84.238:80/users/usr'
-ACCOUNT_LOGOUT_REDIRECT_URL = "http://200.14.84.238:80/"
+LOGIN_REDIRECT_URL = 'https://asistente-eit.udp.cl/users/usr'
+ACCOUNT_LOGOUT_REDIRECT_URL = "https://asistente-eit.udp.cl/"
 
 
 SESSION_COOKIE_AGE = 10000
