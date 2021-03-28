@@ -102,7 +102,9 @@ export default class GoogleSocialAuth extends Component {
     }
 
     render() {
-
+        const responseGoogle = (response) => {
+            console.log(response);
+        }
         const googleResponse = async (response) => {
             console.log("hola")
             let responseGoogle = await googleLogin(response.accessToken)
@@ -169,7 +171,7 @@ export default class GoogleSocialAuth extends Component {
                             <GoogleLogin
                                 clientId="822886799677-jgmhd4dtp3v0jqqleaj04k832uv14sb8.apps.googleusercontent.com"
                                 buttonText="Login con Google"
-                                onSuccess={googleResponse}
+                                onSuccess={responseGoogle}
                                 onFailure={googleResponse}
                                 uxMode='redirect'
                                 redirectUri='https://asistente-eit.udp.cl/users/usr/'
