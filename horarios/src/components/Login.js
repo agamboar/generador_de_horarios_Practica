@@ -104,11 +104,12 @@ export default class GoogleSocialAuth extends Component {
     render() {
 
         const googleResponse = async (response) => {
+            console.log("hola")
             let responseGoogle = await googleLogin(response.accessToken)
             console.log(responseGoogle)
             sessionStorage.setItem('token', response.accessToken)
             sessionStorage.setItem('key', responseGoogle.key)
-            console.log(responseGoogle.data)
+           
         }
 
         if (!localStorage.getItem("token")) {
