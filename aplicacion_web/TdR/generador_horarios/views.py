@@ -606,7 +606,7 @@ def get_secciones_disponibles(request):
         current_user = request.user
         secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_seccion__to_asignatura_real__codigo='CIT2005',to_seccion__num_seccion__lte=1).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo').distinct()  
         aux_retornar = []
-
+        return None
         aux_horario = []
         aux_codigo_sec = secciones_disponibles[0]['to_seccion__cod_seccion'] #agregar al final tambien
         prof = ""
