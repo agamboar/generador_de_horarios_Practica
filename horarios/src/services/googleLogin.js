@@ -4,7 +4,7 @@ import axios from "axios";
 
 const googleLogin = async (accesstoken) => {
     let res = await axios.post(
-        "https://asistente-eit.udp.cl/dj-rest-auth/google/",
+        "https://asistente-eit.udp.cl/dj-rest-auth/Google/",
         {
             access_token: accesstoken,
         }
