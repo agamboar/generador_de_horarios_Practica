@@ -620,7 +620,7 @@ def get_secciones_disponibles(request):
             if elem['to_seccion__evento__tipo'][0] == 'C':
                 prof = elem['to_seccion__evento__profesor']
 
-            if aux_codigo == elem['to_seccion__cod_seccion']
+            if aux_codigo == elem['to_seccion__cod_seccion']:
                 if horario not in aux_horario:
                     aux_horario.append(horario)
             
