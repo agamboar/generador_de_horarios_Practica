@@ -58,9 +58,7 @@ def ramo_list(request, year):
 @api_view(['GET'])
 def secciones(request, cod):
 
-    secc = seccion.objects.filter(
-        to_asignatura_real=cod
-    )
+    secc = seccion.objects.filter( to_asignatura_real=cod )
 
     serializer = seccionSerializer(secc, many=True)
 
@@ -228,7 +226,7 @@ def get_PERT(request):
             getRamoCritico(codigos_asignaturas_cursadas,
                             codigos_ramos_malla, current_user)
 
-            get_secciones_disponibles(current_user)
+            add_nodo_seccion(current_user)
 
             ramos_disponibles = nodo_asignatura.objects.filter(
                 to_user__id=current_user, to_asignatura_real__tipo=0)
@@ -333,16 +331,13 @@ def asignar_kk(request):
             for aux in elem:
 
                 if aux[0] != None:
-                    codigo_asignatura = (
-                        aux[0]['to_asignatura_real'][0]['codigo'])
-                    id_ns = nodo_asignatura.objects.get(
-                        to_asignatura_real__codigo=codigo_asignatura, to_user=current_user).id
+                    codigo_asignatura = (aux[0]['to_asignatura_real'][0]['codigo'])
+                    id_ns = nodo_asignatura.objects.get(to_asignatura_real__codigo=codigo_asignatura, to_user=current_user).id
                     peso_asignado = aux[1]
 
                     nodo = nodo_asignatura.objects.get(id=id_ns)
 
-                    serializer = nodoAsignaturaPesoSerializer(
-                        nodo, data={'kk': peso_asignado}, partial=True)
+                    serializer = nodoAsignaturaPesoSerializer(nodo, data={'kk': peso_asignado}, partial=True)
 
                     if serializer.is_valid():
                         serializer.save()
@@ -350,7 +345,7 @@ def asignar_kk(request):
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
 
-@api_view(['POST'])
+@api_view(['POST']) #esto se tiene q hacer
 def asignar_ss(request):
     if request.method == "POST":
 
@@ -360,10 +355,9 @@ def asignar_ss(request):
 
             nodo = nodo_seccion.objects.get(id=aux['id'])
 
-            serializer = nodoSeccionSerializer(
-                nodo, data={'ss': aux['ss']}, partial=True)
+            serializer = nodoSeccionSerializer(nodo, data={'ss': aux['ss']}, partial=True)
 
-            if serializer.is_valid():
+            if serializer.is_valid(): #esto funciona ?
                 serializer.save()
 
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
@@ -604,3 +598,41 @@ def delete_asignaturas_cursadas(request):
     """
 
     return JsonResponse({"mensaje":"Se ha borrado el avance academico, junto con el año de la malla escogida previamente"}, safe=False, status=status.HTTP_200_OK)
+
+@api_view(['POST']) #get o post ?
+def get_secciones_disponibles(request):
+    if request.method == "POST":
+        cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
+        current_user = request.user
+        secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_seccion__to_asignatura_real__codigo=cod_ramo,to_seccion__num_seccion__lte=1).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo').distinct()  
+        aux_retornar = []
+
+        aux_horario = []
+        aux_codigo_sec = secciones_disponibles[0]['to_seccion__cod_seccion'] #agregar al final tambien
+        prof = ""
+
+        for elem in datos_clique:
+            
+            try:
+                horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo'])
+            except:
+                horario = '---'
+            if elem['to_seccion__evento__tipo'][0] == 'C':
+                prof = elem['to_seccion__evento__profesor']
+
+            cod_sec = elem['to_seccion__to_asignatura_real__codigo']
+            numb_seccion = elem['to_seccion__num_seccion']
+            vac_libres = elem['to_seccion__vacantes_libres']
+
+            if aux_codigo == elem['to_seccion__cod_seccion']:
+                if horario not in aux_horario:
+                    aux_horario.append(horario)
+            else:
+                if cod_sec != "99":
+                    aux_retornar.append({'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres  })
+                aux_horario = []
+                aux_horario.append(horario)
+                aux_codigo_sec = elem['to_seccion__cod_seccion']
+                prof = ""
+        
+        return JsonResponse({"secciones_disponibles":aux_retornar}, safe=False, status=status.HTTP_200_OK)

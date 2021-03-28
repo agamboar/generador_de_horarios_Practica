@@ -131,7 +131,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
 
     return ramos_disponibles
 
-# Funcion para obtener las secciones que puede inscribir el alumno. Se guardan en la tabla nodo_seccion y se relacionan
+# Funcion para guardar  las secciones que puede inscribir el alumno en la base de datos. Se guardan en la tabla nodo_seccion y se relacionan
 # con una seccion y con un nodo_asignatura, el cual esta relacionado con un alumno en especifico, por lo que
 # cada nodo_seccion esta relacionado con un alumno, de manera indirecta, a traves de nodo_asignatura.
 # La tabla nodo_seccion tiene el atributo del peso "ss", el cual sera updateado en otra view
@@ -139,7 +139,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
 # Lo mismo con el peso de la asignatura disponible "kk".
 
 
-def get_secciones_disponibles(current_user):
+def add_nodo_seccion(current_user):
 
     u = User.objects.get(id=current_user)
 
@@ -157,7 +157,7 @@ def get_secciones_disponibles(current_user):
         codigo_asignatura = asignatura_real.objects.filter(
             nodo_asignatura__id=elem.id)[0].codigo
 
-        secciones_ramo_user = list(seccion.objects.filter(to_asignatura_real__nodo_asignatura=elem))  # las secciones de los ramos que no ha dado el alumno
+        secciones_ramo_user = list(seccion.objects.filter(to_asignatura_real__nodo_asignatura=elem,vacantes_libres__gt=0))  # las secciones de los ramos que no ha dado el alumno y que tienen cupos disponibles
 
         # equivalencias
         if len(secciones_ramo_user) == 0:

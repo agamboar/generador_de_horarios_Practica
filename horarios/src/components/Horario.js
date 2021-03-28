@@ -10,7 +10,7 @@ export default class Horario extends Component {
    
     state = {
         show: true,
-        LU_8: null,
+        LU_08: null,
         LU_10: null,
         LU_11: null,
         LU_13: null,
@@ -18,7 +18,7 @@ export default class Horario extends Component {
         LU_16: null,
         LU_17: null,
 
-        MA_8: null,
+        MA_08: null,
         MA_10: null,
         MA_11: null,
         MA_13: null,
@@ -26,7 +26,7 @@ export default class Horario extends Component {
         MA_16: null,
         MA_17: null,
 
-        MI_8: null,
+        MI_08: null,
         MI_10: null,
         MI_11: null,
         MI_13: null,
@@ -34,7 +34,7 @@ export default class Horario extends Component {
         MI_16: null,
         MI_17: null,
 
-        JU_8: null,
+        JU_08: null,
         JU_10: null,
         JU_11: null,
         JU_13: null,
@@ -42,7 +42,7 @@ export default class Horario extends Component {
         JU_16: null,
         JU_17: null,
 
-        VI_8: null,
+        VI_08: null,
         VI_10: null,
         VI_11: null,
         VI_13: null,
