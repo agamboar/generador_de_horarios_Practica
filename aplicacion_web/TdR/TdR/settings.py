@@ -16,7 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-print(BASE_DIR)
+print(BASE_DIR.parent.parent('horarios/node_modules'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'django_node_assets',
 ]
 
 SITE_ID = 1
@@ -115,10 +116,25 @@ TEMPLATES = [
     },
 ]
 
+STATICFILES_FINDERS = [
+
+    'django_node_assets.finders.NodeModulesFinder',
+]
+
 STATICFILES_DIRS = [
   # Tell Django where to look for React's static files (css, js)
   os.path.join(BASE_DIR, "build/static"),
 ]
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/' #static
+STATICFILES_DIRS = [
+    #DJANGO_ROOT.child('static'),
+    '/usr/generador_de_horarios_Practica/horarios/node_modules',
+]
+
+NODE_PACKAGE_JSON = '/var/assets/package.json'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
@@ -197,11 +213,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/' #static
-STATICFILES_DIRS = [
-    #DJANGO_ROOT.child('static'),
-    '/usr/generador_de_horarios_Practica/horarios/node_modules',
-]
+
 # super usuario admin: tdr
 # password: tdr2021
