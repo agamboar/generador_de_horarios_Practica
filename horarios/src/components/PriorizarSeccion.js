@@ -26,7 +26,7 @@ export default class AManual extends Component {
 
 
 
-import { Table } from 'antd';
+
 import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
 import arrayMove from 'array-move';
