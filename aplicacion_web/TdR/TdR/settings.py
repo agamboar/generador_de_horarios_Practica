@@ -121,16 +121,15 @@ STATICFILES_FINDERS = [
     'django_node_assets.finders.NodeModulesFinder',
 ]
 
-STATICFILES_DIRS = [
+#STATICFILES_DIRS = [
   # Tell Django where to look for React's static files (css, js)
-  os.path.join(BASE_DIR, "build/static"),
-]
+#  os.path.join(BASE_DIR, "build/static"),
+#]
 
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/' #static
 STATICFILES_DIRS = [
-    #DJANGO_ROOT.child('static'),
     str(BASE_DIR.parent / 'horarios/node_modules'),
 ]
 
