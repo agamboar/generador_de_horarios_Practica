@@ -16,7 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-print(str(Path(__file__).resolve().parent.parent.parent / 'horarios/node_modules'))
+print(str(BASE_DIR.parent / 'horarios/node_modules'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -131,10 +131,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/' #static
 STATICFILES_DIRS = [
     #DJANGO_ROOT.child('static'),
-    '/usr/generador_de_horarios_Practica/horarios/node_modules',
+    str(BASE_DIR.parent / 'horarios/node_modules'),
 ]
 
-NODE_PACKAGE_JSON = '/var/assets/package.json'
+NODE_PACKAGE_JSON = str(BASE_DIR.parent / 'horarios/package.json')
+NODE_MODULES_ROOT = str(BASE_DIR.parent / 'horarios/node_modules')
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
