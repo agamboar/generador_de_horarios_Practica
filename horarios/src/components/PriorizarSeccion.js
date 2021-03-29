@@ -7,7 +7,7 @@ import { DownOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
 
-export default class AManual extends Component {
+export default class PriorizarSeccion extends Component {
 
  
     render() {
@@ -26,7 +26,7 @@ export default class AManual extends Component {
 
 
 
-
+/*
 import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
 import arrayMove from 'array-move';
@@ -203,3 +203,4 @@ const Complete = () => (
     <Input.Search size="large" placeholder="input here" />
   </AutoComplete>
 );
+*/
