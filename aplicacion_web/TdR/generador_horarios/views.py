@@ -599,12 +599,17 @@ def delete_asignaturas_cursadas(request):
 
     return JsonResponse({"mensaje":"Se ha borrado el avance academico, junto con el año de la malla escogida previamente"}, safe=False, status=status.HTTP_200_OK)
 
-@api_view(['POST']) #get o post ?
-def get_secciones_disponibles(request):
-    if request.method == "POST":
-        cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
+@api_view(['GET']) #get o post ?
+def get_secciones_disponibles(request, cod_ramo):
+    if request.method == "GET":
+        #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
         current_user = request.user
-        secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_seccion__to_asignatura_real__codigo=cod_ramo,to_seccion__num_seccion__lte=1).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo').distinct()  
+        secciones_disponibles =[]
+        try:
+            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_seccion__to_asignatura_real__codigo=cod_ramo,to_seccion__num_seccion__lte=1).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo').distinct()  
+            return JsonResponse({"secciones_disponibles":secciones_disponibles}, safe=False, status=status.HTTP_200_OK)
+        except:
+            pass
         aux_retornar = []
 
         aux_horario = []

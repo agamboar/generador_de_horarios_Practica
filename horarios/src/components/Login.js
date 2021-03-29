@@ -104,6 +104,7 @@ export default class GoogleSocialAuth extends Component {
     render() {
         const responseGoogle = (response) => {
             console.log(response);
+            console.log("hola")
         }
         const googleResponse = async (response) => {
             console.log("hola")

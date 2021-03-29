@@ -39,6 +39,7 @@ import PERTExtra4 from './components/PERTExtra4'
 import GenerarHorarios from './components/GenerarHorarios'
 import PriorizarRamos from './components/PriorizarRamos'
 import PriorizarSecciones from './components/PriorizarSecciones'
+import PriorizarSeccion from './components/PriorizarSeccion'
 import Cookies from 'js-cookie';
 
 
@@ -103,10 +104,11 @@ function App() {
 
       <Route path="/users/usr/priorizarRamos" exact component={PriorizarRamos}/>
 
-      <Route path="/users/usr/priorizarSecciones" exact component={PriorizarSecciones}/>
+      {/*<Route path="/users/usr/priorizarSecciones" exact component={PriorizarSecciones}/>*/}
 
       <Route path="/users/usr/generarHorarios" exact component={GenerarHorarios}/>
 
+      <Route path="/users/usr/priorizarSeccion" exact component={PriorizarSeccion}/>
     
     
     
