@@ -173,7 +173,7 @@ export default class GoogleSocialAuth extends Component {
                                 clientId="822886799677-jgmhd4dtp3v0jqqleaj04k832uv14sb8.apps.googleusercontent.com"
                                 buttonText="Login con Google"
                                 onSuccess={responseGoogle}
-                                onFailure={responseGoogle}
+                                onFailure={() => {console.log("Login fallido")}}
                                 uxMode='redirect'
                                 redirectUri='https://asistente-eit.udp.cl/users/usr/'
                             />
