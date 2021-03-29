@@ -84,3 +84,4 @@ export default class PriorizarSeccion extends Component {
 
 
 
+export default PriorizarSeccion;
