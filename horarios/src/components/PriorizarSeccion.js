@@ -10,10 +10,6 @@ import { Input, AutoComplete } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 
-
-import { Input, AutoComplete } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-
 const renderTitle = (title) => (
   <span>
     {title}
