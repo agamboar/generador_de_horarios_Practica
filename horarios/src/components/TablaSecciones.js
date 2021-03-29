@@ -16,12 +16,12 @@ const columns = [
     render: () => <DragHandle />,
   },
   {
-    title: 'Codigo Seccion',
+    title: 'Código Sección',
     dataIndex: 'name',
     className: 'drag-visible',
   },
   {
-    title: 'Numero Seccion',
+    title: 'Número Sección',
     dataIndex: 'age',
   },
   {
