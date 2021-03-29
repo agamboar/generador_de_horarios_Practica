@@ -634,7 +634,7 @@ def get_secciones_disponibles(request, cod_ramo):
                     aux_horario.append(horario)
             else:
                 if cod_sec != "99":
-                    aux_retornar.append({'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres  })
+                    aux_retornar.append({'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario  })
                 aux_horario = []
                 aux_horario.append(horario)
                 aux_codigo_sec = elem['to_seccion__cod_seccion']
