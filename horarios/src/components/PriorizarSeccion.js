@@ -6,6 +6,7 @@ import SelectSearch from './SelectSearch'
 import TablaSecciones from './TablaSecciones'
 import { Typography , Space } from 'antd';
 import { Layout} from 'antd';
+import { Button } from 'antd'
 
 const {  Content } = Layout;
 const { Title, Text} = Typography;
@@ -41,7 +42,11 @@ export default class UserInterface extends Component {
 
                   <div className="site-layout-background" style={{ padding: 15,  display: "flex",  justifyContent: "center", alignItems: "center" }}>
                       <SelectSearch ramosDisponibles = {this.state.ramos} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
+                      
                   </div>
+                  {(this.state.message != "no")?
+                  <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}}><Button  type="primary">Guardar prioridad</Button></div>
+                  :null}
                       {/*aca recibir el nombre del ramo y sus secciones o no, simplemente recibir el nombre y el codigo*/}
                     <div>
                       {(this.state.message != "no")?

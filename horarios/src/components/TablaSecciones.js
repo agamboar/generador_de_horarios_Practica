@@ -39,7 +39,8 @@ const columns = [
 ];
 
 const data = [ //secciones del ramo, hacer post con props.codigo del ramo 
-    //map e index para tener todos los valores necesarios
+    //map e index (de los elementos) para tener todos los valores necesarios
+    // los index de la tabla son importantes para ordenar
   {
     key: '1',
     name: 'CIT2012_CA01',
@@ -74,7 +75,7 @@ const data = [ //secciones del ramo, hacer post con props.codigo del ramo
     address: 'DUJOVNE DIEGO ROBERTO',
     horario: "MA VI 11.30 - MI 10",
     vac_libres: 10,
-    index: 2,
+    index: 3,
   },
 ];
 
