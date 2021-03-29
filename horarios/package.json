@@ -6,11 +6,13 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
+    "antd": "^4.15.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.3.0",
     "jquery": "^3.5.1",
     "js-cookie": "^2.2.1",
+    "npm": "^7.7.5",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-cookie": "^4.0.3",
@@ -25,7 +27,7 @@
   },
   "scripts": {
     "relocate": "react-scripts build && rm -rf ../aplicacion_web/TdR/build && mv -f build ../aplicacion_web/TdR/",
-    "start": "PORT=80 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

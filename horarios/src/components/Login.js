@@ -83,7 +83,7 @@ export default class GoogleSocialAuth extends Component {
                 localStorage.setItem('id', response.data.id)
                 localStorage.setItem('username', response.data.username)
             })
-            window.location.href = '/users/usr'
+            window.location.href = 'https://asistente-eit.udp.cl/users/usr/'
         }
 
 
@@ -187,7 +187,7 @@ export default class GoogleSocialAuth extends Component {
                 </div>
             )
         } else {
-            window.location.href = '/users/usr'
+            window.location.href = 'https://asistente-eit.udp.cl/users/usr/'
         }
     }
 }

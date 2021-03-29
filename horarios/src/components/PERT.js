@@ -15,7 +15,7 @@ export default class PERT extends Component {
 
     aux =()=>{
         //console.log("si")
-        setTimeout(function () { window.location.href = '/users/usr/crearHorario' }, 3000);
+        setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/crearHorario' }, 3000);
     }    
     state = {
         malla: null,

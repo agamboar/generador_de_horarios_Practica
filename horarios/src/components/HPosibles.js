@@ -9,7 +9,7 @@ export default class HPosibles extends Component {
     aux =()=>{
         //console.log("si")
         
-        setTimeout(function () { window.location.href = 'users/usr/PERT' }, 3000);
+        setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/PERT' }, 3000);
     } 
     state = {
         Horarios: null

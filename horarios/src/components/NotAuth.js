@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class NotAuth extends Component {
      myFunction() {
-        setTimeout(function(){ window.location.href = '/'; }, 10000);
+        setTimeout(function(){ window.location.href = '/'; }, 5000);
       }
     render() {
         return (
@@ -23,7 +23,7 @@ export default class NotAuth extends Component {
                         <h3 class="display-6">Debes ingresar con tu cuenta</h3>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <h5>Seras redirigido <h6> (en 10 segundos)</h6> </h5>
+                    <h5>Seras redirigido <h6> (en 5 segundos)</h6> </h5>
                     {this.myFunction()}                   
                 </div>
                
