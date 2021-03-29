@@ -134,8 +134,8 @@ STATICFILES_DIRS = [
     str(BASE_DIR.parent / 'horarios/node_modules'),
 ]
 
-NODE_PACKAGE_JSON = str(BASE_DIR.parent / 'horarios/package.json')
-NODE_MODULES_ROOT = str(BASE_DIR.parent / 'horarios/node_modules')
+NODE_PACKAGE_JSON = str(BASE_DIR.parent.parent / 'horarios/package.json')
+NODE_MODULES_ROOT = str(BASE_DIR.parent.parent / 'horarios/node_modules')
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
