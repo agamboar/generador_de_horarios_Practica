@@ -201,7 +201,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/' #static
 STATICFILES_DIRS = [
     #DJANGO_ROOT.child('static'),
-    DJANGO_ROOT.child('node_modules'),
+    '/usr/generador_de_horarios_Practica/horarios/node_modules',
 ]
 # super usuario admin: tdr
 # password: tdr2021
