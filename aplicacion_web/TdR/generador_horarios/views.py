@@ -602,8 +602,7 @@ def delete_asignaturas_cursadas(request):
 @api_view(['GET']) #get o post ?
 def get_secciones_disponibles(request, cod_ramo):
 
-   asignatura = asignatura_real.objects.filter(
-        malla_curricular__agno=year)
+    asignatura = asignatura_real.objects.filter(malla_curricular__agno=year)
     serializer = asignaturaSerializer(asignatura, many=True)
 
     return Response(serializer.data, status=status.HTTP_200_OK)
