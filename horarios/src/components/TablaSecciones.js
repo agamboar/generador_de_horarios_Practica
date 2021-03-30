@@ -43,7 +43,7 @@ const data = [ //secciones del ramo, hacer post con props.codigo del ramo
     // los index de la tabla son importantes para ordenar
   {
     key: '1',
-    name: 'datatatatata',
+    name: 'CIT2012_CA01',
     age: 1,
     address: 'ALBA MANUEL',
     horario: "LU MA 8.30 - MI 10",
@@ -52,7 +52,7 @@ const data = [ //secciones del ramo, hacer post con props.codigo del ramo
   },
   {
     key: '2',
-    name: 'datatatatata',
+    name: 'CIT2012_CA02',
     age: 2,
     address: 'NIETO ANDREA VICTORIA',
     horario: "MI VI 8.30 - LU 10",
@@ -64,7 +64,7 @@ const data = [ //secciones del ramo, hacer post con props.codigo del ramo
     name: 'CIT2012_CA03',
     age: 3,
     address: 'GUTIERREZ MARTIN EDUARDO',
-    horario: "datatatatata",
+    horario: "LU JU 11.30 - MA 10",
     vac_libres: 1,
     index: 2,
   },
@@ -115,14 +115,21 @@ class SortableTable extends React.Component {
   };
 
 
- 
-  componentDidMount = () => {
- 
-
-  }
+ /* refreshSecciones = () => {
+    if (this.props.secciones){
+      console.log(this.props.secciones)
+      this.setState({dataSource: this.props.secciones})
+      console.log(this.state)
+    }
   
+  }
+
+  componentDidMount(){
+    this.refreshSecciones()
+  }*/
+
   render() {
-    
+    this.setState({dataSource: this.props.secciones})
     var { dataSource } = this.state;
     this.props?console.log(this.props.secciones):console.log("nada")
     console.log(dataSource)
@@ -130,12 +137,10 @@ class SortableTable extends React.Component {
     
     
     return (
-      <div>
-      {console.log(dataSource)}
-      {true?
-      <Table
+      <di>
+      {dataSource !=""?<Table
         pagination={false}
-        dataSource={this.props.secciones}
+        dataSource={dataSource}
         columns={columns}
         rowKey="index"
         components={{
@@ -146,7 +151,7 @@ class SortableTable extends React.Component {
         }}
       />:null}
       
-      </div>
+      </di>
     );
   }
 }
