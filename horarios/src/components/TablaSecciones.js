@@ -43,7 +43,7 @@ const data = [ //secciones del ramo, hacer post con props.codigo del ramo
     // los index de la tabla son importantes para ordenar
   {
     key: '1',
-    name: 'CIT2012_CA01',
+    name: 'datatatatata',
     age: 1,
     address: 'ALBA MANUEL',
     horario: "LU MA 8.30 - MI 10",
@@ -52,7 +52,7 @@ const data = [ //secciones del ramo, hacer post con props.codigo del ramo
   },
   {
     key: '2',
-    name: 'CIT2012_CA02',
+    name: 'datatatatata',
     age: 2,
     address: 'NIETO ANDREA VICTORIA',
     horario: "MI VI 8.30 - LU 10",
@@ -64,7 +64,7 @@ const data = [ //secciones del ramo, hacer post con props.codigo del ramo
     name: 'CIT2012_CA03',
     age: 3,
     address: 'GUTIERREZ MARTIN EDUARDO',
-    horario: "LU JU 11.30 - MA 10",
+    horario: "datatatatata",
     vac_libres: 1,
     index: 2,
   },
@@ -117,11 +117,7 @@ class SortableTable extends React.Component {
 
  
   componentDidMount = () => {
-    if (this.props.secciones){
-      console.log(this.props.secciones)
-      this.setState({dataSource: data})
-      console.log(this.state.dataSource)
-    }
+ 
 
   }
   
