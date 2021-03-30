@@ -85,7 +85,7 @@ const SortableContainer = sortableContainer(props => <tbody {...props} />);
 class SortableTable extends React.Component {
   
   state = {
-    dataSource: this.props.secciones,
+    dataSource: "",
   };
 
   onSortEnd = ({ oldIndex, newIndex }) => {
@@ -115,11 +115,11 @@ class SortableTable extends React.Component {
   };
 
   render() {
-    /*if (this.props){
-      this.setState({dataSource:this.props.secciones})
+    /*if (this.props.secciones){
+      this.setState({dataSource: this.props.secciones})
     }*/
     var { dataSource } = this.state;
-    this.props?console.log(this.props):console.log("nada")
+    this.props?console.log(this.props.secciones):console.log("nada")
     console.log(dataSource)
     console.log(this.state)
     
