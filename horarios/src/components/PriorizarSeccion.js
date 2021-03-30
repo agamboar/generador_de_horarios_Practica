@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {useEffect, useState, Content} from 'react';
 import { Card } from 'antd';
 import Navbar from './Navbar'
 import NotAuth from './NotAuth'
@@ -14,6 +14,8 @@ const {  Content, Footer } = Layout;
 const { Title, Text} = Typography;
 //post aqui para saber los ramos disponibles
 
+
+
 export default class UserInterface extends Component {
     state = { 
       message: "no", 
@@ -23,10 +25,22 @@ export default class UserInterface extends Component {
     callbackFunction = (childData) => {
       this.setState({message: childData})
     } 
-    
-    
+
     render() {
-        return (
+      const [ramos_disponibles, setData] = useState([]);
+
+      const fetchTable = () => {
+          
+        fetch(`https://asistente-eit.udp.cl/get_ramos_disponibles/`)
+            .then(res => res.json())
+            .then(json => {
+              return setData(json) 
+            });
+      }
+
+      useEffect(() => {fetchTable();}, []);
+        
+      return (
             <div>
             {//(localStorage.getItem("token"))?  
             <div>
@@ -43,7 +57,7 @@ export default class UserInterface extends Component {
                   </div>
 
                   <div className="site-layout-background" style={{ padding: 15,  display: "flex",  justifyContent: "center", alignItems: "center" }}>
-                      <SelectSearch ramosDisponibles = {this.state.ramos} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
+                      <SelectSearch ramosDisponibles = {ramos_disponibles} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
                       
                   </div>
                   {(this.state.message != "no")?
