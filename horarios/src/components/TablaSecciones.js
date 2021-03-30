@@ -85,7 +85,7 @@ const SortableContainer = sortableContainer(props => <tbody {...props} />);
 class SortableTable extends React.Component {
   
   state = {
-    dataSource: this.props.secciones,
+    dataSource: "",
   };
 
   onSortEnd = ({ oldIndex, newIndex }) => {
@@ -114,10 +114,18 @@ class SortableTable extends React.Component {
     return <SortableItem index={index} {...restProps} />;
   };
 
-  componentDidMount(){
+
+  refreshSecciones = () => {
     if (this.props.secciones){
+      console.log(this.props.secciones)
       this.setState({dataSource: this.props.secciones})
+      console.log(this.state.dataSource)
     }
+  
+  }
+
+  componentDidMount(){
+    this.refreshSecciones()
   }
 
   render() {
@@ -129,6 +137,9 @@ class SortableTable extends React.Component {
     
     
     return (
+      <div>
+      {console.log(dataSource)}
+      {dataSource !=""?
       <Table
         pagination={false}
         dataSource={dataSource}
@@ -140,7 +151,9 @@ class SortableTable extends React.Component {
             row: this.DraggableBodyRow,
           },
         }}
-      />
+      />:null}
+      
+      </div>
     );
   }
 }

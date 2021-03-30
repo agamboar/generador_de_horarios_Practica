@@ -622,7 +622,7 @@ def get_secciones_disponibles(request, codigo):
         current_user = request.user
         secciones_disponibles =[]
         try:
-            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user.id,to_seccion__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo').distinct()  
+            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user.id,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo').distinct()  
         except:
             pass
         if len(secciones_disponibles) < 1:

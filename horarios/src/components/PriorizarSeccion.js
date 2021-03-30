@@ -28,7 +28,7 @@ export default class UserInterface extends Component {
       this.setState({message: childData})
     } 
     
-    fetchTable = () => {
+    getRamos = () => {
           
       var config = {
         method: 'get',
@@ -49,7 +49,7 @@ export default class UserInterface extends Component {
     
     }
     componentDidMount(){
-      this.fetchTable()
+      this.getRamos()
     }
     
     render() {
