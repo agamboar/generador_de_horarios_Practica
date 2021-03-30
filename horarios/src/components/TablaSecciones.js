@@ -7,6 +7,7 @@ import 'antd/dist/antd.css';
 import axios from 'axios';
 import { Button } from 'antd'
 import { Alert } from 'antd';
+import { Row, Col, Divider } from 'antd';
 const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
 const columns = [
@@ -106,10 +107,15 @@ class SortableTable extends React.Component {
     var { dataSource } = this.state;
 
     
+    
     return (
       <div>
-     <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div>
-     <div style={{padding: 10, display: "flex",  justifyContent: "center"}}><Alert message="(Guarde los cambios antes de actualizar la tabla)" type="error" /></div>
+        
+        <Row>
+        
+        <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div></Col>
+        <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "center"}}><Alert message="(Guarde los cambios antes de actualizar la tabla)" type="error" /></div></Col>
+     </Row>
       {dataSource !=""?
       <div>
 
