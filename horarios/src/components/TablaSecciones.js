@@ -123,6 +123,7 @@ class SortableTable extends React.Component {
   
   }*/
 
+  
   get_secciones(){
     var config = {
       method: 'get',
@@ -140,6 +141,9 @@ class SortableTable extends React.Component {
       }
   } )
    
+  }
+  componentDidMount(){
+    this.get_secciones()
   }
 
   render() {
