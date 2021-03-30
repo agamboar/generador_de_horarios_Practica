@@ -620,7 +620,7 @@ def get_secciones_disponibles(request, codigo):
         aux_codigo_sec = secciones_disponibles[0]['to_seccion__cod_seccion'] #agregar al final tambien
         prof = ""
 
-        for elem in datos_clique:
+        for elem in secciones_disponibles:
             
             try:
                 horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo'])
