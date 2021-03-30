@@ -600,9 +600,9 @@ def delete_asignaturas_cursadas(request):
     return JsonResponse({"mensaje":"Se ha borrado el avance academico, junto con el año de la malla escogida previamente"}, safe=False, status=status.HTTP_200_OK)
 
 @api_view(['GET']) #get o post ?
-def get_secciones_disponibles(request, cod_ramo):
+def get_secciones_disponibles(request, codigo):
 
-    asignatura = asignatura_real.objects.filter(malla_curricular__agno=year)
+    asignatura = asignatura_real.objects.filter(malla_curricular__agno=codigo)
     serializer = asignaturaSerializer(asignatura, many=True)
 
     return Response(serializer.data, status=status.HTTP_200_OK)
