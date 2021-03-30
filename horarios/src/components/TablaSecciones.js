@@ -114,10 +114,14 @@ class SortableTable extends React.Component {
     return <SortableItem index={index} {...restProps} />;
   };
 
-  render() {
+  componentDidMount(){
     if (this.props.secciones){
       this.setState({dataSource: this.props.secciones})
     }
+  }
+
+  render() {
+    
     var { dataSource } = this.state;
     this.props?console.log(this.props.secciones):console.log("nada")
     console.log(dataSource)
