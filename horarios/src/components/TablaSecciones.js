@@ -89,7 +89,7 @@ class SortableTable extends React.Component {
   };
 
   onSortEnd = ({ oldIndex, newIndex }) => {
-    const { dataSource } = this.state;
+    var { dataSource } = this.state;
     if (oldIndex !== newIndex) {
       const newData = arrayMove([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
       console.log('Sorted items: ', newData);
@@ -115,15 +115,30 @@ class SortableTable extends React.Component {
   };
 
 
-  refreshSecciones = () => {
+  /*refreshSecciones = () => {
     if (this.props.secciones){
       this.setState({dataSource: this.props.secciones})
     }
   
-  }
+  }*/
 
   componentDidMount(){
-    this.refreshSecciones()
+    var config = {
+      method: 'get',
+      url: `https://asistente-eit.udp.cl/get_secciones/${value}/`,
+      headers: {
+          'Authorization': 'Token ' + localStorage.getItem("token"), 
+          'Content-Type': 'application/json'
+      }
+  };
+
+  axios(config).then(response => { 
+      console.log(response) //verificar como se recibe la info          
+      if (response.data){
+        this.setState({dataSource: response.data.secciones_disponibles})
+      }
+  } )
+   
   }
 
   render() {

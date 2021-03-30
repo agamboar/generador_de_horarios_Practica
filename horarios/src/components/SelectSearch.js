@@ -14,21 +14,7 @@ const SelectSearch = (props) => { //recibir data (ramos del pibe)
   
   function onChange(value) { // aca va el get para obtener las secciones de un ramo
     console.log(`selected ${value}`);
-    var config = {
-      method: 'get',
-      url: `https://asistente-eit.udp.cl/get_secciones/${value}/`,
-      headers: {
-          'Authorization': 'Token ' + localStorage.getItem("token"), 
-          'Content-Type': 'application/json'
-      }
-  };
-
-  axios(config).then(response => { 
-      console.log(response) //verificar como se recibe la info          
-      if (response.data){
-        props.parentCallback({"nombre":value,"secciones":response.data.secciones_disponibles}); //map de eso y se puede rellenar la tabla
-      }
-  } )
+    props.parentCallback({"nombre":value}); //map de eso y se puede rellenar la tabla
 
     
     //console.log(props.ramosDisponibles) solo para saber q es lo que llega
