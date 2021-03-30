@@ -49,6 +49,7 @@ const SelectSearch = (props) => { //recibir data (ramos del pibe)
     }
   >
       {/*map this prop.ramosDisponibles aqui con el fetch de los ramos que puede tomar el pibe*/}
+      {console.log(this.props)}
       {console.log(props)}
     {props.ramosDisponibles.map(elem => ( <Option value={elem}>{elem}</Option>  ))}
 
