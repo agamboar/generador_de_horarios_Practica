@@ -6,6 +6,7 @@ import arrayMove from 'array-move';
 import 'antd/dist/antd.css';
 import axios from 'axios';
 import { Button } from 'antd'
+import { Alert } from 'antd';
 const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
 const columns = [
@@ -39,46 +40,6 @@ const columns = [
   },
 ];
 
-const data = [ //secciones del ramo, hacer post con props.codigo del ramo 
-    //map e index (de los elementos) para tener todos los valores necesarios
-    // los index de la tabla son importantes para ordenar
-  {
-    key: '1',
-    name: 'CIT2012_CA01',
-    age: 1,
-    address: 'ALBA MANUEL',
-    horario: "LU MA 8.30 - MI 10",
-    vac_libres: 23,
-    index: 0,
-  },
-  {
-    key: '2',
-    name: 'CIT2012_CA02',
-    age: 2,
-    address: 'NIETO ANDREA VICTORIA',
-    horario: "MI VI 8.30 - LU 10",
-    vac_libres: 15,
-    index: 1,
-  },
-  {
-    key: '3',
-    name: 'CIT2012_CA03',
-    age: 3,
-    address: 'GUTIERREZ MARTIN EDUARDO',
-    horario: "LU JU 11.30 - MA 10",
-    vac_libres: 1,
-    index: 2,
-  },
-  {
-    key: '4',
-    name: 'CIT2012_CA04',
-    age: 4,
-    address: 'DUJOVNE DIEGO ROBERTO',
-    horario: "MA VI 11.30 - MI 10",
-    vac_libres: 10,
-    index: 3,
-  },
-];
 
 const SortableItem = sortableElement(props => <tr {...props} />);
 const SortableContainer = sortableContainer(props => <tbody {...props} />);
@@ -116,12 +77,6 @@ class SortableTable extends React.Component {
   };
 
 
-  /*refreshSecciones = () => {
-    if (this.props.secciones){
-      this.setState({dataSource: this.props.secciones})
-    }
-  
-  }*/
 
   
   refreshTable=()=>{
@@ -153,8 +108,8 @@ class SortableTable extends React.Component {
     
     return (
       <div>
-     <div style={{padding: 10, display: "flex",  justifyContent: "flex-begin"}} onClick={this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div>
-
+     <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div>
+     <div style={{padding: 10, display: "flex",  justifyContent: "center"}}><Alert message="(Guarde los cambios antes de actualizar la tabla)" type="error" /></div>
       {dataSource !=""?
       <div>
 
@@ -170,7 +125,11 @@ class SortableTable extends React.Component {
           },
         }}
       /></div>
-      :<p>No hay secciones disponibles para este ramo, en base a nuestros registros</p>}
+      :
+      <div style={{padding: 20, display: "flex",  justifyContent: "center"}}> 
+      <p>No hay secciones disponibles para este ramo, en base a nuestros registros</p>
+      </div>
+      }
       
       </div>
     );

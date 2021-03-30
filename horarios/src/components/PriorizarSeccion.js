@@ -83,7 +83,7 @@ export default class UserInterface extends Component {
                       
                   </div>
                   {(this.state.message != "no")?
-                  <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}}><Button  type="primary">Guardar prioridad</Button></div>
+                  <div style={{padding: 10, display: "flex",  justifyContent: "flex-begin"}}><Button  type="primary">Guardar prioridad</Button></div>
                   :null}
                       {/*aca recibir el nombre del ramo y sus secciones o no, simplemente recibir el nombre y el codigo*/}
                     
