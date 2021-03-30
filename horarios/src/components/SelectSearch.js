@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-import 'antd/dist/antd.css';
+//import 'antd/dist/antd.css';
 
 import { Select } from 'antd';
 
