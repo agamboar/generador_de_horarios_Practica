@@ -135,7 +135,7 @@ class SortableTable extends React.Component {
       {true?
       <Table
         pagination={false}
-        dataSource={dataSource}
+        dataSource={this.props.secciones}
         columns={columns}
         rowKey="index"
         components={{
