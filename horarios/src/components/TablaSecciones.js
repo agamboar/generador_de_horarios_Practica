@@ -112,8 +112,8 @@ class SortableTable extends React.Component {
       <div>
         
         <Row>
-          <Col flex="center"><Alert message="(Guarde los cambios antes de actualizar la tabla)" type="error" /></Col>
-          <Col  flex="end"><Button onClick={this.refreshTable} type="primary">Actualizar tabla</Button></Col>
+          <Col flex="auto"><Alert message="(Guarde los cambios antes de actualizar la tabla)" type="error" /></Col>
+          <Col  flex="auto"><Button onClick={this.refreshTable} type="primary">Actualizar tabla</Button></Col>
         </Row>
       {dataSource !=""?
       <div>
