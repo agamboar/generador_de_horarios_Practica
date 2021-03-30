@@ -29,7 +29,7 @@
   },
   "scripts": {
     "relocate": "react-scripts build && rm -rf ../aplicacion_web/TdR/build && mv -f build ../aplicacion_web/TdR/",
-    "start": "react-scripts start",
+    "start": "PORT = 80 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
