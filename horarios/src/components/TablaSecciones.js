@@ -143,7 +143,7 @@ class SortableTable extends React.Component {
   }
 
   render() {
-    if dataSource == 
+    
     var { dataSource } = this.state;
 
     
