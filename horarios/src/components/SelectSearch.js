@@ -49,8 +49,8 @@ const SelectSearch = (props) => { //recibir data (ramos del pibe)
     }
   >
       {/*map this prop.ramosDisponibles aqui con el fetch de los ramos que puede tomar el pibe*/}
-      {console.log(props.ramosDisponibles)}
-    {/*props.ramosDisponibles.map(elem => ( <Option value={elem}>{elem}</Option>  ))*/}
+      {props.ramosDisponibles.map( elem =>(console.log(elem["codigo_ramo"])))}
+    {/*props.ramosDisponibles.map(elem => ( <Option value={elem["codigo_ramo"]}>{elem["nombre_ramo"]}</Option>  ))*/}
 
     {/*props.ramosDisponibles.map((user) => (<div className="user">{user}</div> ))*/}
      {/* lo que se manda es el value asi que ahi va el id del ramo o el codigo y el texto el nombre */}
