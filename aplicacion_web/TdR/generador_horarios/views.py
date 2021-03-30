@@ -512,10 +512,10 @@ def PERT_es1(request):
         ns = nodo_asignatura.objects.filter(to_user=current_user, es=1)
         serializer = nodoAsignaturaSerializer(ns, many=True)
         print(serializer.data)
-        if serializer.data  == []:
+        """ if serializer.data  == []:
             return JsonResponse("no", safe=False, status=status.HTTP_200_OK)
-        else:
-            return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
+        else: """
+        return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -599,9 +599,8 @@ def delete_asignaturas_cursadas(request):
 
     return JsonResponse({"mensaje":"Se ha borrado el avance academico, junto con el año de la malla escogida previamente"}, safe=False, status=status.HTTP_200_OK)
 
-@api_view(['GET']) #get o post ?
+@api_view(['GET']) #get si funciona
 def get_secciones_disponibles(request, codigo):
-
 
     if request.method == "GET":
         #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front

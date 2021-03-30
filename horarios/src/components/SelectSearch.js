@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-//import 'antd/dist/antd.css';
+//import 'antd/dist/antd.css'; esto genera errro no colocar
 
 import { Select } from 'antd';
 
@@ -14,8 +14,24 @@ const SelectSearch = (props) => { //recibir data (ramos del pibe)
   
   function onChange(value) { // aca va el get para obtener las secciones de un ramo
     console.log(`selected ${value}`);
-    props.parentCallback(value);
-    console.log(props.ramosDisponibles)
+    var config = {
+      method: 'get',
+      url: `https://asistente-eit.udp.cl/get_secciones/${value}/`,
+      headers: {
+          'Authorization': 'Token ' + localStorage.getItem("token"), 
+          'Content-Type': 'application/json'
+      }
+  };
+
+  axios(config).then(response => { 
+      console.log(response) //verificar como se recibe la info          
+      if (response.data){
+        props.parentCallback(response.data.secciones_disponibles); //map de eso y se puede rellenar la tabla
+      }
+  } )
+
+    
+    //console.log(props.ramosDisponibles) solo para saber q es lo que llega
     
     
   }
