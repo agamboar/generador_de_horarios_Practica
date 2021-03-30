@@ -143,12 +143,12 @@ class SortableTable extends React.Component {
   }
 
   render() {
-    if dataSource == 
+  
     var { dataSource } = this.state;
 
     
     return (
-      <di>
+      <div>
       {dataSource !=""?
       <div>
       <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.componentDidMount}><Button  type="primary">Actualizar tabla</Button></div>
@@ -167,7 +167,7 @@ class SortableTable extends React.Component {
       /></div>
       :null}
       
-      </di>
+      </div>
     );
   }
 }
