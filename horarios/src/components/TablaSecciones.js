@@ -115,9 +115,9 @@ class SortableTable extends React.Component {
   };
 
   render() {
-    /*if (this.props.secciones){
+    if (this.props.secciones){
       this.setState({dataSource: this.props.secciones})
-    }*/
+    }
     var { dataSource } = this.state;
     this.props?console.log(this.props.secciones):console.log("nada")
     console.log(dataSource)
