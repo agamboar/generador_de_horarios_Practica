@@ -153,11 +153,11 @@ class SortableTable extends React.Component {
     
     return (
       <div>
-      
-     
-      <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div>
-      {dataSource=! ""?
-       <div>
+     <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div>
+
+      {dataSource !=""?
+      <div>
+
       <Table
         pagination={false}
         dataSource={dataSource}
@@ -171,7 +171,7 @@ class SortableTable extends React.Component {
         }}
       /></div>
       :null}
-      {this.state.dataSource == []? <p>No hay secciones disponibles</p>:null}
+      
       </div>
     );
   }
