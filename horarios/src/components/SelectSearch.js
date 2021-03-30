@@ -16,7 +16,7 @@ const SelectSearch = (props) => { //recibir data (ramos del pibe)
     console.log(`selected ${value}`);
     var config = {
       method: 'get',
-      url: `http://200.14.84.238/get_secciones/${value}/`,
+      url: `https://asistente-eit.udp.cl/get_secciones/${value}/`,
       headers: {
           'Authorization': 'Token ' + localStorage.getItem("token"), 
           'Content-Type': 'application/json'

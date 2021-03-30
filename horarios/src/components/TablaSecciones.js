@@ -121,16 +121,15 @@ class SortableTable extends React.Component {
     }
   
   }
-/*
+
   componentDidMount(){
     this.refreshSecciones()
-  }*/
+  }
 
   render() {
-    this.refreshSecciones()
+    
     var { dataSource } = this.state;
 
-    
     
     return (
       <di>

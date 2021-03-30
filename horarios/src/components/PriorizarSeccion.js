@@ -32,7 +32,7 @@ export default class UserInterface extends Component {
           
       var config = {
         method: 'get',
-        url: `http://200.14.84.238/get_ramos_disponibles/`,
+        url: `https://asistente-eit.udp.cl/get_ramos_disponibles/`,
         headers: {
             'Authorization': 'Token ' + localStorage.getItem("token"), 
             'Content-Type': 'application/json'
