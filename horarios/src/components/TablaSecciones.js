@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Table } from 'antd';
 import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
@@ -117,9 +117,14 @@ class SortableTable extends React.Component {
   render() {
     const { dataSource } = this.state;
     this.props?console.log(this.props):console.log("nada")
-    if (this.pros){
-      this.setState({dataSource:this.props.secciones})
-    }
+    
+    
+    useEffect( () => {
+      if (this.pros){
+        this.setState({dataSource:this.props.secciones})
+      }
+    }, []);
+    
     return (
       <Table
         pagination={false}
