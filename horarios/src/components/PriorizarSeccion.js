@@ -75,8 +75,8 @@ export default class UserInterface extends Component {
                   </div>
 
                   <div className="site-layout-background" style={{ padding: 15,  display: "flex",  justifyContent: "center", alignItems: "center" }}>
-                      {console.log(this.state.ramos)}
-                      <SelectSearch ramosDisponibles = {[this.state.ramos]} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
+                      {console.log(this.state.ramos["ramos_disponibles"])}
+                      <SelectSearch ramosDisponibles = {"this.state.ramos"} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
                       
                   </div>
                   {(this.state.message != "no")?
