@@ -117,13 +117,15 @@ class SortableTable extends React.Component {
   render() {
     const { dataSource } = this.state;
     this.props?console.log(this.props):console.log("nada")
+    console.log(dataSource)
     if (this.pros){
       this.setState({dataSource:this.props.secciones})
     }
+    
     return (
       <Table
         pagination={false}
-        dataSource={this.state}
+        dataSource={dataSource}
         columns={columns}
         rowKey="index"
         components={{
