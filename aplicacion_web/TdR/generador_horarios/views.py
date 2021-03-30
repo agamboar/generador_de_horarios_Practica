@@ -609,7 +609,7 @@ def get_ramos_disponibles(request):
             return JsonResponse({"mensaje":"No existen ramos disponibles en los registros"}, safe=False, status=status.HTTP_404_NOT_FOUND)
 
         for elem in ramos_disponibles:
-            aux_retornar.append({"codigo_ramo":ramos_disponibles["to_asignatura_real__codigo"],"nombre_ramo":ramos_disponibles["to_asignatura_real__nombre"]})
+            aux_retornar.append({"codigo_ramo":elem["to_asignatura_real__codigo"],"nombre_ramo":elem["to_asignatura_real__nombre"]})
   
 
         return JsonResponse({"ramos_disponibles":aux_retornar}, safe=False, status=status.HTTP_200_OK)
