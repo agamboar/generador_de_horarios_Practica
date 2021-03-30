@@ -170,9 +170,8 @@ class SortableTable extends React.Component {
           },
         }}
       /></div>
-      :null}
-      {console.log(this.state.dataSource )}
-      {this.state.dataSource == []?<p>No hay secciones disponibles para este ramo, en base a nuestros registros</p>:null}
+      :<p>No hay secciones disponibles para este ramo, en base a nuestros registros</p>}
+      
       </div>
     );
   }
