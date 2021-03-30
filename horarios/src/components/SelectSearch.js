@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+
 
 //import 'antd/dist/antd.css'; esto genera errro no colocar
 
@@ -14,7 +14,7 @@ const SelectSearch = (props) => { //recibir data (ramos del pibe)
   
   function onChange(value) { // aca va el get para obtener las secciones de un ramo
     console.log(`selected ${value}`);
-    props.parentCallback({"nombre":value}); //map de eso y se puede rellenar la tabla
+    props.parentCallback({"codigo":value}); //map de eso y se puede rellenar la tabla
 
     
     //console.log(props.ramosDisponibles) solo para saber q es lo que llega

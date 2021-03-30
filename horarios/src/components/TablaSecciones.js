@@ -4,6 +4,7 @@ import { sortableContainer, sortableElement, sortableHandle } from 'react-sortab
 import { MenuOutlined } from '@ant-design/icons';
 import arrayMove from 'array-move';
 import 'antd/dist/antd.css';
+import axios from 'axios';
 
 const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
@@ -125,7 +126,7 @@ class SortableTable extends React.Component {
   componentDidMount(){
     var config = {
       method: 'get',
-      url: `https://asistente-eit.udp.cl/get_secciones/${value}/`,
+      url: `https://asistente-eit.udp.cl/get_secciones/${this.props.codigo}/`,
       headers: {
           'Authorization': 'Token ' + localStorage.getItem("token"), 
           'Content-Type': 'application/json'
