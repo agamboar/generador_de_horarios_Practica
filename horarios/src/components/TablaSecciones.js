@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { Table } from 'antd';
 import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
@@ -85,7 +85,7 @@ const SortableContainer = sortableContainer(props => <tbody {...props} />);
 class SortableTable extends React.Component {
   
   state = {
-    dataSource: data,
+    dataSource: this.props.secciones,
   };
 
   onSortEnd = ({ oldIndex, newIndex }) => {
@@ -117,18 +117,13 @@ class SortableTable extends React.Component {
   render() {
     const { dataSource } = this.state;
     this.props?console.log(this.props):console.log("nada")
-    
-    
-    useEffect( () => {
-      if (this.pros){
-        this.setState({dataSource:this.props.secciones})
-      }
-    }, []);
-    
+    if (this.pros){
+      this.setState({dataSource:this.props.secciones})
+    }
     return (
       <Table
         pagination={false}
-        dataSource={dataSource}
+        dataSource={this.state}
         columns={columns}
         rowKey="index"
         components={{
