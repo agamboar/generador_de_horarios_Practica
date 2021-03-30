@@ -34,12 +34,11 @@ export default class UserInterface extends Component {
         fetch(`https://asistente-eit.udp.cl/get_ramos_disponibles/`)
             .then(res => res.json())
             .then(json => {
-              return setData(json) 
+              this.setState({ramos:json}) 
             });
       }
-
-      useEffect(() => {fetchTable();}, []);
-        
+      fetchTable()
+     
       return (
             <div>
             {//(localStorage.getItem("token"))?  
@@ -57,7 +56,7 @@ export default class UserInterface extends Component {
                   </div>
 
                   <div className="site-layout-background" style={{ padding: 15,  display: "flex",  justifyContent: "center", alignItems: "center" }}>
-                      <SelectSearch ramosDisponibles = {ramos_disponibles} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
+                      <SelectSearch ramosDisponibles = {this.state.ramos} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
                       
                   </div>
                   {(this.state.message != "no")?
