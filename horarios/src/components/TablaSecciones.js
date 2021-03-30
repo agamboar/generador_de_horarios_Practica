@@ -143,13 +143,16 @@ class SortableTable extends React.Component {
   }
 
   render() {
-    
+    if dataSource == 
     var { dataSource } = this.state;
 
     
     return (
       <di>
-      {dataSource !=""?<Table
+      {dataSource !=""?
+      <div>
+       { this.props.codigo}
+      <Table
         pagination={false}
         dataSource={dataSource}
         columns={columns}
@@ -160,7 +163,8 @@ class SortableTable extends React.Component {
             row: this.DraggableBodyRow,
           },
         }}
-      />:null}
+      />
+      </div>:null}
       
       </di>
     );
