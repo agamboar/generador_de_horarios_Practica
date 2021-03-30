@@ -41,7 +41,7 @@ export default class UserInterface extends Component {
     
 
     axios(config).then(response => { 
-        console.log(response) //verificar como se recibe la info          
+        //console.log(response) //verificar como se recibe la info          
         if (response.data){
           this.setState({ramos:response.data}) ; //map de eso y se puede rellenar la tabla
         }
@@ -76,7 +76,7 @@ export default class UserInterface extends Component {
 
                   <div className="site-layout-background" style={{ padding: 15,  display: "flex",  justifyContent: "center", alignItems: "center" }}>
                       {console.log(this.state.ramos)}
-                      <SelectSearch ramosDisponibles = {["this.state.ramos"]} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
+                      <SelectSearch ramosDisponibles = {this.state.ramos} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
                       
                   </div>
                   {(this.state.message != "no")?
