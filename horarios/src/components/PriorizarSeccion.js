@@ -28,14 +28,24 @@ export default class UserInterface extends Component {
 
     render() {
 
-
       const fetchTable = () => {
           
-        fetch(`https://asistente-eit.udp.cl/get_ramos_disponibles/`)
-            .then(res => res.json())
-            .then(json => {
-              this.setState({ramos:json}) 
-            });
+        var config = {
+          method: 'get',
+          url: `https://asistente-eit.udp.cl/get_ramos_disponibles/`,
+          headers: {
+              'Authorization': 'Token ' + localStorage.getItem("token"), 
+              'Content-Type': 'application/json'
+          }
+      };
+    
+      axios(config).then(response => { 
+          console.log(response) //verificar como se recibe la info          
+          if (response.data){
+            this.setState({ramos:response.data}) ; //map de eso y se puede rellenar la tabla
+          }
+      } )
+
       }
       fetchTable()
      
