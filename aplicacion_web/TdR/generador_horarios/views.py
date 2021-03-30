@@ -605,7 +605,7 @@ def get_ramos_disponibles(request):
         current_user = request.user
         aux_retornar = []
         ramos_disponibles = nodo_asignatura.objects.filter(to_user=current_user.id,es = 1).values("to_asignatura_real__codigo","to_asignatura_real__nombre").distinct()
-        if len(ramos_disponibles):
+        if len(ramos_disponibles) < 1:
             return JsonResponse({"mensaje":"No existen ramos disponibles en los registros"}, safe=False, status=status.HTTP_404_NOT_FOUND)
 
         for elem in ramos_disponibles:
