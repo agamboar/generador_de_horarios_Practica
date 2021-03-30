@@ -43,7 +43,7 @@ export default class UserInterface extends Component {
     axios(config).then(response => { 
         //console.log(response) //verificar como se recibe la info          
         if (response.data){
-          this.setState({ramos:response.data.ramos_disponibles}) ; //map de eso y se puede rellenar la tabla
+          this.setState({ramos:response.data}) ; //map de eso y se puede rellenar la tabla
         }
     } )
     
