@@ -1,4 +1,4 @@
-import React, {useEffect, useState, Content} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Card } from 'antd';
 import Navbar from './Navbar'
 import NotAuth from './NotAuth'
