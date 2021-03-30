@@ -16,25 +16,7 @@ const { Title, Text} = Typography;
 //post aqui para saber los ramos disponibles
 
 
-const fetchTable = () => {
-          
-  var config = {
-    method: 'get',
-    url: `https://asistente-eit.udp.cl/get_ramos_disponibles/`,
-    headers: {
-        'Authorization': 'Token ' + localStorage.getItem("token"), 
-        'Content-Type': 'application/json'
-    }
-};
 
-axios(config).then(response => { 
-    console.log(response) //verificar como se recibe la info          
-    if (response.data){
-      setState({ramos:response.data}) ; //map de eso y se puede rellenar la tabla
-    }
-} )
-
-}
 
 export default class UserInterface extends Component {
     state = { 
@@ -46,8 +28,28 @@ export default class UserInterface extends Component {
       this.setState({message: childData})
     } 
     
+    fetchTable = () => {
+          
+      var config = {
+        method: 'get',
+        url: `https://asistente-eit.udp.cl/get_ramos_disponibles/`,
+        headers: {
+            'Authorization': 'Token ' + localStorage.getItem("token"), 
+            'Content-Type': 'application/json'
+        }
+    };
+    
+
+    axios(config).then(response => { 
+        console.log(response) //verificar como se recibe la info          
+        if (response.data){
+          this.setState({ramos:response.data}) ; //map de eso y se puede rellenar la tabla
+        }
+    } )
+    
+    }
     componentDidMount(){
-      fetchTable()
+      this.fetchTable()
     }
     
     render() {
