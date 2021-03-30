@@ -123,7 +123,8 @@ class SortableTable extends React.Component {
   
   }*/
 
-  componentDidMount(){
+  
+  refreshTable=()=>{
     var config = {
       method: 'get',
       url: `https://asistente-eit.udp.cl/get_secciones/${this.props.codigo}/`,
@@ -131,40 +132,37 @@ class SortableTable extends React.Component {
           'Authorization': 'Token ' + localStorage.getItem("token"), 
           'Content-Type': 'application/json'
       }
-  };
+    };
 
-  axios(config).then(response => { 
-      console.log(response) //verificar como se recibe la info          
-      if (response.data){
-        this.setState({dataSource: response.data.secciones_disponibles})
-      }
-  } )
-   
+      axios(config).then(response => { 
+          console.log(response) //verificar como se recibe la info          
+          if (response.data){
+            this.setState({dataSource: response.data.secciones_disponibles})
+          }
+      })
+      var { dataSource } = this.state;
+      return (<Table
+      pagination={false}
+      dataSource={dataSource}
+      columns={columns}
+      rowKey="index"
+      components={{
+        body: {
+          wrapper: this.DraggableContainer,
+          row: this.DraggableBodyRow,
+        },
+      }}
+    />)};
+
+  componentDidMount(){
+    this.refreshTable()
   }
-
   render() {
-  
-    var { dataSource } = this.state;
-
-    
     return (
       <div>
-      {dataSource !=""?
-      <div>
-      <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.componentDidMount}><Button  type="primary">Actualizar tabla</Button></div>
-
-      <Table
-        pagination={false}
-        dataSource={dataSource}
-        columns={columns}
-        rowKey="index"
-        components={{
-          body: {
-            wrapper: this.DraggableContainer,
-            row: this.DraggableBodyRow,
-          },
-        }}
-      /></div>
+      {this.props.codigo ?
+      
+      <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={ this.refreshTable()}><Button  type="primary">Actualizar tabla</Button></div>
       :null}
       
       </div>
