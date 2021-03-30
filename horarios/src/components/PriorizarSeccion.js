@@ -30,7 +30,7 @@ const fetchTable = () => {
 axios(config).then(response => { 
     console.log(response) //verificar como se recibe la info          
     if (response.data){
-      this.setState({ramos:response.data}) ; //map de eso y se puede rellenar la tabla
+      setState({ramos:response.data}) ; //map de eso y se puede rellenar la tabla
     }
 } )
 
