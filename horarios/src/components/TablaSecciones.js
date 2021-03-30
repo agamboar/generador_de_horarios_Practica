@@ -123,7 +123,7 @@ class SortableTable extends React.Component {
   
   }*/
 
-  componentDidMount(){
+  get_secciones(){
     var config = {
       method: 'get',
       url: `https://asistente-eit.udp.cl/get_secciones/${this.props.codigo}/`,
@@ -145,13 +145,13 @@ class SortableTable extends React.Component {
   render() {
     
     var { dataSource } = this.state;
-
+    this.setState({ data: this.state.data.concat(data), loading: false });
     
     return (
       <di>
       {dataSource !=""?
       <div>
-       { this.props.codigo}
+      <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.get_secciones}><Button  type="primary">Actualizar tabla</Button></div>
       <Table
         pagination={false}
         dataSource={dataSource}
