@@ -91,7 +91,7 @@ export default class UserInterface extends Component {
                       <div>
                       <div style={{padding: 10, display: "flex",  justifyContent: "center"}}><Alert message="(Deje las secciones que más le importen al inicio de la tabla)" type="warning" /></div>
                       <Card title={"Secciones del ramo: \""+this.state.message["nombre"]+"\""}>
-                        <TablaSecciones/> {/*aca pasar el codigo del ramo y dps solo recibir el arreglo para mandarlo a la base*/}
+                        <TablaSecciones secciones= {["algo"]}/> {/*aca pasar el codigo del ramo y dps solo recibir el arreglo para mandarlo a la base*/}
                       </Card>
                       </div>
                       :null}

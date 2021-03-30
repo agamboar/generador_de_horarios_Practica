@@ -83,6 +83,7 @@ const SortableItem = sortableElement(props => <tr {...props} />);
 const SortableContainer = sortableContainer(props => <tbody {...props} />);
 
 class SortableTable extends React.Component {
+  
   state = {
     dataSource: data,
   };
@@ -95,7 +96,7 @@ class SortableTable extends React.Component {
       this.setState({ dataSource: newData });
     }
   };
-
+  
   DraggableContainer = props => (
     <SortableContainer
       useDragHandle
@@ -115,6 +116,7 @@ class SortableTable extends React.Component {
 
   render() {
     const { dataSource } = this.state;
+    this.props?console.log(this.props):console.log("nada")
 
     return (
       <Table
