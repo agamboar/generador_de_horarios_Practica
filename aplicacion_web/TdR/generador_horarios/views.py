@@ -602,9 +602,13 @@ def delete_asignaturas_cursadas(request):
 @api_view(['GET']) 
 def get_ramos_disponibles(request):
     if request.method == "GET":
-        current_user = request.user
+         try:
+            current_user = request.user.id
+        except:
+            current_user = 19
+       
         aux_retornar = []
-        ramos_disponibles = nodo_asignatura.objects.filter(to_user=current_user.id,es = 1).values("to_asignatura_real__codigo","to_asignatura_real__nombre").distinct()
+        ramos_disponibles = nodo_asignatura.objects.filter(to_user=current_user,es = 1).values("to_asignatura_real__codigo","to_asignatura_real__nombre").distinct()
         if len(ramos_disponibles) < 1:
             return JsonResponse({"mensaje":"No existen ramos disponibles en los registros"}, safe=False, status=status.HTTP_404_NOT_FOUND)
 

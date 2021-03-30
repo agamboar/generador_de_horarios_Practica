@@ -108,7 +108,7 @@ class SortableTable extends React.Component {
   );
 
   DraggableBodyRow = ({ className, style, ...restProps }) => {
-    const { dataSource } = this.state;
+    var { dataSource } = this.state;
     // function findIndex base on Table rowKey props and should always be a right array index
     const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
     return <SortableItem index={index} {...restProps} />;
