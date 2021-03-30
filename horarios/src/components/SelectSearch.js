@@ -26,7 +26,7 @@ const SelectSearch = (props) => { //recibir data (ramos del pibe)
   axios(config).then(response => { 
       console.log(response) //verificar como se recibe la info          
       if (response.data){
-        props.parentCallback({"nombre":value,"seciones":response.data.secciones_disponibles}); //map de eso y se puede rellenar la tabla
+        props.parentCallback({"nombre":value,"secciones":response.data.secciones_disponibles}); //map de eso y se puede rellenar la tabla
       }
   } )
 
