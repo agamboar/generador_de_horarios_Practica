@@ -20,7 +20,7 @@ const { Title, Text} = Typography;
 export default class UserInterface extends Component {
     state = { 
       message: "no", 
-      ramos: ["Programacion I","Base de datos","Ingenieria de Software"]
+      ramos: ""
     }
 
     callbackFunction = (childData) => {
@@ -67,7 +67,8 @@ export default class UserInterface extends Component {
                   </div>
 
                   <div className="site-layout-background" style={{ padding: 15,  display: "flex",  justifyContent: "center", alignItems: "center" }}>
-                      <SelectSearch ramosDisponibles = {this.state.ramos} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
+                      {console.log(this.state.ramos)}
+                      <SelectSearch ramosDisponibles = {["this.state.ramos"]} parentCallback = {this.callbackFunction}  /> {/*aca se le pasa todos los ramos que puede tomar el pibe */}
                       
                   </div>
                   {(this.state.message != "no")?
