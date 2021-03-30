@@ -162,7 +162,7 @@ class SortableTable extends React.Component {
       <div>
       {this.props.codigo ?
       
-      <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={ this.refreshTable()}><Button  type="primary">Actualizar tabla</Button></div>
+      <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={ this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div>
       :null}
       
       </div>
