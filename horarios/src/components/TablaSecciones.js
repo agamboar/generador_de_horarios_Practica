@@ -140,29 +140,32 @@ class SortableTable extends React.Component {
             this.setState({dataSource: response.data.secciones_disponibles})
           }
       })
-      var { dataSource } = this.state;
-      return (<Table
-      pagination={false}
-      dataSource={dataSource}
-      columns={columns}
-      rowKey="index"
-      components={{
-        body: {
-          wrapper: this.DraggableContainer,
-          row: this.DraggableBodyRow,
-        },
-      }}
-    />)};
+  };
 
   componentDidMount(){
     this.refreshTable()
+   
   }
   render() {
+    
     return (
       <div>
-      {this.props.codigo ?
-      
-      <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={ this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div>
+      {dataSource !=""?
+      <div>
+      <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div>
+
+      <Table
+        pagination={false}
+        dataSource={this.state}
+        columns={columns}
+        rowKey="index"
+        components={{
+          body: {
+            wrapper: this.DraggableContainer,
+            row: this.DraggableBodyRow,
+          },
+        }}
+      /></div>
       :null}
       
       </div>
