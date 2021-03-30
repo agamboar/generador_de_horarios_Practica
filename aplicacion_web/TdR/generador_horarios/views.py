@@ -606,7 +606,7 @@ def get_ramos_disponibles(request):
         aux_retornar = []
         ramos_disponibles = nodo_asignatura.objects.filter(to_user=current_user.id,es = 1).values("to_asignatura_real__codigo","to_asignatura_real__nombre").distinct()
         if len(ramos_disponibles):
-             return JsonResponse({"mensaje":"No existen ramos disponibles en los registros"}, safe=False, status=status.HTTP_404_NOT_FOUND)
+            return JsonResponse({"mensaje":"No existen ramos disponibles en los registros"}, safe=False, status=status.HTTP_404_NOT_FOUND)
 
         for elem in ramos_disponibles:
             aux_retornar.append({"codigo_ramo":ramos_disponibles["to_asignatura_real__codigo"],"nombre_ramo":ramos_disponibles["to_asignatura_real__nombre"]})
