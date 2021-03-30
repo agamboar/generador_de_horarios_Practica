@@ -17,16 +17,16 @@ const columns = [
   },
   {
     title: 'Código Sección',
-    dataIndex: 'name',
+    dataIndex: 'cod_seccion',
     className: 'drag-visible',
   },
   {
     title: 'Número Sección',
-    dataIndex: 'age',
+    dataIndex: 'numb_seccion',
   },
   {
     title: 'Profesor',
-    dataIndex: 'address',
+    dataIndex: 'profesor',
   },
   {
     title: 'Horario',
