@@ -621,7 +621,7 @@ def get_secciones_disponibles(request, codigo):
 
     if request.method == "GET":
         #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
-       current_user = request.user.id
+        current_user = request.user.id
 
 
         secciones_disponibles =[]
