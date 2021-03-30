@@ -5,7 +5,7 @@ import { MenuOutlined } from '@ant-design/icons';
 import arrayMove from 'array-move';
 import 'antd/dist/antd.css';
 import axios from 'axios';
-import { Button } from 'antd'
+
 const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
 const columns = [
@@ -123,8 +123,7 @@ class SortableTable extends React.Component {
   
   }*/
 
-  
-  get_secciones(){
+  componentDidMount(){
     var config = {
       method: 'get',
       url: `https://asistente-eit.udp.cl/get_secciones/${this.props.codigo}/`,
@@ -142,20 +141,18 @@ class SortableTable extends React.Component {
   } )
    
   }
-  componentDidMount(){
-    this.get_secciones()
-  }
 
   render() {
-    
+    if dataSource == 
     var { dataSource } = this.state;
-    this.setState({ data: this.state.data.concat(data), loading: false });
+
     
     return (
       <di>
       {dataSource !=""?
       <div>
-      <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.get_secciones}><Button  type="primary">Actualizar tabla</Button></div>
+      <div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.componentDidMount}><Button  type="primary">Actualizar tabla</Button></div>
+
       <Table
         pagination={false}
         dataSource={dataSource}
@@ -167,8 +164,8 @@ class SortableTable extends React.Component {
             row: this.DraggableBodyRow,
           },
         }}
-      />
-      </div>:null}
+      /></div>
+      :null}
       
       </di>
     );
