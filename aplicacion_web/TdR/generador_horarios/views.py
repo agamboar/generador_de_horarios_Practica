@@ -633,7 +633,7 @@ def get_secciones_disponibles(request, codigo):
             numb_seccion = elem['to_seccion__num_seccion']
             vac_libres = elem['to_seccion__vacantes_libres']
 
-            if aux_codigo == elem['to_seccion__cod_seccion']:
+            if aux_codigo_sec == elem['to_seccion__cod_seccion']:
                 if horario not in aux_horario:
                     aux_horario.append(horario)
             else:
