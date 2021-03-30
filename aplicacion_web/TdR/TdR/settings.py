@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'django_node_assets',
+#    'django_node_assets',
 ]
 
 SITE_ID = 1
@@ -76,7 +76,7 @@ CSRF_TRUSTED_ORIGINS = ['127.0.0.1', 'localhost', 'http://200.14.84.238:80/','10
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    #"whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -116,10 +116,10 @@ TEMPLATES = [
     },
 ]
 
-STATICFILES_FINDERS = [
+#STATICFILES_FINDERS = [
 
-    'django_node_assets.finders.NodeModulesFinder',
-]
+#    'django_node_assets.finders.NodeModulesFinder',
+#]
 
 #STATICFILES_DIRS = [
   # Tell Django where to look for React's static files (css, js)
@@ -129,14 +129,14 @@ STATICFILES_FINDERS = [
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/' #static
-STATICFILES_DIRS = [
-    str(BASE_DIR.parent / 'horarios/node_modules'),
-]
+#STATICFILES_DIRS = [
+#    str(BASE_DIR.parent / 'horarios/node_modules'),
+#]
 
-NODE_PACKAGE_JSON = str(BASE_DIR.parent.parent / 'horarios/package.json')
-NODE_MODULES_ROOT = str(BASE_DIR.parent.parent / 'horarios/node_modules')
+#NODE_PACKAGE_JSON = str(BASE_DIR.parent.parent / 'horarios/package.json')
+#NODE_MODULES_ROOT = str(BASE_DIR.parent.parent / 'horarios/node_modules')
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 WSGI_APPLICATION = 'TdR.wsgi.application'
 
