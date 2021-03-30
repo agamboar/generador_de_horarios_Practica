@@ -117,7 +117,7 @@ class SortableTable extends React.Component {
   render() {
     const { dataSource } = this.state;
     this.props?console.log(this.props):console.log("nada")
-
+    this.setState({dataSource:this.props.secciones})
     return (
       <Table
         pagination={false}
