@@ -512,9 +512,9 @@ def PERT_es1(request):
         ns = nodo_asignatura.objects.filter(to_user=current_user, es=1)
         serializer = nodoAsignaturaSerializer(ns, many=True)
         print(serializer.data)
-        """ if serializer.data  == []:
+        if serializer.data  == []:
             return JsonResponse("no", safe=False, status=status.HTTP_200_OK)
-        else: """
+        else:
         return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
 
 
@@ -598,6 +598,21 @@ def delete_asignaturas_cursadas(request):
     """
 
     return JsonResponse({"mensaje":"Se ha borrado el avance academico, junto con el año de la malla escogida previamente"}, safe=False, status=status.HTTP_200_OK)
+
+@api_view(['GET']) 
+def get_ramos_disponibles(request):
+    if request.method == "GET":
+        current_user = request.user
+        aux_retornar = []
+        ramos_disponibles = nodo_asignatura.objects.filter(to_user=current_user.id,es = 1).values("to_asignatura_real__codigo","to_asignatura_real__nombre").distinct()
+        if len(ramos_disponibles):
+             return JsonResponse({"mensaje":"No existen ramos disponibles en los registros"}, safe=False, status=status.HTTP_404_NOT_FOUND)
+
+        for elem in ramos_disponibles:
+            aux_retornar.append({"codigo_ramo":ramos_disponibles["to_asignatura_real__codigo"],"nombre_ramo":ramos_disponibles["to_asignatura_real__nombre"]})
+  
+
+        return JsonResponse({"ramos_disponibles":aux_retornar}, safe=False, status=status.HTTP_200_OK)
 
 @api_view(['GET']) #get si funciona
 def get_secciones_disponibles(request, codigo):

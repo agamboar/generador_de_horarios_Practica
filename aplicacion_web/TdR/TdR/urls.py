@@ -50,6 +50,7 @@ urlpatterns = [
     path('remove_staff/', views.remove_staff),
     path('delete_asignaturasCursadas/', views.delete_asignaturas_cursadas),
     path('get_secciones/<str:codigo>/', views.get_secciones_disponibles),
+    path('get_ramos_disponibles/', views.get_ramos_disponibles),
     re_path(r"^$", render_react),
     re_path(r"^(?:.*)/?$", render_react),
 ]
