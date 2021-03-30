@@ -603,7 +603,15 @@ def delete_asignaturas_cursadas(request):
 def get_secciones_disponibles(request, cod_ramo):
 
 
-    if request.method == "GET":
+
+    secc = seccion.objects.filter( to_asignatura_real=cod_ramo )
+
+    serializer = seccionSerializer(secc, many=True)
+
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+    """ if request.method == "GET":
         #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
         current_user = request.user
         secciones_disponibles ="hola"
@@ -611,7 +619,7 @@ def get_secciones_disponibles(request, cod_ramo):
             secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user.id,to_seccion__to_asignatura_real__codigo=cod_ramo,to_seccion__num_seccion__lte=1).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo').distinct()  
         except:
             pass
-        return JsonResponse({"secciones_disponibles":secciones_disponibles}, safe=False, status=status.HTTP_200_OK)
+        
         aux_retornar = []
 
         aux_horario = []
@@ -642,4 +650,4 @@ def get_secciones_disponibles(request, cod_ramo):
                 aux_codigo_sec = elem['to_seccion__cod_seccion']
                 prof = ""
         
-        return JsonResponse({"secciones_disponibles":aux_retornar}, safe=False, status=status.HTTP_200_OK)
+        return JsonResponse({"secciones_disponibles":aux_retornar}, safe=False, status=status.HTTP_200_OK) """
