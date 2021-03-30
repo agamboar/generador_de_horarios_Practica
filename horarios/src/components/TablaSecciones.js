@@ -86,7 +86,7 @@ const SortableContainer = sortableContainer(props => <tbody {...props} />);
 class SortableTable extends React.Component {
   
   state = {
-    dataSource: "",
+    dataSource: data,
   };
 
   onSortEnd = ({ oldIndex, newIndex }) => {
