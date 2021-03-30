@@ -602,11 +602,9 @@ def delete_asignaturas_cursadas(request):
 @api_view(['GET']) 
 def get_ramos_disponibles(request):
     if request.method == "GET":
-         try:
-            current_user = request.user.id
-        except:
-            current_user = 19
-       
+        
+        current_user = request.user.id
+        
         aux_retornar = []
         ramos_disponibles = nodo_asignatura.objects.filter(to_user=current_user,es = 1).values("to_asignatura_real__codigo","to_asignatura_real__nombre").distinct()
         if len(ramos_disponibles) < 1:
@@ -623,10 +621,8 @@ def get_secciones_disponibles(request, codigo):
 
     if request.method == "GET":
         #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
-        try:
-            current_user = request.user.id
-        except:
-            current_user = 19
+       current_user = request.user.id
+
 
         secciones_disponibles =[]
         try:
