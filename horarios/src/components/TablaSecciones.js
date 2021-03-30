@@ -115,19 +115,16 @@ class SortableTable extends React.Component {
   };
 
 
-  refreshSecciones = () => {
+ 
+  componentDidMount = () => {
     if (this.props.secciones){
       console.log(this.props.secciones)
-      this.setState({dataSource: this.props.secciones})
+      this.setState({dataSource: data})
       console.log(this.state.dataSource)
     }
+
+  }
   
-  }
-
-  componentDidMount(){
-    this.refreshSecciones()
-  }
-
   render() {
     
     var { dataSource } = this.state;
