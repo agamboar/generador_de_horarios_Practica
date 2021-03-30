@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, Component} from 'react';
 import { Card } from 'antd';
 import Navbar from './Navbar'
 import NotAuth from './NotAuth'
@@ -27,7 +27,7 @@ export default class UserInterface extends Component {
     } 
 
     render() {
-      const [ramos_disponibles, setData] = useState([]);
+
 
       const fetchTable = () => {
           
