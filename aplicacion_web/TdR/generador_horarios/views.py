@@ -515,7 +515,7 @@ def PERT_es1(request):
         if serializer.data  == []:
             return JsonResponse("no", safe=False, status=status.HTTP_200_OK)
         else:
-        return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
+            return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
