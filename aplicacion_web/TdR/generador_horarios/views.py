@@ -629,7 +629,7 @@ def get_secciones_disponibles(request, codigo):
             if elem['to_seccion__evento__tipo'][0] == 'C':
                 prof = elem['to_seccion__evento__profesor']
 
-            cod_sec = elem['to_seccion__to_asignatura_real__codigo']
+            cod_sec = elem['to_seccion__cod_seccion']
             numb_seccion = elem['to_seccion__num_seccion']
             vac_libres = elem['to_seccion__vacantes_libres']
 
