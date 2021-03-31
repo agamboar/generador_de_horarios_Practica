@@ -667,8 +667,8 @@ def get_secciones_disponibles(request, codigo):
                 aux_codigo_sec = elem['to_seccion__cod_seccion']
                 prof = ""
 
-            if len(secciones_disponibles) == index+1 and aux_retornar == []:
-                aux_retornar.append({'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index  })
+        if  aux_retornar == []:
+            aux_retornar.append({'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index  })
                 
         
         return JsonResponse({"secciones_disponibles":aux_retornar}, safe=False, status=status.HTTP_200_OK)
