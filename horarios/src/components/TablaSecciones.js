@@ -123,8 +123,9 @@ class SortableTable extends React.Component {
         
         </Row>
       {(dataSource =="" || dataSource =="no")?
-      null:
-      <div>
+      
+      
+      null:<div>
 
       <Table
         pagination={false}
@@ -137,12 +138,13 @@ class SortableTable extends React.Component {
             row: this.DraggableBodyRow,
           },
         }}
-      /></div>
-      :null}
-      {this.state.dataSource == "no"?<div style={{padding: 20, display: "flex",  justifyContent: "center"}}> 
+      /></div>}
+
+      {this.state.dataSource == "no"?
+      <div style={{padding: 20, display: "flex",  justifyContent: "center"}}> 
       <p>No hay secciones disponibles para este ramo, en base a nuestros registros</p>
       {this.err('error:  ramo sin sin seccion')}
-      </div>}
+      </div>:null}
       </div>
     );
   }
