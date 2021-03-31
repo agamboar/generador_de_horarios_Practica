@@ -632,7 +632,7 @@ def get_secciones_disponibles(request, codigo):
         except:
             pass
         if len(secciones_disponibles) == 0:
-            return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_404_NOT_FOUND)
+            return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_204_NO_CONTENT)
  
         aux_retornar = []
 

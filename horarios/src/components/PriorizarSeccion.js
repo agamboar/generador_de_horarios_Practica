@@ -51,7 +51,9 @@ export default class UserInterface extends Component {
     componentDidMount(){
       this.getRamos()
     }
-    
+    err = (e) => {
+      toast.error(e, { position: toast.POSITION.TOP_CENTER })
+  }
     render() {
 
       
@@ -95,7 +97,7 @@ export default class UserInterface extends Component {
                         <TablaSecciones codigo= {this.state.message["codigo"]}/> {/*aca pasar el codigo del ramo y dps solo recibir el arreglo para mandarlo a la base*/}
                       </Card>
                       </div>
-                      :null}
+                      :this.err('error:  ramo sin sin seccion')}
                     
                     <br></br>
                     <Footer style={{ textAlign: 'center' }}></Footer>

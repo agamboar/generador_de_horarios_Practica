@@ -82,9 +82,7 @@ class SortableTable extends React.Component {
 
   
   refreshTable=()=>{
-    const err = (e) => {
-      toast.error(e, { position: toast.POSITION.TOP_CENTER })
-  }
+   
     var config = {
       method: 'get',
       url: `https://asistente-eit.udp.cl/get_secciones/${this.props.codigo}/`,
@@ -99,12 +97,7 @@ class SortableTable extends React.Component {
           if (response.data){
             this.setState({dataSource: response.data.secciones_disponibles})
           }
-      }).catch(function (error) {
-        if (error.response) {
-            if (error.response.data.error) { err(`error:  ${error.response.data.error}`); }
-
-          }
-        });
+      })
   };
 
   componentDidMount(){
