@@ -103,7 +103,8 @@ class SortableTable extends React.Component {
         if (error.response) {
             if (error.response.data.error) { err(`error:  ${error.response.data.error}`); }
 
-        }
+          }
+        });
   };
 
   componentDidMount(){
