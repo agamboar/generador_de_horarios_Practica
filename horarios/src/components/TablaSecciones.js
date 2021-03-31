@@ -110,7 +110,7 @@ class SortableTable extends React.Component {
       })
   };
 
-  setSS=()=>{
+  setSS= async ()=>{
     if (this.state.dataSource =="" || this.state.dataSource =="no"){
       setTimeout(function () { err("No hay datos que guardar."); }, 1000);
     
