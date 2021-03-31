@@ -99,7 +99,7 @@ class SortableTable extends React.Component {
           if (response.data.secciones_disponibles){
             this.setState({dataSource: response.data.secciones_disponibles})
           }else{
-            this.setState({dataSource: {index: 0 }})
+            this.setState({dataSource: "no"})
           }
       })
   };
@@ -122,8 +122,8 @@ class SortableTable extends React.Component {
         <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div></Col>
         
         </Row>
-      {(dataSource !="")?
-      
+      {(dataSource =="" || dataSource =="no")?
+      null:
       <div>
 
       <Table
@@ -139,10 +139,10 @@ class SortableTable extends React.Component {
         }}
       /></div>
       :null}
-      {this.state.dataSource == {index: 0 }?<div style={{padding: 20, display: "flex",  justifyContent: "center"}}> 
+      {this.state.dataSource == "no"?<div style={{padding: 20, display: "flex",  justifyContent: "center"}}> 
       <p>No hay secciones disponibles para este ramo, en base a nuestros registros</p>
       {this.err('error:  ramo sin sin seccion')}
-      </div>:null}
+      </div>}
       </div>
     );
   }
