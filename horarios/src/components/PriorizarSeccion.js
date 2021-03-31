@@ -10,6 +10,7 @@ import { Layout} from 'antd';
 import { Button } from 'antd'
 import { Alert } from 'antd';
 import axios from 'axios';
+import { toast } from 'react-toastify'
 
 const {  Content, Footer } = Layout;
 const { Title, Text} = Typography;
