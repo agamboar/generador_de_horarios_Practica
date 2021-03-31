@@ -122,7 +122,7 @@ class SortableTable extends React.Component {
         <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div></Col>
         
         </Row>
-      {dataSource !=""?
+      {(dataSource !="" || dataSource !="no" )?
       <div>
 
       <Table
