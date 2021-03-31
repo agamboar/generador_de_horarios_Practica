@@ -143,7 +143,7 @@ class SortableTable extends React.Component {
       {this.state.dataSource == "no"?
       <div style={{padding: 20, display: "flex",  justifyContent: "center"}}> 
       <p>No hay secciones disponibles para este ramo, en base a nuestros registros</p>
-      {this.err('error:  ramo sin sin seccion')}
+
       </div>:null}
       </div>
     );
