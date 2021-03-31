@@ -96,7 +96,7 @@ class SortableTable extends React.Component {
 
       axios(config).then(response => { 
           console.log(response) //verificar como se recibe la info          
-          if (response.data){
+          if (response.data.secciones_disponibles){
             this.setState({dataSource: response.data.secciones_disponibles})
           }
       })
