@@ -9,6 +9,7 @@ import { Button } from 'antd'
 import { Alert } from 'antd';
 import { Row, Col, Divider } from 'antd';
 import { toast } from 'react-toastify'
+
 const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
 const columns = [
@@ -77,8 +78,9 @@ class SortableTable extends React.Component {
     const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
     return <SortableItem index={index} {...restProps} />;
   };
-
-
+  err = (e) => {
+    toast.error(e, { position: toast.POSITION.TOP_CENTER })
+}
 
   
   refreshTable=()=>{
@@ -136,6 +138,7 @@ class SortableTable extends React.Component {
       :
       <div style={{padding: 20, display: "flex",  justifyContent: "center"}}> 
       <p>No hay secciones disponibles para este ramo, en base a nuestros registros</p>
+      {this.err('error:  ramo sin sin seccion')}
       </div>
       }
       

@@ -10,7 +10,7 @@ import { Layout} from 'antd';
 import { Button } from 'antd'
 import { Alert } from 'antd';
 import axios from 'axios';
-import { toast } from 'react-toastify'
+
 
 const {  Content, Footer } = Layout;
 const { Title, Text} = Typography;
@@ -52,9 +52,7 @@ export default class UserInterface extends Component {
     componentDidMount(){
       this.getRamos()
     }
-    err = (e) => {
-      toast.error(e, { position: toast.POSITION.TOP_CENTER })
-  }
+    
     render() {
 
       
@@ -98,7 +96,7 @@ export default class UserInterface extends Component {
                         <TablaSecciones codigo= {this.state.message["codigo"]}/> {/*aca pasar el codigo del ramo y dps solo recibir el arreglo para mandarlo a la base*/}
                       </Card>
                       </div>
-                      :this.err('error:  ramo sin sin seccion')}
+                      :null}
                     
                     <br></br>
                     <Footer style={{ textAlign: 'center' }}></Footer>
