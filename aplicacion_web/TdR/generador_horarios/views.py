@@ -607,6 +607,8 @@ def get_ramos_disponibles(request):
         
         aux_retornar = []
         ramos_disponibles = nodo_asignatura.objects.filter(to_user=current_user,es = 1).values("to_asignatura_real__codigo","to_asignatura_real__nombre").distinct()
+        #ramos_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user,to_nodo_asignatura__es = 1).values("to_nodo_asignatura__to_asignatura_real__codigo","to_nodo_asignatura__to_asignatura_real__nombre").distinct('to_nodo_asignatura__to_asignatura_real__codigo')
+
         if len(ramos_disponibles) < 1:
             return JsonResponse({"mensaje":"No existen ramos disponibles en los registros"}, safe=False, status=status.HTTP_404_NOT_FOUND)
 
@@ -626,10 +628,10 @@ def get_secciones_disponibles(request, codigo):
 
         secciones_disponibles =[]
         try:
-            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo').order_by('-ss').distinct()  
+            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = 19,to_nodo_asignatura__to_asignatura_real__codigo='CBM2000').values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo').order_by('-ss').distinct()  
         except:
             pass
-        if len(secciones_disponibles) < 1:
+        if len(secciones_disponibles) == 0:
             return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_404_NOT_FOUND)
  
         aux_retornar = []
