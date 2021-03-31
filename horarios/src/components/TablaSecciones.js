@@ -8,6 +8,7 @@ import axios from 'axios';
 import { Button } from 'antd'
 import { Alert } from 'antd';
 import { Row, Col, Divider } from 'antd';
+import { toast } from 'react-toastify'
 const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
 const columns = [
@@ -81,6 +82,9 @@ class SortableTable extends React.Component {
 
   
   refreshTable=()=>{
+    const err = (e) => {
+      toast.error(e, { position: toast.POSITION.TOP_CENTER })
+  }
     var config = {
       method: 'get',
       url: `https://asistente-eit.udp.cl/get_secciones/${this.props.codigo}/`,
@@ -95,7 +99,11 @@ class SortableTable extends React.Component {
           if (response.data){
             this.setState({dataSource: response.data.secciones_disponibles})
           }
-      })
+      }).catch(function (error) {
+        if (error.response) {
+            if (error.response.data.error) { err(`error:  ${error.response.data.error}`); }
+
+        }
   };
 
   componentDidMount(){
