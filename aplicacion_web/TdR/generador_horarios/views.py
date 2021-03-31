@@ -350,12 +350,12 @@ def asignar_ss(request):
     if request.method == "POST":
 
         json_data = request.data
-
-        for aux in json_data:
+        cantidad_secciones=len(json_data) 
+        for index,aux in enumerate(json_data):
 
             nodo = nodo_seccion.objects.get(id=aux['id'])
-
-            serializer = nodoSeccionSerializer(nodo, data={'ss': aux['ss']}, partial=True)
+            ss = cantidad_secciones-index
+            serializer = nodoSeccionSerializer(nodo, data={'ss': ss}, partial=True)
 
             if serializer.is_valid(): #esto funciona ?
                 serializer.save()
@@ -628,7 +628,7 @@ def get_secciones_disponibles(request, codigo):
 
         secciones_disponibles =[]
         try:
-            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo').order_by('-ss').distinct()  
+            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id').order_by('-ss').distinct()  
         except:
             pass
         if len(secciones_disponibles) == 0:
@@ -668,7 +668,7 @@ def get_secciones_disponibles(request, codigo):
                 prof = ""
 
         if  aux_retornar == []:
-            aux_retornar.append({'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index  })
+            aux_retornar.append({'id':elem['id'],'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index  })
                 
         
         return JsonResponse({"secciones_disponibles":aux_retornar}, safe=False, status=status.HTTP_200_OK)

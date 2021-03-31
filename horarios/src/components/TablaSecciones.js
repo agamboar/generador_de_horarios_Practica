@@ -52,7 +52,13 @@ class SortableTable extends React.Component {
   state = {
     dataSource: "",
   };
-
+  notify = (e) => {
+    toast.info(e, { position: toast.POSITION.TOP_CENTER })
+  }
+  err = (e) => {
+    toast.error(e, { position: toast.POSITION.TOP_CENTER })
+}
+  
   onSortEnd = ({ oldIndex, newIndex }) => {
     var { dataSource } = this.state;
     if (oldIndex !== newIndex) {
@@ -104,6 +110,33 @@ class SortableTable extends React.Component {
       })
   };
 
+  setSS=()=>{
+    if (this.state.dataSource =="" || this.state.dataSource =="no"){
+      setTimeout(function () { err("No hay datos que guardar."); }, 1000);
+    
+    }else{
+
+      var data = JSON.stringify(this.state.dataSource);
+      console.log(data)
+  
+      var config = {
+        method: 'post',
+        url: 'https://asistente-eit.udp.cl/ss/',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Token ' + localStorage.getItem("token")
+        },
+        data: data
+      };
+  
+      await axios(config)
+      setTimeout(function () { notify("Prioridadas guardadas."); }, 1000);
+      //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/horariosPosibles'; }, 4500);
+    }
+    
+  }
+    
+  
   componentDidMount(){
     this.refreshTable()
    
@@ -118,6 +151,7 @@ class SortableTable extends React.Component {
       <div>
         
         <Row>
+        <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "flex-begin"}}><Button onClick={this.setSS}  type="primary">Guardar prioridad</Button></div></Col>
         <Col flex="auto"><div ><Alert message="(Guarde los cambios antes de actualizar la tabla)" type="error" /></div></Col>
         <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} onClick={this.refreshTable}><Button  type="primary">Actualizar tabla</Button></div></Col>
         
