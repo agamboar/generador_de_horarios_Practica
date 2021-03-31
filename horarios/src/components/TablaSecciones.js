@@ -52,12 +52,6 @@ class SortableTable extends React.Component {
   state = {
     dataSource: "",
   };
-  notify = (e) => {
-    toast.info(e, { position: toast.POSITION.TOP_CENTER })
-  }
-  err = (e) => {
-    toast.error(e, { position: toast.POSITION.TOP_CENTER })
-}
   
   onSortEnd = ({ oldIndex, newIndex }) => {
     var { dataSource } = this.state;
@@ -84,10 +78,7 @@ class SortableTable extends React.Component {
     const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
     return <SortableItem index={index} {...restProps} />;
   };
-  err = (e) => {
-    toast.error(e, { position: toast.POSITION.TOP_CENTER })
-}
-
+ 
   
   refreshTable=()=>{
    
@@ -109,6 +100,13 @@ class SortableTable extends React.Component {
           }
       })
   };
+  notify = (e) => {
+    toast.info(e, { position: toast.POSITION.TOP_CENTER })
+  }
+  err = (e) => {
+    toast.error(e, { position: toast.POSITION.TOP_CENTER })
+  }
+  
 
   setSS= async ()=>{
     if (this.state.dataSource =="" || this.state.dataSource =="no"){
