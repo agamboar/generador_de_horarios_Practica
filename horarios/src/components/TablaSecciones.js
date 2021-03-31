@@ -112,7 +112,7 @@ class SortableTable extends React.Component {
 
   setSS= async ()=>{
     if (this.state.dataSource =="" || this.state.dataSource =="no"){
-      setTimeout(function () { err("No hay datos que guardar."); }, 1000);
+      setTimeout(function () { this.err("No hay datos que guardar."); }, 1000);
     
     }else{
 
@@ -130,7 +130,7 @@ class SortableTable extends React.Component {
       };
   
       await axios(config)
-      setTimeout(function () { notify("Prioridadas guardadas."); }, 1000);
+      setTimeout(function () { this.notify("Prioridadas guardadas."); }, 1000);
       //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/horariosPosibles'; }, 4500);
     }
     
