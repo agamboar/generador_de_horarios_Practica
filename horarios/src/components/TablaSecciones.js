@@ -98,6 +98,8 @@ class SortableTable extends React.Component {
           console.log(response) //verificar como se recibe la info          
           if (response.data.secciones_disponibles){
             this.setState({dataSource: response.data.secciones_disponibles})
+          }else{
+            this.setState({dataSource:"no"})
           }
       })
   };
@@ -135,13 +137,11 @@ class SortableTable extends React.Component {
           },
         }}
       /></div>
-      :
-      <div style={{padding: 20, display: "flex",  justifyContent: "center"}}> 
+      :null}
+      {this.state.dataSource == "no"?<div style={{padding: 20, display: "flex",  justifyContent: "center"}}> 
       <p>No hay secciones disponibles para este ramo, en base a nuestros registros</p>
       {this.err('error:  ramo sin sin seccion')}
-      </div>
-      }
-      
+      </div>:null}
       </div>
     );
   }
