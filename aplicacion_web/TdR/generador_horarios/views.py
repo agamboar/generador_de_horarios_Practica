@@ -657,6 +657,8 @@ def get_secciones_disponibles(request, codigo):
             if aux_codigo_sec == elem['to_seccion__cod_seccion']:
                 if horario not in aux_horario:
                     aux_horario.append(horario)
+                if len(secciones_disponibles) == 1:
+                    aux_retornar.append({'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index  })
             else:
                 if cod_sec != "99":
                     aux_retornar.append({'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index  })
