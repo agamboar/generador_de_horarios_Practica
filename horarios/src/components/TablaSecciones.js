@@ -41,6 +41,11 @@ const columns = [
     title: 'Vacantes',
     dataIndex: 'vac_libres',
   },
+  {
+    title: 'Prioridad Actual',
+    dataIndex: 'ss',
+  },
+  
 ];
 
 
@@ -99,6 +104,7 @@ class SortableTable extends React.Component {
             this.setState({dataSource: "no"})
           }
       })
+      setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarSeccion'; }, 2500);
   };
   notify = (e) => {
     toast.info(e, { position: toast.POSITION.TOP_CENTER })

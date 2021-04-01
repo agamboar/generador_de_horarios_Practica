@@ -354,7 +354,7 @@ def asignar_ss(request):
         for index,aux in enumerate(json_data):
 
             nodo = nodo_seccion.objects.get(id=aux['id'])
-            ss = cantidad_secciones-index
+            ss = 1+cantidad_secciones-index
             serializer = nodoSeccionSerializer(nodo, data={'ss': ss}, partial=True)
 
             if serializer.is_valid(): #esto funciona ?
@@ -454,7 +454,7 @@ def mi_malla_manual(request):
 
 
 @api_view(['GET'])
-def get_nodo_seccion(request):
+def get_nodo_seccion(request): # esto no se esta usando
 
     current_user = request.user
 
@@ -628,7 +628,7 @@ def get_secciones_disponibles(request, codigo):
 
         secciones_disponibles =[]
         try:
-            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id').order_by('-ss').distinct()  
+            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id','ss').order_by('-ss').distinct()  
         except:
             pass
         if len(secciones_disponibles) == 0:
@@ -654,13 +654,14 @@ def get_secciones_disponibles(request, codigo):
             numb_seccion = elem['to_seccion__num_seccion']
             vac_libres = elem['to_seccion__vacantes_libres']
             id_nodo_seccion=elem['id']
+            ss_nodo_seccion = elem['ss']
             if aux_codigo_sec == elem['to_seccion__cod_seccion']:
                 if horario not in aux_horario:
                     aux_horario.append(horario)
 
             else:
                 if cod_sec != "99":
-                    aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index  })
+                    aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion  })
                     index+=1
                 aux_horario = []
                 aux_horario.append(horario)
@@ -668,7 +669,7 @@ def get_secciones_disponibles(request, codigo):
                 prof = ""
 
         if  aux_retornar == []:
-            aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index  })
+            aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion  })
                 
         
         return JsonResponse({"secciones_disponibles":aux_retornar}, safe=False, status=status.HTTP_200_OK)
