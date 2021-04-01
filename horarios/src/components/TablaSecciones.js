@@ -8,7 +8,7 @@ import axios from 'axios';
 import { Button } from 'antd'
 import { Alert } from 'antd';
 import { Row, Col, Divider } from 'antd';
-import { toast } from 'react-toastify'
+import { message } from 'antd';
 
 const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
@@ -106,17 +106,12 @@ class SortableTable extends React.Component {
       })
       
   };
-  notify = (e) => {
-    toast.info(e, { position: toast.POSITION.TOP_CENTER })
-  }
-  err = (e) => {
-    toast.error(e, { position: toast.POSITION.TOP_CENTER })
-  }
   
 
   setSS= async ()=>{
     if (this.state.dataSource =="" || this.state.dataSource =="no"){
-      setTimeout(function () { this.err("No hay datos que guardar."); }, 1000);
+      setTimeout(function () {message.error('No hay datos que guardar.'); }, 1000);
+      
     
     }else{
 
@@ -134,8 +129,8 @@ class SortableTable extends React.Component {
       };
   
       await axios(config)
-      setTimeout(function () { this.notify("Prioridadas guardadas."); }, 1000);
-      setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarSeccion'; }, 2500);
+      setTimeout(function () { message.success('Prioridadas guardadas.'); }, 500);
+      setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarSeccion'; }, 2000);
       
     }
     
