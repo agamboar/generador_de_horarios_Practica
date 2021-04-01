@@ -10,10 +10,12 @@ import { Layout} from 'antd';
 import { Button } from 'antd'
 import { Alert } from 'antd';
 import axios from 'axios';
+import { Button } from 'antd'
 
+import { Row, Col} from 'antd';
 
 const {  Content, Footer } = Layout;
-const { Title, Text} = Typography;
+const { Title} = Typography;
 //post aqui para saber los ramos disponibles
 
 
