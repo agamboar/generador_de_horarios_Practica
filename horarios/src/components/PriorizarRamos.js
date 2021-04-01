@@ -331,6 +331,31 @@ export default class PriorizarRamos extends Component {
             :
               <div> 
                 <Navbar />
+                <div className="row row-cols-3">
+                                    <div className="col">
+                                        <h1 className="title text-primary text-center">Priorizar Ramos</h1>
+                                    </div>
+                                    <div className="col"><br />
+                                <div className="align-self-center">
+                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarSeccion' }} style={{ color: '#FFF' }} >
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <font size="3">Priorizar Secciones</font>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </Link>
+                                    </button>
+                                </div></div>
+                                    <div className="col"><br />
+                                <div className="align-self-center">
+                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <font size="3">Generar Horario</font>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </Link>
+                                    </button>
+                                </div></div>
+                                </div>
             <p className="lead">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               Ahora deberas elegir que ramos prefieres asignarles una mayor prioridad en tu horario
