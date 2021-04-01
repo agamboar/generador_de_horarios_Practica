@@ -55,9 +55,15 @@ export default class Navbar extends Component {
                     <li className="nav-item">
                         <Link className="nav-link" to='/users/usr/PERT' style={{ color: '#FFF' }} >Mis Ramos Críticos</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to= '/users/usr/priorizarRamos' style={{ color: '#FFF' }} >Priorizar Ramos</Link>
-                    </li>
+                    <Dropdown size="sm">
+                        <DropdownButton id="dropdown-basic-button" title="Priorización">
+                        <Dropdown.Item><Link className="nav-link" to= '/users/usr/priorizarRamos'  style={{ color: '#000000' }} >Priorizar Ramos</Link> </Dropdown.Item>
+                        <Dropdown.Item ><Link className="nav-link" to='/users/usr/priorizarSeccion'  style={{ color: '#000000' }} >Priorizar Secciones</Link></Dropdown.Item>
+                        </DropdownButton>
+                    </Dropdown>
+                    {/*<li className="nav-item">
+                        <Link className="nav-link" to= '/users/usr/priorizarRamos' style={{ color: '#FFF' }} ></Link>
+                    </li>*/}
                     <li className="nav-item">
                         <Link className="nav-link" to='/users/usr/horariosPosibles' style={{ color: '#FFF' }} >Horarios Posibles</Link>
                     </li>
