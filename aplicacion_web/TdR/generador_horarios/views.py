@@ -348,7 +348,11 @@ def asignar_kk(request):
 @api_view(['POST']) #esto se tiene q hacer
 def asignar_ss(request):
     if request.method == "POST":
-
+        current_user = request.user.id
+        try:
+            solucion.objects.filter(to_user=current_user).delete()
+        except:
+            pass
         json_data = request.data
         cantidad_secciones=len(json_data) 
         for index,aux in enumerate(json_data):
@@ -624,10 +628,6 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
     if request.method == "GET":
         #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
         current_user = request.user.id
-        try:
-            solucion.objects.filter(to_user=current_user).delete()
-        except:
-            pass
         secciones_disponibles =[]
         try:
             secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id','ss').order_by('-ss').distinct()  
