@@ -10,7 +10,8 @@ import { Layout} from 'antd';
 import { Button } from 'antd'
 import { Alert } from 'antd';
 import axios from 'axios';
-import { Button } from 'antd'
+
+import { Link } from 'react-router-dom';
 
 import { Row, Col} from 'antd';
 
