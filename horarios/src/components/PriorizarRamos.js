@@ -121,7 +121,7 @@ export default class PriorizarRamos extends Component {
     };
 
     await axios(config)
-    setTimeout(function () { notify("Prioridadas guardadas. Ahora puedes obtener los horarios posibles."); }, 1000);
+    setTimeout(function () { notify("Prioridadas guardadas."); }, 1000);
     //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/horariosPosibles'; }, 4500);
   }
 
@@ -272,8 +272,26 @@ export default class PriorizarRamos extends Component {
                                     <div className="col">
                                         <h1 className="title text-primary text-center">Priorizar Ramos</h1>
                                     </div>
-                                    <div className="col"></div>
-                                    <div className="col"></div>
+                                    <div className="col"><br />
+                                <div className="align-self-center">
+                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarSeccion' }} style={{ color: '#FFF' }} >
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <font size="3">Priorizar Secciones</font>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </Link>
+                                    </button>
+                                </div></div>
+                                    <div className="col"><br />
+                                <div className="align-self-center">
+                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
+                                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <font size="3">Generar Horario</font>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </Link>
+                                    </button>
+                                </div></div>
                                 </div>
 
                                 <br />
