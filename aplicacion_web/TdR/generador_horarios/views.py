@@ -629,7 +629,6 @@ def get_secciones_disponibles(request, codigo):
         secciones_disponibles =[]
         try:
             secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id','ss').order_by('-ss').distinct()  
-            #secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__to_asignatura_real__codigo=codigo,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id','ss').order_by('-ss').distinct() 
         except:
             pass
         if len(secciones_disponibles) == 0:
@@ -659,22 +658,19 @@ def get_secciones_disponibles(request, codigo):
             if aux_codigo_sec == elem['to_seccion__cod_seccion']:
                 if horario not in aux_horario:
                     aux_horario.append(horario)
+
             else:
-                if cod_sec != "99" and vac_libres > 0:
+                if cod_sec != "99"  and vac_libres > 0:
                     aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion  })
                     index+=1
                 aux_horario = []
                 aux_horario.append(horario)
                 aux_codigo_sec = elem['to_seccion__cod_seccion']
                 prof = ""
-            if  aux_retornar == [] and cod_sec != "99" and vac_libres > 0:
-                aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion  })
-                index+=1
-                aux_horario = []
-                aux_horario.append(horario)
-                aux_codigo_sec = elem['to_seccion__cod_seccion']
-                prof = ""
-            
+
+        if  aux_retornar == []  and vac_libres > 0:
+            aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion  })
+                
         if len(aux_retornar) == 0:
             return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_204_NO_CONTENT)
         else:
