@@ -62,7 +62,7 @@ export default class UserInterface extends Component {
     
       
             <div>
-            {//(localStorage.getItem("token"))?  
+            {(localStorage.getItem("token"))?  
             <div>
                 <Navbar/>
                 
@@ -107,7 +107,7 @@ export default class UserInterface extends Component {
                               
 
             </div>
-            //: <NotAuth />
+            : <NotAuth />
           }
             </div>
         )
