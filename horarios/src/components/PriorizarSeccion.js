@@ -76,13 +76,13 @@ export default class UserInterface extends Component {
                   <Space direction="vertical">
                   <Row>
                     <Col flex="auto"><Title style={{ color: "#007bff"}}level={1}>Priorización de secciones</Title></Col>    
-                    <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "flex-begin"}}> Ir a: </div></Col>
-                    <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "center"}}><Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} ><Button ghost>Priorizar Ramos</Button></Link></div></Col>
-                    <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}}><Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }}  ><Button  ghost>Generar Horario</Button></Link></div></Col>
+                    <Col flex="auto"><Title  style={{ marginLeft: 35}} level={7}>Ir a:</Title> </Col>
+                    <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "right"}}><Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} ><Button type="primary">Priorizar Ramos</Button></Link></div></Col>
+                    <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "right"}}><Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }}  ><Button  type="primary">Generar Horario</Button></Link></div></Col>
                   </Row>
                   <Title  style={{ marginLeft: 35}} level={5}>Escoja un ramo para que pueda priorizar sus secciones</Title>
                   </Space>
-                  <div style={{padding: 10, display: "flex",  justifyContent: "flex-begin"}}> <Title  style={{ marginLeft: 35}} level={5}>Escoja un ramo para que pueda priorizar sus secciones</Title></div>
+                  
                   </div>
 
                   <div className="site-layout-background" style={{ padding: 15,  display: "flex",  justifyContent: "center", alignItems: "center" }}>
