@@ -104,7 +104,7 @@ class SortableTable extends React.Component {
             this.setState({dataSource: "no"})
           }
       })
-      setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarSeccion'; }, 2500);
+      
   };
   notify = (e) => {
     toast.info(e, { position: toast.POSITION.TOP_CENTER })
@@ -135,7 +135,8 @@ class SortableTable extends React.Component {
   
       await axios(config)
       setTimeout(function () { this.notify("Prioridadas guardadas."); }, 1000);
-      //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/horariosPosibles'; }, 4500);
+      setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarSeccion'; }, 2500);
+      
     }
     
   }
