@@ -36,7 +36,7 @@ const columns = [
   {
     title: 'Horario',
     dataIndex: 'horario',
-  },
+  },*/
   {
     title: 'Vacantes',
     dataIndex: 'vac_libres',
@@ -44,7 +44,7 @@ const columns = [
   {
     title: 'Prioridad Actual',
     dataIndex: 'ss',
-  },*/
+  },
   
 ];
 
