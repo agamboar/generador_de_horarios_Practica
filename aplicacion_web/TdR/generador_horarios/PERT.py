@@ -177,8 +177,9 @@ def add_nodo_seccion(current_user):
         print(secciones_ramo_user)
         for s in secciones_ramo_user:
 
-            nro_seccion = s.num_seccion
-            ss = str(nro_seccion) if len(str(nro_seccion)) > 1 else ("0" + str(nro_seccion))
+            nro_seccion = int(s.num_seccion)
+            ss = nro_seccion
+            #ss = str(nro_seccion) if len(str(nro_seccion)) > 1 else ("0" + str(nro_seccion))
             codigo_seccion = s.cod_seccion
             sec = seccion.objects.get(cod_seccion=codigo_seccion)
 

@@ -69,7 +69,8 @@ def get_clique_max_pond(current_user):
             cc = elem['to_nodo_asignatura__cc']
             uu = elem['to_nodo_asignatura__uu']
             kk = elem['to_nodo_asignatura__kk']
-            ss = elem['ss']
+            ss = str(elem['ss']) if len(str(elem['ss'])) > 1 else ("0" + str(elem['ss']))
+            #ss = elem['ss']
 
             prioridad = int(cc+uu+kk+ss)
             nombre_ramo = elem['to_seccion__to_asignatura_real__nombre']
