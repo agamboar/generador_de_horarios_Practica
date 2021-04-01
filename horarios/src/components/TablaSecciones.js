@@ -29,7 +29,7 @@ const columns = [
     title: 'Número Sección',
     dataIndex: 'numb_seccion',
   },
-  {
+  /*{
     title: 'Profesor',
     dataIndex: 'profesor',
   },
@@ -44,7 +44,7 @@ const columns = [
   {
     title: 'Prioridad Actual',
     dataIndex: 'ss',
-  },
+  },*/
   
 ];
 
