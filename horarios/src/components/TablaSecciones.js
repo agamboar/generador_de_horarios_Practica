@@ -130,7 +130,7 @@ class SortableTable extends React.Component {
   
       await axios(config)
       setTimeout(function () { message.success('Prioridadas guardadas.'); }, 500);
-      setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarSeccion'; }, 3500);
+      //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarSeccion'; }, 3500);
       //
     }
     
