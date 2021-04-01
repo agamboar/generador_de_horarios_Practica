@@ -354,7 +354,7 @@ def asignar_ss(request):
         for index,aux in enumerate(json_data):
 
             nodo = nodo_seccion.objects.get(id=aux['id'])
-            ss = cantidad_secciones-index
+            ss = 1+cantidad_secciones-index
             serializer = nodoSeccionSerializer(nodo, data={'ss': ss}, partial=True)
 
             if serializer.is_valid(): #esto funciona ?

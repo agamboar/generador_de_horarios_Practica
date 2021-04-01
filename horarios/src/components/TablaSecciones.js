@@ -61,7 +61,7 @@ class SortableTable extends React.Component {
   onSortEnd = ({ oldIndex, newIndex }) => {
     var { dataSource } = this.state;
     if (oldIndex !== newIndex) {
-      const newData = arrayMove([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
+      var newData = arrayMove([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
       console.log('Sorted items: ', newData);
       this.setState({ dataSource: newData });
     }
@@ -77,10 +77,10 @@ class SortableTable extends React.Component {
     />
   );
 
-  DraggableBodyRow = ({ className, style, ...restProps }) => {
+  DraggableBodyRow = ({ className, style, ...restProps }) => { //antes de var era const
     var { dataSource } = this.state;
     // function findIndex base on Table rowKey props and should always be a right array index
-    const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
+    var index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
     return <SortableItem index={index} {...restProps} />;
   };
  
