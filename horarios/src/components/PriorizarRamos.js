@@ -277,7 +277,7 @@ export default class PriorizarRamos extends Component {
                                     <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
                                         <Link className="nav-link" to={{ pathname: '/users/usr/priorizarSeccion' }} style={{ color: '#FFF' }} >
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="3">Priorizar Secciones</font>
+                                    <font size="2">Priorizar Secciones</font>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </Link>
                                     </button>
