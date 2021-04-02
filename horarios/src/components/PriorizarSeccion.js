@@ -77,8 +77,8 @@ export default class UserInterface extends Component {
                   <Row>
                     <Col flex="auto"><Title style={{ color: "#007bff"}}level={1}>Priorización de secciones</Title></Col>    
                     
-                    <Col span={6} order={3}><Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} ><Button color="#616161">Priorizar Ramos</Button></Link></Col>
-                    <Col span={6} order={4}><div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} ><Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} ><Button  color="#616161">Generar Horario</Button></Link></div></Col>
+                    <Col span={4} order={3}><Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} ><Button type="default">Priorizar Ramos</Button></Link></Col>
+                    <Col span={4} order={4}><div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} ><Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} ><Button  type="default" >Generar Horario</Button></Link></div></Col>
                   </Row>
                   <Title  style={{ marginLeft: 35}} level={4}>Escoja un ramo para que pueda priorizar sus secciones</Title>
                   </Space>
