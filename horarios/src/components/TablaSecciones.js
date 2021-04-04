@@ -29,14 +29,14 @@ const columns = [
     title: 'Número Sección',
     dataIndex: 'numb_seccion',
   },
-  /*{
+  {
     title: 'Profesor',
     dataIndex: 'profesor',
   },
   {
     title: 'Horario',
     dataIndex: 'horario',
-  },*/
+  },
   {
     title: 'Vacantes',
     dataIndex: 'vac_libres',
