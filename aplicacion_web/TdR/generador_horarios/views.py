@@ -646,7 +646,7 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
             elem = secciones_disponibles[i]
             #usar index y preguntar por el codigo del siguiente, si es diferente entonces append si es igual siguiente #ver el caso al final del arreglo
             try:
-                horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo'])
+                horario = (elem['to_seccion__evento__dia'] + ' | ' + elem['to_seccion__evento__modulo']+ ' | ')
             except:
                 horario = '---'
             if elem['to_seccion__evento__tipo'][0] == 'C':
@@ -665,6 +665,7 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
             if len (secciones_disponibles) > i+1:# caso fin del arr
                 if cod_sec != secciones_disponibles[i+1]['to_seccion__cod_seccion']: #reviso si el sgte elemento es de una seccion diferente
                     if cod_sec != "99"  and vac_libres > 0:
+                        aux_horario = sorted(aux_horario)
                         aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion  })
                         index+=1
                         aux_horario = []
