@@ -122,7 +122,7 @@ export default class CrearHorario extends Component {
                 <div className="container align-self-center">
                    <div className = "card border-primary shadow-lg p-3 mb-5 bg-white custom5">
                        <br/>
-                        <h3 className="text-center ">Usuarioss</h3>
+                        <h3 className="text-center ">Usuarios</h3>
                         <br/>
                         <h5>Hacer parte del staff a un usuario</h5>
                         
