@@ -665,8 +665,8 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
             if len (secciones_disponibles) > i+1:# caso fin del arr
                 if cod_sec != secciones_disponibles[i+1]['to_seccion__cod_seccion']: #reviso si el sgte elemento es de una seccion diferente
                     if cod_sec != "99"  and vac_libres > 0:
-                            aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion  })
-                            index+=1
+                        aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion  })
+                        index+=1
                         aux_horario = []
                         aux_horario.append(horario)
                         prof = ""
