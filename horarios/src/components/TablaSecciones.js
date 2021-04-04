@@ -41,10 +41,10 @@ const columns = [
     title: 'Vacantes',
     dataIndex: 'vac_libres',
   },
-  {
+  /*{
     title: 'Prioridad Actual',
     dataIndex: 'ss',
-  },
+  },*/
   
 ];
 
