@@ -637,14 +637,14 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
             return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_204_NO_CONTENT)
  
         aux_retornar = []
-
         aux_horario = []
-        aux_codigo_sec = secciones_disponibles[0]['to_seccion__cod_seccion'] #agregar al final tambien
+        #aux_codigo_sec = secciones_disponibles[0]['to_seccion__cod_seccion'] #agregar al final tambien
         prof = ""
         index = 0
 
-        for elem in secciones_disponibles:
-            
+        for i in range(0, len(secciones_disponibles)):
+            elem = secciones_disponibles[i]
+            #usar index y preguntar por el codigo del siguiente, si es diferente entonces append si es igual siguiente #ver el caso al final del arreglo
             try:
                 horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo'])
             except:
@@ -657,22 +657,26 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
             vac_libres = elem['to_seccion__vacantes_libres']
             id_nodo_seccion=elem['id']
             ss_nodo_seccion = elem['ss']
-            if aux_codigo_sec == elem['to_seccion__cod_seccion']:
-                if horario not in aux_horario:
-                    aux_horario.append(horario)
 
-            else:
-                if cod_sec != "99"  and vac_libres > 0:
-                    aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion  })
-                    index+=1
-                aux_horario = []
+            #if aux_codigo_sec == elem['to_seccion__cod_seccion']:
+            if horario not in aux_horario:
                 aux_horario.append(horario)
-                aux_codigo_sec = elem['to_seccion__cod_seccion']
-                prof = ""
 
-            if  aux_retornar == []  and vac_libres > 0:
-                aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion  })
-                index+=1
+            if len (secciones_disponibles) > i+1:# caso fin del arr
+                if cod_sec != secciones_disponibles[i+1]['to_seccion__cod_seccion']: #reviso si el sgte elemento es de una seccion diferente
+                    if cod_sec != "99"  and vac_libres > 0:
+                            aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion  })
+                            index+=1
+                        aux_horario = []
+                        aux_horario.append(horario)
+                        prof = ""
+                        #aux_codigo_sec = elem['to_seccion__cod_seccion']
+
+        if cod_sec != "99" and vac_libres > 0: # guardar la ultima info q se recolecto ya que el if de 655 no guarda la info si esta al final de la lista
+            aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion  })
+
+                
+        
         if len(aux_retornar) == 0:
             return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_204_NO_CONTENT)
         else:
