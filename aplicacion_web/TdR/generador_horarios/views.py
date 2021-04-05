@@ -649,7 +649,7 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
                 horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']+ ' | ')
             except:
                 horario = '---'
-            if elem['to_seccion__evento__tipo'][0] == 'C':
+            if elem['to_seccion__evento__tipo'][0] == 'C' elem['to_seccion__evento__tipo'][0] == 'B':
                 prof = elem['to_seccion__evento__profesor']
 
             cod_sec = elem['to_seccion__cod_seccion']
