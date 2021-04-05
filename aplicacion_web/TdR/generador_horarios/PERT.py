@@ -74,7 +74,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         max_count_jump = 1
         for elem1 in arr_anc:
             if max_count_jump < len(list(nx.all_simple_paths(PERT, elem1, elem))[0]):
-                max_count_jump = len(ist(nx.all_simple_paths(PERT, elem1, elem))[0])
+                max_count_jump = len(list(nx.all_simple_paths(PERT, elem1, elem))[0])
 
         PERT.nodes[elem]["ES"] = max_count_jump
         PERT.nodes[elem]["EF"] = max_count_jump + 1  # este uno es D
