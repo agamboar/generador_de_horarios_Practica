@@ -16,16 +16,12 @@ def set_values_recursive(PERT, id_node, len_dag):
             max_count_jump = len(
                 list(nx.all_simple_paths(PERT, elem1, id_node))[0])
 
-    PERT.nodes[id_node]["ES"] = max_count_jump if (PERT.nodes[id_node]["ES"] == False or (
-        max_count_jump > PERT.nodes[id_node]["ES"])) else PERT.nodes[id_node]["ES"]
+    PERT.nodes[id_node]["ES"] = max_count_jump if (PERT.nodes[id_node]["ES"] == False or (max_count_jump > PERT.nodes[id_node]["ES"])) else PERT.nodes[id_node]["ES"]
     PERT.nodes[id_node]["EF"] = PERT.nodes[id_node]["ES"] + 1  # este uno es D
-    PERT.nodes[id_node]["LF"] = len_dag if len_dag > 1 and (
-        PERT.nodes[id_node]["LF"] == False or PERT.nodes[id_node]["LF"] > len_dag) else PERT.nodes[id_node]["LF"]
-    H = PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"] if PERT.nodes[id_node]["H"] == False or (
-        PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"] < PERT.nodes[id_node]["H"]) else PERT.nodes[id_node]["H"]
+    PERT.nodes[id_node]["LF"] = len_dag if len_dag > 1 and (PERT.nodes[id_node]["LF"] == False or PERT.nodes[id_node]["LF"] > len_dag) else PERT.nodes[id_node]["LF"]
+    H = PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"] if PERT.nodes[id_node]["H"] == False or (PERT.nodes[id_node]["LF"] - PERT.nodes[id_node]["EF"] < PERT.nodes[id_node]["H"]) else PERT.nodes[id_node]["H"]
     PERT.nodes[id_node]["H"] = H if H > 0 else 0
-    PERT.nodes[id_node]["LS"] = PERT.nodes[id_node]["ES"] + \
-        PERT.nodes[id_node]["H"]
+    PERT.nodes[id_node]["LS"] = PERT.nodes[id_node]["ES"] + PERT.nodes[id_node]["H"]
 
     # nodos que apuntan al nodo id_node
     node_pred_arr = list(PERT.predecessors(id_node))
@@ -48,13 +44,11 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
     PERT = nx.DiGraph()  # Grafo dirigido
 
     for codigo in codigos_ramos_no_cursados:
-        PERT.add_nodes_from([codigo], ES=False, EF=False,
-                            LS=False, LF=False, H=False)
+        PERT.add_nodes_from([codigo], ES=False, EF=False,LS=False, LF=False, H=False)
 
     for elem in codigos_ramos_no_cursados:
         try:
-            codigos_prerrequisitos_ramo = asignatura_real.objects.get(
-                codigo=elem).prerrequisito.all().values_list('codigo', flat=True)
+            codigos_prerrequisitos_ramo = asignatura_real.objects.get(codigo=elem).prerrequisito.all().values_list('codigo', flat=True)
         except:
             continue
 
@@ -80,8 +74,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         max_count_jump = 1
         for elem1 in arr_anc:
             if max_count_jump < len(list(nx.all_simple_paths(PERT, elem1, elem))[0]):
-                max_count_jump = len(
-                    list(nx.all_simple_paths(PERT, elem1, elem))[0])
+                max_count_jump = len(ist(nx.all_simple_paths(PERT, elem1, elem))[0])
 
         PERT.nodes[elem]["ES"] = max_count_jump
         PERT.nodes[elem]["EF"] = max_count_jump + 1  # este uno es D
@@ -105,8 +98,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
 
         aux_critico = False
         cc = '00'
-        nro_correlativo = int(asignatura_real.objects.get(
-            codigo=elem).nro_correlativo)
+        nro_correlativo = int(asignatura_real.objects.get(codigo=elem).nro_correlativo)
         aux_kk = str(60-nro_correlativo)
         kk = aux_kk if len(aux_kk) > 1 else str("0"+aux_kk)
 
@@ -120,8 +112,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
         uu = aux_UU if len(aux_UU) > 1 else str("0" + aux_UU)
 
         # modificar ya que setea KK y SS y no toma en cuenta la asignacion de pesos hecha por el alumno
-        r = nodo_asignatura(holgura=PERT.nodes[elem]["H"], ef=PERT.nodes[elem][
-            "EF"], es=PERT.nodes[elem]["ES"], ls=PERT.nodes[elem]["LS"], lf=PERT.nodes[elem]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)
+        r = nodo_asignatura(holgura=PERT.nodes[elem]["H"], ef=PERT.nodes[elem]["EF"], es=PERT.nodes[elem]["ES"], ls=PERT.nodes[elem]["LS"], lf=PERT.nodes[elem]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)
         #print(elem, PERT.nodes[elem]["H"], PERT.nodes[elem]["EF"], PERT.nodes[elem]["ES"],PERT.nodes[elem]["LS"], PERT.nodes[elem]["LF"], aux_critico, cc, uu, kk)
         r.save()
         n = nodo_asignatura.objects.get(id=r.id)
@@ -149,13 +140,11 @@ def add_nodo_seccion(current_user):
     except:
         pass
 
-    nodos_asignatura_user = nodo_asignatura.objects.filter(
-        to_user=u)  # los ramos que el alumno no ha dado
+    nodos_asignatura_user = nodo_asignatura.objects.filter(to_user=u)  # los ramos que el alumno no ha dado
 
     for elem in nodos_asignatura_user:
 
-        codigo_asignatura = asignatura_real.objects.filter(
-            nodo_asignatura__id=elem.id)[0].codigo
+        #codigo_asignatura = asignatura_real.objects.filter(odo_asignatura__id=elem.id)[0].codigo
 
         secciones_ramo_user = list(seccion.objects.filter(to_asignatura_real__nodo_asignatura=elem,vacantes_libres__gt=0))  # las secciones de los ramos que no ha dado el alumno y que tienen cupos disponibles
 
@@ -168,22 +157,23 @@ def add_nodo_seccion(current_user):
             for asig_real in asignaturas_reales:
 
                 seccion_real = seccion.objects.filter(to_asignatura_real=asig_real.codigo)
-                if seccion_real and seccion_real not in secciones_ramo_user:
-                    secciones_ramo_user.append(seccion_real[0])      
+                if (seccion_real) and (seccion_real not in secciones_ramo_user):
+                    for i in range(0, len(seccion_real)):
+                        secciones_ramo_user.append(seccion_real[i]) #antes no estaba este for y solo se guardaba la primera seccion de 159     
                 else:
                     continue
          
             
-        print(secciones_ramo_user)
+        #print(secciones_ramo_user)
         for s in secciones_ramo_user:
 
-            nro_seccion = int(s.num_seccion)
-            ss = nro_seccion
+            #nro_seccion = int(s.num_seccion)
+            #ss = nro_seccion
             #ss = str(nro_seccion) if len(str(nro_seccion)) > 1 else ("0" + str(nro_seccion))
-            codigo_seccion = s.cod_seccion
-            sec = seccion.objects.get(cod_seccion=codigo_seccion)
+            #codigo_seccion = s.cod_seccion # para que es esto ?
+            #sec = seccion.objects.get(cod_seccion=codigo_seccion) # para que es esto ?
 
-            ns = nodo_seccion(ss=ss, to_nodo_asignatura=elem)
+            ns = nodo_seccion(ss=int(s.num_seccion), to_nodo_asignatura=elem)
             ns.save()
 
             ns.to_seccion.add(s)
