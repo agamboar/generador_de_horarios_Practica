@@ -38,7 +38,6 @@ import PERTExtra3 from './components/PERTExtra3'
 import PERTExtra4 from './components/PERTExtra4'
 import GenerarHorarios from './components/GenerarHorarios'
 import PriorizarRamos from './components/PriorizarRamos'
-import PriorizarSecciones from './components/PriorizarSecciones'
 import PriorizarSeccion from './components/PriorizarSeccion'
 import Cookies from 'js-cookie';
 
