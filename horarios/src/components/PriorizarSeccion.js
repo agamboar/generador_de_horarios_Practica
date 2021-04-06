@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 import { Row, Col} from 'antd';
 
 const {  Content, Footer } = Layout;
-const { Title} = Typography;
+const { Title, Text } = Typography;
 //post aqui para saber los ramos disponibles
 
 
