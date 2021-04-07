@@ -331,6 +331,7 @@ export default class PriorizarRamos extends Component {
             :
               <div> 
                 <Navbar />
+                <br/>
                 <div className="row row-cols-3">
                                     <div className="col">
                                         <h1 className="title text-primary text-center">Priorizar Ramos</h1>
