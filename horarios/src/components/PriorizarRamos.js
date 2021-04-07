@@ -272,6 +272,8 @@ export default class PriorizarRamos extends Component {
                                     <div className="col">
                                         <h1 className="title text-primary text-center">Priorizar Ramos</h1>
                                     </div>
+                                    <div className="col"></div>
+                                    <div className="col"></div>
                                  { /*  <div className="col"><br />
                                 <div className="align-self-center">
                                     <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
@@ -291,7 +293,7 @@ export default class PriorizarRamos extends Component {
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </Link>
                                     </button>
-    </div></div>*/}
+                                </div></div>*/}
                                 </div>
 
                                 <br />
@@ -336,7 +338,9 @@ export default class PriorizarRamos extends Component {
                                     <div className="col">
                                         <h1 className="title text-primary text-center">Priorizar Ramos</h1>
                                     </div>
-                                    <div className="col"><br />
+                                    <div className="col"></div>
+                                    <div className="col"></div>
+                                   { /*<div className="col"><br />
                                 <div className="align-self-center">
                                     <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
                                         <Link className="nav-link" to={{ pathname: '/users/usr/priorizarSeccion' }} style={{ color: '#FFF' }} >
@@ -355,7 +359,7 @@ export default class PriorizarRamos extends Component {
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </Link>
                                     </button>
-                                </div></div>
+                              </div></div>*/}
                                 </div>
             <p className="lead">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
