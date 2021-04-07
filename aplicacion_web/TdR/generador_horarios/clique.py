@@ -95,6 +95,7 @@ def get_clique_max_pond(current_user):
             list_node = list(G.nodes.items())
 
             if len(list_node) == 87:
+                print(str(codigo + "   - " + elem["to_seccion__cod_seccion"]))
                 break
         else:
             aux_eventos = []

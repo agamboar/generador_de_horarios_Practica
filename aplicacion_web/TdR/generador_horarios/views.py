@@ -201,11 +201,9 @@ def get_PERT(request):
 
         current_user = request.user.id
         try: 
-            avance_academico_user = avance_academico.objects.get(
-                to_user_id=current_user)
+            avance_academico_user = avance_academico.objects.get(to_user_id=current_user)
             avance_academico_user_json = avance_academico_user.json_avance
-            año_malla = avance_academico.objects.get(
-                to_user=current_user).agno_malla
+            año_malla = avance_academico.objects.get(to_user=current_user).agno_malla
         except:
             new_dict = {}
             new_dict.update({"PERT": {}})
@@ -215,16 +213,13 @@ def get_PERT(request):
 
         # falta colocar una condicion -> si se cambio recientemente los ramos aprobados
         if avance_academico_user.json_avance == {}:
-            codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(
-                to_User_id__id=current_user).values_list('codigo', flat=True)
+            codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(to_User_id__id=current_user).values_list('codigo', flat=True)
 
-            codigos_ramos_malla = asignatura_real.objects.filter(
-                malla_curricular__agno=año_malla, tipo=0).values_list('codigo', flat=True)
+            codigos_ramos_malla = asignatura_real.objects.filter(malla_curricular__agno=año_malla, tipo=0).values_list('codigo', flat=True)
 
             nodo_asignatura.objects.filter(to_user=current_user).delete()
 
-            getRamoCritico(codigos_asignaturas_cursadas,
-                            codigos_ramos_malla, current_user)
+            getRamoCritico(codigos_asignaturas_cursadas,codigos_ramos_malla, current_user)
 
             add_nodo_seccion(current_user)
 
