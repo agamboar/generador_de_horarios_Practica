@@ -649,7 +649,7 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
                     prof = elem['to_seccion__evento__profesor']
             except:
                 prof = ""
-                
+
             cod_sec = elem['to_seccion__cod_seccion']
             numb_seccion = elem['to_seccion__num_seccion']
             vac_libres = elem['to_seccion__vacantes_libres']
@@ -662,7 +662,7 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
 
             if len (secciones_disponibles) > i+1:# caso fin del arr
                 if cod_sec != secciones_disponibles[i+1]['to_seccion__cod_seccion']: #reviso si el sgte elemento es de una seccion diferente
-                    if cod_sec != "99"  and vac_libres > 0:
+                    if numb_seccion != "99"  and vac_libres > 0:
                         aux_horario = sorted(aux_horario)
                         aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion  })
                         index+=1
@@ -670,7 +670,7 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
                     prof = ""
                     aux_horario = []
 
-        if cod_sec != "99" and vac_libres > 0: # guardar la ultima info q se recolecto ya que el if de 660 no guarda la info si esta al final de la lista
+        if numb_seccion != "99" and vac_libres > 0: # guardar la ultima info q se recolecto ya que el if de 660 no guarda la info si esta al final de la lista
             aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion  })
 
                 
