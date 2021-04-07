@@ -46,7 +46,7 @@ LOGIN_REDIRECT_URL = 'https://asistente-eit.udp.cl/users/usr'
 ACCOUNT_LOGOUT_REDIRECT_URL = "https://asistente-eit.udp.cl/"
 
 
-SESSION_COOKIE_AGE = 10000
+#SESSION_COOKIE_AGE = 10000 # preguntar 
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost','200.14.84.238','asistente-eit.udp.cl','104.18.25.162:443']
