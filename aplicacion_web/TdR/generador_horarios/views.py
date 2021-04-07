@@ -667,7 +667,7 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
                         #aux_codigo_sec = elem['to_seccion__cod_seccion']
                     aux_horario = []
 
-        if cod_sec != "99" and vac_libres > 0: # guardar la ultima info q se recolecto ya que el if de 660 no guarda la info si esta al final de la lista
+        if cod_sec != "99" and vac_libres > 0: # guardar la ultima info q se recolecto ya que el if de 6 no guarda la info si esta al final de la lista
             aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion  })
 
                 
