@@ -10,7 +10,7 @@ def get_clique_max_pond(current_user):
     if len(datos_clique)==0:
         return "n"
     G = nx.Graph()
-    print(datos_clique)
+    #print(datos_clique)
 
     aux_seccion = datos_clique[0]['to_seccion__cod_seccion']
     aux_horario = []
@@ -93,9 +93,10 @@ def get_clique_max_pond(current_user):
                                  horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=elem['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=nombre_ramo, eventos=aux_eventos, cod_asignatura_real=elem['to_seccion__to_asignatura_real__codigo'])
 
             list_node = list(G.nodes.items())
-
-            if len(list_node) == 95:
-                print(str(codigo + "   - " + elem["to_seccion__cod_seccion"]))
+            if codigo[0:3] == "CFG":
+                print(len(list_node))
+            if len(list_node) == 87:
+                #print(str(codigo + "   - " + elem["to_seccion__cod_seccion"]))
                 break
         else:
             aux_eventos = []

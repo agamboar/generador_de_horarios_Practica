@@ -292,7 +292,7 @@ def get_clique(request):
                     return Response("n", status=status.HTTP_200_OK)
 
             print('guardo el json')
-        elif segundos > 30:
+        elif not existen_soluciones and segundos > 30:
 
             jsons = get_clique_max_pond(current_user)
             counter = 0
@@ -310,7 +310,7 @@ def get_clique(request):
                 jsons ="n"
             print('uso el json') # esto no va aca
 
-        print(jsons)
+        #print(jsons)
         return Response(jsons, status=status.HTTP_200_OK)
 
 
