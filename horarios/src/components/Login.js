@@ -165,8 +165,8 @@ export default class GoogleSocialAuth extends Component {
 
                             <button type="submit" className="btn btn-outline-primary rounded-pill"> Ingresar</button>
                         </form>
-                        <p className="lead align-self-center"> o </p>
-                        {/*<div className="App">
+                      {/*  <p className="lead align-self-center"> o </p>
+                        <div className="App">
                             <h1> Ingresa con Gmail </h1>
 
                             <GoogleLogin
@@ -178,8 +178,8 @@ export default class GoogleSocialAuth extends Component {
                                 redirectUri='https://asistente-eit.udp.cl/users/usr/'
                             />
 
-            </div>*/}
-                        <br />
+            </div>
+            <br /> */}
                         <div className=" align-self-end">
                             <Link className="nav-link" to={{ pathname: '/Registro' }} >Registrarse </Link>
                         </div>
