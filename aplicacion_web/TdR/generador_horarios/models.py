@@ -152,7 +152,7 @@ class nodo_asignatura(models.Model):
 
 class nodo_seccion(models.Model):
 
-    ss = models.CharField(max_length=3)
+    ss = models.IntegerField(default=1)
     fecha_mod = models.DateTimeField(auto_now=True)
 
     to_seccion = models.ManyToManyField(seccion)
