@@ -7,21 +7,39 @@ from .models import *
 
 def get_clique_max_pond(current_user):
     datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__es=1,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre').order_by('-to_seccion__to_asignatura_real__importancia', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct()
-    try:
-        prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).value('area').order_by('-prioridad')
-
-    current_cfg_number = "0" #esto es para los cfg
-    if len(datos_clique)==0:
-        return "n"
     G = nx.Graph()
     #print(datos_clique)
 
+    if len(datos_clique)==0:
+        return "n"
+
+    try:
+        prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).value('area').order_by('-prioridad')
+        len_prio_area_cfg = len(prio_area_cfg)
+        count_prio = 0
+    except:
+        prio_area_cfg = []
+
+    current_cfg_number = "0" #esto es para los cfg
     aux_seccion = datos_clique[0]['to_seccion__cod_seccion']
+    aux_codigo = datos_clique[0]['to_seccion__to_asignatura_real__codigo']
     aux_horario = []
     aux_eventos = []
-    aux_codigo = datos_clique[0]['to_seccion__to_asignatura_real__codigo']
 
     for elem in datos_clique:
+        codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
+        # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
+
+        if codigo[0:3] == "CFG" and count_prio > len_prio_area_cfg:
+            cfg_current_area = cfg_areas.objects.filter(area = prio_area_cfg[count_prio])
+            if current_cfg_number == codigo[4] or current_cfg_number == "0":
+                if elem["to_seccion__cod_seccion"][0:6] in cfg_current_area or count_prio < 2
+                    pass
+                else:
+                    continue
+            elif current_cfg_number == codigo[4]
+                count_prio+=1
+     
         try:
             horario = (elem['to_seccion__evento__dia'] + ' ' +
                        elem['to_seccion__evento__modulo'])
@@ -56,7 +74,6 @@ def get_clique_max_pond(current_user):
             evento = '---'
 
         if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_seccion__to_asignatura_real__codigo']:
-            codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
             if horario not in aux_horario:
                 aux_horario.append(horario)
 
@@ -88,26 +105,13 @@ def get_clique_max_pond(current_user):
 
                 except:
                     nombre_ramo = 'CURSO FORMACION GENERAL'
-            # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
-
-            nro_seccion = elem['to_seccion__num_seccion']
 
             if nro_seccion != "99":
                 G.add_nodes_from([str(codigo + "   - " + elem["to_seccion__cod_seccion"])],
                                  horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=elem['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=nombre_ramo, eventos=aux_eventos, cod_asignatura_real=elem['to_seccion__to_asignatura_real__codigo'])
 
             list_node = list(G.nodes.items())
-
-            if codigo[0:3] == "CFG":
-                cfg_current_area = cfg_areas.objects.filter(area = prio_area_cfg[0])
-                if current_cfg_number == codigo[4] or current_cfg_number == "0":
-                    if elem["to_seccion__cod_seccion"] in cfg_current_area
-                        pass
-                    else:
-                        continue
-                elif current_cfg_number == codigo[4]
-                    prio_area_cfg.pop(0)
-                
+                           
             if len(list_node) == 87:
                 #print(str(codigo + "   - " + elem["to_seccion__cod_seccion"]))
                 break
