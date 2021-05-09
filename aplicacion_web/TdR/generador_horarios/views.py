@@ -210,7 +210,6 @@ def upload_mi_malla(request):
             a = asignatura_cursada(
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
-            
 
         return JsonResponse({'description': "Malla Subida."}, status=status.HTTP_201_CREATED)
 
@@ -720,7 +719,7 @@ def set_prio_areas_cfg(request):
             pass
 
         json_data = request.data
-        cantidad_areas = len(json_data)
+        cantidad_areas = len(json_data) 
         prio = 0
         count = 0
         for index,aux in enumerate(json_data):
@@ -728,16 +727,16 @@ def set_prio_areas_cfg(request):
             area_cfg.save()
             u = User.objects.get(id=current_user)
             area_cfg.to_user.add(u)
-                         
-            serializer = prioridadCfgSerializer(area_cfg, data={'prioridad': index+1}, partial=True)
 
+            serializer = prioridadCfgSerializer(area_cfg, data={'prioridad': index+1}, partial=True)
+                         
             if serializer.is_valid(): #esto funciona ?
                 serializer.save()
                 count+=1
         if count == cantidad_areas:
             return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
         else:
-            return JsonResponse({"mensaje":"error"}, safe=False, status=status.HTTP_204_NO_CONTENT)     
+            return JsonResponse({"mensaje":"error"}, safe=False, status=status.HTTP_204_NO_CONTENT) 
 
 @api_view(['GET']) 
 def get_prio_cfg(request):

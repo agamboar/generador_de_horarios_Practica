@@ -46,7 +46,7 @@ def get_clique_max_pond(current_user):
                 continue
 
             
-     
+
         try:
             horario = (elem['to_seccion__evento__dia'] + ' ' +
                        elem['to_seccion__evento__modulo'])
