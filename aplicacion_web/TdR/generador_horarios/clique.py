@@ -33,11 +33,11 @@ def get_clique_max_pond(current_user):
         if codigo[0:3] == "CFG" and count_prio > len_prio_area_cfg:
             cfg_current_area = cfg_areas.objects.filter(area = prio_area_cfg[count_prio])
             if current_cfg_number == codigo[4] or current_cfg_number == "0":
-                if elem["to_seccion__cod_seccion"][0:6] in cfg_current_area or count_prio < 2
+                if elem["to_seccion__cod_seccion"][0:6] in cfg_current_area or count_prio < 2:
                     pass
                 else:
                     continue
-            elif current_cfg_number == codigo[4]
+            elif current_cfg_number == codigo[4]:
                 count_prio+=1
      
         try:
