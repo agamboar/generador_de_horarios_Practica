@@ -37,11 +37,11 @@ export default class AvanceManual extends Component {
         e.preventDefault();
         //const token = sessionStorage.getItem("token").toString('base64')
         //var csrftoken = getCookie('csrftoken');
-        //axios.defaults.url = 'http://127.0.0.1:8000/';
+        //axios.defaults.url = 'http://127.0.0.1:8000';
         const Avance = { state: this.state }
         const payload = Avance.state
         console.log(Avance)
-        axios.post("http://127.0.0.1:8000/mimallamanual/", payload, { headers: {"Access-Control-Allow-Headers":"Content-Type","Access-Control-Allow-Origin": "https://200.14.84.238/","Access-Control-Allow-Methods": "OPTIONS,POST,GET", "Authorization": "Token 372daae409f639993f9cf376f2058914dcd07a9c", 'Content-Type': 'application/json' } }).catch(function (error) {
+        axios.post("http://127.0.0.1:8000mimallamanual/", payload, { headers: {"Access-Control-Allow-Headers":"Content-Type","Access-Control-Allow-Origin": "https://200.14.84.238/","Access-Control-Allow-Methods": "OPTIONS,POST,GET", "Authorization": "Token 372daae409f639993f9cf376f2058914dcd07a9c", 'Content-Type': 'application/json' } }).catch(function (error) {
             if (error.response) {
                 // Request made and server responded
                 console.log(error.response.data);

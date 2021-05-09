@@ -17,7 +17,7 @@ export default class M2018Extra1 extends Component {
 
         var config = {
             method: 'get',
-            url: 'https://asistente-eit.udp.cl/PERT/',
+            url: 'http://127.0.0.1:8000/PERT/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiar a localStorage
                 'Content-Type': 'application/json'

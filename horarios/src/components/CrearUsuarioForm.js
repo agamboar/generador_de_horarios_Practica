@@ -33,7 +33,7 @@ export default class CrearUsuarioForm extends Component {
     var data = qs.stringify(newUsuario);
     var config = {
       method: 'post',
-      url: 'https://asistente-eit.udp.cl/dj-rest-auth/registration/',
+      url: 'http://127.0.0.1:8000/dj-rest-auth/registration/',
       headers: {
         'X-CSRFToken': Cookies.get('csrftoken'),
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -44,7 +44,7 @@ export default class CrearUsuarioForm extends Component {
     axios(config).then(response => {
       if (response.status === 201) {
         notify("Se ha creado el usuario correctamente")
-        window.location.href = 'https://asistente-eit.udp.cl/' //que va aqui?, en vez de la ip, ¿'/'?
+        window.location.href = 'http://127.0.0.1:8000/' //que va aqui?, en vez de la ip, ¿'/'?
       } else {
         notify("No se ha podido crear la  cuenta correctamente")
       }

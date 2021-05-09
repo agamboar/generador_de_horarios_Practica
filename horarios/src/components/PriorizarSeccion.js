@@ -36,7 +36,7 @@ export default class UserInterface extends Component {
           
       var config = {
         method: 'get',
-        url: `https://asistente-eit.udp.cl/get_ramos_disponibles/`,
+        url: `http://127.0.0.1:8000/get_ramos_disponibles/`,
         headers: {
             'Authorization': 'Token ' + localStorage.getItem("token"), 
             'Content-Type': 'application/json'

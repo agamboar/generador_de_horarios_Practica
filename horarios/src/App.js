@@ -46,7 +46,7 @@ import Cookies from 'js-cookie';
 let _csrfToken = null;
 async function getCsrfToken() {
     if (_csrfToken === null) {
-        const response = await fetch('https://asistente-eit.udp.cl/csrf/', {
+        const response = await fetch('http://127.0.0.1:8000/csrf/', {
             credentials: 'include',
         });
         const data = await response.json();
