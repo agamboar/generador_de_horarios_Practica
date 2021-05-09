@@ -10,7 +10,7 @@ def get_clique_max_pond(current_user):
     try:
         prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).value('area').order_by('-prioridad')
 
-    aux_prio = "0" #esto es para los cfg
+    current_cfg_number = "0" #esto es para los cfg
     if len(datos_clique)==0:
         return "n"
     G = nx.Graph()
@@ -97,7 +97,16 @@ def get_clique_max_pond(current_user):
                                  horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=elem['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=nombre_ramo, eventos=aux_eventos, cod_asignatura_real=elem['to_seccion__to_asignatura_real__codigo'])
 
             list_node = list(G.nodes.items())
+
             if codigo[0:3] == "CFG":
+                cfg_current_area = cfg_areas.objects.filter(area = prio_area_cfg[0])
+                if current_cfg_number == codigo[4] or current_cfg_number == "0":
+                    if elem["to_seccion__cod_seccion"] in cfg_current_area
+                        pass
+                    else:
+                        continue
+                elif current_cfg_number == codigo[4]
+                    prio_area_cfg.pop(0)
                 
             if len(list_node) == 87:
                 #print(str(codigo + "   - " + elem["to_seccion__cod_seccion"]))
