@@ -31,17 +31,22 @@ def get_clique_max_pond(current_user):
     for elem in datos_clique:
         codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
         # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
-        if codigo[0:3] == "CFG" and count_prio < len_prio_area_cfg:
-           
-            cfg_current_area = cfg_areas.objects.filter(area = prio_area_cfg[count_prio]['area'])
-            if current_cfg_number == codigo[3] or current_cfg_number == "0":
-                if elem["to_seccion__cod_seccion"][0:6] in cfg_current_area or count_prio < 2:
+        if codigo[0:3] == "CFG"
+            if count_prio <= 2:# esto limita la cantidad de cfg
+                if current_cfg_number != codigo[3]:
+                    current_cfg_number = codigo[3]
+                    count_prio+=1
+
+                current_cfg_area = cfg_areas.objects.filter(codigo = elem["to_seccion__cod_seccion"][0:7])
+                if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
                     pass
                 else:
                     continue
-            elif current_cfg_number == codigo[3]:
-                count_prio+=1
+            else:
+                continue
      
+
+
         try:
             horario = (elem['to_seccion__evento__dia'] + ' ' +
                        elem['to_seccion__evento__modulo'])

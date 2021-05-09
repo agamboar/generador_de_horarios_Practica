@@ -141,9 +141,9 @@ def import_cfg(request):
                 s1.to_asignatura_real.add(cfg2)
                 s1.to_asignatura_real.add(cfg3)
                 s1.to_asignatura_real.add(cfg4)
-                #print(elem[0][0:6])
-                if len(cfg_areas.objects.filter(codigo = elem[0][0:6])) == 0:
-                    area = cfg_areas.objects.create(codigo = elem[0][0:6] ,area = request.POST['area'])
+                #print(elem[0][0:7])
+                if len(cfg_areas.objects.filter(codigo = elem[0][0:7])) == 0:
+                    area = cfg_areas.objects.create(codigo = elem[0][0:7] ,area = request.POST['area'])
                     area.save()
                     
 
@@ -210,7 +210,6 @@ def upload_mi_malla(request):
             a = asignatura_cursada(
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
-            
 
         return JsonResponse({'description': "Malla Subida."}, status=status.HTTP_201_CREATED)
 
@@ -340,6 +339,10 @@ def asignar_kk(request):
     if request.method == "POST":
 
         current_user = request.user.id
+        try:
+            solucion.objects.filter(to_user=current_user).delete()
+        except:
+            pass
         json_data = request.data
 
         for elem in json_data:
@@ -705,6 +708,7 @@ def get_secciones_disponibles(request, codigo):
 def set_prio_areas_cfg(request):
     if request.method == "POST":
         current_user = request.user.id
+
         try:
             prioridad_cfg.objects.filter(to_user=current_user).delete()
         except:
@@ -713,25 +717,26 @@ def set_prio_areas_cfg(request):
             solucion.objects.filter(to_user=current_user).delete()
         except:
             pass
+
         json_data = request.data
         cantidad_areas=len(json_data) 
+        prio = 0
+        count = 0
         for index,aux in enumerate(json_data):
-            try:
-                area_cfg = prioridad_cfg.objects.get(area=aux['area'])
-            except:
-                area_cfg = prioridad_cfg(area = aux['area'], prioridad = 0)
-                area_cfg.save()
-                u = User.objects.get(id=current_user)
-                area_cfg.to_user.add(u)
+            area_cfg = prioridad_cfg(area = aux['area'], prioridad = index+1)
+            area_cfg.save()
+            u = User.objects.get(id=current_user)
+            area_cfg.to_user.add(u)
+
+            serializer = prioridadCfgSerializer(area_cfg, data={'prioridad': index+1}, partial=True)
                          
-
-            prio = 1+index
-            serializer = prioridadCfgSerializer(area_cfg, data={'prioridad': prio}, partial=True)
-
             if serializer.is_valid(): #esto funciona ?
                 serializer.save()
-
-        return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
+                count+=1
+        if count == cantidad_areas:
+            return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
+        else:
+            return JsonResponse({"mensaje":"error"}, safe=False, status=status.HTTP_204_NO_CONTENT) 
 
 @api_view(['GET']) 
 def get_prio_cfg(request):
