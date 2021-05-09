@@ -3,10 +3,14 @@ import matplotlib.pyplot as plt
 import random
 from .models import *
 
+# seria bueno modularizar esta funcion
 
 def get_clique_max_pond(current_user):
     datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__es=1,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre').order_by('-to_seccion__to_asignatura_real__importancia', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct()
+    try:
+        prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).value('area').order_by('-prioridad')
 
+    aux_prio = "0" #esto es para los cfg
     if len(datos_clique)==0:
         return "n"
     G = nx.Graph()
@@ -77,7 +81,6 @@ def get_clique_max_pond(current_user):
 
             # cambia el nombre de la cajita "CFG" por el nombre real del curso.
             if nombre_ramo == 'CFG':
-
                 try:
                     cod_asignatura = elem["to_seccion__cod_seccion"][0:7]
                     nombre_ramo = asignatura_real.objects.get(
@@ -85,6 +88,7 @@ def get_clique_max_pond(current_user):
 
                 except:
                     nombre_ramo = 'CURSO FORMACION GENERAL'
+            # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
 
             nro_seccion = elem['to_seccion__num_seccion']
 
@@ -94,7 +98,7 @@ def get_clique_max_pond(current_user):
 
             list_node = list(G.nodes.items())
             if codigo[0:3] == "CFG":
-                print(len(list_node))
+                
             if len(list_node) == 87:
                 #print(str(codigo + "   - " + elem["to_seccion__cod_seccion"]))
                 break
@@ -106,8 +110,8 @@ def get_clique_max_pond(current_user):
             aux_seccion = elem['to_seccion__cod_seccion']
             aux_codigo = elem['to_seccion__to_asignatura_real__codigo']
 
-    list_node = list(G.nodes.items())
-    lenth_graph = len(list_node)
+    # list_node = list(G.nodes.items())
+    # lenth_graph = len(list_node)
 
     for i in range(lenth_graph):
         if (i+1) < lenth_graph:
