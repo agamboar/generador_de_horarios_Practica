@@ -700,3 +700,30 @@ def set_prio_areas_cfg(request):
                 serializer.save()
 
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
+
+@api_view(['GET']) 
+def get_prio_cfg(request, codigo):
+
+    if request.method == "GET":
+        #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
+        current_user = request.user.id
+        secciones_disponibles = []
+        try:
+            prioridades_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area','prioridad').order_by('-prioridad').distinct()  
+        except:
+            pass
+        if len(prioridades_cfg) == 0:
+            return JsonResponse({"mensaje":"vacio"}, safe=False, status=status.HTTP_204_NO_CONTENT)
+        aux_retornar = []
+
+        for i in range(0, len(secciones_disponibles)):
+            elem = secciones_disponibles[i]
+            area = elem['area']
+            prioridad = elem['prioridad']
+
+            aux_retornar.append({'area':area,'prioridad':prioridad})
+
+        if len(aux_retornar) == 0:
+            return JsonResponse({"mensaje":"vacio"}, safe=False, status=status.HTTP_204_NO_CONTENT)
+        else:
+            return JsonResponse({"prio_cfg":aux_retornar}, safe=False, status=status.HTTP_200_OK)
