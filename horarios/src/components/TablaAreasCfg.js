@@ -87,10 +87,10 @@ class SortableTable extends React.Component {
           }else{
             this.setState({
               dataSource: [
-                {'area' : 'Ciencias Sociales', 'prioridad' : 1 },
-                {'area' : 'Ciencia y Sociadad', 'prioridad': 2},
-                {'area' : 'Historia', 'prioridad': 3},
-                {'area' : 'Humanidades', 'prioridad': 4},
+                {'area' : 'Ciencias Sociales', 'prioridad' : 1 , 'index': 0},
+                {'area' : 'Ciencia y Sociedad', 'prioridad': 2, 'index': 1},
+                {'area' : 'Historia', 'prioridad': 3, 'index': 2},
+                {'area' : 'Humanidades', 'prioridad': 4, 'index': 3},
               ]
             })
           }
