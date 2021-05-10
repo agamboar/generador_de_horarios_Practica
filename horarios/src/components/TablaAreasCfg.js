@@ -73,7 +73,7 @@ class SortableTable extends React.Component {
    
     var config = {
       method: 'get',
-      url: `https://asistente-eit.udp.cl/get_prio_cfg/${this.props.codigo}/`,
+      url: `https://asistente-eit.udp.cl/get_prio_cfg/`,
       headers: {
           'Authorization': 'Token ' + localStorage.getItem("token"), 
           'Content-Type': 'application/json'
@@ -82,8 +82,8 @@ class SortableTable extends React.Component {
 
       axios(config).then(response => { 
           console.log(response) //verificar como se recibe la info          
-          if (response.data.secciones_disponibles){
-            this.setState({dataSource: response.data.secciones_disponibles})
+          if (response.data.prio_cfg){
+            this.setState({dataSource: response.data.prio_cfg})
           }else{
             this.setState({
               dataSource: [
@@ -97,12 +97,10 @@ class SortableTable extends React.Component {
       })
       
   };
-  
 
   setPrio= async ()=>{
     if (this.state.dataSource =="" || this.state.dataSource =="no"){
       setTimeout(function () {message.error('No hay datos que guardar.'); }, 1000);
-      
     
     }else{
 
@@ -118,7 +116,6 @@ class SortableTable extends React.Component {
         },
         data: data
       };
-  
       await axios(config)
       setTimeout(function () { message.success('Prioridadas guardadas.'); }, 500);
       //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarSeccion'; }, 3500);
@@ -127,17 +124,12 @@ class SortableTable extends React.Component {
     
   }
     
-  
   componentDidMount(){
     this.refreshTable()
-   
   }
   render() {
-  
     var { dataSource } = this.state;
 
-    
-    
     return (
       <div>
         
@@ -145,11 +137,8 @@ class SortableTable extends React.Component {
         <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "flex-begin"}}><Button onClick={this.setPrio}  type="primary">Guardar prioridad</Button></div></Col>
         <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} ><Button onClick={this.refreshTable} type="primary">Actualizar tabla</Button></div></Col>
         </Row>
-      {(dataSource =="")?
-      
-      
-      null:<div>
-
+      {(dataSource =="")?null:
+      <div>
       <Table
         pagination={false}
         dataSource={dataSource}
@@ -162,12 +151,10 @@ class SortableTable extends React.Component {
           },
         }}
       /></div>}
-
       {this.state.dataSource == ""?
       <div style={{padding: 20, display: "flex",  justifyContent: "center"}}> 
-      <p>Vacio</p>
-
-      </div>:null}
+      <p>Vacio</p></div>:
+      null}
       </div>
     );
   }
