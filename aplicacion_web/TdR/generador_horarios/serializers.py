@@ -68,3 +68,8 @@ class asignaturaCursadaSerializer(serializers.ModelSerializer):
     class Meta:
         model = asignatura_cursada
         fields = ['codigo']
+
+class prioridadCfgSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = prioridad_cfg
+        fields = '__all__'
