@@ -14,7 +14,7 @@ def get_clique_max_pond(current_user):
         return "n"
 
     try:
-        prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).value('area').order_by('-prioridad')
+        prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).value('area').order_by('prioridad')
         len_prio_area_cfg = len(prio_area_cfg)
         count_prio = 0
     except:
