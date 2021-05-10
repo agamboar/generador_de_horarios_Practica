@@ -53,6 +53,6 @@ urlpatterns = [
     path('get_ramos_disponibles/', views.get_ramos_disponibles),
     path('set_prio_areas_cfg/', views.set_prio_areas_cfg),
     path('get_prio_cfg/', views.get_prio_cfg),
-    re_path(r"^$", render_react),µ
+    re_path(r"^$", render_react),
     re_path(r"^(?:.*)/?$", render_react),
 ]
