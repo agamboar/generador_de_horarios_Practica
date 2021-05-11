@@ -106,6 +106,7 @@ def get_clique_max_pond(current_user):
                 except:
                     nombre_ramo = 'CURSO FORMACION GENERAL'
 
+            nro_seccion = elem['to_seccion__num_seccion']
             if nro_seccion != "99":
                 G.add_nodes_from([str(codigo + "   - " + elem["to_seccion__cod_seccion"])],
                                  horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=elem['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=nombre_ramo, eventos=aux_eventos, cod_asignatura_real=elem['to_seccion__to_asignatura_real__codigo'])
