@@ -179,3 +179,16 @@ class solucion(models.Model):
 
 # COMPONENTES EXTRA
 
+class prioridad_cfg(models.Model):
+
+    area = models.CharField(max_length=50)
+    prioridad = models.IntegerField(default=0)
+    fecha_mod = models.DateTimeField(auto_now=True)
+    #se tiene que hacer un delete cada vez que se cambie la prioridad
+    #ver la forma del codigo de los cfg en asignatura real -> CFG1 ?
+
+    to_user = models.ManyToManyField(User)
+
+class cfg_areas(models.Model):
+    codigo = models.CharField(max_length=25,primary_key=True)
+    area = models.CharField(max_length=50)
