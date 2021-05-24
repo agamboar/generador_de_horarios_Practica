@@ -618,7 +618,7 @@ def get_ramos_disponibles(request):
         return JsonResponse({"ramos_disponibles":aux_retornar}, safe=False, status=status.HTTP_200_OK)
 
 @api_view(['GET']) 
-def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien los datos pero no los entrega bien, ver bien como funciona el for
+def get_secciones_disponibles(request, codigo):
 
     if request.method == "GET":
         #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
@@ -679,4 +679,58 @@ def get_secciones_disponibles(request, codigo): #revisar esta funcion, saca bien
             return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_204_NO_CONTENT)
         else:
             return JsonResponse({"secciones_disponibles":aux_retornar}, safe=False, status=status.HTTP_200_OK)
-        
+
+@api_view(['POST'])
+def set_prio_areas_cfg(request):
+    if request.method == "POST":
+        current_user = request.user.id
+        try:
+            prioridad_cfg.objects.filter(to_user=current_user).delete()
+        except:
+            pass
+        json_data = request.data
+        cantidad_areas=len(json_data) 
+        for index,aux in enumerate(json_data):
+            try:
+                area_cfg = prioridad_cfg.objects.get(area=aux['area'])
+            except:
+                area_cfg = prioridad_cfg(area = aux['area'], prioridad = 0)
+                area_cfg.save()
+                u = User.objects.get(id=current_user)
+                area_cfg.to_user.add(u)
+                         
+
+            prio = 1+index
+            serializer = prioridadCfgSerializer(area_cfg, data={'prioridad': prio}, partial=True)
+
+            if serializer.is_valid(): #esto funciona ?
+                serializer.save()
+
+        return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
+
+@api_view(['GET']) 
+def get_prio_cfg(request):
+
+    if request.method == "GET":
+        #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
+        current_user = request.user.id
+        prioridades_cfg = []
+        try:
+            prioridades_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area','prioridad').order_by('prioridad').distinct()  
+        except:
+            pass
+        if len(prioridades_cfg) == 0:
+            return JsonResponse({"mensaje":"vacio"}, safe=False, status=status.HTTP_204_NO_CONTENT)
+        aux_retornar = []
+
+        for i in range(0, len(prioridades_cfg)):
+            elem = prioridades_cfg[i]
+            area = elem['area']
+            prioridad = elem['prioridad']
+
+            aux_retornar.append({'area':area,'prioridad':prioridad, 'index':i})
+
+        if len(aux_retornar) == 0:
+            return JsonResponse({"mensaje":"vacio"}, safe=False, status=status.HTTP_204_NO_CONTENT)
+        else:
+            return JsonResponse({"prio_cfg":aux_retornar}, safe=False, status=status.HTTP_200_OK)
