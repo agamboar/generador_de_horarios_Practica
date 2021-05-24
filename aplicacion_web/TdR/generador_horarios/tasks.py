@@ -137,12 +137,12 @@ def read_eventos(excel_oferta):
 
     return arr_eventos
 
-
+## Estas funciones son similares a las de arriba, se dejan aqui por si algo llegara a fallar con los horarios de los cfg 
 def read_seccion_cfg(excel_file):
 
     cfg_seccion = np.array(pd.read_excel(
 
-        excel_file, usecols="K,E,A,L", na_filter=False, engine='openpyxl'))
+        excel_file, usecols="T,D,B,K,L,M", na_filter=False, engine='openpyxl'))
 
     seen = []
     newlist = []
@@ -153,9 +153,7 @@ def read_seccion_cfg(excel_file):
             newlist.append(item)
             seen.append(item[2])
 
-    new_list = np.insert(newlist, 1, '2021-1', axis=1)
-    aux_list2 = np.insert(new_list, 4, 0, axis=1)
-    cfg_secciones = np.insert(aux_list2, 4, aux_list2[:, 5], axis=1)
+    cfg_secciones = np.insert(newlist, 1, '2021-1', axis=1)
 
     permut = [6, 1, 2, 0, 3, 4, 5]
     idx = np.empty_like(permut)
@@ -175,7 +173,7 @@ def read_evento_cfg(excel_file):
 
     cfg_evento = np.array(pd.read_excel(
 
-        excel_file, usecols="F,G,H,K", na_filter=False, engine='openpyxl'))
+        excel_file, usecols="F,H,J,T", na_filter=False, engine='openpyxl'))
 
     cfg_eventos = []
 
