@@ -52,8 +52,8 @@ export default class CrearHorario extends Component {
         data.append('excel_file', this.state.selectedFile_cfg)
         data.append('area', area)
         axios.post("/uploadcfg/", data).then(res => { // then print response status
-            console.log(res.statusText)
-            if (res.statusText === "OK"){
+            console.log(res.status)
+            if (res.status === 200){
                 setTimeout(function () { toast.info(`Se cargaron ${res.data.cantidad} secciones`, { position: toast.POSITION.TOP_CENTER }); }, 1000)
             }
         }).catch(function (error) {
