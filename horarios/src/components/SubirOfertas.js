@@ -33,7 +33,7 @@ export default class CrearHorario extends Component {
         })
     }
 
-    onClick_oferta = () => {
+    onClick_oferta = async () => {
         const data = new FormData()
         console.log(this.state.selectedFile)
         data.append('file', this.state.selectedFile)
