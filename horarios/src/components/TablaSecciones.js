@@ -9,7 +9,7 @@ import { Button } from 'antd'
 import { Alert } from 'antd';
 import { Row, Col, Divider } from 'antd';
 import { message } from 'antd';
-
+import { toast } from 'react-toastify'
 const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
 const columns = [
@@ -103,7 +103,11 @@ class SortableTable extends React.Component {
           }else{
             this.setState({dataSource: "no"})
           }
-      })
+      }).catch(function (error) {
+        if (error.response) {
+         toast.error("Elije tu malla y calcula tu ruta critica nuevamente", { position: toast.POSITION.TOP_CENTER });
+        }
+       });
       
   };
   
