@@ -200,7 +200,7 @@ def upload_mi_malla(request):
         semestre = codigos[1]
 
         avance = avance_academico.objects.get(semestre=semestre, to_user=user)
-
+        added_seccion = 0
         for elem in codigos[6:]:
 
             if elem[0] != '':
@@ -210,8 +210,9 @@ def upload_mi_malla(request):
             a = asignatura_cursada(
                 codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
             a.save()
+            added_seccion += 1
 
-        return JsonResponse({'description': "Malla Subida."}, status=status.HTTP_201_CREATED)
+        return JsonResponse({'cantidad': added_seccion ,'description': "Malla Subida."}, status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET'])
