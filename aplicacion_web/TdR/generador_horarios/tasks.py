@@ -177,7 +177,6 @@ def read_evento_cfg(excel_file):
     cfg_eventos = []
 
     for elem in cfg_evento:
-        print(elem)
         if elem[0] != '':
 
             # comprueba si el evento es una "C"atedra, esto se hace para separar los bloques, ya que estan en una sola fila en el excel, y en la base deben estar separados
@@ -265,15 +264,18 @@ def read_evento_cfg(excel_file):
                     cfg_eventos.append(elem2.tolist())
 
             else:
-                arr_horario = elem[1].split()
+                try:
+                    arr_horario = elem[1].split()
 
-                elem1 = elem.copy()
+                    elem1 = elem.copy()
 
-                dia = arr_horario[0]
-                bloque = arr_horario[1]+" - "+arr_horario[3]
-                elem1 = np.append(elem1, bloque)
-                elem1[1] = dia
-                cfg_eventos.append(elem1.tolist())
+                    dia = arr_horario[0]
+                    bloque = arr_horario[1]+" - "+arr_horario[3]
+                    elem1 = np.append(elem1, bloque)
+                    elem1[1] = dia
+                    cfg_eventos.append(elem1.tolist())
+                except:
+                    pass
 
     cfg_eventos = np.array(cfg_eventos)
 

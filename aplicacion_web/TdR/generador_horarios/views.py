@@ -110,6 +110,7 @@ def import_cfg(request):
 
     if request.method == "POST":
         #print(request.FILES)
+        print(request.POST['area'])
         excel_file = request.FILES["excel_file"]
         cfg_secciones = read_seccion_cfg(excel_file)
         cfg_eventos = read_evento_cfg(excel_file)
@@ -118,30 +119,47 @@ def import_cfg(request):
         cfg3 = asignatura_real.objects.get(codigo='CFG3')
         cfg4 = asignatura_real.objects.get(codigo='CFG4')
 
-        try:
-            seccion.objects.filter(cod_seccion__contains='CFG').delete()
-            evento.objects.filter(to_seccion__contains='CFG').delete()
-        except:
-            pass
-
+        #try:
+        #    seccion.objects.filter(cod_seccion__contains='CFG').delete()
+        #    evento.objects.filter(to_seccion__contains='CFG').delete()
+        #except:
+        #    pass
+        added_cfg = 0
         for elem in cfg_secciones:
             if elem[0][0:3] == 'CFG':
+                try:
+                    seccion.objects.get(cod_seccion=elem[0]).delete()
+                except:
+                    pass
+                
                 s1 = seccion.objects.create(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
                                             vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+                added_cfg += 1
 
                 s1.to_asignatura_real.add(cfg1)
                 s1.to_asignatura_real.add(cfg2)
                 s1.to_asignatura_real.add(cfg3)
                 s1.to_asignatura_real.add(cfg4)
+                print(elem[0][0:6])
+                if len(cfg_areas.objects.filter(codigo = elem[0][0:6])) == 0:
+                    area = cfg_areas.objects.create(codigo = elem[0][0:6] ,area = request.POST['area'])
+                    area.save()
+                    
+
             
         for elem in cfg_eventos:
             if elem[4][0:3] == 'CFG':
+                try:
+                    evento.objects.get(to_seccion=elem[4]).delete()
+                except:
+                    pass
+            
                 s = seccion.objects.get(cod_seccion=elem[4])
                 e = evento(tipo=elem[0], dia=elem[1],
                             modulo=elem[2], profesor=elem[3], to_seccion=s)
                 e.save()
 
-        return JsonResponse({'description': "CFG subidos!"}, status=200)
+        return JsonResponse({'cantidad': added_cfg ,'description': "CFG subidos!"}, status=200)
 
 
 @csrf_exempt
@@ -687,6 +705,10 @@ def set_prio_areas_cfg(request):
         current_user = request.user.id
         try:
             prioridad_cfg.objects.filter(to_user=current_user).delete()
+        except:
+            pass
+        try:
+            solucion.objects.filter(to_user=current_user).delete()
         except:
             pass
         json_data = request.data
