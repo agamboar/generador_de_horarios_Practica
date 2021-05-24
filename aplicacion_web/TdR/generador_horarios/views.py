@@ -81,7 +81,7 @@ def import_malla(request):
             evento.objects.exclude(to_seccion__contains='CFG').delete()
         except:
             pass
-
+        added_sec = 0
         for elem in arr_secciones:
             try:
                 a = asignatura_real.objects.get(codigo=elem[6])
@@ -99,10 +99,11 @@ def import_malla(request):
                 e = evento(tipo=elem[0], dia=elem[1],
                             modulo=elem[2], profesor=elem[3], to_seccion=s)
                 e.save()
+                added_sec += 1
             except:
                 continue
 
-        return JsonResponse({'description': "Oferta subida!"}, status=200)
+        return JsonResponse({'cantidad':added_sec,'description': "Oferta subida!"}, status=200)
 
 
 @csrf_exempt
