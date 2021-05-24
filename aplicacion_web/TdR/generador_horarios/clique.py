@@ -125,7 +125,7 @@ def get_clique_max_pond(current_user):
             aux_codigo = elem['to_seccion__to_asignatura_real__codigo']
 
     # list_node = list(G.nodes.items())
-    # lenth_graph = len(list_node)
+    lenth_graph = len(list_node)
 
     for i in range(lenth_graph):
         if (i+1) < lenth_graph:

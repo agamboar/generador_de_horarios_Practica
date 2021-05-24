@@ -148,14 +148,13 @@ def read_seccion_cfg(excel_file):
     newlist = []
 
     for item in cfg_seccion:
-
-        if item[2] not in seen and item[0] != '':
+        if item[5] not in seen and item[0] != '':
             newlist.append(item)
-            seen.append(item[2])
+            seen.append(item[5])
 
     cfg_secciones = np.insert(newlist, 1, '2021-1', axis=1)
 
-    permut = [6, 1, 2, 0, 3, 4, 5]
+    permut = [6, 1, 2, 3, 4, 5, 0]
     idx = np.empty_like(permut)
     idx[permut] = np.arange(len(permut))
     cfg_secciones[:, idx]
@@ -178,7 +177,7 @@ def read_evento_cfg(excel_file):
     cfg_eventos = []
 
     for elem in cfg_evento:
-
+        print(elem)
         if elem[0] != '':
 
             # comprueba si el evento es una "C"atedra, esto se hace para separar los bloques, ya que estan en una sola fila en el excel, y en la base deben estar separados
