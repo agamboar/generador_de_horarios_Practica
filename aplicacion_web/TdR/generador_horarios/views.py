@@ -125,20 +125,21 @@ def import_cfg(request):
             pass
 
         for elem in cfg_secciones:
+            if elem[0][0:3] == 'CFG':
+                s1 = seccion.objects.create(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                                            vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
 
-            s1 = seccion.objects.create(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                                        vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
-
-            s1.to_asignatura_real.add(cfg1)
-            s1.to_asignatura_real.add(cfg2)
-            s1.to_asignatura_real.add(cfg3)
-            s1.to_asignatura_real.add(cfg4)
-
+                s1.to_asignatura_real.add(cfg1)
+                s1.to_asignatura_real.add(cfg2)
+                s1.to_asignatura_real.add(cfg3)
+                s1.to_asignatura_real.add(cfg4)
+            
         for elem in cfg_eventos:
-            s = seccion.objects.get(cod_seccion=elem[4])
-            e = evento(tipo=elem[0], dia=elem[1],
-                        modulo=elem[2], profesor=elem[3], to_seccion=s)
-            e.save()
+            if elem[4][0:3] == 'CFG':
+                s = seccion.objects.get(cod_seccion=elem[4])
+                e = evento(tipo=elem[0], dia=elem[1],
+                            modulo=elem[2], profesor=elem[3], to_seccion=s)
+                e.save()
 
         return JsonResponse({'description': "CFG subidos!"}, status=200)
 
