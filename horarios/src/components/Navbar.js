@@ -57,9 +57,9 @@ export default class Navbar extends Component {
                     </li>
                     <Dropdown size="sm">
                         <DropdownButton id="dropdown-basic-button" title="Priorización">
+                        <Dropdown.Item ><Link className="nav-link" to='/users/usr/priorizarAreaCFG'  style={{ color: '#000000' }} >Priorizar Area CFG</Link></Dropdown.Item>    
                         <Dropdown.Item><Link className="nav-link" to= '/users/usr/priorizarRamos'  style={{ color: '#000000' }} >Priorizar Ramos</Link> </Dropdown.Item>
                         <Dropdown.Item ><Link className="nav-link" to='/users/usr/priorizarSeccion'  style={{ color: '#000000' }} >Priorizar Secciones</Link></Dropdown.Item>
-                        <Dropdown.Item ><Link className="nav-link" to='/users/usr/priorizarAreaCFG'  style={{ color: '#000000' }} >Priorizar Area CFG</Link></Dropdown.Item>
                         </DropdownButton>
                     </Dropdown>
                     {/*<li className="nav-item">
