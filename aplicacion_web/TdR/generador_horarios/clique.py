@@ -39,7 +39,7 @@ def get_clique_max_pond(current_user):
                     pass
                 else:
                     continue
-            elif current_cfg_number == codigo[4]:
+            elif current_cfg_number == codigo[3]:
                 count_prio+=1
      
         try:

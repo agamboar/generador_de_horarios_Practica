@@ -33,12 +33,12 @@ export default class CrearHorario extends Component {
         })
     }
 
-    onClick_oferta = () => {
+    onClick_oferta = async () => {
         const data = new FormData()
         console.log(this.state.selectedFile)
         data.append('file', this.state.selectedFile)
-        axios.post("/upload/", data).then(res => { // then print response status
-            console.log(res.statusText)
+        await axios.post("/upload/", data).then(res => { // then print response status
+            console.log(res.status)
             if (res.status === 200){
                 setTimeout(function () { toast.info(`Se cargaron ${res.data.cantidad} secciones`, { position: toast.POSITION.TOP_CENTER }); }, 1000)
             }else{
