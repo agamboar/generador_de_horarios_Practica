@@ -14,11 +14,13 @@ def get_clique_max_pond(current_user):
         return "n"
 
     try:
-        prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).value('area').order_by('prioridad')
+        prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
         len_prio_area_cfg = len(prio_area_cfg)
         count_prio = 0
     except:
         prio_area_cfg = []
+        len_prio_area_cfg = len(prio_area_cfg)
+        count_prio = 0
 
     current_cfg_number = "0" #esto es para los cfg
     aux_seccion = datos_clique[0]['to_seccion__cod_seccion']
@@ -29,10 +31,10 @@ def get_clique_max_pond(current_user):
     for elem in datos_clique:
         codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
         # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
-
-        if codigo[0:3] == "CFG" and count_prio > len_prio_area_cfg:
-            cfg_current_area = cfg_areas.objects.filter(area = prio_area_cfg[count_prio])
-            if current_cfg_number == codigo[4] or current_cfg_number == "0":
+        if codigo[0:3] == "CFG" and count_prio < len_prio_area_cfg:
+           
+            cfg_current_area = cfg_areas.objects.filter(area = prio_area_cfg[count_prio]['area'])
+            if current_cfg_number == codigo[3] or current_cfg_number == "0":
                 if elem["to_seccion__cod_seccion"][0:6] in cfg_current_area or count_prio < 2:
                     pass
                 else:
@@ -125,7 +127,7 @@ def get_clique_max_pond(current_user):
             aux_codigo = elem['to_seccion__to_asignatura_real__codigo']
 
     # list_node = list(G.nodes.items())
-    # lenth_graph = len(list_node)
+    lenth_graph = len(list_node)
 
     for i in range(lenth_graph):
         if (i+1) < lenth_graph:

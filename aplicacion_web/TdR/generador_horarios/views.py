@@ -81,7 +81,7 @@ def import_malla(request):
             evento.objects.exclude(to_seccion__contains='CFG').delete()
         except:
             pass
-
+        added_sec = 0
         for elem in arr_secciones:
             try:
                 a = asignatura_real.objects.get(codigo=elem[6])
@@ -99,10 +99,11 @@ def import_malla(request):
                 e = evento(tipo=elem[0], dia=elem[1],
                             modulo=elem[2], profesor=elem[3], to_seccion=s)
                 e.save()
+                added_sec += 1
             except:
                 continue
 
-        return JsonResponse({'description': "Oferta subida!"}, status=200)
+        return JsonResponse({'cantidad':added_sec,'description': "Oferta subida!"}, status=200)
 
 
 @csrf_exempt
@@ -110,6 +111,7 @@ def import_cfg(request):
 
     if request.method == "POST":
         #print(request.FILES)
+        #print(request.POST['area'])
         excel_file = request.FILES["excel_file"]
         cfg_secciones = read_seccion_cfg(excel_file)
         cfg_eventos = read_evento_cfg(excel_file)
@@ -118,29 +120,47 @@ def import_cfg(request):
         cfg3 = asignatura_real.objects.get(codigo='CFG3')
         cfg4 = asignatura_real.objects.get(codigo='CFG4')
 
-        try:
-            seccion.objects.filter(cod_seccion__contains='CFG').delete()
-            evento.objects.filter(to_seccion__contains='CFG').delete()
-        except:
-            pass
-
+        #try:
+        #    seccion.objects.filter(cod_seccion__contains='CFG').delete()
+        #    evento.objects.filter(to_seccion__contains='CFG').delete()
+        #except:
+        #    pass
+        added_cfg = 0
         for elem in cfg_secciones:
+            if elem[0][0:3] == 'CFG':
+                try:
+                    seccion.objects.get(cod_seccion=elem[0]).delete()
+                except:
+                    pass
+                
+                s1 = seccion.objects.create(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                                            vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+                added_cfg += 1
 
-            s1 = seccion.objects.create(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                                        vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+                s1.to_asignatura_real.add(cfg1)
+                s1.to_asignatura_real.add(cfg2)
+                s1.to_asignatura_real.add(cfg3)
+                s1.to_asignatura_real.add(cfg4)
+                #print(elem[0][0:6])
+                if len(cfg_areas.objects.filter(codigo = elem[0][0:6])) == 0:
+                    area = cfg_areas.objects.create(codigo = elem[0][0:6] ,area = request.POST['area'])
+                    area.save()
+                    
 
-            s1.to_asignatura_real.add(cfg1)
-            s1.to_asignatura_real.add(cfg2)
-            s1.to_asignatura_real.add(cfg3)
-            s1.to_asignatura_real.add(cfg4)
-
+            
         for elem in cfg_eventos:
-            s = seccion.objects.get(cod_seccion=elem[4])
-            e = evento(tipo=elem[0], dia=elem[1],
-                        modulo=elem[2], profesor=elem[3], to_seccion=s)
-            e.save()
+            if elem[4][0:3] == 'CFG':
+                try:
+                    evento.objects.get(to_seccion=elem[4]).delete()
+                except:
+                    pass
+            
+                s = seccion.objects.get(cod_seccion=elem[4])
+                e = evento(tipo=elem[0], dia=elem[1],
+                            modulo=elem[2], profesor=elem[3], to_seccion=s)
+                e.save()
 
-        return JsonResponse({'description': "CFG subidos!"}, status=200)
+        return JsonResponse({'cantidad': added_cfg ,'description': "CFG subidos!"}, status=200)
 
 
 @csrf_exempt
@@ -149,11 +169,11 @@ def upload_mi_malla(request):
     if request.method == "POST":
 
         current_user = request.POST.getlist('id')[0]
-        print(current_user)
+        #print(current_user)
         excel_file = request.FILES["file"]
         codigos = read_mi_malla(excel_file)
         user = User.objects.get(id=current_user)
-        print(user)
+        #print(user)
 
         asignatura_cursada.objects.filter(to_User=current_user).delete()
         nodo_asignatura.objects.filter(to_user=current_user).delete()
@@ -228,11 +248,11 @@ def get_PERT(request):
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
             aux_pert = serializer.data
-            print("guardo el json")
+            #print("guardo el json")
             avance_academico_user.json_avance = serializer.data
             avance_academico_user.save()
         else:
-            print("uso el json")
+            #print("uso el json")
             aux_pert = avance_academico_user.json_avance
 
         new_dict = {}
@@ -262,7 +282,7 @@ def get_clique(request):
 
                 diff = current_timestamp-sol[0].fecha_mod
                 segundos = diff.seconds
-                print(segundos)
+                #print(segundos)
         except:
             pass
 
@@ -291,7 +311,7 @@ def get_clique(request):
             except:
                     return Response("n", status=status.HTTP_200_OK)
 
-            print('guardo el json')
+            #print('guardo el json')
         elif not existen_soluciones and segundos > 30:
 
             jsons = get_clique_max_pond(current_user)
@@ -300,7 +320,7 @@ def get_clique(request):
                 sol[counter].json_solucion = elem
                 sol[counter].save()
                 counter += 1
-            print('pasaron más de 30 segundos')
+            #print('pasaron más de 30 segundos')
         else:
 
             jsons = []
@@ -308,7 +328,7 @@ def get_clique(request):
                 jsons.append(elem.json_solucion)
             if jsons == []:
                 jsons ="n"
-            print('uso el json') # esto no va aca
+            #print('uso el json') # esto no va aca
 
         #print(jsons)
         return Response(jsons, status=status.HTTP_200_OK)
@@ -477,7 +497,7 @@ def get_nodo_seccion(request): # esto no se esta usando
         json['id'] = elem.id
         json['ss'] = elem.ss
 
-        print(json)
+        #print(json)
         json_array.append(json)
 
     return JsonResponse(json_array, safe=False, status=status.HTTP_200_OK)
@@ -510,7 +530,7 @@ def PERT_es1(request):
         current_user = request.user.id
         ns = nodo_asignatura.objects.filter(to_user=current_user, es=1)
         serializer = nodoAsignaturaSerializer(ns, many=True)
-        print(serializer.data)
+        #print(serializer.data)
         if serializer.data  == []:
             return JsonResponse("no", safe=False, status=status.HTTP_200_OK)
         else:
@@ -686,6 +706,10 @@ def set_prio_areas_cfg(request):
         current_user = request.user.id
         try:
             prioridad_cfg.objects.filter(to_user=current_user).delete()
+        except:
+            pass
+        try:
+            solucion.objects.filter(to_user=current_user).delete()
         except:
             pass
         json_data = request.data
