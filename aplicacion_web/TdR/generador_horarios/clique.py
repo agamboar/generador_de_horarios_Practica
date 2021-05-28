@@ -6,7 +6,7 @@ from .models import *
 # seria bueno modularizar esta funcion
 
 def get_clique_max_pond(current_user):
-    datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__es=1,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre').order_by('-to_seccion__to_asignatura_real__importancia', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct()
+    datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__es=1,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre').order_by('-to_seccion__to_asignatura_real__importancia', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct() # en el order_by, para que es el primer guion en "-to_seccion__to_asignatura_real__importancia"?
     G = nx.Graph()
     #print(datos_clique)
 
@@ -26,12 +26,12 @@ def get_clique_max_pond(current_user):
     aux_seccion = datos_clique[0]['to_seccion__cod_seccion']
     aux_codigo = datos_clique[0]['to_seccion__to_asignatura_real__codigo']
     aux_horario = []
-    aux_eventos = []
+    aux_eventos = [] #estos 4 auxiliares para que son?
 
-    for elem in datos_clique:
+    for elem in datos_clique: # cada elemento es un evento a una seccion?
         codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
         # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
-        if codigo[0:3] == "CFG" and count_prio < len_prio_area_cfg:
+        if codigo[0:3] == "CFG" and count_prio < len_prio_area_cfg: # no entiendo este if
            
             cfg_current_area = cfg_areas.objects.filter(area = prio_area_cfg[count_prio]['area'])
             if current_cfg_number == codigo[3] or current_cfg_number == "0":
@@ -75,7 +75,7 @@ def get_clique_max_pond(current_user):
         except:
             evento = '---'
 
-        if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_seccion__to_asignatura_real__codigo']:
+        if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_seccion__to_asignatura_real__codigo']: #que subproceso se completa en este if?
             if horario not in aux_horario:
                 aux_horario.append(horario)
 
@@ -109,7 +109,7 @@ def get_clique_max_pond(current_user):
                     nombre_ramo = 'CURSO FORMACION GENERAL'
 
             nro_seccion = elem['to_seccion__num_seccion']
-            if nro_seccion != "99":
+            if nro_seccion != "99": # que pasa cuando la seccion es 99?
                 G.add_nodes_from([str(codigo + "   - " + elem["to_seccion__cod_seccion"])],
                                  horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=elem['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=nombre_ramo, eventos=aux_eventos, cod_asignatura_real=elem['to_seccion__to_asignatura_real__codigo'])
 

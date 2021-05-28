@@ -14,7 +14,7 @@ class asignatura_real(models.Model):
     tipo = models.IntegerField(default=0)
     equivale = models.ManyToManyField('self', default=None, symmetrical=False)
     prerrequisito = models.ManyToManyField('self')
-    importancia = models.IntegerField(default=3)
+    importancia = models.IntegerField(default=3) #que significa? como se calcula?
 
 
 class malla_curricular(models.Model):
@@ -132,7 +132,7 @@ class asignatura_cursada(models.Model):
 
 # COMPONENTE TOMA DE RAMOS
 
-class nodo_asignatura(models.Model):
+class nodo_asignatura(models.Model): #que significa cada uno de estos atributos de dos letras? Por ejemplo,  ef, es, ls y lf que son?
 
     holgura = models.IntegerField(default=0)
     ef = models.IntegerField(default=0)
@@ -168,7 +168,7 @@ class solucion(models.Model):
 
     fecha_mod = models.DateTimeField(auto_now=True)
     json_solucion = models.JSONField(default=list)
-    is_horario = models.BooleanField(default=False)
+    is_horario = models.BooleanField(default=False) # en que casos una solución es o no es un horario?
 
     to_nodo_seccion = models.ManyToManyField(nodo_seccion)
 
@@ -179,7 +179,7 @@ class solucion(models.Model):
 
 # COMPONENTES EXTRA
 
-class prioridad_cfg(models.Model):
+class prioridad_cfg(models.Model): #cual es el campo del excel que se usa para representar el area?
 
     area = models.CharField(max_length=50)
     prioridad = models.IntegerField(default=0)
@@ -187,7 +187,7 @@ class prioridad_cfg(models.Model):
     #se tiene que hacer un delete cada vez que se cambie la prioridad
     #ver la forma del codigo de los cfg en asignatura real -> CFG1 ?
 
-    to_user = models.ManyToManyField(User)
+    to_user = models.ManyToManyField(User) #por que many to many?
 
 class cfg_areas(models.Model):
     codigo = models.CharField(max_length=25,primary_key=True)

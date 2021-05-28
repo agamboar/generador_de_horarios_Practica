@@ -272,9 +272,9 @@ def get_clique(request):
         existen_soluciones = False
 
         try:
-            sol = solucion.objects.filter(to_user=current_user)
+            sol = solucion.objects.filter(to_user=current_user) # Cada solucion en la base de datos es una recomendación de horario? un usuario tendra 6 soluciones?  
 
-            if sol:
+            if sol: #que se esta haciendo aqui?
 
                 existen_soluciones = True
                 tz = pytz.timezone('UTC')
@@ -301,7 +301,7 @@ def get_clique(request):
                     solucion_alumno.json_solucion = elem
                     solucion_alumno.save()
 
-            try:                
+            try: #esto no debiese estar nested dentro del for de 293(for elem in jsons:) ?               
                 for elem2 in elem:
 
                     nodoSeccion = nodo_seccion.objects.filter(
@@ -312,7 +312,7 @@ def get_clique(request):
                     return Response("n", status=status.HTTP_200_OK)
 
             #print('guardo el json')
-        elif not existen_soluciones and segundos > 30:
+        elif not existen_soluciones and segundos > 30: #creo que este elif nunca ejecuta, cual era su funcion?
 
             jsons = get_clique_max_pond(current_user)
             counter = 0
