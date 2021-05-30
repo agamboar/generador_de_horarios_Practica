@@ -28,10 +28,10 @@ def get_clique_max_pond(current_user):
     aux_horario = []
     aux_eventos = [] #estos 4 auxiliares para que son?
 
-    for elem in datos_clique: # cada elemento es un evento a una seccion?
+    for elem in datos_clique: # que representa cada elemento?
         codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
         # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
-        if codigo[0:3] == "CFG" and count_prio < len_prio_area_cfg: # no entiendo este if
+        if codigo[0:3] == "CFG" and count_prio < len_prio_area_cfg: # no entiendo este if [?]
            
             cfg_current_area = cfg_areas.objects.filter(area = prio_area_cfg[count_prio]['area'])
             if current_cfg_number == codigo[3] or current_cfg_number == "0":
@@ -43,11 +43,11 @@ def get_clique_max_pond(current_user):
                 count_prio+=1
      
         try:
-            horario = (elem['to_seccion__evento__dia'] + ' ' +
-                       elem['to_seccion__evento__modulo'])
+            horario = (elem['to_seccion__evento__dia'] + ' ' + #como funciona esta asignación?
+                       elem['to_seccion__evento__modulo'])  # que retorna "elem['to_seccion__evento__dia']" ? 
         except:
             horario = '---'
-
+# en general, cuando se llama elem[to_seccion__evento...], como funciona considerando que una seccion tiene multiples eventos?
         try:
             # elimina las tildes de catedra y ayudantia
 
@@ -79,7 +79,7 @@ def get_clique_max_pond(current_user):
             if horario not in aux_horario:
                 aux_horario.append(horario)
 
-            if evento not in aux_eventos:
+            if evento not in aux_eventos: #que se revisa aqui?
                 alfa = False
                 for i in aux_eventos:
                     if i['bloque'] == evento['bloque']:
@@ -111,14 +111,14 @@ def get_clique_max_pond(current_user):
             nro_seccion = elem['to_seccion__num_seccion']
             if nro_seccion != "99": # que pasa cuando la seccion es 99?
                 G.add_nodes_from([str(codigo + "   - " + elem["to_seccion__cod_seccion"])],
-                                 horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=elem['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=nombre_ramo, eventos=aux_eventos, cod_asignatura_real=elem['to_seccion__to_asignatura_real__codigo'])
+                                 horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=elem['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=nombre_ramo, eventos=aux_eventos, cod_asignatura_real=elem['to_seccion__to_asignatura_real__codigo']) # no entiendo muy bien la composicion de uno de estos nodos [?] Cual es la diferencia entre horario y eventos? Agrega 1 nodo o multiples nodos?
 
             list_node = list(G.nodes.items())
                            
-            if len(list_node) == 87:
+            if len(list_node) == 87: #esto trunca la cantidad de secciones a 87?
                 #print(str(codigo + "   - " + elem["to_seccion__cod_seccion"]))
                 break
-        else:
+        else: # que caso se esta cubriendo en este else?
             aux_eventos = []
             aux_horario = []
             aux_horario.append(horario)
@@ -128,12 +128,12 @@ def get_clique_max_pond(current_user):
 
     # list_node = list(G.nodes.items())
     lenth_graph = len(list_node)
-
+    # se agregan las aristas del grafo
     for i in range(lenth_graph):
         if (i+1) < lenth_graph:
             for j in range(i+1, lenth_graph):
                 # verificando que no se tomen dos secciones del mismo ramo
-                if (list_node[i][1]["codigo_box"] != list_node[j][1]["codigo_box"] and list_node[i][0][0:7] != list_node[j][0][0:7]):
+                if (list_node[i][1]["codigo_box"] != list_node[j][1]["codigo_box"] and list_node[i][0][0:7] != list_node[j][0][0:7]): #que revisa la expresion: list_node[i][0][0:7] != list_node[j][0][0:7] ? Que es codigo_box exactamente?
                     tope = 0
                     # se itera por los modulos que tiene la seccion
                     for k in range(len(list_node[i][1]["horario"])):
@@ -145,10 +145,11 @@ def get_clique_max_pond(current_user):
                     if tope == 0:
                         G.add_edge(list_node[i][0], list_node[j][0])
 
+    # se calculan los horarios a recomendar.
     prev_solution = []
     aux_retornar = []
 
-    show_options = 5
+    show_options = 5 
     for i in range(show_options):
 
         max_clique_pond = nx.max_weight_clique(G, weight="prioridad")
@@ -164,7 +165,7 @@ def get_clique_max_pond(current_user):
             arr_aux_delete.pop(0)
 
         if prev_solution == arr_aux_delete:  # sirve para no mostrar siempre las mismas soluciones
-            continue
+            continue # aca en vez de "continue" debiese ir "pass"[?]. (potencialmente menos de 5 opciones en ambos casos)
         else:
 
             # print("---------------")

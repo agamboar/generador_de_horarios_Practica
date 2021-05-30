@@ -152,7 +152,7 @@ class nodo_asignatura(models.Model): #que significa cada uno de estos atributos 
 
 class nodo_seccion(models.Model):
 
-    ss = models.IntegerField(default=1)
+    ss = models.IntegerField(default=1) # que es ss?
     fecha_mod = models.DateTimeField(auto_now=True)
 
     to_seccion = models.ManyToManyField(seccion)
