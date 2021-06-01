@@ -231,8 +231,7 @@ def get_PERT(request):
             # print(new_dict)
             return Response(new_dict)
 
-        # falta colocar una condicion -> si se cambio recientemente los ramos aprobados
-        if avance_academico_user.json_avance == {}:
+        if avance_academico_user.json_avance == {}: #el PERT se borra cuando se modifica el avance, solo se calcula el PERT si esta vacio. 
             codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(to_User_id__id=current_user).values_list('codigo', flat=True)
 
             codigos_ramos_malla = asignatura_real.objects.filter(malla_curricular__agno=año_malla, tipo=0).values_list('codigo', flat=True)
@@ -271,10 +270,10 @@ def get_clique(request):
         user = User.objects.get(id=current_user)
         existen_soluciones = False
 
-        try:
-            sol = solucion.objects.filter(to_user=current_user) # Cada solucion en la base de datos es una recomendación de horario? un usuario tendra 6 soluciones?  
+        try: 
+            sol = solucion.objects.filter(to_user=current_user) # un usuario tiene una solucion por horario recomendado 
 
-            if sol: #que se esta haciendo aqui?
+            if sol: #se esta intentando que el usario no spamee recomandar horarios 30 seg timer (no se esta usando)
 
                 existen_soluciones = True
                 tz = pytz.timezone('UTC')
@@ -286,43 +285,34 @@ def get_clique(request):
         except:
             pass
 
-        if not existen_soluciones:
+        if not existen_soluciones: #las soluciones se borran cada vez que se modifica algun valor
 
             jsons = get_clique_max_pond(current_user)
             
-            for elem in jsons:
+            for recomendacion in jsons:
 
-                counters = {'json_solucion': elem,
+                counters = {'json_solucion': recomendacion,
                             'is_horario': False,
                             'to_user': user
                             }
                 solucion_alumno = solucion(is_horario=False, to_user=user)
-                if elem != "n":
-                    solucion_alumno.json_solucion = elem
+                if recomendacion != "n":
+                    solucion_alumno.json_solucion = recomendacion
                     solucion_alumno.save()
 
-            try: #esto no debiese estar nested dentro del for de 293(for elem in jsons:) ?               
-                for elem2 in elem:
+                try:  # asociar los objetos nodo_seccion a el objeto solucion               
+                    for elem2 in recomendacion:
 
-                    nodoSeccion = nodo_seccion.objects.filter(
-                        to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
+                        nodoSeccion = nodo_seccion.objects.filter(
+                            to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
 
-                    solucion_alumno.to_nodo_seccion.add(nodoSeccion)
-            except:
-                    return Response("n", status=status.HTTP_200_OK)
+                        solucion_alumno.to_nodo_seccion.add(nodoSeccion)
+                except:
+                        return Response("n", status=status.HTTP_200_OK)
 
             #print('guardo el json')
-        elif not existen_soluciones and segundos > 30: #creo que este elif nunca ejecuta, cual era su funcion?
-
-            jsons = get_clique_max_pond(current_user)
-            counter = 0
-            for elem in jsons:
-                sol[counter].json_solucion = elem
-                sol[counter].save()
-                counter += 1
-            #print('pasaron más de 30 segundos')
         else:
-
+            #pasar variable "sol" a "jsons"
             jsons = []
             for elem in sol:
                 jsons.append(elem.json_solucion)
@@ -339,6 +329,10 @@ def asignar_kk(request):
     if request.method == "POST":
 
         current_user = request.user.id
+        try:
+            solucion.objects.filter(to_user=current_user).delete()
+        except:
+            pass        
         json_data = request.data
 
         for elem in json_data:

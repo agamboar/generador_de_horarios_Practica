@@ -14,7 +14,7 @@ class asignatura_real(models.Model):
     tipo = models.IntegerField(default=0)
     equivale = models.ManyToManyField('self', default=None, symmetrical=False)
     prerrequisito = models.ManyToManyField('self')
-    importancia = models.IntegerField(default=3) #que significa? como se calcula?
+    importancia = models.IntegerField(default=3) #para distinguir entre ramo de malla, electivo o cfg (1,2,3 respectivamente)
 
 
 class malla_curricular(models.Model):
@@ -132,16 +132,16 @@ class asignatura_cursada(models.Model):
 
 # COMPONENTE TOMA DE RAMOS
 
-class nodo_asignatura(models.Model): #que significa cada uno de estos atributos de dos letras? Por ejemplo,  ef, es, ls y lf que son?
+class nodo_asignatura(models.Model):
 
     holgura = models.IntegerField(default=0)
-    ef = models.IntegerField(default=0)
-    es = models.IntegerField(default=0)
-    ls = models.IntegerField(default=0)
-    lf = models.IntegerField(default=0)
-    cc = models.CharField(max_length=3, default='0')
-    uu = models.CharField(max_length=3, default='0')
-    kk = models.CharField(max_length=3, default='0')
+    ef = models.IntegerField(default=0) #early finish
+    es = models.IntegerField(default=0) #early start
+    ls = models.IntegerField(default=0) #late start
+    lf = models.IntegerField(default=0) #late finish
+    cc = models.CharField(max_length=3, default='0') # si es critico o no
+    uu = models.CharField(max_length=3, default='0') # urgencia (10 - holgula)*
+    kk = models.CharField(max_length=3, default='0') #preferencia del usuario 
     fecha_mod = models.DateTimeField(auto_now=True)
     critico = models.BooleanField(default=False)
 
@@ -152,7 +152,7 @@ class nodo_asignatura(models.Model): #que significa cada uno de estos atributos 
 
 class nodo_seccion(models.Model):
 
-    ss = models.IntegerField(default=1) # que es ss?
+    ss = models.IntegerField(default=1) #preferencia de secciones (cantidad de secciones - indice + 1)
     fecha_mod = models.DateTimeField(auto_now=True)
 
     to_seccion = models.ManyToManyField(seccion)
@@ -168,7 +168,7 @@ class solucion(models.Model):
 
     fecha_mod = models.DateTimeField(auto_now=True)
     json_solucion = models.JSONField(default=list)
-    is_horario = models.BooleanField(default=False) # en que casos una solución es o no es un horario?
+    is_horario = models.BooleanField(default=False) # es para elegir un horario entre las soluciones, pero no se implemento.
 
     to_nodo_seccion = models.ManyToManyField(nodo_seccion)
 
@@ -181,13 +181,13 @@ class solucion(models.Model):
 
 class prioridad_cfg(models.Model): #cual es el campo del excel que se usa para representar el area?
 
-    area = models.CharField(max_length=50)
+    area = models.CharField(max_length=50) #nombre del area.
     prioridad = models.IntegerField(default=0)
     fecha_mod = models.DateTimeField(auto_now=True)
     #se tiene que hacer un delete cada vez que se cambie la prioridad
     #ver la forma del codigo de los cfg en asignatura real -> CFG1 ?
 
-    to_user = models.ManyToManyField(User) #por que many to many?
+    to_user = models.ManyToManyField(User) #por que many to many? aca debiese ir models.ForeignKey(User)
 
 class cfg_areas(models.Model):
     codigo = models.CharField(max_length=25,primary_key=True)
