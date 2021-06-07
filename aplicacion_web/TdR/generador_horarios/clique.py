@@ -77,7 +77,8 @@ def get_clique_max_pond(current_user):
         except:
             evento = '---'
 
-        if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_seccion__to_asignatura_real__codigo']: #que subproceso se completa en este if?
+        #se agregan los nodos del grafo (1 vez por cada evento, eventos de la misma seccion sobre-escriben el nodo)
+        if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_seccion__to_asignatura_real__codigo']: 
             if horario not in aux_horario: #evitar agregar horarios duplicados
                 aux_horario.append(horario)
 
@@ -90,7 +91,7 @@ def get_clique_max_pond(current_user):
 
                 if alfa == False:
                     aux_eventos.append(evento)
-#potencialmente, esto deberia ir al comienzo del else que viene
+#potencialmente, esto deberia ir al comienzo del else que viene. *Mentira no se puede sin modificarlo por las referencias a elem[...]
             cc = elem['to_nodo_asignatura__cc']
             uu = elem['to_nodo_asignatura__uu']
             kk = elem['to_nodo_asignatura__kk']
