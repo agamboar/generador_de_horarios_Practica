@@ -31,7 +31,7 @@ def get_clique_max_pond(current_user):
     for elem in datos_clique:
         codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
         # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
-        if codigo[0:3] == "CFG"
+        if codigo[0:3] == "CFG":
             if count_prio <= 2:# esto limita la cantidad de cfg
                 if current_cfg_number != codigo[3]:
                     current_cfg_number = codigo[3]
@@ -131,7 +131,7 @@ def get_clique_max_pond(current_user):
             aux_seccion = elem['to_seccion__cod_seccion']
             aux_codigo = elem['to_seccion__to_asignatura_real__codigo']
 
-    # list_node = list(G.nodes.items())
+    list_node = list(G.nodes.items())
     lenth_graph = len(list_node)
 
     for i in range(lenth_graph):
