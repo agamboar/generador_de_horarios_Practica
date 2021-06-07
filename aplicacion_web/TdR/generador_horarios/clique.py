@@ -6,9 +6,9 @@ from .models import *
 # seria bueno modularizar esta funcion
 
 def get_clique_max_pond(current_user):
-    datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__es=1,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre').order_by('-to_seccion__to_asignatura_real__importancia', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct()
+    datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__es=1,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre').order_by('-to_seccion__to_asignatura_real__importancia', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct()
     G = nx.Graph()
-    #print(datos_clique)
+    print(len(datos_clique))
 
     if len(datos_clique)==0:
         return "n"
@@ -24,10 +24,9 @@ def get_clique_max_pond(current_user):
 
     current_cfg_number = "0" #esto es para los cfg
     aux_seccion = datos_clique[0]['to_seccion__cod_seccion']
-    aux_codigo = datos_clique[0]['to_seccion__to_asignatura_real__codigo']
+    aux_codigo = datos_clique[0]['to_nodo_asignatura__to_asignatura_real__codigo']
     aux_horario = []
     aux_eventos = []
-
     for elem in datos_clique:
         codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
         # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
@@ -37,7 +36,7 @@ def get_clique_max_pond(current_user):
                     current_cfg_number = codigo[3]
                     count_prio+=1
 
-                current_cfg_area = cfg_areas.objects.filter(codigo = elem["to_seccion__cod_seccion"][0:7])
+                current_cfg_area = cfg_areas.objects.get(codigo = elem["to_seccion__cod_seccion"][0:7]).area
                 if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
                     pass
                 else:
@@ -80,7 +79,7 @@ def get_clique_max_pond(current_user):
         except:
             evento = '---'
 
-        if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_seccion__to_asignatura_real__codigo']:
+        if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_nodo_asignatura__to_asignatura_real__codigo']:
             if horario not in aux_horario:
                 aux_horario.append(horario)
 
@@ -104,7 +103,7 @@ def get_clique_max_pond(current_user):
             nombre_ramo = elem['to_seccion__to_asignatura_real__nombre']
 
             # cambia el nombre de la cajita "CFG" por el nombre real del curso.
-            if nombre_ramo == 'CFG':
+            if nombre_ramo[0:3] == 'CFG':
                 try:
                     cod_asignatura = elem["to_seccion__cod_seccion"][0:7]
                     nombre_ramo = asignatura_real.objects.get(
@@ -129,7 +128,7 @@ def get_clique_max_pond(current_user):
             aux_horario.append(horario)
             aux_eventos.append(evento)
             aux_seccion = elem['to_seccion__cod_seccion']
-            aux_codigo = elem['to_seccion__to_asignatura_real__codigo']
+            aux_codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
 
     list_node = list(G.nodes.items())
     lenth_graph = len(list_node)
