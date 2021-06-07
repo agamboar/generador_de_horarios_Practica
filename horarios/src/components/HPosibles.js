@@ -104,7 +104,7 @@ export default class HPosibles extends Component {
                                 <br />
                                 <br />
                                 <div className="d-flex justify-content-center">
-                                    <h2 className="display-6">Te has saltado un paso o no hay un horarios posibles </h2>
+                                    <h2 className="display-6">Te has saltado un paso o no hay horarios posibles </h2>
                                 </div>
                                 <div className="d-flex justify-content-center">
                                     <h4 className="display-6">Seras redirigido</h4>
