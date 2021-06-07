@@ -654,7 +654,13 @@ def get_secciones_disponibles(request, codigo):
             pass
         if len(secciones_disponibles) == 0:
             return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_204_NO_CONTENT)
- 
+
+        if codigo[0:3] == "CFG":
+            try:
+                prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
+            except:
+                prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
+        print(prio_area_cfg)
         aux_retornar = []
         aux_horario = []
         #aux_codigo_sec = secciones_disponibles[0]['to_seccion__cod_seccion'] #agregar al final tambien
@@ -664,6 +670,14 @@ def get_secciones_disponibles(request, codigo):
         for i in range(0, len(secciones_disponibles)):
             elem = secciones_disponibles[i]
             #usar index y preguntar por el codigo del siguiente, si es diferente entonces append si es igual siguiente #ver el caso al final del arreglo
+            cod_sec = elem['to_seccion__cod_seccion']
+            if cod_sec[0:3] == "CFG":
+                current_cfg_area = cfg_areas.objects.get(codigo = cod_sec[0:7]).area
+                if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
+                    print(current_cfg_area)
+                    pass
+                else:
+                    continue
             try:
                 horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']+ ' | ')
             except:
