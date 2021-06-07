@@ -29,8 +29,11 @@ from .tasks import *
 from .PERT import *
 from .clique import *
 
-# Create your views here.
+from .io_log import jsonLog as jl # funciones para guardar dicts como .json
+from . import DBSeed # funciones para guardar el seed de la db en json
 
+
+# Create your views here.
 
 class GoogleLogin(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
@@ -217,6 +220,10 @@ def upload_mi_malla(request):
 @api_view(['GET'])
 def get_PERT(request):
 
+    # DBSeed.saveAllSeeds()
+        # --- Descomentar para guardar seed.
+        # Los archivos .csv de DB_data deben estar cargados para que funcione.
+
     if request.method == "GET":
 
         current_user = request.user.id
@@ -258,6 +265,9 @@ def get_PERT(request):
         new_dict.update({"PERT": aux_pert})
         new_dict["malla"] = año_malla
         # print(new_dict)
+        
+        jl.writeJSONFile('PERT', 'lastOutput-get_PERT', new_dict) # guarda el output de PERT como json en la carpeta "io_log/PERT"
+
         return Response(new_dict)
 
 
