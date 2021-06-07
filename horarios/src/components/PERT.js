@@ -15,7 +15,7 @@ export default class PERT extends Component {
 
     aux =()=>{
         //console.log("si")
-        setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/crearHorario' }, 3000);
+        setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/crearHorario' }, 3000);
     }    
     state = {
         malla: null,
@@ -26,7 +26,7 @@ export default class PERT extends Component {
 
         var config = {
             method: 'get',
-            url: 'http://127.0.0.1:8000/PERT/',
+            url: 'https://asistente-eit.udp.cl/PERT/',
             headers: {
                 'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
                 'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ export default class PERT extends Component {
             toast.info(e, { position: toast.POSITION.TOP_CENTER })
         }
         setTimeout(function () { notify("Seras redirigido para priorizar tus Ramos"); }, 1000);
-        //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/priorizarRamos'; }, 4500);
+        //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarRamos'; }, 4500);
     }
 
     render() {
