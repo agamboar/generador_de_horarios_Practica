@@ -660,7 +660,7 @@ def get_secciones_disponibles(request, codigo):
                 prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
             except:
                 prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
-        print(prio_area_cfg)
+            #print(prio_area_cfg)
         aux_retornar = []
         aux_horario = []
         #aux_codigo_sec = secciones_disponibles[0]['to_seccion__cod_seccion'] #agregar al final tambien
