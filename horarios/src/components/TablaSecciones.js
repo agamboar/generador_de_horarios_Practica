@@ -105,7 +105,7 @@ class SortableTable extends React.Component {
           }
       }).catch(function (error) {
         if (error.response) {
-         toast.error("Elije tu malla y calcula tu ruta critica nuevamente", { position: toast.POSITION.TOP_CENTER });
+         toast.error("Elige tu malla y calcula tu ruta critica nuevamente", { position: toast.POSITION.TOP_CENTER });
         }
        });
       
