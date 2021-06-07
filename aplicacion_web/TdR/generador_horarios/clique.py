@@ -8,7 +8,6 @@ from .models import *
 def get_clique_max_pond(current_user):
     datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__es=1,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre').order_by('-to_seccion__to_asignatura_real__importancia', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct()
     G = nx.Graph()
-    print(len(datos_clique))
 
     if len(datos_clique)==0:
         return "n"
@@ -18,7 +17,7 @@ def get_clique_max_pond(current_user):
         len_prio_area_cfg = len(prio_area_cfg)
         count_prio = 0
     except:
-        prio_area_cfg = []
+        prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
         len_prio_area_cfg = len(prio_area_cfg)
         count_prio = 0
 
