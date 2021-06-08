@@ -21,6 +21,11 @@ const columns = [
     render: () => <DragHandle />,
   },
   {
+    title: 'Nombre Ramo',
+    dataIndex: 'nombre_ramo',
+    className: 'drag-visible',
+  },
+  {
     title: 'Código Sección',
     dataIndex: 'cod_seccion',
     className: 'drag-visible',

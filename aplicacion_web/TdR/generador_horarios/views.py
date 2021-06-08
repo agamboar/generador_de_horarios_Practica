@@ -649,7 +649,7 @@ def get_secciones_disponibles(request, codigo):
         current_user = request.user.id
         secciones_disponibles =[]
         try:
-            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id','ss').order_by('-ss').distinct()  
+            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__asignatura_','to_seccion__evento__tipo','id','ss').order_by('-ss').distinct()  
         except:
             pass
         if len(secciones_disponibles) == 0:
@@ -669,8 +669,13 @@ def get_secciones_disponibles(request, codigo):
 
         for i in range(0, len(secciones_disponibles)):
             elem = secciones_disponibles[i]
-            #usar index y preguntar por el codigo del siguiente, si es diferente entonces append si es igual siguiente #ver el caso al final del arreglo
             cod_sec = elem['to_seccion__cod_seccion']
+
+            try:
+                nombre_ramo = asignatura_real.objects.get(codigo=cod_sec[0:7]).nombre
+            except:
+                nombre_ramo = '---'
+
             if cod_sec[0:3] == "CFG":
                 current_cfg_area = cfg_areas.objects.get(codigo = cod_sec[0:7]).area
                 if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
@@ -702,14 +707,14 @@ def get_secciones_disponibles(request, codigo):
                 if cod_sec != secciones_disponibles[i+1]['to_seccion__cod_seccion']: #reviso si el sgte elemento es de una seccion diferente
                     if str(numb_seccion) != "99"  and vac_libres > 0:
                         aux_horario = sorted(aux_horario)
-                        aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion  })
+                        aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion, 'nombre_ramo': nombre_ramo  })
                         index+=1
                         #aux_codigo_sec = elem['to_seccion__cod_seccion']
                     prof = ""
                     aux_horario = []
 
         if str(numb_seccion) != "99" and vac_libres > 0: # guardar la ultima info q se recolecto ya que el if de 660 no guarda la info si esta al final de la lista
-            aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion  })
+            aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion, 'nombre_ramo': nombre_ramo })
 
                 
         
