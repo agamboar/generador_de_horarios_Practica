@@ -21,6 +21,11 @@ const columns = [
     render: () => <DragHandle />,
   },
   {
+    title: 'Nombre Ramo',
+    dataIndex: 'nombre_ramo',
+    className: 'drag-visible',
+  },
+  {
     title: 'Código Sección',
     dataIndex: 'cod_seccion',
     className: 'drag-visible',
@@ -105,7 +110,7 @@ class SortableTable extends React.Component {
           }
       }).catch(function (error) {
         if (error.response) {
-         toast.error("Elije tu malla y calcula tu ruta critica nuevamente", { position: toast.POSITION.TOP_CENTER });
+         toast.error("Elige tu malla y calcula tu ruta critica nuevamente", { position: toast.POSITION.TOP_CENTER });
         }
        });
       

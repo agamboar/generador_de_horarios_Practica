@@ -6,9 +6,8 @@ from .models import *
 # seria bueno modularizar esta funcion
 
 def get_clique_max_pond(current_user):
-    datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__es=1,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre').order_by('-to_seccion__to_asignatura_real__importancia', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct() # en el order_by, para que es el primer guion en "-to_seccion__to_asignatura_real__importancia"? el guion es para ordenar ascendente
+    datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__es=1,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre').order_by('-to_seccion__to_asignatura_real__importancia', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct() # en el order_by, para que es el primer guion en "-to_seccion__to_asignatura_real__importancia"? el guion es para ordenar ascendente
     G = nx.Graph()
-    #print(datos_clique)
 
     if len(datos_clique)==0:
         return "n"
@@ -18,31 +17,33 @@ def get_clique_max_pond(current_user):
         len_prio_area_cfg = len(prio_area_cfg)
         count_prio = 0
     except:
-        prio_area_cfg = []
+        prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
         len_prio_area_cfg = len(prio_area_cfg)
         count_prio = 0
 
     current_cfg_number = "0" #esto es para los cfg
-    aux_seccion = datos_clique[0]['to_seccion__cod_seccion'] # datos_clique contiene multiples entradas de la misma seccion (1 por modulo) para verificar cambio de seccion
-    aux_codigo = datos_clique[0]['to_seccion__to_asignatura_real__codigo']
+    aux_seccion = datos_clique[0]['to_seccion__cod_seccion']
+    aux_codigo = datos_clique[0]['to_nodo_asignatura__to_asignatura_real__codigo']
     aux_horario = []
-    aux_eventos = [] #estos 4 auxiliares para que son?
-
-    for elem in datos_clique: # datos_clique contiene multiples entradas de la misma seccion (1 por modulo)
+    aux_eventos = []
+    for elem in datos_clique:
         codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
         # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
+        if codigo[0:3] == "CFG":
+            if count_prio <= 2:# esto limita la cantidad de cfg
+                if current_cfg_number != codigo[3]:
+                    current_cfg_number = codigo[3]
+                    count_prio+=1
 
-        #salta los elementos CFG que no pertenecen a la area considerada
-        if codigo[0:3] == "CFG" and count_prio < len_prio_area_cfg: # no entiendo este if [?]
-           
-            cfg_current_area = cfg_areas.objects.filter(area = prio_area_cfg[count_prio]['area']) #area que se esta considerando (primera prioridad, segunda, etc.)
-            if current_cfg_number == codigo[3] or current_cfg_number == "0":
-                if elem["to_seccion__cod_seccion"][0:7] in cfg_current_area or count_prio < 2:
+                current_cfg_area = cfg_areas.objects.get(codigo = elem["to_seccion__cod_seccion"][0:7]).area
+                if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
                     pass
                 else:
                     continue
-            elif current_cfg_number == codigo[3]:
-                count_prio+=1
+            else:
+                continue
+
+            
      
         try:
             horario = (elem['to_seccion__evento__dia'] + ' ' +
@@ -78,7 +79,7 @@ def get_clique_max_pond(current_user):
             evento = '---'
 
         #se agregan los nodos del grafo (1 vez por cada evento, eventos de la misma seccion sobre-escriben el nodo)
-        if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_seccion__to_asignatura_real__codigo']: 
+        if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_nodo_asignatura__to_asignatura_real__codigo']:
             if horario not in aux_horario: #evitar agregar horarios duplicados
                 aux_horario.append(horario)
 
@@ -101,7 +102,7 @@ def get_clique_max_pond(current_user):
             nombre_ramo = elem['to_seccion__to_asignatura_real__nombre']
 
             # cambia el nombre de la cajita "CFG" por el nombre real del curso.
-            if nombre_ramo == 'CFG':
+            if nombre_ramo[0:3] == 'CFG':
                 try:
                     cod_asignatura = elem["to_seccion__cod_seccion"][0:7]
                     nombre_ramo = asignatura_real.objects.get(
@@ -126,9 +127,9 @@ def get_clique_max_pond(current_user):
             aux_horario.append(horario)
             aux_eventos.append(evento)
             aux_seccion = elem['to_seccion__cod_seccion']
-            aux_codigo = elem['to_seccion__to_asignatura_real__codigo']
+            aux_codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
 
-    # list_node = list(G.nodes.items())
+    list_node = list(G.nodes.items())
     lenth_graph = len(list_node)
     # se agregan las aristas del grafo
     for i in range(lenth_graph):

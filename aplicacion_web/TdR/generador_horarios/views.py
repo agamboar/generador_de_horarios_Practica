@@ -144,7 +144,7 @@ def import_cfg(request):
                 s1.to_asignatura_real.add(cfg2)
                 s1.to_asignatura_real.add(cfg3)
                 s1.to_asignatura_real.add(cfg4)
-                #print(elem[0][0:6])
+                
                 if len(cfg_areas.objects.filter(codigo = elem[0][0:7])) == 0: # cambiado de elem[0][6] a elem[0][7], para que incluya los 4 numeros del codigo
                     area = cfg_areas.objects.create(codigo = elem[0][0:7] ,area = request.POST['area'])
                     area.save()
@@ -351,7 +351,7 @@ def asignar_kk(request):
         try:
             solucion.objects.filter(to_user=current_user).delete()
         except:
-            pass        
+            pass
         json_data = request.data
 
         for elem in json_data:
@@ -663,7 +663,13 @@ def get_secciones_disponibles(request, codigo):
             pass
         if len(secciones_disponibles) == 0:
             return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_204_NO_CONTENT)
- 
+
+        if codigo[0:3] == "CFG":
+            try:
+                prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
+            except:
+                prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
+            #print(prio_area_cfg)
         aux_retornar = []
         aux_horario = []
         #aux_codigo_sec = secciones_disponibles[0]['to_seccion__cod_seccion'] #agregar al final tambien
@@ -672,7 +678,20 @@ def get_secciones_disponibles(request, codigo):
 
         for i in range(0, len(secciones_disponibles)):
             elem = secciones_disponibles[i]
-            #usar index y preguntar por el codigo del siguiente, si es diferente entonces append si es igual siguiente #ver el caso al final del arreglo
+            cod_sec = elem['to_seccion__cod_seccion']
+
+            try:
+                nombre_ramo = asignatura_real.objects.get(codigo=cod_sec[0:7]).nombre
+            except:
+                nombre_ramo = '---'
+
+            if cod_sec[0:3] == "CFG":
+                current_cfg_area = cfg_areas.objects.get(codigo = cod_sec[0:7]).area
+                if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
+                    print(current_cfg_area)
+                    pass
+                else:
+                    continue
             try:
                 horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']+ ' | ')
             except:
@@ -697,14 +716,14 @@ def get_secciones_disponibles(request, codigo):
                 if cod_sec != secciones_disponibles[i+1]['to_seccion__cod_seccion']: #reviso si el sgte elemento es de una seccion diferente
                     if str(numb_seccion) != "99"  and vac_libres > 0:
                         aux_horario = sorted(aux_horario)
-                        aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion  })
+                        aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index, 'ss':ss_nodo_seccion, 'nombre_ramo': nombre_ramo  })
                         index+=1
                         #aux_codigo_sec = elem['to_seccion__cod_seccion']
                     prof = ""
                     aux_horario = []
 
         if str(numb_seccion) != "99" and vac_libres > 0: # guardar la ultima info q se recolecto ya que el if de 660 no guarda la info si esta al final de la lista
-            aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion  })
+            aux_retornar.append({'id':id_nodo_seccion,'cod_seccion':cod_sec, 'numb_seccion':numb_seccion,'profesor':prof,'vac_libres':vac_libres,'horario': aux_horario,'index':index,  'ss':ss_nodo_seccion, 'nombre_ramo': nombre_ramo })
 
                 
         
@@ -717,6 +736,7 @@ def get_secciones_disponibles(request, codigo):
 def set_prio_areas_cfg(request):
     if request.method == "POST":
         current_user = request.user.id
+
         try:
             prioridad_cfg.objects.filter(to_user=current_user).delete()
         except:
@@ -725,25 +745,26 @@ def set_prio_areas_cfg(request):
             solucion.objects.filter(to_user=current_user).delete()
         except:
             pass
-        json_data = request.data
-        cantidad_areas=len(json_data) 
-        for index,aux in enumerate(json_data):
-            try:
-                area_cfg = prioridad_cfg.objects.get(area=aux['area'])
-            except:
-                area_cfg = prioridad_cfg(area = aux['area'], prioridad = 0)
-                area_cfg.save()
-                u = User.objects.get(id=current_user)
-                area_cfg.to_user.add(u)
-                         
 
-            prio = 1+index
-            serializer = prioridadCfgSerializer(area_cfg, data={'prioridad': prio}, partial=True)
+        json_data = request.data
+        cantidad_areas = len(json_data)
+        prio = 0
+        count = 0
+        for index,aux in enumerate(json_data):
+            area_cfg = prioridad_cfg(area = aux['area'], prioridad = index+1)
+            area_cfg.save()
+            u = User.objects.get(id=current_user)
+            area_cfg.to_user.add(u)
+                         
+            serializer = prioridadCfgSerializer(area_cfg, data={'prioridad': index+1}, partial=True)
 
             if serializer.is_valid(): #esto funciona ?
                 serializer.save()
-
-        return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
+                count+=1
+        if count == cantidad_areas:
+            return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
+        else:
+            return JsonResponse({"mensaje":"error"}, safe=False, status=status.HTTP_204_NO_CONTENT)     
 
 @api_view(['GET']) 
 def get_prio_cfg(request):
