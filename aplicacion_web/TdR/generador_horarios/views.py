@@ -679,7 +679,7 @@ def get_secciones_disponibles(request, codigo):
             if cod_sec[0:3] == "CFG":
                 current_cfg_area = cfg_areas.objects.get(codigo = cod_sec[0:7]).area
                 if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
-                    print(current_cfg_area)
+                    #print(current_cfg_area)
                     pass
                 else:
                     continue
