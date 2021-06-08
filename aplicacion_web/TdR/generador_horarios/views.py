@@ -44,13 +44,13 @@ def api_overview(request):
     api_urls = {
         'Ramos': '/ramos/',
     }
-
+    print("..api_overview")
     return Response(api_urls)
 
 
 @api_view(['GET'])
 def ramo_list(request, year):
-
+    print("..ramo_list")
     asignatura = asignatura_real.objects.filter(
         malla_curricular__agno=year)
     serializer = asignaturaSerializer(asignatura, many=True)
@@ -60,7 +60,7 @@ def ramo_list(request, year):
 
 @api_view(['GET'])
 def secciones(request, cod):
-
+    print("..secciones")
     secc = seccion.objects.filter( to_asignatura_real=cod )
 
     serializer = seccionSerializer(secc, many=True)
@@ -102,7 +102,7 @@ def import_malla(request):
                 e = evento(tipo=elem[0], dia=elem[1],
                             modulo=elem[2], profesor=elem[3], to_seccion=s)
                 e.save()
-                added_sec += 1
+                added_sec += 1 # no esta esto contando la cantidad de eventos en vez de la cantidad de secciones?
             except:
                 continue
 
@@ -145,8 +145,8 @@ def import_cfg(request):
                 s1.to_asignatura_real.add(cfg3)
                 s1.to_asignatura_real.add(cfg4)
                 #print(elem[0][0:6])
-                if len(cfg_areas.objects.filter(codigo = elem[0][0:6])) == 0:
-                    area = cfg_areas.objects.create(codigo = elem[0][0:6] ,area = request.POST['area'])
+                if len(cfg_areas.objects.filter(codigo = elem[0][0:7])) == 0: # cambiado de elem[0][6] a elem[0][7], para que incluya los 4 numeros del codigo
+                    area = cfg_areas.objects.create(codigo = elem[0][0:7] ,area = request.POST['area'])
                     area.save()
                     
 
@@ -223,6 +223,15 @@ def get_PERT(request):
     # DBSeed.saveAllSeeds()
         # --- Descomentar para guardar seed.
         # Los archivos .csv de DB_data deben estar cargados para que funcione.
+    secciones = seccion.objects.all().values()
+    print("secciones: \n", secciones)
+    seccionAsginaturaReal = seccion.to_asignatura_real.through.objects.all().values()
+    print("seccion_asignatura_real: \n", seccionAsginaturaReal)
+    cfgAreas = cfg_areas.objects.all().values()
+    print("cfgAreas: \n", cfgAreas)
+    eventos = evento.objects.all().values()
+    print("eventos: \n", eventos)
+
 
     if request.method == "GET":
 
