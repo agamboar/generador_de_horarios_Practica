@@ -669,8 +669,13 @@ def get_secciones_disponibles(request, codigo):
 
         for i in range(0, len(secciones_disponibles)):
             elem = secciones_disponibles[i]
-            #usar index y preguntar por el codigo del siguiente, si es diferente entonces append si es igual siguiente #ver el caso al final del arreglo
             cod_sec = elem['to_seccion__cod_seccion']
+
+            try:
+                nombre_ramo = asignatura_real.objects.get(codigo=cod_sec[0:7]).nombre
+            except:
+                nombre_ramo = '---'
+
             if cod_sec[0:3] == "CFG":
                 current_cfg_area = cfg_areas.objects.get(codigo = cod_sec[0:7]).area
                 if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
