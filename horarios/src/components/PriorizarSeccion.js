@@ -82,6 +82,7 @@ export default class UserInterface extends Component {
                   </Row>
                   <Title  style={{ marginLeft: 35}} level={4}>Escoja un ramo para que pueda priorizar sus secciones</Title>
                   <Text  style={{ marginLeft: 35}} >A continuación se mostrará la lista de todos los ramos que pude tomar pero solo apareceran en la tabla las seccion que tienen cupos libres </Text>
+                  <Text  style={{ marginLeft: 35}} >Asi como tambien, solo se mostraran los CFG de las primeras 2 Areas de la tabla Priorizar Area CFG </Text>
                   </Space>
                   
                   </div>
