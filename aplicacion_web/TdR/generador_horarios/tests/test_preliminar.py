@@ -9,8 +9,9 @@ from .. import DBSeed as sd
 
 # fixtures en archivo "conftest.py"
     
-def test_seeding_fixture(seedDB):
+def test_seedDB_fixture(seedDB):
     ok = True
+
     tabla = asignatura_real.objects.all().values()
     if len(tabla) == 0: ok = False
     tabla = malla_curricular.objects.all().values()
@@ -21,4 +22,19 @@ def test_seeding_fixture(seedDB):
     if len(tabla) == 0: ok = False
     tabla = asignatura_real.prerrequisito.through.objects.all().values()
     if len(tabla) == 0: ok = False
+
+    assert ok == True
+    
+def test_setupOferta_fixture(setupOferta):
+    ok = True
+
+    tabla = seccion.objects.all().values()
+    if len(tabla) == 0: ok = False
+    tabla = seccion.to_asignatura_real.through.objects.all().values()
+    if len(tabla) == 0: ok = False
+    tabla = evento.objects.all().values()
+    if len(tabla) == 0: ok = False
+    tabla = cfg_areas.objects.all().values()
+    if len(tabla) == 0: ok = False
+
     assert ok == True

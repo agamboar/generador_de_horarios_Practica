@@ -108,6 +108,23 @@ def import_malla(request):
 
         return JsonResponse({'cantidad':added_sec,'description': "Oferta subida!"}, status=200)
 
+def clear_cfg_data(): # para limpiar las tablas relacionadas a oferta de CFGs
+    try:
+        seccion.objects.filter(cod_seccion__contains='CFG').delete()
+        seccion.to_asignatura_real.through.objects.filter(seccion__cod_seccion__contains='CFG').delete()
+        evento.objects.filter(to_seccion__cod_seccion__contains='CFG').delete()
+        cfg_areas.objects.all().delete()
+
+        secciones = seccion.objects.filter(cod_seccion__contains='CFG').values()
+        print("\nsecciones: \n", secciones)
+        seccionAsginaturaReal = seccion.to_asignatura_real.through.objects.filter(seccion__cod_seccion__contains='CFG').values()
+        print("\nseccion_asignatura_real: \n", seccionAsginaturaReal)
+        cfgAreas = cfg_areas.objects.all().values()
+        print("\ncfgAreas: \n", cfgAreas)
+        eventos = evento.objects.filter(to_seccion__cod_seccion__contains='CFG').values()
+        print("\neventos: \n", eventos)
+    except Exception as e:
+        print('Error en clear_cfg_data: ', e)
 
 @csrf_exempt
 def import_cfg(request):
@@ -123,11 +140,7 @@ def import_cfg(request):
         cfg3 = asignatura_real.objects.get(codigo='CFG3')
         cfg4 = asignatura_real.objects.get(codigo='CFG4')
 
-        #try:
-        #    seccion.objects.filter(cod_seccion__contains='CFG').delete()
-        #    evento.objects.filter(to_seccion__contains='CFG').delete()
-        #except:
-        #    pass
+
         added_cfg = 0
         for elem in cfg_secciones:
             if elem[0][0:3] == 'CFG':
@@ -223,15 +236,12 @@ def get_PERT(request):
     # DBSeed.saveAllSeeds()
         # --- Descomentar para guardar seed.
         # Los archivos .csv de DB_data deben estar cargados para que funcione.
-    secciones = seccion.objects.all().values()
-    print("secciones: \n", secciones)
-    seccionAsginaturaReal = seccion.to_asignatura_real.through.objects.all().values()
-    print("seccion_asignatura_real: \n", seccionAsginaturaReal)
-    cfgAreas = cfg_areas.objects.all().values()
-    print("cfgAreas: \n", cfgAreas)
-    eventos = evento.objects.all().values()
-    print("eventos: \n", eventos)
 
+    # clear_cfg_data()
+        # --- Descomentar para limpiar datos cfgs de base de datos
+
+    # jl.saveOferta("Oferta2021-1")
+        # --- Descomentar para guardar oferta
 
     if request.method == "GET":
 

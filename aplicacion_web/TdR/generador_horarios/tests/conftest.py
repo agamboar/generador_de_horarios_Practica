@@ -1,5 +1,6 @@
 import pytest
 from .. import DBSeed as sd
+from ..io_log import jsonLog as jl
 
 # ----- fixture scopes
 # function   Run once per test
@@ -12,4 +13,8 @@ from .. import DBSeed as sd
 
 @pytest.fixture
 def seedDB(db):
-    sd.loadAllSeeds()
+    sd.loadAllSeeds() # contiene las tablas de la carpeta DB_data
+
+@pytest.fixture
+def setupOferta(db, seedDB):
+    jl.loadOferta("Oferta2021-1") # contine tablas: seccion, seccion_to_asignatura, evento, cfg_areas
