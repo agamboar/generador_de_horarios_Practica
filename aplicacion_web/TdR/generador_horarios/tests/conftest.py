@@ -1,6 +1,6 @@
 import pytest
-from .. import DBSeed as sd
-from ..io_log import jsonLog as jl
+from ..helpers import DBSeed as sd
+from ..helpers import jsonLog as jl
 
 # ----- fixture scopes
 # function   Run once per test

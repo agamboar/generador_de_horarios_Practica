@@ -57,3 +57,9 @@ def loadOferta(fileName): #fileName no debe incluir ".json"
     for CA in oferta["cfgAreas"]:
         cfgArea = cfg_areas(**CA)
         cfgArea.save()
+
+def saveAvance(userId, fileName):
+    avance = dict()
+    avance["user_id"] = userId
+    # avance_academico 
+    # asignatura cursada

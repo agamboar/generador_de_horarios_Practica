@@ -1,7 +1,7 @@
 import pytest
-from ..io_log import jsonLog as jl
+from ..helpers import jsonLog as jl
 from ..models import *
-from .. import DBSeed as sd
+from ..helpers import DBSeed as sd
 
 # pytest --reuse-db will not pick up schema changes between test runs. You must run the tests with 
 # pytest --reuse-db --create-db to re-create the database according to the new schema. Running without 

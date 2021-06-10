@@ -29,8 +29,8 @@ from .tasks import *
 from .PERT import *
 from .clique import *
 
-from .io_log import jsonLog as jl # funciones para guardar dicts como .json
-from . import DBSeed # funciones para guardar el seed de la db en json
+from .helpers import jsonLog as jl # funciones para guardar dicts como .json
+from .helpers import DBSeed # funciones para guardar el seed de la db en json
 
 
 # Create your views here.
@@ -420,6 +420,7 @@ def mi_malla_manual(request):
         codigos_aprobados = []
         malla = json_data['malla']
         semestre = []
+        print(json_data)
 
         if 1 <= today.month <= 6:
             s = str(today.year)+'-1'
@@ -479,6 +480,13 @@ def mi_malla_manual(request):
         avance = avance_academico.objects.get(
             semestre=semestre, to_user=user)
 
+        if av is avance: print("**av y avance apuntan al mismo objeto")
+        else: print("**av y avance apuntan a objetos diferentes")
+        if av == avance: print("**av y avance tienen el msimo valor")
+        else: print("**av y avance tienen valor diferente")
+        print(av)
+        print(avance)
+
         for elem in codigos_aprobados:
 
             asignatura = asignatura_real.objects.get(codigo=elem)
@@ -488,9 +496,11 @@ def mi_malla_manual(request):
             a.save()
 
         avance_academico_user = avance_academico.objects.get(
-            to_user_id=current_user)
+            to_user_id=current_user) # to_user_id no es unique por si solo en avance_academico (!)
         avance_academico_user.json_avance = {}
         avance_academico_user.save()
+
+        print(avance_academico_user)
 
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 

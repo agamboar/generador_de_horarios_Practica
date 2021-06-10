@@ -1,6 +1,6 @@
 from json import load
-from .models import *
-from .io_log import jsonLog as jl
+from ..models import *
+from ..helpers import jsonLog as jl
 import logging
 
 # Funciones para guardar y cargar el seed de la base de datos como JSON, se guardan en io_log/Setup
