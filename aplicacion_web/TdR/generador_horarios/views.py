@@ -243,6 +243,9 @@ def get_PERT(request):
     # jl.saveOferta("Oferta2021-1")
         # --- Descomentar para guardar oferta
 
+    jl.saveState_beforePERT(request.user.id, 'lastState-beforePERT')
+        # --- Descomentar para guardar avance
+
     if request.method == "GET":
 
         current_user = request.user.id
@@ -292,6 +295,8 @@ def get_PERT(request):
 
 @api_view(['GET'])
 def get_clique(request):
+
+    jl.saveState_beforeClique(request.user.id, "lastCliqueInput")
 
     if request.method == "GET":
 
@@ -350,6 +355,9 @@ def get_clique(request):
             #print('uso el json') # esto no va aca
 
         #print(jsons)
+
+        jl.writeJSONFile('Clique','lastOutput-get_clique', jsons)
+
         return Response(jsons, status=status.HTTP_200_OK)
 
 
@@ -708,7 +716,7 @@ def get_secciones_disponibles(request, codigo):
             if cod_sec[0:3] == "CFG":
                 current_cfg_area = cfg_areas.objects.get(codigo = cod_sec[0:7]).area
                 if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
-                    print(current_cfg_area)
+                    #print(current_cfg_area)
                     pass
                 else:
                     continue

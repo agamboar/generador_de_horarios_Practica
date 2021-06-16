@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.deletion import CASCADE
 
 
 # COMPONENTE ESCUELA
@@ -10,7 +11,7 @@ class asignatura_real(models.Model):
     nombre = models.CharField(max_length=50)
     creditos = models.IntegerField(null=False)
     nro_correlativo = models.CharField(max_length=30)
-    semestre = models.CharField(max_length=30)
+    semestre = models.CharField(max_length=30) # quizas debe ser parte de llave primaria
     tipo = models.IntegerField(default=0)
     equivale = models.ManyToManyField('self', default=None, symmetrical=False)
     prerrequisito = models.ManyToManyField('self')
@@ -28,7 +29,8 @@ class malla_curricular(models.Model):
 
     to_asignatura_real = models.ManyToManyField(asignatura_real)
 
-    to_user = models.ManyToManyField(User)
+    #relacion con User debe ser one to many, por lo que "to_user" se elimina de aqui y se agrega foreign key "to_malla" a tabla "alumno"
+
 
 
 class oferta_malla(models.Model):
@@ -54,7 +56,7 @@ class seccion(models.Model):
     inscritos = models.IntegerField(default=0)
     vacantes_libres = models.IntegerField(default=0)
 
-    to_asignatura_real = models.ManyToManyField(asignatura_real)
+    to_asignatura_real = models.ForeignKey(asignatura_real, on_delete=models.CASCADE) #cambiado de manytomany a foreign
 
 
 class evento(models.Model):
@@ -86,6 +88,8 @@ class alumno(models.Model):
         on_delete=models.CASCADE
 
     )
+
+    to_malla = models.ForeignKey(malla_curricular, on_delete=models.CASCADE)
 
 
 class avance_academico(models.Model):
@@ -145,9 +149,9 @@ class nodo_asignatura(models.Model):
     fecha_mod = models.DateTimeField(auto_now=True)
     critico = models.BooleanField(default=False)
 
-    to_asignatura_real = models.ManyToManyField(asignatura_real)
+    to_asignatura_real = models.ForeignKey(asignatura_real, on_delete=CASCADE) #cambiado de manytomany a foreign
 
-    to_user = models.ManyToManyField(User)
+    to_user = models.ForeignKey(User, on_delete=CASCADE) #cambiado de manytomany a foreign
 
 
 class nodo_seccion(models.Model):
@@ -155,7 +159,7 @@ class nodo_seccion(models.Model):
     ss = models.IntegerField(default=1) #preferencia de secciones (cantidad de secciones - indice + 1)
     fecha_mod = models.DateTimeField(auto_now=True)
 
-    to_seccion = models.ManyToManyField(seccion)
+    to_seccion = models.ForeignKey(seccion, on_delete=CASCADE) #cambiado de manytomany a foreign
 
     to_nodo_asignatura = models.ForeignKey(
         to=nodo_asignatura,
@@ -170,7 +174,7 @@ class solucion(models.Model):
     json_solucion = models.JSONField(default=list)
     is_horario = models.BooleanField(default=False) # es para elegir un horario entre las soluciones, pero no se implemento.
 
-    to_nodo_seccion = models.ManyToManyField(nodo_seccion)
+    to_nodo_seccion = models.ManyToManyField(nodo_seccion) 
 
     to_user = models.ForeignKey(
         to=User,
@@ -187,7 +191,7 @@ class prioridad_cfg(models.Model): #cual es el campo del excel que se usa para r
     #se tiene que hacer un delete cada vez que se cambie la prioridad
     #ver la forma del codigo de los cfg en asignatura real -> CFG1 ?
 
-    to_user = models.ManyToManyField(User) #por que many to many? aca debiese ir models.ForeignKey(User)
+    to_user = models.ForeignKey(User, on_delete=CASCADE) #cambiado de manytomany a foreign key
 
 class cfg_areas(models.Model):
     codigo = models.CharField(max_length=25,primary_key=True)
