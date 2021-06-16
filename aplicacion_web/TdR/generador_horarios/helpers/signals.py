@@ -7,9 +7,17 @@ from ..models import alumno
 @receiver(post_save, sender=User)
 def create_alumno(sender, instance, created, **kwargs):
     if created:
-        alumno.objects.create(to_user=instance)
+        try:
+            alumno.objects.create(to_user=instance)
+        except Exception as e:
+            print("error signals.create_alumno(): ", e)
 
 @receiver(post_save, sender=User)
 def save_alumno(sender, instance, **kwargs):
-    instance.alumno.save()
+    to_alumno = instance.alumno
+    if to_alumno:
+        try:
+            to_alumno.save()
+        except Exception as e:
+            print("error signals.save_alumno(): ", e)
 
