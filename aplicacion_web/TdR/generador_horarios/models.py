@@ -56,7 +56,10 @@ class seccion(models.Model):
     inscritos = models.IntegerField(default=0)
     vacantes_libres = models.IntegerField(default=0)
 
-    to_asignatura_real = models.ForeignKey(asignatura_real, on_delete=models.CASCADE) #cambiado de manytomany a foreign
+    to_asignatura_real = models.ForeignKey(
+        asignatura_real, 
+        on_delete=models.CASCADE
+    ) #cambiado de manytomany a foreign
 
 
 class evento(models.Model):
@@ -68,14 +71,21 @@ class evento(models.Model):
 
     to_seccion = models.ForeignKey(
         to=seccion,
-        on_delete=models.CASCADE)
+        on_delete=models.CASCADE
+    )
 
 
 # COMPONENTE ALUMNO
 
 class alumno(models.Model):
 
-    rut = models.CharField(max_length=11, primary_key=True)
+    to_user = models.OneToOneField(
+        to=User,
+        on_delete=models.CASCADE,
+        primary_key=True
+    )
+
+    rut = models.CharField(max_length=11, unique=True)
     agno_ingreso = models.IntegerField(default=0)
     psu_matematicas = models.IntegerField(default=0)
     psu_lenguaje = models.IntegerField(default=0)
@@ -83,13 +93,12 @@ class alumno(models.Model):
     psu_ciencias = models.IntegerField(default=0)
     nem = models.IntegerField(default=0)
 
-    to_user = models.OneToOneField(
-        to=User,
-        on_delete=models.CASCADE
-
+    to_malla = models.ForeignKey(
+        malla_curricular, 
+        on_delete=models.CASCADE,
+        null=True,
+        default=None,
     )
-
-    to_malla = models.ForeignKey(malla_curricular, on_delete=models.CASCADE)
 
 
 class avance_academico(models.Model):
@@ -125,7 +134,7 @@ class asignatura_cursada(models.Model):
 
     to_asignatura_real = models.ForeignKey(
         to=asignatura_real,
-        on_delete=models.DO_NOTHING
+        on_delete=models.DO_NOTHING #quizas debiese ser CASCADE
     )
 
     to_avance_academico = models.ForeignKey(
@@ -164,7 +173,6 @@ class nodo_seccion(models.Model):
     to_nodo_asignatura = models.ForeignKey(
         to=nodo_asignatura,
         on_delete=models.CASCADE,
-        default=1
     )
 
 
@@ -179,7 +187,7 @@ class solucion(models.Model):
     to_user = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
-        default=1)
+    )
 
 # COMPONENTES EXTRA
 

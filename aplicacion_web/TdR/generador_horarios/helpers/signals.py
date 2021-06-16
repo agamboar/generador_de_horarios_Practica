@@ -6,6 +6,7 @@ from ..models import alumno
 
 @receiver(post_save, sender=User)
 def create_alumno(sender, instance, created, **kwargs):
+    print("create_alumno signal..")
     if created:
         try:
             alumno.objects.create(to_user=instance)
@@ -14,6 +15,7 @@ def create_alumno(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def save_alumno(sender, instance, **kwargs):
+    print("save_alumno signal..")
     to_alumno = instance.alumno
     if to_alumno:
         try:
