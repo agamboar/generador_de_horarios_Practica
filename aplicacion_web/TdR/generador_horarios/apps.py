@@ -1,30 +1,42 @@
 from django.apps import AppConfig
 
-#Ejecutar runserver con "SEEDING = True" solo un vez para cargar datos iniciales (en caso de resetear db), luego cambiar a False.
-SEEDING = False  
+#Ejecutar runserver con "SETUP_SEED = True" solo un vez para cargar datos iniciales (en caso de resetear db), luego cambiar a False.
+SETUP_SEED = False 
 
-def seed_data():
-    print("\n\nCargar datos Iniciales? (y/n)\n\n")
+SETUP_OFERTA = False
+
+def setupSeed():
+    print("\n\nCargar datos Iniciales? (y/n)\n")
     r = input()
     if r != "y": return
 
     #import aqui porque no se pueden importar modulos antes de que ejecute "django.setup()".
-    from .helpers import DBSeed as dbs, jsonLog as jl 
+    from .helpers import DBSeed as dbs
 
-    print("Cargando datos iniciales..")
+    print("\nCargando datos iniciales..\n")
     dbs.loadAllSeeds()
-    print("Datos Iniciales cargados.")
+    print("\nDatos Iniciales cargados.\n")
 
-    print("\n\nCargar también Oferta Academica? (y/n)\n\n")
+def setupOferta():
+    print("\n\nCargar Oferta Academica? (y/n)\n")
     r = input()
-    if r == "y":
-        print("Cargando Oferta Academica..")
-        jl.loadOferta()
-        print("Oferta Academica cargada.")
+    if r != "y": return
+
+    from .helpers import jsonLog as jl
+    print("\nCargando Oferta Academica..\n")
+
+    print('Ingrese nombre de archivo json en /io_log/Setup/ (no incluir .json)')
+    fileName = input()
+    while jl.loadOferta(fileName) != "ok":
+        print("Intente otro archivo: ")
+        fileName = input()
+    print("\nOferta Academica cargada.\n")
 
 class GeneradorHorariosConfig(AppConfig):
     name = 'generador_horarios'
 
     def ready(self):
-        if SEEDING: seed_data()
-        from .helpers import signals  
+        from .helpers import signals
+
+        if SETUP_SEED: setupSeed()
+        if SETUP_OFERTA: setupOferta() 

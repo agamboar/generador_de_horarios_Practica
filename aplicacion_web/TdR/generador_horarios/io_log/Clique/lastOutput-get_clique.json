@@ -1,299 +1,7 @@
 [
   [
     {
-      "nombre": "ASTRONOMIA MODERNA, UNA PERSPECTIVA COSM",
-      "horario": " JU 14:30",
-      "nro_seccion": "2",
-      "cod_asignatura_real": "CFG4",
-      "eventos": [
-        {
-          "bloque": "JU_14",
-          "tipo": "CATEDRA",
-          "profesor": "FREDES NATACHA CAMILA"
-        }
-      ],
-      "cod_seccion": "CFG2273_CB02"
-    },
-    {
-      "nombre": "INGLES GENERAL II",
-      "horario": " JU 17:25 MA 17:25",
-      "nro_seccion": "17",
-      "cod_asignatura_real": "CIG1002",
-      "eventos": [
-        {
-          "bloque": "JU_17",
-          "tipo": "CATEDRA",
-          "profesor": "RODRIGUEZ KARINA"
-        },
-        {
-          "bloque": "MA_17",
-          "tipo": "CATEDRA",
-          "profesor": "RODRIGUEZ KARINA"
-        }
-      ],
-      "cod_seccion": "CIG1002_VC17"
-    },
-    {
-      "nombre": "MECANICA",
-      "horario": " JU 14:30 LU 14:30 MA 14:30 VI 14:30",
-      "nro_seccion": "22",
-      "cod_asignatura_real": "CBF1000",
-      "eventos": [
-        {
-          "bloque": "JU_14",
-          "tipo": "CATEDRA",
-          "profesor": "BRIZUELA JESSICA"
-        },
-        {
-          "bloque": "LU_14",
-          "tipo": "CATEDRA",
-          "profesor": "BRIZUELA JESSICA"
-        },
-        {
-          "bloque": "MA_14",
-          "tipo": "AYUDANTIA",
-          "profesor": "CABRERA ARIAN ALFONSO"
-        },
-        {
-          "bloque": "VI_14",
-          "tipo": "LABORATORIO",
-          "profesor": "BRIZUELA JESSICA"
-        }
-      ],
-      "cod_seccion": "CBF1000_VC12"
-    },
-    {
-      "nombre": "PROGRAMACION AVANZADA",
-      "horario": " JU 08:30 MA 08:30 VI 08:30",
-      "nro_seccion": "3",
-      "cod_asignatura_real": "CIT1010",
-      "eventos": [
-        {
-          "bloque": "JU_08",
-          "tipo": "AYUDANTIA",
-          "profesor": ""
-        },
-        {
-          "bloque": "MA_08",
-          "tipo": "CATEDRA",
-          "profesor": "GIADACH JUAN RICARDO"
-        },
-        {
-          "bloque": "VI_08",
-          "tipo": "CATEDRA",
-          "profesor": "GIADACH JUAN RICARDO"
-        }
-      ],
-      "cod_seccion": "CIT1010_CA03"
-    },
-    {
-      "nombre": "ALGEBRA LINEAL",
-      "horario": " JU 10:00 LU 10:00 MA 10:00 VI 10:00",
-      "nro_seccion": "4",
-      "cod_asignatura_real": "CBM1002",
-      "eventos": [
-        {
-          "bloque": "JU_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "LU_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "MA_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "VI_10",
-          "tipo": "AYUDANTIA",
-          "profesor": "YURETIC MILKO"
-        }
-      ],
-      "cod_seccion": "CBM1002_VC04"
-    },
-    {
-      "nombre": "CALCULO II",
-      "horario": " JU 16:00 LU 16:00 MA 16:00 MI 16:00",
-      "nro_seccion": "7",
-      "cod_asignatura_real": "CBM1003",
-      "eventos": [
-        {
-          "bloque": "JU_16",
-          "tipo": "CATEDRA",
-          "profesor": "SAAVEDRA IGNACIO EDUARDO"
-        },
-        {
-          "bloque": "LU_16",
-          "tipo": "CATEDRA",
-          "profesor": "SAAVEDRA IGNACIO EDUARDO"
-        },
-        {
-          "bloque": "MA_16",
-          "tipo": "CATEDRA",
-          "profesor": "SAAVEDRA IGNACIO EDUARDO"
-        },
-        {
-          "bloque": "MI_16",
-          "tipo": "AYUDANTIA",
-          "profesor": "MALIL PEDRO"
-        }
-      ],
-      "cod_seccion": "CBM1003_VC07"
-    }
-  ],
-  [
-    {
-      "nombre": "PSICOANALISIS Y CRIMINOLOGIA",
-      "horario": " VI 17:25",
-      "nro_seccion": "2",
-      "cod_asignatura_real": "CFG4",
-      "eventos": [
-        {
-          "bloque": "VI_17",
-          "tipo": "CATEDRA",
-          "profesor": "ALVEAR KATHERINE"
-        }
-      ],
-      "cod_seccion": "CFG2335_CB02"
-    },
-    {
-      "nombre": "INGLES GENERAL II",
-      "horario": " JU 17:25 MA 17:25",
-      "nro_seccion": "17",
-      "cod_asignatura_real": "CIG1002",
-      "eventos": [
-        {
-          "bloque": "JU_17",
-          "tipo": "CATEDRA",
-          "profesor": "RODRIGUEZ KARINA"
-        },
-        {
-          "bloque": "MA_17",
-          "tipo": "CATEDRA",
-          "profesor": "RODRIGUEZ KARINA"
-        }
-      ],
-      "cod_seccion": "CIG1002_VC17"
-    },
-    {
-      "nombre": "MECANICA",
-      "horario": " JU 14:30 LU 14:30 MA 14:30 VI 14:30",
-      "nro_seccion": "22",
-      "cod_asignatura_real": "CBF1000",
-      "eventos": [
-        {
-          "bloque": "JU_14",
-          "tipo": "CATEDRA",
-          "profesor": "BRIZUELA JESSICA"
-        },
-        {
-          "bloque": "LU_14",
-          "tipo": "CATEDRA",
-          "profesor": "BRIZUELA JESSICA"
-        },
-        {
-          "bloque": "MA_14",
-          "tipo": "AYUDANTIA",
-          "profesor": "CABRERA ARIAN ALFONSO"
-        },
-        {
-          "bloque": "VI_14",
-          "tipo": "LABORATORIO",
-          "profesor": "BRIZUELA JESSICA"
-        }
-      ],
-      "cod_seccion": "CBF1000_VC12"
-    },
-    {
-      "nombre": "PROGRAMACION AVANZADA",
-      "horario": " JU 08:30 MA 08:30 VI 08:30",
-      "nro_seccion": "3",
-      "cod_asignatura_real": "CIT1010",
-      "eventos": [
-        {
-          "bloque": "JU_08",
-          "tipo": "AYUDANTIA",
-          "profesor": ""
-        },
-        {
-          "bloque": "MA_08",
-          "tipo": "CATEDRA",
-          "profesor": "GIADACH JUAN RICARDO"
-        },
-        {
-          "bloque": "VI_08",
-          "tipo": "CATEDRA",
-          "profesor": "GIADACH JUAN RICARDO"
-        }
-      ],
-      "cod_seccion": "CIT1010_CA03"
-    },
-    {
-      "nombre": "ALGEBRA LINEAL",
-      "horario": " JU 10:00 LU 10:00 MA 10:00 VI 10:00",
-      "nro_seccion": "4",
-      "cod_asignatura_real": "CBM1002",
-      "eventos": [
-        {
-          "bloque": "JU_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "LU_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "MA_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "VI_10",
-          "tipo": "AYUDANTIA",
-          "profesor": "YURETIC MILKO"
-        }
-      ],
-      "cod_seccion": "CBM1002_VC04"
-    },
-    {
-      "nombre": "CALCULO II",
-      "horario": " JU 16:00 LU 16:00 MA 16:00 MI 16:00",
-      "nro_seccion": "7",
-      "cod_asignatura_real": "CBM1003",
-      "eventos": [
-        {
-          "bloque": "JU_16",
-          "tipo": "CATEDRA",
-          "profesor": "SAAVEDRA IGNACIO EDUARDO"
-        },
-        {
-          "bloque": "LU_16",
-          "tipo": "CATEDRA",
-          "profesor": "SAAVEDRA IGNACIO EDUARDO"
-        },
-        {
-          "bloque": "MA_16",
-          "tipo": "CATEDRA",
-          "profesor": "SAAVEDRA IGNACIO EDUARDO"
-        },
-        {
-          "bloque": "MI_16",
-          "tipo": "AYUDANTIA",
-          "profesor": "MALIL PEDRO"
-        }
-      ],
-      "cod_seccion": "CBM1003_VC07"
-    }
-  ],
-  [
-    {
-      "nombre": "POESIA INDIGENA LATINOAMERICANA",
+      "nombre": "TRANSFORMACIONES URBANAS,PRACTICAS ESPAC",
       "horario": " MI 10:00",
       "nro_seccion": "1",
       "cod_asignatura_real": "CFG4",
@@ -301,10 +9,10 @@
         {
           "bloque": "MI_10",
           "tipo": "CATEDRA",
-          "profesor": "CATALAN AILIN"
+          "profesor": "ALVAREZ ANA MARIA"
         }
       ],
-      "cod_seccion": "CFG2059_FG01"
+      "cod_seccion": "CFG2140_FG01"
     },
     {
       "nombre": "INGLES GENERAL II",
@@ -379,35 +87,6 @@
       "cod_seccion": "CIT1010_CA03"
     },
     {
-      "nombre": "ALGEBRA LINEAL",
-      "horario": " JU 10:00 LU 10:00 MA 10:00 VI 10:00",
-      "nro_seccion": "4",
-      "cod_asignatura_real": "CBM1002",
-      "eventos": [
-        {
-          "bloque": "JU_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "LU_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "MA_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "VI_10",
-          "tipo": "AYUDANTIA",
-          "profesor": "YURETIC MILKO"
-        }
-      ],
-      "cod_seccion": "CBM1002_VC04"
-    },
-    {
       "nombre": "CALCULO II",
       "horario": " JU 16:00 LU 16:00 MA 16:00 MI 16:00",
       "nro_seccion": "7",
@@ -435,22 +114,51 @@
         }
       ],
       "cod_seccion": "CBM1003_VC07"
+    },
+    {
+      "nombre": "ALGEBRA LINEAL",
+      "horario": " JU 10:00 LU 10:00 MA 10:00 VI 10:00",
+      "nro_seccion": "4",
+      "cod_asignatura_real": "CBM1002",
+      "eventos": [
+        {
+          "bloque": "JU_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "LU_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "MA_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "VI_10",
+          "tipo": "AYUDANTIA",
+          "profesor": "YURETIC MILKO"
+        }
+      ],
+      "cod_seccion": "CBM1002_VC04"
     }
   ],
   [
     {
-      "nombre": "B-LEARNING CUANTICA, RELATIVIDAD Y GIRO",
-      "horario": " MI 20:15",
+      "nombre": "B-LEARNING HIS. DEL DOCUMENTAL CONTEM.",
+      "horario": " MA 20:15",
       "nro_seccion": "1",
       "cod_asignatura_real": "CFG4",
       "eventos": [
         {
-          "bloque": "MI_20",
+          "bloque": "MA_20",
           "tipo": "CATEDRA",
-          "profesor": "RAMIREZ PATRICIA"
+          "profesor": "LIENDO DANIELA ANDREA"
         }
       ],
-      "cod_seccion": "CFG2356_FG01"
+      "cod_seccion": "CFG5006_FG01"
     },
     {
       "nombre": "INGLES GENERAL II",
@@ -525,35 +233,6 @@
       "cod_seccion": "CIT1010_CA03"
     },
     {
-      "nombre": "ALGEBRA LINEAL",
-      "horario": " JU 10:00 LU 10:00 MA 10:00 VI 10:00",
-      "nro_seccion": "4",
-      "cod_asignatura_real": "CBM1002",
-      "eventos": [
-        {
-          "bloque": "JU_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "LU_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "MA_10",
-          "tipo": "CATEDRA",
-          "profesor": "GALLEGOS CLAUDIO ANDRES"
-        },
-        {
-          "bloque": "VI_10",
-          "tipo": "AYUDANTIA",
-          "profesor": "YURETIC MILKO"
-        }
-      ],
-      "cod_seccion": "CBM1002_VC04"
-    },
-    {
       "nombre": "CALCULO II",
       "horario": " JU 16:00 LU 16:00 MA 16:00 MI 16:00",
       "nro_seccion": "7",
@@ -581,22 +260,51 @@
         }
       ],
       "cod_seccion": "CBM1003_VC07"
+    },
+    {
+      "nombre": "ALGEBRA LINEAL",
+      "horario": " JU 10:00 LU 10:00 MA 10:00 VI 10:00",
+      "nro_seccion": "4",
+      "cod_asignatura_real": "CBM1002",
+      "eventos": [
+        {
+          "bloque": "JU_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "LU_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "MA_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "VI_10",
+          "tipo": "AYUDANTIA",
+          "profesor": "YURETIC MILKO"
+        }
+      ],
+      "cod_seccion": "CBM1002_VC04"
     }
   ],
   [
     {
-      "nombre": "PSICOLOGIA, CINE Y NEUROCIENCIA",
-      "horario": " MI 13:00",
+      "nombre": "B-LEARNING BLACK POWER",
+      "horario": " JU 17:30",
       "nro_seccion": "1",
       "cod_asignatura_real": "CFG4",
       "eventos": [
         {
-          "bloque": "MI_13",
+          "bloque": "JU_17",
           "tipo": "CATEDRA",
-          "profesor": "GARCIA ROBERTO ENRIQUE"
+          "profesor": "VICUNA MANUEL JOSE"
         }
       ],
-      "cod_seccion": "CFG2341_FG01"
+      "cod_seccion": "CFG2378_FG01"
     },
     {
       "nombre": "INGLES GENERAL II",
@@ -671,6 +379,35 @@
       "cod_seccion": "CIT1010_CA03"
     },
     {
+      "nombre": "CALCULO II",
+      "horario": " JU 16:00 LU 16:00 MA 16:00 MI 16:00",
+      "nro_seccion": "7",
+      "cod_asignatura_real": "CBM1003",
+      "eventos": [
+        {
+          "bloque": "JU_16",
+          "tipo": "CATEDRA",
+          "profesor": "SAAVEDRA IGNACIO EDUARDO"
+        },
+        {
+          "bloque": "LU_16",
+          "tipo": "CATEDRA",
+          "profesor": "SAAVEDRA IGNACIO EDUARDO"
+        },
+        {
+          "bloque": "MA_16",
+          "tipo": "CATEDRA",
+          "profesor": "SAAVEDRA IGNACIO EDUARDO"
+        },
+        {
+          "bloque": "MI_16",
+          "tipo": "AYUDANTIA",
+          "profesor": "MALIL PEDRO"
+        }
+      ],
+      "cod_seccion": "CBM1003_VC07"
+    },
+    {
       "nombre": "ALGEBRA LINEAL",
       "horario": " JU 10:00 LU 10:00 MA 10:00 VI 10:00",
       "nro_seccion": "4",
@@ -698,6 +435,94 @@
         }
       ],
       "cod_seccion": "CBM1002_VC04"
+    }
+  ],
+  [
+    {
+      "nombre": "FOTOGRAFIA Y MEMORIA",
+      "horario": " MI 17:30",
+      "nro_seccion": "1",
+      "cod_asignatura_real": "CFG4",
+      "eventos": [
+        {
+          "bloque": "MI_17",
+          "tipo": "CATEDRA",
+          "profesor": "CIFUENTES MARIA ANGELA"
+        }
+      ],
+      "cod_seccion": "CFG2343_FG01"
+    },
+    {
+      "nombre": "INGLES GENERAL II",
+      "horario": " JU 17:25 MA 17:25",
+      "nro_seccion": "17",
+      "cod_asignatura_real": "CIG1002",
+      "eventos": [
+        {
+          "bloque": "JU_17",
+          "tipo": "CATEDRA",
+          "profesor": "RODRIGUEZ KARINA"
+        },
+        {
+          "bloque": "MA_17",
+          "tipo": "CATEDRA",
+          "profesor": "RODRIGUEZ KARINA"
+        }
+      ],
+      "cod_seccion": "CIG1002_VC17"
+    },
+    {
+      "nombre": "MECANICA",
+      "horario": " JU 14:30 LU 14:30 MA 14:30 VI 14:30",
+      "nro_seccion": "22",
+      "cod_asignatura_real": "CBF1000",
+      "eventos": [
+        {
+          "bloque": "JU_14",
+          "tipo": "CATEDRA",
+          "profesor": "BRIZUELA JESSICA"
+        },
+        {
+          "bloque": "LU_14",
+          "tipo": "CATEDRA",
+          "profesor": "BRIZUELA JESSICA"
+        },
+        {
+          "bloque": "MA_14",
+          "tipo": "AYUDANTIA",
+          "profesor": "CABRERA ARIAN ALFONSO"
+        },
+        {
+          "bloque": "VI_14",
+          "tipo": "LABORATORIO",
+          "profesor": "BRIZUELA JESSICA"
+        }
+      ],
+      "cod_seccion": "CBF1000_VC12"
+    },
+    {
+      "nombre": "PROGRAMACION AVANZADA",
+      "horario": " JU 08:30 MA 08:30 VI 08:30",
+      "nro_seccion": "3",
+      "cod_asignatura_real": "CIT1010",
+      "eventos": [
+        {
+          "bloque": "JU_08",
+          "tipo": "AYUDANTIA",
+          "profesor": ""
+        },
+        {
+          "bloque": "MA_08",
+          "tipo": "CATEDRA",
+          "profesor": "GIADACH JUAN RICARDO"
+        },
+        {
+          "bloque": "VI_08",
+          "tipo": "CATEDRA",
+          "profesor": "GIADACH JUAN RICARDO"
+        }
+      ],
+      "cod_seccion": "CIT1010_CA03"
     },
     {
       "nombre": "CALCULO II",
@@ -727,6 +552,181 @@
         }
       ],
       "cod_seccion": "CBM1003_VC07"
+    },
+    {
+      "nombre": "ALGEBRA LINEAL",
+      "horario": " JU 10:00 LU 10:00 MA 10:00 VI 10:00",
+      "nro_seccion": "4",
+      "cod_asignatura_real": "CBM1002",
+      "eventos": [
+        {
+          "bloque": "JU_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "LU_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "MA_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "VI_10",
+          "tipo": "AYUDANTIA",
+          "profesor": "YURETIC MILKO"
+        }
+      ],
+      "cod_seccion": "CBM1002_VC04"
+    }
+  ],
+  [
+    {
+      "nombre": "B-LEARNING ARGUM. Y PENSAMIENTO CRITICO",
+      "horario": " MI 11:30",
+      "nro_seccion": "1",
+      "cod_asignatura_real": "CFG4",
+      "eventos": [
+        {
+          "bloque": "MI_11",
+          "tipo": "CATEDRA",
+          "profesor": "HAMAME EVA EMILIA"
+        }
+      ],
+      "cod_seccion": "CFG2029_FG01"
+    },
+    {
+      "nombre": "INGLES GENERAL II",
+      "horario": " JU 17:25 MA 17:25",
+      "nro_seccion": "17",
+      "cod_asignatura_real": "CIG1002",
+      "eventos": [
+        {
+          "bloque": "JU_17",
+          "tipo": "CATEDRA",
+          "profesor": "RODRIGUEZ KARINA"
+        },
+        {
+          "bloque": "MA_17",
+          "tipo": "CATEDRA",
+          "profesor": "RODRIGUEZ KARINA"
+        }
+      ],
+      "cod_seccion": "CIG1002_VC17"
+    },
+    {
+      "nombre": "MECANICA",
+      "horario": " JU 14:30 LU 14:30 MA 14:30 VI 14:30",
+      "nro_seccion": "22",
+      "cod_asignatura_real": "CBF1000",
+      "eventos": [
+        {
+          "bloque": "JU_14",
+          "tipo": "CATEDRA",
+          "profesor": "BRIZUELA JESSICA"
+        },
+        {
+          "bloque": "LU_14",
+          "tipo": "CATEDRA",
+          "profesor": "BRIZUELA JESSICA"
+        },
+        {
+          "bloque": "MA_14",
+          "tipo": "AYUDANTIA",
+          "profesor": "CABRERA ARIAN ALFONSO"
+        },
+        {
+          "bloque": "VI_14",
+          "tipo": "LABORATORIO",
+          "profesor": "BRIZUELA JESSICA"
+        }
+      ],
+      "cod_seccion": "CBF1000_VC12"
+    },
+    {
+      "nombre": "PROGRAMACION AVANZADA",
+      "horario": " JU 08:30 MA 08:30 VI 08:30",
+      "nro_seccion": "3",
+      "cod_asignatura_real": "CIT1010",
+      "eventos": [
+        {
+          "bloque": "JU_08",
+          "tipo": "AYUDANTIA",
+          "profesor": ""
+        },
+        {
+          "bloque": "MA_08",
+          "tipo": "CATEDRA",
+          "profesor": "GIADACH JUAN RICARDO"
+        },
+        {
+          "bloque": "VI_08",
+          "tipo": "CATEDRA",
+          "profesor": "GIADACH JUAN RICARDO"
+        }
+      ],
+      "cod_seccion": "CIT1010_CA03"
+    },
+    {
+      "nombre": "CALCULO II",
+      "horario": " JU 16:00 LU 16:00 MA 16:00 MI 16:00",
+      "nro_seccion": "7",
+      "cod_asignatura_real": "CBM1003",
+      "eventos": [
+        {
+          "bloque": "JU_16",
+          "tipo": "CATEDRA",
+          "profesor": "SAAVEDRA IGNACIO EDUARDO"
+        },
+        {
+          "bloque": "LU_16",
+          "tipo": "CATEDRA",
+          "profesor": "SAAVEDRA IGNACIO EDUARDO"
+        },
+        {
+          "bloque": "MA_16",
+          "tipo": "CATEDRA",
+          "profesor": "SAAVEDRA IGNACIO EDUARDO"
+        },
+        {
+          "bloque": "MI_16",
+          "tipo": "AYUDANTIA",
+          "profesor": "MALIL PEDRO"
+        }
+      ],
+      "cod_seccion": "CBM1003_VC07"
+    },
+    {
+      "nombre": "ALGEBRA LINEAL",
+      "horario": " JU 10:00 LU 10:00 MA 10:00 VI 10:00",
+      "nro_seccion": "4",
+      "cod_asignatura_real": "CBM1002",
+      "eventos": [
+        {
+          "bloque": "JU_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "LU_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "MA_10",
+          "tipo": "CATEDRA",
+          "profesor": "GALLEGOS CLAUDIO ANDRES"
+        },
+        {
+          "bloque": "VI_10",
+          "tipo": "AYUDANTIA",
+          "profesor": "YURETIC MILKO"
+        }
+      ],
+      "cod_seccion": "CBM1002_VC04"
     }
   ]
 ]

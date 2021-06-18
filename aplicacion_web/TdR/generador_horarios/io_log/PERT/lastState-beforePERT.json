@@ -1,7 +1,7 @@
 {
-  "user_id": 1,
+  "user_id": 6,
   "tabla_avance": {
-    "id": 1,
+    "id": 2,
     "semestre": "['2021-1']",
     "json_avance": {},
     "fgd_count": 0,
@@ -9,53 +9,53 @@
     "einf_count": 0,
     "etele_count": 0,
     "agno_malla": 2018,
-    "to_user_id": 1
+    "to_user_id": 6
   },
   "asignaturas_cursadas": [
     {
-      "id": 1,
+      "id": 46,
       "codigo": "CBM1000",
       "nota": 0.0,
       "estado": "",
-      "to_User_id": 1,
+      "to_User_id": 6,
       "to_asignatura_real_id": "CBM1000",
-      "to_avance_academico_id": 1
+      "to_avance_academico_id": 2
     },
     {
-      "id": 2,
+      "id": 47,
       "codigo": "CBM1001",
       "nota": 0.0,
       "estado": "",
-      "to_User_id": 1,
+      "to_User_id": 6,
       "to_asignatura_real_id": "CBM1001",
-      "to_avance_academico_id": 1
+      "to_avance_academico_id": 2
     },
     {
-      "id": 3,
+      "id": 48,
       "codigo": "CBQ1000",
       "nota": 0.0,
       "estado": "",
-      "to_User_id": 1,
+      "to_User_id": 6,
       "to_asignatura_real_id": "CBQ1000",
-      "to_avance_academico_id": 1
+      "to_avance_academico_id": 2
     },
     {
-      "id": 4,
+      "id": 49,
       "codigo": "CIT1000",
       "nota": 0.0,
       "estado": "",
-      "to_User_id": 1,
+      "to_User_id": 6,
       "to_asignatura_real_id": "CIT1000",
-      "to_avance_academico_id": 1
+      "to_avance_academico_id": 2
     },
     {
-      "id": 5,
+      "id": 50,
       "codigo": "FIC1000",
       "nota": 0.0,
       "estado": "",
-      "to_User_id": 1,
+      "to_User_id": 6,
       "to_asignatura_real_id": "FIC1000",
-      "to_avance_academico_id": 1
+      "to_avance_academico_id": 2
     }
   ]
 }

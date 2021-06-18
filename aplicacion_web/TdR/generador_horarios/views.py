@@ -29,8 +29,7 @@ from .tasks import *
 from .PERT import *
 from .clique import *
 
-from .helpers import jsonLog as jl # funciones para guardar dicts como .json
-from .helpers import DBSeed # funciones para guardar el seed de la db en json
+from .helpers import jsonLog as jl, utils # funciones para guardar dicts como .json
 
 
 # Create your views here.
@@ -52,7 +51,8 @@ def api_overview(request):
 def ramo_list(request, year):
     print("..ramo_list")
     asignatura = asignatura_real.objects.filter(
-        malla_curricular__agno=year)
+        malla_curricular__agno=year
+    )
     serializer = asignaturaSerializer(asignatura, many=True)
 
     return Response(serializer.data, status=status.HTTP_200_OK)
@@ -93,8 +93,9 @@ def import_malla(request):
                             vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
                 s.save()
                 s.to_asignatura_real.add(a)
-            except:
-                continue
+                added_sec += 1
+            except Exception as e:
+                raise Exception('error-1 views.import_malla: ',e)
 
         for elem in arr_eventos:
             try:
@@ -102,29 +103,11 @@ def import_malla(request):
                 e = evento(tipo=elem[0], dia=elem[1],
                             modulo=elem[2], profesor=elem[3], to_seccion=s)
                 e.save()
-                added_sec += 1 # no esta esto contando la cantidad de eventos en vez de la cantidad de secciones?
-            except:
-                continue
+            except Exception as e:
+                raise Exception("error-2 views.import_malla: ", e)
 
         return JsonResponse({'cantidad':added_sec,'description': "Oferta subida!"}, status=200)
 
-def clear_cfg_data(): # para limpiar las tablas relacionadas a oferta de CFGs
-    try:
-        seccion.objects.filter(cod_seccion__contains='CFG').delete()
-        seccion.to_asignatura_real.through.objects.filter(seccion__cod_seccion__contains='CFG').delete()
-        evento.objects.filter(to_seccion__cod_seccion__contains='CFG').delete()
-        cfg_areas.objects.all().delete()
-
-        secciones = seccion.objects.filter(cod_seccion__contains='CFG').values()
-        print("\nsecciones: \n", secciones)
-        seccionAsginaturaReal = seccion.to_asignatura_real.through.objects.filter(seccion__cod_seccion__contains='CFG').values()
-        print("\nseccion_asignatura_real: \n", seccionAsginaturaReal)
-        cfgAreas = cfg_areas.objects.all().values()
-        print("\ncfgAreas: \n", cfgAreas)
-        eventos = evento.objects.filter(to_seccion__cod_seccion__contains='CFG').values()
-        print("\neventos: \n", eventos)
-    except Exception as e:
-        print('Error en clear_cfg_data: ', e)
 
 @csrf_exempt
 def import_cfg(request):
@@ -201,17 +184,19 @@ def upload_mi_malla(request):
         avance_academico_user.json_avance = {}
         avance_academico_user.save()
 
-        counters = {'semestre': codigos[1],
-                    'cfg_count': codigos[2],
-                    'einf_count': codigos[3],
-                    'etele_count': codigos[4],
-                    'to_user': user,
-                    'agno_malla': codigos[0]
-                    }
+        counters = {
+            'semestre': codigos[1],
+            'cfg_count': codigos[2],
+            'einf_count': codigos[3],
+            'etele_count': codigos[4],
+            'to_user': user,
+            'agno_malla': codigos[0]
+        }
 
         av, created = avance_academico.objects.update_or_create(
             semestre=codigos[1], to_user=user,
-            defaults=counters)
+            defaults=counters
+        )
 
         semestre = codigos[1]
 
@@ -237,10 +222,10 @@ def get_PERT(request):
         # --- Descomentar para guardar seed.
         # Los archivos .csv de DB_data deben estar cargados para que funcione.
 
-    # clear_cfg_data()
+    # utils.clearOfertaCFG()
         # --- Descomentar para limpiar datos cfgs de base de datos
 
-    # jl.saveOferta("Oferta2021-1")
+    jl.saveOferta("Oferta2021-1")
         # --- Descomentar para guardar oferta
 
     jl.saveState_beforePERT(request.user.id, 'lastState-beforePERT')
@@ -248,11 +233,12 @@ def get_PERT(request):
 
     if request.method == "GET":
 
-        current_user = request.user.id
+        user_id = request.user.id
         try: 
-            avance_academico_user = avance_academico.objects.get(to_user_id=current_user)
+            avance_academico_user = avance_academico.objects.get(to_user_id=user_id)
             avance_academico_user_json = avance_academico_user.json_avance
-            año_malla = avance_academico.objects.get(to_user=current_user).agno_malla
+            agno_malla = avance_academico.objects.get(to_user_id=user_id).agno_malla
+            # agno_malla = alumno.objects.get(to_user_id=user_id).to_malla
         except:
             new_dict = {}
             new_dict.update({"PERT": {}})
@@ -261,18 +247,18 @@ def get_PERT(request):
             return Response(new_dict)
 
         if avance_academico_user.json_avance == {}: #el PERT se borra cuando se modifica el avance, solo se calcula el PERT si esta vacio. 
-            codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(to_User_id__id=current_user).values_list('codigo', flat=True)
+            codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(to_User=user_id).values_list('codigo', flat=True)
 
-            codigos_ramos_malla = asignatura_real.objects.filter(malla_curricular__agno=año_malla, tipo=0).values_list('codigo', flat=True)
+            codigos_ramos_malla = asignatura_real.objects.filter(malla_curricular__agno=agno_malla, tipo=0).values_list('codigo', flat=True)
 
-            nodo_asignatura.objects.filter(to_user=current_user).delete()
+            nodo_asignatura.objects.filter(to_user=user_id).delete()
 
-            getRamoCritico(codigos_asignaturas_cursadas,codigos_ramos_malla, current_user)
+            getRamoCritico(codigos_asignaturas_cursadas,codigos_ramos_malla, user_id)
 
-            add_nodo_seccion(current_user)
+            add_nodo_seccion(user_id)
 
             ramos_disponibles = nodo_asignatura.objects.filter(
-                to_user__id=current_user, to_asignatura_real__tipo=0)
+                to_user__id=user_id, to_asignatura_real__tipo=0)
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
             aux_pert = serializer.data
@@ -285,7 +271,7 @@ def get_PERT(request):
 
         new_dict = {}
         new_dict.update({"PERT": aux_pert})
-        new_dict["malla"] = año_malla
+        new_dict["malla"] = agno_malla
         # print(new_dict)
         
         jl.writeJSONFile('PERT', 'lastOutput-get_PERT', new_dict) # guarda el output de PERT como json en la carpeta "io_log/PERT"
@@ -377,7 +363,7 @@ def asignar_kk(request):
             for aux in elem:
 
                 if aux[0] != None:
-                    codigo_asignatura = (aux[0]['to_asignatura_real'][0]['codigo'])
+                    codigo_asignatura = (aux[0]['to_asignatura_real']['codigo'])
                     id_ns = nodo_asignatura.objects.get(to_asignatura_real__codigo=codigo_asignatura, to_user=current_user).id
                     peso_asignado = aux[1]
 
@@ -779,10 +765,9 @@ def set_prio_areas_cfg(request):
         prio = 0
         count = 0
         for index,aux in enumerate(json_data):
-            area_cfg = prioridad_cfg(area = aux['area'], prioridad = index+1)
-            area_cfg.save()
             u = User.objects.get(id=current_user)
-            area_cfg.to_user.add(u)
+            area_cfg = prioridad_cfg(area = aux['area'], prioridad = index+1, to_user=u)
+            area_cfg.save()
                          
             serializer = prioridadCfgSerializer(area_cfg, data={'prioridad': index+1}, partial=True)
 

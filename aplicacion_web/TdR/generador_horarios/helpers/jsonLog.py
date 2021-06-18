@@ -50,6 +50,8 @@ def saveOferta(fileName): #fileName no debe incluir ".json"
 # Carga los datos de la oferta academica desde archivo json
 # Se crear el json con saveOferta primero para que funcione
 def loadOferta(fileName): #fileName no debe incluir ".json"
+    utils.clearOfertaMalla()
+    utils.clearOfertaCFG()
     try:
         oferta = readJSONFile('Setup', fileName)
         for S in oferta["secciones"]:
@@ -64,6 +66,7 @@ def loadOferta(fileName): #fileName no debe incluir ".json"
         for CA in oferta["cfgAreas"]:
             cfgArea = cfg_areas(**CA)
             cfgArea.save()
+        return "ok"
     except Exception as e:
         print("error en loadOferta: ", e)
 

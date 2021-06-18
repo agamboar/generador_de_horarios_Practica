@@ -56,10 +56,12 @@ class seccion(models.Model):
     inscritos = models.IntegerField(default=0)
     vacantes_libres = models.IntegerField(default=0)
 
-    to_asignatura_real = models.ForeignKey(
-        asignatura_real, 
-        on_delete=models.CASCADE
-    ) #cambiado de manytomany a foreign
+    to_asignatura_real = models.ManyToManyField(asignatura_real) # no puede ser foreign por los cfgs que son 4 ramos que comparten las mismas secciones
+
+    # to_asignatura_real = models.ForeignKey(
+    #     asignatura_real, 
+    #     on_delete=models.CASCADE
+    # ) #cambiado de manytomany a foreign
 
 
 class evento(models.Model):

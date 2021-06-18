@@ -31,94 +31,109 @@ def set_values_recursive(PERT, id_node, len_dag):
     return PERT
 
 
-def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_user):
+def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, user_id):
 
     codigos_ramos_no_cursados = []
 
-    for codigo in codigos_ramos_malla:
-        if codigo not in codigos_asignaturas_cursadas:
-            codigos_ramos_no_cursados.append(codigo)
+    for ramoId in codigos_ramos_malla:
+        if ramoId not in codigos_asignaturas_cursadas:
+            codigos_ramos_no_cursados.append(ramoId)
 
     codigos_ramos_no_cursados = np.array(codigos_ramos_no_cursados)
 
     PERT = nx.DiGraph()  # Grafo dirigido
 
-    for codigo in codigos_ramos_no_cursados:
-        PERT.add_nodes_from([codigo], ES=False, EF=False,LS=False, LF=False, H=False)
+    for ramoId in codigos_ramos_no_cursados:
+        PERT.add_nodes_from([ramoId], ES=False, EF=False,LS=False, LF=False, H=False)
 
-    for elem in codigos_ramos_no_cursados:
+    for ramoId in codigos_ramos_no_cursados:
         try:
-            codigos_prerrequisitos_ramo = asignatura_real.objects.get(codigo=elem).prerrequisito.all().values_list('codigo', flat=True)
+            codigos_prerrequisitos_ramo = asignatura_real.objects.get(codigo=ramoId).prerrequisito.all().values_list('codigo', flat=True)
         except:
             continue
 
         for i in codigos_prerrequisitos_ramo:  # Se sacan los prerrequisitos de la base de datos
             if i in codigos_ramos_no_cursados:
-                PERT.add_edge(i, elem)
+                PERT.add_edge(i, ramoId)
 
     # Asigna el nombre del nodo final, dependiendo de la malla del alumno
 
     if 'FINAL1' in codigos_ramos_malla:
-        aux = 'FINAL1'
+        nodo_aux_final = 'FINAL1'
     elif 'FINAL2' in codigos_ramos_malla:
-        aux = 'FINAL2'
+        nodo_aux_final = 'FINAL2'
     elif 'FINAL3' in codigos_ramos_malla:
-        aux = 'FINAL3'
+        nodo_aux_final = 'FINAL3'
 
     # itera sobre los nodos que apuntan al ultimo nodo que es el nodo auxiliar final y se asignan los pesos
 
-    for elem in list(PERT.predecessors(aux)):
+    for predecesor_nodo_final in list(PERT.predecessors(nodo_aux_final)):
 
         long_path = len(nx.dag_longest_path(PERT))
-        arr_anc = list(nx.ancestors(PERT, elem))
+        ancestros = list(nx.ancestors(PERT, predecesor_nodo_final))
         max_count_jump = 1
-        for elem1 in arr_anc:
-            if max_count_jump < len(list(nx.all_simple_paths(PERT, elem1, elem))[0]):
-                max_count_jump = len(list(nx.all_simple_paths(PERT, elem1, elem))[0])
+        for nodo_ancestro in ancestros:
+            if max_count_jump < len(list(nx.all_simple_paths(PERT, nodo_ancestro, predecesor_nodo_final))[0]):
+                max_count_jump = len(list(nx.all_simple_paths(PERT, nodo_ancestro, predecesor_nodo_final))[0])
 
-        PERT.nodes[elem]["ES"] = max_count_jump
-        PERT.nodes[elem]["EF"] = max_count_jump + 1  # este uno es D
-        PERT.nodes[elem]["LF"] = long_path
-        PERT.nodes[elem]["H"] = PERT.nodes[elem]["LF"] - PERT.nodes[elem]["EF"]
-        PERT.nodes[elem]["LS"] = PERT.nodes[elem]["ES"] + PERT.nodes[elem]["H"]
+        PERT.nodes[predecesor_nodo_final]["ES"] = max_count_jump
+        PERT.nodes[predecesor_nodo_final]["EF"] = max_count_jump + 1  # este uno es D
+        PERT.nodes[predecesor_nodo_final]["LF"] = long_path
+        PERT.nodes[predecesor_nodo_final]["H"] = PERT.nodes[predecesor_nodo_final]["LF"] - PERT.nodes[predecesor_nodo_final]["EF"]
+        PERT.nodes[predecesor_nodo_final]["LS"] = PERT.nodes[predecesor_nodo_final]["ES"] + PERT.nodes[predecesor_nodo_final]["H"]
 
         # itera sobre los padres de los nodos que apuntan a 53
 
-        if len(list(PERT.predecessors(elem))) > 0:
-            for k in list(PERT.predecessors(elem)):
-                PERT = set_values_recursive(PERT, k, long_path-1)
+        if len(list(PERT.predecessors(predecesor_nodo_final))) > 0:
+            for predecesor in list(PERT.predecessors(predecesor_nodo_final)):
+                PERT = set_values_recursive(PERT, predecesor, long_path-1)
+    
+    # fin calculo de PERT
 
     ramos_disponibles = {}
 
     # aca se determinan los ramos criticos y los ramos que se pueden tomar.
 
-    u = User.objects.get(id=current_user)
-
-    for elem in list(PERT):
+    for nodo_PERT in list(PERT):
 
         aux_critico = False
         cc = '00'
-        nro_correlativo = int(asignatura_real.objects.get(codigo=elem).nro_correlativo)
+        nro_correlativo = int(asignatura_real.objects.get(codigo=nodo_PERT).nro_correlativo)
         aux_kk = str(60-nro_correlativo)
         kk = aux_kk if len(aux_kk) > 1 else str("0"+aux_kk)
 
-        if PERT.nodes[elem]["H"] == 0 and PERT.nodes[elem]["LS"] == 1:
+        if PERT.nodes[nodo_PERT]["H"] == 0 and PERT.nodes[nodo_PERT]["LS"] == 1:
             aux_critico = True
             cc = '10'
 
-        holgura = PERT.nodes[elem]["H"]
+        holgura = PERT.nodes[nodo_PERT]["H"]
 
         aux_UU = str(10-holgura)
         uu = aux_UU if len(aux_UU) > 1 else str("0" + aux_UU)
 
+        params = {
+            'holgura': PERT.nodes[nodo_PERT]["H"], 
+            'ef': PERT.nodes[nodo_PERT]["EF"], 
+            'es': PERT.nodes[nodo_PERT]["ES"], 
+            'ls': PERT.nodes[nodo_PERT]["LS"], 
+            'lf': PERT.nodes[nodo_PERT]["LF"], 
+            'critico': aux_critico, 
+            'cc': cc,
+            'uu': uu,
+            'kk': kk,
+            'to_user': User.objects.get(id=user_id),
+            'to_asignatura_real': asignatura_real.objects.get(codigo=nodo_PERT)
+        }
+        nodo_asignatura(**params).save()
+        
         # modificar ya que setea KK y SS y no toma en cuenta la asignacion de pesos hecha por el alumno
-        r = nodo_asignatura(holgura=PERT.nodes[elem]["H"], ef=PERT.nodes[elem]["EF"], es=PERT.nodes[elem]["ES"], ls=PERT.nodes[elem]["LS"], lf=PERT.nodes[elem]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)
-        #print(elem, PERT.nodes[elem]["H"], PERT.nodes[elem]["EF"], PERT.nodes[elem]["ES"],PERT.nodes[elem]["LS"], PERT.nodes[elem]["LF"], aux_critico, cc, uu, kk)
-        r.save()
-        n = nodo_asignatura.objects.get(id=r.id)
-        n.to_user.add(u)
-        a = asignatura_real.objects.get(codigo=elem)
-        n.to_asignatura_real.add(a)
+        # r = nodo_asignatura(holgura=PERT.nodes[nodo_PERT]["H"], ef=PERT.nodes[nodo_PERT]["EF"], es=PERT.nodes[nodo_PERT]["ES"], ls=PERT.nodes[nodo_PERT]["LS"], lf=PERT.nodes[nodo_PERT]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)
+        
+        # r.save()
+        # n = nodo_asignatura.objects.get(id=r.id)
+        # n.to_user.add(u)
+        # a = asignatura_real.objects.get(codigo=nodo_PERT)
+        # n.to_asignatura_real.add(a)
 
     return ramos_disponibles
 
@@ -132,7 +147,7 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, current_us
 
 def add_nodo_seccion(current_user):
 
-    u = User.objects.get(id=current_user)
+    user = User.objects.get(id=current_user)
 
     try:
         nodo_seccion.objects.filter(
@@ -140,18 +155,20 @@ def add_nodo_seccion(current_user):
     except:
         pass
 
-    nodos_asignatura_user = nodo_asignatura.objects.filter(to_user=u)  # los ramos que el alumno no ha dado
+    nodos_asignatura_user = nodo_asignatura.objects.filter(to_user=user)  # los ramos que el alumno no ha dado
 
-    for elem in nodos_asignatura_user:
+    for nodoAsignatura in nodos_asignatura_user:
 
-        #codigo_asignatura = asignatura_real.objects.filter(odo_asignatura__id=elem.id)[0].codigo
 
-        secciones_ramo_user = list(seccion.objects.filter(to_asignatura_real__nodo_asignatura=elem,vacantes_libres__gt=0))  # las secciones de los ramos que no ha dado el alumno y que tienen cupos disponibles
+        #codigo_asignatura = asignatura_real.objects.filter(odo_asignatura__id=nodoAsignatura.id)[0].codigo
+        asignatura = nodoAsignatura.to_asignatura_real
+
+        secciones_ramo_user = list(seccion.objects.filter(to_asignatura_real=asignatura,vacantes_libres__gt=0))  # las secciones de los ramos que no ha dado el alumno y que tienen cupos disponibles
 
         # equivalencias
         if len(secciones_ramo_user) == 0:
             
-            codigo_box = asignatura_real.objects.get(nodo_asignatura__id=elem.id).codigo
+            codigo_box = asignatura_real.objects.get(nodo_asignatura__id=nodoAsignatura.id).codigo
             asignaturas_reales = list(asignatura_real.objects.filter(equivale=codigo_box))
 
             for asig_real in asignaturas_reales:
@@ -173,10 +190,8 @@ def add_nodo_seccion(current_user):
             #codigo_seccion = s.cod_seccion # para que es esto ?
             #sec = seccion.objects.get(cod_seccion=codigo_seccion) # para que es esto ?
 
-            ns = nodo_seccion(ss=int(s.num_seccion), to_nodo_asignatura=elem)
-            ns.save()
-
-            ns.to_seccion.add(s)
+            nodoSeccion = nodo_seccion(ss=int(s.num_seccion), to_nodo_asignatura=nodoAsignatura, to_seccion=s)
+            nodoSeccion.save()
 
 # getRamoCritico('MiMalla.xlsx')
 
