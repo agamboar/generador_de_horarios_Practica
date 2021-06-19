@@ -6,6 +6,9 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
+from django.db.models import IntegerField
+from django.db.models.functions import Cast
+
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.views import APIView
@@ -563,7 +566,7 @@ def PERT_es1(request):
     if request.method == "GET":
 
         current_user = request.user.id
-        ns = nodo_asignatura.objects.filter(to_user=current_user, es=1)
+        ns = nodo_asignatura.objects.annotate(int_kk = Cast('kk',output_field=IntegerField())).filter(to_user=current_user, es=1).order_by('-int_kk')
         serializer = nodoAsignaturaSerializer(ns, many=True)
         #print(serializer.data)
         if serializer.data  == []:
