@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
+import traceback
 from .models import *
 
 # seria bueno modularizar esta funcion
@@ -16,7 +17,7 @@ def get_clique_max_pond(current_user):
         prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
         len_prio_area_cfg = len(prio_area_cfg)
         count_prio = 0
-    except:
+    except prioridad_cfg.DoesNotExist:
         prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
         len_prio_area_cfg = len(prio_area_cfg)
         count_prio = 0
@@ -44,39 +45,34 @@ def get_clique_max_pond(current_user):
                 continue
 
             
-     
-        try:
-            horario = (elem['to_seccion__evento__dia'] + ' ' +
-                       elem['to_seccion__evento__modulo'])   
-        except:
-            horario = '---'
+        horario = (
+            elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']
+        ) 
 
-        try:
-            # elimina las tildes de catedra y ayudantia
 
-            if elem['to_seccion__evento__tipo'][0] == 'C':
-                tipo = 'CATEDRA'
-            elif elem['to_seccion__evento__tipo'][0] == 'A':
-                tipo = 'AYUDANTIA'
-            elif elem['to_seccion__evento__tipo'][0] == 'L':
-                tipo = 'LABORATORIO'
+        # elimina las tildes de catedra y ayudantia
+        if elem['to_seccion__evento__tipo'][0] == 'C':
+            tipo = 'CATEDRA'
+        elif elem['to_seccion__evento__tipo'][0] == 'A':
+            tipo = 'AYUDANTIA'
+        elif elem['to_seccion__evento__tipo'][0] == 'L':
+            tipo = 'LABORATORIO'
 
-            prof = elem['to_seccion__evento__profesor']
+        prof = elem['to_seccion__evento__profesor']
 
-            # Algoritmo para eliminar las Ñ y las tildes de los nombres de profesores de la oferta academica.
+        # Algoritmo para eliminar las Ñ y las tildes de los nombres de profesores de la oferta academica.
+        if prof != '':
+            a, b = 'ÁÉÍÓÚÑáéíóúñ', 'AEIOUNaeioun'
+            trans = str.maketrans(a, b)
+            prof_modificado = prof.translate(trans)
+        else:
+            prof_modificado = ''
 
-            if prof != '':
-                a, b = 'ÁÉÍÓÚÑáéíóúñ', 'AEIOUNaeioun'
-                trans = str.maketrans(a, b)
-                prof_modificado = prof.translate(trans)
-            else:
-                prof_modificado = ''
-
-            evento = {'bloque': elem['to_seccion__evento__dia'] + '_' + elem['to_seccion__evento__modulo'][0:2],
-                      'tipo': tipo, 'profesor': prof_modificado}
-
-        except:
-            evento = '---'
+        evento = {
+            'bloque': elem['to_seccion__evento__dia'] + '_' + elem['to_seccion__evento__modulo'][0:2],
+            'tipo': tipo, 
+            'profesor': prof_modificado
+        }
 
         #se agregan los nodos del grafo (1 vez por cada evento, eventos de la misma seccion sobre-escriben el nodo)
         if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_nodo_asignatura__to_asignatura_real__codigo']:
@@ -105,11 +101,13 @@ def get_clique_max_pond(current_user):
             if nombre_ramo[0:3] == 'CFG':
                 try:
                     cod_asignatura = elem["to_seccion__cod_seccion"][0:7]
-                    nombre_ramo = asignatura_real.objects.get(
-                        codigo=cod_asignatura).nombre
-
-                except:
+                    nombre_ramo = asignatura_real.objects.get(codigo=cod_asignatura).nombre
+                except asignatura_real.DoesNotExist:
+                    traceback.print_exc()
                     nombre_ramo = 'CURSO FORMACION GENERAL'
+                else:
+                    print("en clique.py: nombre ramo cfg: ", nombre_ramo)
+
 
             nro_seccion = elem['to_seccion__num_seccion']
             if nro_seccion != "99": # las pruebas de eximicion de ingles tienen nro_seccion 99.
@@ -187,7 +185,7 @@ def get_clique_max_pond(current_user):
         prev_solution = arr_aux_delete
         try:
             G.remove_node(arr_aux_delete[0][0])
-        except:
+        except nx.NetworkXError:
             break
 
     return aux_retornar

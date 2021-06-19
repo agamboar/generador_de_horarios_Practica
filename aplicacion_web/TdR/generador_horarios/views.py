@@ -34,6 +34,8 @@ from .clique import *
 
 from .helpers import jsonLog as jl, utils, DBSeed
 import traceback
+from contextlib import suppress # 'try: ... except ExceptionName: pass' == 'with suppress(ExceptionName): ...'
+from django.core.exceptions import *
 
 # Create your views here.
 
@@ -81,12 +83,11 @@ def import_malla(request):
         arr_secciones = read_secciones(excel_file)
         arr_eventos = read_eventos(excel_file)
 
-        try:
+        with suppress(seccion.DoesNotExist, evento.DoesNotExist):
             # hacer la sentencia SQL TRUNCATE generador_horarios_evento RESTART IDENTITY CASCADE; para resetear los ID
             seccion.objects.exclude(cod_seccion__contains='CFG').delete()
             evento.objects.exclude(to_seccion__contains='CFG').delete()
-        except:
-            pass
+
         added_sec = 0
         for elem in arr_secciones:
             try:
@@ -130,10 +131,8 @@ def import_cfg(request):
         added_cfg = 0
         for elem in cfg_secciones:
             if elem[0][0:3] == 'CFG':
-                try:
-                    seccion.objects.get(cod_seccion=elem[0]).delete()
-                except:
-                    pass
+                with suppress(seccion.DoesNotExist):
+                    seccion.objects.get(cod_seccion=elem[0]).delete() 
                 
                 s1 = seccion.objects.create(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
                                             vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
@@ -234,12 +233,10 @@ def get_PERT(request):
     jl.saveState_beforePERT(request.user.id, 'lastState-beforePERT')
         # --- Descomentar para guardar avance
 
-    try:
-        User.objects.get(id=99)
-    except User.DoesNotExist:
-        traceback.print_exc()
-
-
+    # try:
+    #     User.objects.get(id=99)
+    # except User.DoesNotExist:
+    #     traceback.print_exc()
 
 
     if request.method == "GET":
@@ -250,7 +247,7 @@ def get_PERT(request):
             avance_academico_user_json = avance_academico_user.json_avance
             agno_malla = avance_academico.objects.get(to_user_id=user_id).agno_malla
             # agno_malla = alumno.objects.get(to_user_id=user_id).to_malla
-        except:
+        except avance_academico.DoesNotExist:
             new_dict = {}
             new_dict.update({"PERT": {}})
             new_dict["malla"] = "empty"
@@ -301,20 +298,8 @@ def get_clique(request):
         user = User.objects.get(id=current_user)
         existen_soluciones = False
 
-        try: 
-            sol = solucion.objects.filter(to_user=current_user) # un usuario tiene una solucion por horario recomendado 
-
-            if sol: #se esta intentando que el usario no spamee recomandar horarios 30 seg timer (no se esta usando)
-
-                existen_soluciones = True
-                tz = pytz.timezone('UTC')
-                current_timestamp = datetime.datetime.now(tz)
-
-                diff = current_timestamp-sol[0].fecha_mod
-                segundos = diff.seconds
-                #print(segundos)
-        except:
-            pass
+        sol = solucion.objects.filter(to_user=current_user) # un usuario tiene una solucion por horario recomendado
+        if sol: existen_soluciones = True
 
         if not existen_soluciones: #las soluciones se borran cada vez que se modifica algun valor
 
@@ -331,15 +316,14 @@ def get_clique(request):
                     solucion_alumno.json_solucion = recomendacion
                     solucion_alumno.save()
 
-                try:  # asociar los objetos nodo_seccion a el objeto solucion               
-                    for elem2 in recomendacion:
+                # asociar los objetos nodo_seccion a el objeto solucion               
+                for elem2 in recomendacion:
 
-                        nodoSeccion = nodo_seccion.objects.filter(
-                            to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
+                    nodoSeccion = nodo_seccion.objects.filter(
+                        to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
 
-                        solucion_alumno.to_nodo_seccion.add(nodoSeccion)
-                except:
-                        return Response("n", status=status.HTTP_200_OK)
+                    solucion_alumno.to_nodo_seccion.add(nodoSeccion)
+            
 
             #print('guardo el json')
         else:
@@ -363,10 +347,9 @@ def asignar_kk(request):
     if request.method == "POST":
 
         current_user = request.user.id
-        try:
+        with suppress(solucion.DoesNotExist):
             solucion.objects.filter(to_user=current_user).delete()
-        except:
-            pass
+
         json_data = request.data
 
         for elem in json_data:
@@ -392,10 +375,10 @@ def asignar_kk(request):
 def asignar_ss(request):
     if request.method == "POST":
         current_user = request.user.id
-        try:
+
+        with suppress(solucion.DoesNotExist):
             solucion.objects.filter(to_user=current_user).delete()
-        except:
-            pass
+
         json_data = request.data
         cantidad_secciones=len(json_data) 
         for index,aux in enumerate(json_data):
@@ -449,11 +432,9 @@ def mi_malla_manual(request):
                     codigo=elem).prerrequisito.all().values_list('codigo', flat=True)
 
                 for i in pre_req:
-                    try:
-                        if json_data[i] == True:
-                            count_pre_req += 1
-                    except:
-                        break
+                    if json_data[i] == True:
+                        count_pre_req += 1
+
                 if count_pre_req == len(pre_req):
                     codigos_aprobados.append(elem)
                 else:
@@ -461,14 +442,12 @@ def mi_malla_manual(request):
                         'error': 'Comprueba que los datos ingresados sean válidos.'
                     }, safe=True, status=status.HTTP_409_CONFLICT)
 
-        try:
+        with suppress(ObjectDoesNotExist):
             asignatura_cursada.objects.filter(to_User=current_user).delete()
             nodo_asignatura.objects.filter(to_user=current_user).delete()
             nodo_seccion.objects.filter(
                 to_nodo_asignatura__to_user=current_user).delete()
             solucion.objects.filter(to_user=current_user).delete()
-        except:
-            pass
 
         counters = {'semestre': semestre,
                     'cfg_count': cfg_count,
@@ -601,7 +580,7 @@ def set_staff(request):
         if User.objects.get(id=current_user).is_staff:
             try:
                 aux_new_staff=User.objects.get(username=request.data)
-            except:
+            except User.DoesNotExist:
                 return JsonResponse({'noUser': 'Usuario ingresado no existe.'}, safe=False,status=status.HTTP_404_NOT_FOUND)
             if aux_new_staff.is_staff:
                 return JsonResponse({'isStaff': 'El usuario ingresado ya es staff.'}, safe=False,status=status.HTTP_409_CONFLICT)
@@ -620,7 +599,7 @@ def remove_staff(request):
         if User.objects.get(id=current_user).is_staff:
             try:
                 aux_new_staff=User.objects.get(username=request.data)
-            except:
+            except User.DoesNotExist:
                 return JsonResponse({'noUser': 'Usuario ingresado no existe.'}, safe=False,status=status.HTTP_404_NOT_FOUND)
             if not aux_new_staff.is_staff:
                 return JsonResponse({'notStaff': 'Usuario ingresado no es staff.'}, safe=False,status=status.HTTP_409_CONFLICT)
@@ -682,17 +661,16 @@ def get_secciones_disponibles(request, codigo):
         #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
         current_user = request.user.id
         secciones_disponibles =[]
-        try:
-            secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id','ss').order_by('-ss').distinct()  
-        except:
-            pass
+        
+        secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id','ss').order_by('-ss').distinct()  
+        
         if len(secciones_disponibles) == 0:
             return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_204_NO_CONTENT)
 
         if codigo[0:3] == "CFG":
             try:
                 prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
-            except:
+            except prioridad_cfg.DoesNotExist:
                 prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
             #print(prio_area_cfg)
         aux_retornar = []
@@ -705,10 +683,7 @@ def get_secciones_disponibles(request, codigo):
             elem = secciones_disponibles[i]
             cod_sec = elem['to_seccion__cod_seccion']
 
-            try:
-                nombre_ramo = asignatura_real.objects.get(codigo=cod_sec[0:7]).nombre
-            except:
-                nombre_ramo = '---'
+            nombre_ramo = asignatura_real.objects.get(codigo=cod_sec[0:7]).nombre
 
             if cod_sec[0:3] == "CFG":
                 current_cfg_area = cfg_areas.objects.get(codigo = cod_sec[0:7]).area
@@ -717,15 +692,12 @@ def get_secciones_disponibles(request, codigo):
                     pass
                 else:
                     continue
-            try:
-                horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']+ ' | ')
-            except:
-                horario = '---'
-            try:    
-                if elem['to_seccion__evento__tipo'][0] == 'C' or elem['to_seccion__evento__tipo'][0] == 'B':
-                    prof = elem['to_seccion__evento__profesor']
-            except:
-                prof = ""
+
+            horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']+ ' | ')
+              
+            if elem['to_seccion__evento__tipo'][0] == 'C' or elem['to_seccion__evento__tipo'][0] == 'B':
+                prof = elem['to_seccion__evento__profesor']
+
 
             cod_sec = elem['to_seccion__cod_seccion']
             numb_seccion = elem['to_seccion__num_seccion']
@@ -762,14 +734,8 @@ def set_prio_areas_cfg(request):
     if request.method == "POST":
         current_user = request.user.id
 
-        try:
-            prioridad_cfg.objects.filter(to_user=current_user).delete()
-        except:
-            pass
-        try:
-            solucion.objects.filter(to_user=current_user).delete()
-        except:
-            pass
+        with suppress(ObjectDoesNotExist): prioridad_cfg.objects.filter(to_user=current_user).delete()
+        with suppress(ObjectDoesNotExist): solucion.objects.filter(to_user=current_user).delete()
 
         json_data = request.data
         cantidad_areas = len(json_data)
@@ -797,10 +763,10 @@ def get_prio_cfg(request):
         #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
         current_user = request.user.id
         prioridades_cfg = []
-        try:
-            prioridades_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area','prioridad').order_by('prioridad').distinct()  
-        except:
-            pass
+        
+        with suppress(ObjectDoesNotExist):
+            prioridades_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area','prioridad').order_by('prioridad').distinct() 
+
         if len(prioridades_cfg) == 0:
             return JsonResponse({"mensaje":"vacio"}, safe=False, status=status.HTTP_204_NO_CONTENT)
         aux_retornar = []

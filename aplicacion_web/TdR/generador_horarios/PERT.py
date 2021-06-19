@@ -3,6 +3,7 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
+from contextlib import suppress
 from .models import *
 
 
@@ -47,10 +48,8 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, user_id):
         PERT.add_nodes_from([ramoId], ES=False, EF=False,LS=False, LF=False, H=False)
 
     for ramoId in codigos_ramos_no_cursados:
-        try:
-            codigos_prerrequisitos_ramo = asignatura_real.objects.get(codigo=ramoId).prerrequisito.all().values_list('codigo', flat=True)
-        except:
-            continue
+        codigos_prerrequisitos_ramo = asignatura_real.objects.get(codigo=ramoId).prerrequisito.all().values_list('codigo', flat=True)
+        if not codigos_prerrequisitos_ramo: continue
 
         for i in codigos_prerrequisitos_ramo:  # Se sacan los prerrequisitos de la base de datos
             if i in codigos_ramos_no_cursados:
@@ -149,11 +148,8 @@ def add_nodo_seccion(current_user):
 
     user = User.objects.get(id=current_user)
 
-    try:
-        nodo_seccion.objects.filter(
-            to_nodo_asignatura__to_user=current_user).delete()
-    except:
-        pass
+    with suppress(nodo_seccion.DoesNotExist):
+        nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user).delete()  
 
     nodos_asignatura_user = nodo_asignatura.objects.filter(to_user=user)  # los ramos que el alumno no ha dado
 

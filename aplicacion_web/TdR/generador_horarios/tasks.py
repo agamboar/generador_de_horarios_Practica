@@ -264,18 +264,17 @@ def read_evento_cfg(excel_file):
                     cfg_eventos.append(elem2.tolist())
 
             else:
-                try:
-                    arr_horario = elem[1].split()
+            # bloque estaba dentro de try con pass
+                arr_horario = elem[1].split()
 
-                    elem1 = elem.copy()
+                elem1 = elem.copy()
 
-                    dia = arr_horario[0]
-                    bloque = arr_horario[1]+" - "+arr_horario[3]
-                    elem1 = np.append(elem1, bloque)
-                    elem1[1] = dia
-                    cfg_eventos.append(elem1.tolist())
-                except:
-                    pass
+                dia = arr_horario[0]
+                bloque = arr_horario[1]+" - "+arr_horario[3]
+                elem1 = np.append(elem1, bloque)
+                elem1[1] = dia
+                cfg_eventos.append(elem1.tolist())
+
 
     cfg_eventos = np.array(cfg_eventos)
 
