@@ -29,8 +29,8 @@ from .tasks import *
 from .PERT import *
 from .clique import *
 
-from .helpers import jsonLog as jl, utils # funciones para guardar dicts como .json
-
+from .helpers import jsonLog as jl, utils, DBSeed
+import traceback
 
 # Create your views here.
 
@@ -151,7 +151,7 @@ def import_cfg(request):
             if elem[4][0:3] == 'CFG':
                 try:
                     evento.objects.get(to_seccion=elem[4]).delete()
-                except:
+                except evento.DoesNotExist:
                     pass
             
                 s = seccion.objects.get(cod_seccion=elem[4])
@@ -225,11 +225,19 @@ def get_PERT(request):
     # utils.clearOfertaCFG()
         # --- Descomentar para limpiar datos cfgs de base de datos
 
-    jl.saveOferta("Oferta2021-1")
+    # jl.saveOferta("Oferta2021-1")
         # --- Descomentar para guardar oferta
 
     jl.saveState_beforePERT(request.user.id, 'lastState-beforePERT')
         # --- Descomentar para guardar avance
+
+    try:
+        User.objects.get(id=99)
+    except User.DoesNotExist:
+        traceback.print_exc()
+
+
+
 
     if request.method == "GET":
 

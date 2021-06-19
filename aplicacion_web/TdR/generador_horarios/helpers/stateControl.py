@@ -31,18 +31,9 @@ def getState_beforeClique(userId):
 
         nodosAsignatura = list(nodo_asignatura.objects.filter(to_user__id=userId).values())
         state["nodos_asignatura"] = nodosAsignatura
-        for nodoAsig in state["nodos_asignatura"]:
-            nodoAsig["to_user_id"] = userId
-            nodoAsig["to_asignatura_real_id"] = list(
-                nodo_asignatura.to_asignatura_real.through.objects.filter(nodo_asignatura_id=nodoAsig["id"]).values('asignatura_real_id')
-            )[0]["asignatura_real_id"]
 
         nodosSeccion = list(nodo_seccion.objects.filter(to_nodo_asignatura_id__to_user__id=userId).values().order_by('to_seccion'))
         state["nodos_seccion"] = nodosSeccion
-        for nodoSecc in state["nodos_seccion"]:
-            nodoSecc["to_seccion"] = list(
-                nodo_seccion.to_seccion.through.objects.filter(nodo_seccion_id=nodoSecc["id"]).values('seccion_id')
-            )[0]["seccion_id"]
 
         return state
     except Exception as e:
@@ -51,7 +42,10 @@ def getState_beforeClique(userId):
 def setState_beforeClique(state):
     try:
         for NA in state["nodos_asignatura"]:
-            pass
-            
+            nodoAsignatura = nodo_asignatura(**NA)
+            nodoAsignatura.save()
+        for NS in state["nodos_seccion"]:
+            nodoSeccion = nodo_seccion(**NS)
+            nodoSeccion.save()            
     except Exception as e:
         print("error stateControl.setState_beforeClique: ", e)
