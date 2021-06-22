@@ -76,145 +76,133 @@ def secciones(request, cod):
 @csrf_exempt
 def import_malla(request):
     if request.method == "POST":
+        try:
+            excel_file = request.FILES["file"]
+            arr_secciones = read_secciones(excel_file)
+            arr_eventos = read_eventos(excel_file)
 
-        #print("fileeee", type(request.FILES["file"]))
-        excel_file = request.FILES["file"]
+            with suppress(seccion.DoesNotExist, evento.DoesNotExist):
+                # hacer la sentencia SQL TRUNCATE generador_horarios_evento RESTART IDENTITY CASCADE; para resetear los ID
+                seccion.objects.exclude(cod_seccion__contains='CFG').delete()
+                evento.objects.exclude(to_seccion__contains='CFG').delete()
 
-        arr_secciones = read_secciones(excel_file)
-        arr_eventos = read_eventos(excel_file)
+            added_sec = 0
+            for elem in arr_secciones:
+                    a = asignatura_real.objects.get(codigo=elem[6])
 
-        with suppress(seccion.DoesNotExist, evento.DoesNotExist):
-            # hacer la sentencia SQL TRUNCATE generador_horarios_evento RESTART IDENTITY CASCADE; para resetear los ID
-            seccion.objects.exclude(cod_seccion__contains='CFG').delete()
-            evento.objects.exclude(to_seccion__contains='CFG').delete()
+                    s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                                vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+                    s.save()
+                    s.to_asignatura_real.add(a)
+                    added_sec += 1
 
-        added_sec = 0
-        for elem in arr_secciones:
-            try:
-                a = asignatura_real.objects.get(codigo=elem[6])
-
-                s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                            vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
-                s.save()
-                s.to_asignatura_real.add(a)
-                added_sec += 1
-            except Exception as e:
-                raise Exception('error-1 views.import_malla: ',e)
-
-        for elem in arr_eventos:
-            try:
+            for elem in arr_eventos:
                 s = seccion.objects.get(cod_seccion=elem[4])
                 e = evento(tipo=elem[0], dia=elem[1],
                             modulo=elem[2], profesor=elem[3], to_seccion=s)
                 e.save()
-            except Exception as e:
-                raise Exception("error-2 views.import_malla: ", e)
 
-        return JsonResponse({'cantidad':added_sec,'description': "Oferta subida!"}, status=200)
+            return JsonResponse({'cantidad':added_sec,'description': "Oferta subida!"}, status=200)
+        except Exception:
+            return JsonResponse({'cantidad':0,'description': "Error en import_malla: " + traceback.format_exc}, status=500)
 
 
 @csrf_exempt
 def import_cfg(request):
 
-    if request.method == "POST":
-        #print(request.FILES)
-        #print(request.POST['area'])
-        excel_file = request.FILES["excel_file"]
-        cfg_secciones = read_seccion_cfg(excel_file)
-        cfg_eventos = read_evento_cfg(excel_file)
-        cfg1 = asignatura_real.objects.get(codigo='CFG1')
-        cfg2 = asignatura_real.objects.get(codigo='CFG2')
-        cfg3 = asignatura_real.objects.get(codigo='CFG3')
-        cfg4 = asignatura_real.objects.get(codigo='CFG4')
+    if request.method == "POST":      
+        try: 
+            excel_file = request.FILES["excel_file"]
+            cfg_secciones = read_seccion_cfg(excel_file)
+            cfg_eventos = read_evento_cfg(excel_file)
+            cfg1 = asignatura_real.objects.get(codigo='CFG1')
+            cfg2 = asignatura_real.objects.get(codigo='CFG2')
+            cfg3 = asignatura_real.objects.get(codigo='CFG3')
+            cfg4 = asignatura_real.objects.get(codigo='CFG4')
 
-
-        added_cfg = 0
-        for elem in cfg_secciones:
-            if elem[0][0:3] == 'CFG':
-                with suppress(seccion.DoesNotExist):
-                    seccion.objects.get(cod_seccion=elem[0]).delete() 
-                
-                s1 = seccion.objects.create(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                                            vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
-                added_cfg += 1
-
-                s1.to_asignatura_real.add(cfg1)
-                s1.to_asignatura_real.add(cfg2)
-                s1.to_asignatura_real.add(cfg3)
-                s1.to_asignatura_real.add(cfg4)
-                
-                if len(cfg_areas.objects.filter(codigo = elem[0][0:7])) == 0: # cambiado de elem[0][6] a elem[0][7], para que incluya los 4 numeros del codigo
-                    area = cfg_areas.objects.create(codigo = elem[0][0:7] ,area = request.POST['area'])
-                    area.save()
+            added_cfg = 0
+            for elem in cfg_secciones:
+                if elem[0][0:3] == 'CFG':
+                    added_cfg += 1
+                    with suppress(seccion.DoesNotExist): seccion.objects.get(cod_seccion=elem[0]).delete() 
                     
+                    s1 = seccion.objects.create(
+                        cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                        vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5]
+                    )
+                    s1.to_asignatura_real.add(cfg1)
+                    s1.to_asignatura_real.add(cfg2)
+                    s1.to_asignatura_real.add(cfg3)
+                    s1.to_asignatura_real.add(cfg4)
+                    
+                    if len(cfg_areas.objects.filter(codigo = elem[0][0:7])) == 0: # cambiado de elem[0][6] a elem[0][7], para que incluya los 4 numeros del codigo
+                        area = cfg_areas.objects.create(codigo = elem[0][0:7] ,area = request.POST['area'])
+                        area.save()
+            for elem in cfg_eventos:
+                if elem[4][0:3] == 'CFG':
+                    with suppress(evento.DoesNotExist): evento.objects.get(to_seccion=elem[4]).delete()         
+                    s = seccion.objects.get(cod_seccion=elem[4])
+                    e = evento(tipo=elem[0], dia=elem[1], modulo=elem[2], profesor=elem[3], to_seccion=s)
+                    e.save()
 
-            
-        for elem in cfg_eventos:
-            if elem[4][0:3] == 'CFG':
-                try:
-                    evento.objects.get(to_seccion=elem[4]).delete()
-                except evento.DoesNotExist:
-                    pass
-            
-                s = seccion.objects.get(cod_seccion=elem[4])
-                e = evento(tipo=elem[0], dia=elem[1],
-                            modulo=elem[2], profesor=elem[3], to_seccion=s)
-                e.save()
-
-        return JsonResponse({'cantidad': added_cfg ,'description': "CFG subidos!"}, status=200)
+            return JsonResponse({'cantidad': added_cfg ,'description': "CFG subidos!"}, status=200)
+        except Exception:
+            return JsonResponse({'cantidad': added_cfg ,'description': "Error en import_cfg: " + traceback.format_exc}, status=500)
 
 
 @csrf_exempt
 def upload_mi_malla(request):
 
     if request.method == "POST":
+        try:
+            current_user = request.POST.getlist('id')[0]
+            #print(current_user)
+            excel_file = request.FILES["file"]
+            codigos = read_mi_malla(excel_file)
+            user = User.objects.get(id=current_user)
+            #print(user)
 
-        current_user = request.POST.getlist('id')[0]
-        #print(current_user)
-        excel_file = request.FILES["file"]
-        codigos = read_mi_malla(excel_file)
-        user = User.objects.get(id=current_user)
-        #print(user)
+            asignatura_cursada.objects.filter(to_User=current_user).delete()
+            nodo_asignatura.objects.filter(to_user=current_user).delete()
+            nodo_seccion.objects.filter(
+                to_nodo_asignatura__to_user=current_user).delete()
+            solucion.objects.filter(to_user=current_user).delete()
+            avance_academico_user = avance_academico.objects.get(
+                to_user_id=current_user)
+            avance_academico_user.json_avance = {}
+            avance_academico_user.save()
 
-        asignatura_cursada.objects.filter(to_User=current_user).delete()
-        nodo_asignatura.objects.filter(to_user=current_user).delete()
-        nodo_seccion.objects.filter(
-            to_nodo_asignatura__to_user=current_user).delete()
-        solucion.objects.filter(to_user=current_user).delete()
-        avance_academico_user = avance_academico.objects.get(
-            to_user_id=current_user)
-        avance_academico_user.json_avance = {}
-        avance_academico_user.save()
+            counters = {
+                'semestre': codigos[1],
+                'cfg_count': codigos[2],
+                'einf_count': codigos[3],
+                'etele_count': codigos[4],
+                'to_user': user,
+                'agno_malla': codigos[0]
+            }
 
-        counters = {
-            'semestre': codigos[1],
-            'cfg_count': codigos[2],
-            'einf_count': codigos[3],
-            'etele_count': codigos[4],
-            'to_user': user,
-            'agno_malla': codigos[0]
-        }
+            av, created = avance_academico.objects.update_or_create(
+                semestre=codigos[1], to_user=user,
+                defaults=counters
+            )
 
-        av, created = avance_academico.objects.update_or_create(
-            semestre=codigos[1], to_user=user,
-            defaults=counters
-        )
+            semestre = codigos[1]
 
-        semestre = codigos[1]
+            avance = avance_academico.objects.get(semestre=semestre, to_user=user)
 
-        avance = avance_academico.objects.get(semestre=semestre, to_user=user)
+            for elem in codigos[6:]:
 
-        for elem in codigos[6:]:
+                if elem[0] != '':
+                    asignatura = asignatura_real.objects.get(codigo=elem[0])
+                else:
+                    continue
+                a = asignatura_cursada(
+                    codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
+                a.save()
 
-            if elem[0] != '':
-                asignatura = asignatura_real.objects.get(codigo=elem[0])
-            else:
-                continue
-            a = asignatura_cursada(
-                codigo=elem[0], to_User=user, to_asignatura_real=asignatura, to_avance_academico=avance)
-            a.save()
-
-        return JsonResponse({'description': "Malla Subida."}, status=status.HTTP_201_CREATED)
+            return JsonResponse({'description': "Malla Subida."}, status=status.HTTP_201_CREATED)
+        except Exception:
+            return JsonResponse({'description': "Malla Subida."}, status=500)
 
 
 @api_view(['GET'])
@@ -230,15 +218,13 @@ def get_PERT(request):
     # jl.saveOferta("Oferta2021-1")
         # --- Descomentar para guardar oferta
 
-    jl.saveState_beforePERT(request.user.id, 'lastState-beforePERT')
+    # jl.saveState_beforePERT(request.user.id, 'lastState-beforePERT')
         # --- Descomentar para guardar avance
 
     # try:
     #     User.objects.get(id=99)
     # except User.DoesNotExist:
     #     traceback.print_exc()
-
-
     if request.method == "GET":
 
         user_id = request.user.id

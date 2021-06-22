@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+from contextlib import suppress
 
 #Ejecutar runserver con "SETUP_SEED = True" solo un vez para cargar datos iniciales (en caso de resetear db), luego cambiar a False.
 SETUP_SEED = False 
@@ -27,9 +28,15 @@ def setupOferta():
 
     print('Ingrese nombre de archivo json en /io_log/Setup/ (no incluir .json)')
     fileName = input()
-    while jl.loadOferta(fileName) != "ok":
-        print("Intente otro archivo: ")
-        fileName = input()
+    ok = False
+    while not ok:
+        try:
+            jl.loadOferta(fileName)
+            ok = True
+        except OSError:
+            print("Intente otro archivo: ")
+            fileName = input()
+
     print("\nOferta Academica cargada.\n")
 
 class GeneradorHorariosConfig(AppConfig):

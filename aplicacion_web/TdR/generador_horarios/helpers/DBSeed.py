@@ -2,6 +2,7 @@ from json import load
 from ..models import *
 from ..helpers import jsonLog as jl
 import logging
+import traceback
 
 # Funciones para guardar y cargar el seed de la base de datos como JSON, se guardan en io_log/Setup
 # Se usan para seedear la test-database creada por Pytest
@@ -51,51 +52,37 @@ def loadAllSeeds():
 
 # seed tabla asignatura_real
 def loadAsignaturaReal():
-    try:
-        asignaturasReales = jl.readJSONFile('Setup', 'AsignaturasReales')
-        for AR in asignaturasReales:
-            asignatura = asignatura_real(**AR)
-            asignatura.save()
-    except Exception as e:
-        logging.error("Error al guardar seed de asignatura_real: ", e)    
+    asignaturasReales = jl.readJSONFile('Setup', 'AsignaturasReales')
+    for AR in asignaturasReales:
+        asignatura = asignatura_real(**AR)
+        asignatura.save()
 
 # seed tabla malla_curricular
 def loadMallaCurricular():
-    try:
-        mallasCurriculares = jl.readJSONFile('Setup', 'MallasCurriculares')
-        for MC in mallasCurriculares:
-            malla = malla_curricular(**MC)
-            malla.save()
-    except Exception as e:
-        logging.error("Error al guardar seed de malla_curricular: ", e)
+    mallasCurriculares = jl.readJSONFile('Setup', 'MallasCurriculares')
+    for MC in mallasCurriculares:
+        malla = malla_curricular(**MC)
+        malla.save()
+
 
 # seed tabla malla_curricular_to_asignatura_real
 def loadMallaAsignatura():
-    try:
-        mallaAsignatura = jl.readJSONFile('Setup', 'MallaAsignatura')
-        for MA in mallaAsignatura:
-            mallaAsig = malla_curricular.to_asignatura_real.through(**MA)
-            mallaAsig.save()        
-    except Exception as e:
-        logging.error("Error al guardar seed de malla_asignatura: ", e)
+    mallaAsignatura = jl.readJSONFile('Setup', 'MallaAsignatura')
+    for MA in mallaAsignatura:
+        mallaAsig = malla_curricular.to_asignatura_real.through(**MA)
+        mallaAsig.save()        
 
 # seed tabla asignatura_real_equivale
 def loadEquivalencias():
-    try:
-        equivalencias = jl.readJSONFile('Setup', 'Equivalencias')
-        for EQ in equivalencias:
-            equivalencia = asignatura_real.equivale.through(**EQ)
-            equivalencia.save()
-    except Exception as e:
-        logging.error("Error al guardar seed de Equivalencias", e)
+    equivalencias = jl.readJSONFile('Setup', 'Equivalencias')
+    for EQ in equivalencias:
+        equivalencia = asignatura_real.equivale.through(**EQ)
+        equivalencia.save()
 
 # seed tabla asignatura_real_prerrequisito
 def loadPrerrequisitos():
-    try:
-        prerrequisitos = jl.readJSONFile('Setup', 'Prerrequisitos')
-        for PR in prerrequisitos:
-            prerrequisito = asignatura_real.prerrequisito.through(**PR)
-            prerrequisito.save()
-    except Exception as e:
-        logging.error("Error al guardar seed de Prerrequisitos", e)
+    prerrequisitos = jl.readJSONFile('Setup', 'Prerrequisitos')
+    for PR in prerrequisitos:
+        prerrequisito = asignatura_real.prerrequisito.through(**PR)
+        prerrequisito.save()
 
