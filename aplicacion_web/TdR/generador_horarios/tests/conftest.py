@@ -17,4 +17,4 @@ def seedDB(db):
 
 @pytest.fixture
 def setupOferta(db, seedDB):
-    jl.loadOferta("Oferta2021-1") # contine tablas: seccion, seccion_to_asignatura, evento, cfg_areas
+    jl.loadOferta("Oferta2021-1") # (incluye oferta de cfgs) contine tablas: seccion, seccion_to_asignatura, evento, cfg_areas

@@ -1,0 +1,906 @@
+{
+  "title": "malla 2020 con todo aprobado <= a semestre 6 (sin practicas)",
+  "stateInput": {
+    "user_id": 6,
+    "nodos_asignatura": [
+      {
+        "id": 1568,
+        "holgura": 2,
+        "ef": 2,
+        "es": 1,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "08",
+        "kk": "18",
+        "critico": false,
+        "to_asignatura_real_id": "CFG4",
+        "to_user_id": 6
+      },
+      {
+        "id": 1569,
+        "holgura": 2,
+        "ef": 2,
+        "es": 1,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "08",
+        "kk": "21",
+        "critico": false,
+        "to_asignatura_real_id": "CII2100",
+        "to_user_id": 6
+      },
+      {
+        "id": 1570,
+        "holgura": 1,
+        "ef": 2,
+        "es": 1,
+        "ls": 2,
+        "lf": 3,
+        "cc": "00",
+        "uu": "09",
+        "kk": "23",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2012",
+        "to_user_id": 6
+      },
+      {
+        "id": 1571,
+        "holgura": 1,
+        "ef": 2,
+        "es": 1,
+        "ls": 2,
+        "lf": 3,
+        "cc": "00",
+        "uu": "09",
+        "kk": "24",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2111",
+        "to_user_id": 6
+      },
+      {
+        "id": 1572,
+        "holgura": 0,
+        "ef": 3,
+        "es": 2,
+        "ls": 2,
+        "lf": 3,
+        "cc": "00",
+        "uu": "10",
+        "kk": "26",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2206",
+        "to_user_id": 6
+      },
+      {
+        "id": 1573,
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "08",
+        "kk": "13",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3000",
+        "to_user_id": 6
+      },
+      {
+        "id": 1574,
+        "holgura": 2,
+        "ef": 2,
+        "es": 1,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "08",
+        "kk": "19",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2113",
+        "to_user_id": 6
+      },
+      {
+        "id": 1575,
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "08",
+        "kk": "12",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3202",
+        "to_user_id": 6
+      },
+      {
+        "id": 1576,
+        "holgura": 0,
+        "ef": 4,
+        "es": 3,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "10",
+        "kk": "17",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2207",
+        "to_user_id": 6
+      },
+      {
+        "id": 1577,
+        "holgura": 0,
+        "ef": 5,
+        "es": 4,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "10",
+        "kk": "07",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3203",
+        "to_user_id": 6
+      },
+      {
+        "id": 1578,
+        "holgura": 2,
+        "ef": 2,
+        "es": 1,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "08",
+        "kk": "25",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2011",
+        "to_user_id": 6
+      },
+      {
+        "id": 1579,
+        "holgura": 1,
+        "ef": 3,
+        "es": 2,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "09",
+        "kk": "20",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2112",
+        "to_user_id": 6
+      },
+      {
+        "id": 1580,
+        "holgura": 2,
+        "ef": 2,
+        "es": 1,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "08",
+        "kk": "18",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2013",
+        "to_user_id": 6
+      },
+      {
+        "id": 1581,
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "08",
+        "kk": "15",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3100",
+        "to_user_id": 6
+      },
+      {
+        "id": 1582,
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "lf": 2,
+        "cc": "10",
+        "uu": "10",
+        "kk": "06",
+        "critico": true,
+        "to_asignatura_real_id": "CIT4000",
+        "to_user_id": 6
+      },
+      {
+        "id": 1583,
+        "holgura": 0,
+        "ef": 5,
+        "es": 4,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "10",
+        "kk": "05",
+        "critico": false,
+        "to_asignatura_real_id": "CIT4001",
+        "to_user_id": 6
+      },
+      {
+        "id": 1584,
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "08",
+        "kk": "16",
+        "critico": false,
+        "to_asignatura_real_id": "CITOPTINF1",
+        "to_user_id": 6
+      },
+      {
+        "id": 1585,
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "08",
+        "kk": "11",
+        "critico": false,
+        "to_asignatura_real_id": "CITOPTINF2",
+        "to_user_id": 6
+      },
+      {
+        "id": 1586,
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "08",
+        "kk": "08",
+        "critico": false,
+        "to_asignatura_real_id": "CITOPTINF3",
+        "to_user_id": 6
+      },
+      {
+        "id": 1587,
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "08",
+        "kk": "14",
+        "critico": false,
+        "to_asignatura_real_id": "CITOPTTEL1",
+        "to_user_id": 6
+      },
+      {
+        "id": 1588,
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "08",
+        "kk": "10",
+        "critico": false,
+        "to_asignatura_real_id": "CITOPTTEL2",
+        "to_user_id": 6
+      },
+      {
+        "id": 1589,
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "08",
+        "kk": "09",
+        "critico": false,
+        "to_asignatura_real_id": "CITOPTTEL3",
+        "to_user_id": 6
+      },
+      {
+        "id": 1590,
+        "holgura": 0,
+        "ef": 0,
+        "es": 0,
+        "ls": 0,
+        "lf": 0,
+        "cc": "00",
+        "uu": "10",
+        "kk": "04",
+        "critico": false,
+        "to_asignatura_real_id": "FINAL3",
+        "to_user_id": 6
+      }
+    ],
+    "nodos_seccion": [
+      {
+        "id": 6271,
+        "ss": 1,
+        "to_seccion_id": "CFG2017_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6262,
+        "ss": 1,
+        "to_seccion_id": "CFG2029_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6248,
+        "ss": 1,
+        "to_seccion_id": "CFG2059_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6249,
+        "ss": 1,
+        "to_seccion_id": "CFG2084_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6257,
+        "ss": 1,
+        "to_seccion_id": "CFG2086_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6258,
+        "ss": 1,
+        "to_seccion_id": "CFG2098_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6263,
+        "ss": 1,
+        "to_seccion_id": "CFG2140_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6250,
+        "ss": 1,
+        "to_seccion_id": "CFG2143_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6264,
+        "ss": 1,
+        "to_seccion_id": "CFG2189_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6265,
+        "ss": 1,
+        "to_seccion_id": "CFG2203_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6272,
+        "ss": 1,
+        "to_seccion_id": "CFG2209_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6266,
+        "ss": 1,
+        "to_seccion_id": "CFG2253_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6251,
+        "ss": 1,
+        "to_seccion_id": "CFG2259_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6273,
+        "ss": 2,
+        "to_seccion_id": "CFG2273_CB02",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6259,
+        "ss": 1,
+        "to_seccion_id": "CFG2285_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6274,
+        "ss": 1,
+        "to_seccion_id": "CFG2294_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6267,
+        "ss": 1,
+        "to_seccion_id": "CFG2295_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6253,
+        "ss": 1,
+        "to_seccion_id": "CFG2296_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6268,
+        "ss": 1,
+        "to_seccion_id": "CFG2308_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6254,
+        "ss": 1,
+        "to_seccion_id": "CFG2325_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6255,
+        "ss": 2,
+        "to_seccion_id": "CFG2335_CB02",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6275,
+        "ss": 1,
+        "to_seccion_id": "CFG2341_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6261,
+        "ss": 1,
+        "to_seccion_id": "CFG2343_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6276,
+        "ss": 1,
+        "to_seccion_id": "CFG2356_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6256,
+        "ss": 1,
+        "to_seccion_id": "CFG2366_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6269,
+        "ss": 1,
+        "to_seccion_id": "CFG2369_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6270,
+        "ss": 1,
+        "to_seccion_id": "CFG2378_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6260,
+        "ss": 1,
+        "to_seccion_id": "CFG5006_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6252,
+        "ss": 1,
+        "to_seccion_id": "CFG5010_FG01",
+        "to_nodo_asignatura_id": 1568
+      },
+      {
+        "id": 6277,
+        "ss": 1,
+        "to_seccion_id": "CII2100_FG01",
+        "to_nodo_asignatura_id": 1569
+      },
+      {
+        "id": 6278,
+        "ss": 2,
+        "to_seccion_id": "CII2100_FG02",
+        "to_nodo_asignatura_id": 1569
+      },
+      {
+        "id": 6279,
+        "ss": 3,
+        "to_seccion_id": "CII2100_FG03",
+        "to_nodo_asignatura_id": 1569
+      },
+      {
+        "id": 6280,
+        "ss": 4,
+        "to_seccion_id": "CII2100_FG04",
+        "to_nodo_asignatura_id": 1569
+      },
+      {
+        "id": 6281,
+        "ss": 1,
+        "to_seccion_id": "CIT2012_CA01",
+        "to_nodo_asignatura_id": 1570
+      },
+      {
+        "id": 6282,
+        "ss": 1,
+        "to_seccion_id": "CIT3200_VC01",
+        "to_nodo_asignatura_id": 1576
+      },
+      {
+        "id": 6283,
+        "ss": 1,
+        "to_seccion_id": "CIT3201_VC01",
+        "to_nodo_asignatura_id": 1577
+      },
+      {
+        "id": 6284,
+        "ss": 1,
+        "to_seccion_id": "CIT3325_CA01",
+        "to_nodo_asignatura_id": 1584
+      },
+      {
+        "id": 6286,
+        "ss": 1,
+        "to_seccion_id": "CIT3325_CA01",
+        "to_nodo_asignatura_id": 1585
+      },
+      {
+        "id": 6288,
+        "ss": 1,
+        "to_seccion_id": "CIT3325_CA01",
+        "to_nodo_asignatura_id": 1586
+      },
+      {
+        "id": 6287,
+        "ss": 1,
+        "to_seccion_id": "CIT3348_CA01",
+        "to_nodo_asignatura_id": 1585
+      },
+      {
+        "id": 6285,
+        "ss": 1,
+        "to_seccion_id": "CIT3348_CA01",
+        "to_nodo_asignatura_id": 1584
+      },
+      {
+        "id": 6289,
+        "ss": 1,
+        "to_seccion_id": "CIT3348_CA01",
+        "to_nodo_asignatura_id": 1586
+      }
+    ]
+  },
+  "output": [
+    [
+      {
+        "nombre": "EL SIGLO XX: TRANSFORMACIONES Y CONFLICT",
+        "horario": " MI 08:30",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CFG4",
+        "eventos": [
+          {
+            "bloque": "MI_08",
+            "tipo": "CATEDRA",
+            "profesor": "MENEGHELLO RAIMUNDO GUILLERM"
+          }
+        ],
+        "cod_seccion": "CFG2285_FG01"
+      },
+      {
+        "nombre": "INTRODUCCION A LA ECONOMIA",
+        "horario": " MA 11:30 MI 14:30 VI 11:30",
+        "nro_seccion": "4",
+        "cod_asignatura_real": "CII2100",
+        "eventos": [
+          {
+            "bloque": "MA_11",
+            "tipo": "CATEDRA",
+            "profesor": "CALCAGNO JAIME ALBERTO"
+          },
+          {
+            "bloque": "MI_14",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_11",
+            "tipo": "CATEDRA",
+            "profesor": "CALCAGNO JAIME ALBERTO"
+          }
+        ],
+        "cod_seccion": "CII2100_FG04"
+      },
+      {
+        "nombre": "INGENIERIA DE SOFTWARE",
+        "horario": " MA 16:00 MI 16:00 VI 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2012",
+        "eventos": [
+          {
+            "bloque": "MA_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          },
+          {
+            "bloque": "MI_16",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          }
+        ],
+        "cod_seccion": "CIT2012_CA01"
+      }
+    ],
+    [
+      {
+        "nombre": "CREYENTES, AGNOSTICOS Y ATEOS EN LA ERA",
+        "horario": " MI 08:30",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CFG4",
+        "eventos": [
+          {
+            "bloque": "MI_08",
+            "tipo": "CATEDRA",
+            "profesor": "OTERO EDISON HERMES"
+          }
+        ],
+        "cod_seccion": "CFG2253_FG01"
+      },
+      {
+        "nombre": "INTRODUCCION A LA ECONOMIA",
+        "horario": " MA 11:30 MI 14:30 VI 11:30",
+        "nro_seccion": "4",
+        "cod_asignatura_real": "CII2100",
+        "eventos": [
+          {
+            "bloque": "MA_11",
+            "tipo": "CATEDRA",
+            "profesor": "CALCAGNO JAIME ALBERTO"
+          },
+          {
+            "bloque": "MI_14",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_11",
+            "tipo": "CATEDRA",
+            "profesor": "CALCAGNO JAIME ALBERTO"
+          }
+        ],
+        "cod_seccion": "CII2100_FG04"
+      },
+      {
+        "nombre": "INGENIERIA DE SOFTWARE",
+        "horario": " MA 16:00 MI 16:00 VI 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2012",
+        "eventos": [
+          {
+            "bloque": "MA_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          },
+          {
+            "bloque": "MI_16",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          }
+        ],
+        "cod_seccion": "CIT2012_CA01"
+      }
+    ],
+    [
+      {
+        "nombre": "EDUCACION SUPERIOR EN CHILE: DESAFIOS Y",
+        "horario": " JU 11:30",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CFG4",
+        "eventos": [
+          {
+            "bloque": "JU_11",
+            "tipo": "CATEDRA",
+            "profesor": "MONTT PEDRO NOLASCO"
+          }
+        ],
+        "cod_seccion": "CFG2203_FG01"
+      },
+      {
+        "nombre": "INTRODUCCION A LA ECONOMIA",
+        "horario": " MA 11:30 MI 14:30 VI 11:30",
+        "nro_seccion": "4",
+        "cod_asignatura_real": "CII2100",
+        "eventos": [
+          {
+            "bloque": "MA_11",
+            "tipo": "CATEDRA",
+            "profesor": "CALCAGNO JAIME ALBERTO"
+          },
+          {
+            "bloque": "MI_14",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_11",
+            "tipo": "CATEDRA",
+            "profesor": "CALCAGNO JAIME ALBERTO"
+          }
+        ],
+        "cod_seccion": "CII2100_FG04"
+      },
+      {
+        "nombre": "INGENIERIA DE SOFTWARE",
+        "horario": " MA 16:00 MI 16:00 VI 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2012",
+        "eventos": [
+          {
+            "bloque": "MA_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          },
+          {
+            "bloque": "MI_16",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          }
+        ],
+        "cod_seccion": "CIT2012_CA01"
+      }
+    ],
+    [
+      {
+        "nombre": "REVOLUCIONES DE LA HISTORIA CONTEMPORANE",
+        "horario": " JU 11:30",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CFG4",
+        "eventos": [
+          {
+            "bloque": "JU_11",
+            "tipo": "B-LEARNING 01",
+            "profesor": "SCHNEUER MARIA JOSE"
+          }
+        ],
+        "cod_seccion": "CFG2098_FG01"
+      },
+      {
+        "nombre": "INTRODUCCION A LA ECONOMIA",
+        "horario": " MA 11:30 MI 14:30 VI 11:30",
+        "nro_seccion": "4",
+        "cod_asignatura_real": "CII2100",
+        "eventos": [
+          {
+            "bloque": "MA_11",
+            "tipo": "CATEDRA",
+            "profesor": "CALCAGNO JAIME ALBERTO"
+          },
+          {
+            "bloque": "MI_14",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_11",
+            "tipo": "CATEDRA",
+            "profesor": "CALCAGNO JAIME ALBERTO"
+          }
+        ],
+        "cod_seccion": "CII2100_FG04"
+      },
+      {
+        "nombre": "INGENIERIA DE SOFTWARE",
+        "horario": " MA 16:00 MI 16:00 VI 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2012",
+        "eventos": [
+          {
+            "bloque": "MA_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          },
+          {
+            "bloque": "MI_16",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          }
+        ],
+        "cod_seccion": "CIT2012_CA01"
+      }
+    ],
+    [
+      {
+        "nombre": "B-LEARNING HIS. DEL DOCUMENTAL CONTEM.",
+        "horario": " MA 20:15",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CFG4",
+        "eventos": [
+          {
+            "bloque": "MA_20",
+            "tipo": "B-LEARNING 01",
+            "profesor": "LIENDO DANIELA ANDREA"
+          }
+        ],
+        "cod_seccion": "CFG5006_FG01"
+      },
+      {
+        "nombre": "INTRODUCCION A LA ECONOMIA",
+        "horario": " MA 11:30 MI 14:30 VI 11:30",
+        "nro_seccion": "4",
+        "cod_asignatura_real": "CII2100",
+        "eventos": [
+          {
+            "bloque": "MA_11",
+            "tipo": "CATEDRA",
+            "profesor": "CALCAGNO JAIME ALBERTO"
+          },
+          {
+            "bloque": "MI_14",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_11",
+            "tipo": "CATEDRA",
+            "profesor": "CALCAGNO JAIME ALBERTO"
+          }
+        ],
+        "cod_seccion": "CII2100_FG04"
+      },
+      {
+        "nombre": "INGENIERIA DE SOFTWARE",
+        "horario": " MA 16:00 MI 16:00 VI 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2012",
+        "eventos": [
+          {
+            "bloque": "MA_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          },
+          {
+            "bloque": "MI_16",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          }
+        ],
+        "cod_seccion": "CIT2012_CA01"
+      }
+    ]
+  ]
+}

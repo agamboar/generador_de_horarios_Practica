@@ -7,8 +7,17 @@ from .models import *
 # seria bueno modularizar esta funcion
 
 def get_clique_max_pond(current_user):
-    datos_clique = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user, to_nodo_asignatura__es=1,to_seccion__vacantes_libres__gt=0).values('to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre').order_by('-to_seccion__to_asignatura_real__importancia', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__cod_seccion').distinct() # en el order_by, para que es el primer guion en "-to_seccion__to_asignatura_real__importancia"? el guion es para ordenar ascendente
+    datos_clique = nodo_seccion.objects.filter(
+        to_nodo_asignatura__to_user=current_user, 
+        to_nodo_asignatura__es=1,
+        to_seccion__vacantes_libres__gt=0
+    ).exclude(to_seccion__evento=None).values( # en el excel hay secciones que tienen vacantes libres pero no eventos (ej. CIT1010_CA01 en malla 2021-1)
+        'to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre'
+    ).order_by(
+        '-to_seccion__to_asignatura_real__importancia', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__cod_seccion'
+    ).distinct() # en el order_by, para que es el primer guion en "-to_seccion__to_asignatura_real__importancia"? el guion es para ordenar ascendente
     G = nx.Graph()
+    cccc = 0
 
     if len(datos_clique)==0:
         return "n"
@@ -43,36 +52,50 @@ def get_clique_max_pond(current_user):
                     continue
             else:
                 continue
+        try:  
+            horario = (
+                elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']
+            )
+            cccc+= 1
+        except Exception as exc:
+            traceback.print_exc()
+            print("elem: " , elem)
+            print("elem['to_seccion__evento__dia'] : ",elem['to_seccion__evento__dia'] )
+            print("elem['to_seccion__evento__modulo'] : ", elem['to_seccion__evento__modulo'])
+            print("cantidad de iteraciones exitosas: ", cccc)
+            raise Exception("Error al intentar crear variable horario") from exc
 
-            
-        horario = (
-            elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']
-        ) 
 
+        try:
+            # elimina las tildes de catedra y ayudantia
+            if elem['to_seccion__evento__tipo'][0] == 'C':
+                tipo = 'CATEDRA'
+            elif elem['to_seccion__evento__tipo'][0] == 'A':
+                tipo = 'AYUDANTIA'
+            elif elem['to_seccion__evento__tipo'][0] == 'L':
+                tipo = 'LABORATORIO'
+            else:
+                tipo = elem['to_seccion__evento__tipo']
 
-        # elimina las tildes de catedra y ayudantia
-        if elem['to_seccion__evento__tipo'][0] == 'C':
-            tipo = 'CATEDRA'
-        elif elem['to_seccion__evento__tipo'][0] == 'A':
-            tipo = 'AYUDANTIA'
-        elif elem['to_seccion__evento__tipo'][0] == 'L':
-            tipo = 'LABORATORIO'
+            prof = elem['to_seccion__evento__profesor']
 
-        prof = elem['to_seccion__evento__profesor']
+            # Algoritmo para eliminar las Ñ y las tildes de los nombres de profesores de la oferta academica.
+            if prof != '':
+                a, b = 'ÁÉÍÓÚÑáéíóúñ', 'AEIOUNaeioun'
+                trans = str.maketrans(a, b)
+                prof_modificado = prof.translate(trans)
+            else:
+                prof_modificado = ''
 
-        # Algoritmo para eliminar las Ñ y las tildes de los nombres de profesores de la oferta academica.
-        if prof != '':
-            a, b = 'ÁÉÍÓÚÑáéíóúñ', 'AEIOUNaeioun'
-            trans = str.maketrans(a, b)
-            prof_modificado = prof.translate(trans)
-        else:
-            prof_modificado = ''
+            evento = {
+                'bloque': elem['to_seccion__evento__dia'] + '_' + elem['to_seccion__evento__modulo'][0:2],
+                'tipo': tipo, 
+                'profesor': prof_modificado
+            }
+        except Exception as exc:
+            traceback.print_exc()
+            print("elem : ", elem)
 
-        evento = {
-            'bloque': elem['to_seccion__evento__dia'] + '_' + elem['to_seccion__evento__modulo'][0:2],
-            'tipo': tipo, 
-            'profesor': prof_modificado
-        }
 
         #se agregan los nodos del grafo (1 vez por cada evento, eventos de la misma seccion sobre-escriben el nodo)
         if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_nodo_asignatura__to_asignatura_real__codigo']:
@@ -105,8 +128,6 @@ def get_clique_max_pond(current_user):
                 except asignatura_real.DoesNotExist:
                     traceback.print_exc()
                     nombre_ramo = 'CURSO FORMACION GENERAL'
-                else:
-                    print("en clique.py: nombre ramo cfg: ", nombre_ramo)
 
 
             nro_seccion = elem['to_seccion__num_seccion']

@@ -82,11 +82,7 @@ def import_malla(request):
             arr_secciones = read_secciones(excel_file)
             arr_eventos = read_eventos(excel_file)
 
-            with suppress(seccion.DoesNotExist, evento.DoesNotExist):
-                # hacer la sentencia SQL TRUNCATE generador_horarios_evento RESTART IDENTITY CASCADE; para resetear los ID
-                seccion.objects.exclude(cod_seccion__contains='CFG').delete()
-                evento.objects.exclude(to_seccion__contains='CFG').delete()
-
+            utils.clearOfertaMalla()
             added_sec = 0
             for elem in arr_secciones:
                     a = asignatura_real.objects.get(codigo=elem[6])
@@ -105,7 +101,8 @@ def import_malla(request):
 
             return JsonResponse({'cantidad':added_sec,'description': "Oferta subida!"}, status=200)
         except Exception:
-            return JsonResponse({'cantidad':0,'description': "Error en import_malla: " + traceback.format_exc}, status=500)
+            traceback.print_exc()
+            return JsonResponse({'cantidad':0,'description': "Error en import_malla: " + traceback.format_exc()}, status=500)
 
 
 @csrf_exempt
@@ -148,7 +145,8 @@ def import_cfg(request):
 
             return JsonResponse({'cantidad': added_cfg ,'description': "CFG subidos!"}, status=200)
         except Exception:
-            return JsonResponse({'cantidad': added_cfg ,'description': "Error en import_cfg: " + traceback.format_exc}, status=500)
+            traceback.print_exc()
+            return JsonResponse({'cantidad': added_cfg ,'description': "Error en import_cfg: " + traceback.format_exc()}, status=500)
 
 
 @csrf_exempt
@@ -157,17 +155,17 @@ def upload_mi_malla(request):
     if request.method == "POST":
         try:
             current_user = request.POST.getlist('id')[0]
-            #print(current_user)
+         
             excel_file = request.FILES["file"]
             codigos = read_mi_malla(excel_file)
             user = User.objects.get(id=current_user)
-            #print(user)
+           
+            with suppress(ObjectDoesNotExist):
+                asignatura_cursada.objects.filter(to_User=current_user).delete()
+                nodo_asignatura.objects.filter(to_user=current_user).delete()
+                nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user).delete()
+                solucion.objects.filter(to_user=current_user).delete()
 
-            asignatura_cursada.objects.filter(to_User=current_user).delete()
-            nodo_asignatura.objects.filter(to_user=current_user).delete()
-            nodo_seccion.objects.filter(
-                to_nodo_asignatura__to_user=current_user).delete()
-            solucion.objects.filter(to_user=current_user).delete()
             avance_academico_user = avance_academico.objects.get(
                 to_user_id=current_user)
             avance_academico_user.json_avance = {}
@@ -203,7 +201,8 @@ def upload_mi_malla(request):
 
             return JsonResponse({'description': "Malla Subida."}, status=status.HTTP_201_CREATED)
         except Exception:
-            return JsonResponse({'description': "Malla Subida."}, status=500)
+            traceback.print_exc()
+            return JsonResponse({'description': "Error al subir malla."}, status=500)
 
 
 @api_view(['GET'])
@@ -221,7 +220,7 @@ def get_PERT(request):
             new_dict = {}
             new_dict.update({"PERT": {}})
             new_dict["malla"] = "empty"
-            # print(new_dict)
+     
             return Response(new_dict)
 
         if avance_academico_user.json_avance == {}: #el PERT se borra cuando se modifica el avance, solo se calcula el PERT si esta vacio. 
@@ -240,11 +239,11 @@ def get_PERT(request):
 
             serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
             aux_pert = serializer.data
-            #print("guardo el json")
+            # "guardo el json"
             avance_academico_user.json_avance = serializer.data
             avance_academico_user.save()
         else:
-            #print("uso el json")
+            # "uso el json" 
             aux_pert = avance_academico_user.json_avance
 
         new_dict = {}
@@ -252,75 +251,75 @@ def get_PERT(request):
         new_dict["malla"] = agno_malla
 
 
-        jl.createStateTestCase(
-            'PERT', TEST_CASE["fileName"], 
+        if ENABLED: jl.createStateTestCase_PERT(
+            TEST_CASE["fileName"], 
             stateBefore, new_dict, 
             TEST_CASE["title"]
         )
 
         return Response(new_dict)
 
+ENABLED = False
 TEST_CASE = {
-    "fileName": 'case1',
-    "title": 'malla 2010 con 0 ramos aprobados'
+    "fileName": 'case99',
+    "title": 'testing'
 }
 
 @api_view(['GET'])
 def get_clique(request):
     if request.method == "GET":
-        current_user = request.user.id
+        try:
+            current_user = request.user.id
 
-        stateBefore = stc.getState_beforeClique(current_user)
+            stateBefore = stc.getState_beforeClique(current_user)
 
-        user = User.objects.get(id=current_user)
-        existen_soluciones = False
+            user = User.objects.get(id=current_user)
+            existen_soluciones = False
 
-        sol = solucion.objects.filter(to_user=current_user) # un usuario tiene una solucion por horario recomendado
-        if sol: existen_soluciones = True
+            sol = solucion.objects.filter(to_user=current_user) # un usuario tiene una solucion por horario recomendado
+            if sol: existen_soluciones = True
 
-        if not existen_soluciones: #las soluciones se borran cada vez que se modifica algun valor
+            if not existen_soluciones: #las soluciones se borran cada vez que se modifica algun valor
 
-            jsons = get_clique_max_pond(current_user)
-            
-            for recomendacion in jsons:
+                jsons = get_clique_max_pond(current_user)
+                
+                for recomendacion in jsons:
 
-                counters = {'json_solucion': recomendacion,
-                            'is_horario': False,
-                            'to_user': user
-                            }
-                solucion_alumno = solucion(is_horario=False, to_user=user)
-                if recomendacion != "n":
-                    solucion_alumno.json_solucion = recomendacion
-                    solucion_alumno.save()
+                    counters = {'json_solucion': recomendacion,
+                                'is_horario': False,
+                                'to_user': user
+                                }
+                    solucion_alumno = solucion(is_horario=False, to_user=user)
+                    if recomendacion != "n":
+                        solucion_alumno.json_solucion = recomendacion
+                        solucion_alumno.save()
 
-                # asociar los objetos nodo_seccion a el objeto solucion               
-                for elem2 in recomendacion:
+                    # asociar los objetos nodo_seccion a el objeto solucion               
+                    for elem2 in recomendacion:
 
-                    nodoSeccion = nodo_seccion.objects.filter(
-                        to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
+                        nodoSeccion = nodo_seccion.objects.filter(
+                            to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
 
-                    solucion_alumno.to_nodo_seccion.add(nodoSeccion)
-            
+                        solucion_alumno.to_nodo_seccion.add(nodoSeccion)
+                # 'guardo el json'
+            else:
+                #pasar variable "sol" a "jsons"
+                jsons = []
+                for elem in sol:
+                    jsons.append(elem.json_solucion)
+                if jsons == []:
+                    jsons ="n"
+                # 'uso el json' # esto no va aca
 
-            #print('guardo el json')
-        else:
-            #pasar variable "sol" a "jsons"
-            jsons = []
-            for elem in sol:
-                jsons.append(elem.json_solucion)
-            if jsons == []:
-                jsons ="n"
-            #print('uso el json') # esto no va aca
-
-        #print(jsons)
-
-        jl.createStateTestCase(
-            'Clique', TEST_CASE["fileName"],
-            stateBefore, jsons,
-            TEST_CASE["title"]
-        )
-
-        return Response(jsons, status=status.HTTP_200_OK)
+            if ENABLED: jl.createStateTestCase_Clique(
+                TEST_CASE["fileName"],
+                stateBefore, jsons,
+                TEST_CASE["title"]
+            )
+            return Response(jsons, status=status.HTTP_200_OK)
+        except Exception:
+            traceback.print_exc()
+            return Response("Error en get_clique: " + traceback.format_exc(), status=500)
 
 
 @api_view(['POST'])
@@ -388,15 +387,14 @@ def mi_malla_manual(request):
         today = date.today()
         codigos_aprobados = []
         malla = json_data['malla']
-        semestre = []
-        print(json_data)
+        semestre = utils.getSemestreActual()
 
-        if 1 <= today.month <= 6:
-            s = str(today.year)+'-1'
-            semestre.append(s)
-        elif 7 <= today.month <= 12:
-            s = str(today.year)+'-2'
-            semestre.append(s)
+        # if 1 <= today.month <= 6:
+        #     s = str(today.year)+'-1'
+        #     semestre.append(s)
+        # elif 7 <= today.month <= 12:
+        #     s = str(today.year)+'-2'
+        #     semestre.append(s)
 
         for elem in json_data:
 
@@ -445,12 +443,6 @@ def mi_malla_manual(request):
         avance = avance_academico.objects.get(
             semestre=semestre, to_user=user)
 
-        if av is avance: print("**av y avance apuntan al mismo objeto")
-        else: print("**av y avance apuntan a objetos diferentes")
-        if av == avance: print("**av y avance tienen el msimo valor")
-        else: print("**av y avance tienen valor diferente")
-        print(av)
-        print(avance)
 
         for elem in codigos_aprobados:
 
@@ -461,11 +453,10 @@ def mi_malla_manual(request):
             a.save()
 
         avance_academico_user = avance_academico.objects.get(
-            to_user_id=current_user) # to_user_id no es unique por si solo en avance_academico (!)
+            to_user_id=current_user, semestre=semestre) # to_user_id no es unique por si solo en avance_academico (!)
         avance_academico_user.json_avance = {}
         avance_academico_user.save()
 
-        print(avance_academico_user)
 
         return JsonResponse(json_data, safe=False, status=status.HTTP_201_CREATED)
 
@@ -495,7 +486,6 @@ def get_nodo_seccion(request): # esto no se esta usando
         json['id'] = elem.id
         json['ss'] = elem.ss
 
-        #print(json)
         json_array.append(json)
 
     return JsonResponse(json_array, safe=False, status=status.HTTP_200_OK)
@@ -528,7 +518,7 @@ def PERT_es1(request):
         current_user = request.user.id
         ns = nodo_asignatura.objects.annotate(int_kk = Cast('kk',output_field=IntegerField())).filter(to_user=current_user, es=1).order_by('-int_kk')
         serializer = nodoAsignaturaSerializer(ns, many=True)
-        #print(serializer.data)
+
         if serializer.data  == []:
             return JsonResponse("no", safe=False, status=status.HTTP_200_OK)
         else:
@@ -557,7 +547,7 @@ def get_asignaturas_cursadas(request):
 def set_staff(request):
     if request.method == "POST":
         current_user = request.user.id
-        #print(request.data)
+
         if User.objects.get(id=current_user).is_staff:
             try:
                 aux_new_staff=User.objects.get(username=request.data)
@@ -576,7 +566,7 @@ def set_staff(request):
 def remove_staff(request):
     if request.method == "POST":
         current_user = request.user.id
-        #print(request.data)
+
         if User.objects.get(id=current_user).is_staff:
             try:
                 aux_new_staff=User.objects.get(username=request.data)
@@ -643,7 +633,12 @@ def get_secciones_disponibles(request, codigo):
         current_user = request.user.id
         secciones_disponibles =[]
         
-        secciones_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo).values('to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor','to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id','ss').order_by('-ss').distinct()  
+        secciones_disponibles = nodo_seccion.objects.filter(
+            to_nodo_asignatura__to_user = current_user,to_nodo_asignatura__to_asignatura_real__codigo=codigo
+        ).exclude(to_seccion__evento=None).values(
+            'to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor',
+            'to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id','ss'
+        ).order_by('-ss').distinct()  
         
         if len(secciones_disponibles) == 0:
             return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_204_NO_CONTENT)
@@ -653,7 +648,7 @@ def get_secciones_disponibles(request, codigo):
                 prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
             except prioridad_cfg.DoesNotExist:
                 prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
-            #print(prio_area_cfg)
+  
         aux_retornar = []
         aux_horario = []
         #aux_codigo_sec = secciones_disponibles[0]['to_seccion__cod_seccion'] #agregar al final tambien
@@ -669,16 +664,19 @@ def get_secciones_disponibles(request, codigo):
             if cod_sec[0:3] == "CFG":
                 current_cfg_area = cfg_areas.objects.get(codigo = cod_sec[0:7]).area
                 if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
-                    #print(current_cfg_area)
+ 
                     pass
                 else:
                     continue
+            try:
+                horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']+ ' | ')
+            except Exception as exc:
+                raise Exception("Seccion no tiene evento o evento no tiene horario asociado") from exc
 
-            horario = (elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']+ ' | ')
-              
+        
             if elem['to_seccion__evento__tipo'][0] == 'C' or elem['to_seccion__evento__tipo'][0] == 'B':
-                prof = elem['to_seccion__evento__profesor']
-
+                    prof = elem['to_seccion__evento__profesor']
+         
 
             cod_sec = elem['to_seccion__cod_seccion']
             numb_seccion = elem['to_seccion__num_seccion']

@@ -72,6 +72,16 @@ def loadState_beforePERT(fileName):
     state = readJSONFile('PERT', fileName)
     stc.setState_beforePERT(state)
 
+def createStateTestCase_PERT(fileName, stateBefore, output, title="---"):
+    for AC in stateBefore["asignaturas_cursadas"]:
+        del AC["fecha_modificacion"]
+
+    testCase = dict()
+    testCase["title"] = title
+    testCase["stateInput"] = stateBefore
+    testCase["output"] = output
+    writeJSONFile('PERT/stateTestCases', fileName, testCase)
+
 #Clique
 def saveState_beforeClique(userId, fileName):
     beforeClique = stc.getState_beforeClique(userId)
@@ -86,11 +96,15 @@ def loadState_beforeClique(userId, fileName):
     state = readJSONFile('Clique', fileName)
     stc.setState_beforeClique(state)
 
-#Casos de Prueba
-def createStateTestCase(folderName, fileName, stateBefore, output, title="---"):
+def createStateTestCase_Clique(fileName, stateBefore, output, title="---"):
+    for NA in stateBefore["nodos_asignatura"]:
+        del NA["fecha_mod"]
+    for NS in stateBefore["nodos_seccion"]:
+        del NS["fecha_mod"]
+
     testCase = dict()
     testCase["title"] = title
     testCase["stateInput"] = stateBefore
     testCase["output"] = output
-    writeJSONFile(folderName + '/stateTestCases', fileName, testCase)
+    writeJSONFile('Clique/stateTestCases', fileName, testCase)
 
