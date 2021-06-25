@@ -32,10 +32,11 @@ from .tasks import *
 from .PERT import *
 from .clique import *
 
-from .helpers import jsonLog as jl, utils, DBSeed
+from .helpers import jsonLog as jl, utils, DBSeed, stateControl as stc
 import traceback
 from contextlib import suppress # 'try: ... except ExceptionName: pass' == 'with suppress(ExceptionName): ...'
 from django.core.exceptions import *
+
 
 # Create your views here.
 
@@ -207,27 +208,10 @@ def upload_mi_malla(request):
 
 @api_view(['GET'])
 def get_PERT(request):
-
-    # DBSeed.saveAllSeeds()
-        # --- Descomentar para guardar seed.
-        # Los archivos .csv de DB_data deben estar cargados para que funcione.
-
-    # utils.clearOfertaCFG()
-        # --- Descomentar para limpiar datos cfgs de base de datos
-
-    # jl.saveOferta("Oferta2021-1")
-        # --- Descomentar para guardar oferta
-
-    # jl.saveState_beforePERT(request.user.id, 'lastState-beforePERT')
-        # --- Descomentar para guardar avance
-
-    # try:
-    #     User.objects.get(id=99)
-    # except User.DoesNotExist:
-    #     traceback.print_exc()
     if request.method == "GET":
-
         user_id = request.user.id
+        stateBefore = stc.getState_beforePERT(user_id)
+
         try: 
             avance_academico_user = avance_academico.objects.get(to_user_id=user_id)
             avance_academico_user_json = avance_academico_user.json_avance
@@ -266,21 +250,28 @@ def get_PERT(request):
         new_dict = {}
         new_dict.update({"PERT": aux_pert})
         new_dict["malla"] = agno_malla
-        # print(new_dict)
-        
-        jl.writeJSONFile('PERT', 'lastOutput-get_PERT', new_dict) # guarda el output de PERT como json en la carpeta "io_log/PERT"
+
+
+        jl.createStateTestCase(
+            'PERT', TEST_CASE["fileName"], 
+            stateBefore, new_dict, 
+            TEST_CASE["title"]
+        )
 
         return Response(new_dict)
 
+TEST_CASE = {
+    "fileName": 'case1',
+    "title": 'malla 2010 con 0 ramos aprobados'
+}
 
 @api_view(['GET'])
 def get_clique(request):
-
-    jl.saveState_beforeClique(request.user.id, "lastCliqueInput")
-
     if request.method == "GET":
-
         current_user = request.user.id
+
+        stateBefore = stc.getState_beforeClique(current_user)
+
         user = User.objects.get(id=current_user)
         existen_soluciones = False
 
@@ -323,7 +314,11 @@ def get_clique(request):
 
         #print(jsons)
 
-        jl.writeJSONFile('Clique','lastOutput-get_clique', jsons)
+        jl.createStateTestCase(
+            'Clique', TEST_CASE["fileName"],
+            stateBefore, jsons,
+            TEST_CASE["title"]
+        )
 
         return Response(jsons, status=status.HTTP_200_OK)
 
