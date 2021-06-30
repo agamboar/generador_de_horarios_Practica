@@ -6,52 +6,29 @@ from .models import *
 
 # seria bueno modularizar esta funcion
 
-def getData(userId):
-    data = dict()
-    
-    data["datos_clique"] = nodo_seccion.objects.filter(
-        to_nodo_asignatura__to_user=userId, 
+def get_clique_max_pond(current_user):
+    datos_clique = nodo_seccion.objects.filter(
+        to_nodo_asignatura__to_user=current_user, 
         to_nodo_asignatura__es=1,
         to_seccion__vacantes_libres__gt=0
     ).exclude(to_seccion__evento=None).values( # en el excel hay secciones que tienen vacantes libres pero no eventos (ej. CIT1010_CA01 en malla 2021-1)
         'to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre'
     ).order_by(
         '-to_seccion__to_asignatura_real__importancia', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__cod_seccion'
-    ).distinct()
-
-    # data["nombres_ramo"] =dict()
-    data["cfg_areas"] = dict()
-    for event in data["datos_clique"]:
-        event["nombre_ramo"] = event['to_seccion__to_asignatura_real__nombre']
-        codigo = event['to_nodo_asignatura__to_asignatura_real__codigo']
-        if codigo[0:3] == "CFG":
-            event["cfg_area"] = cfg_areas.objects.get(codigo = event["to_seccion__cod_seccion"][0:7]).area
-            try:# cambia el nombre de la cajita "CFG" por el nombre real del curso.
-                cod_asignatura = event["to_seccion__cod_seccion"][0:7]
-                event["nombre_ramo"] = asignatura_real.objects.get(codigo=cod_asignatura).nombre
-            except asignatura_real.DoesNotExist:
-                traceback.print_exc()
-                event["nombre_ramo"] = 'CURSO FORMACION GENERAL'
-
-    data["prioridad_cfg"] = prioridad_cfg.objects.filter(to_user = userId).values('area').order_by('prioridad')
-    if len(data["prioridad_cfg"]) < 2:
-        data["prioridad_cfg"] = [{'area': "Ciencias Sociales"}, {'area': "Ciencia y Sociedad"}]
-
-    return data
-
-
-
-def get_clique_max_pond(current_user):
-
-    data = getData(current_user)
-    datos_clique = data["datos_clique"] 
+    ).distinct() # en el order_by, para que es el primer guion en "-to_seccion__to_asignatura_real__importancia"? el guion es para ordenar ascendente
     G = nx.Graph()
+    cccc = 0
 
     if len(datos_clique)==0:
         return "n"
 
-    prio_area_cfg = data["prioridad_cfg"]
+
+    prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
+    len_prio_area_cfg = len(prio_area_cfg)
     count_prio = 0
+    if len_prio_area_cfg < 2:
+        prio_area_cfg = [{'area': "Ciencias Sociales"}, {'area': "Ciencia y Sociedad"}]
+        len_prio_area_cfg = len(prio_area_cfg)
 
     current_cfg_number = "0" #esto es para los cfg
     aux_seccion = datos_clique[0]['to_seccion__cod_seccion']
@@ -60,21 +37,31 @@ def get_clique_max_pond(current_user):
     aux_eventos = []
     for elem in datos_clique:
         codigo = elem['to_nodo_asignatura__to_asignatura_real__codigo']
+        # aca hacer un get prio del alumno, luego get area del cfg if es del area que se esta evaluando in else pass and if code i != code i+1 continue con la siguiente area break en el area 2 
         if codigo[0:3] == "CFG":
             if count_prio <= 2:# esto limita la cantidad de cfg
                 if current_cfg_number != codigo[3]:
                     current_cfg_number = codigo[3]
                     count_prio+=1
-                if not (elem["cfg_area"] == prio_area_cfg[0]['area'] or elem["cfg_area"] == prio_area_cfg[1]['area']): # se saltan cfgs que no son prio 1 o 2.
+
+                current_cfg_area = cfg_areas.objects.get(codigo = elem["to_seccion__cod_seccion"][0:7]).area
+                if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']: # se consideran los cfg de las primeras areas
+                    pass
+                else:
                     continue
             else:
                 continue
-
         try:  
             horario = (
                 elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']
             )
+            cccc+= 1
         except Exception as exc:
+            traceback.print_exc()
+            print("elem: " , elem)
+            print("elem['to_seccion__evento__dia'] : ",elem['to_seccion__evento__dia'] )
+            print("elem['to_seccion__evento__modulo'] : ", elem['to_seccion__evento__modulo'])
+            print("cantidad de iteraciones exitosas: ", cccc)
             raise Exception("Error al intentar crear variable horario") from exc
 
 
@@ -130,13 +117,22 @@ def get_clique_max_pond(current_user):
             ss = str(elem['ss']) if len(str(elem['ss'])) > 1 else ("0" + str(elem['ss']))
 
             prioridad = int(cc+uu+kk+ss)
+            nombre_ramo = elem['to_seccion__to_asignatura_real__nombre']
 
+            # cambia el nombre de la cajita "CFG" por el nombre real del curso.
+            if nombre_ramo[0:3] == 'CFG':
+                try:
+                    cod_asignatura = elem["to_seccion__cod_seccion"][0:7]
+                    nombre_ramo = asignatura_real.objects.get(codigo=cod_asignatura).nombre
+                except asignatura_real.DoesNotExist:
+                    traceback.print_exc()
+                    nombre_ramo = 'CURSO FORMACION GENERAL'
 
 
             nro_seccion = elem['to_seccion__num_seccion']
             if nro_seccion != "99": # las pruebas de eximicion de ingles tienen nro_seccion 99.
                 G.add_nodes_from([str(codigo + "   - " + elem["to_seccion__cod_seccion"])],
-                                 horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=elem['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=elem["nombre_ramo"], eventos=aux_eventos, cod_asignatura_real=elem['to_seccion__to_asignatura_real__codigo']) # no entiendo muy bien la composicion de uno de estos nodos [?] Cual es la diferencia entre horario y eventos? Agrega 1 nodo o multiples nodos?
+                                 horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=elem['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=nombre_ramo, eventos=aux_eventos, cod_asignatura_real=elem['to_seccion__to_asignatura_real__codigo']) # no entiendo muy bien la composicion de uno de estos nodos [?] Cual es la diferencia entre horario y eventos? Agrega 1 nodo o multiples nodos?
 
             list_node = list(G.nodes.items())
                            
