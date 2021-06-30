@@ -1,9 +1,9 @@
 {
-  "title": "malla 2020 con primer semestre aprobado",
+  "title": "malla 2020 con primer semestre aprobado por completo.",
   "stateInput": {
     "user_id": 6,
     "tabla_avance": {
-      "id": 13,
+      "id": 24,
       "semestre": "2021-1",
       "json_avance": {},
       "fgd_count": 0,
@@ -15,49 +15,49 @@
     },
     "asignaturas_cursadas": [
       {
-        "id": 81,
+        "id": 229,
         "codigo": "CBM1000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBM1000",
-        "to_avance_academico_id": 13
+        "to_avance_academico_id": 24
       },
       {
-        "id": 82,
+        "id": 230,
         "codigo": "CBM1001",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBM1001",
-        "to_avance_academico_id": 13
+        "to_avance_academico_id": 24
       },
       {
-        "id": 83,
+        "id": 231,
         "codigo": "CBQ1000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBQ1000",
-        "to_avance_academico_id": 13
+        "to_avance_academico_id": 24
       },
       {
-        "id": 84,
+        "id": 232,
         "codigo": "CIT1000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT1000",
-        "to_avance_academico_id": 13
+        "to_avance_academico_id": 24
       },
       {
-        "id": 85,
+        "id": 233,
         "codigo": "FIC1000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "FIC1000",
-        "to_avance_academico_id": 13
+        "to_avance_academico_id": 24
       }
     ]
   },

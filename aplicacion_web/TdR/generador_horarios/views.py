@@ -208,119 +208,121 @@ def upload_mi_malla(request):
 @api_view(['GET'])
 def get_PERT(request):
     if request.method == "GET":
-        user_id = request.user.id
-        stateBefore = stc.getState_beforePERT(user_id)
+        try:
+            user_id = request.user.id
+            return Response(calc_PERT(user_id))
+        except Exception:
+            traceback.print_exc()
+            return Response("Error al calcular PERT.", status=500)
 
-        try: 
-            avance_academico_user = avance_academico.objects.get(to_user_id=user_id)
-            avance_academico_user_json = avance_academico_user.json_avance
-            agno_malla = avance_academico.objects.get(to_user_id=user_id).agno_malla
-            # agno_malla = alumno.objects.get(to_user_id=user_id).to_malla
-        except avance_academico.DoesNotExist:
-            new_dict = {}
-            new_dict.update({"PERT": {}})
-            new_dict["malla"] = "empty"
-     
-            return Response(new_dict)
-
-        if avance_academico_user.json_avance == {}: #el PERT se borra cuando se modifica el avance, solo se calcula el PERT si esta vacio. 
-            codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(to_User=user_id).values_list('codigo', flat=True)
-
-            codigos_ramos_malla = asignatura_real.objects.filter(malla_curricular__agno=agno_malla, tipo=0).values_list('codigo', flat=True)
-
-            nodo_asignatura.objects.filter(to_user=user_id).delete()
-
-            getRamoCritico(codigos_asignaturas_cursadas,codigos_ramos_malla, user_id)
-
-            add_nodo_seccion(user_id)
-
-            ramos_disponibles = nodo_asignatura.objects.filter(
-                to_user__id=user_id, to_asignatura_real__tipo=0)
-
-            serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
-            aux_pert = serializer.data
-            # "guardo el json"
-            avance_academico_user.json_avance = serializer.data
-            avance_academico_user.save()
-        else:
-            # "uso el json" 
-            aux_pert = avance_academico_user.json_avance
-
-        new_dict = {}
-        new_dict.update({"PERT": aux_pert})
-        new_dict["malla"] = agno_malla
-
-
-        if ENABLED: jl.createStateTestCase_PERT(
-            TEST_CASE["fileName"], 
-            stateBefore, new_dict, 
-            TEST_CASE["title"]
-        )
-
-        return Response(new_dict)
 
 ENABLED = False
 TEST_CASE = {
     "fileName": 'case99',
-    "title": 'testing'
+    "title": 'test.'
 }
+
+def calc_PERT(user_id):
+    stateBefore = stc.getState_beforePERT(user_id)
+
+    try: 
+        avance_academico_user = avance_academico.objects.get(to_user_id=user_id)
+        avance_academico_user_json = avance_academico_user.json_avance
+        agno_malla = avance_academico.objects.get(to_user_id=user_id).agno_malla
+        # agno_malla = alumno.objects.get(to_user_id=user_id).to_malla
+    except avance_academico.DoesNotExist:
+        new_dict = {}
+        new_dict.update({"PERT": {}})
+        new_dict["malla"] = "empty"
+    
+        return Response(new_dict)
+
+    if avance_academico_user.json_avance == {}: #el PERT se borra cuando se modifica el avance, solo se calcula el PERT si esta vacio. 
+        codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(to_User=user_id).values_list('codigo', flat=True)
+        codigos_ramos_malla = asignatura_real.objects.filter(malla_curricular__agno=agno_malla, tipo=0).values_list('codigo', flat=True)
+
+        nodo_asignatura.objects.filter(to_user=user_id).delete()
+
+        getRamoCritico(codigos_asignaturas_cursadas,codigos_ramos_malla, user_id)
+        add_nodo_seccion(user_id)
+
+        ramos_disponibles = nodo_asignatura.objects.filter(
+            to_user__id=user_id, to_asignatura_real__tipo=0
+        )
+        serializer = nodoAsignaturaSerializer(ramos_disponibles, many=True)
+        aux_pert = serializer.data
+        # "guardo el json"
+        avance_academico_user.json_avance = serializer.data
+        avance_academico_user.save()
+    else:
+        # "uso el json" 
+        aux_pert = avance_academico_user.json_avance
+
+    new_dict = {}
+    new_dict.update({"PERT": aux_pert})
+    new_dict["malla"] = agno_malla
+
+    if ENABLED: jl.createStateTestCase_PERT(
+        TEST_CASE["fileName"], 
+        stateBefore, new_dict, 
+        TEST_CASE["title"]
+    )
+    return new_dict
+
+
 
 @api_view(['GET'])
 def get_clique(request):
     if request.method == "GET":
         try:
-            current_user = request.user.id
-
-            stateBefore = stc.getState_beforeClique(current_user)
-
-            user = User.objects.get(id=current_user)
-            existen_soluciones = False
-
-            sol = solucion.objects.filter(to_user=current_user) # un usuario tiene una solucion por horario recomendado
-            if sol: existen_soluciones = True
-
-            if not existen_soluciones: #las soluciones se borran cada vez que se modifica algun valor
-
-                jsons = get_clique_max_pond(current_user)
-                
-                for recomendacion in jsons:
-
-                    counters = {'json_solucion': recomendacion,
-                                'is_horario': False,
-                                'to_user': user
-                                }
-                    solucion_alumno = solucion(is_horario=False, to_user=user)
-                    if recomendacion != "n":
-                        solucion_alumno.json_solucion = recomendacion
-                        solucion_alumno.save()
-
-                    # asociar los objetos nodo_seccion a el objeto solucion               
-                    for elem2 in recomendacion:
-
-                        nodoSeccion = nodo_seccion.objects.filter(
-                            to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
-
-                        solucion_alumno.to_nodo_seccion.add(nodoSeccion)
-                # 'guardo el json'
-            else:
-                #pasar variable "sol" a "jsons"
-                jsons = []
-                for elem in sol:
-                    jsons.append(elem.json_solucion)
-                if jsons == []:
-                    jsons ="n"
-                # 'uso el json' # esto no va aca
-
-            if ENABLED: jl.createStateTestCase_Clique(
-                TEST_CASE["fileName"],
-                stateBefore, jsons,
-                TEST_CASE["title"]
-            )
-            return Response(jsons, status=status.HTTP_200_OK)
+            user_id = request.user.id
+            solucion = calc_clique(user_id)
+            return Response(solucion, status=status.HTTP_200_OK)
         except Exception:
             traceback.print_exc()
             return Response("Error en get_clique: " + traceback.format_exc(), status=500)
 
+def calc_clique(current_user):
+    stateBefore = stc.getState_beforeClique(current_user)
+
+    user = User.objects.get(id=current_user)
+    existen_soluciones = False
+
+    sol = solucion.objects.filter(to_user=current_user) # un usuario tiene una solucion por horario recomendado
+    if sol: existen_soluciones = True
+
+    if not existen_soluciones: #las soluciones se borran cada vez que se modifica algun valor
+        jsons = get_clique_max_pond(current_user)       
+        for recomendacion in jsons:
+            counters = {'json_solucion': recomendacion,
+                        'is_horario': False,
+                        'to_user': user
+                        }
+            solucion_alumno = solucion(is_horario=False, to_user=user)
+            if recomendacion != "n":
+                solucion_alumno.json_solucion = recomendacion
+                solucion_alumno.save()
+            # asociar los objetos nodo_seccion a el objeto solucion               
+            for elem2 in recomendacion:
+                nodoSeccion = nodo_seccion.objects.filter(
+                    to_seccion__cod_seccion=elem2['cod_seccion'], to_nodo_asignatura__to_user=current_user)[0]
+
+                solucion_alumno.to_nodo_seccion.add(nodoSeccion)
+        # 'guardo el json'
+    else:
+        #pasar variable "sol" a "jsons"
+        jsons = []
+        for elem in sol:
+            jsons.append(elem.json_solucion)
+        if jsons == []:
+            jsons ="n"
+        # 'uso el json' # esto no va aca
+    if ENABLED: jl.createStateTestCase_Clique(
+        TEST_CASE["fileName"],
+        stateBefore, jsons,
+        TEST_CASE["title"]
+    )
+    return jsons
 
 @api_view(['POST'])
 def asignar_kk(request):
@@ -389,13 +391,6 @@ def mi_malla_manual(request):
         malla = json_data['malla']
         semestre = utils.getSemestreActual()
 
-        # if 1 <= today.month <= 6:
-        #     s = str(today.year)+'-1'
-        #     semestre.append(s)
-        # elif 7 <= today.month <= 12:
-        #     s = str(today.year)+'-2'
-        #     semestre.append(s)
-
         for elem in json_data:
 
             if 'CFG' in elem and json_data[elem] == True:
@@ -421,13 +416,8 @@ def mi_malla_manual(request):
                         'error': 'Comprueba que los datos ingresados sean válidos.'
                     }, safe=True, status=status.HTTP_409_CONFLICT)
 
-        with suppress(ObjectDoesNotExist):
-            asignatura_cursada.objects.filter(to_User=current_user).delete()
-            nodo_asignatura.objects.filter(to_user=current_user).delete()
-            nodo_seccion.objects.filter(
-                to_nodo_asignatura__to_user=current_user).delete()
-            solucion.objects.filter(to_user=current_user).delete()
-
+        stc.resetAvance(current_user, semestre)
+    
         counters = {'semestre': semestre,
                     'cfg_count': cfg_count,
                     'einf_count': einf_count,

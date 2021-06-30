@@ -22,14 +22,13 @@ def get_clique_max_pond(current_user):
     if len(datos_clique)==0:
         return "n"
 
-    try:
-        prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
+
+    prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
+    len_prio_area_cfg = len(prio_area_cfg)
+    count_prio = 0
+    if len_prio_area_cfg < 2:
+        prio_area_cfg = [{'area': "Ciencias Sociales"}, {'area': "Ciencia y Sociedad"}]
         len_prio_area_cfg = len(prio_area_cfg)
-        count_prio = 0
-    except prioridad_cfg.DoesNotExist:
-        prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
-        len_prio_area_cfg = len(prio_area_cfg)
-        count_prio = 0
 
     current_cfg_number = "0" #esto es para los cfg
     aux_seccion = datos_clique[0]['to_seccion__cod_seccion']

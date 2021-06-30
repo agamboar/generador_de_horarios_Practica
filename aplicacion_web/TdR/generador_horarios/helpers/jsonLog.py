@@ -1,6 +1,7 @@
 
 import json
 import logging
+from os import write
 from ..models import *
 from . import utils
 from . import stateControl as stc
@@ -44,20 +45,12 @@ def loadOferta(fileName): #fileName no debe incluir ".json"
     # Carga los datos de la oferta academica desde archivo json. Se debe crear el json con saveOferta primero para que funcione
     utils.clearOfertaMalla()
     utils.clearOfertaCFG()
-
     oferta = readJSONFile('Setup', fileName)
-    for S in oferta["secciones"]:
-        sec = seccion(**S)
-        sec.save()
-    for SA in oferta["seccionAsignatura"]:
-        secAsig = seccion.to_asignatura_real.through(**SA)
-        secAsig.save()
-    for E in oferta["eventos"]:
-        ev = evento(**E)
-        ev.save()
-    for CA in oferta["cfgAreas"]:
-        cfgArea = cfg_areas(**CA)
-        cfgArea.save()
+
+    for sec in oferta["secciones"]: seccion(**sec).save()
+    for secAsig in oferta["seccionAsignatura"]: seccion.to_asignatura_real.through(**secAsig).save()
+    for event in oferta["eventos"]: evento(**event).save()
+    for cfgArea in oferta["cfgAreas"]: cfg_areas(**cfgArea).save()
 
 #PERT
 def saveState_beforePERT(userId, fileName):
@@ -90,6 +83,8 @@ def saveState_beforeClique(userId, fileName):
         del NA["fecha_mod"]
     for NS in beforeClique["nodos_seccion"]:
         del NS["fecha_mod"]
+    for PC in beforeClique["prioridades_cfg"]:
+        del PC["fecha_mod"]
     writeJSONFile('Clique', fileName, beforeClique)
 
 def loadState_beforeClique(userId, fileName):
@@ -101,6 +96,8 @@ def createStateTestCase_Clique(fileName, stateBefore, output, title="---"):
         del NA["fecha_mod"]
     for NS in stateBefore["nodos_seccion"]:
         del NS["fecha_mod"]
+    for PC in stateBefore["prioridades_cfg"]:
+        del PC["fecha_mod"]
 
     testCase = dict()
     testCase["title"] = title
@@ -108,3 +105,13 @@ def createStateTestCase_Clique(fileName, stateBefore, output, title="---"):
     testCase["output"] = output
     writeJSONFile('Clique/stateTestCases', fileName, testCase)
 
+#User
+
+def saveUsersState(fileName):
+    users = list(User.objects.all().values())
+    usersDict = dict()
+    for user in users:
+        del user["last_login"]
+        del user["date_joined"]
+        usersDict[user["id"]] = user
+    writeJSONFile('Users', fileName, usersDict)

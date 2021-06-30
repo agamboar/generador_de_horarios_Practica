@@ -1,9 +1,9 @@
 {
-  "title": "malla 2010 con todo aprobado <= a semestre 6 (sin practicas)",
+  "title": "malla 2010 con semestres <= 6to aprobados por completo (sin incluir practicas).",
   "stateInput": {
     "user_id": 6,
     "tabla_avance": {
-      "id": 14,
+      "id": 25,
       "semestre": "2021-1",
       "json_avance": {},
       "fgd_count": 0,
@@ -15,292 +15,292 @@
     },
     "asignaturas_cursadas": [
       {
-        "id": 86,
+        "id": 234,
         "codigo": "CBM1000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBM1000",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 87,
+        "id": 235,
         "codigo": "CBM1001",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBM1001",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 88,
+        "id": 236,
         "codigo": "CBQ1000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBQ1000",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 89,
+        "id": 237,
         "codigo": "CIT1000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT1000",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 90,
+        "id": 238,
         "codigo": "FIC1000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "FIC1000",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 91,
+        "id": 239,
         "codigo": "CBM1002",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBM1002",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 92,
+        "id": 240,
         "codigo": "CBM1003",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBM1003",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 93,
+        "id": 241,
         "codigo": "CBF1000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBF1000",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 94,
+        "id": 242,
         "codigo": "CIT1010",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT1010",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 95,
+        "id": 243,
         "codigo": "CFG1",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CFG1",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 96,
+        "id": 244,
         "codigo": "CBM1005",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBM1005",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 97,
+        "id": 245,
         "codigo": "CBM1006",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBM1006",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 98,
+        "id": 246,
         "codigo": "CBF1001",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBF1001",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 99,
+        "id": 247,
         "codigo": "CIT2000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2000",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 100,
+        "id": 248,
         "codigo": "CIT2100",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2100",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 101,
+        "id": 249,
         "codigo": "CIT2204",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2204",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 102,
+        "id": 250,
         "codigo": "CBM2000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBM2000",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 103,
+        "id": 251,
         "codigo": "CBF1002",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CBF1002",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 104,
+        "id": 252,
         "codigo": "CIT2001",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2001",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 105,
+        "id": 253,
         "codigo": "CFG2",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CFG2",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 106,
+        "id": 254,
         "codigo": "FIC1001",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "FIC1001",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 107,
+        "id": 255,
         "codigo": "CII2750",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CII2750",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 108,
+        "id": 256,
         "codigo": "CIT2106",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2106",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 109,
+        "id": 257,
         "codigo": "CIT2200",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2200",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 110,
+        "id": 258,
         "codigo": "CIT2002",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2002",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 111,
+        "id": 259,
         "codigo": "CFG3",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CFG3",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 112,
+        "id": 260,
         "codigo": "FIC1002",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "FIC1002",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 113,
+        "id": 261,
         "codigo": "CII2000",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CII2000",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 114,
+        "id": 262,
         "codigo": "CIT2202",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2202",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 115,
+        "id": 263,
         "codigo": "CIT2101",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2101",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 116,
+        "id": 264,
         "codigo": "CIT2003",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2003",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       },
       {
-        "id": 117,
+        "id": 265,
         "codigo": "CIT2103",
         "nota": 0.0,
         "estado": "",
         "to_User_id": 6,
         "to_asignatura_real_id": "CIT2103",
-        "to_avance_academico_id": 14
+        "to_avance_academico_id": 25
       }
     ]
   },

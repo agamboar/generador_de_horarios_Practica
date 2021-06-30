@@ -1,4 +1,4 @@
-from ..models import seccion, evento, cfg_areas
+from ..models import *
 from datetime import date
 from contextlib import suppress
 from django.core.exceptions import *
@@ -20,3 +20,13 @@ def clearOfertaMalla():
     with suppress(ObjectDoesNotExist):
         seccion.objects.exclude(cod_seccion__contains='CFG').delete()
         evento.objects.exclude(to_seccion__cod_seccion__contains='CFG').delete()  
+
+def ordered(obj): # ordena recursivamente objeto con diccionarios como elementos. (para comparar jsons)
+    if isinstance(obj, dict):
+        return sorted((k, ordered(v)) for k, v in obj.items())
+    if isinstance(obj, list):
+        return sorted(ordered(x) for x in obj)
+    else:
+        return obj
+
+

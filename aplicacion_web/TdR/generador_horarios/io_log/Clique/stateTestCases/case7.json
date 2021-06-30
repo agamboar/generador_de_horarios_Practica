@@ -1,10 +1,10 @@
 {
-  "title": "malla 2010 con todo aprobado <= a semestre 6 (sin practicas)",
+  "title": "malla 2010 con semestres <= 6to aprobados por completo (sin incluir practicas).",
   "stateInput": {
     "user_id": 6,
     "nodos_asignatura": [
       {
-        "id": 1522,
+        "id": 1988,
         "holgura": 2,
         "ef": 2,
         "es": 1,
@@ -18,7 +18,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1523,
+        "id": 1989,
         "holgura": 0,
         "ef": 2,
         "es": 1,
@@ -32,7 +32,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1524,
+        "id": 1990,
         "holgura": 0,
         "ef": 2,
         "es": 1,
@@ -46,7 +46,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1525,
+        "id": 1991,
         "holgura": 2,
         "ef": 2,
         "es": 1,
@@ -60,7 +60,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1526,
+        "id": 1992,
         "holgura": 2,
         "ef": 2,
         "es": 1,
@@ -74,7 +74,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1527,
+        "id": 1993,
         "holgura": 2,
         "ef": 2,
         "es": 1,
@@ -88,7 +88,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1528,
+        "id": 1994,
         "holgura": 1,
         "ef": 3,
         "es": 2,
@@ -102,7 +102,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1529,
+        "id": 1995,
         "holgura": 2,
         "ef": 2,
         "es": 1,
@@ -116,7 +116,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1530,
+        "id": 1996,
         "holgura": 0,
         "ef": 3,
         "es": 2,
@@ -130,7 +130,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1531,
+        "id": 1997,
         "holgura": 2,
         "ef": 2,
         "es": 1,
@@ -144,7 +144,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1532,
+        "id": 1998,
         "holgura": 0,
         "ef": 4,
         "es": 3,
@@ -158,7 +158,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1533,
+        "id": 1999,
         "holgura": 0,
         "ef": 5,
         "es": 4,
@@ -172,7 +172,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1534,
+        "id": 2000,
         "holgura": 2,
         "ef": 3,
         "es": 2,
@@ -186,7 +186,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1535,
+        "id": 2001,
         "holgura": 2,
         "ef": 3,
         "es": 2,
@@ -200,7 +200,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1536,
+        "id": 2002,
         "holgura": 2,
         "ef": 3,
         "es": 2,
@@ -214,7 +214,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1537,
+        "id": 2003,
         "holgura": 2,
         "ef": 3,
         "es": 2,
@@ -228,7 +228,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1538,
+        "id": 2004,
         "holgura": 2,
         "ef": 3,
         "es": 2,
@@ -242,7 +242,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1539,
+        "id": 2005,
         "holgura": 2,
         "ef": 3,
         "es": 2,
@@ -256,7 +256,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1540,
+        "id": 2006,
         "holgura": 2,
         "ef": 3,
         "es": 2,
@@ -270,7 +270,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1541,
+        "id": 2007,
         "holgura": 2,
         "ef": 3,
         "es": 2,
@@ -284,7 +284,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1542,
+        "id": 2008,
         "holgura": 2,
         "ef": 2,
         "es": 1,
@@ -298,7 +298,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1543,
+        "id": 2009,
         "holgura": 1,
         "ef": 4,
         "es": 3,
@@ -312,7 +312,7 @@
         "to_user_id": 6
       },
       {
-        "id": 1544,
+        "id": 2010,
         "holgura": 0,
         "ef": 0,
         "es": 0,
@@ -328,424 +328,450 @@
     ],
     "nodos_seccion": [
       {
-        "id": 6142,
+        "id": 8614,
         "ss": 1,
         "to_seccion_id": "CFG2017_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6133,
+        "id": 8605,
         "ss": 1,
         "to_seccion_id": "CFG2029_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6119,
+        "id": 8591,
         "ss": 1,
         "to_seccion_id": "CFG2059_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6120,
+        "id": 8592,
         "ss": 1,
         "to_seccion_id": "CFG2084_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6128,
+        "id": 8600,
         "ss": 1,
         "to_seccion_id": "CFG2086_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6129,
+        "id": 8601,
         "ss": 1,
         "to_seccion_id": "CFG2098_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6134,
+        "id": 8606,
         "ss": 1,
         "to_seccion_id": "CFG2140_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6121,
+        "id": 8593,
         "ss": 1,
         "to_seccion_id": "CFG2143_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6135,
+        "id": 8607,
         "ss": 1,
         "to_seccion_id": "CFG2189_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6136,
+        "id": 8608,
         "ss": 1,
         "to_seccion_id": "CFG2203_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6143,
+        "id": 8615,
         "ss": 1,
         "to_seccion_id": "CFG2209_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6137,
+        "id": 8609,
         "ss": 1,
         "to_seccion_id": "CFG2253_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6122,
+        "id": 8594,
         "ss": 1,
         "to_seccion_id": "CFG2259_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6144,
+        "id": 8616,
         "ss": 2,
         "to_seccion_id": "CFG2273_CB02",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6130,
+        "id": 8602,
         "ss": 1,
         "to_seccion_id": "CFG2285_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6145,
+        "id": 8617,
         "ss": 1,
         "to_seccion_id": "CFG2294_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6138,
+        "id": 8610,
         "ss": 1,
         "to_seccion_id": "CFG2295_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6124,
+        "id": 8596,
         "ss": 1,
         "to_seccion_id": "CFG2296_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6139,
+        "id": 8611,
         "ss": 1,
         "to_seccion_id": "CFG2308_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6125,
+        "id": 8597,
         "ss": 1,
         "to_seccion_id": "CFG2325_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6126,
+        "id": 8598,
         "ss": 2,
         "to_seccion_id": "CFG2335_CB02",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6146,
+        "id": 8618,
         "ss": 1,
         "to_seccion_id": "CFG2341_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6132,
+        "id": 8604,
         "ss": 1,
         "to_seccion_id": "CFG2343_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6147,
+        "id": 8619,
         "ss": 1,
         "to_seccion_id": "CFG2356_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6127,
+        "id": 8599,
         "ss": 1,
         "to_seccion_id": "CFG2366_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6140,
+        "id": 8612,
         "ss": 1,
         "to_seccion_id": "CFG2369_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6141,
+        "id": 8613,
         "ss": 1,
         "to_seccion_id": "CFG2378_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6131,
+        "id": 8603,
         "ss": 1,
         "to_seccion_id": "CFG5006_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6123,
+        "id": 8595,
         "ss": 1,
         "to_seccion_id": "CFG5010_FG01",
-        "to_nodo_asignatura_id": 1531
+        "to_nodo_asignatura_id": 1997
       },
       {
-        "id": 6108,
+        "id": 8580,
         "ss": 1,
         "to_seccion_id": "CII1000_FG01",
-        "to_nodo_asignatura_id": 1522
+        "to_nodo_asignatura_id": 1988
       },
       {
-        "id": 6109,
+        "id": 8581,
         "ss": 2,
         "to_seccion_id": "CII1000_FG02",
-        "to_nodo_asignatura_id": 1522
+        "to_nodo_asignatura_id": 1988
       },
       {
-        "id": 6115,
+        "id": 8587,
         "ss": 1,
         "to_seccion_id": "CIT2004_VC01",
-        "to_nodo_asignatura_id": 1528
+        "to_nodo_asignatura_id": 1994
       },
       {
-        "id": 6110,
+        "id": 8582,
         "ss": 1,
         "to_seccion_id": "CIT2012_CA01",
-        "to_nodo_asignatura_id": 1523
+        "to_nodo_asignatura_id": 1989
       },
       {
-        "id": 6111,
+        "id": 8583,
         "ss": 2,
         "to_seccion_id": "CIT2102_VC02",
-        "to_nodo_asignatura_id": 1524
+        "to_nodo_asignatura_id": 1990
       },
       {
-        "id": 6112,
+        "id": 8584,
         "ss": 1,
         "to_seccion_id": "CIT2104_VC01",
-        "to_nodo_asignatura_id": 1526
+        "to_nodo_asignatura_id": 1992
       },
       {
-        "id": 6113,
+        "id": 8585,
         "ss": 2,
         "to_seccion_id": "CIT2104_VC02",
-        "to_nodo_asignatura_id": 1526
+        "to_nodo_asignatura_id": 1992
       },
       {
-        "id": 6116,
+        "id": 8588,
         "ss": 1,
         "to_seccion_id": "CIT2105_VC01",
-        "to_nodo_asignatura_id": 1529
+        "to_nodo_asignatura_id": 1995
       },
       {
-        "id": 6117,
+        "id": 8589,
         "ss": 2,
         "to_seccion_id": "CIT2105_VC02",
-        "to_nodo_asignatura_id": 1529
+        "to_nodo_asignatura_id": 1995
       },
       {
-        "id": 6118,
+        "id": 8590,
         "ss": 1,
         "to_seccion_id": "CIT2201_VC01",
-        "to_nodo_asignatura_id": 1530
+        "to_nodo_asignatura_id": 1996
       },
       {
-        "id": 6114,
+        "id": 8586,
         "ss": 1,
         "to_seccion_id": "CIT2203_VC01",
-        "to_nodo_asignatura_id": 1527
+        "to_nodo_asignatura_id": 1993
       },
       {
-        "id": 6148,
+        "id": 8620,
         "ss": 1,
         "to_seccion_id": "CIT3200_VC01",
-        "to_nodo_asignatura_id": 1532
+        "to_nodo_asignatura_id": 1998
       },
       {
-        "id": 6149,
+        "id": 8621,
         "ss": 1,
         "to_seccion_id": "CIT3201_VC01",
-        "to_nodo_asignatura_id": 1533
+        "to_nodo_asignatura_id": 1999
       },
       {
-        "id": 6151,
+        "id": 8623,
         "ss": 1,
         "to_seccion_id": "CIT3325_CA01",
-        "to_nodo_asignatura_id": 1534
+        "to_nodo_asignatura_id": 2000
       },
       {
-        "id": 6163,
+        "id": 8635,
         "ss": 1,
         "to_seccion_id": "CIT3325_CA01",
-        "to_nodo_asignatura_id": 1537
+        "to_nodo_asignatura_id": 2003
       },
       {
-        "id": 6159,
+        "id": 8631,
         "ss": 1,
         "to_seccion_id": "CIT3325_CA01",
-        "to_nodo_asignatura_id": 1536
+        "to_nodo_asignatura_id": 2002
       },
       {
-        "id": 6155,
+        "id": 8627,
         "ss": 1,
         "to_seccion_id": "CIT3325_CA01",
-        "to_nodo_asignatura_id": 1535
+        "to_nodo_asignatura_id": 2001
       },
       {
-        "id": 6156,
+        "id": 8628,
         "ss": 1,
         "to_seccion_id": "CIT3342_CA01",
-        "to_nodo_asignatura_id": 1535
+        "to_nodo_asignatura_id": 2001
       },
       {
-        "id": 6160,
+        "id": 8632,
         "ss": 1,
         "to_seccion_id": "CIT3342_CA01",
-        "to_nodo_asignatura_id": 1536
+        "to_nodo_asignatura_id": 2002
       },
       {
-        "id": 6152,
+        "id": 8624,
         "ss": 1,
         "to_seccion_id": "CIT3342_CA01",
-        "to_nodo_asignatura_id": 1534
+        "to_nodo_asignatura_id": 2000
       },
       {
-        "id": 6164,
+        "id": 8636,
         "ss": 1,
         "to_seccion_id": "CIT3342_CA01",
-        "to_nodo_asignatura_id": 1537
+        "to_nodo_asignatura_id": 2003
       },
       {
-        "id": 6158,
+        "id": 8630,
         "ss": 1,
         "to_seccion_id": "CIT3346_CA01",
-        "to_nodo_asignatura_id": 1536
+        "to_nodo_asignatura_id": 2002
       },
       {
-        "id": 6150,
+        "id": 8622,
         "ss": 1,
         "to_seccion_id": "CIT3346_CA01",
-        "to_nodo_asignatura_id": 1534
+        "to_nodo_asignatura_id": 2000
       },
       {
-        "id": 6154,
+        "id": 8626,
         "ss": 1,
         "to_seccion_id": "CIT3346_CA01",
-        "to_nodo_asignatura_id": 1535
+        "to_nodo_asignatura_id": 2001
       },
       {
-        "id": 6162,
+        "id": 8634,
         "ss": 1,
         "to_seccion_id": "CIT3346_CA01",
-        "to_nodo_asignatura_id": 1537
+        "to_nodo_asignatura_id": 2003
       },
       {
-        "id": 6157,
+        "id": 8629,
         "ss": 1,
         "to_seccion_id": "CIT3348_CA01",
-        "to_nodo_asignatura_id": 1535
+        "to_nodo_asignatura_id": 2001
       },
       {
-        "id": 6161,
+        "id": 8633,
         "ss": 1,
         "to_seccion_id": "CIT3348_CA01",
-        "to_nodo_asignatura_id": 1536
+        "to_nodo_asignatura_id": 2002
       },
       {
-        "id": 6153,
+        "id": 8625,
         "ss": 1,
         "to_seccion_id": "CIT3348_CA01",
-        "to_nodo_asignatura_id": 1534
+        "to_nodo_asignatura_id": 2000
       },
       {
-        "id": 6165,
+        "id": 8637,
         "ss": 1,
         "to_seccion_id": "CIT3348_CA01",
-        "to_nodo_asignatura_id": 1537
+        "to_nodo_asignatura_id": 2003
       },
       {
-        "id": 6170,
+        "id": 8642,
         "ss": 1,
         "to_seccion_id": "CIT3416_CA01",
-        "to_nodo_asignatura_id": 1539
+        "to_nodo_asignatura_id": 2005
       },
       {
-        "id": 6166,
+        "id": 8638,
         "ss": 1,
         "to_seccion_id": "CIT3416_CA01",
-        "to_nodo_asignatura_id": 1538
+        "to_nodo_asignatura_id": 2004
       },
       {
-        "id": 6174,
+        "id": 8646,
         "ss": 1,
         "to_seccion_id": "CIT3416_CA01",
-        "to_nodo_asignatura_id": 1540
+        "to_nodo_asignatura_id": 2006
       },
       {
-        "id": 6176,
+        "id": 8648,
         "ss": 1,
         "to_seccion_id": "CIT3417_VC01",
-        "to_nodo_asignatura_id": 1540
+        "to_nodo_asignatura_id": 2006
       },
       {
-        "id": 6168,
+        "id": 8640,
         "ss": 1,
         "to_seccion_id": "CIT3417_VC01",
-        "to_nodo_asignatura_id": 1538
+        "to_nodo_asignatura_id": 2004
       },
       {
-        "id": 6172,
+        "id": 8644,
         "ss": 1,
         "to_seccion_id": "CIT3417_VC01",
-        "to_nodo_asignatura_id": 1539
+        "to_nodo_asignatura_id": 2005
       },
       {
-        "id": 6175,
+        "id": 8647,
         "ss": 1,
         "to_seccion_id": "CIT3420_CA01",
-        "to_nodo_asignatura_id": 1540
+        "to_nodo_asignatura_id": 2006
       },
       {
-        "id": 6171,
+        "id": 8643,
         "ss": 1,
         "to_seccion_id": "CIT3420_CA01",
-        "to_nodo_asignatura_id": 1539
+        "to_nodo_asignatura_id": 2005
       },
       {
-        "id": 6167,
+        "id": 8639,
         "ss": 1,
         "to_seccion_id": "CIT3420_CA01",
-        "to_nodo_asignatura_id": 1538
+        "to_nodo_asignatura_id": 2004
       },
       {
-        "id": 6173,
+        "id": 8645,
         "ss": 1,
         "to_seccion_id": "CIT3423_CA01",
-        "to_nodo_asignatura_id": 1539
+        "to_nodo_asignatura_id": 2005
       },
       {
-        "id": 6177,
+        "id": 8649,
         "ss": 1,
         "to_seccion_id": "CIT3423_CA01",
-        "to_nodo_asignatura_id": 1540
+        "to_nodo_asignatura_id": 2006
       },
       {
-        "id": 6169,
+        "id": 8641,
         "ss": 1,
         "to_seccion_id": "CIT3423_CA01",
-        "to_nodo_asignatura_id": 1538
+        "to_nodo_asignatura_id": 2004
+      }
+    ],
+    "prioridades_cfg": [
+      {
+        "id": 2,
+        "area": "Historia",
+        "prioridad": 1,
+        "to_user_id": 6
+      },
+      {
+        "id": 3,
+        "area": "Ciencias Sociales",
+        "prioridad": 2,
+        "to_user_id": 6
+      },
+      {
+        "id": 4,
+        "area": "Ciencia y Sociedad",
+        "prioridad": 3,
+        "to_user_id": 6
+      },
+      {
+        "id": 5,
+        "area": "Humanidades",
+        "prioridad": 4,
+        "to_user_id": 6
       }
     ]
   },

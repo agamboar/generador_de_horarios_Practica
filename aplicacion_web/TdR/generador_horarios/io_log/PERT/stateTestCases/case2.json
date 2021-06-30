@@ -1,9 +1,9 @@
 {
-  "title": "malla 2018 con 0 ramos aprobados",
+  "title": "malla 2018 con 0 ramos aprobados.",
   "stateInput": {
     "user_id": 6,
     "tabla_avance": {
-      "id": 10,
+      "id": 19,
       "semestre": "2021-1",
       "json_avance": {},
       "fgd_count": 0,
