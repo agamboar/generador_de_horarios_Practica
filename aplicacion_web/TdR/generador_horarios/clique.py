@@ -39,7 +39,32 @@ def getData(userId):
 
     return data
 
+def getParsedEvent(event):
+    # elimina las tildes de catedra y ayudantia
+    if event['to_seccion__evento__tipo'][0] == 'C':
+        tipo = 'CATEDRA'
+    elif event['to_seccion__evento__tipo'][0] == 'A':
+        tipo = 'AYUDANTIA'
+    elif event['to_seccion__evento__tipo'][0] == 'L':
+        tipo = 'LABORATORIO'
+    else:
+        tipo = event['to_seccion__evento__tipo']
 
+    prof = event['to_seccion__evento__profesor']
+
+    # Algoritmo para eliminar las Ñ y las tildes de los nombres de profesores de la oferta academica.
+    if prof != '':
+        a, b = 'ÁÉÍÓÚÑáéíóúñ', 'AEIOUNaeioun'
+        trans = str.maketrans(a, b)
+        prof_modificado = prof.translate(trans)
+    else:
+        prof_modificado = ''
+    parsedEvent = {
+        'bloque': event['to_seccion__evento__dia'] + '_' + event['to_seccion__evento__modulo'][0:2],
+        'tipo': tipo, 
+        'profesor': prof_modificado
+    }
+    return parsedEvent
 
 def get_clique_max_pond(current_user):
 
@@ -64,7 +89,7 @@ def get_clique_max_pond(current_user):
             if count_prio <= 2:# esto limita la cantidad de cfg
                 if current_cfg_number != codigo[3]:
                     current_cfg_number = codigo[3]
-                    count_prio+=1
+                    count_prio+=1 # aqui hay un bug. esto cuenta un cfg a pesar de que este se salte.
                 if not (elem["cfg_area"] == prio_area_cfg[0]['area'] or elem["cfg_area"] == prio_area_cfg[1]['area']): # se saltan cfgs que no son prio 1 o 2.
                     continue
             else:
@@ -78,36 +103,8 @@ def get_clique_max_pond(current_user):
             raise Exception("Error al intentar crear variable horario") from exc
 
 
-        try:
-            # elimina las tildes de catedra y ayudantia
-            if elem['to_seccion__evento__tipo'][0] == 'C':
-                tipo = 'CATEDRA'
-            elif elem['to_seccion__evento__tipo'][0] == 'A':
-                tipo = 'AYUDANTIA'
-            elif elem['to_seccion__evento__tipo'][0] == 'L':
-                tipo = 'LABORATORIO'
-            else:
-                tipo = elem['to_seccion__evento__tipo']
-
-            prof = elem['to_seccion__evento__profesor']
-
-            # Algoritmo para eliminar las Ñ y las tildes de los nombres de profesores de la oferta academica.
-            if prof != '':
-                a, b = 'ÁÉÍÓÚÑáéíóúñ', 'AEIOUNaeioun'
-                trans = str.maketrans(a, b)
-                prof_modificado = prof.translate(trans)
-            else:
-                prof_modificado = ''
-
-            evento = {
-                'bloque': elem['to_seccion__evento__dia'] + '_' + elem['to_seccion__evento__modulo'][0:2],
-                'tipo': tipo, 
-                'profesor': prof_modificado
-            }
-        except Exception as exc:
-            traceback.print_exc()
-            print("elem : ", elem)
-
+        
+        evento = getParsedEvent(elem)
 
         #se agregan los nodos del grafo (1 vez por cada evento, eventos de la misma seccion sobre-escriben el nodo)
         if aux_seccion == elem['to_seccion__cod_seccion'] and aux_codigo == elem['to_nodo_asignatura__to_asignatura_real__codigo']:
