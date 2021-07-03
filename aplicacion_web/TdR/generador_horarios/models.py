@@ -15,7 +15,7 @@ class asignatura_real(models.Model):
     tipo = models.IntegerField(default=0)
     equivale = models.ManyToManyField('self', default=None, symmetrical=False)
     prerrequisito = models.ManyToManyField('self')
-    importancia = models.IntegerField(default=3) #para distinguir entre ramo de malla, electivo o cfg (1,2,3 respectivamente)
+    importancia = models.IntegerField(default=3) #para distinguir entre ramo de malla, electivo o cfg (3,2,1 respectivamente)
 
 
 class malla_curricular(models.Model):

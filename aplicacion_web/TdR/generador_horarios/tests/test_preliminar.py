@@ -8,7 +8,8 @@ from ..helpers import DBSeed as sd
 # pytest --reuse-db is also possible, since the database will automatically be re-created.
 
 # fixtures en archivo "conftest.py"
-    
+
+@pytest.mark.skip(reason="no se esta modificando")    
 def test_seedDB_fixture(seedDB):
     ok = True
 
@@ -24,7 +25,8 @@ def test_seedDB_fixture(seedDB):
     if len(tabla) == 0: ok = False
 
     assert ok == True
-    
+
+@pytest.mark.skip(reason="no se esta modificando")    
 def test_setupOferta_fixture(setupOferta):
     ok = True
 

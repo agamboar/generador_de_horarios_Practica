@@ -14,6 +14,7 @@ from dictdiffer import diff
 # ------ funciones para probar consistencia de resultados con version beta de aplicacion al refactorizar el código ------
 N_TEST_CASES = 9
 
+@pytest.mark.skip(reason="no se esta modificando")
 def test_PERT_consistency(setupOferta):
     try:
         users = jl.readJSONFile('Users', 'users')
@@ -39,6 +40,7 @@ def test_PERT_consistency(setupOferta):
         traceback.print_exc()
         assert False
 
+@pytest.mark.skip(reason="se esta refactorizando por partes")
 def test_clique_consistency(setupOferta):
     try:
         users = jl.readJSONFile('Users', 'users')

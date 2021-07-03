@@ -2,6 +2,7 @@ from ..models import *
 from datetime import date
 from contextlib import suppress
 from django.core.exceptions import *
+import json
 
 def getSemestreActual():
     today = date.today()
@@ -28,5 +29,12 @@ def ordered(obj): # ordena recursivamente objeto con diccionarios como elementos
         return sorted(ordered(x) for x in obj)
     else:
         return obj
+
+def prettyPrint(obj):
+    try:
+        print(json.dumps(obj, indent=2))
+        return True
+    except (TypeError, OverflowError):
+        return False
 
 

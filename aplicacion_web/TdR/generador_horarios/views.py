@@ -30,7 +30,7 @@ from .serializers import *
 from .models import *
 from .tasks import *
 from .PERT import *
-from .clique import *
+from .clique_algorithm.clique import get_clique_max_pond
 
 from .helpers import jsonLog as jl, utils, DBSeed, stateControl as stc
 import traceback

@@ -34,7 +34,7 @@ def readJSONFile(folder, fileName):
 #Oferta
 def saveOferta(fileName): #fileName no debe incluir ".json" 
     # Guarda todos los datos de la oferta academica de ramos y cfgs en formato json. Se deben subir los excel por la aplicación primero para que funcione
-    oferta = dict()
+    oferta = {}
     oferta["secciones"] = list(seccion.objects.all().values())
     oferta["seccionAsignatura"] = list(seccion.to_asignatura_real.through.objects.all().values())
     oferta["eventos"] = list(evento.objects.all().values())
@@ -69,7 +69,7 @@ def createStateTestCase_PERT(fileName, stateBefore, output, title="---"):
     for AC in stateBefore["asignaturas_cursadas"]:
         del AC["fecha_modificacion"]
 
-    testCase = dict()
+    testCase = {}
     testCase["title"] = title
     testCase["stateInput"] = stateBefore
     testCase["output"] = output
@@ -99,7 +99,7 @@ def createStateTestCase_Clique(fileName, stateBefore, output, title="---"):
     for PC in stateBefore["prioridades_cfg"]:
         del PC["fecha_mod"]
 
-    testCase = dict()
+    testCase = {}
     testCase["title"] = title
     testCase["stateInput"] = stateBefore
     testCase["output"] = output
@@ -109,9 +109,14 @@ def createStateTestCase_Clique(fileName, stateBefore, output, title="---"):
 
 def saveUsersState(fileName):
     users = list(User.objects.all().values())
-    usersDict = dict()
+    usersDict = {}
     for user in users:
         del user["last_login"]
         del user["date_joined"]
         usersDict[user["id"]] = user
     writeJSONFile('Users', fileName, usersDict)
+
+def loadUser(fileName, userId):
+    users = readJSONFile('Users', fileName)
+    user = users[userId]
+    User(**user).save()

@@ -2,12 +2,77 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 import traceback
-from .models import *
+from ..models import *
+
+VERSION = 1
 
 # seria bueno modularizar esta funcion
+def get_clique_max_pond(current_user):
+
+    data = getData(current_user)
+    datos_clique = data["datos_clique"] 
+    G = nx.Graph()
+
+    if len(datos_clique)==0:
+        return "n"
+
+    prio_area_cfg = data["prioridad_cfg"]
+    count_prio = 0
+
+    current_cfg_number = "0" #esto es para los cfg
+    aux_seccion = datos_clique[0]['to_seccion__cod_seccion']
+    aux_codigo = datos_clique[0]['to_nodo_asignatura__to_asignatura_real__codigo']
+    aux_horario = []
+    aux_eventos = []
+    for event in datos_clique:
+        codigo = event['to_nodo_asignatura__to_asignatura_real__codigo']
+
+        #salta cfgs que no son de prioridad 1 o 2.
+        if codigo[0:3] == "CFG":
+            if count_prio <= 2:# esto limita la cantidad de cfg
+                if not (event["cfg_area"] == prio_area_cfg[0]['area'] or event["cfg_area"] == prio_area_cfg[1]['area']): # se saltan cfgs que no son prio 1 o 2.
+                    continue
+                if current_cfg_number != codigo[3]:
+                    current_cfg_number = codigo[3]
+                    count_prio+=1 # aqui hay un bug. esto cuenta un cfg a pesar de que este se salte.
+            else:
+                continue
+
+        horario = getHorario(event)     
+        evento = getParsedEvent(event)
+
+        #se agregan los nodos del grafo (1 vez por cada evento, eventos de la misma seccion sobre-escriben el nodo)
+        if aux_seccion == event['to_seccion__cod_seccion'] and aux_codigo == event['to_nodo_asignatura__to_asignatura_real__codigo']:
+            appendHorariosEventos(horario, aux_horario, evento, aux_eventos)
+            #potencialmente, esto deberia ir al comienzo del else que viene. *Mentira no se puede sin modificarlo por las referencias a event[...]
+            prioridad = getNodeWeight(event)
+            nro_seccion = event['to_seccion__num_seccion']
+            G.add_nodes_from(
+                [str(codigo + "   - " + event["to_seccion__cod_seccion"])], 
+                horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=event['to_seccion__cod_seccion'],
+                nro_seccion=nro_seccion, nombre=event["nombre_ramo"], eventos=aux_eventos, 
+                cod_asignatura_real=event['to_seccion__to_asignatura_real__codigo']
+            )
+            list_node = list(G.nodes.items())
+                           
+            if len(list_node) == 87: #esto trunca la cantidad de secciones a 87?
+                #print(str(codigo + "   - " + event["to_seccion__cod_seccion"]))
+                break
+        else: # que caso se esta cubriendo en este else?
+            aux_eventos = []
+            aux_horario = []
+            aux_horario.append(horario)
+            aux_eventos.append(evento)
+            aux_seccion = event['to_seccion__cod_seccion']
+            aux_codigo = event['to_nodo_asignatura__to_asignatura_real__codigo']
+
+    addEdges(G)
+
+    show_options = 5
+    return getRecommendations(G, show_options)
 
 def getData(userId):
-    data = dict()
+    data = {}
     
     data["datos_clique"] = nodo_seccion.objects.filter(
         to_nodo_asignatura__to_user=userId, 
@@ -23,8 +88,8 @@ def getData(userId):
         '-to_seccion__to_asignatura_real__importancia', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__cod_seccion'
     ).distinct()
 
-    # data["nombres_ramo"] =dict()
-    data["cfg_areas"] = dict()
+    # data["nombres_ramo"] ={}
+    data["cfg_areas"] = {}
     for event in data["datos_clique"]:
         event["nombre_ramo"] = event['to_seccion__to_asignatura_real__nombre']
         codigo = event['to_nodo_asignatura__to_asignatura_real__codigo']
@@ -163,66 +228,3 @@ def getRecommendations(G, show_options):
             break
     return aux_retornar
 
-def get_clique_max_pond(current_user):
-
-    data = getData(current_user)
-    datos_clique = data["datos_clique"] 
-    G = nx.Graph()
-
-    if len(datos_clique)==0:
-        return "n"
-
-    prio_area_cfg = data["prioridad_cfg"]
-    count_prio = 0
-
-    current_cfg_number = "0" #esto es para los cfg
-    aux_seccion = datos_clique[0]['to_seccion__cod_seccion']
-    aux_codigo = datos_clique[0]['to_nodo_asignatura__to_asignatura_real__codigo']
-    aux_horario = []
-    aux_eventos = []
-    for event in datos_clique:
-        codigo = event['to_nodo_asignatura__to_asignatura_real__codigo']
-
-        #salta cfgs que no son de prioridad 1 o 2.
-        if codigo[0:3] == "CFG":
-            if count_prio <= 2:# esto limita la cantidad de cfg
-                if not (event["cfg_area"] == prio_area_cfg[0]['area'] or event["cfg_area"] == prio_area_cfg[1]['area']): # se saltan cfgs que no son prio 1 o 2.
-                    continue
-                if current_cfg_number != codigo[3]:
-                    current_cfg_number = codigo[3]
-                    count_prio+=1 # aqui hay un bug. esto cuenta un cfg a pesar de que este se salte.
-            else:
-                continue
-
-        horario = getHorario(event)     
-        evento = getParsedEvent(event)
-
-        #se agregan los nodos del grafo (1 vez por cada evento, eventos de la misma seccion sobre-escriben el nodo)
-        if aux_seccion == event['to_seccion__cod_seccion'] and aux_codigo == event['to_nodo_asignatura__to_asignatura_real__codigo']:
-            appendHorariosEventos(horario, aux_horario, evento, aux_eventos)
-            #potencialmente, esto deberia ir al comienzo del else que viene. *Mentira no se puede sin modificarlo por las referencias a event[...]
-            prioridad = getNodeWeight(event)
-            nro_seccion = event['to_seccion__num_seccion']
-            G.add_nodes_from(
-                [str(codigo + "   - " + event["to_seccion__cod_seccion"])], 
-                horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=event['to_seccion__cod_seccion'],
-                nro_seccion=nro_seccion, nombre=event["nombre_ramo"], eventos=aux_eventos, 
-                cod_asignatura_real=event['to_seccion__to_asignatura_real__codigo']
-            )
-            list_node = list(G.nodes.items())
-                           
-            if len(list_node) == 87: #esto trunca la cantidad de secciones a 87?
-                #print(str(codigo + "   - " + event["to_seccion__cod_seccion"]))
-                break
-        else: # que caso se esta cubriendo en este else?
-            aux_eventos = []
-            aux_horario = []
-            aux_horario.append(horario)
-            aux_eventos.append(evento)
-            aux_seccion = event['to_seccion__cod_seccion']
-            aux_codigo = event['to_nodo_asignatura__to_asignatura_real__codigo']
-
-    addEdges(G)
-
-    show_options = 5
-    return getRecommendations(G, show_options)

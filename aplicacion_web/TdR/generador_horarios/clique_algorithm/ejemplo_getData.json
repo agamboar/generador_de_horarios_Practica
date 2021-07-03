@@ -1,0 +1,2553 @@
+{
+  "asignaturas": {
+    "CBF1000": {
+      "nombre": "MECANICA",
+      "nodo_asignatura": {
+        "id": 1888,
+        "to_asignatura_real": "CBF1000",
+        "to_asignatura_real__nro_correlativo": "8",
+        "to_asignatura_real__nombre": "MECANICA",
+        "cc": "00",
+        "uu": "05",
+        "kk": "52",
+        "critico": false
+      },
+      "secciones": {
+        "CBF1000_VC01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CBF1000_VC01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_08",
+              "tipo": "LABORATORIO",
+              "profesor": "QUILODRAN PAULINA"
+            },
+            {
+              "bloque": "MA_08",
+              "tipo": "CATEDRA",
+              "profesor": "VILLAGRAN SIDNEY HERNAN"
+            },
+            {
+              "bloque": "VI_08",
+              "tipo": "CATEDRA",
+              "profesor": "VILLAGRAN SIDNEY HERNAN"
+            },
+            {
+              "bloque": "LU_08",
+              "tipo": "AYUDANTIA",
+              "profesor": "UMANA CHRISTIAN"
+            },
+            {
+              "bloque": "JU_08",
+              "tipo": "LABORATORIO",
+              "profesor": "VILLAGRAN SIDNEY HERNAN"
+            }
+          ]
+        },
+        "CBF1000_VC02": {
+          "nodo_seccion": {
+            "ss": 2,
+            "to_seccion": "CBF1000_VC02",
+            "to_seccion__num_seccion": "2"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_08",
+              "tipo": "CATEDRA",
+              "profesor": "VILLAGRAN SIDNEY HERNAN"
+            },
+            {
+              "bloque": "VI_08",
+              "tipo": "CATEDRA",
+              "profesor": "VILLAGRAN SIDNEY HERNAN"
+            },
+            {
+              "bloque": "LU_08",
+              "tipo": "AYUDANTIA",
+              "profesor": "UMANA CHRISTIAN"
+            },
+            {
+              "bloque": "JU_08",
+              "tipo": "LABORATORIO",
+              "profesor": "VILLAGRAN SIDNEY HERNAN"
+            },
+            {
+              "bloque": "JU_08",
+              "tipo": "LABORATORIO",
+              "profesor": "QUILODRAN PAULINA"
+            }
+          ]
+        },
+        "CBF1000_VC06": {
+          "nodo_seccion": {
+            "ss": 6,
+            "to_seccion": "CBF1000_VC06",
+            "to_seccion__num_seccion": "6"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_10",
+              "tipo": "CATEDRA",
+              "profesor": "LEON ALEJANDRO"
+            },
+            {
+              "bloque": "JU_10",
+              "tipo": "CATEDRA",
+              "profesor": "LEON ALEJANDRO"
+            },
+            {
+              "bloque": "LU_10",
+              "tipo": "AYUDANTIA",
+              "profesor": "ROCA ANTONIO"
+            },
+            {
+              "bloque": "VI_10",
+              "tipo": "LABORATORIO",
+              "profesor": "VILLAGRAN SIDNEY HERNAN"
+            },
+            {
+              "bloque": "VI_10",
+              "tipo": "LABORATORIO",
+              "profesor": "SANCHEZ DENISSE"
+            }
+          ]
+        },
+        "CBF1000_VC08": {
+          "nodo_seccion": {
+            "ss": 8,
+            "to_seccion": "CBF1000_VC08",
+            "to_seccion__num_seccion": "8"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_10",
+              "tipo": "CATEDRA",
+              "profesor": "OLIVARES MARCO ANDRES"
+            },
+            {
+              "bloque": "JU_10",
+              "tipo": "CATEDRA",
+              "profesor": "OLIVARES MARCO ANDRES"
+            },
+            {
+              "bloque": "MA_10",
+              "tipo": "LABORATORIO",
+              "profesor": "OLIVARES MARCO ANDRES"
+            },
+            {
+              "bloque": "MA_10",
+              "tipo": "LABORATORIO",
+              "profesor": "BASOALTO MATIAS"
+            },
+            {
+              "bloque": "VI_10",
+              "tipo": "AYUDANTIA",
+              "profesor": "UMANA CHRISTIAN"
+            }
+          ]
+        },
+        "CBF1000_VC12": {
+          "nodo_seccion": {
+            "ss": 22,
+            "to_seccion": "CBF1000_VC12",
+            "to_seccion__num_seccion": "22"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_14",
+              "tipo": "CATEDRA",
+              "profesor": "BRIZUELA JESSICA"
+            },
+            {
+              "bloque": "JU_14",
+              "tipo": "CATEDRA",
+              "profesor": "BRIZUELA JESSICA"
+            },
+            {
+              "bloque": "MA_14",
+              "tipo": "AYUDANTIA",
+              "profesor": "CABRERA ARIAN ALFONSO"
+            },
+            {
+              "bloque": "VI_14",
+              "tipo": "LABORATORIO",
+              "profesor": "BRIZUELA JESSICA"
+            },
+            {
+              "bloque": "VI_14",
+              "tipo": "LABORATORIO",
+              "profesor": "CABRERA ARIAN ALFONSO"
+            }
+          ]
+        }
+      }
+    },
+    "CBM1002": {
+      "nombre": "ALGEBRA LINEAL",
+      "nodo_asignatura": {
+        "id": 1886,
+        "to_asignatura_real": "CBM1002",
+        "to_asignatura_real__nro_correlativo": "6",
+        "to_asignatura_real__nombre": "ALGEBRA LINEAL",
+        "cc": "10",
+        "uu": "10",
+        "kk": "54",
+        "critico": true
+      },
+      "secciones": {
+        "CBM1002_VC03": {
+          "nodo_seccion": {
+            "ss": 3,
+            "to_seccion": "CBM1002_VC03",
+            "to_seccion__num_seccion": "3"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_10",
+              "tipo": "CATEDRA",
+              "profesor": "ARRATIA ARSENIA ISABEL"
+            },
+            {
+              "bloque": "MA_10",
+              "tipo": "CATEDRA",
+              "profesor": "ARRATIA ARSENIA ISABEL"
+            },
+            {
+              "bloque": "JU_10",
+              "tipo": "CATEDRA",
+              "profesor": "ARRATIA ARSENIA ISABEL"
+            },
+            {
+              "bloque": "VI_10",
+              "tipo": "AYUDANTIA",
+              "profesor": "MADARIAGA GIOVANNI"
+            }
+          ]
+        },
+        "CBM1002_VC04": {
+          "nodo_seccion": {
+            "ss": 4,
+            "to_seccion": "CBM1002_VC04",
+            "to_seccion__num_seccion": "4"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_10",
+              "tipo": "AYUDANTIA",
+              "profesor": "YURETIC MILKO"
+            },
+            {
+              "bloque": "LU_10",
+              "tipo": "CATEDRA",
+              "profesor": "GALLEGOS CLAUDIO ANDRES"
+            },
+            {
+              "bloque": "MA_10",
+              "tipo": "CATEDRA",
+              "profesor": "GALLEGOS CLAUDIO ANDRES"
+            },
+            {
+              "bloque": "JU_10",
+              "tipo": "CATEDRA",
+              "profesor": "GALLEGOS CLAUDIO ANDRES"
+            }
+          ]
+        },
+        "CBM1002_VC05": {
+          "nodo_seccion": {
+            "ss": 5,
+            "to_seccion": "CBM1002_VC05",
+            "to_seccion__num_seccion": "5"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_11",
+              "tipo": "CATEDRA",
+              "profesor": "BRAYOVIC BORIS ALEXANDER"
+            },
+            {
+              "bloque": "MA_11",
+              "tipo": "CATEDRA",
+              "profesor": "BRAYOVIC BORIS ALEXANDER"
+            },
+            {
+              "bloque": "JU_11",
+              "tipo": "CATEDRA",
+              "profesor": "BRAYOVIC BORIS ALEXANDER"
+            },
+            {
+              "bloque": "VI_11",
+              "tipo": "AYUDANTIA",
+              "profesor": ""
+            }
+          ]
+        },
+        "CBM1002_VC06": {
+          "nodo_seccion": {
+            "ss": 6,
+            "to_seccion": "CBM1002_VC06",
+            "to_seccion__num_seccion": "6"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_11",
+              "tipo": "CATEDRA",
+              "profesor": "GALLEGOS CLAUDIO ANDRES"
+            },
+            {
+              "bloque": "MA_11",
+              "tipo": "CATEDRA",
+              "profesor": "GALLEGOS CLAUDIO ANDRES"
+            },
+            {
+              "bloque": "JU_11",
+              "tipo": "CATEDRA",
+              "profesor": "GALLEGOS CLAUDIO ANDRES"
+            },
+            {
+              "bloque": "VI_11",
+              "tipo": "AYUDANTIA",
+              "profesor": "POBLETE FRANCO"
+            }
+          ]
+        },
+        "CBM1002_VC07": {
+          "nodo_seccion": {
+            "ss": 7,
+            "to_seccion": "CBM1002_VC07",
+            "to_seccion__num_seccion": "7"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_14",
+              "tipo": "CATEDRA",
+              "profesor": "BRAYOVIC BORIS ALEXANDER"
+            },
+            {
+              "bloque": "MA_14",
+              "tipo": "CATEDRA",
+              "profesor": "BRAYOVIC BORIS ALEXANDER"
+            },
+            {
+              "bloque": "JU_14",
+              "tipo": "CATEDRA",
+              "profesor": "BRAYOVIC BORIS ALEXANDER"
+            },
+            {
+              "bloque": "MI_14",
+              "tipo": "AYUDANTIA",
+              "profesor": "SANTANDER BENJAMIN"
+            }
+          ]
+        },
+        "CBM1002_VC08": {
+          "nodo_seccion": {
+            "ss": 8,
+            "to_seccion": "CBM1002_VC08",
+            "to_seccion__num_seccion": "8"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_14",
+              "tipo": "CATEDRA",
+              "profesor": "ROSSEL JUAN BAUDILIO"
+            },
+            {
+              "bloque": "MA_14",
+              "tipo": "CATEDRA",
+              "profesor": "ROSSEL JUAN BAUDILIO"
+            },
+            {
+              "bloque": "JU_14",
+              "tipo": "CATEDRA",
+              "profesor": "ROSSEL JUAN BAUDILIO"
+            },
+            {
+              "bloque": "MI_14",
+              "tipo": "AYUDANTIA",
+              "profesor": "LOPEZ CARLA"
+            }
+          ]
+        }
+      }
+    },
+    "CBM1003": {
+      "nombre": "CALCULO II",
+      "nodo_asignatura": {
+        "id": 1887,
+        "to_asignatura_real": "CBM1003",
+        "to_asignatura_real__nro_correlativo": "7",
+        "to_asignatura_real__nombre": "CALCULO II",
+        "cc": "10",
+        "uu": "10",
+        "kk": "53",
+        "critico": true
+      },
+      "secciones": {
+        "CBM1003_VC03": {
+          "nodo_seccion": {
+            "ss": 3,
+            "to_seccion": "CBM1003_VC03",
+            "to_seccion__num_seccion": "3"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "AYUDANTIA",
+              "profesor": "ECHEVERRIA MATIAS"
+            },
+            {
+              "bloque": "LU_11",
+              "tipo": "CATEDRA",
+              "profesor": "ARRATIA ARSENIA ISABEL"
+            },
+            {
+              "bloque": "MA_11",
+              "tipo": "CATEDRA",
+              "profesor": "ARRATIA ARSENIA ISABEL"
+            },
+            {
+              "bloque": "JU_11",
+              "tipo": "CATEDRA",
+              "profesor": "ARRATIA ARSENIA ISABEL"
+            }
+          ]
+        },
+        "CBM1003_VC04": {
+          "nodo_seccion": {
+            "ss": 4,
+            "to_seccion": "CBM1003_VC04",
+            "to_seccion__num_seccion": "4"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_11",
+              "tipo": "CATEDRA",
+              "profesor": "SCHUMACHER SANDY HELKE"
+            },
+            {
+              "bloque": "MA_11",
+              "tipo": "CATEDRA",
+              "profesor": "SCHUMACHER SANDY HELKE"
+            },
+            {
+              "bloque": "JU_11",
+              "tipo": "CATEDRA",
+              "profesor": "SCHUMACHER SANDY HELKE"
+            },
+            {
+              "bloque": "VI_11",
+              "tipo": "AYUDANTIA",
+              "profesor": "URBINA IGNACIO"
+            }
+          ]
+        },
+        "CBM1003_VC05": {
+          "nodo_seccion": {
+            "ss": 5,
+            "to_seccion": "CBM1003_VC05",
+            "to_seccion__num_seccion": "5"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_13",
+              "tipo": "CATEDRA",
+              "profesor": "RIVERO ROSA ELVIRA"
+            },
+            {
+              "bloque": "MA_13",
+              "tipo": "CATEDRA",
+              "profesor": "RIVERO ROSA ELVIRA"
+            },
+            {
+              "bloque": "JU_13",
+              "tipo": "CATEDRA",
+              "profesor": "RIVERO ROSA ELVIRA"
+            },
+            {
+              "bloque": "VI_13",
+              "tipo": "AYUDANTIA",
+              "profesor": "BARAHONA JOSE"
+            }
+          ]
+        },
+        "CBM1003_VC07": {
+          "nodo_seccion": {
+            "ss": 7,
+            "to_seccion": "CBM1003_VC07",
+            "to_seccion__num_seccion": "7"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_16",
+              "tipo": "CATEDRA",
+              "profesor": "SAAVEDRA IGNACIO EDUARDO"
+            },
+            {
+              "bloque": "MA_16",
+              "tipo": "CATEDRA",
+              "profesor": "SAAVEDRA IGNACIO EDUARDO"
+            },
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "SAAVEDRA IGNACIO EDUARDO"
+            },
+            {
+              "bloque": "MI_16",
+              "tipo": "AYUDANTIA",
+              "profesor": "MALIL PEDRO"
+            }
+          ]
+        }
+      }
+    },
+    "CII1000": {
+      "nombre": "CONTABILIDAD Y COSTOS",
+      "nodo_asignatura": {
+        "id": 1911,
+        "to_asignatura_real": "CII1000",
+        "to_asignatura_real__nro_correlativo": "33",
+        "to_asignatura_real__nombre": "CONTABILIDAD Y COSTOS",
+        "cc": "00",
+        "uu": "03",
+        "kk": "27",
+        "critico": false
+      },
+      "secciones": {
+        "CII1000_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CII1000_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_08",
+              "tipo": "CATEDRA",
+              "profesor": "ESPINOSA NELSON EDUARDO"
+            },
+            {
+              "bloque": "VI_08",
+              "tipo": "CATEDRA",
+              "profesor": "ESPINOSA NELSON EDUARDO"
+            },
+            {
+              "bloque": "MI_10",
+              "tipo": "AYUDANTIA",
+              "profesor": ""
+            }
+          ]
+        },
+        "CII1000_FG02": {
+          "nodo_seccion": {
+            "ss": 2,
+            "to_seccion": "CII1000_FG02",
+            "to_seccion__num_seccion": "2"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_08",
+              "tipo": "AYUDANTIA",
+              "profesor": ""
+            },
+            {
+              "bloque": "MA_08",
+              "tipo": "CATEDRA",
+              "profesor": "SAN MARTIN ROSA IRENE"
+            },
+            {
+              "bloque": "VI_08",
+              "tipo": "CATEDRA",
+              "profesor": "SAN MARTIN ROSA IRENE"
+            }
+          ]
+        }
+      }
+    },
+    "CIT1010": {
+      "nombre": "PROGRAMACION AVANZADA",
+      "nodo_asignatura": {
+        "id": 1889,
+        "to_asignatura_real": "CIT1010",
+        "to_asignatura_real__nro_correlativo": "9",
+        "to_asignatura_real__nombre": "PROGRAMACION AVANZADA",
+        "cc": "00",
+        "uu": "09",
+        "kk": "51",
+        "critico": false
+      },
+      "secciones": {
+        "CIT1010_CA03": {
+          "nodo_seccion": {
+            "ss": 3,
+            "to_seccion": "CIT1010_CA03",
+            "to_seccion__num_seccion": "3"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_08",
+              "tipo": "CATEDRA",
+              "profesor": "GIADACH JUAN RICARDO"
+            },
+            {
+              "bloque": "VI_08",
+              "tipo": "CATEDRA",
+              "profesor": "GIADACH JUAN RICARDO"
+            },
+            {
+              "bloque": "JU_08",
+              "tipo": "AYUDANTIA",
+              "profesor": ""
+            }
+          ]
+        }
+      }
+    },
+    "CIT2203": {
+      "nombre": "GESTION ORGANIZACIONAL",
+      "nodo_asignatura": {
+        "id": 1916,
+        "to_asignatura_real": "CIT2203",
+        "to_asignatura_real__nro_correlativo": "38",
+        "to_asignatura_real__nombre": "GESTION ORGANIZACIONAL",
+        "cc": "00",
+        "uu": "03",
+        "kk": "22",
+        "critico": false
+      },
+      "secciones": {
+        "CIT2203_VC01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CIT2203_VC01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_11",
+              "tipo": "CATEDRA",
+              "profesor": "GEOFFROY XIMENA MARIA"
+            },
+            {
+              "bloque": "VI_11",
+              "tipo": "CATEDRA",
+              "profesor": "GEOFFROY XIMENA MARIA"
+            },
+            {
+              "bloque": "JU_11",
+              "tipo": "AYUDANTIA",
+              "profesor": ""
+            }
+          ]
+        }
+      }
+    },
+    "CIG1012": {
+      "nombre": "INGLES GENERAL I",
+      "nodo_asignatura": {
+        "id": 1923,
+        "to_asignatura_real": "CIG1012",
+        "to_asignatura_real__nro_correlativo": "21",
+        "to_asignatura_real__nombre": "INGLES GENERAL I",
+        "cc": "00",
+        "uu": "05",
+        "kk": "39",
+        "critico": false
+      },
+      "secciones": {
+        "CIG1002_VC03": {
+          "nodo_seccion": {
+            "ss": 3,
+            "to_seccion": "CIG1002_VC03",
+            "to_seccion__num_seccion": "3"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_JU",
+              "tipo": " CATEDRA INGL\u00c9S 03",
+              "profesor": "PALOMINOS MARCELA CATALINA"
+            }
+          ]
+        },
+        "CIG1002_VC06": {
+          "nodo_seccion": {
+            "ss": 6,
+            "to_seccion": "CIG1002_VC06",
+            "to_seccion__num_seccion": "6"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_16",
+              "tipo": "CATEDRA",
+              "profesor": "NUNEZ RAMON HERNAN"
+            },
+            {
+              "bloque": "MI_16",
+              "tipo": "CATEDRA",
+              "profesor": "NUNEZ RAMON HERNAN"
+            }
+          ]
+        },
+        "CIG1002_VC07": {
+          "nodo_seccion": {
+            "ss": 7,
+            "to_seccion": "CIG1002_VC07",
+            "to_seccion__num_seccion": "7"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_17",
+              "tipo": "CATEDRA",
+              "profesor": "NUNEZ RAMON HERNAN"
+            },
+            {
+              "bloque": "MI_17",
+              "tipo": "CATEDRA",
+              "profesor": "NUNEZ RAMON HERNAN"
+            }
+          ]
+        },
+        "CIG1002_VC08": {
+          "nodo_seccion": {
+            "ss": 8,
+            "to_seccion": "CIG1002_VC08",
+            "to_seccion__num_seccion": "8"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_16",
+              "tipo": "CATEDRA",
+              "profesor": "MELLA ALEX AGUSTIN"
+            },
+            {
+              "bloque": "MI_16",
+              "tipo": "CATEDRA",
+              "profesor": "MELLA ALEX AGUSTIN"
+            }
+          ]
+        },
+        "CIG1002_VC09": {
+          "nodo_seccion": {
+            "ss": 9,
+            "to_seccion": "CIG1002_VC09",
+            "to_seccion__num_seccion": "9"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_17",
+              "tipo": "CATEDRA",
+              "profesor": "MELLA ALEX AGUSTIN"
+            },
+            {
+              "bloque": "MI_17",
+              "tipo": "CATEDRA",
+              "profesor": "MELLA ALEX AGUSTIN"
+            }
+          ]
+        },
+        "CIG1002_VC12": {
+          "nodo_seccion": {
+            "ss": 12,
+            "to_seccion": "CIG1002_VC12",
+            "to_seccion__num_seccion": "12"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_16",
+              "tipo": "CATEDRA",
+              "profesor": "ACUNA SYLVIA VICTORIA"
+            },
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "ACUNA SYLVIA VICTORIA"
+            }
+          ]
+        },
+        "CIG1002_VC13": {
+          "nodo_seccion": {
+            "ss": 13,
+            "to_seccion": "CIG1002_VC13",
+            "to_seccion__num_seccion": "13"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_17",
+              "tipo": "CATEDRA",
+              "profesor": "ACUNA SYLVIA VICTORIA"
+            },
+            {
+              "bloque": "VI_17",
+              "tipo": "CATEDRA",
+              "profesor": "ACUNA SYLVIA VICTORIA"
+            }
+          ]
+        },
+        "CIG1002_VC14": {
+          "nodo_seccion": {
+            "ss": 14,
+            "to_seccion": "CIG1002_VC14",
+            "to_seccion__num_seccion": "14"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_17",
+              "tipo": "CATEDRA",
+              "profesor": "ACUNA SYLVIA VICTORIA"
+            },
+            {
+              "bloque": "VI_16",
+              "tipo": "CATEDRA",
+              "profesor": "ACUNA SYLVIA VICTORIA"
+            }
+          ]
+        },
+        "CIG1002_VC15": {
+          "nodo_seccion": {
+            "ss": 15,
+            "to_seccion": "CIG1002_VC15",
+            "to_seccion__num_seccion": "15"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_14",
+              "tipo": "CATEDRA",
+              "profesor": "RODRIGUEZ KARINA"
+            },
+            {
+              "bloque": "MI_14",
+              "tipo": "CATEDRA",
+              "profesor": "RODRIGUEZ KARINA"
+            }
+          ]
+        },
+        "CIG1002_VC16": {
+          "nodo_seccion": {
+            "ss": 16,
+            "to_seccion": "CIG1002_VC16",
+            "to_seccion__num_seccion": "16"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_16",
+              "tipo": "CATEDRA",
+              "profesor": "RODRIGUEZ KARINA"
+            },
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "RODRIGUEZ KARINA"
+            }
+          ]
+        },
+        "CIG1002_VC17": {
+          "nodo_seccion": {
+            "ss": 17,
+            "to_seccion": "CIG1002_VC17",
+            "to_seccion__num_seccion": "17"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_17",
+              "tipo": "CATEDRA",
+              "profesor": "RODRIGUEZ KARINA"
+            },
+            {
+              "bloque": "JU_17",
+              "tipo": "CATEDRA",
+              "profesor": "RODRIGUEZ KARINA"
+            }
+          ]
+        }
+      }
+    },
+    "CFG1": {
+      "nombre": "CFG",
+      "nodo_asignatura": {
+        "id": 1890,
+        "to_asignatura_real": "CFG1",
+        "to_asignatura_real__nro_correlativo": "10",
+        "to_asignatura_real__nombre": "CFG",
+        "cc": "00",
+        "uu": "04",
+        "kk": "50",
+        "critico": false
+      },
+      "secciones": {
+        "CFG2017_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2017_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_18",
+              "tipo": "CATEDRA",
+              "profesor": "ZAMBRA MARCELO CRISTIAN"
+            }
+          ]
+        },
+        "CFG2029_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2029_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "HAMAME EVA EMILIA"
+            }
+          ]
+        },
+        "CFG2059_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2059_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_10",
+              "tipo": "CATEDRA",
+              "profesor": "CATALAN AILIN"
+            }
+          ]
+        },
+        "CFG2084_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2084_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_10",
+              "tipo": "B-LEARNING 01",
+              "profesor": "CHACON FRACISCA ESTEFANIA"
+            }
+          ]
+        },
+        "CFG2086_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2086_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_14",
+              "tipo": "CATEDRA",
+              "profesor": "BUGUENO RODRIGO ALFONSO"
+            }
+          ]
+        },
+        "CFG2098_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2098_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SCHNEUER MARIA JOSE"
+            }
+          ]
+        },
+        "CFG2140_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2140_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_10",
+              "tipo": "CATEDRA",
+              "profesor": "ALVAREZ ANA MARIA"
+            }
+          ]
+        },
+        "CFG2143_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2143_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_17",
+              "tipo": "CATEDRA",
+              "profesor": "ARIAS RODRIGO ANDRES"
+            }
+          ]
+        },
+        "CFG2189_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2189_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_17",
+              "tipo": "CATEDRA",
+              "profesor": "MILLACURA CLAUDIO VICENTE"
+            }
+          ]
+        },
+        "CFG2203_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2203_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_11",
+              "tipo": "CATEDRA",
+              "profesor": "MONTT PEDRO NOLASCO"
+            }
+          ]
+        },
+        "CFG2209_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2209_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "B-LEARNING CATEDRA 01",
+              "profesor": "BARRERO LINA MARIA"
+            }
+          ]
+        },
+        "CFG2253_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2253_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_08",
+              "tipo": "CATEDRA",
+              "profesor": "OTERO EDISON HERMES"
+            }
+          ]
+        },
+        "CFG2259_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2259_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "CATEDRA",
+              "profesor": "M\u00dcLLER BRENDA"
+            }
+          ]
+        },
+        "CFG2273_CB02": {
+          "nodo_seccion": {
+            "ss": 2,
+            "to_seccion": "CFG2273_CB02",
+            "to_seccion__num_seccion": "2"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_14",
+              "tipo": "B-LEARNING 02",
+              "profesor": "FREDES NATACHA CAMILA"
+            }
+          ]
+        },
+        "CFG2285_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2285_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_08",
+              "tipo": "CATEDRA",
+              "profesor": "MENEGHELLO RAIMUNDO GUILLERM"
+            }
+          ]
+        },
+        "CFG2294_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2294_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_10",
+              "tipo": "B-LEARNING 01",
+              "profesor": "RAMIREZ CARLOS ALBERTO"
+            }
+          ]
+        },
+        "CFG2295_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2295_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_16",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SCHONGUT NICOLAS"
+            }
+          ]
+        },
+        "CFG2296_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2296_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "SA_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "ROMERO ELENA PILAR"
+            }
+          ]
+        },
+        "CFG2308_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2308_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "DURAND MARIA TERESA"
+            }
+          ]
+        },
+        "CFG2325_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2325_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SILVA ANGELA RUTH"
+            }
+          ]
+        },
+        "CFG2335_CB02": {
+          "nodo_seccion": {
+            "ss": 2,
+            "to_seccion": "CFG2335_CB02",
+            "to_seccion__num_seccion": "2"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_17",
+              "tipo": "B-LEARNING 02",
+              "profesor": "ALVEAR KATHERINE"
+            }
+          ]
+        },
+        "CFG2341_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2341_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_13",
+              "tipo": "CATEDRA",
+              "profesor": "GARCIA ROBERTO ENRIQUE"
+            }
+          ]
+        },
+        "CFG2343_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2343_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_17",
+              "tipo": "B-LEARNING 01",
+              "profesor": "CIFUENTES MARIA ANGELA"
+            }
+          ]
+        },
+        "CFG2356_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2356_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "RAMIREZ PATRICIA"
+            }
+          ]
+        },
+        "CFG2366_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2366_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "GARRIDO RODRIGO ANDRES"
+            }
+          ]
+        },
+        "CFG2369_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2369_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_16",
+              "tipo": "CATEDRA",
+              "profesor": "DURAND MARIA TERESA"
+            }
+          ]
+        },
+        "CFG2378_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2378_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_17",
+              "tipo": "B-LEARNING 01",
+              "profesor": "VICUNA MANUEL JOSE"
+            }
+          ]
+        },
+        "CFG5006_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG5006_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "LIENDO DANIELA ANDREA"
+            }
+          ]
+        },
+        "CFG5010_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG5010_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "CATEDRA",
+              "profesor": "MELLER ALAN"
+            }
+          ]
+        }
+      }
+    },
+    "CFG2": {
+      "nombre": "CFG",
+      "nodo_asignatura": {
+        "id": 1900,
+        "to_asignatura_real": "CFG2",
+        "to_asignatura_real__nro_correlativo": "20",
+        "to_asignatura_real__nombre": "CFG",
+        "cc": "00",
+        "uu": "04",
+        "kk": "40",
+        "critico": false
+      },
+      "secciones": {
+        "CFG2017_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2017_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_18",
+              "tipo": "CATEDRA",
+              "profesor": "ZAMBRA MARCELO CRISTIAN"
+            }
+          ]
+        },
+        "CFG2029_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2029_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "HAMAME EVA EMILIA"
+            }
+          ]
+        },
+        "CFG2059_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2059_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_10",
+              "tipo": "CATEDRA",
+              "profesor": "CATALAN AILIN"
+            }
+          ]
+        },
+        "CFG2084_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2084_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_10",
+              "tipo": "B-LEARNING 01",
+              "profesor": "CHACON FRACISCA ESTEFANIA"
+            }
+          ]
+        },
+        "CFG2086_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2086_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_14",
+              "tipo": "CATEDRA",
+              "profesor": "BUGUENO RODRIGO ALFONSO"
+            }
+          ]
+        },
+        "CFG2098_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2098_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SCHNEUER MARIA JOSE"
+            }
+          ]
+        },
+        "CFG2140_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2140_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_10",
+              "tipo": "CATEDRA",
+              "profesor": "ALVAREZ ANA MARIA"
+            }
+          ]
+        },
+        "CFG2143_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2143_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_17",
+              "tipo": "CATEDRA",
+              "profesor": "ARIAS RODRIGO ANDRES"
+            }
+          ]
+        },
+        "CFG2189_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2189_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_17",
+              "tipo": "CATEDRA",
+              "profesor": "MILLACURA CLAUDIO VICENTE"
+            }
+          ]
+        },
+        "CFG2203_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2203_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_11",
+              "tipo": "CATEDRA",
+              "profesor": "MONTT PEDRO NOLASCO"
+            }
+          ]
+        },
+        "CFG2209_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2209_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "B-LEARNING CATEDRA 01",
+              "profesor": "BARRERO LINA MARIA"
+            }
+          ]
+        },
+        "CFG2253_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2253_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_08",
+              "tipo": "CATEDRA",
+              "profesor": "OTERO EDISON HERMES"
+            }
+          ]
+        },
+        "CFG2259_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2259_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "CATEDRA",
+              "profesor": "M\u00dcLLER BRENDA"
+            }
+          ]
+        },
+        "CFG2273_CB02": {
+          "nodo_seccion": {
+            "ss": 2,
+            "to_seccion": "CFG2273_CB02",
+            "to_seccion__num_seccion": "2"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_14",
+              "tipo": "B-LEARNING 02",
+              "profesor": "FREDES NATACHA CAMILA"
+            }
+          ]
+        },
+        "CFG2285_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2285_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_08",
+              "tipo": "CATEDRA",
+              "profesor": "MENEGHELLO RAIMUNDO GUILLERM"
+            }
+          ]
+        },
+        "CFG2294_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2294_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_10",
+              "tipo": "B-LEARNING 01",
+              "profesor": "RAMIREZ CARLOS ALBERTO"
+            }
+          ]
+        },
+        "CFG2295_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2295_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_16",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SCHONGUT NICOLAS"
+            }
+          ]
+        },
+        "CFG2296_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2296_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "SA_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "ROMERO ELENA PILAR"
+            }
+          ]
+        },
+        "CFG2308_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2308_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "DURAND MARIA TERESA"
+            }
+          ]
+        },
+        "CFG2325_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2325_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SILVA ANGELA RUTH"
+            }
+          ]
+        },
+        "CFG2335_CB02": {
+          "nodo_seccion": {
+            "ss": 2,
+            "to_seccion": "CFG2335_CB02",
+            "to_seccion__num_seccion": "2"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_17",
+              "tipo": "B-LEARNING 02",
+              "profesor": "ALVEAR KATHERINE"
+            }
+          ]
+        },
+        "CFG2341_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2341_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_13",
+              "tipo": "CATEDRA",
+              "profesor": "GARCIA ROBERTO ENRIQUE"
+            }
+          ]
+        },
+        "CFG2343_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2343_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_17",
+              "tipo": "B-LEARNING 01",
+              "profesor": "CIFUENTES MARIA ANGELA"
+            }
+          ]
+        },
+        "CFG2356_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2356_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "RAMIREZ PATRICIA"
+            }
+          ]
+        },
+        "CFG2366_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2366_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "GARRIDO RODRIGO ANDRES"
+            }
+          ]
+        },
+        "CFG2369_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2369_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_16",
+              "tipo": "CATEDRA",
+              "profesor": "DURAND MARIA TERESA"
+            }
+          ]
+        },
+        "CFG2378_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2378_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_17",
+              "tipo": "B-LEARNING 01",
+              "profesor": "VICUNA MANUEL JOSE"
+            }
+          ]
+        },
+        "CFG5006_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG5006_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "LIENDO DANIELA ANDREA"
+            }
+          ]
+        },
+        "CFG5010_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG5010_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "CATEDRA",
+              "profesor": "MELLER ALAN"
+            }
+          ]
+        }
+      }
+    },
+    "CFG3": {
+      "nombre": "CFG",
+      "nodo_asignatura": {
+        "id": 1905,
+        "to_asignatura_real": "CFG3",
+        "to_asignatura_real__nro_correlativo": "26",
+        "to_asignatura_real__nombre": "CFG",
+        "cc": "00",
+        "uu": "03",
+        "kk": "34",
+        "critico": false
+      },
+      "secciones": {
+        "CFG2017_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2017_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_18",
+              "tipo": "CATEDRA",
+              "profesor": "ZAMBRA MARCELO CRISTIAN"
+            }
+          ]
+        },
+        "CFG2029_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2029_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "HAMAME EVA EMILIA"
+            }
+          ]
+        },
+        "CFG2059_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2059_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_10",
+              "tipo": "CATEDRA",
+              "profesor": "CATALAN AILIN"
+            }
+          ]
+        },
+        "CFG2084_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2084_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_10",
+              "tipo": "B-LEARNING 01",
+              "profesor": "CHACON FRACISCA ESTEFANIA"
+            }
+          ]
+        },
+        "CFG2086_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2086_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_14",
+              "tipo": "CATEDRA",
+              "profesor": "BUGUENO RODRIGO ALFONSO"
+            }
+          ]
+        },
+        "CFG2098_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2098_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SCHNEUER MARIA JOSE"
+            }
+          ]
+        },
+        "CFG2140_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2140_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_10",
+              "tipo": "CATEDRA",
+              "profesor": "ALVAREZ ANA MARIA"
+            }
+          ]
+        },
+        "CFG2143_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2143_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_17",
+              "tipo": "CATEDRA",
+              "profesor": "ARIAS RODRIGO ANDRES"
+            }
+          ]
+        },
+        "CFG2189_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2189_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_17",
+              "tipo": "CATEDRA",
+              "profesor": "MILLACURA CLAUDIO VICENTE"
+            }
+          ]
+        },
+        "CFG2203_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2203_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_11",
+              "tipo": "CATEDRA",
+              "profesor": "MONTT PEDRO NOLASCO"
+            }
+          ]
+        },
+        "CFG2209_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2209_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "B-LEARNING CATEDRA 01",
+              "profesor": "BARRERO LINA MARIA"
+            }
+          ]
+        },
+        "CFG2253_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2253_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_08",
+              "tipo": "CATEDRA",
+              "profesor": "OTERO EDISON HERMES"
+            }
+          ]
+        },
+        "CFG2259_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2259_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "CATEDRA",
+              "profesor": "M\u00dcLLER BRENDA"
+            }
+          ]
+        },
+        "CFG2273_CB02": {
+          "nodo_seccion": {
+            "ss": 2,
+            "to_seccion": "CFG2273_CB02",
+            "to_seccion__num_seccion": "2"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_14",
+              "tipo": "B-LEARNING 02",
+              "profesor": "FREDES NATACHA CAMILA"
+            }
+          ]
+        },
+        "CFG2285_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2285_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_08",
+              "tipo": "CATEDRA",
+              "profesor": "MENEGHELLO RAIMUNDO GUILLERM"
+            }
+          ]
+        },
+        "CFG2294_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2294_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_10",
+              "tipo": "B-LEARNING 01",
+              "profesor": "RAMIREZ CARLOS ALBERTO"
+            }
+          ]
+        },
+        "CFG2295_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2295_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_16",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SCHONGUT NICOLAS"
+            }
+          ]
+        },
+        "CFG2296_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2296_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "SA_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "ROMERO ELENA PILAR"
+            }
+          ]
+        },
+        "CFG2308_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2308_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "DURAND MARIA TERESA"
+            }
+          ]
+        },
+        "CFG2325_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2325_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SILVA ANGELA RUTH"
+            }
+          ]
+        },
+        "CFG2335_CB02": {
+          "nodo_seccion": {
+            "ss": 2,
+            "to_seccion": "CFG2335_CB02",
+            "to_seccion__num_seccion": "2"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_17",
+              "tipo": "B-LEARNING 02",
+              "profesor": "ALVEAR KATHERINE"
+            }
+          ]
+        },
+        "CFG2341_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2341_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_13",
+              "tipo": "CATEDRA",
+              "profesor": "GARCIA ROBERTO ENRIQUE"
+            }
+          ]
+        },
+        "CFG2343_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2343_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_17",
+              "tipo": "B-LEARNING 01",
+              "profesor": "CIFUENTES MARIA ANGELA"
+            }
+          ]
+        },
+        "CFG2356_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2356_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "RAMIREZ PATRICIA"
+            }
+          ]
+        },
+        "CFG2366_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2366_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "GARRIDO RODRIGO ANDRES"
+            }
+          ]
+        },
+        "CFG2369_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2369_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_16",
+              "tipo": "CATEDRA",
+              "profesor": "DURAND MARIA TERESA"
+            }
+          ]
+        },
+        "CFG2378_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2378_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_17",
+              "tipo": "B-LEARNING 01",
+              "profesor": "VICUNA MANUEL JOSE"
+            }
+          ]
+        },
+        "CFG5006_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG5006_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "LIENDO DANIELA ANDREA"
+            }
+          ]
+        },
+        "CFG5010_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG5010_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "CATEDRA",
+              "profesor": "MELLER ALAN"
+            }
+          ]
+        }
+      }
+    },
+    "CFG4": {
+      "nombre": "CFG",
+      "nodo_asignatura": {
+        "id": 1920,
+        "to_asignatura_real": "CFG4",
+        "to_asignatura_real__nro_correlativo": "42",
+        "to_asignatura_real__nombre": "CFG",
+        "cc": "00",
+        "uu": "03",
+        "kk": "18",
+        "critico": false
+      },
+      "secciones": {
+        "CFG2017_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2017_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_18",
+              "tipo": "CATEDRA",
+              "profesor": "ZAMBRA MARCELO CRISTIAN"
+            }
+          ]
+        },
+        "CFG2029_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2029_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "HAMAME EVA EMILIA"
+            }
+          ]
+        },
+        "CFG2059_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2059_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_10",
+              "tipo": "CATEDRA",
+              "profesor": "CATALAN AILIN"
+            }
+          ]
+        },
+        "CFG2084_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2084_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_10",
+              "tipo": "B-LEARNING 01",
+              "profesor": "CHACON FRACISCA ESTEFANIA"
+            }
+          ]
+        },
+        "CFG2086_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2086_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_14",
+              "tipo": "CATEDRA",
+              "profesor": "BUGUENO RODRIGO ALFONSO"
+            }
+          ]
+        },
+        "CFG2098_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2098_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SCHNEUER MARIA JOSE"
+            }
+          ]
+        },
+        "CFG2140_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2140_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_10",
+              "tipo": "CATEDRA",
+              "profesor": "ALVAREZ ANA MARIA"
+            }
+          ]
+        },
+        "CFG2143_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2143_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_17",
+              "tipo": "CATEDRA",
+              "profesor": "ARIAS RODRIGO ANDRES"
+            }
+          ]
+        },
+        "CFG2189_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2189_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_17",
+              "tipo": "CATEDRA",
+              "profesor": "MILLACURA CLAUDIO VICENTE"
+            }
+          ]
+        },
+        "CFG2203_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2203_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_11",
+              "tipo": "CATEDRA",
+              "profesor": "MONTT PEDRO NOLASCO"
+            }
+          ]
+        },
+        "CFG2209_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2209_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "B-LEARNING CATEDRA 01",
+              "profesor": "BARRERO LINA MARIA"
+            }
+          ]
+        },
+        "CFG2253_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2253_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_08",
+              "tipo": "CATEDRA",
+              "profesor": "OTERO EDISON HERMES"
+            }
+          ]
+        },
+        "CFG2259_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2259_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "CATEDRA",
+              "profesor": "M\u00dcLLER BRENDA"
+            }
+          ]
+        },
+        "CFG2273_CB02": {
+          "nodo_seccion": {
+            "ss": 2,
+            "to_seccion": "CFG2273_CB02",
+            "to_seccion__num_seccion": "2"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_14",
+              "tipo": "B-LEARNING 02",
+              "profesor": "FREDES NATACHA CAMILA"
+            }
+          ]
+        },
+        "CFG2285_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2285_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_08",
+              "tipo": "CATEDRA",
+              "profesor": "MENEGHELLO RAIMUNDO GUILLERM"
+            }
+          ]
+        },
+        "CFG2294_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2294_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "LU_10",
+              "tipo": "B-LEARNING 01",
+              "profesor": "RAMIREZ CARLOS ALBERTO"
+            }
+          ]
+        },
+        "CFG2295_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2295_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_16",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SCHONGUT NICOLAS"
+            }
+          ]
+        },
+        "CFG2296_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2296_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "SA_11",
+              "tipo": "B-LEARNING 01",
+              "profesor": "ROMERO ELENA PILAR"
+            }
+          ]
+        },
+        "CFG2308_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2308_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "DURAND MARIA TERESA"
+            }
+          ]
+        },
+        "CFG2325_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2325_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "SILVA ANGELA RUTH"
+            }
+          ]
+        },
+        "CFG2335_CB02": {
+          "nodo_seccion": {
+            "ss": 2,
+            "to_seccion": "CFG2335_CB02",
+            "to_seccion__num_seccion": "2"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_17",
+              "tipo": "B-LEARNING 02",
+              "profesor": "ALVEAR KATHERINE"
+            }
+          ]
+        },
+        "CFG2341_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2341_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_13",
+              "tipo": "CATEDRA",
+              "profesor": "GARCIA ROBERTO ENRIQUE"
+            }
+          ]
+        },
+        "CFG2343_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2343_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_17",
+              "tipo": "B-LEARNING 01",
+              "profesor": "CIFUENTES MARIA ANGELA"
+            }
+          ]
+        },
+        "CFG2356_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2356_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "RAMIREZ PATRICIA"
+            }
+          ]
+        },
+        "CFG2366_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2366_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_16",
+              "tipo": "CATEDRA",
+              "profesor": "GARRIDO RODRIGO ANDRES"
+            }
+          ]
+        },
+        "CFG2369_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2369_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MI_16",
+              "tipo": "CATEDRA",
+              "profesor": "DURAND MARIA TERESA"
+            }
+          ]
+        },
+        "CFG2378_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG2378_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "JU_17",
+              "tipo": "B-LEARNING 01",
+              "profesor": "VICUNA MANUEL JOSE"
+            }
+          ]
+        },
+        "CFG5006_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG5006_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "MA_20",
+              "tipo": "B-LEARNING 01",
+              "profesor": "LIENDO DANIELA ANDREA"
+            }
+          ]
+        },
+        "CFG5010_FG01": {
+          "nodo_seccion": {
+            "ss": 1,
+            "to_seccion": "CFG5010_FG01",
+            "to_seccion__num_seccion": "1"
+          },
+          "eventos": [
+            {
+              "bloque": "VI_11",
+              "tipo": "CATEDRA",
+              "profesor": "MELLER ALAN"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

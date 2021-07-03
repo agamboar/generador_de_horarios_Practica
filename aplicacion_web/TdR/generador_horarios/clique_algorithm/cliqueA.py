@@ -2,7 +2,9 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 import traceback
-from .models import *
+from ..models import *
+
+VERSION = 1
 
 # seria bueno modularizar esta funcion
 
