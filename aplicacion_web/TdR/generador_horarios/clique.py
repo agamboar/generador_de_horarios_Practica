@@ -89,6 +89,16 @@ def appendHorariosEventos(horario, aux_horario, evento, aux_eventos):
         if alfa == False:
             aux_eventos.append(evento)
 
+def getNodeWeight(event):
+    cc = event['to_nodo_asignatura__cc']
+    uu = event['to_nodo_asignatura__uu']
+    kk = event['to_nodo_asignatura__kk']
+    ss = str(event['ss']) if len(str(event['ss'])) > 1 else ("0" + str(event['ss']))
+
+    prioridad = int(cc+uu+kk+ss)
+    return prioridad
+
+
 def get_clique_max_pond(current_user):
 
     data = getData(current_user)
@@ -130,12 +140,13 @@ def get_clique_max_pond(current_user):
             appendHorariosEventos(horario, aux_horario, evento, aux_eventos)
 
             #potencialmente, esto deberia ir al comienzo del else que viene. *Mentira no se puede sin modificarlo por las referencias a event[...]
-            cc = event['to_nodo_asignatura__cc']
-            uu = event['to_nodo_asignatura__uu']
-            kk = event['to_nodo_asignatura__kk']
-            ss = str(event['ss']) if len(str(event['ss'])) > 1 else ("0" + str(event['ss']))
+            # cc = event['to_nodo_asignatura__cc']
+            # uu = event['to_nodo_asignatura__uu']
+            # kk = event['to_nodo_asignatura__kk']
+            # ss = str(event['ss']) if len(str(event['ss'])) > 1 else ("0" + str(event['ss']))
 
-            prioridad = int(cc+uu+kk+ss)
+            # prioridad = int(cc+uu+kk+ss)
+            prioridad = getNodeWeight(event)
 
             nro_seccion = event['to_seccion__num_seccion']
             if nro_seccion != "99": # las pruebas de eximicion de ingles tienen nro_seccion 99.
