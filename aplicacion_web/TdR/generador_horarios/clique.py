@@ -102,6 +102,25 @@ def getNodeWeight(event):
     prioridad = int(cc+uu+kk+ss)
     return prioridad
 
+def addEdges(G):
+    # se agregan las aristas del grafo
+    list_node = list(G.nodes.items())
+    lenth_graph = len(list_node)
+    for i in range(lenth_graph):
+        if (i+1) < lenth_graph:
+            for j in range(i+1, lenth_graph):
+                # verificando que no se tomen dos secciones del mismo ramo
+                if (list_node[i][1]["codigo_box"] != list_node[j][1]["codigo_box"] and list_node[i][0][0:7] != list_node[j][0][0:7]): #que revisa la expresion: list_node[i][0][0:7] != list_node[j][0][0:7] (es el codigo del ramo) ? Que es codigo_box exactamente? codigo de la asignatura que sale en la malla
+                    tope = 0
+                    # se itera por los modulos que tiene la seccion
+                    for k in range(len(list_node[i][1]["horario"])):
+                        for x in range(len(list_node[j][1]["horario"])):
+                            # verificando que no topen los horarios
+                            if (list_node[i][1]["horario"][k] == list_node[j][1]["horario"][x]):
+                                tope += 1
+                                break  # termina de ver los modulos, ya que pillo una que topa
+                    if tope == 0:
+                        G.add_edge(list_node[i][0], list_node[j][0])
 
 def get_clique_max_pond(current_user):
 
@@ -134,24 +153,21 @@ def get_clique_max_pond(current_user):
             else:
                 continue
 
-
         horario = getHorario(event)     
         evento = getParsedEvent(event)
 
         #se agregan los nodos del grafo (1 vez por cada evento, eventos de la misma seccion sobre-escriben el nodo)
         if aux_seccion == event['to_seccion__cod_seccion'] and aux_codigo == event['to_nodo_asignatura__to_asignatura_real__codigo']:
-
             appendHorariosEventos(horario, aux_horario, evento, aux_eventos)
-
             #potencialmente, esto deberia ir al comienzo del else que viene. *Mentira no se puede sin modificarlo por las referencias a event[...]
-
             prioridad = getNodeWeight(event)
-
             nro_seccion = event['to_seccion__num_seccion']
-
-            G.add_nodes_from([str(codigo + "   - " + event["to_seccion__cod_seccion"])],
-                                horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=event['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=event["nombre_ramo"], eventos=aux_eventos, cod_asignatura_real=event['to_seccion__to_asignatura_real__codigo']) # no entiendo muy bien la composicion de uno de estos nodos [?] Cual es la diferencia entre horario y eventos? Agrega 1 nodo o multiples nodos?
-
+            G.add_nodes_from(
+                [str(codigo + "   - " + event["to_seccion__cod_seccion"])], 
+                horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=event['to_seccion__cod_seccion'],
+                nro_seccion=nro_seccion, nombre=event["nombre_ramo"], eventos=aux_eventos, 
+                cod_asignatura_real=event['to_seccion__to_asignatura_real__codigo']
+            )
             list_node = list(G.nodes.items())
                            
             if len(list_node) == 87: #esto trunca la cantidad de secciones a 87?
@@ -165,24 +181,25 @@ def get_clique_max_pond(current_user):
             aux_seccion = event['to_seccion__cod_seccion']
             aux_codigo = event['to_nodo_asignatura__to_asignatura_real__codigo']
 
-    list_node = list(G.nodes.items())
-    lenth_graph = len(list_node)
     # se agregan las aristas del grafo
-    for i in range(lenth_graph):
-        if (i+1) < lenth_graph:
-            for j in range(i+1, lenth_graph):
-                # verificando que no se tomen dos secciones del mismo ramo
-                if (list_node[i][1]["codigo_box"] != list_node[j][1]["codigo_box"] and list_node[i][0][0:7] != list_node[j][0][0:7]): #que revisa la expresion: list_node[i][0][0:7] != list_node[j][0][0:7] (es el codigo del ramo) ? Que es codigo_box exactamente? codigo de la asignatura que sale en la malla
-                    tope = 0
-                    # se itera por los modulos que tiene la seccion
-                    for k in range(len(list_node[i][1]["horario"])):
-                        for x in range(len(list_node[j][1]["horario"])):
-                            # verificando que no topen los horarios
-                            if (list_node[i][1]["horario"][k] == list_node[j][1]["horario"][x]):
-                                tope += 1
-                                break  # termina de ver los modulos, ya que pillo una que topa
-                    if tope == 0:
-                        G.add_edge(list_node[i][0], list_node[j][0])
+    # list_node = list(G.nodes.items())
+    # lenth_graph = len(list_node)
+    # for i in range(lenth_graph):
+    #     if (i+1) < lenth_graph:
+    #         for j in range(i+1, lenth_graph):
+    #             # verificando que no se tomen dos secciones del mismo ramo
+    #             if (list_node[i][1]["codigo_box"] != list_node[j][1]["codigo_box"] and list_node[i][0][0:7] != list_node[j][0][0:7]): #que revisa la expresion: list_node[i][0][0:7] != list_node[j][0][0:7] (es el codigo del ramo) ? Que es codigo_box exactamente? codigo de la asignatura que sale en la malla
+    #                 tope = 0
+    #                 # se itera por los modulos que tiene la seccion
+    #                 for k in range(len(list_node[i][1]["horario"])):
+    #                     for x in range(len(list_node[j][1]["horario"])):
+    #                         # verificando que no topen los horarios
+    #                         if (list_node[i][1]["horario"][k] == list_node[j][1]["horario"][x]):
+    #                             tope += 1
+    #                             break  # termina de ver los modulos, ya que pillo una que topa
+    #                 if tope == 0:
+    #                     G.add_edge(list_node[i][0], list_node[j][0])
+    addEdges(G)
 
     # se calculan los horarios a recomendar.
     prev_solution = []
