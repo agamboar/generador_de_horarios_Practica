@@ -75,6 +75,19 @@ def getHorario(event):
     except Exception as exc:
         raise Exception("Error al intentar crear variable horario") from exc
 
+def appendHorariosEventos(horario, aux_horario, evento, aux_eventos):
+    if horario not in aux_horario: #evitar agregar horarios duplicados
+        aux_horario.append(horario)
+
+    if evento not in aux_eventos: #que se revisa aqui? evitar agragar eventos duplicados
+        alfa = False
+        for i in aux_eventos:
+            if i['bloque'] == evento['bloque']:
+                alfa = True
+                break
+
+        if alfa == False:
+            aux_eventos.append(evento)
 
 def get_clique_max_pond(current_user):
 
@@ -99,49 +112,30 @@ def get_clique_max_pond(current_user):
         #salta cfgs que no son de prioridad 1 o 2.
         if codigo[0:3] == "CFG":
             if count_prio <= 2:# esto limita la cantidad de cfg
+                if not (event["cfg_area"] == prio_area_cfg[0]['area'] or event["cfg_area"] == prio_area_cfg[1]['area']): # se saltan cfgs que no son prio 1 o 2.
+                    continue
                 if current_cfg_number != codigo[3]:
                     current_cfg_number = codigo[3]
                     count_prio+=1 # aqui hay un bug. esto cuenta un cfg a pesar de que este se salte.
-                if not (event["cfg_area"] == prio_area_cfg[0]['area'] or event["cfg_area"] == prio_area_cfg[1]['area']): # se saltan cfgs que no son prio 1 o 2.
-                    continue
             else:
                 continue
 
 
-        horario = getHorario(event)
-        # try:  
-        #     horario = (
-        #         event['to_seccion__evento__dia'] + ' ' + event['to_seccion__evento__modulo']
-        #     )
-        # except Exception as exc:
-        #     raise Exception("Error al intentar crear variable horario") from exc
-
-        
+        horario = getHorario(event)     
         evento = getParsedEvent(event)
 
         #se agregan los nodos del grafo (1 vez por cada evento, eventos de la misma seccion sobre-escriben el nodo)
         if aux_seccion == event['to_seccion__cod_seccion'] and aux_codigo == event['to_nodo_asignatura__to_asignatura_real__codigo']:
-            if horario not in aux_horario: #evitar agregar horarios duplicados
-                aux_horario.append(horario)
 
-            if evento not in aux_eventos: #que se revisa aqui? evitar agragar eventos duplicados
-                alfa = False
-                for i in aux_eventos:
-                    if i['bloque'] == evento['bloque']:
-                        alfa = True
-                        break
+            appendHorariosEventos(horario, aux_horario, evento, aux_eventos)
 
-                if alfa == False:
-                    aux_eventos.append(evento)
-#potencialmente, esto deberia ir al comienzo del else que viene. *Mentira no se puede sin modificarlo por las referencias a event[...]
+            #potencialmente, esto deberia ir al comienzo del else que viene. *Mentira no se puede sin modificarlo por las referencias a event[...]
             cc = event['to_nodo_asignatura__cc']
             uu = event['to_nodo_asignatura__uu']
             kk = event['to_nodo_asignatura__kk']
             ss = str(event['ss']) if len(str(event['ss'])) > 1 else ("0" + str(event['ss']))
 
             prioridad = int(cc+uu+kk+ss)
-
-
 
             nro_seccion = event['to_seccion__num_seccion']
             if nro_seccion != "99": # las pruebas de eximicion de ingles tienen nro_seccion 99.
