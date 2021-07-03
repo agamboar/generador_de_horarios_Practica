@@ -122,6 +122,47 @@ def addEdges(G):
                     if tope == 0:
                         G.add_edge(list_node[i][0], list_node[j][0])
 
+def getRecommendations(G, show_options):
+    # se calculan los horarios a recomendar.
+    prev_solution = []
+    aux_retornar = []
+    for i in range(show_options):
+        max_clique_pond = nx.max_weight_clique(G, weight="prioridad")
+        arr_aux_delete = []
+        solucion = []
+        for event in max_clique_pond[0]:
+            arr_aux_delete.append((event, G.nodes[event]["prioridad"]))
+
+        arr_aux_delete.sort(key=lambda tup: tup[1])
+
+        while len(arr_aux_delete) > 6:
+            # se elimina el mas peso mas chico de la lista
+            arr_aux_delete.pop(0)
+
+        if prev_solution == arr_aux_delete:  # sirve para no mostrar siempre las mismas soluciones
+            pass # aca en vez de "continue" debiese ir "pass"[?]. (potencialmente menos de 5 opciones en ambos casos)
+        else:
+
+            # print("---------------")
+            # print("\nSolucion Recomendada #", i+1, ": \n")
+            for event in arr_aux_delete:  # muestra las secciones a tomar
+                aux_modulos = ""
+                for beta in G.nodes[event[0]]["horario"]:
+                    aux_modulos += " "+beta[0:8]
+
+                solucion.append({'nombre': G.nodes[event[0]]["nombre"], 'horario': aux_modulos, 'nro_seccion': G.nodes[event[0]]["nro_seccion"],
+                                 'cod_asignatura_real': G.nodes[event[0]]["cod_asignatura_real"], 'eventos': G.nodes[event[0]]["eventos"], 'cod_seccion': G.nodes[event[0]]["cod_seccion"]})
+                #print(event[0][0: 7], " || ", "| Horario -> ", G.nodes[event[0]]["horario"], "||",G.nodes[event[0]]["prioridad"], "codigo seccion ->", G.nodes[event[0]]["cod_seccion"])
+                # print(solucion)
+            if solucion != []:
+                aux_retornar.append(solucion)
+        prev_solution = arr_aux_delete
+        try:
+            G.remove_node(arr_aux_delete[0][0])
+        except nx.NetworkXError:
+            break
+    return aux_retornar
+
 def get_clique_max_pond(current_user):
 
     data = getData(current_user)
@@ -183,46 +224,5 @@ def get_clique_max_pond(current_user):
 
     addEdges(G)
 
-    # se calculan los horarios a recomendar.
-    prev_solution = []
-    aux_retornar = []
-
-    show_options = 5 
-    for i in range(show_options):
-
-        max_clique_pond = nx.max_weight_clique(G, weight="prioridad")
-        arr_aux_delete = []
-        solucion = []
-        for event in max_clique_pond[0]:
-            arr_aux_delete.append((event, G.nodes[event]["prioridad"]))
-
-        arr_aux_delete.sort(key=lambda tup: tup[1])
-
-        while len(arr_aux_delete) > 6:
-            # se elimina el mas peso mas chico de la lista
-            arr_aux_delete.pop(0)
-
-        if prev_solution == arr_aux_delete:  # sirve para no mostrar siempre las mismas soluciones
-            pass # aca en vez de "continue" debiese ir "pass"[?]. (potencialmente menos de 5 opciones en ambos casos)
-        else:
-
-            # print("---------------")
-            # print("\nSolucion Recomendada #", i+1, ": \n")
-            for event in arr_aux_delete:  # muestra las secciones a tomar
-                aux_modulos = ""
-                for beta in G.nodes[event[0]]["horario"]:
-                    aux_modulos += " "+beta[0:8]
-
-                solucion.append({'nombre': G.nodes[event[0]]["nombre"], 'horario': aux_modulos, 'nro_seccion': G.nodes[event[0]]["nro_seccion"],
-                                 'cod_asignatura_real': G.nodes[event[0]]["cod_asignatura_real"], 'eventos': G.nodes[event[0]]["eventos"], 'cod_seccion': G.nodes[event[0]]["cod_seccion"]})
-                #print(event[0][0: 7], " || ", "| Horario -> ", G.nodes[event[0]]["horario"], "||",G.nodes[event[0]]["prioridad"], "codigo seccion ->", G.nodes[event[0]]["cod_seccion"])
-                # print(solucion)
-            if solucion != []:
-                aux_retornar.append(solucion)
-        prev_solution = arr_aux_delete
-        try:
-            G.remove_node(arr_aux_delete[0][0])
-        except nx.NetworkXError:
-            break
-
-    return aux_retornar
+    show_options = 5
+    return getRecommendations(G, show_options)
