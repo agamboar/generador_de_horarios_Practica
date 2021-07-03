@@ -13,7 +13,11 @@ def getData(userId):
         to_nodo_asignatura__to_user=userId, 
         to_nodo_asignatura__es=1,
         to_seccion__vacantes_libres__gt=0
-    ).exclude(to_seccion__evento=None).values( # en el excel hay secciones que tienen vacantes libres pero no eventos (ej. CIT1010_CA01 en malla 2021-1)
+    ).exclude(
+        to_seccion__num_seccion='99' # las pruebas de eximicion de ingles tienen numero de seccion 99
+    ).exclude(
+        to_seccion__evento=None # en el excel hay secciones que tienen vacantes libres pero no eventos (ej. CIT1010_CA01 en malla 2021-1)
+    ).values(
         'to_seccion__cod_seccion', 'to_nodo_asignatura__cc', 'to_nodo_asignatura__uu', 'to_nodo_asignatura__kk', 'ss', 'to_seccion__num_seccion', 'to_nodo_asignatura__to_asignatura_real__nro_correlativo', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__evento__dia', 'to_seccion__evento__tipo', 'to_seccion__evento__profesor', 'to_seccion__evento__modulo', 'to_seccion__num_seccion', 'to_seccion__to_asignatura_real__codigo', 'to_seccion__to_asignatura_real__nombre'
     ).order_by(
         '-to_seccion__to_asignatura_real__importancia', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__cod_seccion'
@@ -140,18 +144,13 @@ def get_clique_max_pond(current_user):
             appendHorariosEventos(horario, aux_horario, evento, aux_eventos)
 
             #potencialmente, esto deberia ir al comienzo del else que viene. *Mentira no se puede sin modificarlo por las referencias a event[...]
-            # cc = event['to_nodo_asignatura__cc']
-            # uu = event['to_nodo_asignatura__uu']
-            # kk = event['to_nodo_asignatura__kk']
-            # ss = str(event['ss']) if len(str(event['ss'])) > 1 else ("0" + str(event['ss']))
 
-            # prioridad = int(cc+uu+kk+ss)
             prioridad = getNodeWeight(event)
 
             nro_seccion = event['to_seccion__num_seccion']
-            if nro_seccion != "99": # las pruebas de eximicion de ingles tienen nro_seccion 99.
-                G.add_nodes_from([str(codigo + "   - " + event["to_seccion__cod_seccion"])],
-                                 horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=event['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=event["nombre_ramo"], eventos=aux_eventos, cod_asignatura_real=event['to_seccion__to_asignatura_real__codigo']) # no entiendo muy bien la composicion de uno de estos nodos [?] Cual es la diferencia entre horario y eventos? Agrega 1 nodo o multiples nodos?
+
+            G.add_nodes_from([str(codigo + "   - " + event["to_seccion__cod_seccion"])],
+                                horario=aux_horario, codigo_box=codigo, prioridad=prioridad, cod_seccion=event['to_seccion__cod_seccion'], nro_seccion=nro_seccion, nombre=event["nombre_ramo"], eventos=aux_eventos, cod_asignatura_real=event['to_seccion__to_asignatura_real__codigo']) # no entiendo muy bien la composicion de uno de estos nodos [?] Cual es la diferencia entre horario y eventos? Agrega 1 nodo o multiples nodos?
 
             list_node = list(G.nodes.items())
                            
