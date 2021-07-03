@@ -181,24 +181,6 @@ def get_clique_max_pond(current_user):
             aux_seccion = event['to_seccion__cod_seccion']
             aux_codigo = event['to_nodo_asignatura__to_asignatura_real__codigo']
 
-    # se agregan las aristas del grafo
-    # list_node = list(G.nodes.items())
-    # lenth_graph = len(list_node)
-    # for i in range(lenth_graph):
-    #     if (i+1) < lenth_graph:
-    #         for j in range(i+1, lenth_graph):
-    #             # verificando que no se tomen dos secciones del mismo ramo
-    #             if (list_node[i][1]["codigo_box"] != list_node[j][1]["codigo_box"] and list_node[i][0][0:7] != list_node[j][0][0:7]): #que revisa la expresion: list_node[i][0][0:7] != list_node[j][0][0:7] (es el codigo del ramo) ? Que es codigo_box exactamente? codigo de la asignatura que sale en la malla
-    #                 tope = 0
-    #                 # se itera por los modulos que tiene la seccion
-    #                 for k in range(len(list_node[i][1]["horario"])):
-    #                     for x in range(len(list_node[j][1]["horario"])):
-    #                         # verificando que no topen los horarios
-    #                         if (list_node[i][1]["horario"][k] == list_node[j][1]["horario"][x]):
-    #                             tope += 1
-    #                             break  # termina de ver los modulos, ya que pillo una que topa
-    #                 if tope == 0:
-    #                     G.add_edge(list_node[i][0], list_node[j][0])
     addEdges(G)
 
     # se calculan los horarios a recomendar.
