@@ -10,7 +10,7 @@ def getState_beforePERT(userId):
     semestreActual = utils.getSemestreActual() # en /views/mi_malla_manual el semestre se guarda como una lista de strings con 1 string
     state = dict()
     state["user_id"] = userId
-    state["tabla_avance"] = list(avance_academico.objects.filter(to_user__id=userId, semestre=semestreActual).values())[0]
+    state["tabla_avance"] = list(avance_academico.objects.filter(to_user__id=userId, semestre=semestreActual).values())
     state["asignaturas_cursadas"] = list(asignatura_cursada.objects.filter(to_User__id=userId).values())
     return state
 
