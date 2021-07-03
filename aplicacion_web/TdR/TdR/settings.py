@@ -35,8 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'corsheaders',
     'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 ]
 SITE_ID = 1
