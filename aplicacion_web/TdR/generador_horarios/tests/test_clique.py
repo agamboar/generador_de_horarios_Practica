@@ -18,7 +18,7 @@ def test_getData(setupOferta):
         jl.loadUser(fileName='users', userId='6')
         testCase = jl.readJSONFile(folder='Clique/stateTestCases', fileName='case5') # para tener un estado pre-clique valido
         stc.setState_beforeClique(testCase["stateInput"])
-        getData(userId='6')
+        getData(userId='6', cfgAreaLimit=2)
     except Exception:
         traceback.print_exc()
         assert False

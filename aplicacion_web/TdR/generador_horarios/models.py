@@ -194,7 +194,7 @@ class solucion(models.Model):
 # COMPONENTES EXTRA
 
 class prioridad_cfg(models.Model): #cual es el campo del excel que se usa para representar el area?
-
+    # to_user y area deben ser unique together (***)
     area = models.CharField(max_length=50) #nombre del area.
     prioridad = models.IntegerField(default=0)
     fecha_mod = models.DateTimeField(auto_now=True)
@@ -204,5 +204,6 @@ class prioridad_cfg(models.Model): #cual es el campo del excel que se usa para r
     to_user = models.ForeignKey(User, on_delete=CASCADE) #cambiado de manytomany a foreign key
 
 class cfg_areas(models.Model):
+    # codigo y area deben ser unique together (***)
     codigo = models.CharField(max_length=25,primary_key=True)
     area = models.CharField(max_length=50)

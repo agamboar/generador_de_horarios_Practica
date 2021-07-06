@@ -88,7 +88,6 @@ def getData(userId):
         '-to_seccion__to_asignatura_real__importancia', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__cod_seccion'
     ).distinct()
 
-    # data["nombres_ramo"] ={}
     data["cfg_areas"] = {}
     for event in data["datos_clique"]:
         event["nombre_ramo"] = event['to_seccion__to_asignatura_real__nombre']
