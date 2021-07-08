@@ -190,39 +190,46 @@ def getRecommendations(G, show_options):
     # se calculan los horarios a recomendar.
     prev_solution = []
     aux_retornar = []
-    for i in range(show_options):
+    for i in range(show_options): # arr_aux_delete -> nodosSolucion -> seccionPrioridad -> tuplasSeccion# TODO: borrar comentario
+
         max_clique_pond = nx.max_weight_clique(G, weight="prioridad")
-        arr_aux_delete = []
+        tuplasSeccion = []
         solucion = []
-        for event in max_clique_pond[0]:
-            arr_aux_delete.append((event, G.nodes[event]["prioridad"]))
+        for elem in max_clique_pond[0]:
+            tuplasSeccion.append((elem, G.nodes[elem]["prioridad"]))
 
-        arr_aux_delete.sort(key=lambda tup: tup[1])
+        tuplasSeccion.sort(key=lambda tup: tup[1])
 
-        while len(arr_aux_delete) > 6:
+        while len(tuplasSeccion) > 6:
             # se elimina el mas peso mas chico de la lista
-            arr_aux_delete.pop(0)
+            tuplasSeccion.pop(0)
 
-        if prev_solution == arr_aux_delete:  # sirve para no mostrar siempre las mismas soluciones
+        if prev_solution == tuplasSeccion:  # sirve para no mostrar siempre las mismas soluciones
             pass # aca en vez de "continue" debiese ir "pass"[?]. (potencialmente menos de 5 opciones en ambos casos)
         else:
 
             # print("---------------")
             # print("\nSolucion Recomendada #", i+1, ": \n")
-            for event in arr_aux_delete:  # muestra las secciones a tomar
+            for elem in tuplasSeccion:  # muestra las secciones a tomar
                 aux_modulos = ""
-                for beta in G.nodes[event[0]]["horario"]:
+                for beta in G.nodes[elem[0]]["horario"]:
                     aux_modulos += " "+beta[0:8]
 
-                solucion.append({'nombre': G.nodes[event[0]]["nombre"], 'horario': aux_modulos, 'nro_seccion': G.nodes[event[0]]["nro_seccion"],
-                                 'cod_asignatura_real': G.nodes[event[0]]["cod_asignatura_real"], 'eventos': G.nodes[event[0]]["eventos"], 'cod_seccion': G.nodes[event[0]]["cod_seccion"]})
-                #print(event[0][0: 7], " || ", "| Horario -> ", G.nodes[event[0]]["horario"], "||",G.nodes[event[0]]["prioridad"], "codigo seccion ->", G.nodes[event[0]]["cod_seccion"])
+                solucion.append({
+                    'nombre': G.nodes[elem[0]]["nombre"], 
+                    'horario': aux_modulos, 
+                    'nro_seccion': G.nodes[elem[0]]["nro_seccion"], 
+                    'cod_asignatura_real': G.nodes[elem[0]]["cod_asignatura_real"], 
+                    'eventos': G.nodes[elem[0]]["eventos"], 
+                    'cod_seccion': G.nodes[elem[0]]["cod_seccion"]
+                })
+                #print(elem[0][0: 7], " || ", "| Horario -> ", G.nodes[elem[0]]["horario"], "||",G.nodes[elem[0]]["prioridad"], "codigo seccion ->", G.nodes[elem[0]]["cod_seccion"])
                 # print(solucion)
             if solucion != []:
                 aux_retornar.append(solucion)
-        prev_solution = arr_aux_delete
+        prev_solution = tuplasSeccion
         try:
-            G.remove_node(arr_aux_delete[0][0])
+            G.remove_node(tuplasSeccion[0][0])
         except nx.NetworkXError:
             break
     return aux_retornar

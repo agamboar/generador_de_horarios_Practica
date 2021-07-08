@@ -36,5 +36,3 @@ def prettyPrint(obj):
         return True
     except (TypeError, OverflowError):
         return False
-
-

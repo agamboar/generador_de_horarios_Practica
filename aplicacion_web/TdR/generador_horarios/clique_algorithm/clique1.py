@@ -19,7 +19,6 @@ def get_clique_max_pond(current_user):
         '-to_seccion__to_asignatura_real__importancia', 'to_nodo_asignatura__to_asignatura_real__codigo', 'to_seccion__cod_seccion'
     ).distinct() # en el order_by, para que es el primer guion en "-to_seccion__to_asignatura_real__importancia"? el guion es para ordenar ascendente
     G = nx.Graph()
-    cccc = 0
 
     if len(datos_clique)==0:
         return "n"
@@ -57,7 +56,7 @@ def get_clique_max_pond(current_user):
             horario = (
                 elem['to_seccion__evento__dia'] + ' ' + elem['to_seccion__evento__modulo']
             )
-            cccc+= 1
+
         except Exception as exc:
             traceback.print_exc()
             print("elem: " , elem)

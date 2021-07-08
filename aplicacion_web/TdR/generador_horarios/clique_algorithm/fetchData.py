@@ -2,6 +2,46 @@ import traceback
 from ..models import *
 from ..helpers import utils as ut, jsonLog as jl
 
+""" # TODO actualizar
+ejemplo de estructura de diccionario 'data'
+
+    data = {
+        'prioridades_area_cfg': {
+            'Ciencias Sociales' : 1~4,
+            'Ciencia y Sociedad' : 1~4,
+            'Humanidades'  : 1~4,
+            'Historia' : 1~4
+        },
+        'asignaturas': {
+            '<codigo asignatura 1>' : {
+                'nombre' : '<nombre asignatura 1>',
+                'nodo_asignatura' : '<nodo_asignatura de asignatura 1>',
+                'is_cfg' : True/False,
+                'secciones' : {
+                    '<codigo seccion 1>' : {
+                        'nodo_seccion' : '<nodo_seccion de seccion 1>',
+                        'eventos' : [
+                            {
+                                'bloque': '<bloque(ej. JU_10)>', 
+                                'tipo': '<tipo: ej. CATEDRA>', 
+                                'profesor': '<profesor>'
+                            },
+                            {...},
+                            {...},
+                            ...
+                        ],
+                        'bloques' : set('LU_10', 'JU_10', ...)
+                    },
+                    '<codigo seccion 2>' : {...}
+                } 
+            },
+            '<codigo asignatura 2>' : {...},
+            '<codigo asignatura 3>' : {...},
+            ...
+        }
+    }
+
+"""
 
 def getData(userId, cfgAreaLimit):
     # --- retorna los datos de la bdd que necesita get_clique_max_pond, ejemplo de la estructura de 'data' en clique_algorithm/ejemplo_getData.json --- #
@@ -22,6 +62,7 @@ def getData(userId, cfgAreaLimit):
     data['asignaturas'] = asignaturas
 
     return data
+
 def getNodosAsignatura(userId):
     nodosAsignatura = nodo_asignatura.objects.filter(
         to_user=userId,
@@ -36,6 +77,7 @@ def getNodosAsignatura(userId):
         'to_asignatura_real'
     ).distinct()
     return nodosAsignatura
+
 def getPrioridadesArea(userId):
     prioridadesArea = {} # diccionario -> llave='nombre area', valor='prioridad de area'
     listaPrioidadCFG = list(prioridad_cfg.objects.filter(to_user=userId).values('area', 'prioridad'))
@@ -50,6 +92,7 @@ def getPrioridadesArea(userId):
         for prioridadCFG in listaPrioidadCFG:
             prioridadesArea[prioridadCFG['area']] = prioridadCFG['prioridad']
     return prioridadesArea
+
 def getNodosSeccion(nodoAsig):
     # se obtienen todas las secciones de la asignatura  
     nodosSeccion = nodo_seccion.objects.filter(
@@ -63,12 +106,14 @@ def getNodosSeccion(nodoAsig):
         'to_seccion'
     ).distinct()
     return nodosSeccion
+
 def getEventos(codigoSeccion):
     # se obtienen todos los eventos de la seccion 
     events = evento.objects.filter(
         to_seccion=codigoSeccion
     ).values().distinct()
     return events
+
 def getDictAsignatura(nodoAsig, nodosSeccion, prioridadesArea, cfgAreaLimit):
     # se agrega asignatura a diccionario de asignaturas
     isCfg = nodoAsig['to_asignatura_real__importancia'] == 1 # cfgs tienen importancia 1
@@ -77,8 +122,8 @@ def getDictAsignatura(nodoAsig, nodosSeccion, prioridadesArea, cfgAreaLimit):
     for nodoSecc in list(nodosSeccion):             
         codigoSecc = nodoSecc['to_seccion']
         if isCfg:
-            codigoAsignaturaReal = codigoSecc[0:7] # primeros 7 digitos del codigo de seccion son el codigo del ramo cfg real (y no los ramos CFG1/CFG2..)
-            cfgArea = cfg_areas.objects.get(codigo=codigoAsignaturaReal).area
+            CFGReal = getRamoReal(codigoSecc)
+            cfgArea = cfg_areas.objects.get(codigo=CFGReal.codigo).area
             if (prioridadesArea[cfgArea] > cfgAreaLimit): continue # solo se consideran como seccion cfgs de ciertas areas
 
         events = getEventos(codigoSecc) # se obtienen todos los eventos de la seccion            
@@ -93,17 +138,38 @@ def getDictAsignatura(nodoAsig, nodosSeccion, prioridadesArea, cfgAreaLimit):
         'secciones' : secciones  
     }
     return dictAsignatura
+
 def getDictSeccion(nodoSecc, events):
     parsedEvents = [] # se ajusta el formato de los eventos
+    horario = [] # guarda la lista de bloques en un formato diferente a los de parsedEvents (se utiliza en el front)
     for event in list(events): 
         parsedEvents.append(getParsedEvent(event))
+        bloque_v2 = event['dia'] + ' ' +event['modulo']
+        horario.append(bloque_v2)
+
+    bloques = set()
+    for parsedEvent in parsedEvents:
+        bloques.add(parsedEvent['bloque'])
+
+    ramoReal = getRamoReal(nodoSecc['to_seccion'])
 
     # se crea diccionario seccion conteniendo con nodo_seccion y lista de eventos.
     dictSeccion = {
+        'codigo_ramo_real' : ramoReal.codigo,
+        'nombre_ramo_real' : ramoReal.nombre,
         'nodo_seccion' : nodoSecc,
-        'eventos' : parsedEvents
+        'bloques' : bloques,
+        'eventos' : parsedEvents,
+        'horario' : horario,
     }
     return dictSeccion
+
+def getRamoReal(codigoSeccion):
+    # primeros 7 digitos del codigo de seccion son el codigo del ramo real (necesario para cfgs, que tienen CFG1/CFG2..etc y no el ramo real asociado en los nodos asignatura)
+    codigoReal = codigoSeccion[0:7]
+    ramoReal = asignatura_real.objects.get(codigo=codigoReal)
+    return ramoReal
+
 def getParsedEvent(event):
     # elimina las tildes de catedra y ayudantia
     if event['tipo'][0] == 'C':
