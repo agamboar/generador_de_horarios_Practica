@@ -4,7 +4,7 @@ import pytest
 from ..helpers import jsonLog as jl, DBSeed as sd, stateControl as stc, utils as ut
 from ..models import *
 from dictdiffer import diff
-from ..clique_algorithm.clique import VERSION, getData, getGraphNodes, addEdges, getMPClique
+from ..clique_algorithm.clique import VERSION, getData, getGraphNodes, addEdges, getSolution_A
 
 # pytest --reuse-db will not pick up schema changes between test runs. You must run the tests with 
 # pytest --reuse-db --create-db to re-create the database according to the new schema. Running without 
@@ -49,7 +49,16 @@ def test_addEdges(setupOferta):
         assert False
 
 def test_getSolution_A(setupOferta):
-    pass # TODO
+    try:
+        prepareCliqueTest(userId='6')
+        data = getData(userId='6', cfgAreaLimit=2)
+        asignaturas = data['asignaturas']
+        G = getGraphNodes(asignaturas)
+        addEdges(G)
+
+    except Exception:
+        traceback.print_exc()
+        assert False
 
 def prepareCliqueTest(userId):
     jl.loadUser(fileName='users', userId=userId)

@@ -124,8 +124,8 @@ def getSolution(G, solutionType):
         raise Exception("tipo de solucion invalido (getSolution(G, solutionType))")
 
 def getSolution_A(G):
-    clique = nx.max_weight_clique(G, weight="prioridad")
-    seccionesNX = list(clique.items()) # secciones
+    (clique, totalWeight) = nx.max_weight_clique(G, weight="prioridad")
+    seccionesNX = list(G.subgraph(clique).nodes.items()) # subgrafo de 'G' proque 'clique' contiene solo nodos y no sus atributos
     
     # se acota a 6 secciones elimiando las de menor prioridad
     seccionesNX.sort(key=lambda tup: tup[1]['prioridad'])
@@ -135,8 +135,7 @@ def getSolution_A(G):
     solution = seccionesNX
     formattedSolution = formatNXSolution(solution)
 
-    return solution, formattedSolution 
-    #TODO probar
+    return solution, formattedSolution
 
 
 
