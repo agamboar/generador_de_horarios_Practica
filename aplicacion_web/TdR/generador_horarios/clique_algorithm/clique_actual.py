@@ -47,17 +47,15 @@ ejemplo de estructura de diccionario 'data'
     }
 """
 
-('CFG4   - CFG5006_FG01', {'prioridad': 31801, 'codigo_asignatura': 'CFG4', 'cod_ramo_real': 'CFG5006', 'nombre_ramo_real': 'B-LEARNING HIS. DEL DOCUMENTAL CONTEM.', 'codigo_seccion': 'CFG5006_FG01', 'nro_seccion': '1', 'bloques': {'MA_20'}, 'eventos': [{'bloque': 'MA_20', 'tipo': 'B-LEARNING 01', 'profesor': 'LIENDO DANIELA ANDREA'}]})
-
-def get_clique_max_pond(userId, cfgAreaLimit, amount=5, solutionType='A'):
+def get_clique_max_pond(userId, cfgAreaLimit=2, amount=5, solutionType='A'):
     data = getData(userId, cfgAreaLimit)
 
     asignaturas = data['asignaturas']
     graph = getGraphNodes(asignaturas)
     addEdges(graph)
 
-    return getRecommendations(graph, amount, solutionType)
-
+    (recommendations, _) = getRecommendations(graph, amount, solutionType)
+    return recommendations
 
 def getGraphNodes(asignaturas):
     G = nx.Graph()
@@ -90,10 +88,11 @@ def addEdges(G):
             nodeA = nodeList[i]
             nodeB = nodeList[j]
 
+            mismoRamo = nodeA[1]['codigo_asignatura'] == nodeB[1]['codigo_asignatura']
             mismoCFG = nodeA[1]['cod_ramo_real'] == nodeB[1]['cod_ramo_real']
             interseccionBloques = nodeA[1]['bloques'] & nodeB[1]['bloques']
 
-            if not mismoCFG and not interseccionBloques:
+            if not (mismoRamo or mismoCFG or interseccionBloques):
                 G.add_edge(nodeA[0], nodeB[0])
 
 def getPrioridad(nodoAsignatura, nodoSeccion):
@@ -107,16 +106,17 @@ def getPrioridad(nodoAsignatura, nodoSeccion):
 
 def getRecommendations(G, amount, solutionType):
     recommendations = []
+    weightList = []
     for _ in range(amount):
-        (solution, formattedSolution) = getSolution(G, solutionType)
+        (solution, formattedSolution, totalWeight) = getSolution(G, solutionType)
         recommendations.append(formattedSolution)
+        weightList.append(totalWeight)
 
         # se elimina del grafo el nodo (perteneciente a la solucion) de menor prioridad para que la proxima solución de un resultado diferente
         leastPriorityNode = solution[0][0]
         G.remove_node(leastPriorityNode) 
     
-    return recommendations 
-    #TODO: probar
+    return recommendations, weightList 
 
 def getSolution(G, solutionType):
     if solutionType == 'A': return getSolution_A(G)
@@ -135,9 +135,7 @@ def getSolution_A(G):
     solution = seccionesNX
     formattedSolution = formatNXSolution(solution)
 
-    return solution, formattedSolution
-
-
+    return solution, formattedSolution, totalWeight
 
 def formatNXSolution(solution):
     fmtSolution = []

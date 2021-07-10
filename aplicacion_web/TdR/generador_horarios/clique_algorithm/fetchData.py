@@ -111,7 +111,7 @@ def getEventos(codigoSeccion):
     # se obtienen todos los eventos de la seccion 
     events = evento.objects.filter(
         to_seccion=codigoSeccion
-    ).values().distinct()
+    ).values().distinct('dia', 'modulo')
     return events
 
 def getDictAsignatura(nodoAsig, nodosSeccion, prioridadesArea, cfgAreaLimit):
@@ -145,7 +145,7 @@ def getDictSeccion(nodoSecc, events):
     for event in list(events): 
         parsedEvents.append(getParsedEvent(event))
         bloque_v2 = event['dia'] + ' ' +event['modulo']
-        horario.append(bloque_v2)
+        if bloque_v2 not in horario: horario.append(bloque_v2)
 
     bloques = set()
     for parsedEvent in parsedEvents:

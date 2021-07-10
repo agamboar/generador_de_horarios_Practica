@@ -30,7 +30,7 @@ from .serializers import *
 from .models import *
 from .tasks import *
 from .PERT import *
-from .clique_algorithm.clique import get_clique_max_pond
+from .clique_algorithm.clique_actual  import get_clique_max_pond
 
 from .helpers import jsonLog as jl, utils, DBSeed, stateControl as stc
 import traceback
@@ -226,9 +226,10 @@ def calc_PERT(user_id):
     stateBefore = stc.getState_beforePERT(user_id)
 
     try: 
-        avance_academico_user = avance_academico.objects.get(to_user_id=user_id)
+        avance_academico_user = avance_academico.objects.get(to_user_id=user_id, semestre=utils.getSemestreActual())
+        print('semestre actual', utils.getSemestreActual()) #TODO borrar coment
         avance_academico_user_json = avance_academico_user.json_avance
-        agno_malla = avance_academico.objects.get(to_user_id=user_id).agno_malla
+        agno_malla = avance_academico.objects.get(to_user_id=user_id, semestre=utils.getSemestreActual()).agno_malla
         # agno_malla = alumno.objects.get(to_user_id=user_id).to_malla
     except avance_academico.DoesNotExist:
         new_dict = {}

@@ -54,12 +54,17 @@ def test_clique_consistency(setupOferta):
             stc.setState_beforeClique(testCase["stateInput"])
 
             expected = testCase["output"]
+            expectedSorted = ut.ordered(expected)
             real = calc_clique(user["id"])
-            if ut.ordered(real) != ut.ordered(expected):
+            realSorted = ut.ordered(real)
+
+            if expectedSorted != realSorted:
                 ok = False
                 print("Fallo caso ", i)
-                difference = diff(ut.ordered(expected),ut.ordered(real))
-                print(list(difference))
+                print('\n real:  \n', ut.ordered(real), '\n')
+                print('\n esperado:  \n', ut.ordered(expected), '\n')
+                difference = diff(expectedSorted, realSorted)
+                print('\n diferencia: \n', list(difference), '\n')
         assert ok == True
     except Exception:
         traceback.print_exc()
