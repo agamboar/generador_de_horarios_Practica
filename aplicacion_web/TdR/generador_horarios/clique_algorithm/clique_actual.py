@@ -48,14 +48,17 @@ ejemplo de estructura de diccionario 'data'
 """
 
 def get_clique_max_pond(userId, cfgAreaLimit=2, amount=5, solutionType='A'):
-    data = getData(userId, cfgAreaLimit)
+    G = setupGraph(userId, cfgAreaLimit)
+    (recommendations, _) = getRecommendations(G, amount, solutionType)
+    return recommendations
 
+def setupGraph(userId, cfgAreaLimit):
+    data = getData(userId, cfgAreaLimit)
     asignaturas = data['asignaturas']
+
     graph = getGraphNodes(asignaturas)
     addEdges(graph)
-
-    (recommendations, _) = getRecommendations(graph, amount, solutionType)
-    return recommendations
+    return graph    
 
 def getGraphNodes(asignaturas):
     G = nx.Graph()
@@ -119,11 +122,14 @@ def getRecommendations(G, amount, solutionType):
     return recommendations, weightList 
 
 def getSolution(G, solutionType):
+    # las funciones getSolution_[A-Z](G) no deben modificar el grafo 'G'
+    # su return debe ser una tupla: (solution, formattedSolution, totalWeight)
     if solutionType == 'A': return getSolution_A(G)
     else:
         raise Exception("tipo de solucion invalido (getSolution(G, solutionType))")
 
 def getSolution_A(G):
+# --- solucion original, resultado equivalente a primera version de aplicacion (clique_v1) --- # 
     (clique, totalWeight) = nx.max_weight_clique(G, weight="prioridad")
     seccionesNX = list(G.subgraph(clique).nodes.items()) # subgrafo de 'G' proque 'clique' contiene solo nodos y no sus atributos
     

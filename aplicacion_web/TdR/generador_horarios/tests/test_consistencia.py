@@ -40,7 +40,7 @@ def test_PERT_consistency(setupOferta):
         traceback.print_exc()
         assert False
 
-@pytest.mark.skip(reason="se esta refactorizando por partes")
+# @pytest.mark.skip(reason="se esta refactorizando por partes")
 def test_clique_consistency(setupOferta):
     try:
         users = jl.readJSONFile('Users', 'users')
@@ -61,8 +61,8 @@ def test_clique_consistency(setupOferta):
             if expectedSorted != realSorted:
                 ok = False
                 print("Fallo caso ", i)
-                print('\n real:  \n', ut.ordered(real), '\n')
-                print('\n esperado:  \n', ut.ordered(expected), '\n')
+                # print('\n esperado:  \n', expectedSorted, '\n')
+                # print('\n real:  \n', realSorted, '\n')
                 difference = diff(expectedSorted, realSorted)
                 print('\n diferencia: \n', list(difference), '\n')
         assert ok == True
