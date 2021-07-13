@@ -118,11 +118,12 @@ def import_cfg(request):
             cfg3 = asignatura_real.objects.get(codigo='CFG3')
             cfg4 = asignatura_real.objects.get(codigo='CFG4')
 
+            utils.clearOfertaCFG()
+
             added_cfg = 0
             for elem in cfg_secciones:
                 if elem[0][0:3] == 'CFG':
                     added_cfg += 1
-                    with suppress(seccion.DoesNotExist): seccion.objects.get(cod_seccion=elem[0]).delete() 
                     
                     s1 = seccion.objects.create(
                         cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
@@ -138,7 +139,7 @@ def import_cfg(request):
                         area.save()
             for elem in cfg_eventos:
                 if elem[4][0:3] == 'CFG':
-                    with suppress(evento.DoesNotExist): evento.objects.get(to_seccion=elem[4]).delete()         
+
                     s = seccion.objects.get(cod_seccion=elem[4])
                     e = evento(tipo=elem[0], dia=elem[1], modulo=elem[2], profesor=elem[3], to_seccion=s)
                     e.save()
@@ -227,7 +228,6 @@ def calc_PERT(user_id):
 
     try: 
         avance_academico_user = avance_academico.objects.get(to_user_id=user_id, semestre=utils.getSemestreActual())
-        print('semestre actual', utils.getSemestreActual()) #TODO borrar coment
         avance_academico_user_json = avance_academico_user.json_avance
         agno_malla = avance_academico.objects.get(to_user_id=user_id, semestre=utils.getSemestreActual()).agno_malla
         # agno_malla = alumno.objects.get(to_user_id=user_id).to_malla

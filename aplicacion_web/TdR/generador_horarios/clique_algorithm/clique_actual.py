@@ -48,8 +48,11 @@ ejemplo de estructura de diccionario 'data'
 """
 
 def get_clique_max_pond(userId, cfgAreaLimit=2, amount=5, solutionType='A'):
+    print('construyendo grafo..')
     G = setupGraph(userId, cfgAreaLimit)
+    print('obteniendo recomendaciones..')
     (recommendations, _) = getRecommendations(G, amount, solutionType)
+    print('recomendaciones obtenidas.')
     return recommendations
 
 def setupGraph(userId, cfgAreaLimit):
@@ -60,9 +63,16 @@ def setupGraph(userId, cfgAreaLimit):
     addEdges(graph)
     return graph    
 
-def getGraphNodes(asignaturas):
+def getGraphNodes(asignaturas, nodeLimit=87, cfgLimit=2):
+    print('get graph nodes.. ')
     G = nx.Graph()
+    cantidad_nodos = 0
+    cantidad_cfgs = 0
     for codigoAsignatura, asignatura in asignaturas.items():
+        if nodeLimit != None and cantidad_nodos >= nodeLimit: break
+        if asignatura['is_cfg'] == True: 
+            if cfgLimit != None and cantidad_cfgs >= cfgLimit: continue
+            cantidad_cfgs += 1
         nodoAsignatura = asignatura['nodo_asignatura']   
         secciones = asignatura['secciones']
         for codigoSeccion, seccion in secciones.items():
@@ -81,6 +91,10 @@ def getGraphNodes(asignaturas):
                 eventos=seccion['eventos'],
                 horario=seccion['horario']
             )
+            cantidad_nodos += 1
+            if nodeLimit != None and cantidad_nodos >= nodeLimit: break
+    print('cantidad de nodos: ', cantidad_nodos)
+    print('cantidad de cfgs: ', cantidad_cfgs)
     return G
 
 def addEdges(G):
@@ -91,12 +105,17 @@ def addEdges(G):
             nodeA = nodeList[i]
             nodeB = nodeList[j]
 
-            mismoRamo = nodeA[1]['codigo_asignatura'] == nodeB[1]['codigo_asignatura']
-            mismoCFG = nodeA[1]['cod_ramo_real'] == nodeB[1]['cod_ramo_real']
-            interseccionBloques = nodeA[1]['bloques'] & nodeB[1]['bloques']
-
-            if not (mismoRamo or mismoCFG or interseccionBloques):
+            if seccionesCompatibles(nodeA, nodeB):
                 G.add_edge(nodeA[0], nodeB[0])
+
+def seccionesCompatibles(nodeA, nodeB):
+    mismoRamo = nodeA[1]['codigo_asignatura'] == nodeB[1]['codigo_asignatura']
+    mismoCFG = nodeA[1]['cod_ramo_real'] == nodeB[1]['cod_ramo_real']
+    interseccionBloques = nodeA[1]['bloques'] & nodeB[1]['bloques']
+
+    if mismoRamo or mismoCFG or interseccionBloques: return False
+    else: return True
+    
 
 def getPrioridad(nodoAsignatura, nodoSeccion):
     cc = nodoAsignatura['cc']

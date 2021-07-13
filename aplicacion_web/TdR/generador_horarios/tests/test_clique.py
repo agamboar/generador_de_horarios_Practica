@@ -4,7 +4,7 @@ import pytest
 from ..helpers import jsonLog as jl, DBSeed as sd, stateControl as stc, utils as ut
 from ..models import *
 from dictdiffer import diff
-from ..clique_algorithm import clique_actual as clique
+from ..clique_algorithm import clique_actual as clique, clique_v1_modular as clique_v1
 
 # pytest --reuse-db will not pick up schema changes between test runs. You must run the tests with 
 # pytest --reuse-db --create-db to re-create the database according to the new schema. Running without 
@@ -14,6 +14,7 @@ from ..clique_algorithm import clique_actual as clique
 
 USER_ID = '6'
 AREA_LIMIT = 2
+N_TEST_CASES = 9
 
 def test_getData(setupOferta):
     try:
@@ -51,11 +52,18 @@ def test_addEdges(setupOferta):
 
 def test_getSolution_A(setupOferta):
     try:
-        prepareCliqueTest(userId=USER_ID)
-        G = clique.setupGraph(userId=USER_ID, cfgAreaLimit=2)
+        for i in range(1, N_TEST_CASES+1):
+            caseName = 'case' + str(i)
+            prepareCliqueTest(USER_ID, caseName=caseName)
+            G = clique.setupGraph(USER_ID, cfgAreaLimit=2)
+            (solution, fmtSolution, totalWeight) = clique.getSolution_A(G)
 
-        (solution, fmtSolution, totalWeight) = clique.getSolution_A(G)
-
+            for i in range(0, len(solution)-1):
+                for j in range(i+1, len(solution)):
+                    nodeA = solution[i]
+                    nodeB = solution[j]
+                    if not clique.seccionesCompatibles(nodeA, nodeB): 
+                        assert False                     
     except Exception:
         traceback.print_exc()
         assert False
@@ -71,9 +79,29 @@ def test_getRecommendations(setupOferta):
         traceback.print_exc()
         assert False
 
-def prepareCliqueTest(userId):
+def test_compare_v1_actual(setupOferta):
+    try:
+        for i in range(1, N_TEST_CASES+1):
+            caseName = 'case' + str(i)
+            prepareCliqueTest(USER_ID, caseName=caseName)
+
+            (_, recom_v1_weights) = clique_v1.get_clique_max_pond(USER_ID)
+            G = clique.setupGraph(userId=USER_ID, cfgAreaLimit=2)
+            (_, recom_actual_weights) = clique.getRecommendations(G, amount=5, solutionType='A')
+            
+            if recom_v1_weights[0] > recom_actual_weights[0]:
+                print('v1 peso[0]: ', recom_v1_weights[0])
+                print('actual peso[0]: ', recom_actual_weights[0])
+                print('solucion actual entrega peso menor a v1 en caso ', caseName)
+                assert False
+    except Exception:
+        traceback.print_exc()
+        assert False
+
+
+def prepareCliqueTest(userId, caseName='case9'):
     jl.loadUser(fileName='users', userId=userId)
-    testCase = jl.readJSONFile(folder='Clique/stateTestCases', fileName='case9') # para tener un estado pre-clique valido
+    testCase = jl.readJSONFile(folder='Clique/stateTestCases', fileName=caseName) # para tener un estado pre-clique valido
     stc.setState_beforeClique(testCase["stateInput"])
 
 def compareSolutionWeights(solType1, solType2):

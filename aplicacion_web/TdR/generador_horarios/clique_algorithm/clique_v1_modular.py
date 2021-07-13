@@ -190,9 +190,11 @@ def getRecommendations(G, show_options):
     # se calculan los horarios a recomendar.
     prev_solution = []
     aux_retornar = []
+    weight_list = []
     for i in range(show_options): # arr_aux_delete -> nodosSolucion -> seccionPrioridad -> tuplasSeccion# TODO: borrar comentario
 
         max_clique_pond = nx.max_weight_clique(G, weight="prioridad")
+        weight_list.append(max_clique_pond[1])
         tuplasSeccion = []
         solucion = []
         for elem in max_clique_pond[0]:
@@ -232,5 +234,5 @@ def getRecommendations(G, show_options):
             G.remove_node(tuplasSeccion[0][0])
         except nx.NetworkXError:
             break
-    return aux_retornar
+    return aux_retornar, weight_list
 
