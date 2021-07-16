@@ -13,9 +13,9 @@ from ..clique_algorithm import clique_actual
 # fixtures en archivo "conftest.py"
 
 # ------ funciones para probar consistencia de resultados con version beta de aplicacion al refactorizar el código ------
-N_TEST_CASES = 9
+N_TEST_CASES = 6
 
-@pytest.mark.skip(reason="no se esta modificando")
+# @pytest.mark.skip(reason="no se esta modificando")
 def test_PERT_consistency(setupOferta):
     try:
         users = jl.readJSONFile('Users', 'users')
@@ -48,7 +48,7 @@ def test_PERT_consistency(setupOferta):
         traceback.print_exc()
         assert False
 
-@pytest.mark.skip(reason="se esta refactorizando por partes")
+@pytest.mark.skip(reason="obsoleto, se esta usando comparacion por pesos en 'test_clique.py'")
 def test_clique_consistency(setupOferta):
     try:
         users = jl.readJSONFile('Users', 'users')

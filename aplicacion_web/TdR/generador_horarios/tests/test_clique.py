@@ -11,11 +11,13 @@ from ..clique_algorithm import clique_actual as clique, clique_v1_modular as cli
 # pytest --reuse-db is also possible, since the database will automatically be re-created.
 
 # fixtures en archivo "conftest.py"
+SKIP = False
 
 USER_ID = '6'
 AREA_LIMIT = 2
 N_TEST_CASES = 9
 
+@pytest.mark.skipif(SKIP, reason='_')
 def test_getData(setupOferta):
     try:
         prepareCliqueTest(userId=USER_ID)
@@ -24,6 +26,7 @@ def test_getData(setupOferta):
         traceback.print_exc()
         assert False
 
+@pytest.mark.skipif(SKIP, reason='_')
 def test_getGraphNodes(setupOferta):
     try:
         prepareCliqueTest(userId=USER_ID)
@@ -38,6 +41,7 @@ def test_getGraphNodes(setupOferta):
         traceback.print_exc()
         assert False
 
+@pytest.mark.skipif(SKIP, reason='_')
 def test_addEdges(setupOferta):
     try:
         prepareCliqueTest(userId=USER_ID)
@@ -50,6 +54,7 @@ def test_addEdges(setupOferta):
         traceback.print_exc()
         assert False
 
+@pytest.mark.skipif(SKIP, reason='_')
 def test_getSolution_A(setupOferta):
     try:
         for i in range(1, N_TEST_CASES+1):
@@ -68,6 +73,7 @@ def test_getSolution_A(setupOferta):
         traceback.print_exc()
         assert False
 
+@pytest.mark.skipif(SKIP, reason='_')
 def test_getRecommendations(setupOferta):
     try:
         prepareCliqueTest(userId=USER_ID)
@@ -79,6 +85,7 @@ def test_getRecommendations(setupOferta):
         traceback.print_exc()
         assert False
 
+@pytest.mark.skipif(SKIP, reason='_')
 def test_compare_v1_actual(setupOferta):
     try:
         for i in range(1, N_TEST_CASES+1):

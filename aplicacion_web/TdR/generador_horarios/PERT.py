@@ -1,3 +1,4 @@
+from collections import UserDict
 import pandas as pd
 import numpy as np
 import networkx as nx
@@ -32,7 +33,7 @@ def set_values_recursive(PERT, id_node, len_dag):
     return PERT
 
 
-def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, user_id):
+def create_PERT(codigos_asignaturas_cursadas, codigos_ramos_malla, user_id):
 
     codigos_ramos_no_cursados = []
 
@@ -87,12 +88,13 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, user_id):
             for predecesor in list(PERT.predecessors(predecesor_nodo_final)):
                 PERT = set_values_recursive(PERT, predecesor, long_path-1)
     
-    # fin calculo de PERT
+    ramos_disponibles = get_ramos_criticos(PERT, user_id)
 
+    return ramos_disponibles
+
+def get_ramos_criticos(PERT, user_id):
+# aca se determinan los ramos criticos y los ramos que se pueden tomar.
     ramos_disponibles = {}
-
-    # aca se determinan los ramos criticos y los ramos que se pueden tomar.
-
     for nodo_PERT in list(PERT):
 
         aux_critico = False
@@ -124,17 +126,8 @@ def getRamoCritico(codigos_asignaturas_cursadas, codigos_ramos_malla, user_id):
             'to_asignatura_real': asignatura_real.objects.get(codigo=nodo_PERT)
         }
         nodo_asignatura(**params).save()
-        
-        # modificar ya que setea KK y SS y no toma en cuenta la asignacion de pesos hecha por el alumno
-        # r = nodo_asignatura(holgura=PERT.nodes[nodo_PERT]["H"], ef=PERT.nodes[nodo_PERT]["EF"], es=PERT.nodes[nodo_PERT]["ES"], ls=PERT.nodes[nodo_PERT]["LS"], lf=PERT.nodes[nodo_PERT]["LF"], critico=aux_critico, cc=cc, uu=uu, kk=kk)
-        
-        # r.save()
-        # n = nodo_asignatura.objects.get(id=r.id)
-        # n.to_user.add(u)
-        # a = asignatura_real.objects.get(codigo=nodo_PERT)
-        # n.to_asignatura_real.add(a)
-
     return ramos_disponibles
+
 
 # Funcion para guardar  las secciones que puede inscribir el alumno en la base de datos. Se guardan en la tabla nodo_seccion y se relacionan
 # con una seccion y con un nodo_asignatura, el cual esta relacionado con un alumno en especifico, por lo que

@@ -220,7 +220,7 @@ def get_PERT(request):
 ENABLED = False
 TEST_CASE = {
     "fileName": 'case99',
-    "title": 'test.'
+    "title": 'desactivado.'
 }
 
 def calc_PERT(user_id):
@@ -244,7 +244,7 @@ def calc_PERT(user_id):
 
         nodo_asignatura.objects.filter(to_user=user_id).delete()
 
-        getRamoCritico(codigos_asignaturas_cursadas,codigos_ramos_malla, user_id)
+        create_PERT(codigos_asignaturas_cursadas,codigos_ramos_malla, user_id)
         add_nodo_seccion(user_id)
 
         ramos_disponibles = nodo_asignatura.objects.filter(
