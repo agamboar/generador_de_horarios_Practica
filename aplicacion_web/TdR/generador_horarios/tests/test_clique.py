@@ -56,7 +56,7 @@ def test_getSolution_A(setupOferta):
             caseName = 'case' + str(i)
             prepareCliqueTest(USER_ID, caseName=caseName)
             G = clique.setupGraph(USER_ID, cfgAreaLimit=2)
-            (solution, fmtSolution, totalWeight) = clique.getSolution_A(G)
+            (solution, fmtSolution) = clique.getSolution_A(G)
 
             for i in range(0, len(solution)-1):
                 for j in range(i+1, len(solution)):
@@ -85,13 +85,20 @@ def test_compare_v1_actual(setupOferta):
             caseName = 'case' + str(i)
             prepareCliqueTest(USER_ID, caseName=caseName)
 
-            (_, recom_v1_weights) = clique_v1.get_clique_max_pond(USER_ID)
+            (_, solutions_v1) = clique_v1.get_clique_max_pond(USER_ID)
+
             G = clique.setupGraph(userId=USER_ID, cfgAreaLimit=2)
-            (_, recom_actual_weights) = clique.getRecommendations(G, amount=5, solutionType='A')
+            (_, solutions_actual) = clique.getRecommendations(G, amount=5, solutionType='A')
+
+            weight_v1 = getSolutionWeight_v1(solutions_v1[0])
+            weight_actual = getSolutionWeight(solutions_actual[0])
+
+            difference = weight_actual - weight_v1
+            print(caseName, ', actual: ', weight_actual, 'v1: ', weight_v1, 'diferencia: ', difference)
             
-            if recom_v1_weights[0] > recom_actual_weights[0]:
-                print('v1 peso[0]: ', recom_v1_weights[0])
-                print('actual peso[0]: ', recom_actual_weights[0])
+            if difference < 0:
+                print('v1 peso[0]: ', weight_v1)
+                print('actual peso[0]: ', weight_actual)
                 print('solucion actual entrega peso menor a v1 en caso ', caseName)
                 assert False
     except Exception:
@@ -103,6 +110,18 @@ def prepareCliqueTest(userId, caseName='case9'):
     jl.loadUser(fileName='users', userId=userId)
     testCase = jl.readJSONFile(folder='Clique/stateTestCases', fileName=caseName) # para tener un estado pre-clique valido
     stc.setState_beforeClique(testCase["stateInput"])
+
+def getSolutionWeight(solution):
+    totalWeight = 0
+    for node in solution:
+        totalWeight += node[1]['prioridad']
+    return totalWeight
+
+def getSolutionWeight_v1(solution_v1):
+    totalWeight = 0
+    for node in solution_v1:
+        totalWeight += node[1]
+    return totalWeight
 
 def compareSolutionWeights(solType1, solType2):
     prepareCliqueTest(userId=USER_ID)

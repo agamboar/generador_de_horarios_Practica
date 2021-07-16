@@ -29,14 +29,20 @@ def test_PERT_consistency(setupOferta):
             stc.setState_beforePERT(testCase["stateInput"])
 
             expected = testCase["output"]
-            real = clique_actual.get_clique_max_pond(user['id'])
-            # real = calc_PERT(user["id"])
+            real = calc_PERT(user["id"])
 
-            if ut.ordered(real) != ut.ordered(expected):
+            expectedSorted = ut.ordered(expected)
+            realSorted = ut.ordered(real)
+
+            if realSorted != expectedSorted:
                 ok = False
                 print("Fallo caso ", i)
-                difference = diff(ut.ordered(expected),ut.ordered(real))
-                print(list(difference))
+                print('esperado: \n', expectedSorted)
+                print('real: \n', realSorted)
+
+                difference = diff(expectedSorted, realSorted)
+                print('\n diferencia: \n', list(difference), '\n')
+                break
         assert ok == True
     except Exception: # excepciones evitan que la base de datos de prubas se cierre correctamente, manejarlas evita tener que reiniciar el terminal cuando hay errores
         traceback.print_exc()

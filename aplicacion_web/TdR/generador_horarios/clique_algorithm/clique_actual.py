@@ -64,7 +64,6 @@ def setupGraph(userId, cfgAreaLimit):
     return graph    
 
 def getGraphNodes(asignaturas, nodeLimit=87, cfgLimit=2):
-    print('get graph nodes.. ')
     G = nx.Graph()
     cantidad_nodos = 0
     cantidad_cfgs = 0
@@ -93,8 +92,6 @@ def getGraphNodes(asignaturas, nodeLimit=87, cfgLimit=2):
             )
             cantidad_nodos += 1
             if nodeLimit != None and cantidad_nodos >= nodeLimit: break
-    print('cantidad de nodos: ', cantidad_nodos)
-    print('cantidad de cfgs: ', cantidad_cfgs)
     return G
 
 def addEdges(G):
@@ -128,17 +125,17 @@ def getPrioridad(nodoAsignatura, nodoSeccion):
 
 def getRecommendations(G, amount, solutionType):
     recommendations = []
-    weightList = []
+    solutions = []
     for _ in range(amount):
-        (solution, formattedSolution, totalWeight) = getSolution(G, solutionType)
+        (solution, formattedSolution) = getSolution(G, solutionType)
         recommendations.append(formattedSolution)
-        weightList.append(totalWeight)
+        solutions.append(solution)
 
         # se elimina del grafo el nodo (perteneciente a la solucion) de menor prioridad para que la proxima solución de un resultado diferente
         leastPriorityNode = solution[0][0]
         G.remove_node(leastPriorityNode) 
     
-    return recommendations, weightList 
+    return recommendations, solutions 
 
 def getSolution(G, solutionType):
     # las funciones getSolution_[A-Z](G) no deben modificar el grafo 'G'
@@ -149,7 +146,7 @@ def getSolution(G, solutionType):
 
 def getSolution_A(G):
 # --- solucion original, resultado equivalente a primera version de aplicacion (clique_v1) --- # 
-    (clique, totalWeight) = nx.max_weight_clique(G, weight="prioridad")
+    (clique, _) = nx.max_weight_clique(G, weight="prioridad")
     seccionesNX = list(G.subgraph(clique).nodes.items()) # subgrafo de 'G' proque 'clique' contiene solo nodos y no sus atributos
     
     # se acota a 6 secciones elimiando las de menor prioridad
@@ -160,7 +157,7 @@ def getSolution_A(G):
     solution = seccionesNX
     formattedSolution = formatNXSolution(solution)
 
-    return solution, formattedSolution, totalWeight
+    return solution, formattedSolution
 
 def formatNXSolution(solution):
     fmtSolution = []

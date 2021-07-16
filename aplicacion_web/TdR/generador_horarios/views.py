@@ -118,7 +118,7 @@ def import_cfg(request):
             cfg3 = asignatura_real.objects.get(codigo='CFG3')
             cfg4 = asignatura_real.objects.get(codigo='CFG4')
 
-            utils.clearOfertaCFG()
+            utils.clearCFGsArea(area=request.POST['area'])
 
             added_cfg = 0
             for elem in cfg_secciones:
@@ -236,7 +236,7 @@ def calc_PERT(user_id):
         new_dict.update({"PERT": {}})
         new_dict["malla"] = "empty"
     
-        return Response(new_dict)
+        return new_dict
 
     if avance_academico_user.json_avance == {}: #el PERT se borra cuando se modifica el avance, solo se calcula el PERT si esta vacio. 
         codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(to_User=user_id).values_list('codigo', flat=True)
@@ -284,7 +284,6 @@ def get_clique(request):
             return Response("Error en get_clique: " + traceback.format_exc(), status=500)
 
 def calc_clique(current_user):
-    stateBefore = stc.getState_beforeClique(current_user)
 
     user = User.objects.get(id=current_user)
     existen_soluciones = False
@@ -318,11 +317,6 @@ def calc_clique(current_user):
         if jsons == []:
             jsons ="n"
         # 'uso el json' # esto no va aca
-    if ENABLED: jl.createStateTestCase_Clique(
-        TEST_CASE["fileName"],
-        stateBefore, jsons,
-        TEST_CASE["title"]
-    )
     return jsons
 
 @api_view(['POST'])
@@ -618,6 +612,7 @@ def get_ramos_disponibles(request):
 
 @api_view(['GET']) 
 def get_secciones_disponibles(request, codigo):
+    print('codigo: ', codigo)
 
     if request.method == "GET":
         #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
