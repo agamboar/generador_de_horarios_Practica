@@ -47,6 +47,9 @@ def getState_beforeClique(userId):
     prioridadCFG = list(prioridad_cfg.objects.filter(to_user=userId).values())
     state["prioridades_cfg"] = prioridadCFG
 
+    state["asignaturas_cursadas"] = list(asignatura_cursada.objects.filter(to_User__id=userId).values())
+    state["tabla_avance"] = list(avance_academico.objects.filter(to_user__id=userId, semestre=utils.getSemestreActual()).values())[0]
+
     return state
 
 def setState_beforeClique(state):
@@ -55,6 +58,8 @@ def setState_beforeClique(state):
     for nodoAsignatura in state["nodos_asignatura"]: nodo_asignatura(**nodoAsignatura).save()
     for nodoSeccion in state["nodos_seccion"]: nodo_seccion(**nodoSeccion).save()
     for prioridadCFG in state["prioridades_cfg"]: prioridad_cfg(**prioridadCFG).save()
+    for asigCursada in state["asignaturas_cursadas"]: asignatura_cursada(**asigCursada).save()
+    avance_academico(**state['tabla_avance']).save()
           
 
 def resetState_beforeClique(userId):
@@ -62,4 +67,6 @@ def resetState_beforeClique(userId):
         solucion.objects.filter(to_user=userId).delete()
         nodo_asignatura.objects.filter(to_user=userId).delete()
         nodo_seccion.objects.filter(to_nodo_asignatura__to_user=userId).delete()
-        prioridad_cfg.objects.filter(to_user=userId)
+        prioridad_cfg.objects.filter(to_user=userId).delete()
+        asignatura_cursada.objects.filter(to_User=userId).delete()
+        avance_academico.objects.filter(to_user=userId).delete()

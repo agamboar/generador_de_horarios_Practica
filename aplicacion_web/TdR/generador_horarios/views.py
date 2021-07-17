@@ -219,8 +219,8 @@ def get_PERT(request):
 
 ENABLED = False
 TEST_CASE = {
-    "fileName": 'case99',
-    "title": 'desactivado.'
+    "fileName": 'case5',
+    "title": 'malla 2020 requisitos minimos para electivos.'
 }
 
 def calc_PERT(user_id):
@@ -244,7 +244,7 @@ def calc_PERT(user_id):
 
         nodo_asignatura.objects.filter(to_user=user_id).delete()
 
-        create_PERT(codigos_asignaturas_cursadas,codigos_ramos_malla, user_id)
+        get_ramos_PERT(codigos_asignaturas_cursadas,codigos_ramos_malla, user_id)
         add_nodo_seccion(user_id)
 
         ramos_disponibles = nodo_asignatura.objects.filter(
@@ -263,11 +263,11 @@ def calc_PERT(user_id):
     new_dict.update({"PERT": aux_pert})
     new_dict["malla"] = agno_malla
 
-    if ENABLED: jl.createStateTestCase_PERT(
-        TEST_CASE["fileName"], 
-        stateBefore, new_dict, 
-        TEST_CASE["title"]
-    )
+    # if ENABLED: jl.createStateTestCase_PERT(
+    #     TEST_CASE["fileName"], 
+    #     stateBefore, new_dict, 
+    #     TEST_CASE["title"]
+    # )
     return new_dict
 
 
@@ -284,6 +284,7 @@ def get_clique(request):
             return Response("Error en get_clique: " + traceback.format_exc(), status=500)
 
 def calc_clique(current_user):
+    stateBefore = stc.getState_beforeClique(current_user)
 
     user = User.objects.get(id=current_user)
     existen_soluciones = False
@@ -317,6 +318,17 @@ def calc_clique(current_user):
         if jsons == []:
             jsons ="n"
         # 'uso el json' # esto no va aca
+
+    if ENABLED: jl.createStateTestCase_Clique(
+        TEST_CASE['fileName'],
+        stateBefore, jsons,
+        TEST_CASE['title']
+    )
+    # if ENABLED: jl.createStateTestCase_PERT(
+    #     TEST_CASE["fileName"], 
+    #     stateBefore, new_dict, 
+    #     TEST_CASE["title"]
+    # )
     return jsons
 
 @api_view(['POST'])

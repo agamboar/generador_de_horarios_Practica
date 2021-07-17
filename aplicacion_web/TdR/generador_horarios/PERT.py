@@ -33,8 +33,14 @@ def set_values_recursive(PERT, id_node, len_dag):
     return PERT
 
 
-def create_PERT(codigos_asignaturas_cursadas, codigos_ramos_malla, user_id):
+def get_ramos_PERT(codigos_asignaturas_cursadas, codigos_ramos_malla, user_id):
 
+    PERT = build_PERT(codigos_asignaturas_cursadas, codigos_ramos_malla)    
+    ramos_disponibles = get_ramos_criticos(PERT, user_id)
+
+    return ramos_disponibles
+
+def build_PERT(codigos_asignaturas_cursadas, codigos_ramos_malla):
     codigos_ramos_no_cursados = []
 
     for ramoId in codigos_ramos_malla:
@@ -87,14 +93,11 @@ def create_PERT(codigos_asignaturas_cursadas, codigos_ramos_malla, user_id):
         if len(list(PERT.predecessors(predecesor_nodo_final))) > 0:
             for predecesor in list(PERT.predecessors(predecesor_nodo_final)):
                 PERT = set_values_recursive(PERT, predecesor, long_path-1)
-    
-    ramos_disponibles = get_ramos_criticos(PERT, user_id)
-
-    return ramos_disponibles
+    return PERT
 
 def get_ramos_criticos(PERT, user_id):
 # aca se determinan los ramos criticos y los ramos que se pueden tomar.
-    ramos_disponibles = {}
+    ramos_disponibles = []
     for nodo_PERT in list(PERT):
 
         aux_critico = False
@@ -125,7 +128,9 @@ def get_ramos_criticos(PERT, user_id):
             'to_user': User.objects.get(id=user_id),
             'to_asignatura_real': asignatura_real.objects.get(codigo=nodo_PERT)
         }
-        nodo_asignatura(**params).save()
+        nodoAsig = nodo_asignatura(**params)
+        nodoAsig.save()
+        ramos_disponibles.append(nodoAsig)
     return ramos_disponibles
 
 

@@ -11,11 +11,11 @@ from ..clique_algorithm import clique_actual as clique, clique_v1_modular as cli
 # pytest --reuse-db is also possible, since the database will automatically be re-created.
 
 # fixtures en archivo "conftest.py"
-SKIP = False
+SKIP = True
 
 USER_ID = '6'
 AREA_LIMIT = 2
-N_TEST_CASES = 9
+N_TEST_CASES = 5
 
 @pytest.mark.skipif(SKIP, reason='_')
 def test_getData(setupOferta):
@@ -72,6 +72,35 @@ def test_getSolution_A(setupOferta):
     except Exception:
         traceback.print_exc()
         assert False
+
+def test_prerrequisitos(setupOferta):
+    for i in range(1, N_TEST_CASES+1):
+        caseName = 'case' + str(i)
+        prepareCliqueTest(USER_ID, caseName=caseName)
+        G = clique.setupGraph(USER_ID, cfgAreaLimit=2)
+        (solution, fmtSolution) = clique.getSolution_A(G)
+
+        for secc in fmtSolution:
+            codigo = secc['cod_asignatura_real']
+            nombre = secc['nombre']
+
+            codigos_asignaturas_cursadas = list(asignatura_cursada.objects.filter(to_User=USER_ID).values_list('codigo', flat=True))
+            prerrequisitos = asignatura_real.prerrequisito.through.objects.filter(
+                from_asignatura_real_id=codigo
+            ).values_list('to_asignatura_real_id', flat=True)
+
+            for preq in prerrequisitos:
+                ok = True
+                if preq not in codigos_asignaturas_cursadas:
+                    ok = False
+                    equivalencias = asignatura_real.objects.filter(equivale=preq).values_list('codigo', flat=True)
+                    for eq in equivalencias: 
+                        if eq in codigos_asignaturas_cursadas: ok = True
+                if not ok:
+                    print('ramo: ', preq)
+                    print('equivalentes: ', equivalencias)
+                    print('asignaturas cursadas: ', codigos_asignaturas_cursadas)          
+                assert ok, 'ramo '+nombre+' no cumple prerrequisitos, '+caseName
 
 @pytest.mark.skipif(SKIP, reason='_')
 def test_getRecommendations(setupOferta):

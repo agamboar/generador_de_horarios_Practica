@@ -98,6 +98,8 @@ def createStateTestCase_Clique(fileName, stateBefore, output, title="---"):
         del NS["fecha_mod"]
     for PC in stateBefore["prioridades_cfg"]:
         del PC["fecha_mod"]
+    for AC in stateBefore["asignaturas_cursadas"]:
+        del AC["fecha_modificacion"]
 
     testCase = {}
     testCase["title"] = title

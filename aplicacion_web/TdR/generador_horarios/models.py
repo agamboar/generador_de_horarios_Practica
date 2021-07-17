@@ -12,7 +12,7 @@ class asignatura_real(models.Model):
     creditos = models.IntegerField(null=False)
     nro_correlativo = models.CharField(max_length=30)
     semestre = models.CharField(max_length=30) # quizas debe ser parte de llave primaria
-    tipo = models.IntegerField(default=0)
+    tipo = models.IntegerField(default=0) # {0,1,2} => {ramo/cfg/electivo en malla, cfg en oferta, electivo en oferta}
     equivale = models.ManyToManyField('self', default=None, symmetrical=False)
     prerrequisito = models.ManyToManyField('self')
     importancia = models.IntegerField(default=3) #para distinguir entre ramo de malla, electivo o cfg (3,2,1 respectivamente)
