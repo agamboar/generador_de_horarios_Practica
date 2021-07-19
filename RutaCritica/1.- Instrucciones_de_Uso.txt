@@ -1,6 +1,5 @@
 
 
-test
 Para utilizar esta primera versión de la aplicación, se utiliza Python 3.8, y usando 'pip install' se deben instalar las siguientes librerías:
 
 - pip install pandas
