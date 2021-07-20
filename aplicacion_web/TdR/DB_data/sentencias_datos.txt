@@ -1,6 +1,6 @@
 
 ## Donde dice 'C:\Users\Public\asignaturaReal.csv', colocar la ubicacion de los archivos de esta carpeta. Debe ser publica. Los archivos deben estar en  'C:\Users\Public\ ## 
-
+#
 
 ## sentencia asignaturas ##
 
