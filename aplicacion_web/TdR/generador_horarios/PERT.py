@@ -80,11 +80,14 @@ def build_PERT(codigos_asignaturas_cursadas, codigos_ramos_malla):
 
     minimo_semestres = math.ceil(cant_ancestros/6)
 
-    min_es = minimo_semestres + 1
+    # min_es = minimo_semestres + 1
     # max_ef = 0
 
     long_path = len(nx.dag_longest_path(PERT))
-    es_final = max(min_es, long_path)          
+    # es_final = max(min_es, long_path)
+    es_final = long_path          
+
+    # agregan datos a nodo final
     PERT.nodes[nodo_aux_final]['ES'] = es_final
     PERT.nodes[nodo_aux_final]['LS'] = es_final
     PERT.nodes[nodo_aux_final]['EF'] = es_final + 1 # se le agrega duracion para que sea consistente con el resto de nodos al testear PERT
@@ -113,14 +116,6 @@ def build_PERT(codigos_asignaturas_cursadas, codigos_ramos_malla):
             for predecesor in list(PERT.predecessors(predecesor_nodo_final)):
                 PERT = set_values_recursive(PERT, predecesor, long_path-1)
 
-    # agregan datos a nodo final
-    # if max_ef != long_path: print('!!!')
-    # else: print('...', max_ef, '--', long_path)
-    # es_final = max_ef            
-    # PERT.nodes[nodo_aux_final]['ES'] = es_final
-    # PERT.nodes[nodo_aux_final]['LS'] = es_final
-    # PERT.nodes[nodo_aux_final]['EF'] = es_final + 1 # se le agrega duracion para que sea consistente con el resto de nodos al testear PERT
-    # PERT.nodes[nodo_aux_final]['LF'] = es_final + 1
     
     return PERT
 

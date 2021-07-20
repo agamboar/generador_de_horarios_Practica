@@ -50,6 +50,7 @@ ejemplo de estructura de diccionario 'data'
 def get_clique_max_pond(userId, cfgAreaLimit=2, amount=5, solutionType='A'):
     print('construyendo grafo..')
     G = setupGraph(userId, cfgAreaLimit)
+    if G.number_of_nodes() == 0: return 'n'
     print('obteniendo recomendaciones..')
     (recommendations, _) = getRecommendations(G, amount, solutionType)
     print('recomendaciones obtenidas.')

@@ -57,6 +57,7 @@ def test_prerrequisitos(setupOferta):
                         falseNegative = False
                 assert not falseNegative, caseName
 
+@pytest.mark.skip(reason="para la version del 26/07/21 no se considerará esta restriccion")
 def test_minimo_semestres(setupOferta):
     for i in range(1, N_TEST_CASES+1):
         caseName = 'case' + str(i)

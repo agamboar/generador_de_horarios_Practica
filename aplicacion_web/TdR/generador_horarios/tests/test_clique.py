@@ -11,7 +11,7 @@ from ..clique_algorithm import clique_actual as clique, clique_v1_modular as cli
 # pytest --reuse-db is also possible, since the database will automatically be re-created.
 
 # fixtures en archivo "conftest.py"
-SKIP = True
+SKIP = False
 
 USER_ID = '6'
 AREA_LIMIT = 2
@@ -142,7 +142,7 @@ def test_compare_v1_actual(setupOferta):
         assert False
 
 
-def prepareCliqueTest(userId, caseName='case9'):
+def prepareCliqueTest(userId, caseName='case1'):
     jl.loadUser(fileName='users', userId=userId)
     testCase = jl.readJSONFile(folder='Clique/stateTestCases', fileName=caseName) # para tener un estado pre-clique valido
     stc.setState_beforeClique(testCase["stateInput"])

@@ -1,6 +1,6 @@
 from json import load
 from ..models import *
-from ..helpers import jsonLog as jl
+from . import jsonLog as jl
 import logging
 import traceback
 

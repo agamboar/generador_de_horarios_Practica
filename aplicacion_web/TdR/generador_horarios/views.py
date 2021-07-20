@@ -224,7 +224,7 @@ TEST_CASE = {
 }
 
 def calc_PERT(user_id):
-    stateBefore = stc.getState_beforePERT(user_id)
+    # stateBefore = stc.getState_beforePERT(user_id)
 
     try: 
         avance_academico_user = avance_academico.objects.get(to_user_id=user_id, semestre=utils.getSemestreActual())
@@ -284,7 +284,7 @@ def get_clique(request):
             return Response("Error en get_clique: " + traceback.format_exc(), status=500)
 
 def calc_clique(current_user):
-    stateBefore = stc.getState_beforeClique(current_user)
+    # stateBefore = stc.getState_beforeClique(current_user)
 
     user = User.objects.get(id=current_user)
     existen_soluciones = False
@@ -303,6 +303,7 @@ def calc_clique(current_user):
             if recomendacion != "n":
                 solucion_alumno.json_solucion = recomendacion
                 solucion_alumno.save()
+            else: return 'n'
             # asociar los objetos nodo_seccion a el objeto solucion               
             for elem2 in recomendacion:
                 nodoSeccion = nodo_seccion.objects.filter(
@@ -319,11 +320,6 @@ def calc_clique(current_user):
             jsons ="n"
         # 'uso el json' # esto no va aca
 
-    if ENABLED: jl.createStateTestCase_Clique(
-        TEST_CASE['fileName'],
-        stateBefore, jsons,
-        TEST_CASE['title']
-    )
     # if ENABLED: jl.createStateTestCase_Clique(
     #     TEST_CASE["fileName"], 
     #     stateBefore, new_dict, 
