@@ -20,7 +20,7 @@ export default class AvanceManual2018 extends Component {
     componentDidMount = () => {
         for (let i = 0; i < this.props.ramos.length; i++) {
             const mov = i;
-            const mov2 = this.props.ramos[mov].to_asignatura_real[0].codigo;
+            const mov2 = this.props.ramos[mov].to_asignatura_real.codigo;
             this.setState({
                 [mov2]: [this.props.ramos[mov].critico, this.props.ramos[mov].es]
             })

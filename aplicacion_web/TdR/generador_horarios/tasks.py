@@ -174,10 +174,11 @@ def read_evento_cfg(excel_file):
 
         excel_file, usecols="F,H,J,T", na_filter=False, engine='openpyxl'))
 
+
     cfg_eventos = []
 
     for elem in cfg_evento:
-        if elem[0] != '':
+        if elem[0] != '' and elem[1] != '':
 
             # comprueba si el evento es una "C"atedra, esto se hace para separar los bloques, ya que estan en una sola fila en el excel, y en la base deben estar separados
             if elem[0][0] == 'C' or elem[0][0] == 'B':
@@ -208,7 +209,9 @@ def read_evento_cfg(excel_file):
                     elem1 = elem.copy()
                     elem2 = elem.copy()
 
-                    if arr_horario[1] == '08:30':
+                    #estos cfgs tienen en 1 bloque dos modulos, aqui se separan en 2 bloques 
+                    # (ej. [8:30 - 11:20] --> [8:30 - 9:50, 10:00 - 11:20])
+                    if arr_horario[1] == '08:30': 
                         bloque = arr_horario[1] + ' - 09:50'
                         bloque2 = '10:00 - ' + arr_horario[3]
                     elif arr_horario[1] == '10:00':
@@ -264,6 +267,7 @@ def read_evento_cfg(excel_file):
                     cfg_eventos.append(elem2.tolist())
 
             else:
+            # bloque estaba dentro de try con pass
                 try:
                     arr_horario = elem[1].split()
 
@@ -274,8 +278,10 @@ def read_evento_cfg(excel_file):
                     elem1 = np.append(elem1, bloque)
                     elem1[1] = dia
                     cfg_eventos.append(elem1.tolist())
-                except:
-                    pass
+                except Exception as exc:
+                    raise Exception('error agregando evento.\n ', 'elem: ', elem) from exc
+
+
 
     cfg_eventos = np.array(cfg_eventos)
 
