@@ -219,8 +219,8 @@ def get_PERT(request):
 
 ENABLED = False
 TEST_CASE = {
-    "fileName": 'case5',
-    "title": 'malla 2020 requisitos minimos para electivos.'
+    "fileName": 'case9',
+    "title": 'malla 2020 con 8 semestres aprobados.'
 }
 
 def calc_PERT(user_id):
@@ -324,7 +324,7 @@ def calc_clique(current_user):
         stateBefore, jsons,
         TEST_CASE['title']
     )
-    # if ENABLED: jl.createStateTestCase_PERT(
+    # if ENABLED: jl.createStateTestCase_Clique(
     #     TEST_CASE["fileName"], 
     #     stateBefore, new_dict, 
     #     TEST_CASE["title"]

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import random
 from contextlib import suppress
 from .models import *
+import math
 
 
 def set_values_recursive(PERT, id_node, len_dag):
@@ -14,9 +15,8 @@ def set_values_recursive(PERT, id_node, len_dag):
     arr_anc = list(nx.ancestors(PERT, id_node))
     max_count_jump = 1
     for elem1 in arr_anc:  # se calcula el camino mas grande desde todos los antecesores del nodo id_node
-        if max_count_jump < len(list(nx.all_simple_paths(PERT, elem1, id_node))[0]):
-            max_count_jump = len(
-                list(nx.all_simple_paths(PERT, elem1, id_node))[0])
+        if max_count_jump < longest_simple_path(PERT, elem1, id_node):
+            max_count_jump = longest_simple_path(PERT, elem1, id_node)
 
     PERT.nodes[id_node]["ES"] = max_count_jump if (PERT.nodes[id_node]["ES"] == False or (max_count_jump > PERT.nodes[id_node]["ES"])) else PERT.nodes[id_node]["ES"]
     PERT.nodes[id_node]["EF"] = PERT.nodes[id_node]["ES"] + 1  # este uno es D
@@ -72,15 +72,31 @@ def build_PERT(codigos_asignaturas_cursadas, codigos_ramos_malla):
         nodo_aux_final = 'FINAL3'
 
     # itera sobre los nodos que apuntan al ultimo nodo que es el nodo auxiliar final y se asignan los pesos
+    ancestros = nx.ancestors(PERT, nodo_aux_final)
+    cant_ancestros = len(ancestros)    
+    for node in ancestros: # las practicas no se consideran para el limite de 6 ramos por semestre, suponiendo que se toman en verano
+        asig = asignatura_real.objects.get(codigo=node)
+        if 'PRACTICA' in asig.nombre: cant_ancestros -= 1
 
+    minimo_semestres = math.ceil(cant_ancestros/6)
+
+    min_es = minimo_semestres + 1
+    # max_ef = 0
+
+    long_path = len(nx.dag_longest_path(PERT))
+    es_final = max(min_es, long_path)          
+    PERT.nodes[nodo_aux_final]['ES'] = es_final
+    PERT.nodes[nodo_aux_final]['LS'] = es_final
+    PERT.nodes[nodo_aux_final]['EF'] = es_final + 1 # se le agrega duracion para que sea consistente con el resto de nodos al testear PERT
+    PERT.nodes[nodo_aux_final]['LF'] = es_final + 1
     for predecesor_nodo_final in list(PERT.predecessors(nodo_aux_final)):
 
-        long_path = len(nx.dag_longest_path(PERT))
         ancestros = list(nx.ancestors(PERT, predecesor_nodo_final))
         max_count_jump = 1
         for nodo_ancestro in ancestros:
-            if max_count_jump < len(list(nx.all_simple_paths(PERT, nodo_ancestro, predecesor_nodo_final))[0]):
-                max_count_jump = len(list(nx.all_simple_paths(PERT, nodo_ancestro, predecesor_nodo_final))[0])
+            if max_count_jump < longest_simple_path(PERT, nodo_ancestro, predecesor_nodo_final):
+                max_count_jump = longest_simple_path(PERT, nodo_ancestro, predecesor_nodo_final)
+
 
         PERT.nodes[predecesor_nodo_final]["ES"] = max_count_jump
         PERT.nodes[predecesor_nodo_final]["EF"] = max_count_jump + 1  # este uno es D
@@ -88,12 +104,42 @@ def build_PERT(codigos_asignaturas_cursadas, codigos_ramos_malla):
         PERT.nodes[predecesor_nodo_final]["H"] = PERT.nodes[predecesor_nodo_final]["LF"] - PERT.nodes[predecesor_nodo_final]["EF"]
         PERT.nodes[predecesor_nodo_final]["LS"] = PERT.nodes[predecesor_nodo_final]["ES"] + PERT.nodes[predecesor_nodo_final]["H"]
 
+        # ef = PERT.nodes[predecesor_nodo_final]["EF"]
+        # if ef > max_ef: max_ef = ef
+
         # itera sobre los padres de los nodos que apuntan a 53
 
         if len(list(PERT.predecessors(predecesor_nodo_final))) > 0:
             for predecesor in list(PERT.predecessors(predecesor_nodo_final)):
                 PERT = set_values_recursive(PERT, predecesor, long_path-1)
+
+    # agregan datos a nodo final
+    # if max_ef != long_path: print('!!!')
+    # else: print('...', max_ef, '--', long_path)
+    # es_final = max_ef            
+    # PERT.nodes[nodo_aux_final]['ES'] = es_final
+    # PERT.nodes[nodo_aux_final]['LS'] = es_final
+    # PERT.nodes[nodo_aux_final]['EF'] = es_final + 1 # se le agrega duracion para que sea consistente con el resto de nodos al testear PERT
+    # PERT.nodes[nodo_aux_final]['LF'] = es_final + 1
+    
     return PERT
+
+def set_lf(PERT, target):
+    sucesores = PERT.successors(target)
+    min_ls = 100
+    if len(list(sucesores)) == 0: raise Exception('get_lf a nodo sin sucesores')
+    for sucesor in sucesores:
+        if PERT.nodes[sucesor]['LS'] < min_ls: min_ls = PERT.nodes[sucesor]['LS']
+
+    if PERT.nodes[target]['LF'] == False or min_ls < PERT.nodes[target]['LF']:
+        PERT.nodes[target]['LF'] = min_ls
+
+def longest_simple_path(PERT, source, target):
+    simple_paths = nx.all_simple_paths(PERT, source, target)
+    max_length = 0
+    for path in list(simple_paths):
+        if len(path) > max_length: max_length = len(path)
+    return max_length
 
 def get_ramos_criticos(PERT, user_id):
 # aca se determinan los ramos criticos y los ramos que se pueden tomar.

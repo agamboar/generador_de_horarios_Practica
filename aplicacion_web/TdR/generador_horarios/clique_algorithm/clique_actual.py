@@ -132,8 +132,9 @@ def getRecommendations(G, amount, solutionType):
         solutions.append(solution)
 
         # se elimina del grafo el nodo (perteneciente a la solucion) de menor prioridad para que la proxima solución de un resultado diferente
-        leastPriorityNode = solution[0][0]
-        G.remove_node(leastPriorityNode) 
+        if len(solution) > 0:
+            leastPriorityNode = solution[0][0]
+            G.remove_node(leastPriorityNode) 
     
     return recommendations, solutions 
 
