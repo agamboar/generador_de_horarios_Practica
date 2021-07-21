@@ -53,7 +53,7 @@ def getData(userId, cfgAreaLimit):
     nodosAsignatura = getNodosAsignatura(userId) # desde nodo_asignatura en bdd
     asignaturas = {} #diccionario -> llave='codigo asignatura' valor ='{nombre, nodo_asignatura, is_cfg, secciones}'
     for nodoAsig in list(nodosAsignatura): 
-        nodosSeccion = getNodosSeccion(nodoAsig) # se obtienen todas las secciones de la asignatura 
+        nodosSeccion = getNodosSeccion(nodoAsig, userId) # se obtienen todas las secciones de la asignatura 
         if (len(nodosSeccion) == 0): continue # no se consideran ramos sin secciones
 
         # se agrega asignatura a diccionario de asignaturas
@@ -78,6 +78,28 @@ def getNodosAsignatura(userId):
     ).distinct()
     return nodosAsignatura
 
+# def filterPrerrequisitos(nodosAsignatura, userId):  ## se tenian que filtrar las secciones xd
+#     filteredList = []
+#     for node in list(nodosAsignatura):
+#         codigo = node['to_asignatura_real']
+#         nombre = node['to_asignatura_real__nombre']
+#         importancia = node['to_asignatura_real__importancia']
+
+#         if (importancia != 2) or ('INGLES' in nombre): 
+#             filteredList.append(node)
+#         else:
+#             codigos_asignaturas_cursadas = asignatura_cursada.objects.filter(to_User=userId).values_list('codigo', flat=True)
+#             prerrequisitos = asignatura_real.prerrequisito.through.objects.filter(
+#                 from_asignatura_real_id=codigo
+#             ).values_list('to_asignatura_real_id', flat=True)
+            
+#             ok = True
+#             for preq in prerrequisitos:
+#                 if preq not in codigos_asignaturas_cursadas: ok = False
+
+#             if ok: filteredList.append(node)
+#     return filteredList
+
 def getPrioridadesArea(userId):
     prioridadesArea = {} # diccionario -> llave='nombre area', valor='prioridad de area'
     listaPrioidadCFG = list(prioridad_cfg.objects.filter(to_user=userId).values('area', 'prioridad'))
@@ -93,7 +115,7 @@ def getPrioridadesArea(userId):
             prioridadesArea[prioridadCFG['area']] = prioridadCFG['prioridad']
     return prioridadesArea
 
-def getNodosSeccion(nodoAsig):
+def getNodosSeccion(nodoAsig, userId):
     # se obtienen todas las secciones de la asignatura  
     nodosSeccion = nodo_seccion.objects.filter(
         to_nodo_asignatura=nodoAsig['id'],
@@ -105,7 +127,38 @@ def getNodosSeccion(nodoAsig):
     ).order_by(
         'to_seccion'
     ).distinct()
-    return nodosSeccion
+
+    cod_ramo = nodoAsig['to_asignatura_real']
+    nombre_ramo = nodoAsig['to_asignatura_real__nombre']
+    importancia = nodoAsig['to_asignatura_real__importancia']
+    if (importancia != 2) or ('INGLES' in nombre_ramo): # si no es electivo no hay nada mas que hacer
+        return list(nodosSeccion)
+
+    # para electivos se quitan las secciones que no tienen sus prerrequisitos aprobados:
+    nodosSeccionList = []
+    ramosAprobados = asignatura_cursada.objects.filter(to_User=userId).values_list('codigo', flat=True)
+    # print('\nramo--', cod_ramo, '-', nombre_ramo)
+    # print('secciones de electivo: ', list(nodosSeccion))
+    # print('ramosAprobados: ', list(ramosAprobados))
+    for nodoSecc in nodosSeccion:
+        codigo_electivo = getRamoReal(nodoSecc['to_seccion'])
+        prerrequisitos = asignatura_real.prerrequisito.through.objects.filter(
+            from_asignatura_real_id=codigo_electivo
+        ).values_list('to_asignatura_real_id', flat=True)
+
+        # print('codigo_electivo: ', codigo_electivo)
+        # print('prerrequisitos: \n', prerrequisitos)
+        ok = True
+        for preq in prerrequisitos:
+            if preq not in list(ramosAprobados):
+                # print('prerreq fallo: ', preq) 
+                ok = False
+        if ok: 
+            nodosSeccionList.append(nodoSecc)
+    #     print('ok?',ok)
+        
+    # print('nodos seccion: ', nodosSeccionList)
+    return nodosSeccionList
 
 def getEventos(codigoSeccion):
     # se obtienen todos los eventos de la seccion 
@@ -119,7 +172,7 @@ def getDictAsignatura(nodoAsig, nodosSeccion, prioridadesArea, cfgAreaLimit):
     isCfg = nodoAsig['to_asignatura_real__importancia'] == 1 # cfgs tienen importancia 1
 
     secciones = {} # diccionario -> llave='codigo seccion' valor='{nodo_seccion, eventos}'
-    for nodoSecc in list(nodosSeccion):             
+    for nodoSecc in nodosSeccion:             
         codigoSecc = nodoSecc['to_seccion']
         if isCfg:
             CFGReal = getRamoReal(codigoSecc)

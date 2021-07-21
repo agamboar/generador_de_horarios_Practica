@@ -15,7 +15,7 @@ SKIP = False
 
 USER_ID = '6'
 AREA_LIMIT = 2
-N_TEST_CASES = 5
+N_TEST_CASES = 6
 
 @pytest.mark.skipif(SKIP, reason='_')
 def test_getData(setupOferta):
@@ -73,13 +73,14 @@ def test_getSolution_A(setupOferta):
         traceback.print_exc()
         assert False
 
-def test_prerrequisitos(setupOferta):
+def test_prerrequisitos(setupOferta):   
     for i in range(1, N_TEST_CASES+1):
         caseName = 'case' + str(i)
         prepareCliqueTest(USER_ID, caseName=caseName)
         G = clique.setupGraph(USER_ID, cfgAreaLimit=2)
         (solution, fmtSolution) = clique.getSolution_A(G)
 
+        print('caso : ', caseName)
         for secc in fmtSolution:
             codigo = secc['cod_asignatura_real']
             nombre = secc['nombre']
@@ -93,9 +94,27 @@ def test_prerrequisitos(setupOferta):
                 ok = True
                 if preq not in codigos_asignaturas_cursadas:
                     ok = False
-                    equivalencias = asignatura_real.objects.filter(equivale=preq).values_list('codigo', flat=True)
+                    print('\nsolucionFmt: \n', fmtSolution)
+                    print('\nsolucion: \n', solution)
+                    print('falta prerreq ', preq, 'de ramo ', nombre )
+                    print('codigos asig cursadas: \n', codigos_asignaturas_cursadas)
+                    # equivalencias = asignatura_real.objects.filter(equivale=preq).values_list('codigo', flat=True)
+                    equivalencias = []
+                    equivalencias.extend(
+                        asignatura_real.equivale.through.objects.filter(
+                            from_asignatura_real_id=preq
+                        ).values_list('to_asignatura_real_id', flat=True)
+                    )
+                    equivalencias.extend(
+                        asignatura_real.equivale.through.objects.filter(
+                            to_asignatura_real_id=preq
+                        ).values_list('from_asignatura_real_id', flat=True)
+                    )
+                    print('equivalencias: ', equivalencias)
                     for eq in equivalencias: 
-                        if eq in codigos_asignaturas_cursadas: ok = True
+                        if eq in codigos_asignaturas_cursadas: 
+                            ok = True
+                            print('se encontro equivalencia')
                 if not ok:
                     print('ramo: ', preq)
                     print('equivalentes: ', equivalencias)
@@ -114,7 +133,8 @@ def test_getRecommendations(setupOferta):
         traceback.print_exc()
         assert False
 
-@pytest.mark.skipif(SKIP, reason='_')
+# TODO: modificar getSolutionWeight_v1 para poder compararlos
+@pytest.mark.skip(reason='añadir restricciones de requisitos a clique actual causa que algunos casos tengan menor peso maximo')
 def test_compare_v1_actual(setupOferta):
     try:
         for i in range(1, N_TEST_CASES+1):
@@ -133,10 +153,11 @@ def test_compare_v1_actual(setupOferta):
             print(caseName, ', actual: ', weight_actual, 'v1: ', weight_v1, 'diferencia: ', difference)
             
             if difference < 0:
+                print('fallo ', caseName)
                 print('v1 peso[0]: ', weight_v1)
                 print('actual peso[0]: ', weight_actual)
                 print('solucion actual entrega peso menor a v1 en caso ', caseName)
-                assert False
+                assert False, caseName
     except Exception:
         traceback.print_exc()
         assert False

@@ -1,0 +1,1754 @@
+{
+  "title": "probando restriccion prerrequisitos electivos de oferta en clique.",
+  "stateInput": {
+    "user_id": 6,
+    "nodos_asignatura": [
+      {
+        "id": 4665,
+        "holgura": 1,
+        "ef": 3,
+        "es": 2,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "09",
+        "kk": "21",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2004",
+        "to_user_id": 6
+      },
+      {
+        "id": 4667,
+        "holgura": 0,
+        "ef": 3,
+        "es": 2,
+        "ls": 2,
+        "lf": 3,
+        "cc": "00",
+        "uu": "10",
+        "kk": "19",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2201",
+        "to_user_id": 6
+      },
+      {
+        "id": 4668,
+        "holgura": 0,
+        "ef": 4,
+        "es": 3,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "10",
+        "kk": "14",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3200",
+        "to_user_id": 6
+      },
+      {
+        "id": 4669,
+        "holgura": 0,
+        "ef": 5,
+        "es": 4,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "10",
+        "kk": "09",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3201",
+        "to_user_id": 6
+      },
+      {
+        "id": 4678,
+        "holgura": 1,
+        "ef": 4,
+        "es": 3,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "09",
+        "kk": "05",
+        "critico": false,
+        "to_asignatura_real_id": "CIT5002",
+        "to_user_id": 6
+      },
+      {
+        "id": 4679,
+        "holgura": 0,
+        "ef": 6,
+        "es": 5,
+        "ls": 5,
+        "lf": 6,
+        "cc": "00",
+        "uu": "10",
+        "kk": "05",
+        "critico": false,
+        "to_asignatura_real_id": "FINAL1",
+        "to_user_id": 6
+      },
+      {
+        "id": 4662,
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "lf": 2,
+        "cc": "10",
+        "uu": "10",
+        "kk": "110",
+        "critico": true,
+        "to_asignatura_real_id": "CIT2005",
+        "to_user_id": 6
+      },
+      {
+        "id": 4663,
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "lf": 2,
+        "cc": "10",
+        "uu": "10",
+        "kk": "100",
+        "critico": true,
+        "to_asignatura_real_id": "CIT2102",
+        "to_user_id": 6
+      },
+      {
+        "id": 4664,
+        "holgura": 2,
+        "ef": 2,
+        "es": 1,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "08",
+        "kk": "110",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2203",
+        "to_user_id": 6
+      },
+      {
+        "id": 4666,
+        "holgura": 2,
+        "ef": 2,
+        "es": 1,
+        "ls": 3,
+        "lf": 4,
+        "cc": "00",
+        "uu": "08",
+        "kk": "100",
+        "critico": false,
+        "to_asignatura_real_id": "CIT2105",
+        "to_user_id": 6
+      },
+      {
+        "id": 4674,
+        "holgura": 3,
+        "ef": 2,
+        "es": 1,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "07",
+        "kk": "110",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3410",
+        "to_user_id": 6
+      },
+      {
+        "id": 4670,
+        "holgura": 3,
+        "ef": 2,
+        "es": 1,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "07",
+        "kk": "100",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3310",
+        "to_user_id": 6
+      },
+      {
+        "id": 4675,
+        "holgura": 3,
+        "ef": 2,
+        "es": 1,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "07",
+        "kk": "90",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3411",
+        "to_user_id": 6
+      },
+      {
+        "id": 4671,
+        "holgura": 3,
+        "ef": 2,
+        "es": 1,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "07",
+        "kk": "80",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3311",
+        "to_user_id": 6
+      },
+      {
+        "id": 4672,
+        "holgura": 3,
+        "ef": 2,
+        "es": 1,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "07",
+        "kk": "70",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3312",
+        "to_user_id": 6
+      },
+      {
+        "id": 4676,
+        "holgura": 3,
+        "ef": 2,
+        "es": 1,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "07",
+        "kk": "60",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3412",
+        "to_user_id": 6
+      },
+      {
+        "id": 4677,
+        "holgura": 3,
+        "ef": 2,
+        "es": 1,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "07",
+        "kk": "50",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3413",
+        "to_user_id": 6
+      },
+      {
+        "id": 4673,
+        "holgura": 3,
+        "ef": 2,
+        "es": 1,
+        "ls": 4,
+        "lf": 5,
+        "cc": "00",
+        "uu": "07",
+        "kk": "40",
+        "critico": false,
+        "to_asignatura_real_id": "CIT3313",
+        "to_user_id": 6
+      }
+    ],
+    "nodos_seccion": [
+      {
+        "id": 22496,
+        "ss": 1,
+        "to_seccion_id": "CIT2004_VC01",
+        "to_nodo_asignatura_id": 4665
+      },
+      {
+        "id": 22493,
+        "ss": 1,
+        "to_seccion_id": "CIT2012_CA01",
+        "to_nodo_asignatura_id": 4662
+      },
+      {
+        "id": 22494,
+        "ss": 2,
+        "to_seccion_id": "CIT2102_VC02",
+        "to_nodo_asignatura_id": 4663
+      },
+      {
+        "id": 22497,
+        "ss": 1,
+        "to_seccion_id": "CIT2105_VC01",
+        "to_nodo_asignatura_id": 4666
+      },
+      {
+        "id": 22498,
+        "ss": 2,
+        "to_seccion_id": "CIT2105_VC02",
+        "to_nodo_asignatura_id": 4666
+      },
+      {
+        "id": 22499,
+        "ss": 1,
+        "to_seccion_id": "CIT2201_VC01",
+        "to_nodo_asignatura_id": 4667
+      },
+      {
+        "id": 22495,
+        "ss": 1,
+        "to_seccion_id": "CIT2203_VC01",
+        "to_nodo_asignatura_id": 4664
+      },
+      {
+        "id": 22500,
+        "ss": 1,
+        "to_seccion_id": "CIT3200_VC01",
+        "to_nodo_asignatura_id": 4668
+      },
+      {
+        "id": 22501,
+        "ss": 1,
+        "to_seccion_id": "CIT3201_VC01",
+        "to_nodo_asignatura_id": 4669
+      },
+      {
+        "id": 22511,
+        "ss": 1,
+        "to_seccion_id": "CIT3325_CA01",
+        "to_nodo_asignatura_id": 4672
+      },
+      {
+        "id": 22503,
+        "ss": 1,
+        "to_seccion_id": "CIT3325_CA01",
+        "to_nodo_asignatura_id": 4670
+      },
+      {
+        "id": 22507,
+        "ss": 1,
+        "to_seccion_id": "CIT3325_CA01",
+        "to_nodo_asignatura_id": 4671
+      },
+      {
+        "id": 22515,
+        "ss": 1,
+        "to_seccion_id": "CIT3325_CA01",
+        "to_nodo_asignatura_id": 4673
+      },
+      {
+        "id": 22516,
+        "ss": 1,
+        "to_seccion_id": "CIT3342_CA01",
+        "to_nodo_asignatura_id": 4673
+      },
+      {
+        "id": 22504,
+        "ss": 1,
+        "to_seccion_id": "CIT3342_CA01",
+        "to_nodo_asignatura_id": 4670
+      },
+      {
+        "id": 22512,
+        "ss": 1,
+        "to_seccion_id": "CIT3342_CA01",
+        "to_nodo_asignatura_id": 4672
+      },
+      {
+        "id": 22508,
+        "ss": 1,
+        "to_seccion_id": "CIT3342_CA01",
+        "to_nodo_asignatura_id": 4671
+      },
+      {
+        "id": 22510,
+        "ss": 1,
+        "to_seccion_id": "CIT3346_CA01",
+        "to_nodo_asignatura_id": 4672
+      },
+      {
+        "id": 22506,
+        "ss": 1,
+        "to_seccion_id": "CIT3346_CA01",
+        "to_nodo_asignatura_id": 4671
+      },
+      {
+        "id": 22514,
+        "ss": 1,
+        "to_seccion_id": "CIT3346_CA01",
+        "to_nodo_asignatura_id": 4673
+      },
+      {
+        "id": 22502,
+        "ss": 1,
+        "to_seccion_id": "CIT3346_CA01",
+        "to_nodo_asignatura_id": 4670
+      },
+      {
+        "id": 22505,
+        "ss": 1,
+        "to_seccion_id": "CIT3348_CA01",
+        "to_nodo_asignatura_id": 4670
+      },
+      {
+        "id": 22509,
+        "ss": 1,
+        "to_seccion_id": "CIT3348_CA01",
+        "to_nodo_asignatura_id": 4671
+      },
+      {
+        "id": 22513,
+        "ss": 1,
+        "to_seccion_id": "CIT3348_CA01",
+        "to_nodo_asignatura_id": 4672
+      },
+      {
+        "id": 22517,
+        "ss": 1,
+        "to_seccion_id": "CIT3348_CA01",
+        "to_nodo_asignatura_id": 4673
+      },
+      {
+        "id": 22526,
+        "ss": 1,
+        "to_seccion_id": "CIT3416_CA01",
+        "to_nodo_asignatura_id": 4676
+      },
+      {
+        "id": 22522,
+        "ss": 1,
+        "to_seccion_id": "CIT3416_CA01",
+        "to_nodo_asignatura_id": 4675
+      },
+      {
+        "id": 22518,
+        "ss": 1,
+        "to_seccion_id": "CIT3416_CA01",
+        "to_nodo_asignatura_id": 4674
+      },
+      {
+        "id": 22528,
+        "ss": 1,
+        "to_seccion_id": "CIT3417_VC01",
+        "to_nodo_asignatura_id": 4676
+      },
+      {
+        "id": 22520,
+        "ss": 1,
+        "to_seccion_id": "CIT3417_VC01",
+        "to_nodo_asignatura_id": 4674
+      },
+      {
+        "id": 22524,
+        "ss": 1,
+        "to_seccion_id": "CIT3417_VC01",
+        "to_nodo_asignatura_id": 4675
+      },
+      {
+        "id": 22519,
+        "ss": 1,
+        "to_seccion_id": "CIT3420_CA01",
+        "to_nodo_asignatura_id": 4674
+      },
+      {
+        "id": 22527,
+        "ss": 1,
+        "to_seccion_id": "CIT3420_CA01",
+        "to_nodo_asignatura_id": 4676
+      },
+      {
+        "id": 22523,
+        "ss": 1,
+        "to_seccion_id": "CIT3420_CA01",
+        "to_nodo_asignatura_id": 4675
+      },
+      {
+        "id": 22525,
+        "ss": 1,
+        "to_seccion_id": "CIT3423_CA01",
+        "to_nodo_asignatura_id": 4675
+      },
+      {
+        "id": 22521,
+        "ss": 1,
+        "to_seccion_id": "CIT3423_CA01",
+        "to_nodo_asignatura_id": 4674
+      },
+      {
+        "id": 22529,
+        "ss": 1,
+        "to_seccion_id": "CIT3423_CA01",
+        "to_nodo_asignatura_id": 4676
+      }
+    ],
+    "prioridades_cfg": [
+      {
+        "id": 2,
+        "area": "Historia",
+        "prioridad": 1,
+        "to_user_id": 6
+      },
+      {
+        "id": 3,
+        "area": "Ciencias Sociales",
+        "prioridad": 2,
+        "to_user_id": 6
+      },
+      {
+        "id": 4,
+        "area": "Ciencia y Sociedad",
+        "prioridad": 3,
+        "to_user_id": 6
+      },
+      {
+        "id": 5,
+        "area": "Humanidades",
+        "prioridad": 4,
+        "to_user_id": 6
+      }
+    ],
+    "asignaturas_cursadas": [
+      {
+        "id": 1482,
+        "codigo": "CBM1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1000",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1483,
+        "codigo": "CBM1001",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1001",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1484,
+        "codigo": "CBQ1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBQ1000",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1485,
+        "codigo": "CIT1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT1000",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1486,
+        "codigo": "FIC1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "FIC1000",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1487,
+        "codigo": "CBM1002",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1002",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1488,
+        "codigo": "CBM1003",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1003",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1489,
+        "codigo": "CBF1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBF1000",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1490,
+        "codigo": "CIT1010",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT1010",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1491,
+        "codigo": "CFG1",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CFG1",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1492,
+        "codigo": "CBM1005",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1005",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1493,
+        "codigo": "CBM1006",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1006",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1494,
+        "codigo": "CBF1001",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBF1001",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1495,
+        "codigo": "CIT2000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2000",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1496,
+        "codigo": "CIT2100",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2100",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1497,
+        "codigo": "CIT2204",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2204",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1498,
+        "codigo": "CBM2000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM2000",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1499,
+        "codigo": "CBF1002",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBF1002",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1500,
+        "codigo": "CIT2001",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2001",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1501,
+        "codigo": "CFG2",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CFG2",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1502,
+        "codigo": "FIC1001",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "FIC1001",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1503,
+        "codigo": "CII2750",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CII2750",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1504,
+        "codigo": "CIT2106",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2106",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1505,
+        "codigo": "CIT2200",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2200",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1506,
+        "codigo": "CIT2002",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2002",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1507,
+        "codigo": "CFG3",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CFG3",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1508,
+        "codigo": "FIC1002",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "FIC1002",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1509,
+        "codigo": "CII2000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CII2000",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1510,
+        "codigo": "CIT2202",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2202",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1511,
+        "codigo": "CIT2101",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2101",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1512,
+        "codigo": "CIT2003",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2003",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1513,
+        "codigo": "CIT2103",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2103",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1514,
+        "codigo": "CII1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CII1000",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1515,
+        "codigo": "FIC1003",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "FIC1003",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1516,
+        "codigo": "CIT2104",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2104",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1517,
+        "codigo": "CFG4",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CFG4",
+        "to_avance_academico_id": 97
+      },
+      {
+        "id": 1518,
+        "codigo": "CIT5001",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT5001",
+        "to_avance_academico_id": 97
+      }
+    ],
+    "tabla_avance": {
+      "id": 97,
+      "semestre": "2021-2",
+      "json_avance": [
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "26",
+          "lf": 2,
+          "ls": 1,
+          "critico": true,
+          "holgura": 0,
+          "to_asignatura_real": {
+            "codigo": "CIT2005",
+            "nombre": "INGENIERIA DE SOFTWARE"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "25",
+          "lf": 2,
+          "ls": 1,
+          "critico": true,
+          "holgura": 0,
+          "to_asignatura_real": {
+            "codigo": "CIT2102",
+            "nombre": "COMUNICACIONES DIGITALES"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "22",
+          "lf": 4,
+          "ls": 3,
+          "critico": false,
+          "holgura": 2,
+          "to_asignatura_real": {
+            "codigo": "CIT2203",
+            "nombre": "GESTION ORGANIZACIONAL"
+          }
+        },
+        {
+          "ef": 3,
+          "es": 2,
+          "kk": "21",
+          "lf": 4,
+          "ls": 3,
+          "critico": false,
+          "holgura": 1,
+          "to_asignatura_real": {
+            "codigo": "CIT2004",
+            "nombre": "ARQUITECTURA DE SISTEMAS"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "20",
+          "lf": 4,
+          "ls": 3,
+          "critico": false,
+          "holgura": 2,
+          "to_asignatura_real": {
+            "codigo": "CIT2105",
+            "nombre": "CRIPTOGRAFIA Y SEGURIDAD EN REDES"
+          }
+        },
+        {
+          "ef": 3,
+          "es": 2,
+          "kk": "19",
+          "lf": 3,
+          "ls": 2,
+          "critico": false,
+          "holgura": 0,
+          "to_asignatura_real": {
+            "codigo": "CIT2201",
+            "nombre": "PROYECTO EN TICS II"
+          }
+        },
+        {
+          "ef": 4,
+          "es": 3,
+          "kk": "14",
+          "lf": 4,
+          "ls": 3,
+          "critico": false,
+          "holgura": 0,
+          "to_asignatura_real": {
+            "codigo": "CIT3200",
+            "nombre": "EVALUACION DE PROYECTOS TIC"
+          }
+        },
+        {
+          "ef": 5,
+          "es": 4,
+          "kk": "09",
+          "lf": 5,
+          "ls": 4,
+          "critico": false,
+          "holgura": 0,
+          "to_asignatura_real": {
+            "codigo": "CIT3201",
+            "nombre": "PROYECTO EN TICS III"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "17",
+          "lf": 5,
+          "ls": 4,
+          "critico": false,
+          "holgura": 3,
+          "to_asignatura_real": {
+            "codigo": "CIT3310",
+            "nombre": "ELECTIVO PROFESIONAL INF 1"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "13",
+          "lf": 5,
+          "ls": 4,
+          "critico": false,
+          "holgura": 3,
+          "to_asignatura_real": {
+            "codigo": "CIT3311",
+            "nombre": "ELECTIVO PROFESIONAL INF 2"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "12",
+          "lf": 5,
+          "ls": 4,
+          "critico": false,
+          "holgura": 3,
+          "to_asignatura_real": {
+            "codigo": "CIT3312",
+            "nombre": "ELECTIVO PROFESIONAL INF 3"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "08",
+          "lf": 5,
+          "ls": 4,
+          "critico": false,
+          "holgura": 3,
+          "to_asignatura_real": {
+            "codigo": "CIT3313",
+            "nombre": "ELECTIVO PROFESIONAL INF 4"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "16",
+          "lf": 5,
+          "ls": 4,
+          "critico": false,
+          "holgura": 3,
+          "to_asignatura_real": {
+            "codigo": "CIT3410",
+            "nombre": "ELECTIVO PROFESIONAL TEL 1"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "15",
+          "lf": 5,
+          "ls": 4,
+          "critico": false,
+          "holgura": 3,
+          "to_asignatura_real": {
+            "codigo": "CIT3411",
+            "nombre": "ELECTIVO PROFESIONAL TEL 2"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "11",
+          "lf": 5,
+          "ls": 4,
+          "critico": false,
+          "holgura": 3,
+          "to_asignatura_real": {
+            "codigo": "CIT3412",
+            "nombre": "ELECTIVO PROFESIONAL TEL 3"
+          }
+        },
+        {
+          "ef": 2,
+          "es": 1,
+          "kk": "10",
+          "lf": 5,
+          "ls": 4,
+          "critico": false,
+          "holgura": 3,
+          "to_asignatura_real": {
+            "codigo": "CIT3413",
+            "nombre": "ELECTIVO PROFESIONAL TEL 4"
+          }
+        },
+        {
+          "ef": 4,
+          "es": 3,
+          "kk": "05",
+          "lf": 5,
+          "ls": 4,
+          "critico": false,
+          "holgura": 1,
+          "to_asignatura_real": {
+            "codigo": "CIT5002",
+            "nombre": "PRACTICA PROFESIONAL 2 (2010)"
+          }
+        },
+        {
+          "ef": 6,
+          "es": 5,
+          "kk": "05",
+          "lf": 6,
+          "ls": 5,
+          "critico": false,
+          "holgura": 0,
+          "to_asignatura_real": {
+            "codigo": "FINAL1",
+            "nombre": "FINAL1"
+          }
+        }
+      ],
+      "fgd_count": 0,
+      "cfg_count": 4,
+      "einf_count": 0,
+      "etele_count": 0,
+      "agno_malla": 2010,
+      "to_user_id": 6
+    }
+  },
+  "output": [
+    [
+      {
+        "nombre": "SISTEMAS DISTRIBUIDOS",
+        "horario": " JU 16:00 LU 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT3342",
+        "eventos": [
+          {
+            "bloque": "JU_16",
+            "tipo": "CATEDRA",
+            "profesor": "HIDALGO NICOLAS ANDRES"
+          },
+          {
+            "bloque": "LU_16",
+            "tipo": "CATEDRA",
+            "profesor": "HIDALGO NICOLAS ANDRES"
+          }
+        ],
+        "cod_seccion": "CIT3342_CA01"
+      },
+      {
+        "nombre": "PROCESAMIENTO DIGITAL DE SENALES",
+        "horario": " JU 10:00 LU 10:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT3416",
+        "eventos": [
+          {
+            "bloque": "JU_10",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_10",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          }
+        ],
+        "cod_seccion": "CIT3416_CA01"
+      },
+      {
+        "nombre": "CRIPTOGRAFIA Y SEGURIDAD EN REDES",
+        "horario": " LU 11:30 MA 10:00 VI 10:00",
+        "nro_seccion": "2",
+        "cod_asignatura_real": "CIT2105",
+        "eventos": [
+          {
+            "bloque": "LU_11",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "MA_10",
+            "tipo": "CATEDRA",
+            "profesor": "BOETTCHER NICOLAS ALEJANDRO"
+          },
+          {
+            "bloque": "VI_10",
+            "tipo": "CATEDRA",
+            "profesor": "BOETTCHER NICOLAS ALEJANDRO"
+          }
+        ],
+        "cod_seccion": "CIT2105_VC02"
+      },
+      {
+        "nombre": "GESTION ORGANIZACIONAL",
+        "horario": " JU 11:30 MA 11:30 VI 11:30",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2203",
+        "eventos": [
+          {
+            "bloque": "JU_11",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "MA_11",
+            "tipo": "CATEDRA",
+            "profesor": "GEOFFROY XIMENA MARIA"
+          },
+          {
+            "bloque": "VI_11",
+            "tipo": "CATEDRA",
+            "profesor": "GEOFFROY XIMENA MARIA"
+          }
+        ],
+        "cod_seccion": "CIT2203_VC01"
+      },
+      {
+        "nombre": "COMUNICACIONES DIGITALES",
+        "horario": " JU 14:30 LU 14:30 LU 17:25",
+        "nro_seccion": "2",
+        "cod_asignatura_real": "CIT2102",
+        "eventos": [
+          {
+            "bloque": "JU_14",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_14",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_17",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          }
+        ],
+        "cod_seccion": "CIT2102_VC02"
+      },
+      {
+        "nombre": "INGENIERIA DE SOFTWARE",
+        "horario": " MA 16:00 MI 16:00 VI 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2012",
+        "eventos": [
+          {
+            "bloque": "MA_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          },
+          {
+            "bloque": "MI_16",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          }
+        ],
+        "cod_seccion": "CIT2012_CA01"
+      }
+    ],
+    [
+      {
+        "nombre": "SISTEMAS DISTRIBUIDOS",
+        "horario": " JU 16:00 LU 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT3342",
+        "eventos": [
+          {
+            "bloque": "JU_16",
+            "tipo": "CATEDRA",
+            "profesor": "HIDALGO NICOLAS ANDRES"
+          },
+          {
+            "bloque": "LU_16",
+            "tipo": "CATEDRA",
+            "profesor": "HIDALGO NICOLAS ANDRES"
+          }
+        ],
+        "cod_seccion": "CIT3342_CA01"
+      },
+      {
+        "nombre": "PROCESAMIENTO DIGITAL DE SENALES",
+        "horario": " JU 10:00 LU 10:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT3416",
+        "eventos": [
+          {
+            "bloque": "JU_10",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_10",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          }
+        ],
+        "cod_seccion": "CIT3416_CA01"
+      },
+      {
+        "nombre": "CRIPTOGRAFIA Y SEGURIDAD EN REDES",
+        "horario": " LU 11:30 MA 10:00 VI 10:00",
+        "nro_seccion": "2",
+        "cod_asignatura_real": "CIT2105",
+        "eventos": [
+          {
+            "bloque": "LU_11",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "MA_10",
+            "tipo": "CATEDRA",
+            "profesor": "BOETTCHER NICOLAS ALEJANDRO"
+          },
+          {
+            "bloque": "VI_10",
+            "tipo": "CATEDRA",
+            "profesor": "BOETTCHER NICOLAS ALEJANDRO"
+          }
+        ],
+        "cod_seccion": "CIT2105_VC02"
+      },
+      {
+        "nombre": "GESTION ORGANIZACIONAL",
+        "horario": " JU 11:30 MA 11:30 VI 11:30",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2203",
+        "eventos": [
+          {
+            "bloque": "JU_11",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "MA_11",
+            "tipo": "CATEDRA",
+            "profesor": "GEOFFROY XIMENA MARIA"
+          },
+          {
+            "bloque": "VI_11",
+            "tipo": "CATEDRA",
+            "profesor": "GEOFFROY XIMENA MARIA"
+          }
+        ],
+        "cod_seccion": "CIT2203_VC01"
+      },
+      {
+        "nombre": "COMUNICACIONES DIGITALES",
+        "horario": " JU 14:30 LU 14:30 LU 17:25",
+        "nro_seccion": "2",
+        "cod_asignatura_real": "CIT2102",
+        "eventos": [
+          {
+            "bloque": "JU_14",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_14",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_17",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          }
+        ],
+        "cod_seccion": "CIT2102_VC02"
+      },
+      {
+        "nombre": "INGENIERIA DE SOFTWARE",
+        "horario": " MA 16:00 MI 16:00 VI 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2012",
+        "eventos": [
+          {
+            "bloque": "MA_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          },
+          {
+            "bloque": "MI_16",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          }
+        ],
+        "cod_seccion": "CIT2012_CA01"
+      }
+    ],
+    [
+      {
+        "nombre": "SISTEMAS DISTRIBUIDOS",
+        "horario": " JU 16:00 LU 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT3342",
+        "eventos": [
+          {
+            "bloque": "JU_16",
+            "tipo": "CATEDRA",
+            "profesor": "HIDALGO NICOLAS ANDRES"
+          },
+          {
+            "bloque": "LU_16",
+            "tipo": "CATEDRA",
+            "profesor": "HIDALGO NICOLAS ANDRES"
+          }
+        ],
+        "cod_seccion": "CIT3342_CA01"
+      },
+      {
+        "nombre": "PROCESAMIENTO DIGITAL DE SENALES",
+        "horario": " JU 10:00 LU 10:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT3416",
+        "eventos": [
+          {
+            "bloque": "JU_10",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_10",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          }
+        ],
+        "cod_seccion": "CIT3416_CA01"
+      },
+      {
+        "nombre": "CRIPTOGRAFIA Y SEGURIDAD EN REDES",
+        "horario": " LU 11:30 MA 10:00 VI 10:00",
+        "nro_seccion": "2",
+        "cod_asignatura_real": "CIT2105",
+        "eventos": [
+          {
+            "bloque": "LU_11",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "MA_10",
+            "tipo": "CATEDRA",
+            "profesor": "BOETTCHER NICOLAS ALEJANDRO"
+          },
+          {
+            "bloque": "VI_10",
+            "tipo": "CATEDRA",
+            "profesor": "BOETTCHER NICOLAS ALEJANDRO"
+          }
+        ],
+        "cod_seccion": "CIT2105_VC02"
+      },
+      {
+        "nombre": "GESTION ORGANIZACIONAL",
+        "horario": " JU 11:30 MA 11:30 VI 11:30",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2203",
+        "eventos": [
+          {
+            "bloque": "JU_11",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "MA_11",
+            "tipo": "CATEDRA",
+            "profesor": "GEOFFROY XIMENA MARIA"
+          },
+          {
+            "bloque": "VI_11",
+            "tipo": "CATEDRA",
+            "profesor": "GEOFFROY XIMENA MARIA"
+          }
+        ],
+        "cod_seccion": "CIT2203_VC01"
+      },
+      {
+        "nombre": "COMUNICACIONES DIGITALES",
+        "horario": " JU 14:30 LU 14:30 LU 17:25",
+        "nro_seccion": "2",
+        "cod_asignatura_real": "CIT2102",
+        "eventos": [
+          {
+            "bloque": "JU_14",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_14",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_17",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          }
+        ],
+        "cod_seccion": "CIT2102_VC02"
+      },
+      {
+        "nombre": "INGENIERIA DE SOFTWARE",
+        "horario": " MA 16:00 MI 16:00 VI 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2012",
+        "eventos": [
+          {
+            "bloque": "MA_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          },
+          {
+            "bloque": "MI_16",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          }
+        ],
+        "cod_seccion": "CIT2012_CA01"
+      }
+    ],
+    [
+      {
+        "nombre": "SISTEMAS DISTRIBUIDOS",
+        "horario": " JU 16:00 LU 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT3342",
+        "eventos": [
+          {
+            "bloque": "JU_16",
+            "tipo": "CATEDRA",
+            "profesor": "HIDALGO NICOLAS ANDRES"
+          },
+          {
+            "bloque": "LU_16",
+            "tipo": "CATEDRA",
+            "profesor": "HIDALGO NICOLAS ANDRES"
+          }
+        ],
+        "cod_seccion": "CIT3342_CA01"
+      },
+      {
+        "nombre": "PROCESAMIENTO DIGITAL DE SENALES",
+        "horario": " JU 10:00 LU 10:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT3416",
+        "eventos": [
+          {
+            "bloque": "JU_10",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_10",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          }
+        ],
+        "cod_seccion": "CIT3416_CA01"
+      },
+      {
+        "nombre": "CRIPTOGRAFIA Y SEGURIDAD EN REDES",
+        "horario": " LU 11:30 MA 10:00 VI 10:00",
+        "nro_seccion": "2",
+        "cod_asignatura_real": "CIT2105",
+        "eventos": [
+          {
+            "bloque": "LU_11",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "MA_10",
+            "tipo": "CATEDRA",
+            "profesor": "BOETTCHER NICOLAS ALEJANDRO"
+          },
+          {
+            "bloque": "VI_10",
+            "tipo": "CATEDRA",
+            "profesor": "BOETTCHER NICOLAS ALEJANDRO"
+          }
+        ],
+        "cod_seccion": "CIT2105_VC02"
+      },
+      {
+        "nombre": "GESTION ORGANIZACIONAL",
+        "horario": " JU 11:30 MA 11:30 VI 11:30",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2203",
+        "eventos": [
+          {
+            "bloque": "JU_11",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "MA_11",
+            "tipo": "CATEDRA",
+            "profesor": "GEOFFROY XIMENA MARIA"
+          },
+          {
+            "bloque": "VI_11",
+            "tipo": "CATEDRA",
+            "profesor": "GEOFFROY XIMENA MARIA"
+          }
+        ],
+        "cod_seccion": "CIT2203_VC01"
+      },
+      {
+        "nombre": "COMUNICACIONES DIGITALES",
+        "horario": " JU 14:30 LU 14:30 LU 17:25",
+        "nro_seccion": "2",
+        "cod_asignatura_real": "CIT2102",
+        "eventos": [
+          {
+            "bloque": "JU_14",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_14",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_17",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          }
+        ],
+        "cod_seccion": "CIT2102_VC02"
+      },
+      {
+        "nombre": "INGENIERIA DE SOFTWARE",
+        "horario": " MA 16:00 MI 16:00 VI 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2012",
+        "eventos": [
+          {
+            "bloque": "MA_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          },
+          {
+            "bloque": "MI_16",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          }
+        ],
+        "cod_seccion": "CIT2012_CA01"
+      }
+    ],
+    [
+      {
+        "nombre": "PROCESAMIENTO DIGITAL DE SENALES",
+        "horario": " JU 10:00 LU 10:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT3416",
+        "eventos": [
+          {
+            "bloque": "JU_10",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_10",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          }
+        ],
+        "cod_seccion": "CIT3416_CA01"
+      },
+      {
+        "nombre": "CRIPTOGRAFIA Y SEGURIDAD EN REDES",
+        "horario": " LU 11:30 MA 10:00 VI 10:00",
+        "nro_seccion": "2",
+        "cod_asignatura_real": "CIT2105",
+        "eventos": [
+          {
+            "bloque": "LU_11",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "MA_10",
+            "tipo": "CATEDRA",
+            "profesor": "BOETTCHER NICOLAS ALEJANDRO"
+          },
+          {
+            "bloque": "VI_10",
+            "tipo": "CATEDRA",
+            "profesor": "BOETTCHER NICOLAS ALEJANDRO"
+          }
+        ],
+        "cod_seccion": "CIT2105_VC02"
+      },
+      {
+        "nombre": "GESTION ORGANIZACIONAL",
+        "horario": " JU 11:30 MA 11:30 VI 11:30",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2203",
+        "eventos": [
+          {
+            "bloque": "JU_11",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "MA_11",
+            "tipo": "CATEDRA",
+            "profesor": "GEOFFROY XIMENA MARIA"
+          },
+          {
+            "bloque": "VI_11",
+            "tipo": "CATEDRA",
+            "profesor": "GEOFFROY XIMENA MARIA"
+          }
+        ],
+        "cod_seccion": "CIT2203_VC01"
+      },
+      {
+        "nombre": "COMUNICACIONES DIGITALES",
+        "horario": " JU 14:30 LU 14:30 LU 17:25",
+        "nro_seccion": "2",
+        "cod_asignatura_real": "CIT2102",
+        "eventos": [
+          {
+            "bloque": "JU_14",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_14",
+            "tipo": "CATEDRA",
+            "profesor": "DUJOVNE DIEGO ROBERTO"
+          },
+          {
+            "bloque": "LU_17",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          }
+        ],
+        "cod_seccion": "CIT2102_VC02"
+      },
+      {
+        "nombre": "INGENIERIA DE SOFTWARE",
+        "horario": " MA 16:00 MI 16:00 VI 16:00",
+        "nro_seccion": "1",
+        "cod_asignatura_real": "CIT2012",
+        "eventos": [
+          {
+            "bloque": "MA_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          },
+          {
+            "bloque": "MI_16",
+            "tipo": "AYUDANTIA",
+            "profesor": ""
+          },
+          {
+            "bloque": "VI_16",
+            "tipo": "CATEDRA",
+            "profesor": "NIETO ANDREA VICTORIA"
+          }
+        ],
+        "cod_seccion": "CIT2012_CA01"
+      }
+    ]
+  ]
+}

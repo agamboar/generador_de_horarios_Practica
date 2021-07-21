@@ -219,8 +219,8 @@ def get_PERT(request):
 
 ENABLED = False
 TEST_CASE = {
-    "fileName": 'case9',
-    "title": 'malla 2020 con 8 semestres aprobados.'
+    "fileName": 'case6',
+    "title": 'probando restriccion prerrequisitos electivos de oferta en clique.'
 }
 
 def calc_PERT(user_id):
@@ -322,7 +322,7 @@ def calc_clique(current_user):
 
     # if ENABLED: jl.createStateTestCase_Clique(
     #     TEST_CASE["fileName"], 
-    #     stateBefore, new_dict, 
+    #     stateBefore, jsons, 
     #     TEST_CASE["title"]
     # )
     return jsons
