@@ -191,7 +191,7 @@ def getRecommendations(G, show_options):
     prev_solution = []
     aux_retornar = []
     solutions = []
-    for i in range(show_options): # arr_aux_delete -> nodosSolucion -> seccionPrioridad -> tuplasSeccion# TODO: borrar comentario
+    for i in range(show_options):
 
         max_clique_pond = nx.max_weight_clique(G, weight="prioridad")
 
