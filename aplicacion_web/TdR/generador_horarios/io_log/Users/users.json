@@ -1,0 +1,13 @@
+{
+  "6": {
+    "id": 6,
+    "password": "pbkdf2_sha256$260000$WeUqwQJuAmXduOkh68xeu3$Cv5hB6jirHftwTKFf8iYMJ3Oe8oMSGwYGTrH0VrLxzw=",
+    "is_superuser": false,
+    "username": "Thomas",
+    "first_name": "",
+    "last_name": "",
+    "email": "tpuigz@gmail.com",
+    "is_staff": true,
+    "is_active": true
+  }
+}

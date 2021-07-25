@@ -1,0 +1,719 @@
+{
+  "title": "malla 2010 con primer semestre aprobado.",
+  "stateInput": {
+    "user_id": 6,
+    "tabla_avance": {
+      "id": 66,
+      "semestre": "2021-2",
+      "json_avance": {},
+      "fgd_count": 0,
+      "cfg_count": 0,
+      "einf_count": 0,
+      "etele_count": 0,
+      "agno_malla": 2010,
+      "to_user_id": 6
+    },
+    "asignaturas_cursadas": [
+      {
+        "id": 824,
+        "codigo": "CBM1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1000",
+        "to_avance_academico_id": 66
+      },
+      {
+        "id": 825,
+        "codigo": "CBM1001",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1001",
+        "to_avance_academico_id": 66
+      },
+      {
+        "id": 826,
+        "codigo": "CBQ1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBQ1000",
+        "to_avance_academico_id": 66
+      },
+      {
+        "id": 827,
+        "codigo": "CIT1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT1000",
+        "to_avance_academico_id": 66
+      },
+      {
+        "id": 828,
+        "codigo": "FIC1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "FIC1000",
+        "to_avance_academico_id": 66
+      }
+    ]
+  },
+  "output": {
+    "PERT": [
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "54",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "ALGEBRA LINEAL",
+          "codigo": "CBM1002"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "53",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "CALCULO II",
+          "codigo": "CBM1003"
+        }
+      },
+      {
+        "holgura": 5,
+        "ef": 2,
+        "es": 1,
+        "ls": 6,
+        "kk": "52",
+        "lf": 7,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "MECANICA",
+          "codigo": "CBF1000"
+        }
+      },
+      {
+        "holgura": 1,
+        "ef": 2,
+        "es": 1,
+        "ls": 2,
+        "kk": "51",
+        "lf": 3,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "PROGRAMACION AVANZADA",
+          "codigo": "CIT1010"
+        }
+      },
+      {
+        "holgura": 6,
+        "ef": 2,
+        "es": 1,
+        "ls": 7,
+        "kk": "50",
+        "lf": 8,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "CFG",
+          "codigo": "CFG1"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 3,
+        "es": 2,
+        "ls": 2,
+        "kk": "49",
+        "lf": 3,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ECUACIONES DIFERENCIALES",
+          "codigo": "CBM1005"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 3,
+        "es": 2,
+        "ls": 2,
+        "kk": "48",
+        "lf": 3,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "CALCULO III",
+          "codigo": "CBM1006"
+        }
+      },
+      {
+        "holgura": 5,
+        "ef": 3,
+        "es": 2,
+        "ls": 7,
+        "kk": "47",
+        "lf": 8,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "CALOR Y ONDAS",
+          "codigo": "CBF1001"
+        }
+      },
+      {
+        "holgura": 1,
+        "ef": 3,
+        "es": 2,
+        "ls": 3,
+        "kk": "46",
+        "lf": 4,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ESTRUCTURAS DE DATOS",
+          "codigo": "CIT2000"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "kk": "45",
+        "lf": 5,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "REDES DE DATOS",
+          "codigo": "CIT2100"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 3,
+        "es": 2,
+        "ls": 4,
+        "kk": "44",
+        "lf": 5,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "PROBABILIDADES Y ESTADISTICAS",
+          "codigo": "CIT2204"
+        }
+      },
+      {
+        "holgura": 5,
+        "ef": 3,
+        "es": 2,
+        "ls": 7,
+        "kk": "43",
+        "lf": 8,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "METODOS NUMERICOS",
+          "codigo": "CBM2000"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 4,
+        "es": 3,
+        "ls": 3,
+        "kk": "42",
+        "lf": 4,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ELECTRICIDAD Y MAGNETISMO",
+          "codigo": "CBF1002"
+        }
+      },
+      {
+        "holgura": 1,
+        "ef": 4,
+        "es": 3,
+        "ls": 4,
+        "kk": "41",
+        "lf": 5,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "DISENO Y ANALISIS DE ALGORITMOS",
+          "codigo": "CIT2001"
+        }
+      },
+      {
+        "holgura": 6,
+        "ef": 2,
+        "es": 1,
+        "ls": 7,
+        "kk": "40",
+        "lf": 8,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "CFG",
+          "codigo": "CFG2"
+        }
+      },
+      {
+        "holgura": 6,
+        "ef": 2,
+        "es": 1,
+        "ls": 7,
+        "kk": "39",
+        "lf": 8,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "INGLES GENERAL I",
+          "codigo": "FIC1001"
+        }
+      },
+      {
+        "holgura": 4,
+        "ef": 4,
+        "es": 3,
+        "ls": 7,
+        "kk": "38",
+        "lf": 8,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "OPTIMIZACION",
+          "codigo": "CII2750"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 5,
+        "es": 4,
+        "ls": 4,
+        "kk": "37",
+        "lf": 5,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ELECTRONICA Y ELECTROTECNIA",
+          "codigo": "CIT2106"
+        }
+      },
+      {
+        "holgura": 1,
+        "ef": 5,
+        "es": 4,
+        "ls": 5,
+        "kk": "36",
+        "lf": 6,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "PROYECTO EN TICS I",
+          "codigo": "CIT2200"
+        }
+      },
+      {
+        "holgura": 1,
+        "ef": 5,
+        "es": 4,
+        "ls": 5,
+        "kk": "35",
+        "lf": 6,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "BASES DE DATOS",
+          "codigo": "CIT2002"
+        }
+      },
+      {
+        "holgura": 7,
+        "ef": 2,
+        "es": 1,
+        "ls": 8,
+        "kk": "34",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "CFG",
+          "codigo": "CFG3"
+        }
+      },
+      {
+        "holgura": 6,
+        "ef": 3,
+        "es": 2,
+        "ls": 8,
+        "kk": "33",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "INGLES GENERAL II",
+          "codigo": "FIC1002"
+        }
+      },
+      {
+        "holgura": 5,
+        "ef": 4,
+        "es": 3,
+        "ls": 8,
+        "kk": "32",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "INTRODUCCION  A LA ECONOMIA",
+          "codigo": "CII2000"
+        }
+      },
+      {
+        "holgura": 4,
+        "ef": 5,
+        "es": 4,
+        "ls": 8,
+        "kk": "31",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "MODELOS ESTOCASTICOS Y SIMULACION",
+          "codigo": "CIT2202"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 6,
+        "es": 5,
+        "ls": 5,
+        "kk": "30",
+        "lf": 6,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "SENALES Y SISTEMAS",
+          "codigo": "CIT2101"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 6,
+        "es": 5,
+        "ls": 7,
+        "kk": "29",
+        "lf": 8,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "SISTEMAS OPERATIVOS",
+          "codigo": "CIT2003"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 6,
+        "es": 5,
+        "ls": 7,
+        "kk": "28",
+        "lf": 8,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "SISTEMAS DIGITALES",
+          "codigo": "CIT2103"
+        }
+      },
+      {
+        "holgura": 7,
+        "ef": 2,
+        "es": 1,
+        "ls": 8,
+        "kk": "27",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "CONTABILIDAD Y COSTOS",
+          "codigo": "CII1000"
+        }
+      },
+      {
+        "holgura": 1,
+        "ef": 6,
+        "es": 5,
+        "ls": 6,
+        "kk": "26",
+        "lf": 7,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "INGENIERIA DE SOFTWARE",
+          "codigo": "CIT2005"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 7,
+        "es": 6,
+        "ls": 6,
+        "kk": "25",
+        "lf": 7,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "COMUNICACIONES DIGITALES",
+          "codigo": "CIT2102"
+        }
+      },
+      {
+        "holgura": 7,
+        "ef": 2,
+        "es": 1,
+        "ls": 8,
+        "kk": "24",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "DERECHO EN INGENIERIA",
+          "codigo": "FIC1003"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 7,
+        "es": 6,
+        "ls": 8,
+        "kk": "23",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ARQUITECTURA DE COMPUTADORES",
+          "codigo": "CIT2104"
+        }
+      },
+      {
+        "holgura": 7,
+        "ef": 2,
+        "es": 1,
+        "ls": 8,
+        "kk": "22",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "GESTION ORGANIZACIONAL",
+          "codigo": "CIT2203"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 7,
+        "es": 6,
+        "ls": 8,
+        "kk": "21",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ARQUITECTURA DE SISTEMAS",
+          "codigo": "CIT2004"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 7,
+        "es": 6,
+        "ls": 8,
+        "kk": "20",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "CRIPTOGRAFIA Y SEGURIDAD EN REDES",
+          "codigo": "CIT2105"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 8,
+        "es": 7,
+        "ls": 7,
+        "kk": "19",
+        "lf": 8,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "PROYECTO EN TICS II",
+          "codigo": "CIT2201"
+        }
+      },
+      {
+        "holgura": 7,
+        "ef": 2,
+        "es": 1,
+        "ls": 8,
+        "kk": "18",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "CFG",
+          "codigo": "CFG4"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 9,
+        "es": 8,
+        "ls": 8,
+        "kk": "14",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "EVALUACION DE PROYECTOS TIC",
+          "codigo": "CIT3200"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 10,
+        "es": 9,
+        "ls": 9,
+        "kk": "09",
+        "lf": 10,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "PROYECTO EN TICS III",
+          "codigo": "CIT3201"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 8,
+        "es": 7,
+        "ls": 9,
+        "kk": "17",
+        "lf": 10,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL INF 1",
+          "codigo": "CIT3310"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 8,
+        "es": 7,
+        "ls": 9,
+        "kk": "13",
+        "lf": 10,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL INF 2",
+          "codigo": "CIT3311"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 8,
+        "es": 7,
+        "ls": 9,
+        "kk": "12",
+        "lf": 10,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL INF 3",
+          "codigo": "CIT3312"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 8,
+        "es": 7,
+        "ls": 9,
+        "kk": "08",
+        "lf": 10,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL INF 4",
+          "codigo": "CIT3313"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 8,
+        "es": 7,
+        "ls": 9,
+        "kk": "16",
+        "lf": 10,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL TEL 1",
+          "codigo": "CIT3410"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 8,
+        "es": 7,
+        "ls": 9,
+        "kk": "15",
+        "lf": 10,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL TEL 2",
+          "codigo": "CIT3411"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 8,
+        "es": 7,
+        "ls": 9,
+        "kk": "11",
+        "lf": 10,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL TEL 3",
+          "codigo": "CIT3412"
+        }
+      },
+      {
+        "holgura": 2,
+        "ef": 8,
+        "es": 7,
+        "ls": 9,
+        "kk": "10",
+        "lf": 10,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL TEL 4",
+          "codigo": "CIT3413"
+        }
+      },
+      {
+        "holgura": 4,
+        "ef": 5,
+        "es": 4,
+        "ls": 8,
+        "kk": "06",
+        "lf": 9,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "PRACTICA PROFESIONAL 1 (2010)",
+          "codigo": "CIT5001"
+        }
+      },
+      {
+        "holgura": 1,
+        "ef": 9,
+        "es": 8,
+        "ls": 9,
+        "kk": "05",
+        "lf": 10,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "PRACTICA PROFESIONAL 2 (2010)",
+          "codigo": "CIT5002"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 0,
+        "es": 0,
+        "ls": 0,
+        "kk": "05",
+        "lf": 0,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "FINAL1",
+          "codigo": "FINAL1"
+        }
+      }
+    ],
+    "malla": 2010
+  }
+}

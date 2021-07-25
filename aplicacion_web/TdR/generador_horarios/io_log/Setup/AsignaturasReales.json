@@ -1,0 +1,2135 @@
+[
+  {
+    "codigo": "CBM1000",
+    "nombre": "ALGEBRA Y GEOMETRIA",
+    "creditos": 7,
+    "nro_correlativo": "1",
+    "semestre": "1",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CBM1001",
+    "nombre": "CALCULO I",
+    "creditos": 7,
+    "nro_correlativo": "2",
+    "semestre": "1",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CBQ1000",
+    "nombre": "QUIMICA",
+    "creditos": 6,
+    "nro_correlativo": "3",
+    "semestre": "1",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT1000",
+    "nombre": "PROGRAMACION",
+    "creditos": 6,
+    "nro_correlativo": "4",
+    "semestre": "1",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "FIC1000",
+    "nombre": "COMUNICACION PARA LA INGENIERIA",
+    "creditos": 5,
+    "nro_correlativo": "5",
+    "semestre": "1",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CBM1002",
+    "nombre": "ALGEBRA LINEAL",
+    "creditos": 6,
+    "nro_correlativo": "6",
+    "semestre": "2",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CBM1003",
+    "nombre": "CALCULO II",
+    "creditos": 6,
+    "nro_correlativo": "7",
+    "semestre": "2",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CBF1000",
+    "nombre": "MECANICA",
+    "creditos": 7,
+    "nro_correlativo": "8",
+    "semestre": "2",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT1010",
+    "nombre": "PROGRAMACION AVANZADA",
+    "creditos": 6,
+    "nro_correlativo": "9",
+    "semestre": "2",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CFG1",
+    "nombre": "CFG",
+    "creditos": 5,
+    "nro_correlativo": "10",
+    "semestre": "2",
+    "tipo": 0,
+    "importancia": 1
+  },
+  {
+    "codigo": "CBM1005",
+    "nombre": "ECUACIONES DIFERENCIALES",
+    "creditos": 6,
+    "nro_correlativo": "11",
+    "semestre": "3",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CBM1006",
+    "nombre": "CALCULO III",
+    "creditos": 6,
+    "nro_correlativo": "12",
+    "semestre": "3",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CBF1001",
+    "nombre": "CALOR Y ONDAS",
+    "creditos": 7,
+    "nro_correlativo": "13",
+    "semestre": "3",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2000",
+    "nombre": "ESTRUCTURAS DE DATOS",
+    "creditos": 6,
+    "nro_correlativo": "14",
+    "semestre": "3",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2100",
+    "nombre": "REDES DE DATOS",
+    "creditos": 6,
+    "nro_correlativo": "15",
+    "semestre": "3",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2204",
+    "nombre": "PROBABILIDADES Y ESTADISTICAS",
+    "creditos": 6,
+    "nro_correlativo": "16",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CBM2000",
+    "nombre": "METODOS NUMERICOS",
+    "creditos": 6,
+    "nro_correlativo": "17",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CBF1002",
+    "nombre": "ELECTRICIDAD Y MAGNETISMO",
+    "creditos": 7,
+    "nro_correlativo": "18",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2001",
+    "nombre": "DISENO Y ANALISIS DE ALGORITMOS",
+    "creditos": 6,
+    "nro_correlativo": "19",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CFG2",
+    "nombre": "CFG",
+    "creditos": 5,
+    "nro_correlativo": "20",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 1
+  },
+  {
+    "codigo": "FIC1001",
+    "nombre": "INGLES GENERAL I",
+    "creditos": 5,
+    "nro_correlativo": "21",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CII2750",
+    "nombre": "OPTIMIZACION",
+    "creditos": 6,
+    "nro_correlativo": "22",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2106",
+    "nombre": "ELECTRONICA Y ELECTROTECNIA",
+    "creditos": 6,
+    "nro_correlativo": "23",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2200",
+    "nombre": "PROYECTO EN TICS I",
+    "creditos": 6,
+    "nro_correlativo": "24",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2002",
+    "nombre": "BASES DE DATOS",
+    "creditos": 6,
+    "nro_correlativo": "25",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CFG3",
+    "nombre": "CFG",
+    "creditos": 5,
+    "nro_correlativo": "26",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 1
+  },
+  {
+    "codigo": "FIC1002",
+    "nombre": "INGLES GENERAL II",
+    "creditos": 5,
+    "nro_correlativo": "27",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CII2000",
+    "nombre": "INTRODUCCION  A LA ECONOMIA",
+    "creditos": 6,
+    "nro_correlativo": "28",
+    "semestre": "6",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2202",
+    "nombre": "MODELOS ESTOCASTICOS Y SIMULACION",
+    "creditos": 6,
+    "nro_correlativo": "29",
+    "semestre": "6",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2101",
+    "nombre": "SENALES Y SISTEMAS",
+    "creditos": 6,
+    "nro_correlativo": "30",
+    "semestre": "6",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2003",
+    "nombre": "SISTEMAS OPERATIVOS",
+    "creditos": 6,
+    "nro_correlativo": "31",
+    "semestre": "6",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2103",
+    "nombre": "SISTEMAS DIGITALES",
+    "creditos": 6,
+    "nro_correlativo": "32",
+    "semestre": "6",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CII1000",
+    "nombre": "CONTABILIDAD Y COSTOS",
+    "creditos": 6,
+    "nro_correlativo": "33",
+    "semestre": "7",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2005",
+    "nombre": "INGENIERIA DE SOFTWARE",
+    "creditos": 6,
+    "nro_correlativo": "34",
+    "semestre": "7",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2102",
+    "nombre": "COMUNICACIONES DIGITALES",
+    "creditos": 6,
+    "nro_correlativo": "35",
+    "semestre": "7",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "FIC1003",
+    "nombre": "DERECHO EN INGENIERIA",
+    "creditos": 5,
+    "nro_correlativo": "36",
+    "semestre": "7",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2104",
+    "nombre": "ARQUITECTURA DE COMPUTADORES",
+    "creditos": 6,
+    "nro_correlativo": "37",
+    "semestre": "7",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2203",
+    "nombre": "GESTION ORGANIZACIONAL",
+    "creditos": 6,
+    "nro_correlativo": "38",
+    "semestre": "8",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2004",
+    "nombre": "ARQUITECTURA DE SISTEMAS",
+    "creditos": 6,
+    "nro_correlativo": "39",
+    "semestre": "8",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2105",
+    "nombre": "CRIPTOGRAFIA Y SEGURIDAD EN REDES",
+    "creditos": 6,
+    "nro_correlativo": "40",
+    "semestre": "8",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2201",
+    "nombre": "PROYECTO EN TICS II",
+    "creditos": 6,
+    "nro_correlativo": "41",
+    "semestre": "8",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CFG4",
+    "nombre": "CFG",
+    "creditos": 5,
+    "nro_correlativo": "42",
+    "semestre": "8",
+    "tipo": 0,
+    "importancia": 1
+  },
+  {
+    "codigo": "CIT3200",
+    "nombre": "EVALUACION DE PROYECTOS TIC",
+    "creditos": 6,
+    "nro_correlativo": "46",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT3201",
+    "nombre": "PROYECTO EN TICS III",
+    "creditos": 7,
+    "nro_correlativo": "51",
+    "semestre": "10",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIG1012",
+    "nombre": "INGLES GENERAL I",
+    "creditos": 5,
+    "nro_correlativo": "21",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIG1013",
+    "nombre": "INGLES GENERAL II",
+    "creditos": 5,
+    "nro_correlativo": "27",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIG1014",
+    "nombre": "INGLES GENERAL III",
+    "creditos": 5,
+    "nro_correlativo": "33",
+    "semestre": "6",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT2006",
+    "nombre": "ESTRUCTURAS DE DATOS Y ALGORITMOS",
+    "creditos": 6,
+    "nro_correlativo": "14",
+    "semestre": "3",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2114",
+    "nombre": "REDES DE DATOS",
+    "creditos": 6,
+    "nro_correlativo": "15",
+    "semestre": "3",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2008",
+    "nombre": "DESARROLLO WEB Y MOVIL",
+    "creditos": 6,
+    "nro_correlativo": "20",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2107",
+    "nombre": "ELECTRONICA Y ELECTROTECNIA",
+    "creditos": 6,
+    "nro_correlativo": "17",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2205",
+    "nombre": "PROYECTO EN TICS I",
+    "creditos": 6,
+    "nro_correlativo": "24",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2007",
+    "nombre": "BASES DE DATOS",
+    "creditos": 6,
+    "nro_correlativo": "19",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CII2100",
+    "nombre": "INTRODUCCION A LA ECONOMIA",
+    "creditos": 6,
+    "nro_correlativo": "39",
+    "semestre": "8",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2108",
+    "nombre": "TALLER DE REDES Y SERVICIOS",
+    "creditos": 6,
+    "nro_correlativo": "23",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2110",
+    "nombre": "SENALES Y SISTEMAS",
+    "creditos": 6,
+    "nro_correlativo": "30",
+    "semestre": "6",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2010",
+    "nombre": "SISTEMAS OPERATIVOS",
+    "creditos": 6,
+    "nro_correlativo": "31",
+    "semestre": "6",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2109",
+    "nombre": "ARQUITECTURA Y ORGANIZ DE COMPUTADORES",
+    "creditos": 6,
+    "nro_correlativo": "29",
+    "semestre": "6",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2012",
+    "nombre": "INGENIERIA DE SOFTWARE",
+    "creditos": 6,
+    "nro_correlativo": "37",
+    "semestre": "7",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2111",
+    "nombre": "COMUNICACIONES DIGITALES",
+    "creditos": 6,
+    "nro_correlativo": "36",
+    "semestre": "7",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2206",
+    "nombre": "GESTION ORGANIZACIONAL",
+    "creditos": 6,
+    "nro_correlativo": "34",
+    "semestre": "7",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT3000",
+    "nombre": "ARQUITECTURA DE SOFTWARE",
+    "creditos": 6,
+    "nro_correlativo": "47",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2113",
+    "nombre": "CRIPTOGRAFIA Y SEGURIDAD EN REDES",
+    "creditos": 6,
+    "nro_correlativo": "41",
+    "semestre": "8",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT3202",
+    "nombre": "DATA SCIENCE",
+    "creditos": 6,
+    "nro_correlativo": "48",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2207",
+    "nombre": "EVALUACION DE PROYECTOS TIC",
+    "creditos": 6,
+    "nro_correlativo": "43",
+    "semestre": "8",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT3203",
+    "nombre": "PROYECTO EN TICS II",
+    "creditos": 6,
+    "nro_correlativo": "53",
+    "semestre": "10",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2009",
+    "nombre": "BASES DE DATOS AVANZADAS",
+    "creditos": 6,
+    "nro_correlativo": "25",
+    "semestre": "6",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2011",
+    "nombre": "SISTEMAS DISTRIBUIDOS",
+    "creditos": 6,
+    "nro_correlativo": "35",
+    "semestre": "7",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2112",
+    "nombre": "TECNOLOGIAS INALAMBRICAS",
+    "creditos": 6,
+    "nro_correlativo": "40",
+    "semestre": "8",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT2013",
+    "nombre": "INTELIGENCIA ARTIFICAL",
+    "creditos": 6,
+    "nro_correlativo": "42",
+    "semestre": "8",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT3100",
+    "nombre": "ARQUITECTURAS EMERGENTES",
+    "creditos": 6,
+    "nro_correlativo": "45",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT3332",
+    "nombre": "ANALISIS DE DATOS GEOGRAFICOS",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3337",
+    "nombre": "ASEGURAMIENTO DE CALIDAD",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3317",
+    "nombre": "BASES DE DATOS DE GRAN VOLUMEN",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3343",
+    "nombre": "BIOINFORMATICA",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3338",
+    "nombre": "COMPRESION DE DATOS",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3320",
+    "nombre": "CONTINUIDAD DE NEGOCIOS",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3350",
+    "nombre": "DATA STREAM PROCESSING",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3322",
+    "nombre": "DESARROLLO DE APLICACIONES MOVILES",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3315",
+    "nombre": "DESARROLLO DE SOFTWARE DIRIGIDO POR MODE",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3323",
+    "nombre": "DESARROLLO WEB",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3329",
+    "nombre": "DIRECCION Y CONTROL DE PROYECTOS TECNOLO",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3347",
+    "nombre": "DIS Y DESARROLLO DE SIST INTERACTIVOS",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3330",
+    "nombre": "DISENO DE SISTEMAS TRANSACCIONALES",
+    "creditos": 6,
+    "nro_correlativo": "43-44+D85:D91-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3341",
+    "nombre": "E-BUSINESS",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3331",
+    "nombre": "EMPRENDIMIENTO TIC",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3327",
+    "nombre": "ESTRATEGIAS DE PROGRAMACION",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3328",
+    "nombre": "GESTION EN INNOVACION TECNOLOGICA",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3340",
+    "nombre": "GESTION ESTRATEGICA PARA INFORMATICA",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3349",
+    "nombre": "GRAFOS Y ALGORITMOS",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3318",
+    "nombre": "IMPLEMENTACION DE ALGORITMOS",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3346",
+    "nombre": "INTELIGENCIA ARTIFICIAL",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3325",
+    "nombre": "INTELIGENCIA DE NEGOCIOS",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3335",
+    "nombre": "INTERFACE HUMANE MAQUINA",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3321",
+    "nombre": "MINERIA DE DATOS Y PROCESAMIENTO DE LENG",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3319",
+    "nombre": "MODELOS CENTRADOS EN EL USUARIO",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3344",
+    "nombre": "PROC DE DATOS Y TEC DE MACHINE LEARNING",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3345",
+    "nombre": "PROCESOS AGILES",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3314",
+    "nombre": "RECONOCIMIENTO DE PATRONES",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3316",
+    "nombre": "SISTEMA DE RECOMENDACION",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3342",
+    "nombre": "SISTEMAS DISTRIBUIDOS",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3348",
+    "nombre": "TALLER DE TRANSFORMACION DIGITAL",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3339",
+    "nombre": "TECNICAS AGILES Y AUTOMATICAS PARA PROYE",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3336",
+    "nombre": "VIDEO JUEGOS",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3326",
+    "nombre": "VISION POR COMPUTADOR",
+    "creditos": 6,
+    "nro_correlativo": "43-44-47-48-49-52",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3425",
+    "nombre": "ANALISIS Y CONFIG. DE SERVICIOS EN RED",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3426",
+    "nombre": "ANALISIS Y SIMULACION DE SIST. COMUNIC.",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3424",
+    "nombre": "CODIFICACION Y ELEMENTOS DE CRIPTOGRAFIA",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3422",
+    "nombre": "COMPOSICION MUSICAL ASISTIDA POR COMPUT.",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3421",
+    "nombre": "COMUNICACIONES DIGITALES AVANZADAS",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3427",
+    "nombre": "INTERNET DE LAS COSAS",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3428",
+    "nombre": "MET. EN DISENO DE REDES DE COMUNIC.",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3416",
+    "nombre": "PROCESAMIENTO DIGITAL DE SENALES",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3429",
+    "nombre": "PROTOCOLOS DE ENRUTAMIENTO",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3419",
+    "nombre": "REDES DE DATOS AVANZADAS",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3431",
+    "nombre": "REDES MOVILES CELULARES",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3420",
+    "nombre": "REDES OPTICAS DE DATOS",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3430",
+    "nombre": "REGULACION DE TICS",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3415",
+    "nombre": "SEGURIDAD Y PENTESTING DE APLICACIONES",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3414",
+    "nombre": "SISTEMA DE ALTA DISPONIBILIDAD",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3418",
+    "nombre": "SISTEMA EMBEBIDOS",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3417",
+    "nombre": "TECNOLOGIAS INALAMBRICAS",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3423",
+    "nombre": "TELEVISION DIGITAL",
+    "creditos": 6,
+    "nro_correlativo": "44-45-46-49-50-51",
+    "semestre": "(9-10)",
+    "tipo": 2,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT4000",
+    "nombre": "PRACTICA 1 (2020)",
+    "creditos": 7,
+    "nro_correlativo": "54",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT4001",
+    "nombre": "PRACTICA 2 (2020)",
+    "creditos": 7,
+    "nro_correlativo": "55",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIG1002",
+    "nombre": "INGLES GENERAL II",
+    "creditos": 5,
+    "nro_correlativo": "21",
+    "semestre": "4",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIG1003",
+    "nombre": "INGLES GENERAL III",
+    "creditos": 5,
+    "nro_correlativo": "27",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CFG2011",
+    "nombre": "ASTRONOMIA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2014",
+    "nombre": "PROBLEMATICAS CONTEMPORANEAS DE LA SEXUA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2017",
+    "nombre": "HISTORIA DE LA CIENCIA: INFLEXIONES E IM",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2024",
+    "nombre": "RELACIONES ECONOMICAS INTERNACIONALES",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2027",
+    "nombre": "LA CIUDAD COMO ESPACIO INCLUSIVO",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2029",
+    "nombre": "B-LEARNING ARGUM. Y PENSAMIENTO CRITICO",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2050",
+    "nombre": "CUENTO NORTEAMERICANO CONTEMPORANEO: REL",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2051",
+    "nombre": "LA PALABRA Y LA MUSICA: INTRODUCCION A L",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2059",
+    "nombre": "POESIA INDIGENA LATINOAMERICANA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2066",
+    "nombre": "ORIGEN Y EVOLUCION DE LA VIDA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2084",
+    "nombre": "B-LEARNING LIT., PERFORMANCE Y ARTES VIS",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2086",
+    "nombre": "LA GUERRA FRIA ORIGEN Y FORMACION DEL MU",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2098",
+    "nombre": "REVOLUCIONES DE LA HISTORIA CONTEMPORANE",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2135",
+    "nombre": "B-LEARNING EE.UU: SU VISION DE LA LIBERT",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2140",
+    "nombre": "TRANSFORMACIONES URBANAS,PRACTICAS ESPAC",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2141",
+    "nombre": "LA CIUDAD:UN TERRITORIO EN DISPUTA.DEBAT",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2143",
+    "nombre": "BOOK CLUB",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2149",
+    "nombre": "LA ERA DE LAS VANGUARDIAS HISTORICAS:ART",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2150",
+    "nombre": "SOCIEDAD Y MEDIOS DE COMUNICACION",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2166",
+    "nombre": "MUSICA LATINOAMERICANA Y MOVIMIENTOS SOC",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2177",
+    "nombre": "B-LEARNING IMAGEN FOTOGRAFIA Y MEMORIA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2189",
+    "nombre": "DERECHOS DE LAS MINORIAS E INTERCULTURAL",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2198",
+    "nombre": "B-LEARNIN EL SIST. SOLAR Y LA BUSQ.",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2200",
+    "nombre": "LAS ESCUELAS DE TEORIA ECONOMICA EN EL S",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2202",
+    "nombre": "DESIGUALDAD:DEFINICION,MEDICION Y CASOS",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2203",
+    "nombre": "EDUCACION SUPERIOR EN CHILE: DESAFIOS Y",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2208",
+    "nombre": "EL DOCUMENTAL EN AMERICA LATINA: UN RELA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2209",
+    "nombre": "CONSTRUCCUION SOCIAL DE LA ENFERMEDAD:CI",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2222",
+    "nombre": "CIUDADES SUSTENTABLES:DESAFIOS EN AMERIC",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2224",
+    "nombre": "POBLACION,DESARROLLO Y POLITICAS PUBL",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2225",
+    "nombre": "ORIGEN, EVOLUCION Y FIN DEL UNIVERSO",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2239",
+    "nombre": "POESIA LATINOAMERICANA CONTEMPORANEA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2240",
+    "nombre": "MICROORGANISMOS: ORIGENES Y PANDEMIAS AC",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2244",
+    "nombre": "CIUDADANIA , POBREZA E INNOVACION SOCIAL",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2253",
+    "nombre": "CREYENTES, AGNOSTICOS Y ATEOS EN LA ERA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2259",
+    "nombre": "NARRADORES CHILENOS JOVENES: FICCION Y C",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2262",
+    "nombre": "CRISIS MEDIOAMBIENTAL Y SUS CONSECUENCIA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2273",
+    "nombre": "ASTRONOMIA MODERNA, UNA PERSPECTIVA COSM",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2285",
+    "nombre": "EL SIGLO XX: TRANSFORMACIONES Y CONFLICT",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG5005",
+    "nombre": "SALUD PUBLICA Y POLITICAS PUBLICAS",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG5006",
+    "nombre": "B-LEARNING HIS. DEL DOCUMENTAL CONTEM.",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG5010",
+    "nombre": "INDIA, DEL MITO AL POSCOLONIALISMO",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2294",
+    "nombre": "B-LEARNIN CAMBIO CLI. Y ECO. POL. GLOBAL",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2295",
+    "nombre": "B-LEARNING RELACIONES DE PODER Y GENERO",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2296",
+    "nombre": "B-LEARNING GLOB., INFO. Y SOC. ACTUAL",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2308",
+    "nombre": "SOCIAL MOVEMENTS AND COLLECTIVE ACTION",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2312",
+    "nombre": "RAZONAMIENTO Y PENSAMIENTO CRITICO",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2315",
+    "nombre": "LA DEMOCRACIA EN ESTADOS UNIDOS",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2318",
+    "nombre": "RELACIONES DE GENERO Y VIOLENCIA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2321",
+    "nombre": "REP. MUJER EN LOS MEDIOS DE COM Y CULTUR",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2327",
+    "nombre": "EL INMIGRANTE SUENO Y CONFLICTOS",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2325",
+    "nombre": "B-LEARNING DILEMA ETICO DE LAS DEMOC",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2323",
+    "nombre": "B-LEARNING BIOETICA Y SOCIEDAD ACTUAL",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2322",
+    "nombre": "B-LEARNING MEDIOAMBIENTE Y CIUDADANIA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2324",
+    "nombre": "B-LEARNING CINE LATINOAMERICANO",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2331",
+    "nombre": "LAS SUSTANCIAS PSICOACTIVAS (DROGAS)",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2335",
+    "nombre": "PSICOANALISIS Y CRIMINOLOGIA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2336",
+    "nombre": "EL PODER CONTRA EL CINE DEL CUERPO",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2339",
+    "nombre": "ESCRITURA ACADEMICA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2341",
+    "nombre": "PSICOLOGIA, CINE Y NEUROCIENCIA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2343",
+    "nombre": "FOTOGRAFIA Y MEMORIA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2347",
+    "nombre": "ACCION, INTENCION Y SUS EFECTOS",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2348",
+    "nombre": "ESTRELLAS DE LA VIA LACTEA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2350",
+    "nombre": "CULTURA Y NEGOCIOS EN ASIA: CHINA, COREA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2352",
+    "nombre": "MUJER Y PENSAMIENTO",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2354",
+    "nombre": "B-LEARNING GUERRA FRIA Y SOCIEDAD ACTUAL",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2355",
+    "nombre": "B-LEARNING ARTE Y MEMORIA EN AMERICA LAT",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2353",
+    "nombre": "B-LEARNING MIGRACIONES Y DIVERSIDAD CULT",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2356",
+    "nombre": "B-LEARNING CUANTICA, RELATIVIDAD Y GIRO",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2358",
+    "nombre": "ESCRITORAS NORTEAMERICANAS",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2361",
+    "nombre": "LO QUE KAFKA LE HIZO A LA FILOSOFIA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2365",
+    "nombre": "PROBLEMAS ETICOS-JURIDICOS",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2366",
+    "nombre": "MUSICA, PERCEPCION Y EMOCIONES",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2368",
+    "nombre": "FEMINISMO DIVERSOS Y DISIDENCIAS SEXUALE",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2369",
+    "nombre": "VARONES HEGEMONICOS: MASCULINIDADES Y PA",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2372",
+    "nombre": "NUEVA CONSTITUCION PARA CHILE",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2378",
+    "nombre": "B-LEARNING BLACK POWER",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2380",
+    "nombre": "HISTORIA LGBTI DE CHILE",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2381",
+    "nombre": "FISIOLOGIA, AMBIENTE Y SOCIEDAD",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CFG2382",
+    "nombre": "HISTORIA DE MUJERES",
+    "creditos": 5,
+    "nro_correlativo": "10-20-26-32-38-42",
+    "semestre": "(2-4-5-6-7-8)",
+    "tipo": 1,
+    "importancia": 1
+  },
+  {
+    "codigo": "CIT3310",
+    "nombre": "ELECTIVO PROFESIONAL INF 1",
+    "creditos": 6,
+    "nro_correlativo": "43",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3311",
+    "nombre": "ELECTIVO PROFESIONAL INF 2",
+    "creditos": 6,
+    "nro_correlativo": "47",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3312",
+    "nombre": "ELECTIVO PROFESIONAL INF 3",
+    "creditos": 6,
+    "nro_correlativo": "48",
+    "semestre": "10",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3313",
+    "nombre": "ELECTIVO PROFESIONAL INF 4",
+    "creditos": 6,
+    "nro_correlativo": "52",
+    "semestre": "10",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3410",
+    "nombre": "ELECTIVO PROFESIONAL TEL 1",
+    "creditos": 6,
+    "nro_correlativo": "44",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3411",
+    "nombre": "ELECTIVO PROFESIONAL TEL 2",
+    "creditos": 6,
+    "nro_correlativo": "45",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3412",
+    "nombre": "ELECTIVO PROFESIONAL TEL 3",
+    "creditos": 6,
+    "nro_correlativo": "49",
+    "semestre": "10",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CIT3413",
+    "nombre": "ELECTIVO PROFESIONAL TEL 4",
+    "creditos": 6,
+    "nro_correlativo": "50",
+    "semestre": "10",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CITOPTINF1",
+    "nombre": "ELECTIVO PROFESIONAL INF 1",
+    "creditos": 6,
+    "nro_correlativo": "44",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CITOPTINF2",
+    "nombre": "ELECTIVO PROFESIONAL INF 2",
+    "creditos": 6,
+    "nro_correlativo": "49",
+    "semestre": "10",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CITOPTINF3",
+    "nombre": "ELECTIVO PROFESIONAL INF 3",
+    "creditos": 6,
+    "nro_correlativo": "52",
+    "semestre": "10",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CITOPTTEL1",
+    "nombre": "ELECTIVO PROFESIONAL TEL 1",
+    "creditos": 6,
+    "nro_correlativo": "46",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CITOPTTEL2",
+    "nombre": "ELECTIVO PROFESIONAL TEL 2",
+    "creditos": 6,
+    "nro_correlativo": "50",
+    "semestre": "10",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CITOPTTEL3",
+    "nombre": "ELECTIVO PROFESIONAL TEL 3",
+    "creditos": 6,
+    "nro_correlativo": "51",
+    "semestre": "10",
+    "tipo": 0,
+    "importancia": 2
+  },
+  {
+    "codigo": "CII2002",
+    "nombre": "INGENIERIA ECONOMICA",
+    "creditos": 6,
+    "nro_correlativo": "60",
+    "semestre": "15",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT4011",
+    "nombre": "TITULACION EXAMEN DE TITULO",
+    "creditos": 30,
+    "nro_correlativo": "56",
+    "semestre": "11",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT4012",
+    "nombre": "TITULACION MEMORIA",
+    "creditos": 30,
+    "nro_correlativo": "56",
+    "semestre": "11",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT4013",
+    "nombre": "TITULACION TALLER PROFESIONAL",
+    "creditos": 30,
+    "nro_correlativo": "56",
+    "semestre": "11",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT5001",
+    "nombre": "PRACTICA PROFESIONAL 1 (2010)",
+    "creditos": 7,
+    "nro_correlativo": "54",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT5002",
+    "nombre": "PRACTICA PROFESIONAL 2 (2010)",
+    "creditos": 7,
+    "nro_correlativo": "55",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT6001",
+    "nombre": "PRACTICA PROFESIONAL 1 (2018)",
+    "creditos": 7,
+    "nro_correlativo": "54",
+    "semestre": "5",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT6002",
+    "nombre": "PRACTICA PROFESIONAL 2 (2018)",
+    "creditos": 7,
+    "nro_correlativo": "55",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT3600",
+    "nombre": "SEMINARIO DE INVESTIGACION 1",
+    "creditos": 6,
+    "nro_correlativo": "44",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT4015",
+    "nombre": "TITULACION VIA MAGISTER",
+    "creditos": 30,
+    "nro_correlativo": "56",
+    "semestre": "11",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "CIT3601",
+    "nombre": "SEMINARIO DE INVESTIGACION 2",
+    "creditos": 6,
+    "nro_correlativo": "44",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "ING9100",
+    "nombre": "PRACTICAS ELECTIVAS",
+    "creditos": 6,
+    "nro_correlativo": "44",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "ING9101",
+    "nombre": "PRACTICAS ELECTIVAS",
+    "creditos": 6,
+    "nro_correlativo": "44",
+    "semestre": "9",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "FINAL1",
+    "nombre": "FINAL1",
+    "creditos": 30,
+    "nro_correlativo": "55",
+    "semestre": "11",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "FINAL2",
+    "nombre": "FINAL2",
+    "creditos": 30,
+    "nro_correlativo": "56",
+    "semestre": "11",
+    "tipo": 0,
+    "importancia": 3
+  },
+  {
+    "codigo": "FINAL3",
+    "nombre": "FINAL3",
+    "creditos": 30,
+    "nro_correlativo": "56",
+    "semestre": "11",
+    "tipo": 0,
+    "importancia": 3
+  }
+]

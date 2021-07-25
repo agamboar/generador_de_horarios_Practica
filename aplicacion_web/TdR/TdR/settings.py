@@ -35,8 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'corsheaders',
     'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 ]
 SITE_ID = 1
@@ -99,7 +97,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tdr',
         'USER': 'postgres',
-        'PASSWORD': 'asistente.2021',
+        'PASSWORD': 'admin',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -150,3 +148,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/' #static
 # super usuario admin: tdr
 # password: tdr2021
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' # evita warnings: posibles migraciones no deseadas en upgrades de Django

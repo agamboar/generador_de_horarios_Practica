@@ -1,0 +1,2282 @@
+[
+  {
+    "from_asignatura_real_id": "CIT2006",
+    "to_asignatura_real_id": "CIT2000"
+  },
+  {
+    "from_asignatura_real_id": "CIT2114",
+    "to_asignatura_real_id": "CIT2100"
+  },
+  {
+    "from_asignatura_real_id": "CIT2008",
+    "to_asignatura_real_id": "CBM2000"
+  },
+  {
+    "from_asignatura_real_id": "CIT2006",
+    "to_asignatura_real_id": "CIT2001"
+  },
+  {
+    "from_asignatura_real_id": "CIT2107",
+    "to_asignatura_real_id": "CIT2106"
+  },
+  {
+    "from_asignatura_real_id": "CIT2205",
+    "to_asignatura_real_id": "CIT2200"
+  },
+  {
+    "from_asignatura_real_id": "CIT2007",
+    "to_asignatura_real_id": "CIT2002"
+  },
+  {
+    "from_asignatura_real_id": "CIG1002",
+    "to_asignatura_real_id": "FIC1001"
+  },
+  {
+    "from_asignatura_real_id": "CIG1003",
+    "to_asignatura_real_id": "FIC1002"
+  },
+  {
+    "from_asignatura_real_id": "CII2100",
+    "to_asignatura_real_id": "CII2000"
+  },
+  {
+    "from_asignatura_real_id": "CIT2108",
+    "to_asignatura_real_id": "CIT2202"
+  },
+  {
+    "from_asignatura_real_id": "CIT2110",
+    "to_asignatura_real_id": "CIT2101"
+  },
+  {
+    "from_asignatura_real_id": "CIT2010",
+    "to_asignatura_real_id": "CIT2003"
+  },
+  {
+    "from_asignatura_real_id": "CIT2109",
+    "to_asignatura_real_id": "CIT2103"
+  },
+  {
+    "from_asignatura_real_id": "CIT2012",
+    "to_asignatura_real_id": "CIT2005"
+  },
+  {
+    "from_asignatura_real_id": "CIT2111",
+    "to_asignatura_real_id": "CIT2102"
+  },
+  {
+    "from_asignatura_real_id": "CIT2109",
+    "to_asignatura_real_id": "CIT2104"
+  },
+  {
+    "from_asignatura_real_id": "CIT2206",
+    "to_asignatura_real_id": "CIT2203"
+  },
+  {
+    "from_asignatura_real_id": "CIT3000",
+    "to_asignatura_real_id": "CIT2004"
+  },
+  {
+    "from_asignatura_real_id": "CIT2113",
+    "to_asignatura_real_id": "CIT2105"
+  },
+  {
+    "from_asignatura_real_id": "CIT3202",
+    "to_asignatura_real_id": "CIT2201"
+  },
+  {
+    "from_asignatura_real_id": "CIT3200",
+    "to_asignatura_real_id": "CIT2207"
+  },
+  {
+    "from_asignatura_real_id": "CIT3201",
+    "to_asignatura_real_id": "CIT3203"
+  },
+  {
+    "from_asignatura_real_id": "CIT2108",
+    "to_asignatura_real_id": "CIT3425"
+  },
+  {
+    "from_asignatura_real_id": "CIT3317",
+    "to_asignatura_real_id": "CIT2009"
+  },
+  {
+    "from_asignatura_real_id": "CIT3350",
+    "to_asignatura_real_id": "CITOPTINF1"
+  },
+  {
+    "from_asignatura_real_id": "CIT3347",
+    "to_asignatura_real_id": "CITOPTINF1"
+  },
+  {
+    "from_asignatura_real_id": "CIT3349",
+    "to_asignatura_real_id": "CITOPTINF1"
+  },
+  {
+    "from_asignatura_real_id": "CIT3325",
+    "to_asignatura_real_id": "CITOPTINF1"
+  },
+  {
+    "from_asignatura_real_id": "CIT3348",
+    "to_asignatura_real_id": "CITOPTINF1"
+  },
+  {
+    "from_asignatura_real_id": "CIT3350",
+    "to_asignatura_real_id": "CITOPTINF2"
+  },
+  {
+    "from_asignatura_real_id": "CIT3347",
+    "to_asignatura_real_id": "CITOPTINF2"
+  },
+  {
+    "from_asignatura_real_id": "CIT3349",
+    "to_asignatura_real_id": "CITOPTINF2"
+  },
+  {
+    "from_asignatura_real_id": "CIT3325",
+    "to_asignatura_real_id": "CITOPTINF2"
+  },
+  {
+    "from_asignatura_real_id": "CIT3348",
+    "to_asignatura_real_id": "CITOPTINF2"
+  },
+  {
+    "from_asignatura_real_id": "CIT3350",
+    "to_asignatura_real_id": "CITOPTINF3"
+  },
+  {
+    "from_asignatura_real_id": "CIT3347",
+    "to_asignatura_real_id": "CITOPTINF3"
+  },
+  {
+    "from_asignatura_real_id": "CIT3349",
+    "to_asignatura_real_id": "CITOPTINF3"
+  },
+  {
+    "from_asignatura_real_id": "CIT3325",
+    "to_asignatura_real_id": "CITOPTINF3"
+  },
+  {
+    "from_asignatura_real_id": "CIT3348",
+    "to_asignatura_real_id": "CITOPTINF3"
+  },
+  {
+    "from_asignatura_real_id": "CIT3332",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3337",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3317",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3343",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3338",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3320",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3350",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3322",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3315",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3323",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3329",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3347",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3330",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3341",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3331",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3327",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3328",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3340",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3349",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3318",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3346",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3325",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3335",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3321",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3319",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3344",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3345",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3314",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3316",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3342",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3348",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3339",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3336",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3326",
+    "to_asignatura_real_id": "CIT3310"
+  },
+  {
+    "from_asignatura_real_id": "CIT3425",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3426",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3424",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3422",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3421",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3427",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3428",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3416",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3429",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3419",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3431",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3420",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3430",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3415",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3414",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3418",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3417",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3423",
+    "to_asignatura_real_id": "CIT3410"
+  },
+  {
+    "from_asignatura_real_id": "CIT3332",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3337",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3317",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3343",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3338",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3320",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3350",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3322",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3315",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3323",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3329",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3347",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3330",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3341",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3331",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3327",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3328",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3340",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3349",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3318",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3346",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3325",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3335",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3321",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3319",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3344",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3345",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3314",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3316",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3342",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3348",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3339",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3336",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3326",
+    "to_asignatura_real_id": "CIT3311"
+  },
+  {
+    "from_asignatura_real_id": "CIT3425",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3426",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3424",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3422",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3421",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3427",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3428",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3416",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3429",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3419",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3431",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3420",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3430",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3415",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3414",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3418",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3417",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3423",
+    "to_asignatura_real_id": "CIT3411"
+  },
+  {
+    "from_asignatura_real_id": "CIT3332",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3337",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3317",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3343",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3338",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3320",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3350",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3322",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3315",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3323",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3329",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3347",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3330",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3341",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3331",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3327",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3328",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3340",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3349",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3318",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3346",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3325",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3335",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3321",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3319",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3344",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3345",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3314",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3316",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3342",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3348",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3339",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3336",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3326",
+    "to_asignatura_real_id": "CIT3312"
+  },
+  {
+    "from_asignatura_real_id": "CIT3425",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3426",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3424",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3422",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3421",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3427",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3428",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3416",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3429",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3419",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3431",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3420",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3430",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3415",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3414",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3418",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3417",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3423",
+    "to_asignatura_real_id": "CIT3412"
+  },
+  {
+    "from_asignatura_real_id": "CIT3332",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3337",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3317",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3343",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3338",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3320",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3350",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3322",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3315",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3323",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3329",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3347",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3330",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3341",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3331",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3327",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3328",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3340",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3349",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3318",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3346",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3325",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3335",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3321",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3319",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3344",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3345",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3314",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3316",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3342",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3348",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3339",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3336",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3326",
+    "to_asignatura_real_id": "CIT3313"
+  },
+  {
+    "from_asignatura_real_id": "CIT3425",
+    "to_asignatura_real_id": "CIT3413"
+  },
+  {
+    "from_asignatura_real_id": "CIT3426",
+    "to_asignatura_real_id": "CIT3414"
+  },
+  {
+    "from_asignatura_real_id": "CIT3424",
+    "to_asignatura_real_id": "CIT3415"
+  },
+  {
+    "from_asignatura_real_id": "CIT3422",
+    "to_asignatura_real_id": "CIT3416"
+  },
+  {
+    "from_asignatura_real_id": "CIT3421",
+    "to_asignatura_real_id": "CIT3417"
+  },
+  {
+    "from_asignatura_real_id": "CIT3427",
+    "to_asignatura_real_id": "CIT3418"
+  },
+  {
+    "from_asignatura_real_id": "CIT3428",
+    "to_asignatura_real_id": "CIT3419"
+  },
+  {
+    "from_asignatura_real_id": "CIT3416",
+    "to_asignatura_real_id": "CIT3420"
+  },
+  {
+    "from_asignatura_real_id": "CIT3429",
+    "to_asignatura_real_id": "CIT3421"
+  },
+  {
+    "from_asignatura_real_id": "CIT3419",
+    "to_asignatura_real_id": "CIT3422"
+  },
+  {
+    "from_asignatura_real_id": "CIT3431",
+    "to_asignatura_real_id": "CIT3423"
+  },
+  {
+    "from_asignatura_real_id": "CIT3420",
+    "to_asignatura_real_id": "CIT3424"
+  },
+  {
+    "from_asignatura_real_id": "CIT3430",
+    "to_asignatura_real_id": "CIT3425"
+  },
+  {
+    "from_asignatura_real_id": "CIT3415",
+    "to_asignatura_real_id": "CIT3426"
+  },
+  {
+    "from_asignatura_real_id": "CIT3414",
+    "to_asignatura_real_id": "CIT3427"
+  },
+  {
+    "from_asignatura_real_id": "CIT3418",
+    "to_asignatura_real_id": "CIT3428"
+  },
+  {
+    "from_asignatura_real_id": "CIT3417",
+    "to_asignatura_real_id": "CIT3429"
+  },
+  {
+    "from_asignatura_real_id": "CIT3423",
+    "to_asignatura_real_id": "CIT3430"
+  },
+  {
+    "from_asignatura_real_id": "CFG2011",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2014",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2017",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2024",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2027",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2029",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2050",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2051",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2059",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2066",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2084",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2086",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2098",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2135",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2140",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2141",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2143",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2149",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2150",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2166",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2177",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2189",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2198",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2200",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2202",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2203",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2208",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2209",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2222",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2224",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2225",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2239",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2240",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2244",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2253",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2259",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2262",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2273",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2285",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG5005",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG5006",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG5010",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2294",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2295",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2296",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2308",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2312",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2315",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2318",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2321",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2327",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2325",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2323",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2322",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2324",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2331",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2335",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2336",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2339",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2341",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2343",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2347",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2348",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2350",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2352",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2354",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2355",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2353",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2356",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2358",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2361",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2365",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2366",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2368",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2369",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2372",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2378",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2380",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2381",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2382",
+    "to_asignatura_real_id": "CFG1"
+  },
+  {
+    "from_asignatura_real_id": "CFG2011",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2014",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2017",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2024",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2027",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2029",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2050",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2051",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2059",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2066",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2084",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2086",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2098",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2135",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2140",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2141",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2143",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2149",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2150",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2166",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2177",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2189",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2198",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2200",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2202",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2203",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2208",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2209",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2222",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2224",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2225",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2239",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2240",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2244",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2253",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2259",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2262",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2273",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2285",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG5005",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG5006",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG5010",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2294",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2295",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2296",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2308",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2312",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2315",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2318",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2321",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2327",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2325",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2323",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2322",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2324",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2331",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2335",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2336",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2339",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2341",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2343",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2347",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2348",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2350",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2352",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2354",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2355",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2353",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2356",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2358",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2361",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2365",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2366",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2368",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2369",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2372",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2378",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2380",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2381",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2382",
+    "to_asignatura_real_id": "CFG2"
+  },
+  {
+    "from_asignatura_real_id": "CFG2011",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2014",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2017",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2024",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2027",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2029",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2050",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2051",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2059",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2066",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2084",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2086",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2098",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2135",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2140",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2141",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2143",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2149",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2150",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2166",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2177",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2189",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2198",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2200",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2202",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2203",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2208",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2209",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2222",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2224",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2225",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2239",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2240",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2244",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2253",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2259",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2262",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2273",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2285",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG5005",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG5006",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG5010",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2294",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2295",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2296",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2308",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2312",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2315",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2318",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2321",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2327",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2325",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2323",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2322",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2324",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2331",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2335",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2336",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2339",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2341",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2343",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2347",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2348",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2350",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2352",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2354",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2355",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2353",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2356",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2358",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2361",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2365",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2366",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2368",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2369",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2372",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2378",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2380",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2381",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2382",
+    "to_asignatura_real_id": "CFG3"
+  },
+  {
+    "from_asignatura_real_id": "CFG2011",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2014",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2017",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2024",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2027",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2029",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2050",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2051",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2059",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2066",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2084",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2086",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2098",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2135",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2140",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2141",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2143",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2149",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2150",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2166",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2177",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2189",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2198",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2200",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2202",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2203",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2208",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2209",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2222",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2224",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2225",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2239",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2240",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2244",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2253",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2259",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2262",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2273",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2285",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG5005",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG5006",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG5010",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2294",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2295",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2296",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2308",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2312",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2315",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2318",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2321",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2327",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2325",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2323",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2322",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2324",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2331",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2335",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2336",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2339",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2341",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2343",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2347",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2348",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2350",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2352",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2354",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2355",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2353",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2356",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2358",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2361",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2365",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2366",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2368",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2369",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2372",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2378",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2380",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2381",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CFG2382",
+    "to_asignatura_real_id": "CFG4"
+  },
+  {
+    "from_asignatura_real_id": "CIG1003",
+    "to_asignatura_real_id": "CIG1013"
+  },
+  {
+    "from_asignatura_real_id": "CIG1002",
+    "to_asignatura_real_id": "CIG1012"
+  }
+]

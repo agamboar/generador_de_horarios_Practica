@@ -1,7 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
-from .models import *
+from ..models import *
 
 # seria bueno modularizar esta funcion
 
@@ -44,7 +44,7 @@ def get_clique_max_pond(current_user):
                 continue
 
             
-
+     
         try:
             horario = (elem['to_seccion__evento__dia'] + ' ' +
                        elem['to_seccion__evento__modulo'])
