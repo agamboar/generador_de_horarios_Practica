@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'corsheaders',
     'allauth',
+    'allauth.account',	
+    'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 ]
 SITE_ID = 1
@@ -97,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tdr',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'asistente.2021',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
