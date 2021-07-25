@@ -41,7 +41,7 @@ from generador_horarios.codigos_cfg.categorize_cfgs import get_area
 import time
 import logging
 
-logging.basicConfig(filename='views_info.log', level=logging.INFO)
+logging.basicConfig(filename='views_info.log', level=logging.INFO, format='%(levelname)s:%(asctime)s:%(message)s')
 
 # Create your views here.
 
