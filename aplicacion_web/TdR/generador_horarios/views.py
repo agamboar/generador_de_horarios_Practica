@@ -36,7 +36,12 @@ from .helpers import jsonLog as jl, utils, DBSeed, stateControl as stc
 import traceback
 from contextlib import suppress # 'try: ... except ExceptionName: pass' == 'with suppress(ExceptionName): ...'
 from django.core.exceptions import *
+from generador_horarios.codigos_cfg.categorize_cfgs import get_area
 
+import time
+import logging
+
+logging.basicConfig(filename='views_info.log', level=logging.INFO)
 
 # Create your views here.
 
@@ -79,21 +84,42 @@ def import_malla(request):
     if request.method == "POST":
         try:
             excel_file = request.FILES["file"]
+            has_vacantes = is_oferta_vacantes(excel_file)
             arr_secciones = read_secciones(excel_file)
             arr_eventos = read_eventos(excel_file)
 
             utils.clearOfertaMalla()
             added_sec = 0
+            # for elem in arr_secciones:
+            #     print('elem4', elem[4])
+            #     try:
+            #         a = asignatura_real.objects.get(codigo=elem[4])
+            #     except Exception as exc:
+            #         print('no existe asignatura: ', elem[4])
+            # return JsonResponse()
             for elem in arr_secciones:
-                    a = asignatura_real.objects.get(codigo=elem[6])
+                    # try:
+                    #     for i in range(0,19):
+                    #         print('item[',i,']: ', elem[i])
+                    # except Exception as exc:
+                    #     print('fallo en indice ', i)
 
-                    s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                                vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+                    if has_vacantes:
+                        # print('codigo: ', elem[6])
+                        a = asignatura_real.objects.get(codigo=elem[6])
+                        s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                                    vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+                    else:
+                        # print('codigo: ', elem[4])
+                        a = asignatura_real.objects.get(codigo=elem[4])
+                        s = seccion(cod_seccion=elem[3], semestre=elem[1], num_seccion=elem[2],
+                                    vacantes=elem[0], inscritos=0, vacantes_libres=elem[0])
                     s.save()
                     s.to_asignatura_real.add(a)
                     added_sec += 1
 
             for elem in arr_eventos:
+
                 s = seccion.objects.get(cod_seccion=elem[4])
                 e = evento(tipo=elem[0], dia=elem[1],
                             modulo=elem[2], profesor=elem[3], to_seccion=s)
@@ -111,33 +137,85 @@ def import_cfg(request):
     if request.method == "POST":      
         try: 
             excel_file = request.FILES["excel_file"]
-            cfg_secciones = read_seccion_cfg(excel_file)
-            cfg_eventos = read_evento_cfg(excel_file)
+
+            has_vacantes = is_oferta_cfg_vacantes(excel_file)
+
+            (cfg_secciones, nombres) = read_seccion_cfg(excel_file, has_vacantes)
+
+            # try:
+            #     for i in range(0,20):
+            #         print('elem[',i,']: ',cfg_secciones[0][i])
+            # except:
+            #     print('fallo ')
+
+            # faltantes = []
+            # for secc in cfg_secciones: # para revisar si estan todos los cfgs de la oferta en catalogo.
+            #     codigo = secc[3][0:7]
+            #     try:
+            #         get_area(codigo)
+            #         print('encontro codigo: ',codigo)
+            #     except Exception as exc:
+            #         print('fallo codigo', codigo)
+            #         faltantes.append(codigo)
+            # print('faltan ', len(faltantes), ' codigos: ', faltantes)
+            # return 'n'
+
+            cfg_eventos = read_evento_cfg(excel_file, has_vacantes)
+
             cfg1 = asignatura_real.objects.get(codigo='CFG1')
             cfg2 = asignatura_real.objects.get(codigo='CFG2')
             cfg3 = asignatura_real.objects.get(codigo='CFG3')
             cfg4 = asignatura_real.objects.get(codigo='CFG4')
 
-            utils.clearCFGsArea(area=request.POST['area'])
+            if has_vacantes: utils.clearCFGsArea(area=request.POST['area']) #con vacantes si ingresa cfgs por area, sin vac. es todo junto
+            else: utils.clearOfertaCFG()
 
             added_cfg = 0
             for elem in cfg_secciones:
-                if elem[0][0:3] == 'CFG':
+                if has_vacantes: codigo_seccion = elem[0]
+                else: codigo_seccion = elem[3]
+                codigo_ramo = codigo_seccion[0:7]
+
+                if codigo_seccion[0:3] == 'CFG':
                     added_cfg += 1
                     
-                    s1 = seccion.objects.create(
-                        cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                        vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5]
-                    )
+                    if has_vacantes:
+                        s1 = seccion.objects.create(
+                            cod_seccion=codigo_seccion, semestre=elem[1], num_seccion=elem[2],
+                            vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5]
+                        )
+                    else:
+                        s1 = seccion.objects.create(
+                            cod_seccion=codigo_seccion, semestre=elem[1], num_seccion=elem[2],
+                            vacantes=elem[0], inscritos=0, vacantes_libres=elem[0]
+                        )
+                        ramo = asignatura_real(
+                            codigo = codigo_ramo,
+                            nombre = nombres[codigo_ramo], creditos = 5,
+                            nro_correlativo = '10-20-26-32-38-42', semestre = '(2-4-5-6-7-8)',
+                            tipo = 1, importancia = 1
+                        )
+                        ramo.save()
+                        ramo.equivale.add(cfg1)
+                        ramo.equivale.add(cfg2)
+                        ramo.equivale.add(cfg3)
+                        ramo.equivale.add(cfg4)
+
+
                     s1.to_asignatura_real.add(cfg1)
                     s1.to_asignatura_real.add(cfg2)
                     s1.to_asignatura_real.add(cfg3)
                     s1.to_asignatura_real.add(cfg4)
                     
-                    if len(cfg_areas.objects.filter(codigo = elem[0][0:7])) == 0: # cambiado de elem[0][6] a elem[0][7], para que incluya los 4 numeros del codigo
-                        area = cfg_areas.objects.create(codigo = elem[0][0:7] ,area = request.POST['area'])
-                        area.save()
+                    if len(cfg_areas.objects.filter(codigo = codigo_ramo)) == 0: # cambiado de elem[0][6] a elem[0][7], para que incluya los 4 numeros del 
+                        if has_vacantes:
+                            area = cfg_areas.objects.create(codigo = codigo_ramo ,area = request.POST['area'])
+                            area.save()
+                        else:
+                            area = cfg_areas.objects.create(codigo = codigo_ramo ,area = get_area(codigo_ramo))
+
             for elem in cfg_eventos:
+                
                 if elem[4][0:3] == 'CFG':
 
                     s = seccion.objects.get(cod_seccion=elem[4])
@@ -211,6 +289,10 @@ def get_PERT(request):
     if request.method == "GET":
         try:
             user_id = request.user.id
+            start = time.time()
+            ramos = calc_PERT(user_id)
+            end = time.time()
+            logging.info('PERT:{} segundos'.format(end-start))
             return Response(calc_PERT(user_id))
         except Exception:
             traceback.print_exc()
@@ -277,7 +359,10 @@ def get_clique(request):
     if request.method == "GET":
         try:
             user_id = request.user.id
+            start = time.time()
             solucion = calc_clique(user_id)
+            end = time.time()
+            logging.info('Clique:{} segundos'.format(end-start))
             return Response(solucion, status=status.HTTP_200_OK)
         except Exception:
             traceback.print_exc()
@@ -632,7 +717,11 @@ def get_secciones_disponibles(request, codigo):
         ).exclude(to_seccion__evento=None).values(
             'to_seccion__cod_seccion','to_seccion__num_seccion','to_seccion__vacantes_libres','to_seccion__evento__profesor',
             'to_seccion__evento__dia','to_seccion__evento__modulo','to_seccion__evento__tipo','id','ss'
-        ).order_by('-ss').distinct()  
+        ).order_by('-ss').distinct() 
+
+        # print('secciones_disponibles: ', secciones_disponibles)
+        # print('nodos seccion: ', nodo_seccion.objects.filter(to_nodo_asignatura__to_asignatura_real__codigo=codigo)) 
+        # print('nodos asignatura: ', nodo_asignatura.objects.filter(to_asignatura_real__codigo=codigo).values() )
         
         if len(secciones_disponibles) == 0:
             return JsonResponse({"mensaje":"No existen secciones asociadas a ese codigo"}, safe=False, status=status.HTTP_204_NO_CONTENT)
@@ -653,7 +742,11 @@ def get_secciones_disponibles(request, codigo):
             elem = secciones_disponibles[i]
             cod_sec = elem['to_seccion__cod_seccion']
 
-            nombre_ramo = asignatura_real.objects.get(codigo=cod_sec[0:7]).nombre
+            try:
+                nombre_ramo = asignatura_real.objects.get(codigo=cod_sec[0:7]).nombre
+            except Exception as e:
+                print('--cod seccion:', cod_sec)
+                raise e
 
             if cod_sec[0:3] == "CFG":
                 current_cfg_area = cfg_areas.objects.get(codigo = cod_sec[0:7]).area

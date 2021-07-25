@@ -80,7 +80,6 @@ def test_prerrequisitos(setupOferta):
         G = clique.setupGraph(USER_ID, cfgAreaLimit=2)
         (solution, fmtSolution) = clique.getSolution_A(G)
 
-        print('caso : ', caseName)
         for secc in fmtSolution:
             codigo = secc['cod_asignatura_real']
             nombre = secc['nombre']
@@ -94,10 +93,6 @@ def test_prerrequisitos(setupOferta):
                 ok = True
                 if preq not in codigos_asignaturas_cursadas:
                     ok = False
-                    print('\nsolucionFmt: \n', fmtSolution)
-                    print('\nsolucion: \n', solution)
-                    print('falta prerreq ', preq, 'de ramo ', nombre )
-                    print('codigos asig cursadas: \n', codigos_asignaturas_cursadas)
                     # equivalencias = asignatura_real.objects.filter(equivale=preq).values_list('codigo', flat=True)
                     equivalencias = []
                     equivalencias.extend(
@@ -110,11 +105,11 @@ def test_prerrequisitos(setupOferta):
                             to_asignatura_real_id=preq
                         ).values_list('from_asignatura_real_id', flat=True)
                     )
-                    print('equivalencias: ', equivalencias)
+                    
                     for eq in equivalencias: 
                         if eq in codigos_asignaturas_cursadas: 
                             ok = True
-                            print('se encontro equivalencia')
+                    
                 if not ok:
                     print('ramo: ', preq)
                     print('equivalentes: ', equivalencias)

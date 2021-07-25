@@ -1,7 +1,7 @@
 import csv
 from generador_horarios.models import *
 
-PATH = './DB_data/prerrequisito_v2.csv'
+PATH = './DB_data/prerrequisito.csv'
 
 def run():
     asignatura_real.prerrequisito.through.objects.all().delete()

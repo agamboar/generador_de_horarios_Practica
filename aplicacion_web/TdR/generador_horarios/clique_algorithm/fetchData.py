@@ -2,8 +2,8 @@ import traceback
 from ..models import *
 from ..helpers import utils as ut, jsonLog as jl
 
-""" # TODO actualizar
-ejemplo de estructura de diccionario 'data'
+""" # TODO actualizar (faltan algunas llaves de algunos diccionarios en este ejemplo)
+ejemplo de estructura de diccionario 'data' retornado por getData
 
     data = {
         'prioridades_area_cfg': {
@@ -44,7 +44,7 @@ ejemplo de estructura de diccionario 'data'
 """
 
 def getData(userId, cfgAreaLimit):
-    # --- retorna los datos de la bdd que necesita get_clique_max_pond, ejemplo de la estructura de 'data' en clique_algorithm/ejemplo_getData.json --- #
+    # --- retorna los datos de la bdd que necesita get_clique_max_pond --- #
     data = {}
 
     prioridadesArea = getPrioridadesArea(userId) # diccionario -> llave='nombre area' valor='prioridad de area'
