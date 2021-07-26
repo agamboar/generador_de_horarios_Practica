@@ -145,3 +145,6 @@ cython_debug/
 db-data
 docker-compose.yml
 Dockerfile
+
+#React cache
+.eslintcache
