@@ -110,9 +110,9 @@ export default class GoogleSocialAuth extends Component {
             console.log("Datos obtenidos de google", response)
             let responseGoogle = await googleLogin(response.accessToken)
             console.log("Respuesta obtenido de google Login para el ajax: ", responseGoogle)
+            localStorage.setItem('google_token', response.accessToken)
             localStorage.setItem('token', response.accessToken)
-            
-            if (localStorage.getItem("token")) {
+            if (localStorage.getItem("token", responseGoogle.key)) {
 
                 
                 var config = {
