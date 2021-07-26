@@ -19,8 +19,6 @@ def clearOfertaCFG(): # para limpiar las tablas relacionadas a oferta de CFGs
                 
 def clearCFGsArea(area):
     codigosArea = list(cfg_areas.objects.filter(area=area).values_list('codigo', flat=True))
-    print('area a borrar : ', area)
-    print('codigos de area a borrar: \n', list(codigosArea))
     with suppress(ObjectDoesNotExist):
         codigos_seccion = seccion.objects.filter(cod_seccion__contains='CFG').values_list('cod_seccion', flat=True)
         for codigo in codigos_seccion:

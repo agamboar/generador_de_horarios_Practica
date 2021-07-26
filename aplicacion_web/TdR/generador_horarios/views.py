@@ -54,13 +54,11 @@ def api_overview(request):
     api_urls = {
         'Ramos': '/ramos/',
     }
-    print("..api_overview")
     return Response(api_urls)
 
 
 @api_view(['GET'])
 def ramo_list(request, year):
-    print("..ramo_list")
     asignatura = asignatura_real.objects.filter(
         malla_curricular__agno=year
     )
@@ -71,7 +69,6 @@ def ramo_list(request, year):
 
 @api_view(['GET'])
 def secciones(request, cod):
-    print("..secciones")
     secc = seccion.objects.filter( to_asignatura_real=cod )
 
     serializer = seccionSerializer(secc, many=True)
@@ -705,7 +702,6 @@ def get_ramos_disponibles(request):
 
 @api_view(['GET']) 
 def get_secciones_disponibles(request, codigo):
-    print('codigo: ', codigo)
 
     if request.method == "GET":
         #cod_ramo = request.data #verificar como se mandara la info del ramo desde el front
