@@ -41,13 +41,13 @@ import PriorizarRamos from './components/PriorizarRamos'
 import PriorizarSeccion from './components/PriorizarSeccion'
 import PriorizarAreaCfg from './components/PriorizarAreaCfg'
 import Cookies from 'js-cookie';
-
+export const HOST = process.env.REACT_APP_HOST
 
 
 let _csrfToken = null;
 async function getCsrfToken() {
     if (_csrfToken === null) {
-        const response = await fetch('https://asistente-eit.udp.cl/csrf/', {
+        const response = await fetch(HOST + '/csrf/', {
             credentials: 'include',
         });
         const data = await response.json();
