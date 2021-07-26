@@ -39,9 +39,6 @@ from django.core.exceptions import *
 from generador_horarios.codigos_cfg.categorize_cfgs import get_area
 
 import time
-import logging
-
-logging.basicConfig(filename='views_info.log', level=logging.WARNING, format='%(levelname)s:%(asctime)s:%(message)s')
 
 # Create your views here.
 
@@ -289,7 +286,6 @@ def get_PERT(request):
             start = time.time()
             ramos = calc_PERT(user_id)
             end = time.time()
-            logging.info('PERT:{} segundos'.format(end-start))
             return Response(calc_PERT(user_id))
         except Exception:
             traceback.print_exc()
@@ -359,7 +355,6 @@ def get_clique(request):
             start = time.time()
             solucion = calc_clique(user_id)
             end = time.time()
-            logging.info('Clique:{} segundos'.format(end-start))
             return Response(solucion, status=status.HTTP_200_OK)
         except Exception:
             traceback.print_exc()
