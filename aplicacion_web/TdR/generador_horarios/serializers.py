@@ -42,7 +42,7 @@ class eventoSerializer(serializers.ModelSerializer):
 
 class nodoAsignaturaSerializer(serializers.ModelSerializer):
 
-    to_asignatura_real = asignaturaSerializer_nombre(many=True)
+    to_asignatura_real = asignaturaSerializer_nombre(many=False)
 
     class Meta:
         model = nodo_asignatura

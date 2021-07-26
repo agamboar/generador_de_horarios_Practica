@@ -1,0 +1,576 @@
+{
+  "title": "malla 2020 con 8 semestres aprobados.",
+  "stateInput": {
+    "user_id": 6,
+    "tabla_avance": {
+      "id": 89,
+      "semestre": "2021-2",
+      "json_avance": {},
+      "fgd_count": 0,
+      "cfg_count": 4,
+      "einf_count": 0,
+      "etele_count": 0,
+      "agno_malla": 2020,
+      "to_user_id": 6
+    },
+    "asignaturas_cursadas": [
+      {
+        "id": 1369,
+        "codigo": "CBM1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1000",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1370,
+        "codigo": "CBM1001",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1001",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1371,
+        "codigo": "CBQ1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBQ1000",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1372,
+        "codigo": "CIT1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT1000",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1373,
+        "codigo": "FIC1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "FIC1000",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1374,
+        "codigo": "CBM1002",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1002",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1375,
+        "codigo": "CBM1003",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1003",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1376,
+        "codigo": "CBF1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBF1000",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1377,
+        "codigo": "CIT1010",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT1010",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1378,
+        "codigo": "CFG1",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CFG1",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1379,
+        "codigo": "CBM1005",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1005",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1380,
+        "codigo": "CBM1006",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBM1006",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1381,
+        "codigo": "CBF1001",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBF1001",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1382,
+        "codigo": "CIT2006",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2006",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1383,
+        "codigo": "CIT2114",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2114",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1384,
+        "codigo": "CIT2204",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2204",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1385,
+        "codigo": "CIT2107",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2107",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1386,
+        "codigo": "CBF1002",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CBF1002",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1387,
+        "codigo": "CIT2007",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2007",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1388,
+        "codigo": "CIT2008",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2008",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1389,
+        "codigo": "CIG1012",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIG1012",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1390,
+        "codigo": "CII2750",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CII2750",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1391,
+        "codigo": "CIT2108",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2108",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1392,
+        "codigo": "CIT2205",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2205",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1393,
+        "codigo": "CIT2009",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2009",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1394,
+        "codigo": "CFG2",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CFG2",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1395,
+        "codigo": "CIG1013",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIG1013",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1396,
+        "codigo": "CII1000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CII1000",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1397,
+        "codigo": "CIT2109",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2109",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1398,
+        "codigo": "CIT2110",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2110",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1399,
+        "codigo": "CIT2010",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2010",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1400,
+        "codigo": "CFG3",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CFG3",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1401,
+        "codigo": "CIG1014",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIG1014",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1402,
+        "codigo": "CIT2206",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2206",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1403,
+        "codigo": "CIT2011",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2011",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1404,
+        "codigo": "CIT2111",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2111",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1405,
+        "codigo": "CIT2012",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2012",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1406,
+        "codigo": "CFG4",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CFG4",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1407,
+        "codigo": "CII2100",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CII2100",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1408,
+        "codigo": "CIT2112",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2112",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1409,
+        "codigo": "CIT2113",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2113",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1410,
+        "codigo": "CIT2013",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2013",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1411,
+        "codigo": "CIT2207",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT2207",
+        "to_avance_academico_id": 89
+      },
+      {
+        "id": 1412,
+        "codigo": "CIT4000",
+        "nota": 0.0,
+        "estado": "",
+        "to_User_id": 6,
+        "to_asignatura_real_id": "CIT4000",
+        "to_avance_academico_id": 89
+      }
+    ]
+  },
+  "output": {
+    "PERT": [
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "13",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "ARQUITECTURA DE SOFTWARE",
+          "codigo": "CIT3000"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "12",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "DATA SCIENCE",
+          "codigo": "CIT3202"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "07",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "PROYECTO EN TICS II",
+          "codigo": "CIT3203"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "15",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "ARQUITECTURAS EMERGENTES",
+          "codigo": "CIT3100"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "05",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "PRACTICA 2 (2020)",
+          "codigo": "CIT4001"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "16",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL INF 1",
+          "codigo": "CITOPTINF1"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "11",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL INF 2",
+          "codigo": "CITOPTINF2"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "08",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL INF 3",
+          "codigo": "CITOPTINF3"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "14",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL TEL 1",
+          "codigo": "CITOPTTEL1"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "10",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL TEL 2",
+          "codigo": "CITOPTTEL2"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 2,
+        "es": 1,
+        "ls": 1,
+        "kk": "09",
+        "lf": 2,
+        "critico": true,
+        "to_asignatura_real": {
+          "nombre": "ELECTIVO PROFESIONAL TEL 3",
+          "codigo": "CITOPTTEL3"
+        }
+      },
+      {
+        "holgura": 0,
+        "ef": 3,
+        "es": 2,
+        "ls": 2,
+        "kk": "04",
+        "lf": 3,
+        "critico": false,
+        "to_asignatura_real": {
+          "nombre": "FINAL3",
+          "codigo": "FINAL3"
+        }
+      }
+    ],
+    "malla": 2020
+  }
+}

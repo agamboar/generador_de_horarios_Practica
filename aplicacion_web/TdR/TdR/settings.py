@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'corsheaders',
     'allauth',
-    'allauth.account',
+    'allauth.account',	
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 ]
@@ -171,3 +171,5 @@ STATIC_URL = '/static/' # '/static/'
 STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/' #static DEVELOPER ROOT NPM START '/usr/generador_de_horarios_Practica/horarios/public/'
 # super usuario admin: tdr
 # password: tdr2021
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' # evita warnings: posibles migraciones no deseadas en upgrades de Django
