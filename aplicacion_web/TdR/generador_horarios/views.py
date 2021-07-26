@@ -789,7 +789,14 @@ def get_secciones_disponibles(request, codigo):
             try:
                 prio_area_cfg = prioridad_cfg.objects.filter(to_user = current_user).values('area').order_by('prioridad')
             except prioridad_cfg.DoesNotExist:
-                prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
+                prio_area_cfg = [
+                    {
+                        'area': "Ciencias Sociales"
+                    },
+                    {
+                        'area': 'Ciencia y Sociedad'
+                    }
+                ]
   
         aux_retornar = []
         aux_horario = []
