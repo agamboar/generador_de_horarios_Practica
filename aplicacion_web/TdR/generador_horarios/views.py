@@ -20,6 +20,9 @@ from django.http import JsonResponse
 from django.middleware.csrf import get_token
 
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from dj_rest_auth.registration.serializers import SocialLoginSerializer
+from allauth.socialaccount.providers.oauth2.client import OAuth2Client
+from allauth.account.adapter import get_adapter
 
 import json
 from datetime import date
@@ -40,12 +43,77 @@ from generador_horarios.codigos_cfg.categorize_cfgs import get_area
 
 import time
 
-# Create your views here.
+"""
+###########################PROVIDERS
+
+
+from allauth.socialaccount.providers.google.provider import GoogleProvider
+
+
+class GoogleProviderMod(GoogleProvider):
+    def extract_uid(self, data):
+        return str(data['sub'])
+#######################eEND PROVIDERS
+
+
+###########################ADAPTERS
+
+#from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from google.auth.transport import requests
+from google.oauth2 import id_token
+
+#from myproj.users.providers import GoogleProviderMod
+
+
+class GoogleOAuth2AdapterIdToken(GoogleOAuth2Adapter):
+    provider_id = GoogleProviderMod.id
+
+    def complete_login(self, request, app, token, **kwargs):
+        idinfo = id_token.verify_oauth2_token(token.token, requests.Request(), app.client_id)
+        if idinfo["iss"] not in ["accounts.google.com", "https://accounts.google.com"]:
+            raise ValueError("Wrong issuer.")
+        extra_data = idinfo
+        login = self.get_provider().sociallogin_from_response(request, extra_data)
+        return login
+#######################eEND ADAPTERS
+"""
+
 
 class GoogleLogin(SocialLoginView):
-    adapter_class = GoogleOAuth2Adapter
-
-
+    adapter_class = GoogleOAuth2Adapter #GoogleOAuth2AdapterIdToken
+    client_class = OAuth2Client
+    serializer_class = SocialLoginSerializer
+    callback_url = 'http://localhost:8000/accounts/google/login/callback/'
+    def get(self, request):
+        """
+        Get google authorization code and make an internal
+        post request to allow social media login or register
+        """
+        code = request.GET.get('code')
+        state = request.GET.get('state')
+        response = Response({
+            'status': 'Bad request',
+            'message': 'Invalido request, please try again later.'
+            }, status=status.HTTP_400_BAD_REQUEST)
+        if code is not None:
+            data = {
+                'code': code,
+                'state': state
+            }
+            self.serializer = self.get_serializer(
+                data=data, context={'request': request})
+            serializer_is_valid = False
+            try:
+                serializer_is_valid = self.serializer.is_valid(
+                    raise_exception=True)
+            except OAuth2Error:
+                serializer_is_valid = False
+            if serializer_is_valid:
+                self.login()
+                response = self.get_response()
+        return response
+    def process_login(self):
+        get_adapter(self.request).login(self.request, self.user)
 @api_view(['GET'])
 def api_overview(request):
     api_urls = {

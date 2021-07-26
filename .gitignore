@@ -138,4 +138,13 @@ dmypy.json
 cython_debug/
 
 **/migrations/**
+
+
+# Docker
+.devcontainer
+db-data
+docker-compose.yml
+Dockerfile
+
+#React cache
 .eslintcache

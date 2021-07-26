@@ -4,7 +4,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+export const HOST = process.env.REACT_APP_HOST
 toast.configure()
 
 export default class CrearUsuarioForm extends Component {
@@ -33,7 +33,7 @@ export default class CrearUsuarioForm extends Component {
     var data = qs.stringify(newUsuario);
     var config = {
       method: 'post',
-      url: 'https://asistente-eit.udp.cl/dj-rest-auth/registration/',
+      url: HOST + '/dj-rest-auth/registration/',
       headers: {
         'X-CSRFToken': Cookies.get('csrftoken'),
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -44,7 +44,7 @@ export default class CrearUsuarioForm extends Component {
     axios(config).then(response => {
       if (response.status === 201) {
         notify("Se ha creado el usuario correctamente")
-        window.location.href = 'https://asistente-eit.udp.cl/' //que va aqui?, en vez de la ip, ¿'/'?
+        window.location.href = HOST + '/' //que va aqui?, en vez de la ip, ¿'/'?
       } else {
         notify("No se ha podido crear la  cuenta correctamente")
       }

@@ -2,8 +2,23 @@ import React, { Component } from 'react'
 import Derechos from './Derechos'
 import Navbar from './Navbar'
 import NotAuth from './NotAuth'
+import { withAuth0 } from '@auth0/auth0-react';
+export const HOST = process.env.REACT_APP_HOST
 
-export default class UserInterface extends Component {
+class UserInterface extends Component {
+
+    componentDidMount() {
+        const { user, isAuthenticated, getAccessTokenSilently } = this.props.auth0;
+        console.log("Datos del usuario: ", user, isAuthenticated)
+        getAccessTokenSilently()
+        .then(token => fetch(`https://dev--c34vvj2.us.auth0.com/api/v2/`, { headers: {authorization: `Bearer ${token}`} }))
+        .then(res => res.json())
+        .then(json => {
+            //this.setState({ data: json })
+            console.log("Token Auth0: ", json, user, isAuthenticated)
+        });
+        
+    }
     render() {
         return (
             <div>
@@ -31,3 +46,5 @@ export default class UserInterface extends Component {
         )
     }
 }
+
+export default withAuth0(UserInterface);
