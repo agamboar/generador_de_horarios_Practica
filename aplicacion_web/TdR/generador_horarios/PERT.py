@@ -199,8 +199,6 @@ def add_nodo_seccion(current_user):
         asignatura = nodoAsignatura.to_asignatura_real
 
         secciones_ramo_user = list(seccion.objects.filter(to_asignatura_real=asignatura,vacantes_libres__gt=0))  # las secciones de los ramos que no ha dado el alumno y que tienen cupos disponibles
-        print('asignatura: ', asignatura)
-        print('secciones: ', secciones_ramo_user)
 
         # equivalencias
         if len(secciones_ramo_user) == 0:

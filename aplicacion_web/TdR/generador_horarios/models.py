@@ -87,7 +87,7 @@ class alumno(models.Model):
         primary_key=True
     )
 
-    rut = models.CharField(max_length=11, unique=True)
+    rut = models.CharField(max_length=11, default=0)
     agno_ingreso = models.IntegerField(default=0)
     psu_matematicas = models.IntegerField(default=0)
     psu_lenguaje = models.IntegerField(default=0)
