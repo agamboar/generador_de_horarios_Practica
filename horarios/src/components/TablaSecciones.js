@@ -110,7 +110,7 @@ class SortableTable extends React.Component {
           }
       }).catch(function (error) {
         if (error.response) {
-         toast.error("Elige tu malla y calcula tu ruta critica nuevamente", { position: toast.POSITION.TOP_CENTER });
+         toast.error("Debe priorizar Areas Cfg primero", { position: toast.POSITION.TOP_CENTER });
         }
        });
       
