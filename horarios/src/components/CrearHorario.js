@@ -7,6 +7,11 @@ import axios from 'axios';
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+import miMalla from '../resources/MiMalla.xlsx'
+import malla2010 from '../resources/MallaCurricular2010.xlsx'
+import malla2018 from '../resources/MallaCurricular2018.xlsx'
+import malla2020 from '../resources/MallaCurricular2020.xlsx'
+
 toast.configure()
 
 export default class CrearHorario extends Component {
@@ -97,10 +102,11 @@ export default class CrearHorario extends Component {
                                             <h5 className="card-title text-center">Ingreso de Avance Curricular Excel Pt.1</h5>
                                             <p className="card-text">En los siguientes link podras descargar la malla que te corresponde, para que la puedas rellenar con tu avance curricular y ingresarla en el siguiente punto.</p>
                                             <br />
-                                            <Link className="nav-link text-center" to='/resources/MiMalla.xlsx' target="_blank" style={{ color: '#0d6efd' }} >  Plantilla de Mi Malla </Link>
-                                            <Link className="nav-link text-center" to='/resources/MallaCurricular2010.xlsx' target="_blank" style={{ color: '#0d6efd' }} >  Malla 2010 </Link>
-                                            <Link className="nav-link text-center" to='/resources/MallaCurricular2018.xlsx' target="_blank" style={{ color: '#0d6efd' }} >  Malla 2018  </Link>
-                                            <Link className="nav-link text-center" to='/resources/MallaCurricular2020.xlsx' target="_blank" style={{ color: '#0d6efd' }} >  Malla 2020  </Link>
+ 
+                                            <Link className="nav-link text-center" to={miMalla} target="_blank" style={{ color: '#0d6efd' }} >  Plantilla de Mi Malla </Link>
+                                            <Link className="nav-link text-center" to={malla2010} target="_blank" style={{ color: '#0d6efd' }} >  Malla 2010 </Link>
+                                            <Link className="nav-link text-center" to={malla2018} target="_blank" style={{ color: '#0d6efd' }} >  Malla 2018  </Link>
+                                            <Link className="nav-link text-center" to={malla2020} target="_blank" style={{ color: '#0d6efd' }} >  Malla 2020  </Link>
 
                                         </div>
                                     </div>

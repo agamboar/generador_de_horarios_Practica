@@ -18,6 +18,7 @@ from django.urls import path, include, re_path
 from generador_horarios import views
 from generador_horarios.views import GoogleLogin
 from django.shortcuts import render
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 def render_react(request):
     return render(request, "index.html")
@@ -56,3 +57,5 @@ urlpatterns = [
     re_path(r"^$", render_react),
     re_path(r"^(?:.*)/?$", render_react),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
