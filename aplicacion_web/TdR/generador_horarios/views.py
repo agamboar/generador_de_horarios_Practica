@@ -308,12 +308,12 @@ def upload_mi_malla(request):
                 solucion.objects.filter(to_user=current_user).delete()
 
             avance_academico_user = avance_academico.objects.get(
-                to_user_id=current_user)
+                to_user_id=current_user, semestre=getSemestreActual())
             avance_academico_user.json_avance = {}
             avance_academico_user.save()
 
             counters = {
-                'semestre': codigos[1],
+                'semestre': utils.getSemestreActual(),
                 'cfg_count': codigos[2],
                 'einf_count': codigos[3],
                 'etele_count': codigos[4],
@@ -322,11 +322,11 @@ def upload_mi_malla(request):
             }
 
             av, created = avance_academico.objects.update_or_create(
-                semestre=codigos[1], to_user=user,
+                semestre=utils.getSemestreActual(), to_user=user,
                 defaults=counters
             )
 
-            semestre = codigos[1]
+            semestre = utils.getSemestreActual()
 
             avance = avance_academico.objects.get(semestre=semestre, to_user=user)
 
