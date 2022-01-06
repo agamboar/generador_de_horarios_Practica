@@ -1,20 +1,15 @@
-import React, { Component } from 'react'
-import Navbar from './Navbar'
-import AvanceManual2018 from './AvanceManual2018'
-
-
+import React, { Component } from "react";
+import ATRLayout from "./Layout";
+import AvanceManual2018 from "./AvanceManual2018";
 
 export default class AManual extends Component {
-    render() {
-        return (
-            <div>
-                <Navbar/>
-                
-                <AvanceManual2018/>
-
-                
-                
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <ATRLayout>
+          <AvanceManual2018 />
+        </ATRLayout>
+      </div>
+    );
+  }
 }

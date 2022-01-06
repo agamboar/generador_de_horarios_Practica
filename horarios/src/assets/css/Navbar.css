@@ -1,0 +1,53 @@
+/*
+.ulLeft{
+    float: left;
+    list-style: none;
+    display: flex;
+}
+
+.ulRight{
+    float: right;
+    list-style: none;
+    display: flex;
+    padding-right: 30px;
+}
+
+.smRight{
+    float: right;
+    padding-right: 30px;
+}
+
+
+.navbarTitle{
+    font-size: 24px;
+    color: white;
+}
+
+.navbarOptions{
+    font-size: 18px;
+    color: white;
+    padding-right: 20px
+}
+
+.headerColor{
+    background-color: rgb(112, 38, 28);
+}
+
+.bottomCenter{
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+}
+
+.navbarImage{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.ant-layout-header{
+    padding: 0px;
+}
+*/

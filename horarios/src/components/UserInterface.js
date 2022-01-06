@@ -1,33 +1,26 @@
-import React, { Component } from 'react'
-import Derechos from './Derechos'
-import Navbar from './Navbar'
-import NotAuth from './NotAuth'
+import React, { Component, Fragment } from "react";
+import ATRLayout from "./Layout";
+import NotAuth from "./NotAuth";
+import { Typography } from "antd";
+
+const { Title } = Typography;
 
 export default class UserInterface extends Component {
-    render() {
-        return (
-            <div>
-            {(localStorage.getItem("token"))?  
-            <div>
-                <Navbar/>
-                
-                <div className="jumbotron jumbotron-fluid">
-                    <div className="container">
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>  
-                        <h1 className="title text-primary">BIENVENIDO/A AL ASISTENTE TOMA DE RAMOS</h1>
-                        <br/>
-                        <p className="lead">Que tengas una buena toma de ramos!!!</p>
-                    </div> 
-                </div>
-                
-
-                <Derechos/>
-            </div>
-            : <NotAuth />}
-            </div>
-        )
-    }
+  render() {
+    return (
+      <Fragment>
+        {localStorage.getItem("token") ? (
+          <ATRLayout>
+            <Title>¡Bienvenido al Asistente Toma de Ramos!</Title>
+            <Title level={3} type="secondary">
+              Esta plataforma tiene como objetivo asistir a los estudiantes de
+              la UDP en su proceso de toma de ramos. ¡Suerte!
+            </Title>
+          </ATRLayout>
+        ) : (
+          <NotAuth />
+        )}
+      </Fragment>
+    );
+  }
 }
