@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import NotAuth from "./NotAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -82,11 +82,11 @@ export default class CrearHorario extends Component {
                         información correspondiente a cada malla curricular
                       </p>
                       <br />
-                      <Link
+                      <Navigate
                         className="nav-link text-center"
                         to={
                           localStorage.getItem("malla")
-                            ? `mallas/malla${localStorage.getItem(
+                            ? `/users/usr/mallas/malla${localStorage.getItem(
                                 "malla"
                               )}/AvanceCurricular`
                             : "/users/usr/mallas"
@@ -95,7 +95,7 @@ export default class CrearHorario extends Component {
                       >
                         {" "}
                         Presiona Aquí{" "}
-                      </Link>
+                      </Navigate>
                       <br />
                     </div>
                   </div>

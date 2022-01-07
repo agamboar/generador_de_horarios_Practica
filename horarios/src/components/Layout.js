@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Layout, Menu, Typography, Breadcrumb, Avatar } from "antd";
+import { Layout, Menu, Typography, Breadcrumb, Avatar, Divider } from "antd";
 import {
   PoweroffOutlined,
   BookOutlined,
@@ -9,6 +9,7 @@ import {
   CalendarOutlined,
   UserOutlined,
   MenuOutlined,
+  HomeOutlined,
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Layout.css";
@@ -37,7 +38,6 @@ export default class ATRLayout extends Component {
   };
 
   render() {
-    console.log(localStorage.getItem("is_staff"));
     return (
       <Fragment>
         <Layout>
@@ -57,22 +57,22 @@ export default class ATRLayout extends Component {
           </Header>
           <Layout>
             <Sider
-              width={200}
               trigger={null}
               collapsible
               collapsed={this.state.collapsed}
               style={{
-                marginTop: 64,
                 overflow: "auto",
                 height: "100vh",
-                position: "fixed",
+                position: "sticky",
+                top: 0,
                 left: 0,
+                paddingTop: "64px",
               }}
             >
               <Menu
                 mode="inline"
                 defaultSelectedKeys={["1"]}
-                style={{ height: "100%", borderRight: 0 }}
+                style={{ height: "100%" }}
               >
                 <Menu.Item
                   key="switch"
@@ -91,7 +91,7 @@ export default class ATRLayout extends Component {
                     <Menu.Item key="ad1">
                       <Link
                         className="nav-link"
-                        to="/admin/subirOferta"
+                        to="/staff/subirOferta"
                         style={{ color: "#000000" }}
                       >
                         Subir Ofertas
@@ -100,7 +100,7 @@ export default class ATRLayout extends Component {
                     <Menu.Item key="ad2">
                       <Link
                         className="nav-link"
-                        to="/admin/Usuarios"
+                        to="/staff/Usuarios"
                         style={{ color: "#000000" }}
                       >
                         Hacer Staff
@@ -108,6 +108,11 @@ export default class ATRLayout extends Component {
                     </Menu.Item>
                   </SubMenu>
                 ) : null}
+                <Divider style={{ "background-color": "gray" }} />
+                <Menu.Item key="home" icon={<HomeOutlined />}>
+                  <a href="/users/usr">Inicio</a>
+                </Menu.Item>
+
                 <SubMenu
                   key="sub1"
                   title="Avance Académico"
@@ -150,13 +155,14 @@ export default class ATRLayout extends Component {
                 </Menu.Item>
               </Menu>
             </Sider>
-            <Layout style={{ marginLeft: 200 }}>
+            <Layout>
               <Content
                 className="content"
                 style={{
-                  margin: "40px 0px 0",
-                  overflow: "scroll",
-                  padding: "20px",
+                  margin: "24px 0px 0",
+                  overflow: "initial",
+                  padding: "24px",
+                  paddingTop: "40px",
                 }}
               >
                 {/*React.createElement(
@@ -172,16 +178,16 @@ export default class ATRLayout extends Component {
                   <Breadcrumb.Item>App</Breadcrumb.Item>
                 </Breadcrumb>
                 {this.props.children}
-                <Footer
-                  style={{
-                    textAlign: "center",
-                    backgroundColor: "rgb(231, 231, 231)",
-                  }}
-                  className="footer"
-                >
-                  <Text>Copyright© Universidad Diego Portales 2021</Text>
-                </Footer>
               </Content>
+              <Footer
+                style={{
+                  textAlign: "center",
+                  backgroundColor: "rgb(231, 231, 231)",
+                }}
+                className="footer"
+              >
+                <Text>Copyright© Universidad Diego Portales 2021</Text>
+              </Footer>
             </Layout>
           </Layout>
         </Layout>

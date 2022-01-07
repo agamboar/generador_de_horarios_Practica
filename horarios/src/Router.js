@@ -47,8 +47,8 @@ class Router extends Component {
         <Routes>
           <Route path="/" element={<Init />} />
           <Route path="/Registro" element={<Registro />} />
-          <Route path="/admin/subirOferta" element={<SubirOferta />} />
-          <Route path="/admin/Usuarios" element={<Usuarios />} />
+          <Route path="/staff/subirOferta" element={<SubirOferta />} />
+          <Route path="/staff/Usuarios" element={<Usuarios />} />
           <Route path="/users/usr/" element={<UserInterface />} />
           <Route path="/users/usr/mallas/" element={<Mallas />} />
           <Route path="/users/usr/mallas/malla2010" element={<M2010 />} />

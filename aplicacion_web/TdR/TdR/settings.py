@@ -10,7 +10,7 @@ from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-#print(BASE_DIR)
+# print(BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'corsheaders',
     'allauth',
-    'allauth.account',	
+    'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 ]
@@ -46,11 +46,13 @@ LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/users/usr'
 ACCOUNT_LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000/"
 
 
-#SESSION_COOKIE_AGE = 10000 # preguntar 
+# SESSION_COOKIE_AGE = 10000 # preguntar
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','200.14.84.238','asistente-eit.udp.cl','104.18.25.162:443']
-CSRF_TRUSTED_ORIGINS = ['127.0.0.1', 'localhost', 'http://200.14.84.238:80/','104.18.25.162:443']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '200.14.84.238',
+                 'asistente-eit.udp.cl', '104.18.25.162:443']
+CSRF_TRUSTED_ORIGINS = ['127.0.0.1', 'localhost',
+                        'http://200.14.84.238:80/', '104.18.25.162:443']
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -87,8 +89,8 @@ TEMPLATES = [
     },
 ]
 STATICFILES_DIRS = [
-  # Tell Django where to look for React's static files (css, js)
-  os.path.join(BASE_DIR, "build/static"),
+    # Tell Django where to look for React's static files (css, js)
+    os.path.join(BASE_DIR, "build/static"),
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 WSGI_APPLICATION = 'TdR.wsgi.application'
@@ -147,8 +149,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/' #static
+STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/'  # static
 # super usuario admin: tdr
 # password: tdr2021
 
-DEFAULT_AUTO_FIELD='django.db.models.AutoField' # evita warnings: posibles migraciones no deseadas en upgrades de Django
+# evita warnings: posibles migraciones no deseadas en upgrades de Django
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
