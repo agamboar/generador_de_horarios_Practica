@@ -2,6 +2,16 @@ import React, { Component, Fragment } from "react";
 import ATRLayout from "./Layout";
 import Malla2010 from "./Malla2010";
 import { Link } from "react-router-dom";
+import { Button, Typography } from "antd";
+import {
+  ArrowLeftOutlined,
+  ArrowRightOutlined,
+  PlusCircleTwoTone,
+} from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
+
+const { Title } = Typography;
 
 export default class M2010 extends Component {
   deleteMalla = (e) => {
@@ -31,55 +41,42 @@ export default class M2010 extends Component {
     return (
       <Fragment>
         <ATRLayout>
-          <div className="row row-cols-3">
-            <div className="col">
-              <h1 className="title text-primary text-center">Malla 2010</h1>
-            </div>
-
-            <div className="col">
-              <br />
-              <div className="align-self-center">
-                <button
-                  type="submit"
-                  className="btn btn-warning rounded-pill btn-sm"
-                >
-                  <Link
-                    className="nav-link"
-                    to={{ pathname: "/users/usr/mallas" }}
-                    style={{ color: "#FFF" }}
-                    onClick={this.deleteMalla}
-                  >
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Elegir otra malla
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </Link>
-                </button>
-              </div>
-            </div>
-            <div className="col">
-              <br />
-              <div className="align-self-center">
-                <button
-                  type="submit"
-                  className="btn btn-primary rounded-pill btn-sm"
-                >
-                  <Link
-                    className="nav-link"
-                    to={{
-                      pathname: "/users/usr/mallas/malla2010/AvanceCurricular",
-                    }}
-                    style={{ color: "#FFF" }}
-                  >
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Elegir Malla 2010
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </Link>
-                </button>
-              </div>
-            </div>
+          <Button
+            href="/users/usr/mallas"
+            onClick={this.deleteMalla}
+            icon={<ArrowLeftOutlined />}
+            size="large"
+          >
+            Elegir otra malla
+          </Button>
+          <Button
+            href="/users/usr/mallas/malla2010/AvanceCurricular"
+            type="primary"
+            icon={<ArrowRightOutlined />}
+            style={{ float: "right" }}
+            size="large"
+          >
+            Elegir Malla 2010
+          </Button>
+          <div style={{ textAlign: "center" }}>
+            <Title
+              style={{
+                textAlign: "center",
+                color: "#008cdb",
+                fontSize: "40px",
+              }}
+            >
+              Malla 2010
+            </Title>
+            <Button
+              type="text"
+              href="/users/usr/mallas/malla2010/DatosExtraM2010-1"
+              size="large"
+              icon={<PlusCircleTwoTone />}
+            >
+              Más Detalles
+            </Button>
           </div>
-          <br />
-          <br />
           <Malla2010 />
         </ATRLayout>
       </Fragment>

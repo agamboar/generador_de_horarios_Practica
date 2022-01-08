@@ -4,11 +4,16 @@ import PERTMalla2010 from "./PERTMalla2010";
 import PERTMalla2018 from "./PERTMalla2018";
 import PERTMalla2020 from "./PERTMalla2020";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import NotAuth from "./NotAuth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Navigate } from "react-router";
+
+import { Button, Typography } from "antd";
+import { PlusCircleTwoTone } from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
+
+const { Title } = Typography;
 
 export default class PERT extends Component {
   aux = () => {
@@ -57,10 +62,28 @@ export default class PERT extends Component {
         return (
           <Fragment>
             <ATRLayout>
+              <div style={{ textAlign: "center" }}>
+                <Title
+                  style={{
+                    textAlign: "center",
+                    color: "#008cdb",
+                    fontSize: "40px",
+                  }}
+                >
+                  Ramos Críticos
+                </Title>
+                <Button
+                  type="text"
+                  href="/users/usr/PERT/PERTExtra1"
+                  size="large"
+                  icon={<PlusCircleTwoTone />}
+                >
+                  Más Detalles
+                </Button>
+              </div>
+
               <div className="row row-cols-3">
-                <div className="col">
-                  <h1 className="title text-primary text-center">PERT</h1>
-                </div>
+                <div className="col"></div>
                 <div className="col"></div>
                 <div className="col">
                   {/*<br />
@@ -85,10 +108,27 @@ export default class PERT extends Component {
         return (
           <Fragment>
             <ATRLayout>
+              <div style={{ textAlign: "center" }}>
+                <Title
+                  style={{
+                    textAlign: "center",
+                    color: "#008cdb",
+                    fontSize: "40px",
+                  }}
+                >
+                  Ramos Críticos
+                </Title>
+                <Button
+                  type="text"
+                  href="/users/usr/PERT/PERTExtra1"
+                  size="large"
+                  icon={<PlusCircleTwoTone />}
+                >
+                  Más Detalles
+                </Button>
+              </div>
               <div className="row row-cols-3">
-                <div className="col">
-                  <h1 className="title text-primary text-center">PERT</h1>
-                </div>
+                <div className="col"></div>
                 <div className="col"></div>
                 <div className="col">
                   {/*<br />
@@ -113,10 +153,27 @@ export default class PERT extends Component {
         return (
           <Fragment>
             <ATRLayout>
+              <div style={{ textAlign: "center" }}>
+                <Title
+                  style={{
+                    textAlign: "center",
+                    color: "#008cdb",
+                    fontSize: "40px",
+                  }}
+                >
+                  Ramos Críticos
+                </Title>
+                <Button
+                  type="text"
+                  href="/users/usr/PERT/PERTExtra1"
+                  size="large"
+                  icon={<PlusCircleTwoTone />}
+                >
+                  Más Detalles
+                </Button>
+              </div>
               <div className="row row-cols-3">
-                <div className="col">
-                  <h1 className="title text-primary text-center">PERT</h1>
-                </div>
+                <div className="col"></div>
                 <div className="col"></div>
                 <div className="col">
                   {/*<br />
@@ -143,12 +200,28 @@ export default class PERT extends Component {
             {/*aca deberia haber algo que diga que no se escogio una malla*/}
             {this.state.malla === "empty" ? (
               <ATRLayout>
+                <div style={{ textAlign: "center" }}>
+                  <Title
+                    style={{
+                      textAlign: "center",
+                      color: "#008cdb",
+                      fontSize: "40px",
+                    }}
+                  >
+                    Ramos Críticos
+                  </Title>
+                  <Button
+                    type="text"
+                    href="/users/usr/PERT/PERTExtra1"
+                    size="large"
+                    icon={<PlusCircleTwoTone />}
+                    disabled="true"
+                  >
+                    Más Detalles
+                  </Button>
+                </div>
                 <div className="row row-cols-3">
-                  <div className="col-6">
-                    <h1 className="title text-primary text-center">
-                      Ramos Críticos
-                    </h1>
-                  </div>
+                  <div className="col"></div>
                   <div className="col"></div>
                   <div className="col"></div>
                 </div>
@@ -185,13 +258,28 @@ export default class PERT extends Component {
               </ATRLayout>
             ) : (
               <ATRLayout>
-                <br />
+                <div style={{ textAlign: "center" }}>
+                  <Title
+                    style={{
+                      textAlign: "center",
+                      color: "#008cdb",
+                      fontSize: "40px",
+                    }}
+                  >
+                    Ramos Críticos
+                  </Title>
+                  <Button
+                    type="text"
+                    href="/users/usr/PERT/PERTExtra1"
+                    size="large"
+                    icon={<PlusCircleTwoTone />}
+                    disabled="true"
+                  >
+                    Más Detalles
+                  </Button>
+                </div>
                 <div className="row row-cols-3">
-                  <div className="col">
-                    <h1 className="title text-primary text-center">
-                      Ramos Críticos
-                    </h1>
-                  </div>
+                  <div className="col"></div>
                   <div className="col"></div>
                   <div className="col"></div>
                 </div>

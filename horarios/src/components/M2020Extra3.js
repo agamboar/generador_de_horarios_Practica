@@ -2,43 +2,50 @@ import React, { Component, Fragment } from "react";
 import ATRLayout from "./Layout";
 import Malla2020Extra3 from "./Malla2020Extra3";
 import { Link } from "react-router-dom";
+import { Button, Typography } from "antd";
+import {
+  ArrowLeftOutlined,
+  ArrowRightOutlined,
+  PlusCircleTwoTone,
+} from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
+
+const { Title } = Typography;
 
 export default class M2020Extra3 extends Component {
   render() {
     return (
       <Fragment>
         <ATRLayout>
-          <br />
-          <div className="row row-cols-3">
-            <div className="col">
-              <h1 className="title text-primary text-center">Malla 2020</h1>
-            </div>
-            <div className="col"></div>
-            <div className="col">
-              <br />
-              <div className="align-self-center">
-                <button
-                  type="submit"
-                  className="btn btn-secondary rounded-pill btn-sm"
-                >
-                  <Link
-                    className="nav-link"
-                    to={{
-                      pathname: "/users/usr/mallas/malla2020/AvanceCurricular",
-                    }}
-                    style={{ color: "#FFF" }}
-                  >
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Elegir Malla 2020
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </Link>
-                </button>
-              </div>
-            </div>
+          <Button
+            href="/users/usr/mallas"
+            onClick={this.deleteMalla}
+            icon={<ArrowLeftOutlined />}
+            size="large"
+          >
+            Elegir otra malla
+          </Button>
+          <Button
+            href="/users/usr/mallas/malla2020/AvanceCurricular"
+            type="primary"
+            icon={<ArrowRightOutlined />}
+            style={{ float: "right" }}
+            size="large"
+          >
+            Elegir Malla 2020
+          </Button>
+          <div style={{ textAlign: "center" }}>
+            <Title
+              style={{
+                textAlign: "center",
+                color: "#008cdb",
+                fontSize: "40px",
+              }}
+            >
+              Malla 2020
+            </Title>
           </div>
-          <br />
-          <br />
-
           <Malla2020Extra3 />
         </ATRLayout>
       </Fragment>

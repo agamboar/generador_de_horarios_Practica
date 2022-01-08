@@ -2,42 +2,50 @@ import React, { Component, Fragment } from "react";
 import ATRLayout from "./Layout";
 import Malla2010Extra5 from "./Malla2010Extra5";
 import { Link } from "react-router-dom";
+import { Button, Typography } from "antd";
+import {
+  ArrowLeftOutlined,
+  ArrowRightOutlined,
+  PlusCircleTwoTone,
+} from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
+
+const { Title } = Typography;
 
 export default class M2010Extra4 extends Component {
   render() {
     return (
       <Fragment>
         <ATRLayout>
-          <div className="row row-cols-3">
-            <div className="col">
-              <h1 className="title text-primary text-center">Malla 2010</h1>
-            </div>
-            <div className="col"></div>
-            <div className="col">
-              <br />
-              <div className="align-self-center">
-                <button
-                  type="submit"
-                  className="btn btn-secondary rounded-pill btn-sm"
-                >
-                  <Link
-                    className="nav-link"
-                    to={{
-                      pathname: "/users/usr/mallas/malla2010/AvanceCurricular",
-                    }}
-                    style={{ color: "#FFF" }}
-                  >
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Elegir Malla 2010
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </Link>
-                </button>
-              </div>
-            </div>
+          <Button
+            href="/users/usr/mallas/malla2010"
+            onClick={this.deleteMalla}
+            icon={<ArrowLeftOutlined />}
+            size="large"
+          >
+            Volver
+          </Button>
+          <Button
+            href="/users/usr/mallas/malla2010/AvanceCurricular"
+            type="primary"
+            icon={<ArrowRightOutlined />}
+            style={{ float: "right" }}
+            size="large"
+          >
+            Elegir Malla 2010
+          </Button>
+          <div style={{ textAlign: "center" }}>
+            <Title
+              style={{
+                textAlign: "center",
+                color: "#008cdb",
+                fontSize: "40px",
+              }}
+            >
+              Malla 2010
+            </Title>
           </div>
-          <br />
-          <br />
-
           <Malla2010Extra5 />
         </ATRLayout>
       </Fragment>
