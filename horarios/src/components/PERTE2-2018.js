@@ -3,7 +3,7 @@ import ARamo from "./RamoP";
 import Semestre from "./Semestre";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
-import { ArrowLeftOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
 
@@ -93,6 +93,15 @@ export default class Malla2018Extra2 extends Component {
           size="large"
         >
           Volver
+        </Button>
+        <Button
+          href="/users/usr/priorizarRamos"
+          type="primary"
+          icon={<ArrowRightOutlined />}
+          style={{ float: "right" }}
+          size="large"
+        >
+          Ir a Priorizar Asignaturas
         </Button>
         <br />
         <div className="row justify-content-around">

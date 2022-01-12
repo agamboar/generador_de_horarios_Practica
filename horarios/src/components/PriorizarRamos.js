@@ -5,7 +5,13 @@ import NotAuth from "./NotAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+import { Button, Typography } from "antd";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
+
+const { Title, Text } = Typography;
+
 toast.configure();
 
 export default class PriorizarRamos extends Component {
@@ -407,13 +413,52 @@ export default class PriorizarRamos extends Component {
             {console.log(this.state.ramos)}
             {this.state.ramos === "no" ? (
               <Fragment>
-                <ATRLayout>
+                <ATRLayout phase={4}>
+                  <br />
+                  <br />
+                  <br />
+                  <div className="container">
+                    <Button
+                      href="/users/usr/PERT"
+                      icon={<ArrowLeftOutlined />}
+                      size="large"
+                      style={{ textAlign: "left" }}
+                    >
+                      Volver
+                    </Button>
+                    <Button
+                      href="/users/usr/priorizarAreaCFG"
+                      type="primary"
+                      icon={<ArrowRightOutlined />}
+                      style={{ float: "right" }}
+                      size="large"
+                    >
+                      Ir a Priorizar CFG
+                    </Button>
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <Title
+                      style={{
+                        textAlign: "center",
+                        color: "#008cdb",
+                        fontSize: "40px",
+                      }}
+                    >
+                      Priorizar Ramos
+                    </Title>
+                    <Text
+                      style={{
+                        textAlign: "center",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Ahora deberás elegir que ramos prefieres asignarles una
+                      mayor prioridad en tu horario.
+                    </Text>
+                  </div>
+                  <br />
                   <div className="row row-cols-3">
-                    <div className="col">
-                      <h1 className="title text-primary text-center">
-                        Priorizar Ramos
-                      </h1>
-                    </div>
+                    <div className="col"></div>
                     <div className="col"></div>
                     <div className="col"></div>
                     {/*  <div className="col"><br />
@@ -471,14 +516,52 @@ export default class PriorizarRamos extends Component {
               </Fragment>
             ) : (
               <Fragment>
-                <ATRLayout>
+                <ATRLayout phase={4}>
+                  <br />
+                  <br />
+                  <br />
+                  <div className="container">
+                    <Button
+                      href="/users/usr/PERT"
+                      icon={<ArrowLeftOutlined />}
+                      size="large"
+                      style={{ textAlign: "left" }}
+                    >
+                      Volver a Mis Ramos Críticos
+                    </Button>
+                    <Button
+                      href="/users/usr/priorizarAreaCFG"
+                      type="primary"
+                      icon={<ArrowRightOutlined />}
+                      style={{ float: "right" }}
+                      size="large"
+                    >
+                      Ir a Priorizar CFG
+                    </Button>
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <Title
+                      style={{
+                        textAlign: "center",
+                        color: "#008cdb",
+                        fontSize: "40px",
+                      }}
+                    >
+                      Priorizar Ramos
+                    </Title>
+                    <Text
+                      style={{
+                        textAlign: "center",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Ahora deberás elegir que ramos prefieres asignarles una
+                      mayor prioridad en tu horario.
+                    </Text>
+                  </div>
                   <br />
                   <div className="row row-cols-3">
-                    <div className="col">
-                      <h1 className="title text-primary text-center">
-                        Priorizar Ramos
-                      </h1>
-                    </div>
+                    <div className="col"></div>
                     <div className="col"></div>
                     <div className="col"></div>
                     {/*<div className="col"><br />
@@ -502,11 +585,7 @@ export default class PriorizarRamos extends Component {
                                     </button>
                               </div></div>*/}
                   </div>
-                  <p className="lead">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Ahora deberas elegir que ramos prefieres asignarles una
-                    mayor prioridad en tu horario
-                  </p>
+
                   <br />
                   <br />
                   {console.log(this.state.critico) /* NO BORRAR */}

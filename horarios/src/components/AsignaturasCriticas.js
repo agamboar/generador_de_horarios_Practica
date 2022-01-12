@@ -6,7 +6,7 @@ export default class AsignaturasCriticas extends Component {
   render() {
     return (
       <Fragment>
-        <ATRLayout>
+        <ATRLayout phase={3}>
           <div className="container ">
             <div className="row row-cols-4">
               <div className="col-sm-2"></div>

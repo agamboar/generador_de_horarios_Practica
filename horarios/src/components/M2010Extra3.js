@@ -17,36 +17,41 @@ export default class M2010Extra3 extends Component {
   render() {
     return (
       <Fragment>
-        <ATRLayout>
-          <Button
-            href="/users/usr/mallas/malla2010"
-            onClick={this.deleteMalla}
-            icon={<ArrowLeftOutlined />}
-            size="large"
-          >
-            Volver
-          </Button>
-          <Button
-            href="/users/usr/mallas/malla2010/AvanceCurricular"
-            type="primary"
-            icon={<ArrowRightOutlined />}
-            style={{ float: "right" }}
-            size="large"
-          >
-            Elegir Malla 2010
-          </Button>
-          <div style={{ textAlign: "center" }}>
-            <Title
-              style={{
-                textAlign: "center",
-                color: "#008cdb",
-                fontSize: "40px",
-              }}
+        <ATRLayout phase={1}>
+          <br />
+          <br />
+          <br />
+          <div className="container">
+            <Button
+              href="/users/usr/mallas/malla2010"
+              onClick={this.deleteMalla}
+              icon={<ArrowLeftOutlined />}
+              size="large"
             >
-              Malla 2010
-            </Title>
+              Volver
+            </Button>
+            <Button
+              href="/users/usr/mallas/malla2010/AvanceCurricular"
+              type="primary"
+              icon={<ArrowRightOutlined />}
+              style={{ float: "right" }}
+              size="large"
+            >
+              Elegir Malla 2010
+            </Button>
+            <div style={{ textAlign: "center" }}>
+              <Title
+                style={{
+                  textAlign: "center",
+                  color: "#008cdb",
+                  fontSize: "40px",
+                }}
+              >
+                Malla 2010
+              </Title>
+            </div>
+            <Malla2010Extra3 />
           </div>
-          <Malla2010Extra3 />
         </ATRLayout>
       </Fragment>
     );

@@ -34,7 +34,10 @@ export default class M2018Extra1 extends Component {
     if (this.state.malla === 2010) {
       return (
         <Fragment>
-          <ATRLayout>
+          <ATRLayout phase={3}>
+            <br />
+            <br />
+            <br />
             <PERTE1_2010 ramos={this.state.ramos} />
           </ATRLayout>
         </Fragment>
@@ -42,7 +45,10 @@ export default class M2018Extra1 extends Component {
     } else if (this.state.malla === 2018) {
       return (
         <Fragment>
-          <ATRLayout>
+          <ATRLayout phase={3}>
+            <br />
+            <br />
+            <br />
             <PERTE1_2018 ramos={this.state.ramos} />
           </ATRLayout>
         </Fragment>
@@ -50,7 +56,10 @@ export default class M2018Extra1 extends Component {
     } else if (this.state.malla === 2020) {
       return (
         <Fragment>
-          <ATRLayout>
+          <ATRLayout phase={3}>
+            <br />
+            <br />
+            <br />
             <PERTE1_2020 ramos={this.state.ramos} />
           </ATRLayout>
         </Fragment>

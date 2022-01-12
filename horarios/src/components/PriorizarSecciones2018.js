@@ -71,7 +71,7 @@ export default class PriorizarSecciones extends Component {
     return (
       <Fragment>
         {localStorage.getItem("token") ? (
-          <ATRLayout>
+          <ATRLayout phase={5}>
             <p class="lead">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ahora
               deberas elegir que secciónes prefieres asignarles una mayor

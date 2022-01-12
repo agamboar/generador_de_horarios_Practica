@@ -9,7 +9,11 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { Button, Typography } from "antd";
-import { PlusCircleTwoTone } from "@ant-design/icons";
+import {
+  ArrowLeftOutlined,
+  ArrowRightOutlined,
+  PlusCircleTwoTone,
+} from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
 
@@ -61,7 +65,29 @@ export default class PERT extends Component {
       if (this.state.malla === 2010) {
         return (
           <Fragment>
-            <ATRLayout>
+            <ATRLayout phase={3}>
+              <br />
+              <br />
+              <br />
+              <div className="container">
+                <Button
+                  href="/users/usr/mallas/malla2010/AvanceCurricular"
+                  icon={<ArrowLeftOutlined />}
+                  size="large"
+                  style={{ textAlign: "left" }}
+                >
+                  Volver a Avance Curricular
+                </Button>
+                <Button
+                  href="/users/usr/priorizarRamos"
+                  type="primary"
+                  icon={<ArrowRightOutlined />}
+                  style={{ float: "right" }}
+                  size="large"
+                >
+                  Ir a Priorizar Asignaturas
+                </Button>
+              </div>
               <div style={{ textAlign: "center" }}>
                 <Title
                   style={{
@@ -70,7 +96,7 @@ export default class PERT extends Component {
                     fontSize: "40px",
                   }}
                 >
-                  Ramos Críticos
+                  Mis Ramos Críticos
                 </Title>
                 <Button
                   type="text"
@@ -107,7 +133,29 @@ export default class PERT extends Component {
       } else if (this.state.malla === 2018) {
         return (
           <Fragment>
-            <ATRLayout>
+            <ATRLayout phase={3}>
+              <br />
+              <br />
+              <br />
+              <div className="container">
+                <Button
+                  href="/users/usr/mallas/malla2018/AvanceCurricular"
+                  icon={<ArrowLeftOutlined />}
+                  size="large"
+                  style={{ textAlign: "left" }}
+                >
+                  Volver a Avance Curricular
+                </Button>
+                <Button
+                  href="/users/usr/priorizarRamos"
+                  type="primary"
+                  icon={<ArrowRightOutlined />}
+                  style={{ float: "right" }}
+                  size="large"
+                >
+                  Ir a Priorizar Asignaturas
+                </Button>
+              </div>
               <div style={{ textAlign: "center" }}>
                 <Title
                   style={{
@@ -116,7 +164,7 @@ export default class PERT extends Component {
                     fontSize: "40px",
                   }}
                 >
-                  Ramos Críticos
+                  Mis Ramos Críticos
                 </Title>
                 <Button
                   type="text"
@@ -152,7 +200,29 @@ export default class PERT extends Component {
       } else if (this.state.malla === 2020) {
         return (
           <Fragment>
-            <ATRLayout>
+            <ATRLayout phase={3}>
+              <br />
+              <br />
+              <br />
+              <div className="container">
+                <Button
+                  href="/users/usr/mallas/malla2020/AvanceCurricular"
+                  icon={<ArrowLeftOutlined />}
+                  size="large"
+                  style={{ textAlign: "left" }}
+                >
+                  Volver a Avance Curricular
+                </Button>
+                <Button
+                  href="/users/usr/priorizarRamos"
+                  type="primary"
+                  icon={<ArrowRightOutlined />}
+                  style={{ float: "right" }}
+                  size="large"
+                >
+                  Ir a Priorizar Asignaturas
+                </Button>
+              </div>
               <div style={{ textAlign: "center" }}>
                 <Title
                   style={{
@@ -161,7 +231,7 @@ export default class PERT extends Component {
                     fontSize: "40px",
                   }}
                 >
-                  Ramos Críticos
+                  Mis Ramos Críticos
                 </Title>
                 <Button
                   type="text"
@@ -199,7 +269,10 @@ export default class PERT extends Component {
           <Fragment>
             {/*aca deberia haber algo que diga que no se escogio una malla*/}
             {this.state.malla === "empty" ? (
-              <ATRLayout>
+              <ATRLayout phase={3}>
+                <br />
+                <br />
+                <br />
                 <div style={{ textAlign: "center" }}>
                   <Title
                     style={{
@@ -208,17 +281,8 @@ export default class PERT extends Component {
                       fontSize: "40px",
                     }}
                   >
-                    Ramos Críticos
+                    Mis Ramos Críticos
                   </Title>
-                  <Button
-                    type="text"
-                    href="/users/usr/PERT/PERTExtra1"
-                    size="large"
-                    icon={<PlusCircleTwoTone />}
-                    disabled="true"
-                  >
-                    Más Detalles
-                  </Button>
                 </div>
                 <div className="row row-cols-3">
                   <div className="col"></div>
@@ -257,7 +321,10 @@ export default class PERT extends Component {
                 <br />
               </ATRLayout>
             ) : (
-              <ATRLayout>
+              <ATRLayout phase={3}>
+                <br />
+                <br />
+                <br />
                 <div style={{ textAlign: "center" }}>
                   <Title
                     style={{
@@ -266,33 +333,26 @@ export default class PERT extends Component {
                       fontSize: "40px",
                     }}
                   >
-                    Ramos Críticos
+                    Mis Ramos Críticos
                   </Title>
-                  <Button
-                    type="text"
-                    href="/users/usr/PERT/PERTExtra1"
-                    size="large"
-                    icon={<PlusCircleTwoTone />}
-                    disabled="true"
-                  >
-                    Más Detalles
-                  </Button>
                 </div>
                 <div className="row row-cols-3">
                   <div className="col"></div>
                   <div className="col"></div>
                   <div className="col"></div>
                 </div>
-
                 <br />
                 <br />
                 <br />
                 <br />
                 <br />
                 <div className="d-flex justify-content-center">
-                  <h1 className="display-6">
-                    Un Momento, Se esta obteniendo tú ramos críticos...
-                  </h1>
+                  <h2 className="display-6">
+                    Se estan obteniendo tus ramos críticos
+                  </h2>
+                </div>
+                <div className="d-flex justify-content-center">
+                  <h4 className="display-6">Un momento porfavor...</h4>
                 </div>
                 <br />
                 <br />

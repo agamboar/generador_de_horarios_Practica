@@ -2,6 +2,12 @@ import React, { Component, Fragment } from "react";
 import ATRLayout from "./Layout";
 import SeccionesCritico from "./SeccionesCritico";
 import NotAuth from "./NotAuth";
+import { Button, Typography } from "antd";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
+
+const { Title, Text } = Typography;
 
 export default class PriorizarSecciones extends Component {
   state = {
@@ -70,15 +76,7 @@ export default class PriorizarSecciones extends Component {
     return (
       <Fragment>
         {localStorage.getItem("token") ? (
-          <ATRLayout>
-            <p class="lead">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ahora
-              deberas elegir que secciónes prefieres asignarles una mayor
-              prioridad en tu horario
-            </p>
-            <br />
-            <br />
-
+          <ATRLayout phase={5}>
             <SeccionesCritico />
             <SeccionesCritico />
             {/* aqui hay que crear una funcion map que cree los multiples ramos de con la funcion SeccionesCritico*/}

@@ -84,7 +84,10 @@ export default class CrearHorario extends Component {
     return (
       <Fragment>
         {localStorage.getItem("is_staff") === "si" ? (
-          <ATRLayout>
+          <ATRLayout phase={0}>
+            <br />
+            <br />
+            <br />
             <div className="container">
               <div className="row justify-content-md-center">
                 <div className="col-sm">

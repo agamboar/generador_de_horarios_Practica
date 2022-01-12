@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Layout, Menu, Typography, Breadcrumb, Avatar, Divider } from "antd";
+import { Layout, Menu, Typography, Avatar, Divider, Steps } from "antd";
 import {
   PoweroffOutlined,
   BookOutlined,
@@ -8,14 +8,15 @@ import {
   HighlightOutlined,
   CalendarOutlined,
   UserOutlined,
-  MenuOutlined,
   HomeOutlined,
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Layout.css";
+import "../assets/css/Steps.css";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Footer } = Layout;
 const { Text } = Typography;
+const { Step } = Steps;
 const { SubMenu } = Menu;
 
 export default class ATRLayout extends Component {
@@ -25,11 +26,75 @@ export default class ATRLayout extends Component {
 
   state = {
     collapsed: false,
+    current: 0,
   };
+
+  info = [
+    {
+      key: 0,
+      title: "1. Inicio",
+      url: "/users/usr",
+    },
+    {
+      key: 1,
+      title: "2. Mi Malla",
+      url: "/users/usr/mallas",
+    },
+    {
+      key: 2,
+      title: "3. Actualizar Avance",
+      url: "/users/usr/crearHorario",
+    },
+    {
+      key: 3,
+      title: "4. Mis Ramos Críticos",
+      url: "/users/usr/PERT",
+    },
+    {
+      key: 4,
+      title: "5. Priorizar Asignaturas",
+      url: "/users/usr/priorizarRamos",
+    },
+    {
+      key: 5,
+      title: "7. Priorizar CFG",
+      url: "/users/usr/priorizarAreaCFG",
+    },
+    {
+      key: 6,
+      title: "6. Priorizar Secciones",
+      url: "/users/usr/priorizarSeccion",
+    },
+    {
+      key: 7,
+      title: "8. Horarios Posibles",
+      url: "/users/usr/horariosPosibles",
+    },
+  ];
 
   toggle = () => {
     this.setState({
       collapsed: !this.state.collapsed,
+    });
+  };
+
+  next = () => {
+    this.setState({
+      current: this.state.current + 1,
+      next_url: this.info[this.state.current + 1].url,
+    });
+  };
+
+  prev = () => {
+    this.setState({
+      current: this.state.current - 1,
+      next_url: this.info[this.state.current - 1].url,
+    });
+  };
+
+  componentDidMount = () => {
+    this.setState({
+      current: this.props.phase,
     });
   };
 
@@ -43,49 +108,40 @@ export default class ATRLayout extends Component {
         <Layout>
           <Header
             className="header"
-            style={{ position: "fixed", zIndex: 1, width: "100%" }}
+            style={{
+              position: "fixed",
+              zIndex: 1,
+              width: "100%",
+              height: "auto",
+            }}
           >
-            <a href="/">
+            <a href="/users/usr">
               <div className="logo" />
               <Avatar
                 size={40}
                 src="https://cdn.discordapp.com/attachments/928022489039273994/928022582064717884/logo.png"
-                style={{ "margin-right": "1vh", "margin-bottom": "1vh" }}
+                style={{
+                  "margin-left": "2%",
+                  "margin-right": "1vh",
+                  "margin-bottom": "1vh",
+                }}
               />
               <Text className="title">ASISTENTE TDR</Text>
             </a>
-          </Header>
-          <Layout>
-            <Sider
-              trigger={null}
-              collapsible
-              collapsed={this.state.collapsed}
-              style={{
-                overflow: "auto",
-                height: "100vh",
-                position: "sticky",
-                top: 0,
-                left: 0,
-                paddingTop: "64px",
-              }}
+            <Menu
+              className="menu-header"
+              theme="light"
+              mode="horizontal"
+              defaultSelectedKeys={["2"]}
             >
-              <Menu
-                mode="inline"
-                defaultSelectedKeys={["1"]}
-                style={{ height: "100%" }}
-              >
-                <Menu.Item
-                  key="switch"
-                  className="trigger"
-                  onClick={this.toggle}
-                  icon={<MenuOutlined />}
-                >
-                  <Text strong>Menú</Text>
-                </Menu.Item>
-                {localStorage.getItem("is_staff") === "si" ? (
+              {localStorage.getItem("is_staff") === "si" ? (
+                <Fragment>
+                  <Menu.Item key="op1" icon={<HomeOutlined />}>
+                    <a href="/users/usr">Inicio</a>
+                  </Menu.Item>
                   <SubMenu
                     key="ad"
-                    title="Administrador"
+                    title="Administración"
                     icon={<UserOutlined />}
                   >
                     <Menu.Item key="ad1">
@@ -107,88 +163,80 @@ export default class ATRLayout extends Component {
                       </Link>
                     </Menu.Item>
                   </SubMenu>
-                ) : null}
-                <Divider style={{ "background-color": "gray" }} />
-                <Menu.Item key="home" icon={<HomeOutlined />}>
-                  <a href="/users/usr">Inicio</a>
-                </Menu.Item>
+                </Fragment>
+              ) : null}
+              <Menu.Item key="op2" icon={<PoweroffOutlined />}>
+                <a href="/" onClick={this.deleteToken}>
+                  Salir
+                </a>
+              </Menu.Item>
+            </Menu>
+            <Divider style={{ "background-color": "gray", margin: "0px" }} />
+            <Steps
+              labelPlacement="vertical"
+              responsive="false"
+              current={this.state.current}
+              className="steps-header"
+            >
+              <Step key={0} title={"1. Inicio"} icon={<HomeOutlined />}></Step>
+              <Step
+                key={1}
+                title={"2. Mi Malla"}
+                icon={<BookOutlined />}
+              ></Step>
+              <Step
+                key={2}
+                title={"3. Actualizar Avance"}
+                icon={<BookOutlined />}
+              ></Step>
+              <Step
+                key={3}
+                title={"4. Mis Ramos Críticos"}
+                icon={<ExceptionOutlined />}
+              ></Step>
+              <Step
+                key={4}
+                title={"5. Priorizar Ramos"}
+                icon={<HighlightOutlined />}
+              ></Step>
+              <Step
+                key={5}
+                title={"6. Priorizar CFG"}
+                icon={<HighlightOutlined />}
+              ></Step>
+              <Step
+                key={6}
+                title={"7. Priorizar Secciones"}
+                icon={<HighlightOutlined />}
+              ></Step>
+              <Step
+                key={7}
+                title={"8. Horarios Posibles"}
+                icon={<CalendarOutlined />}
+              ></Step>
+            </Steps>
+          </Header>
 
-                <SubMenu
-                  key="sub1"
-                  title="Avance Académico"
-                  icon={<BookOutlined />}
-                >
-                  <Menu.Item key="1">
-                    <a href="/users/usr/mallas">Mi Malla</a>
-                  </Menu.Item>
-                  <Menu.Item key="2">
-                    <a href="/users/usr/crearHorario">Actualizar Avance</a>
-                  </Menu.Item>
-                </SubMenu>
-                <Menu.Item key="op2" icon={<ExceptionOutlined />}>
-                  <a href="/users/usr/PERT">Mis Ramos Críticos</a>
-                </Menu.Item>
-                <SubMenu
-                  key="sub3"
-                  title="Priorización"
-                  icon={<HighlightOutlined />}
-                >
-                  <Menu.Item key="3">
-                    <a href="/users/usr/priorizarRamos">Priorizar Ramos</a>
-                  </Menu.Item>
-                  <Menu.Item key="4">
-                    <a href="/users/usr/priorizarSeccion">
-                      Priorizar Secciones
-                    </a>
-                  </Menu.Item>
-                  <Menu.Item key="5">
-                    <a href="/users/usr/priorizarAreaCFG">Priorizar CFG</a>
-                  </Menu.Item>
-                </SubMenu>
-                <Menu.Item key="op4" icon={<CalendarOutlined />}>
-                  <a href="/users/usr/horariosPosibles">Horarios Posibles</a>
-                </Menu.Item>
-                <Menu.Item key="op5" icon={<PoweroffOutlined />}>
-                  <a href="/" onClick={this.deleteToken}>
-                    Salir
-                  </a>
-                </Menu.Item>
-              </Menu>
-            </Sider>
-            <Layout>
-              <Content
-                className="content"
-                style={{
-                  margin: "24px 0px 0",
-                  overflow: "initial",
-                  padding: "24px",
-                  paddingTop: "40px",
-                }}
-              >
-                {/*React.createElement(
+          <Layout>
+            <Content className="content">
+              {/*React.createElement(
                   this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
                   {
                     className: "trigger",
                     onClick: this.toggle,
                   }
                 )*/}
-                <Breadcrumb style={{ margin: "16px 0" }}>
-                  <Breadcrumb.Item>Home</Breadcrumb.Item>
-                  <Breadcrumb.Item>List</Breadcrumb.Item>
-                  <Breadcrumb.Item>App</Breadcrumb.Item>
-                </Breadcrumb>
-                {this.props.children}
-              </Content>
-              <Footer
-                style={{
-                  textAlign: "center",
-                  backgroundColor: "rgb(231, 231, 231)",
-                }}
-                className="footer"
-              >
-                <Text>Copyright© Universidad Diego Portales 2021</Text>
-              </Footer>
-            </Layout>
+              {this.props.children}
+            </Content>
+            <Footer
+              style={{
+                textAlign: "center",
+                backgroundColor: "rgb(231, 231, 231)",
+              }}
+              className="footer"
+            >
+              <Text>Copyright© Universidad Diego Portales 2021</Text>
+            </Footer>
           </Layout>
         </Layout>
       </Fragment>

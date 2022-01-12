@@ -4,19 +4,14 @@ import ATRLayout from "./Layout";
 import NotAuth from "./NotAuth";
 import SelectSearch from "./SelectSearch";
 import TablaSecciones from "./TablaSecciones";
-import Footer from "./Footer";
-import { Typography, Space } from "antd";
-import { Layout } from "antd";
-import { Button } from "antd";
-import { Alert } from "antd";
 import axios from "axios";
+import { Button, Typography, Layout } from "antd";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
 
-import { Link } from "react-router-dom";
-
-import { Row, Col } from "antd";
-
-const { Content } = Layout;
 const { Title, Text } = Typography;
+const { Content } = Layout;
 //post aqui para saber los ramos disponibles
 
 export default class UserInterface extends Component {
@@ -55,7 +50,60 @@ export default class UserInterface extends Component {
     return (
       <Fragment>
         {localStorage.getItem("token") ? (
-          <ATRLayout>
+          <ATRLayout phase={6}>
+            <br />
+            <br />
+            <br />
+            <div className="container">
+              <Button
+                href="/users/usr/priorizarAreaCFG"
+                icon={<ArrowLeftOutlined />}
+                size="large"
+                style={{ textAlign: "left" }}
+              >
+                Volver a Priorizar CFG
+              </Button>
+              <Button
+                href="/users/usr/horariosPosibles"
+                type="primary"
+                icon={<ArrowRightOutlined />}
+                style={{ float: "right" }}
+                size="large"
+              >
+                Ir a Horarios Posibles
+              </Button>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <Title
+                style={{
+                  textAlign: "center",
+                  color: "#008cdb",
+                  fontSize: "40px",
+                }}
+              >
+                Priorizar Secciones
+              </Title>
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontSize: "20px",
+                }}
+              >
+                Escoja un ramo para que pueda priorizar sus secciones.
+              </Text>
+              <br />
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontSize: "20px",
+                }}
+              >
+                (Solo aparecerán secciones con cupos libres. Además, solo se
+                mostrarán las opciones de las 2 áreas de CFG con más
+                preferencia)
+              </Text>
+            </div>
+            <br />
             <Layout>
               <Content
                 className="site-layout"
@@ -65,40 +113,6 @@ export default class UserInterface extends Component {
                   alignItems: "center",
                 }}
               >
-                <div
-                  style={{
-                    padding: 20,
-                    display: "flex",
-                    justifyContent: "left",
-                    alignItems: "center",
-                  }}
-                >
-                  <Space direction="vertical">
-                    <Row>
-                      <Col flex="auto">
-                        <Title style={{ color: "#007bff" }} level={1}>
-                          Priorización de secciones
-                        </Title>
-                      </Col>
-
-                      {/*<Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "center"}} ><Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} ><Button type="primary">Priorizar Ramos</Button></Link></div></Col>
-                    <Col flex="auto"><div style={{padding: 10, display: "flex",  justifyContent: "flex-end"}} ><Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} ><Button type="primary">Generar Horario</Button></Link></div></Col>*/}
-                    </Row>
-                    <Title style={{ marginLeft: 35 }} level={4}>
-                      Escoja un ramo para que pueda priorizar sus secciones
-                    </Title>
-                    <Text style={{ marginLeft: 35 }}>
-                      A continuación se mostrará la lista de todos los ramos que
-                      pude tomar pero solo apareceran en la tabla las seccion
-                      que tienen cupos libres{" "}
-                    </Text>
-                    <Text style={{ marginLeft: 35 }}>
-                      Asi como tambien, solo se mostraran los CFG de las
-                      primeras 2 Areas de la tabla Priorizar Area CFG{" "}
-                    </Text>
-                  </Space>
-                </div>
-
                 <div
                   className="site-layout-background"
                   style={{
@@ -125,18 +139,6 @@ export default class UserInterface extends Component {
 
                 {this.state.message != "no" ? (
                   <div>
-                    <div
-                      style={{
-                        padding: 10,
-                        display: "flex",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <Alert
-                        message="(Deje las secciones que más le importen al inicio de la tabla)"
-                        type="warning"
-                      />
-                    </div>
                     <Card
                       title={
                         'Secciones del ramo: "' +

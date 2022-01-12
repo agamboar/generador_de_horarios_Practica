@@ -3,7 +3,12 @@ import ATRLayout from "./Layout";
 import Horarios from "./Horarios";
 import axios from "axios";
 import NotAuth from "./NotAuth";
-import { Navigate } from "react-router";
+import { Typography, Button } from "antd";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
+
+const { Title, Text } = Typography;
 
 export default class HPosibles extends Component {
   aux = () => {
@@ -38,21 +43,40 @@ export default class HPosibles extends Component {
       if (this.state.Horarios === null) {
         return (
           <Fragment>
-            <ATRLayout>
-              <br />
-              <br />
-
-              <p className="lead">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A
-                continuación veras los horarios que te recomendamos tomar para
-                tu semestre actual, esperamos haberte ayudado!
-              </p>
+            <ATRLayout phase={7}>
               <br />
               <br />
               <br />
-              <br />
-              <br />
-              <br />
+              <div className="container">
+                <Button
+                  href="/users/usr/priorizarAreaCFG"
+                  icon={<ArrowLeftOutlined />}
+                  size="large"
+                  style={{ textAlign: "left" }}
+                >
+                  Volver
+                </Button>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <Title
+                  style={{
+                    textAlign: "center",
+                    color: "#008cdb",
+                    fontSize: "40px",
+                  }}
+                >
+                  Horarios Posibles
+                </Title>
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  A continuación veras los horarios que te recomendamos tomar
+                  para tu semestre actual, esperamos haberte ayudado!
+                </Text>
+              </div>
               <br />
               <div className="d-flex justify-content-center">
                 <h1 className="display-6">
@@ -82,22 +106,40 @@ export default class HPosibles extends Component {
       } else if (this.state.Horarios === "n") {
         return (
           <Fragment>
-            <ATRLayout>
-              <div className="row row-cols-4">
-                <div className="col-6">
-                  <h2 className="title text-primary text-center">
-                    Generador de Horarios
-                  </h2>
-                </div>
-                <div className="col"></div>
-                <div className="col"></div>
-                <div className="col"></div>
+            <ATRLayout phase={7}>
+              <br />
+              <br />
+              <br />
+              <div className="container">
+                <Button
+                  href="/users/usr/priorizarAreaCFG"
+                  icon={<ArrowLeftOutlined />}
+                  size="large"
+                  style={{ textAlign: "left" }}
+                >
+                  Volver
+                </Button>
               </div>
-
-              <br />
-              <br />
-              <br />
-              <br />
+              <div style={{ textAlign: "center" }}>
+                <Title
+                  style={{
+                    textAlign: "center",
+                    color: "#008cdb",
+                    fontSize: "40px",
+                  }}
+                >
+                  Horarios Posibles
+                </Title>
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  A continuación veras los horarios que te recomendamos tomar
+                  para tu semestre actual, esperamos haberte ayudado!
+                </Text>
+              </div>
               <br />
               <div className="d-flex justify-content-center">
                 <h2 className="display-6">
@@ -128,17 +170,40 @@ export default class HPosibles extends Component {
       } else {
         return (
           <Fragment>
-            <ATRLayout>
+            <ATRLayout phase={7}>
               <br />
               <br />
-
-              {console.log(this.state.Horarios)}
-              <p className="lead">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A
-                continuación veras los horarios que te recomendamos tomar para
-                tu semestre actual, esperamos haberte ayudado!
-              </p>
               <br />
+              <div className="container">
+                <Button
+                  href="/users/usr/priorizarSeccion"
+                  icon={<ArrowLeftOutlined />}
+                  size="large"
+                  style={{ textAlign: "left" }}
+                >
+                  Volver a Priorizar Secciones
+                </Button>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <Title
+                  style={{
+                    textAlign: "center",
+                    color: "#008cdb",
+                    fontSize: "40px",
+                  }}
+                >
+                  Horarios Posibles
+                </Title>
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  A continuación veras los horarios que te recomendamos tomar
+                  para tu semestre actual, esperamos haberte ayudado!
+                </Text>
+              </div>
               <br />
               <Horarios horarios={this.state.Horarios} />
 

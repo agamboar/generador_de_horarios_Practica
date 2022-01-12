@@ -133,6 +133,9 @@ export default class AvanceManual2020 extends Component {
           }, 1000); //cambia esto por toast
           localStorage.setItem("malla", this.state.malla); //se borra cuando apreto un boton
           //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/PERT'; }, 4500);
+          setTimeout(function () {
+            window.location.href = "http://127.0.0.1:8000/users/usr/PERT";
+          }, 3000);
         } else {
           err("Error verifica los seleccionados");
         }
@@ -155,7 +158,7 @@ export default class AvanceManual2020 extends Component {
           icon={<ArrowLeftOutlined />}
           size="large"
         >
-          Volver
+          Volver a Malla 2020
         </Button>
         <Button
           type="primary"
@@ -176,7 +179,7 @@ export default class AvanceManual2020 extends Component {
               fontSize: "40px",
             }}
           >
-            Malla 2020
+            Avance Curricular Malla 2020
           </Title>
         </div>
         <br />

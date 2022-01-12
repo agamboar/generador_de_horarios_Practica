@@ -2,10 +2,10 @@ import React, { Component, Fragment } from "react";
 import ATRLayout from "./Layout";
 import { Link, Navigate } from "react-router-dom";
 import NotAuth from "./NotAuth";
-import { Typography } from "antd";
-//import { Navigate } from "react-router";
+import { Typography, Button } from "antd";
+import { ArrowLeftOutlined } from "@ant-design/icons";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 export default class Mallas extends Component {
   render() {
@@ -17,17 +17,32 @@ export default class Mallas extends Component {
               to={`/users/usr/mallas/malla${localStorage.getItem("malla")}`}
             />
           ) : (
-            <ATRLayout>
-              <p className="lead">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A
-                continuación deberas elegir la malla que actualmente estas
-                cursando
-              </p>
-
+            <ATRLayout phase={1}>
               <br />
               <br />
-
+              <br />
               <div className="container">
+                <Button
+                  href="/users/usr/"
+                  onClick={this.deleteMalla}
+                  icon={<ArrowLeftOutlined />}
+                  size="large"
+                >
+                  Volver a Inicio
+                </Button>
+                <div style={{ textAlign: "center" }}>
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      fontSize: "20px",
+                    }}
+                  >
+                    A continuación deberas elegir la malla que actualmente estas
+                    cursando
+                  </Text>
+                </div>
+                <br />
+                <br />
                 <div className="row">
                   <div className="col-sm-4 ">
                     <div className="card ">

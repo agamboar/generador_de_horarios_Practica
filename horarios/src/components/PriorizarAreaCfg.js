@@ -2,18 +2,11 @@ import React, { useEffect, useState, Component, Fragment } from "react";
 import { Card } from "antd";
 import ATRLayout from "./Layout";
 import NotAuth from "./NotAuth";
-import SelectSearch from "./SelectSearch";
 import TablaAreasCfg from "./TablaAreasCfg";
-import Footer from "./Footer";
-import { Typography, Space } from "antd";
-import { Layout } from "antd";
-import { Button } from "antd";
-import { Alert } from "antd";
-import axios from "axios";
-
-import { Link } from "react-router-dom";
-
-import { Row, Col } from "antd";
+import { Typography, Layout, Button, Alert } from "antd";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -27,7 +20,49 @@ export default class UserInterface extends Component {
     return (
       <Fragment>
         {localStorage.getItem("token") ? (
-          <ATRLayout>
+          <ATRLayout phase={5}>
+            <br />
+            <br />
+            <br />
+            <div className="container">
+              <Button
+                href="/users/usr/priorizarRamos"
+                icon={<ArrowLeftOutlined />}
+                size="large"
+                style={{ textAlign: "left" }}
+              >
+                Volver a Priorizar Ramos
+              </Button>
+              <Button
+                href="/users/usr/priorizarSeccion"
+                type="primary"
+                icon={<ArrowRightOutlined />}
+                style={{ float: "right" }}
+                size="large"
+              >
+                Ir a Priorizar Secciones
+              </Button>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <Title
+                style={{
+                  textAlign: "center",
+                  color: "#008cdb",
+                  fontSize: "40px",
+                }}
+              >
+                Priorizar CFG
+              </Title>
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontSize: "20px",
+                }}
+              >
+                (Deje las areas que más le importen al inicio de la tabla)
+              </Text>
+            </div>
+            <br />
             <Layout>
               <Content
                 className="site-layout"
@@ -38,18 +73,6 @@ export default class UserInterface extends Component {
                 }}
               >
                 <div>
-                  <div
-                    style={{
-                      padding: 10,
-                      display: "flex",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Alert
-                      message="(Deje las areas que más le importen al inicio de la tabla)"
-                      type="warning"
-                    />
-                  </div>
                   <Card>
                     <TablaAreasCfg />
                   </Card>

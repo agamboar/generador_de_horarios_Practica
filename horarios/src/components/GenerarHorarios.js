@@ -6,7 +6,7 @@ export default class CrearHorario extends Component {
   render() {
     return (
       <Fragment>
-        <ATRLayout>
+        <ATRLayout phase={2}>
           <div className="container">
             <div className="row">
               <div className="col-sm-4 ">

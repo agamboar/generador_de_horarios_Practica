@@ -2,11 +2,80 @@ import React, { Component } from "react";
 import Ramo from "./Ramo";
 import Semestre from "./Semestre";
 import { Link } from "react-router-dom";
+import { Button, Typography } from "antd";
+import {
+  ArrowLeftOutlined,
+  ArrowRightOutlined,
+  PlusCircleTwoTone,
+} from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
 
-export default class Malla2010 extends Component {
+const { Title } = Typography;
+
+export default class Malla2018 extends Component {
+  deleteMalla = (e) => {
+    localStorage.removeItem("malla");
+    var axios = require("axios");
+    var config = {
+      method: "get",
+      url: "http://127.0.0.1:8000/delete_asignaturasCursadas/",
+      headers: {
+        Authorization: "Token " + localStorage.getItem("token"), //cambiiar a localStorage
+        "Content-Type": "application/json",
+      },
+    };
+
+    axios(config)
+      .then((response) => console.log(response.data.mensaje))
+      .catch(function (error) {
+        if (error.response) {
+          if (error.response.data.non_field_errors) {
+            console.log(error.response);
+          }
+          //notify(`error:  ${error.response.data.non_field_errors[0]}`);
+        }
+      });
+  };
   render() {
     return (
       <div className="container">
+        <Button
+          href="/users/usr/mallas"
+          onClick={this.deleteMalla}
+          icon={<ArrowLeftOutlined />}
+          size="large"
+        >
+          Elegir otra malla
+        </Button>
+        <Button
+          href="/users/usr/mallas/malla2018/AvanceCurricular"
+          type="primary"
+          icon={<ArrowRightOutlined />}
+          style={{ float: "right" }}
+          size="large"
+        >
+          Elegir Malla 2018
+        </Button>
+        <div style={{ textAlign: "center" }}>
+          <Title
+            style={{
+              textAlign: "center",
+              color: "#008cdb",
+              fontSize: "40px",
+            }}
+          >
+            Malla 2018
+          </Title>
+          <Button
+            type="text"
+            href="/users/usr/mallas/malla2018/DatosExtraM2018-1"
+            size="large"
+            icon={<PlusCircleTwoTone />}
+          >
+            Más Detalles
+          </Button>
+        </div>
         <br />
         <div className="row row-cols-10">
           <div className="col col-md-1 mt-1">

@@ -49,7 +49,7 @@ export default class CrearHorario extends Component {
     return (
       <Fragment>
         {localStorage.getItem("token") ? (
-          <ATRLayout>
+          <ATRLayout phase={2}>
             <div className="container">
               <div className="row">
                 <div className="col-sm-4 custom3">
