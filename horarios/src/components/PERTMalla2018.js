@@ -80,7 +80,7 @@ export default class AvanceManual2018 extends Component {
           <div className="col col-md-2 mt-1">
             <div
               className="card border-dark text-center"
-              style={{ background: "#FF3E17" }}
+              style={{ background: "#ff6242" }}
             >
               <br />
             </div>
@@ -137,52 +137,52 @@ export default class AvanceManual2018 extends Component {
 
         <div className="row row-cols-10 ">
           <ARamo
-            codigo={"CBM1000"}
+            codigo={"CBM-1000"}
             ramo={"Álgebra y Geometría"}
             state={this.state.CBM1000}
           />
           <ARamo
-            codigo={"CBM1002"}
+            codigo={"CBM-1002"}
             ramo={"Álgebra Lineal"}
             state={this.state.CBM1002}
           />
           <ARamo
-            codigo={"CBM1005"}
+            codigo={"CBM-1005"}
             ramo={"Ecuaciones Diferenciales"}
             state={this.state.CBM1005}
           />
           <ARamo
-            codigo={"CIT2204"}
-            ramo={"Prob. y Estadisticas"}
+            codigo={"CIT-2204"}
+            ramo={"Probabilidades y Estadísticas"}
             state={this.state.CIT2204}
           />
           <ARamo
-            codigo={"CII2750"}
+            codigo={"CII-2750"}
             ramo={"Optimización"}
             state={this.state.CII2750}
           />
           <ARamo
-            codigo={"CII2000"}
+            codigo={"CII-2000"}
             ramo={"Introducción a la Economía"}
             state={this.state.CII2000}
           />
           <ARamo
-            codigo={"CII1000"}
+            codigo={"CII-1000"}
             ramo={"Contabilidad y Costos"}
             state={this.state.CII1000}
           />
           <ARamo
-            codigo={"CIT2203"}
-            ramo={"Gestión Org."}
+            codigo={"CIT-2203"}
+            ramo={"Gestión Organizacional"}
             state={this.state.CIT2203}
           />
           <ARamo
-            codigo={"CIT3310"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3310}
           />
           <ARamo
-            codigo={"CIT3311"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3311}
           />
@@ -191,52 +191,52 @@ export default class AvanceManual2018 extends Component {
 
         <div className="row row-cols-10">
           <ARamo
-            codigo={"CBM1001"}
+            codigo={"CBM-1001"}
             ramo={"Cálculo I"}
             state={this.state.CBM1001}
           />
           <ARamo
-            codigo={"CBM1003"}
+            codigo={"CBM-1003"}
             ramo={"Cálculo II"}
             state={this.state.CBM1003}
           />
           <ARamo
-            codigo={"CBM1006"}
+            codigo={"CBM-1006"}
             ramo={"Cálculo III"}
             state={this.state.CBM1006}
           />
           <ARamo
-            codigo={"CBM2000"}
+            codigo={"CBM-2000"}
             ramo={"Métodos Numéricos"}
             state={this.state.CBM2000}
           />
           <ARamo
-            codigo={"CIT2106"}
+            codigo={"CIT-2106"}
             ramo={"Electrónica y Electrotecnia"}
             state={this.state.CIT2106}
           />
           <ARamo
-            codigo={"CIT2202"}
+            codigo={"CIT-2202"}
             ramo={"Modelos Estoc. y Simul."}
             state={this.state.CIT2202}
           />
           <ARamo
-            codigo={"CIT2005"}
+            codigo={"CIT-2005"}
             ramo={"Ingeniería de Software"}
             state={this.state.CIT2005}
           />
           <ARamo
-            codigo={"CIT2004"}
+            codigo={"CIT-2004"}
             ramo={"Arquitectura de Sistemas"}
             state={this.state.CIT2004}
           />
           <ARamo
-            codigo={"CIT3410"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3410}
           />
           <ARamo
-            codigo={"CIT3411"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3411}
           />
@@ -246,52 +246,52 @@ export default class AvanceManual2018 extends Component {
 
         <div className="row row-cols-10">
           <ARamo
-            codigo={"CBQ1000"}
+            codigo={"CBQ-1000"}
             ramo={"Química"}
             state={this.state.CBQ1000}
           />
           <ARamo
-            codigo={"CBF1000"}
+            codigo={"CBF-1000"}
             ramo={"Mecánica"}
             state={this.state.CBF1000}
           />
           <ARamo
-            codigo={"CBF1001"}
+            codigo={"CBF-1001"}
             ramo={"Calor y Ondas"}
             state={this.state.CBF1001}
           />
           <ARamo
-            codigo={"CBF1002"}
+            codigo={"CBF-1002"}
             ramo={"Electricidad y Magnetismo"}
             state={this.state.CBF1002}
           />
           <ARamo
-            codigo={"CIT2200"}
-            ramo={"Proyectos en TICs I"}
+            codigo={"CIT-2200"}
+            ramo={"Proyecto en TICs I"}
             state={this.state.CIT2200}
           />
           <ARamo
-            codigo={"CIT2101"}
+            codigo={"CIT-2101"}
             ramo={"Señales y Sistemas"}
             state={this.state.CIT2101}
           />
           <ARamo
-            codigo={"CIT2102"}
-            ramo={"Comunicacio- nes Digitales"}
+            codigo={"CIT-2102"}
+            ramo={"Comunicaciones Digitales"}
             state={this.state.CIT2102}
           />
           <ARamo
-            codigo={"CIT2105"}
+            codigo={"CIT-2105"}
             ramo={"Criptografía y Seg. en Redes"}
             state={this.state.CIT2105}
           />
           <ARamo
-            codigo={"CIT3412"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3412}
           />
           <ARamo
-            codigo={"CIT3413"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3413}
           />
@@ -299,52 +299,52 @@ export default class AvanceManual2018 extends Component {
         <br />
         <div className="row row-cols-10">
           <ARamo
-            codigo={"CIT1000"}
+            codigo={"CIT-1000"}
             ramo={"Programación"}
             state={this.state.CIT1000}
           />
           <ARamo
-            codigo={"CIT1010"}
+            codigo={"CIT-1010"}
             ramo={"Programación Avanzada"}
             state={this.state.CIT1010}
           />
           <ARamo
-            codigo={"CIT2000"}
+            codigo={"CIT-2000"}
             ramo={"Estructura de Datos"}
             state={this.state.CIT2000}
           />
           <ARamo
-            codigo={"CIT2001"}
-            ramo={"Dis. y Análisis de Alg."}
+            codigo={"CIT-2001"}
+            ramo={"Dis. y Análisis de Algoritmos"}
             state={this.state.CIT2001}
           />
           <ARamo
-            codigo={"CIT2002"}
+            codigo={"CIT-2002"}
             ramo={"Bases de Datos"}
             state={this.state.CIT2002}
           />
           <ARamo
-            codigo={"CIT2003"}
+            codigo={"CIT-2003"}
             ramo={"Sistemas Operativos"}
             state={this.state.CIT2003}
           />
           <ARamo
-            codigo={"FIC1003"}
+            codigo={"FIC-1003"}
             ramo={"Derecho en Ingeniería"}
             state={this.state.FIC1003}
           />
           <ARamo
-            codigo={"CIT2201"}
+            codigo={"CIT-2201"}
             ramo={"Proyecto en TICs II"}
             state={this.state.CIT2201}
           />
           <ARamo
-            codigo={"CIT3200"}
+            codigo={"CIT-3200"}
             ramo={"Evaluación de Proy. TIC"}
             state={this.state.CIT3200}
           />
           <ARamo
-            codigo={"CIT3201"}
+            codigo={"CIT-3201"}
             ramo={"Proyecto en TICs III"}
             state={this.state.CIT3201}
           />
@@ -352,36 +352,36 @@ export default class AvanceManual2018 extends Component {
         <br />
         <div className="row row-cols-10">
           <ARamo
-            codigo={"FIC1000"}
+            codigo={"FIC-1000"}
             ramo={"Comunicación para la Ing."}
             state={this.state.FIC1000}
           />
-          <ARamo codigo={"CFG1"} ramo={"Minor / CFG"} state={this.state.CFG1} />
+          <ARamo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG1} />
           <ARamo
-            codigo={"CIT2100"}
+            codigo={"CIT-2100"}
             ramo={"Redes de Datos"}
             state={this.state.CIT2100}
           />
-          <ARamo codigo={"CFG2"} ramo={"Minor / CFG"} state={this.state.CFG2} />
-          <ARamo codigo={"CFG3"} ramo={"Minor / CFG"} state={this.state.CFG3} />
+          <ARamo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG2} />
+          <ARamo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG3} />
           <ARamo
-            codigo={"CIT2103"}
+            codigo={"CIT-2103"}
             ramo={"Sistemas Digitales"}
             state={this.state.CIT2103}
           />
           <ARamo
-            codigo={"CIT2104"}
-            ramo={"Arquitectura de Comp."}
+            codigo={"CIT-2104"}
+            ramo={"Arquitectura de Computadores"}
             state={this.state.CIT2104}
           />
-          <ARamo codigo={"CFG4"} ramo={"Minor / CFG"} state={this.state.CFG4} />
+          <ARamo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG4} />
           <ARamo
-            codigo={"CIT3312"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3312}
           />
           <ARamo
-            codigo={"CIT3313"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3313}
           />
@@ -393,18 +393,18 @@ export default class AvanceManual2018 extends Component {
           <div className="col"> </div>
           <div className="col"> </div>
           <ARamo
-            codigo={"CIG1012"}
+            codigo={"CIG-1012"}
             ramo={"Inglés I"}
             state={this.state.CIG1012}
           />
           <ARamo
-            codigo={"CIG1013"}
+            codigo={"CIG-1013"}
             ramo={"Inglés II"}
             state={this.state.CIG1013}
           />
           <ARamo
-            codigo={"CIG1014"}
-            ramo={"Inglés II"}
+            codigo={"CIG-1014"}
+            ramo={"Inglés III"}
             state={this.state.CIG1014}
           />
           <div className="col"> </div>
@@ -418,19 +418,11 @@ export default class AvanceManual2018 extends Component {
           <div className="col"> </div>
           <div className="col"> </div>
           <div className="col"> </div>
-          <ARamo
-            codigo={"CIT6001"}
-            ramo={"Practia I"}
-            state={this.state.CIT6001}
-          />
+          <ARamo codigo={""} ramo={"Práctica I"} state={this.state.CIT6001} />
           <div className="col"> </div>
           <div className="col"> </div>
           <div className="col"> </div>
-          <ARamo
-            codigo={"CIT6002"}
-            ramo={"Practica II"}
-            state={this.state.CIT6002}
-          />
+          <ARamo codigo={""} ramo={"Práctica II"} state={this.state.CIT6002} />
           <div className="col"></div>
         </div>
       </div>

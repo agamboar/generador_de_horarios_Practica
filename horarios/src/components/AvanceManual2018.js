@@ -410,61 +410,61 @@ export default class AvanceManual2018 extends Component {
         <form id="myForm" onSubmit={this.onSubmit}>
           <div className="row row-cols-10 ">
             <ARamo
-              codigo={"CBM1000"}
+              codigo={"CBM-1000"}
               ramo={"Álgebra y Geometría"}
               show={this.state.CBM1000}
               onChange1={this.onChange1}
             />
             <ARamo
-              codigo={"CBM1002"}
+              codigo={"CBM-1002"}
               ramo={"Álgebra Lineal"}
               show={this.state.CBM1002}
               onChange1={this.onChange6}
             />
             <ARamo
-              codigo={"CBM1005"}
-              ramo={"Ecuaciones Difl."}
+              codigo={"CBM-1005"}
+              ramo={"Ecuaciones Diferenciales"}
               show={this.state.CBM1005}
               onChange1={this.onChange11}
             />
             <ARamo
-              codigo={"CIT2204"}
-              ramo={"Prob. y Estadisticas"}
+              codigo={"CIT-2204"}
+              ramo={"Probabilidades y Estadísticas"}
               show={this.state.CIT2204}
               onChange1={this.onChange16}
             />
             <ARamo
-              codigo={"CII2750"}
-              ramo={"Optimiza- ción"}
+              codigo={"CII-2750"}
+              ramo={"Optimización"}
               show={this.state.CII2750}
               onChange1={this.onChange22}
             />
             <ARamo
-              codigo={"CII2000"}
-              ramo={"Introd. a la Economía"}
+              codigo={"CII-2000"}
+              ramo={"Introducción a la Economía"}
               show={this.state.CII2000}
               onChange1={this.onChange28}
             />
             <ARamo
-              codigo={"CII1000"}
-              ramo={"Contabi- lidad y Costos"}
+              codigo={"CII-1000"}
+              ramo={"Contabilidad y Costos"}
               show={this.state.CII1000}
               onChange1={this.onChange33}
             />
             <ARamo
-              codigo={"CIT2203"}
-              ramo={"Gestión Organiza- cional"}
+              codigo={"CIT-2203"}
+              ramo={"Gestión Organizacional"}
               show={this.state.CIT2203}
               onChange1={this.onChange38}
             />
             <ARamo
-              codigo={"CIT3310"}
+              codigo={"CIT-33XX"}
               ramo={"Electivo Profesional"}
               show={this.state.CIT3310}
               onChange1={this.onChange43}
             />
             <ARamo
-              codigo={"CIT3311"}
+              codigo={"CIT-33XX"}
               ramo={"Electivo Profesional"}
               show={this.state.CIT3311}
               onChange1={this.onChange48}
@@ -474,61 +474,61 @@ export default class AvanceManual2018 extends Component {
 
           <div className="row row-cols-10">
             <ARamo
-              codigo={"CBM1001"}
+              codigo={"CBM-1001"}
               ramo={"Cálculo I"}
               show={this.state.CBM1001}
               onChange1={this.onChange2}
             />
             <ARamo
-              codigo={"CBM1003"}
+              codigo={"CBM-1003"}
               ramo={"Cálculo II"}
               show={this.state.CBM1003}
               onChange1={this.onChange7}
             />
             <ARamo
-              codigo={"CBM1006"}
+              codigo={"CBM-1006"}
               ramo={"Cálculo III"}
               show={this.state.CBM1006}
               onChange1={this.onChange12}
             />
             <ARamo
-              codigo={"CBM2000"}
+              codigo={"CBM-2000"}
               ramo={"Métodos Numéricos"}
               show={this.state.CBM2000}
               onChange1={this.onChange17}
             />
             <ARamo
-              codigo={"CIT2106"}
-              ramo={"Electrónica y Electro- tecnia"}
+              codigo={"CIT-2106"}
+              ramo={"Electrónica y Electrotecnia"}
               show={this.state.CIT2106}
               onChange1={this.onChange23}
             />
             <ARamo
-              codigo={"CIT2202"}
+              codigo={"CIT-2202"}
               ramo={"Modelos Estoc. y Simul."}
               show={this.state.CIT2202}
               onChange1={this.onChange29}
             />
             <ARamo
-              codigo={"CIT2005"}
+              codigo={"CIT-2005"}
               ramo={"Ingeniería de Software"}
               show={this.state.CIT2005}
               onChange1={this.onChange34}
             />
             <ARamo
-              codigo={"CIT2004"}
-              ramo={"Arquitec- tura de Sistemas"}
+              codigo={"CIT-2004"}
+              ramo={"Arquitectura de Sistemas"}
               show={this.state.CIT2004}
               onChange1={this.onChange39}
             />
             <ARamo
-              codigo={"CIT3410"}
+              codigo={"CIT-34XX"}
               ramo={"Electivo Profesional"}
               show={this.state.CIT3410}
               onChange1={this.onChange44}
             />
             <ARamo
-              codigo={"CIT3411"}
+              codigo={"CIT-34XX"}
               ramo={"Electivo Profesional"}
               show={this.state.CIT3411}
               onChange1={this.onChange49}
@@ -539,61 +539,61 @@ export default class AvanceManual2018 extends Component {
 
           <div className="row row-cols-10">
             <ARamo
-              codigo={"CBQ1000"}
+              codigo={"CBQ-1000"}
               ramo={"Química"}
               show={this.state.CBQ1000}
               onChange1={this.onChange3}
             />
             <ARamo
-              codigo={"CBF1000"}
+              codigo={"CBF-1000"}
               ramo={"Mecánica"}
               show={this.state.CBF1000}
               onChange1={this.onChange8}
             />
             <ARamo
-              codigo={"CBF1001"}
+              codigo={"CBF-1001"}
               ramo={"Calor y Ondas"}
               show={this.state.CBF1001}
               onChange1={this.onChange13}
             />
             <ARamo
-              codigo={"CBF1002"}
+              codigo={"CBF-1002"}
               ramo={"Electricidad y Magnetismo"}
               show={this.state.CBF1002}
               onChange1={this.onChange18}
             />
             <ARamo
-              codigo={"CIT2200"}
-              ramo={"Proyectos en TICs I"}
+              codigo={"CIT-2200"}
+              ramo={"Proyecto en TICs I"}
               show={this.state.CIT2200}
               onChange1={this.onChange24}
             />
             <ARamo
-              codigo={"CIT2101"}
+              codigo={"CIT-2101"}
               ramo={"Señales y Sistemas"}
               show={this.state.CIT2101}
               onChange1={this.onChange30}
             />
             <ARamo
-              codigo={"CIT2102"}
-              ramo={"Comunica- ciones Digitales"}
+              codigo={"CIT-2102"}
+              ramo={"Comunicaciones Digitales"}
               show={this.state.CIT2102}
               onChange1={this.onChange35}
             />
             <ARamo
-              codigo={"CIT2105"}
+              codigo={"CIT-2105"}
               ramo={"Criptografía y Seg. en Redes"}
               show={this.state.CIT2105}
               onChange1={this.onChange40}
             />
             <ARamo
-              codigo={"CIT3412"}
+              codigo={"CIT-34XX"}
               ramo={"Electivo Profesional"}
               show={this.state.CIT3412}
               onChange1={this.onChange45}
             />
             <ARamo
-              codigo={"CIT3413"}
+              codigo={"CIT-34XX"}
               ramo={"Electivo Profesional"}
               show={this.state.CIT3413}
               onChange1={this.onChange50}
@@ -602,61 +602,61 @@ export default class AvanceManual2018 extends Component {
           <br />
           <div className="row row-cols-10">
             <ARamo
-              codigo={"CIT1000"}
-              ramo={"Programa- ción"}
+              codigo={"CIT-1000"}
+              ramo={"Programación"}
               show={this.state.CIT1000}
               onChange1={this.onChange4}
             />
             <ARamo
-              codigo={"CIT1010"}
-              ramo={"Programa- ción Avanzada"}
+              codigo={"CIT-1010"}
+              ramo={"Programación Avanzada"}
               show={this.state.CIT1010}
               onChange1={this.onChange9}
             />
             <ARamo
-              codigo={"CIT2000"}
+              codigo={"CIT-2000"}
               ramo={"Estructura de Datos"}
               show={this.state.CIT2000}
               onChange1={this.onChange14}
             />
             <ARamo
-              codigo={"CIT2001"}
-              ramo={"Dis. y Análisis de Alg."}
+              codigo={"CIT-2001"}
+              ramo={"Dis. y Análisis de Algoritmos"}
               show={this.state.CIT2001}
               onChange1={this.onChange19}
             />
             <ARamo
-              codigo={"CIT2002"}
+              codigo={"CIT-2002"}
               ramo={"Bases de Datos"}
               show={this.state.CIT2002}
               onChange1={this.onChange25}
             />
             <ARamo
-              codigo={"CIT2003"}
+              codigo={"CIT-2003"}
               ramo={"Sistemas Operativos"}
               show={this.state.CIT2003}
               onChange1={this.onChange31}
             />
             <ARamo
-              codigo={"FIC1003"}
+              codigo={"FIC-1003"}
               ramo={"Derecho en Ingeniería"}
               show={this.state.FIC1003}
               onChange1={this.onChange36}
             />
             <ARamo
-              codigo={"CIT2201"}
+              codigo={"CIT-2201"}
               ramo={"Proyecto en TICs II"}
               show={this.state.CIT2201}
               onChange1={this.onChange41}
             />
             <ARamo
-              codigo={"CIT3200"}
-              ramo={"Evaluación de Proy. TIC"}
+              codigo={"CIT-3200"}
+              ramo={"Evaluación de Proyectos TIC"}
               show={this.state.CIT3200}
               onChange1={this.onChange46}
             />
             <ARamo
-              codigo={"CIT3201"}
+              codigo={"CIT-3201"}
               ramo={"Proyecto en TICs III"}
               show={this.state.CIT3201}
               onChange1={this.onChange51}
@@ -665,61 +665,61 @@ export default class AvanceManual2018 extends Component {
           <br />
           <div className="row row-cols-10">
             <ARamo
-              codigo={"FIC1000"}
-              ramo={"Comunica- ción para la Ing."}
+              codigo={"FIC-1000"}
+              ramo={"Comunicación para la Ing."}
               show={this.state.FIC1000}
               onChange1={this.onChange5}
             />
             <ARamo
-              codigo={"CFG1"}
+              codigo={""}
               ramo={"Minor / CFG"}
               show={this.state.CFG1}
               onChange1={this.onChange10}
             />
             <ARamo
-              codigo={"CIT2100"}
+              codigo={"CIT-2100"}
               ramo={"Redes de Datos"}
               show={this.state.CIT2100}
               onChange1={this.onChange15}
             />
             <ARamo
-              codigo={"CFG2"}
+              codigo={""}
               ramo={"Minor / CFG"}
               show={this.state.CFG2}
               onChange1={this.onChange20}
             />
             <ARamo
-              codigo={"CFG3"}
+              codigo={""}
               ramo={"Minor / CFG"}
               show={this.state.CFG3}
               onChange1={this.onChange26}
             />
             <ARamo
-              codigo={"CIT2103"}
+              codigo={"CIT-2103"}
               ramo={"Sistemas Digitales"}
               show={this.state.CIT2103}
               onChange1={this.onChange32}
             />
             <ARamo
-              codigo={"CIT2104"}
-              ramo={"Arquitec- tura de Comp."}
+              codigo={"CIT-2104"}
+              ramo={"Arquitectura de Computadores"}
               show={this.state.CIT2104}
               onChange1={this.onChange37}
             />
             <ARamo
-              codigo={"CFG4"}
+              codigo={""}
               ramo={"Minor / CFG"}
               show={this.state.CFG4}
               onChange1={this.onChange42}
             />
             <ARamo
-              codigo={"CIT3312"}
+              codigo={"CIT-33XX"}
               ramo={"Electivo Profesional"}
               show={this.state.CIT3312}
               onChange1={this.onChange47}
             />
             <ARamo
-              codigo={"CIT3313"}
+              codigo={"CIT-33XX"}
               ramo={"Electivo Profesional"}
               show={this.state.CIT3313}
               onChange1={this.onChange52}
@@ -732,20 +732,20 @@ export default class AvanceManual2018 extends Component {
             <div className="col"> </div>
             <div className="col"> </div>
             <ARamo
-              codigo={"CIG1012"}
+              codigo={"CIG-1012"}
               ramo={"Inglés I"}
               show={this.state.CIG1012}
               onChange1={this.onChange21}
             />
             <ARamo
-              codigo={"CIG1013"}
+              codigo={"CIG-1013"}
               ramo={"Inglés II"}
               show={this.state.CIG1013}
               onChange1={this.onChange27}
             />
             <ARamo
-              codigo={"CIG1014"}
-              ramo={"Inglés II"}
+              codigo={"CIG-1014"}
+              ramo={"Inglés III"}
               show={this.state.CIG1014}
               onChange1={this.onChange53}
             />
@@ -761,8 +761,8 @@ export default class AvanceManual2018 extends Component {
             <div className="col"> </div>
             <div className="col"> </div>
             <ARamo
-              codigo={"CIT6001"}
-              ramo={"Práctia I"}
+              codigo={""}
+              ramo={"Práctica I"}
               show={this.state.CIT6001}
               onChange1={this.onChangePR1}
             />
@@ -770,7 +770,7 @@ export default class AvanceManual2018 extends Component {
             <div className="col"> </div>
             <div className="col"> </div>
             <ARamo
-              codigo={"CIT6002"}
+              codigo={""}
               ramo={"Práctica II"}
               show={this.state.CIT6002}
               onChange1={this.onChangePR2}

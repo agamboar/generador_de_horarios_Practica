@@ -80,7 +80,7 @@ export default class Malla2010 extends Component {
           <div className="col col-md-2 mt-1">
             <div
               className="card border-dark text-center"
-              style={{ background: "#FF3E17" }}
+              style={{ background: "#ff6242" }}
             >
               <br />
             </div>
@@ -135,52 +135,52 @@ export default class Malla2010 extends Component {
         <br />
         <div className="row row-cols-10">
           <Ramo
-            codigo={"CBM1000"}
+            codigo={"CBM-1000"}
             ramo={"Álgebra y Geometría"}
             state={this.state.CBM1000}
           />
           <Ramo
-            codigo={"CBM1002"}
+            codigo={"CBM-1002"}
             ramo={"Álgebra Lineal"}
             state={this.state.CBM1002}
           />
           <Ramo
-            codigo={"CBM1005"}
+            codigo={"CBM-1005"}
             ramo={"Ecuaciones Diferenciales"}
             state={this.state.CBM1005}
           />
           <Ramo
-            codigo={"CIT2204"}
-            ramo={"Prob. y Estadisticas"}
+            codigo={"CIT-2204"}
+            ramo={"Probabilidades y Estadística"}
             state={this.state.CIT2204}
           />
           <Ramo
-            codigo={"CII2750"}
+            codigo={"CII-2750"}
             ramo={"Optimización"}
             state={this.state.CII2750}
           />
           <Ramo
-            codigo={"CII2000"}
+            codigo={"CII-2000"}
             ramo={"Introducción a la Economía"}
             state={this.state.CII2000}
           />
           <Ramo
-            codigo={"CII1000"}
+            codigo={"CII-1000"}
             ramo={"Contabilidad y Costos"}
             state={this.state.CII1000}
           />
           <Ramo
-            codigo={"CIT2203"}
-            ramo={"Gestión Org."}
+            codigo={"CIT-2203"}
+            ramo={"Gestión Organizacional"}
             state={this.state.CIT2203}
           />
           <Ramo
-            codigo={"CIT3310"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3310}
           />
           <Ramo
-            codigo={"CIT3311"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3311}
           />
@@ -190,52 +190,52 @@ export default class Malla2010 extends Component {
 
         <div className="row row-cols-10">
           <Ramo
-            codigo={"CBM1001"}
+            codigo={"CBM-1001"}
             ramo={"Cálculo I"}
             state={this.state.CBM1001}
           />
           <Ramo
-            codigo={"CBM1003"}
+            codigo={"CBM-1003"}
             ramo={"Cálculo II"}
             state={this.state.CBM1003}
           />
           <Ramo
-            codigo={"CBM1006"}
+            codigo={"CBM-1006"}
             ramo={"Cálculo III"}
             state={this.state.CBM1006}
           />
           <Ramo
-            codigo={"CBM2000"}
+            codigo={"CBM-2000"}
             ramo={"Métodos Numéricos"}
             state={this.state.CBM2000}
           />
           <Ramo
-            codigo={"CIT2106"}
+            codigo={"CIT-2106"}
             ramo={"Electrónica y Electrotecnia"}
             state={this.state.CIT2106}
           />
           <Ramo
-            codigo={"CIT2202"}
+            codigo={"CIT-2202"}
             ramo={"Modelos Estoc. y Simul."}
             state={this.state.CIT2202}
           />
           <Ramo
-            codigo={"CIT2005"}
+            codigo={"CIT-2005"}
             ramo={"Ingeniería de Software"}
             state={this.state.CIT2005}
           />
           <Ramo
-            codigo={"CIT2004"}
+            codigo={"CIT-2004"}
             ramo={"Arquitectura de Sistemas"}
             state={this.state.CIT2004}
           />
           <Ramo
-            codigo={"CIT3410"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3410}
           />
           <Ramo
-            codigo={"CIT3411"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3411}
           />
@@ -245,52 +245,52 @@ export default class Malla2010 extends Component {
 
         <div className="row row-cols-10">
           <Ramo
-            codigo={"CBQ1000"}
+            codigo={"CBQ-1000"}
             ramo={"Química"}
             state={this.state.CBQ1000}
           />
           <Ramo
-            codigo={"CBF1000"}
+            codigo={"CBF-1000"}
             ramo={"Mecánica"}
             state={this.state.CBF1000}
           />
           <Ramo
-            codigo={"CBF1001"}
+            codigo={"CBF-1001"}
             ramo={"Calor y Ondas"}
             state={this.state.CBF1001}
           />
           <Ramo
-            codigo={"CBF1002"}
+            codigo={"CBF-1002"}
             ramo={"Electricidad y Magnetismo"}
             state={this.state.CBF1002}
           />
           <Ramo
-            codigo={"CIT2200"}
-            ramo={"Proyectos en TICs I"}
+            codigo={"CIT-2200"}
+            ramo={"Proyecto en TICs I"}
             state={this.state.CIT2200}
           />
           <Ramo
-            codigo={"CIT2101"}
+            codigo={"CIT-2101"}
             ramo={"Señales y Sistemas"}
             state={this.state.CIT2101}
           />
           <Ramo
-            codigo={"CIT2102"}
-            ramo={"Comunicacio -nes Digitales"}
+            codigo={"CIT-2102"}
+            ramo={"Comunicaciones Digitales"}
             state={this.state.CIT2102}
           />
           <Ramo
-            codigo={"CIT2105"}
+            codigo={"CIT-2105"}
             ramo={"Criptografía y Seg. en Redes"}
             state={this.state.CIT2105}
           />
           <Ramo
-            codigo={"CIT3412"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3412}
           />
           <Ramo
-            codigo={"CIT3413"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3413}
           />
@@ -300,52 +300,52 @@ export default class Malla2010 extends Component {
 
         <div className="row row-cols-10">
           <Ramo
-            codigo={"CIT1000"}
+            codigo={"CIT-1000"}
             ramo={"Programación"}
             state={this.state.CIT1000}
           />
           <Ramo
-            codigo={"CIT1010"}
+            codigo={"CIT-1010"}
             ramo={"Programación Avanzada"}
             state={this.state.CIT1010}
           />
           <Ramo
-            codigo={"CIT2000"}
+            codigo={"CIT-2000"}
             ramo={"Estructura de Datos"}
             state={this.state.CIT2000}
           />
           <Ramo
-            codigo={"CIT2001"}
+            codigo={"CIT-2001"}
             ramo={"Dis. y Análisis de Algoritmos"}
             state={this.state.CIT2001}
           />
           <Ramo
-            codigo={"CIT2002"}
+            codigo={"CIT-2002"}
             ramo={"Bases de Datos"}
             state={this.state.CIT2002}
           />
           <Ramo
-            codigo={"CIT2003"}
+            codigo={"CIT-2003"}
             ramo={"Sistemas Operativos"}
             state={this.state.CIT2003}
           />
           <Ramo
-            codigo={"FIC1003"}
+            codigo={"FIC-1003"}
             ramo={"Derecho en Ingeniería"}
             state={this.state.FIC1003}
           />
           <Ramo
-            codigo={"CIT2201"}
+            codigo={"CIT-2201"}
             ramo={"Proyecto en TICs II"}
             state={this.state.CIT2201}
           />
           <Ramo
-            codigo={"CIT3200"}
+            codigo={"CIT-3200"}
             ramo={"Evaluación de Proyectos TIC"}
             state={this.state.CIT3200}
           />
           <Ramo
-            codigo={"CIT3201"}
+            codigo={"CIT-3201"}
             ramo={"Proyecto en TICs III"}
             state={this.state.CIT3201}
           />
@@ -355,36 +355,36 @@ export default class Malla2010 extends Component {
 
         <div className="row row-cols-10">
           <Ramo
-            codigo={"FIC1000"}
+            codigo={"FIC-1000"}
             ramo={"Comunicación para la Ing."}
             state={this.state.FIC1000}
           />
-          <Ramo codigo={"CFG1"} ramo={"Minor / CFG"} state={this.state.CFG1} />
+          <Ramo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG1} />
           <Ramo
-            codigo={"CIT2100"}
+            codigo={"CIT-2100"}
             ramo={"Redes de Datos"}
             state={this.state.CIT2100}
           />
-          <Ramo codigo={"CFG2"} ramo={"Minor / CFG"} state={this.state.CFG2} />
-          <Ramo codigo={"CFG3"} ramo={"Minor / CFG"} state={this.state.CFG3} />
+          <Ramo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG2} />
+          <Ramo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG3} />
           <Ramo
-            codigo={"CIT2103"}
+            codigo={"CIT-2103"}
             ramo={"Sistemas Digitales"}
             state={this.state.CIT2103}
           />
           <Ramo
-            codigo={"CIT2104"}
-            ramo={"Arquitectura de Comp."}
+            codigo={"CIT-2104"}
+            ramo={"Arquitectura de Computadores"}
             state={this.state.CIT2104}
           />
-          <Ramo codigo={"CFG4"} ramo={"Minor / CFG"} state={this.state.CFG4} />
+          <Ramo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG4} />
           <Ramo
-            codigo={"CIT3312"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3312}
           />
           <Ramo
-            codigo={"CIT3313"}
+            codigo={"CIT33XX"}
             ramo={"Electivo Profesional"}
             state={this.state.CIT3313}
           />
@@ -397,12 +397,12 @@ export default class Malla2010 extends Component {
           <div className="col"> </div>
           <div className="col"> </div>
           <Ramo
-            codigo={"FIC1001"}
+            codigo={"FIC-1001"}
             ramo={"Inglés I"}
             state={this.state.FIC1001}
           />
           <Ramo
-            codigo={"FIC1002"}
+            codigo={"FIC-1002"}
             ramo={"Inglés II"}
             state={this.state.FIC1002}
           />
@@ -418,19 +418,11 @@ export default class Malla2010 extends Component {
           <div className="col"> </div>
           <div className="col"> </div>
           <div className="col"> </div>
-          <Ramo
-            codigo={"CIT5001"}
-            ramo={"Practica I"}
-            state={this.state.CIT5001}
-          />
+          <Ramo codigo={""} ramo={"Practica I"} state={this.state.CIT5001} />
           <div className="col"> </div>
           <div className="col"> </div>
           <div className="col"> </div>
-          <Ramo
-            codigo={"CIT5002"}
-            ramo={"Practica II"}
-            state={this.state.CIT5002}
-          />
+          <Ramo codigo={""} ramo={"Practica II"} state={this.state.CIT5002} />
           <div className="col"></div>
         </div>
       </div>

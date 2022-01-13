@@ -115,7 +115,33 @@ export default class Malla2010 extends Component {
               <br />
             </div>
           </div>
-          <div className="col mt-1">Formación en Ingeniería Aplicada</div>
+          <div className="col mt-1">
+            Formación en Ingeniería Aplicada: Proyectos e Integración
+          </div>
+        </div>
+        <div className="row row-cols-10">
+          <div className="col col-md-1 mt-1">
+            <div
+              className="card border-dark text-center"
+              style={{ background: "#FF99F0" }}
+            >
+              <br />
+            </div>
+          </div>
+          <div className="col mt-1">
+            Formación en Ingeniería Aplicada: Telecomuniaciones
+          </div>
+          <div className="col col-md-1 mt-1">
+            <div
+              className="card border-dark text-center"
+              style={{ background: "#FAEBD7" }}
+            >
+              <br />
+            </div>
+          </div>
+          <div className="col mt-1">
+            Formación en Ingeniería Aplicada: Informática
+          </div>
         </div>
         <div className="row row-cols-10">
           <div className="col col-md-1 mt-1">
@@ -148,431 +174,384 @@ export default class Malla2010 extends Component {
 
         <br />
 
-        <div className="row  row-cols-10">
+        <div className="row row-cols-10 align-items-start">
           <Ramo
             codigo={"CBM-1000"}
             ramo={"Álgebra y Geometría"}
             color={"#45C8FF"}
+            id={"1"}
+            req={"-"}
           />
-          <Ramo codigo={"CBM-1002"} ramo={"Álgebra Lineal"} color={"#45C8FF"} />
+          <Ramo
+            codigo={"CBM-1002"}
+            ramo={"Álgebra Lineal"}
+            color={"#45C8FF"}
+            id={"6"}
+            req={"1"}
+          />
           <Ramo
             codigo={"CBM-1005"}
             ramo={"Ecuaciones Diferenciales"}
             color={"#45C8FF"}
+            id={"11"}
+            req={"6, 7"}
           />
           <Ramo
             codigo={"CIT-2204"}
-            ramo={"Probabilidades y Estadisticas"}
+            ramo={"Probabilidades y Estadística"}
             color={"#4FFF80"}
+            id={"16"}
+            req={"7"}
           />
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#4FFF80" }}
-            >
-              <h6 className="card-title">
-                <font size="2">CII-2750</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Optimización &nbsp;</font>
-              </p>
-            </div>
-          </div>
-
           <Ramo
-            codigo={"CII-1000"}
+            codigo={"CII-2750"}
+            ramo={"Optimización"}
+            color={"#4FFF80"}
+            id={"22"}
+            req={"6, 12"}
+          />
+          <Ramo
+            codigo={"CII-2000"}
             ramo={"Contabilidad y Costos"}
             color={"#4FFF80"}
+            id={"28"}
+            req={"2"}
           />
+
           <Ramo
-            codigo={"CIT-2206"}
+            codigo={"CIT-2203"}
             ramo={"Gestión Organizacional"}
             color={"#4FFF80"}
+            id={"34"}
+            req={"54"}
           />
           <Ramo
             codigo={"CII-2100"}
             ramo={"Introducción a la Economía"}
             color={"#4FFF80"}
+            id={"39"}
+            req={"7"}
           />
           <Ramo
             codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
-            color={"#BABABA"}
+            color={"#FAEBD7"}
+            id={"44"}
+            req={"SC"}
           />
           <Ramo
             codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
-            color={"#BABABA"}
+            color={"#FAEBD7"}
+            id={"49"}
+            req={"SC"}
           />
         </div>
-
         <br />
 
-        <div className="row  row-cols-10">
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#45C8FF" }}
-            >
-              <h6 className="card-title">
-                <font size="2">CBM-1001</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  Cálculo I
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#45C8FF" }}
-            >
-              <h6 className="card-title">
-                <font size="2">CBM-1003</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  Cálculo II
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#45C8FF" }}
-            >
-              <h6 className="card-title">
-                <font size="2">CBM-1006</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  Cálculo III
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </font>
-              </p>
-            </div>
-          </div>
+        <div className="row row-cols-10">
+          <Ramo
+            codigo={"CBM-1001"}
+            ramo={"Cálculo I"}
+            color={"#45C8FF"}
+            id={"2"}
+            req={"-"}
+          />
+          <Ramo
+            codigo={"CBM-1003"}
+            ramo={"Cálculo II"}
+            color={"#45C8FF"}
+            id={"7"}
+            req={"2"}
+          />
+          <Ramo
+            codigo={"CBM-1006"}
+            ramo={"Cálculo III"}
+            color={"#45C8FF"}
+            id={"12"}
+            req={"7"}
+          />
           <Ramo
             codigo={"CIT-2107"}
             ramo={"Electrónica y Electrotecnia"}
             color={"#4FFF80"}
+            id={"17"}
+            req={"8, 11, 12"}
           />
           <Ramo
             codigo={"CIT-2108"}
-            ramo={"T. de Redes y Servicios"}
-            color={"#F2B8FF"}
+            ramo={"Taller de Redes y Servicios"}
+            color={"#FF99F0"}
+            id={"23"}
+            req={"15, 16"}
           />
+
           <Ramo
             codigo={"CIT-2109"}
             ramo={"Arq. y Org. de Computadores"}
-            color={"#F2B8FF"}
+            color={"#FF99F0"}
+            id={"29"}
+            req={"15, 17"}
           />
+
           <Ramo
             codigo={"CIT-2011"}
             ramo={"Sistemas Distribuidos"}
-            color={"#BABABA"}
+            color={"#FAEBD7"}
+            id={"35"}
+            req={"15, 31"}
           />
           <Ramo
             codigo={"CIT-2112"}
             ramo={"Tecnologías Inalámbricas"}
-            color={"#F2B8FF"}
+            color={"#FF99F0"}
+            id={"40"}
+            req={"36"}
           />
           <Ramo
             codigo={"CIT-3100"}
             ramo={"Arquitecturas Emergentes"}
-            color={"#F2B8FF"}
+            color={"#FF99F0"}
+            id={"45"}
+            req={"35"}
           />
           <Ramo
             codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
-            color={"#F2B8FF"}
+            color={"#FF99F0"}
+            id={"50"}
+            req={"SC"}
           />
         </div>
-
         <br />
 
-        <div className="row  row-cols-10">
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#45C8FF" }}
-            >
-              <h6 className="card-title">
-                <font size="2">CBQ-1000</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  Química &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#45C8FF" }}
-            >
-              <h6 className="card-title">
-                <font size="2">CBF-1000</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  Mecánica
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#45C8FF" }}
-            >
-              <h6 className="card-title">
-                <font size="2">CBF-1001</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Calor y Ondas &nbsp;</font>
-              </p>
-            </div>
-          </div>
+        <div className="row row-cols-10">
+          <Ramo
+            codigo={"CBQ-1000'"}
+            ramo={"Química"}
+            color={"#45C8FF"}
+            id={"3"}
+            req={"-"}
+          />
+          <Ramo
+            codigo={"CBF-1000'"}
+            ramo={"Mecánica"}
+            color={"#45C8FF"}
+            id={"8"}
+            req={"2"}
+          />
+          <Ramo
+            codigo={"CBF-1001'"}
+            ramo={"Calor y Ondas"}
+            color={"#45C8FF"}
+            id={"13"}
+            req={"7,8"}
+          />
+
           <Ramo
             codigo={"CBF-1002"}
             ramo={"Electricidad y Magnetismo"}
             color={"#45C8FF"}
+            id={"18"}
+            req={"11, 12"}
           />
           <Ramo
             codigo={"CIT-2205"}
-            ramo={"Proyectos en TICs I"}
+            ramo={"Proyecto en TICs I"}
             color={"#FFDA27"}
+            id={"24"}
+            req={"15, 20"}
           />
           <Ramo
             codigo={"CIT-2110"}
             ramo={"Señales y Sistemas"}
-            color={"#F2B8FF"}
+            color={"#FF99F0"}
+            id={"30"}
+            req={"13, 17"}
           />
           <Ramo
             codigo={"CIT-2111"}
-            ramo={"Comunicacio -nes Digitales"}
-            color={"#F2B8FF"}
+            ramo={"Comunicaciones Digitales"}
+            color={"#FF99F0"}
+            id={"36"}
+            req={"18, 30"}
           />
           <Ramo
             codigo={"CIT-2113"}
             ramo={"Criptografía y Seg. en Redes"}
-            color={"#F2B8FF"}
+            color={"#FF99F0"}
+            id={"41"}
+            req={"23"}
           />
           <Ramo
             codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
-            color={"#F2B8FF"}
+            color={"#FF99F0"}
+            id={"46"}
+            req={"SC"}
           />
           <Ramo
             codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
-            color={"#F2B8FF"}
+            color={"#FF99F0"}
+            id={"51"}
+            req={"SC"}
           />
         </div>
 
         <br />
 
-        <div className="row  row-cols-10">
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#4FFF80" }}
-            >
-              <h6 className="card-title">
-                <font size="2">CIT-1000</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Programación &nbsp;</font>
-              </p>
-            </div>
-          </div>
+        <div className="row row-cols-10">
+          <Ramo
+            codigo={"CIT-1000"}
+            ramo={"Programación"}
+            color={"#4FFF80"}
+            id={"4"}
+            req={"-"}
+          />
           <Ramo
             codigo={"CIT-1010"}
             ramo={"Programación Avanzada"}
             color={"#4FFF80"}
+            id={"9"}
+            req={"4"}
           />
           <Ramo
             codigo={"CIT-2006"}
-            ramo={"Estruct. de Datos y Alg."}
-            color={"#BABABA"}
+            ramo={"Estructura De Datos y Alg."}
+            color={"#FAEBD7"}
+            id={"14"}
+            req={"9"}
           />
-          <Ramo codigo={"CIT-2007"} ramo={"Bases de Datos"} color={"#BABABA"} />
+
+          <Ramo
+            codigo={"CIT-2007"}
+            ramo={"Bases de Datos"}
+            color={"#FAEBD7"}
+            id={"19"}
+            req={"14"}
+          />
           <Ramo
             codigo={"CIT-2009"}
-            ramo={"B. de Datos Avanzadas"}
-            color={"#BABABA"}
+            ramo={"Bases de Datos Avanzadas"}
+            color={"#FAEBD7"}
+            id={"25"}
+            req={"19"}
           />
           <Ramo
             codigo={"CIT-2010"}
             ramo={"Sistemas Operativos"}
-            color={"#BABABA"}
+            color={"#FAEBD7"}
+            id={"31"}
+            req={"19, 24"}
           />
           <Ramo
             codigo={"CIT-2012"}
             ramo={"Ingeniería de Software"}
-            color={"#BABABA"}
+            color={"#FAEBD7"}
+            id={"37"}
+            req={"19, 24"}
           />
           <Ramo
-            codigo={"CIT-2213"}
-            ramo={"Inteligencia Artifical"}
-            color={"#BABABA"}
+            codigo={"CIT-2013"}
+            ramo={"Inteligencia Artificial"}
+            color={"#FAEBD7"}
+            id={"42"}
+            req={"16, 19, 22"}
           />
           <Ramo
             codigo={"CIT-3000"}
             ramo={"Arquitectura de Software"}
-            color={"#BABABA"}
+            color={"#FAEBD7"}
+            id={"47"}
+            req={"37"}
           />
           <Ramo
-            codigo={"CIT-33xx"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
-            color={"#BABABA"}
+            color={"#FAEBD7"}
+            id={"52"}
+            req={"SC"}
           />
         </div>
 
         <br />
 
-        <div className="row  row-cols-10">
+        <div className="row row-cols-10">
           <Ramo
             codigo={"FIC-1000"}
             ramo={"Comunicación para la Ing."}
             color={"#FFB260"}
+            id={"5"}
+            req={"-"}
           />
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#FFB260" }}
-            >
-              <h6 className="card-title">
-                <font size="2"> &nbsp; </font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Minor / CFG &nbsp;&nbsp;&nbsp;&nbsp;</font>
-              </p>
-            </div>
-          </div>
-          <Ramo codigo={"CIT-2114"} ramo={"Redes de Datos"} color={"#F2B8FF"} />
+          <Ramo ramo={"CFG"} color={"#FFB260"} id={"10"} req={"SC"} />
+          <Ramo
+            codigo={"CIT-2114"}
+            ramo={"Redes de Datos"}
+            color={"#FF99F0"}
+            id={"15"}
+            req={"9"}
+          />
           <Ramo
             codigo={"CIT-2008"}
             ramo={"Desarrollo Web y Móvil"}
-            color={"#BABABA"}
+            color={"#FAEBD7"}
+            id={"20"}
+            req={"9"}
           />
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#FFB260" }}
-            >
-              <h6 className="card-title">
-                <font size="2"> &nbsp; </font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Minor / CFG &nbsp;&nbsp;&nbsp;&nbsp;</font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#FFB260" }}
-            >
-              <h6 className="card-title">
-                <font size="2"> &nbsp; </font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Minor / CFG &nbsp;&nbsp;&nbsp;&nbsp;</font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#FFB260" }}
-            >
-              <h6 className="card-title">
-                <font size="2"> &nbsp; </font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Minor / CFG &nbsp;&nbsp;&nbsp;&nbsp;</font>
-              </p>
-            </div>
-          </div>
+          <Ramo ramo={"CFG"} color={"#FFB260"} id={"26"} req={"SC"} />
+          <Ramo ramo={"CFG"} color={"#FFB260"} id={"32"} req={"SC"} />
+          <Ramo ramo={"CFG"} color={"#FFB260"} id={"38"} req={"SC"} />
           <Ramo
             codigo={"CIT-2207"}
             ramo={"Evaluación de Proyectos TIC"}
             color={"#FFDA27"}
+            id={"43"}
+            req={"28, 34, 37"}
           />
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#FFDA27" }}
-            >
-              <h6 className="card-title">
-                <font size="2"> CIT-3202 </font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Data Science &nbsp;&nbsp;&nbsp;&nbsp;</font>
-              </p>
-            </div>
-          </div>
+          <Ramo
+            codigo={"CIT-3202"}
+            ramo={"Data Science"}
+            color={"#FFDA27"}
+            id={"48"}
+            req={"25, 42"}
+          />
           <Ramo
             codigo={"CIT-3203"}
             ramo={"Proyecto en TICs II"}
             color={"#FFDA27"}
+            id={"53"}
+            req={"43"}
           />
         </div>
-
         <br />
 
-        <div className="row  row-cols-10">
+        <div className="row row-cols-10">
           <div className="col"> </div>
           <div className="col"> </div>
           <div className="col"> </div>
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#FFB260" }}
-            >
-              <h6 className="card-title">
-                <font size="2">CIG-1012</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Inglés I</font>
-              </p>
-            </div>
-          </div>
-          <div className="col ">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#FFB260" }}
-            >
-              <h6 className="card-title">
-                <font size="2">CIG-1013</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Inglés II</font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div
-              className="card border-primary text-center"
-              style={{ background: "#FFB260" }}
-            >
-              <h6 className="card-title">
-                <font size="2">FIC-1014</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Inglés III</font>
-              </p>
-            </div>
-          </div>
+          <Ramo
+            codigo={"CIG-1012"}
+            ramo={"Ingles I"}
+            color={"#FFB260"}
+            id={"21"}
+            req={"5"}
+          />
+          <Ramo
+            codigo={"CIG-1013"}
+            ramo={"Ingles II"}
+            color={"#FFB260"}
+            id={"27"}
+            req={"21"}
+          />
+          <Ramo
+            codigo={"CIG-1014"}
+            ramo={"Ingles III"}
+            color={"#FFB260"}
+            id={"33"}
+            req={"27"}
+          />
           <div className="col"> </div>
           <div className="col"> </div>
           <div className="col"> </div>
@@ -584,29 +563,25 @@ export default class Malla2010 extends Component {
           <div className="col"> </div>
           <div className="col"> </div>
           <div className="col"> </div>
-          <div className="col ">
-            <div className="card border-primary text-center">
-              <h6 className="card-title">
-                <font size="2">CIT-4000</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Práctica I</font>
-              </p>
-            </div>
-          </div>
+
+          <Ramo
+            codigo={"CIT-4000"}
+            ramo={"Práctica I"}
+            color={"white"}
+            id={"54"}
+            req={"45"}
+          />
           <div className="col"> </div>
           <div className="col"> </div>
           <div className="col"> </div>
-          <div className="col">
-            <div className="card border-primary text-center">
-              <h6 className="card-title">
-                <font size="2">CIT-4001</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">Práctica II</font>
-              </p>
-            </div>
-          </div>
+
+          <Ramo
+            codigo={"CIT-4001"}
+            ramo={"Práctica II"}
+            color={"white"}
+            id={"55"}
+            req={"8S"}
+          />
           <div className="col"></div>
         </div>
       </div>
