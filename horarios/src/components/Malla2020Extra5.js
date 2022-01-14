@@ -19,7 +19,7 @@ export default class Malla2020Extra4 extends Component {
         <div className="row row-cols-10 align-items-start">
           <div className="col col-md-1"> </div>
           <RamoE
-            codigo={"CIT-33xx"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             numero={"44"}
             creditos={"6"}
@@ -27,7 +27,7 @@ export default class Malla2020Extra4 extends Component {
             formacion={"Ingeniería Aplicada - Informática"}
           />
           <RamoE
-            codigo={"CIT-33xx"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             numero={"49"}
             creditos={"6"}
@@ -50,7 +50,7 @@ export default class Malla2020Extra4 extends Component {
             formacion={"Ingeniería Aplicada - Telecomunicaciones"}
           />
           <RamoE
-            codigo={"CIT-34xx"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             numero={"50"}
             creditos={"6"}
@@ -84,7 +84,7 @@ export default class Malla2020Extra4 extends Component {
             </Link>
           </div>
           <RamoE
-            codigo={"CIT-34xx"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             numero={"46"}
             creditos={"6"}
@@ -92,7 +92,7 @@ export default class Malla2020Extra4 extends Component {
             formacion={"Ingeniería Aplicada - Telecomunicaciones"}
           />
           <RamoE
-            codigo={"CIT-34xx"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             numero={"51"}
             creditos={"6"}
@@ -170,7 +170,7 @@ export default class Malla2020Extra4 extends Component {
             ramo={"Práctica II"}
             numero={"55"}
             creditos={"7"}
-            prerequisitos={" 8 Semestre Cursado "}
+            prerequisitos={"8 Semestres Cursados"}
             formacion={"Prácticas"}
           />
           <div className="col col-md-6"> </div>

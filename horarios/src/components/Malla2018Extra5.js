@@ -19,7 +19,7 @@ export default class Malla2018Extra4 extends Component {
         <div className="row row-cols-10 align-items-start">
           <div className="col col-md-1"> </div>
           <RamoE
-            codigo={"CIT-33xx"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             numero={"43"}
             creditos={"6"}
@@ -27,7 +27,7 @@ export default class Malla2018Extra4 extends Component {
             formacion={"Ingeniería Aplicada"}
           />
           <RamoE
-            codigo={"CIT-33xx"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             numero={"48"}
             creditos={"6"}
@@ -42,7 +42,7 @@ export default class Malla2018Extra4 extends Component {
         <div className="row row-cols-10">
           <div className="col col-md-1"> </div>
           <RamoE
-            codigo={"CIT-34xx"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             numero={"44"}
             creditos={"6"}
@@ -50,7 +50,7 @@ export default class Malla2018Extra4 extends Component {
             formacion={"Ingeniería Aplicada"}
           />
           <RamoE
-            codigo={"CIT-34xx"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             numero={"49"}
             creditos={"6"}
@@ -84,7 +84,7 @@ export default class Malla2018Extra4 extends Component {
             </Link>
           </div>
           <RamoE
-            codigo={"CIT-34xx"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             numero={"45"}
             creditos={"6"}
@@ -92,7 +92,7 @@ export default class Malla2018Extra4 extends Component {
             formacion={"Ingeniería Aplicada"}
           />
           <RamoE
-            codigo={"CIT-34xx"}
+            codigo={"CIT-34XX"}
             ramo={"Electivo Profesional"}
             numero={"50"}
             creditos={"6"}
@@ -141,7 +141,7 @@ export default class Malla2018Extra4 extends Component {
         <div className="row row-cols-10">
           <div className="col col-md-1"> </div>
           <RamoE
-            codigo={"CIT-33xx"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             numero={"47"}
             creditos={"6"}
@@ -149,7 +149,7 @@ export default class Malla2018Extra4 extends Component {
             formacion={"Ingeniería Aplicada"}
           />
           <RamoE
-            codigo={"CIT-33xx"}
+            codigo={"CIT-33XX"}
             ramo={"Electivo Profesional"}
             numero={"52"}
             creditos={"6"}

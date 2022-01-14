@@ -79,13 +79,13 @@ export default class PERT extends Component {
                   Volver a Avance Curricular
                 </Button>
                 <Button
-                  href="/users/usr/priorizarRamos"
+                  href="/users/usr/priorizarAreaCFG"
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   style={{ float: "right" }}
                   size="large"
                 >
-                  Ir a Priorizar Asignaturas
+                  Ir a Priorizar CFG
                 </Button>
               </div>
               <div style={{ textAlign: "center" }}>
@@ -147,13 +147,13 @@ export default class PERT extends Component {
                   Volver a Avance Curricular
                 </Button>
                 <Button
-                  href="/users/usr/priorizarRamos"
+                  href="/users/usr/priorizarAreaCFG"
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   style={{ float: "right" }}
                   size="large"
                 >
-                  Ir a Priorizar Asignaturas
+                  Ir a Priorizar CFG
                 </Button>
               </div>
               <div style={{ textAlign: "center" }}>
@@ -214,13 +214,13 @@ export default class PERT extends Component {
                   Volver a Avance Curricular
                 </Button>
                 <Button
-                  href="/users/usr/priorizarRamos"
+                  href="/users/usr/priorizarAreaCFG"
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   style={{ float: "right" }}
                   size="large"
                 >
-                  Ir a Priorizar Asignaturas
+                  Ir a Priorizar CFG
                 </Button>
               </div>
               <div style={{ textAlign: "center" }}>

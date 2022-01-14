@@ -20,27 +20,27 @@ export default class UserInterface extends Component {
     return (
       <Fragment>
         {localStorage.getItem("token") ? (
-          <ATRLayout phase={5}>
+          <ATRLayout phase={4}>
             <br />
             <br />
             <br />
             <div className="container">
               <Button
-                href="/users/usr/priorizarRamos"
+                href="/users/usr/PERT"
                 icon={<ArrowLeftOutlined />}
                 size="large"
                 style={{ textAlign: "left" }}
               >
-                Volver a Priorizar Ramos
+                Volver a Mis Ramos Críticos
               </Button>
               <Button
-                href="/users/usr/priorizarSeccion"
+                href="/users/usr/priorizarRamos"
                 type="primary"
                 icon={<ArrowRightOutlined />}
                 style={{ float: "right" }}
                 size="large"
               >
-                Ir a Priorizar Secciones
+                Ir a Priorizar Ramos
               </Button>
             </div>
             <div style={{ textAlign: "center" }}>

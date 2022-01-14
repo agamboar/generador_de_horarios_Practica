@@ -23,12 +23,12 @@ export default class M2018Extra2 extends Component {
           <br />
           <div className="container">
             <Button
-              href="/users/usr/mallas"
+              href="/users/usr/mallas/malla2018"
               onClick={this.deleteMalla}
               icon={<ArrowLeftOutlined />}
               size="large"
             >
-              Elegir otra malla
+              Volver
             </Button>
             <Button
               href="/users/usr/mallas/malla2018/AvanceCurricular"

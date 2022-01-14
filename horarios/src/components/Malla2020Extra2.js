@@ -49,28 +49,14 @@ export default class Malla2020Extra2 extends Component {
             prerequisitos={"Cálculo II"}
             formacion={"Ciencias Básicas"}
           />
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2107</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Electrónica y Electrotecnia
-                  <br />
-                  &nbsp;&nbsp;° Número: 17
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Mecánica - Ecuaciones
-                  Diferenciales - Calculo III
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ciencias de la Ingeniería
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
+          <RamoE
+            codigo={"CIT-2107"}
+            ramo={"Electrónica y Electrotecnia"}
+            numero={"17"}
+            creditos={"6"}
+            prerequisitos={"Mecánica - Ecuaciones Diferenciales - Calculo III"}
+            formacion={"Ciencias de la Ingeniería"}
+          />
 
           <div className="col col-md-1"> </div>
         </div>
@@ -106,28 +92,14 @@ export default class Malla2020Extra2 extends Component {
             prerequisitos={"Cálculo II - Mecánica"}
             formacion={"Ciencias Básicas"}
           />
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CBF-1002</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Electricidad y Magnetismo
-                  <br />
-                  &nbsp;&nbsp;° Número: 18
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 7
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Ecuaciones Diferenciales -
-                  Cálculo III
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ciencias Básicas
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
+          <RamoE
+            codigo={"CBF-1002"}
+            ramo={"Electricidad y Magnetismo"}
+            numero={"18"}
+            creditos={"7"}
+            prerequisitos={"Ecuaciones Diferenciales - Cálculo III"}
+            formacion={"Ciencias Básicas"}
+          />
 
           <div className="col col-md-1">
             <Link
@@ -163,27 +135,15 @@ export default class Malla2020Extra2 extends Component {
             prerequisitos={"Programación Avanzada"}
             formacion={"Ingeniería Aplicada - Informática"}
           />
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2007</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Bases de Datos
-                  <br />
-                  &nbsp;&nbsp;° Número: 19
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Estructura de Datos y Algoritmos
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ingeniería Aplicada - Informática
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
+
+          <RamoE
+            codigo={"CIT-2007"}
+            ramo={"Bases de Datos"}
+            numero={"19"}
+            creditos={"6"}
+            prerequisitos={"Estructura de Datos y Algoritmos"}
+            formacion={"Ingeniería Aplicada - Informática"}
+          />
 
           <div className="col col-md-1"> </div>
         </div>
@@ -198,7 +158,7 @@ export default class Malla2020Extra2 extends Component {
             numero={"15"}
             creditos={"6"}
             prerequisitos={"Programación Avanzada"}
-            formacion={"Ingeniería Aplicada - Telec."}
+            formacion={"Ingeniería Aplicada - Telecomunicaciones"}
           />
           <RamoE
             codigo={" CIT-2008 "}
@@ -231,15 +191,7 @@ export default class Malla2020Extra2 extends Component {
 
         <div className="row row-cols-10">
           <div className="col"></div>
-          <RamoE
-            codigo={"CIT-4000"}
-            ramo={"Práctica I"}
-            numero={"54"}
-            creditos={"7"}
-            prerequisitos={"4 Semestre Cursado"}
-            formacion={"Práctica"}
-          />
-          <div className="col"> </div>
+          <div className="col"></div>
           <div className="col"> </div>
         </div>
         <br />

@@ -41,51 +41,26 @@ export default class Malla2010Extra3 extends Component {
 
         <div className="row row-cols-10">
           <div className="col col-md-1"> </div>
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2106</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Electrónica y Electrotecnia
-                  <br />
-                  &nbsp;&nbsp;° Número: 23
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Electricidad y Magnetismo
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ciencias de la Ingeniería
-                  <br />
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2202</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Modelos Estocasticos y Simulación
-                  <br />
-                  &nbsp;&nbsp;° Número: 29
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos -
-                  <br />
-                  &nbsp;&nbsp;&nbsp; Probabilidades y Estadistica - Optimización
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ciencias de la Ingeniería
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
+
+          <RamoE
+            codigo={"CIT-2106"}
+            ramo={"Electrónica y Electrotecnia"}
+            numero={"23"}
+            creditos={"6"}
+            prerequisitos={"Electricidad y Magnetismo"}
+            formacion={"Ciencias de la Ingeniería"}
+          />
+          <RamoE
+            codigo={"CIT-2202"}
+            ramo={"Modelos Estocásticos y Simulación"}
+            numero={"29"}
+            creditos={"6"}
+            prerequisitos={
+              "Probabilidades y Estadistica - Optimización - Redes de Datos"
+            }
+            formacion={"Ciencias de la Ingeniería"}
+          />
+
           <div className="col col-md-1"> </div>
         </div>
 
@@ -112,50 +87,26 @@ export default class Malla2010Extra3 extends Component {
               </svg>
             </Link>
           </div>
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2200</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Proyectos en TICs I
-                  <br />
-                  &nbsp;&nbsp;° Número: 24
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos - Diseño y
-                  Análisis de Algoritmos
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ingeniería Aplicada
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2101</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Señales y Sistemas
-                  <br />
-                  &nbsp;&nbsp;° Número: 30
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Probabilidades y Estadistica -
-                  Electrónica y Electrotecnia
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ingeniería Aplicada
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
+          <RamoE
+            codigo={"CIT-2200"}
+            ramo={"Proyecto en TICs I"}
+            numero={"24"}
+            creditos={"6"}
+            prerequisitos={"Redes de Datos - Diseño y Análisis de Algoritmos"}
+            formacion={"Ingeniería Aplicada"}
+          />
+
+          <RamoE
+            codigo={"CIT-2201"}
+            ramo={"Señales y Sistemas"}
+            numero={"30"}
+            creditos={"6"}
+            prerequisitos={
+              "Probabilidades y Estadistica - Electrónica y Electrotecnia"
+            }
+            formacion={"Ingeniería Aplicada"}
+          />
+
           <div className="col col-md-1">
             <Link
               className="nav-link"
@@ -182,52 +133,25 @@ export default class Malla2010Extra3 extends Component {
 
         <div className="row row-cols-10">
           <div className="col col-md-1"> </div>
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2002</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Bases de Datos
-                  <br />
-                  &nbsp;&nbsp;° Número: 25
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Diseño y Análisis de
-                  <br />
-                  &nbsp;&nbsp;&nbsp; Algoritmos
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ingeniería Aplicada
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2003</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Sistemas Operativos
-                  <br />
-                  &nbsp;&nbsp;° Número: 31
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Redes de Datos -
-                  <br />
-                  &nbsp;&nbsp;&nbsp; Bases de Datos
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ingeniería Aplicada
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
+
+          <RamoE
+            codigo={"CIT-2002"}
+            ramo={"Bases de Datos"}
+            numero={"25"}
+            creditos={"6"}
+            prerequisitos={"Diseño y Análisis de Algoritmos"}
+            formacion={"Ingeniería Aplicada"}
+          />
+
+          <RamoE
+            codigo={"CIT-2003"}
+            ramo={"Sistemas Operativos"}
+            numero={"31"}
+            creditos={"6"}
+            prerequisitos={"Redes de Datos - Bases de Datos"}
+            formacion={"Ingeniería Aplicada"}
+          />
+
           <div className="col col-md-1"> </div>
         </div>
 
@@ -259,7 +183,7 @@ export default class Malla2010Extra3 extends Component {
         <div className="row row-cols-10">
           <div className="col col-md-1"> </div>
           <RamoE
-            codigo={"CIG-1002"}
+            codigo={"FIC-1002"}
             ramo={"Inglés II"}
             numero={"27"}
             creditos={"5"}

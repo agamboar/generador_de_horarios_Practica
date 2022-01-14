@@ -126,50 +126,24 @@ export default class Malla2010Extra3 extends Component {
 
         <div className="row row-cols-10">
           <div className="col col-md-1"> </div>
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">FIC-1003</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Derecho en Ingeniería
-                  <br />
-                  &nbsp;&nbsp;° Número: 35
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 5
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: 180 Creditos
-                  <br />
-                  &nbsp;&nbsp;° Formación: Transversal
-                  <br />
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2201</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Proyecto en TICs II
-                  <br />
-                  &nbsp;&nbsp;° Número: 41
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Proyecto en TICs I - Ingeniería
-                  de Software - &nbsp;&nbsp;&nbsp;Comunicaciones Digitales
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ingeniería Aplicada
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
+          <RamoE
+            codigo={"FIC-1003"}
+            ramo={"Derecho en Ingeniería"}
+            numero={"35"}
+            creditos={"5"}
+            prerequisitos={"180 Créditos"}
+            formacion={"Transversal"}
+          />
+          <RamoE
+            codigo={"CIT-2201"}
+            ramo={"Proyecto en TICs II"}
+            numero={"41"}
+            creditos={"6"}
+            prerequisitos={
+              "Proyecto en TICs I - Ingeniería de Software - Comunicaciones Digitales"
+            }
+            formacion={"Ingeniería Aplicada"}
+          />
           <div className="col col-md-1"> </div>
         </div>
 

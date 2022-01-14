@@ -19,7 +19,7 @@ export default class Malla2020Extra3 extends Component {
         <div className="row row-cols-10 align-items-start">
           <div className="col col-md-1"> </div>
           <RamoE
-            codigo={"CIT-2206"}
+            codigo={"CIT-2203"}
             ramo={"Gestión Organizacional"}
             numero={"34"}
             creditos={"6"}
@@ -90,7 +90,7 @@ export default class Malla2020Extra3 extends Component {
             numero={"36"}
             creditos={"6"}
             prerequisitos={"Señales y Sistemas"}
-            formacion={"Ingeniería Aplicada"}
+            formacion={"Ingeniería Aplicada - Telecomunicaciones"}
           />
           <RamoE
             codigo={"CIT-2113"}
@@ -98,7 +98,7 @@ export default class Malla2020Extra3 extends Component {
             numero={"41"}
             creditos={"6"}
             prerequisitos={"Sistemas Operativos"}
-            formacion={"Ingeniería Aplicada"}
+            formacion={"Ingeniería Aplicada - Informática"}
           />
           <div className="col col-md-1">
             <Link
@@ -126,50 +126,26 @@ export default class Malla2020Extra3 extends Component {
 
         <div className="row row-cols-10">
           <div className="col col-md-1"> </div>
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2012</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Ingeniería de Software
-                  <br />
-                  &nbsp;&nbsp;° Número: 37
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Base de Datos - Proyecto en TICs
-                  I
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ingeniería Aplicada - Informática
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2201</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Inteligencia Artificial
-                  <br />
-                  &nbsp;&nbsp;° Número: 42
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Probabilidad y Estadistica -
-                  Base de Datos - Optimización
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ingeniería Aplicada
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
+
+          <RamoE
+            codigo={"CIT-2012"}
+            ramo={"Ingeniería de Software"}
+            numero={"37"}
+            creditos={"6"}
+            prerequisitos={"Bases de Datos - Proyecto en TICs I"}
+            formacion={"Ingeniería Aplicada - Informática"}
+          />
+          <RamoE
+            codigo={"CIT-2013"}
+            ramo={"Inteligencia Artificial"}
+            numero={"42"}
+            creditos={"6"}
+            prerequisitos={
+              "Probabilidades y Estadística - Bases de Datos - Optimización"
+            }
+            formacion={"Ingeniería Aplicada - Informática"}
+          />
+
           <div className="col col-md-1"> </div>
         </div>
 

@@ -327,25 +327,25 @@ export default class Malla2010 extends Component {
 
         <div className="row row-cols-10">
           <Ramo
-            codigo={"CBQ-1000'"}
+            codigo={"CBQ-1000"}
             ramo={"Química"}
             color={"#45C8FF"}
             id={"3"}
             req={"-"}
           />
           <Ramo
-            codigo={"CBF-1000'"}
+            codigo={"CBF-1000"}
             ramo={"Mecánica"}
             color={"#45C8FF"}
             id={"8"}
             req={"2"}
           />
           <Ramo
-            codigo={"CBF-1001'"}
+            codigo={"CBF-1001"}
             ramo={"Calor y Ondas"}
             color={"#45C8FF"}
             id={"13"}
-            req={"7,8"}
+            req={"7, 8"}
           />
 
           <Ramo

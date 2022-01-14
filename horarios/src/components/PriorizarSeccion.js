@@ -56,12 +56,12 @@ export default class UserInterface extends Component {
             <br />
             <div className="container">
               <Button
-                href="/users/usr/priorizarAreaCFG"
+                href="/users/usr/priorizarRamos"
                 icon={<ArrowLeftOutlined />}
                 size="large"
                 style={{ textAlign: "left" }}
               >
-                Volver a Priorizar CFG
+                Volver a Priorizar Ramos
               </Button>
               <Button
                 href="/users/usr/horariosPosibles"

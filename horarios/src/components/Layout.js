@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { Layout, Menu, Typography, Avatar, Divider, Steps } from "antd";
 import {
   PoweroffOutlined,
-  BookOutlined,
-  ExceptionOutlined,
-  HighlightOutlined,
   CalendarOutlined,
   UserOutlined,
   HomeOutlined,
+  TableOutlined,
+  WarningOutlined,
+  OrderedListOutlined,
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Layout.css";
@@ -52,17 +52,17 @@ export default class ATRLayout extends Component {
     },
     {
       key: 4,
-      title: "5. Priorizar Asignaturas",
-      url: "/users/usr/priorizarRamos",
-    },
-    {
-      key: 5,
-      title: "7. Priorizar CFG",
+      title: "5. Priorizar CFG",
       url: "/users/usr/priorizarAreaCFG",
     },
     {
+      key: 5,
+      title: "6. Priorizar Asignaturas",
+      url: "/users/usr/priorizarRamos",
+    },
+    {
       key: 6,
-      title: "6. Priorizar Secciones",
+      title: "7. Priorizar Secciones",
       url: "/users/usr/priorizarSeccion",
     },
     {
@@ -177,41 +177,38 @@ export default class ATRLayout extends Component {
               responsive="false"
               current={this.state.current}
               className="steps-header"
+              size="small"
             >
               <Step key={0} title={"1. Inicio"} icon={<HomeOutlined />}></Step>
               <Step
                 key={1}
                 title={"2. Mi Malla"}
-                icon={<BookOutlined />}
+                icon={<TableOutlined />}
               ></Step>
-              <Step
-                key={2}
-                title={"3. Actualizar Avance"}
-                icon={<BookOutlined />}
-              ></Step>
+              <Step key={2} title={"3. Avance"} icon={<TableOutlined />}></Step>
               <Step
                 key={3}
-                title={"4. Mis Ramos Críticos"}
-                icon={<ExceptionOutlined />}
+                title={"4. Ramos Críticos"}
+                icon={<WarningOutlined />}
               ></Step>
               <Step
                 key={4}
-                title={"5. Priorizar Ramos"}
-                icon={<HighlightOutlined />}
+                title={"5. Áreas CFG"}
+                icon={<OrderedListOutlined />}
               ></Step>
               <Step
                 key={5}
-                title={"6. Priorizar CFG"}
-                icon={<HighlightOutlined />}
+                title={"6. Ramos"}
+                icon={<OrderedListOutlined />}
               ></Step>
               <Step
                 key={6}
-                title={"7. Priorizar Secciones"}
-                icon={<HighlightOutlined />}
+                title={"7. Secciones"}
+                icon={<OrderedListOutlined />}
               ></Step>
               <Step
                 key={7}
-                title={"8. Horarios Posibles"}
+                title={"8. Horarios"}
                 icon={<CalendarOutlined />}
               ></Step>
             </Steps>

@@ -413,27 +413,27 @@ export default class PriorizarRamos extends Component {
             {console.log(this.state.ramos)}
             {this.state.ramos === "no" ? (
               <Fragment>
-                <ATRLayout phase={4}>
+                <ATRLayout phase={5}>
                   <br />
                   <br />
                   <br />
                   <div className="container">
                     <Button
-                      href="/users/usr/PERT"
+                      href="/users/usr/priorizarAreaCFG"
                       icon={<ArrowLeftOutlined />}
                       size="large"
                       style={{ textAlign: "left" }}
                     >
-                      Volver
+                      Volver a Priorizar CFG
                     </Button>
                     <Button
-                      href="/users/usr/priorizarAreaCFG"
+                      href="/users/usr/priorizarSeccion"
                       type="primary"
                       icon={<ArrowRightOutlined />}
                       style={{ float: "right" }}
                       size="large"
                     >
-                      Ir a Priorizar CFG
+                      Ir a Priorizar Secciones
                     </Button>
                   </div>
                   <div style={{ textAlign: "center" }}>
@@ -516,27 +516,27 @@ export default class PriorizarRamos extends Component {
               </Fragment>
             ) : (
               <Fragment>
-                <ATRLayout phase={4}>
+                <ATRLayout phase={5}>
                   <br />
                   <br />
                   <br />
                   <div className="container">
                     <Button
-                      href="/users/usr/PERT"
+                      href="/users/usr/priorizarAreaCFG"
                       icon={<ArrowLeftOutlined />}
                       size="large"
                       style={{ textAlign: "left" }}
                     >
-                      Volver a Mis Ramos Críticos
+                      Volver a Mis Priorizar CFG
                     </Button>
                     <Button
-                      href="/users/usr/priorizarAreaCFG"
+                      href="/users/usr/priorizarSeccion"
                       type="primary"
                       icon={<ArrowRightOutlined />}
                       style={{ float: "right" }}
                       size="large"
                     >
-                      Ir a Priorizar CFG
+                      Ir a Priorizar Secciones
                     </Button>
                   </div>
                   <div style={{ textAlign: "center" }}>

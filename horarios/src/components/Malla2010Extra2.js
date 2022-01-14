@@ -50,28 +50,15 @@ export default class Malla2010Extra2 extends Component {
             prerequisitos={"Cálculo II"}
             formacion={"Ciencias Básicas"}
           />
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CBM-2000</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Métodos Numéricos
-                  <br />
-                  &nbsp;&nbsp;° Número: 17
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Álgebra Lineal - Cálculo II
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ciencias de la Ingeniería
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
 
+          <RamoE
+            codigo={"CBM-2000"}
+            ramo={"Métodos Numéricos"}
+            numero={"17"}
+            creditos={"6"}
+            prerequisitos={"Álgebra Lineal - Cálculo II"}
+            formacion={"Ciencias de la Ingeniería"}
+          />
           <div className="col col-md-1"> </div>
         </div>
 
@@ -106,28 +93,14 @@ export default class Malla2010Extra2 extends Component {
             prerequisitos={"Cálculo II - Mecánica"}
             formacion={"Ciencias Básicas"}
           />
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CBF-1002</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Electricidad y Magnetismo
-                  <br />
-                  &nbsp;&nbsp;° Número: 18
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 7
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Ecuaciones Diferenciales -
-                  Cálculo III
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ciencias Básicas
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
+          <RamoE
+            codigo={"CBF-1002"}
+            ramo={"Electricidad y Magnetismo"}
+            numero={"18"}
+            creditos={"7"}
+            prerequisitos={"Ecuaciones Diferenciales - Cálculo III"}
+            formacion={"Ciencias Básicas"}
+          />
 
           <div className="col col-md-1">
             <Link
@@ -163,27 +136,15 @@ export default class Malla2010Extra2 extends Component {
             prerequisitos={"Programación Avanzada"}
             formacion={"Ingeniería Aplicada"}
           />
-          <div className="col">
-            <div className="card border-primary">
-              <h6 className="card-title text-center">
-                <font size="2">CIT-2001</font>
-              </h6>
-              <p className="card-text">
-                <font size="2">
-                  &nbsp;&nbsp;° Nombre: Diseño y Análisis de Algoritmos
-                  <br />
-                  &nbsp;&nbsp;° Número: 19
-                  <br />
-                  &nbsp;&nbsp;° Creditos: 6
-                  <br />
-                  &nbsp;&nbsp;° Pre-Requisitos: Estructura de Datos
-                  <br />
-                  &nbsp;&nbsp;° Formación: Ingeniería Aplicada
-                  <br />
-                </font>
-              </p>
-            </div>
-          </div>
+          <RamoE
+            codigo={"CIT-2001"}
+            ramo={"Diseño y Análisis de Algoritmos"}
+            numero={"19"}
+            creditos={"6"}
+            prerequisitos={"Estructura de Datos"}
+            formacion={"Ingeniería Aplicada"}
+          />
+
           <div className="col col-md-1"> </div>
         </div>
 
@@ -216,7 +177,7 @@ export default class Malla2010Extra2 extends Component {
           <div className="col col-md-1"> </div>
           <div className="col"> </div>
           <RamoE
-            codigo={"CIG-1001"}
+            codigo={"FIC-1001"}
             ramo={"Inglés I"}
             numero={"21"}
             creditos={"5"}
