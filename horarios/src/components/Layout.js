@@ -1,6 +1,14 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Layout, Menu, Typography, Avatar, Divider, Steps } from "antd";
+import {
+  Layout,
+  Menu,
+  Typography,
+  Avatar,
+  Divider,
+  Steps,
+  Collapse,
+} from "antd";
 import {
   PoweroffOutlined,
   CalendarOutlined,
@@ -9,6 +17,7 @@ import {
   TableOutlined,
   WarningOutlined,
   OrderedListOutlined,
+  UpOutlined,
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Layout.css";
@@ -18,6 +27,7 @@ const { Header, Content, Footer } = Layout;
 const { Text } = Typography;
 const { Step } = Steps;
 const { SubMenu } = Menu;
+const { Panel } = Collapse;
 
 export default class ATRLayout extends Component {
   constructor(props) {
@@ -106,15 +116,7 @@ export default class ATRLayout extends Component {
     return (
       <Fragment>
         <Layout>
-          <Header
-            className="header"
-            style={{
-              position: "fixed",
-              zIndex: 1,
-              width: "100%",
-              height: "auto",
-            }}
-          >
+          <Header className="header">
             <a href="/users/usr">
               <div className="logo" />
               <Avatar
@@ -171,47 +173,64 @@ export default class ATRLayout extends Component {
                 </a>
               </Menu.Item>
             </Menu>
-            <Divider style={{ "background-color": "gray", margin: "0px" }} />
-            <Steps
-              labelPlacement="vertical"
-              responsive="false"
-              current={this.state.current}
-              className="steps-header"
-              size="small"
+            <Divider style={{ "background-color": "#c0c0c0", margin: "0px" }} />
+            <Collapse
+              ghost
+              expandIcon={({ isActive }) => (
+                <UpOutlined rotate={isActive ? 180 : 0} />
+              )}
             >
-              <Step key={0} title={"1. Inicio"} icon={<HomeOutlined />}></Step>
-              <Step
-                key={1}
-                title={"2. Mi Malla"}
-                icon={<TableOutlined />}
-              ></Step>
-              <Step key={2} title={"3. Avance"} icon={<TableOutlined />}></Step>
-              <Step
-                key={3}
-                title={"4. Ramos Críticos"}
-                icon={<WarningOutlined />}
-              ></Step>
-              <Step
-                key={4}
-                title={"5. Áreas CFG"}
-                icon={<OrderedListOutlined />}
-              ></Step>
-              <Step
-                key={5}
-                title={"6. Ramos"}
-                icon={<OrderedListOutlined />}
-              ></Step>
-              <Step
-                key={6}
-                title={"7. Secciones"}
-                icon={<OrderedListOutlined />}
-              ></Step>
-              <Step
-                key={7}
-                title={"8. Horarios"}
-                icon={<CalendarOutlined />}
-              ></Step>
-            </Steps>
+              <Panel header={<Text strong>Expandir</Text>} key="1">
+                <Steps
+                  labelPlacement="vertical"
+                  responsive="true"
+                  current={this.state.current}
+                  className="steps-header"
+                  size="small"
+                >
+                  <Step
+                    key={0}
+                    title={"1. Inicio"}
+                    icon={<HomeOutlined />}
+                  ></Step>
+                  <Step
+                    key={1}
+                    title={"2. Mi Malla"}
+                    icon={<TableOutlined />}
+                  ></Step>
+                  <Step
+                    key={2}
+                    title={"3. Avance"}
+                    icon={<TableOutlined />}
+                  ></Step>
+                  <Step
+                    key={3}
+                    title={"4. Ramos Críticos"}
+                    icon={<WarningOutlined />}
+                  ></Step>
+                  <Step
+                    key={4}
+                    title={"5. Áreas CFG"}
+                    icon={<OrderedListOutlined />}
+                  ></Step>
+                  <Step
+                    key={5}
+                    title={"6. Ramos"}
+                    icon={<OrderedListOutlined />}
+                  ></Step>
+                  <Step
+                    key={6}
+                    title={"7. Secciones"}
+                    icon={<OrderedListOutlined />}
+                  ></Step>
+                  <Step
+                    key={7}
+                    title={"8. Horarios"}
+                    icon={<CalendarOutlined />}
+                  ></Step>
+                </Steps>
+              </Panel>
+            </Collapse>
           </Header>
 
           <Layout>

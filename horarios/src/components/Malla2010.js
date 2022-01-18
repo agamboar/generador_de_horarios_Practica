@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Ramo from "./Ramo";
 import Semestre from "./Semestre";
 import { Link } from "react-router-dom";
-import { Button, Typography } from "antd";
+import { Button, Typography, Row, Col, Card } from "antd";
 import {
   ArrowLeftOutlined,
   ArrowRightOutlined,
@@ -11,7 +11,7 @@ import {
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 export default class Malla2010 extends Component {
   deleteMalla = (e) => {
@@ -39,188 +39,281 @@ export default class Malla2010 extends Component {
   };
   render() {
     return (
-      <div className="container">
-        <Button
-          href="/users/usr/mallas"
-          onClick={this.deleteMalla}
-          icon={<ArrowLeftOutlined />}
-          size="large"
+      <Fragment>
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
         >
-          Elegir otra malla
-        </Button>
-        <Button
-          href="/users/usr/mallas/malla2010/AvanceCurricular"
-          type="primary"
-          icon={<ArrowRightOutlined />}
-          style={{ float: "right" }}
-          size="large"
+          <Col xs={24} xl={12}>
+            <Button
+              href="/users/usr/mallas"
+              onClick={this.deleteMalla}
+              icon={<ArrowLeftOutlined />}
+              size="large"
+            >
+              Elegir otra malla
+            </Button>
+          </Col>
+
+          <Col xs={24} xl={12}>
+            {" "}
+            <Button
+              href="/users/usr/mallas/malla2010/AvanceCurricular"
+              type="primary"
+              icon={<ArrowRightOutlined />}
+              style={{ float: "right" }}
+              size="large"
+            >
+              Elegir Malla 2010
+            </Button>
+          </Col>
+        </Row>
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
         >
-          Elegir Malla 2010
-        </Button>
-        <div style={{ textAlign: "center" }}>
-          <Title
-            style={{
-              textAlign: "center",
-              color: "#008cdb",
-              fontSize: "40px",
-            }}
-          >
-            Malla 2010
-          </Title>
-          <Button
-            type="text"
-            href="/users/usr/mallas/malla2010/DatosExtraM2010-1"
-            size="large"
-            icon={<PlusCircleTwoTone />}
-          >
-            Más Detalles
-          </Button>
-        </div>
-        <br />
-        <div className="row row-cols-10">
-          <div className="col col-md-1 mt-1">
-            <div
-              className="card border-dark text-center"
-              style={{ background: "#45C8FF" }}
+          <Col span={24} style={{ textAlign: "center" }}>
+            <Title
+              style={{
+                color: "#008cdb",
+                fontSize: "40px",
+              }}
+            >
+              Malla 2010
+            </Title>
+          </Col>
+        </Row>
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
+        >
+          <Col span={24} style={{ textAlign: "center" }}>
+            <Button
+              type="text"
+              href="/users/usr/mallas/malla2010/DatosExtraM2010-1"
+              size="large"
+              icon={<PlusCircleTwoTone />}
+            >
+              Más Detalles
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={2}></Col>
+          <Col span={2}>
+            <Card
+              bodyStyle={{
+                backgroundColor: "#45C8FF",
+                padding: "0px",
+                borderStyle: "solid",
+                borderWidth: "1px",
+                borderRadius: "5px",
+              }}
             >
               <br />
-            </div>
-          </div>
-          <div className="col mt-1">Formación en Ciencias Básicas</div>
-          <div className="col col-md-1 mt-1">
-            <div
-              className="card border-dark text-center"
-              style={{ background: "#FFB260" }}
+            </Card>
+          </Col>
+          <Col span={8}>Formación en Ciencias Básicas</Col>
+          <Col span={2}>
+            <Card
+              bodyStyle={{
+                backgroundColor: "#FFB260",
+                padding: "0px",
+                borderStyle: "solid",
+                borderWidth: "1px",
+                borderRadius: "5px",
+              }}
             >
               <br />
-            </div>
-          </div>
-          <div className="col mt-1">Formación Transversal</div>
-        </div>
-        <div className="row row-cols-10">
-          <div className="col col-md-1 mt-1">
-            <div
-              className="card border-dark text-center"
-              style={{ background: "#4FFF80" }}
+            </Card>
+          </Col>
+          <Col span={8}>Formación Transversal</Col>
+          <Col span={2}></Col>
+        </Row>
+
+        <Row>
+          <Col span={2}></Col>
+          <Col span={2}>
+            <Card
+              bodyStyle={{
+                backgroundColor: "#4FFF80",
+                padding: "0px",
+                borderStyle: "solid",
+                borderWidth: "1px",
+                borderRadius: "5px",
+              }}
             >
               <br />
-            </div>
-          </div>
-          <div className="col mt-1">Formación en Ciencias de la Ingeniería</div>
-          <div className="col col-md-1 mt-1">
-            <div
-              className="card border-dark text-center"
-              style={{ background: "#FFDA27" }}
+            </Card>
+          </Col>
+          <Col span={8}>Formación en Ciencias de la Ingeniería</Col>
+          <Col span={2}>
+            <Card
+              bodyStyle={{
+                backgroundColor: "#FFDA27",
+                padding: "0px",
+                borderStyle: "solid",
+                borderWidth: "1px",
+                borderRadius: "5px",
+              }}
             >
               <br />
-            </div>
-          </div>
-          <div className="col mt-1">Formación en Ingeniería Aplicada</div>
-        </div>
-        <div className="row row-cols-10">
-          <div className="col col-md-1 mt-1">
-            <div className="card border-dark text-center">
+            </Card>
+          </Col>
+          <Col span={8}>Formación en Ingeniería Aplicada</Col>
+          <Col span={2}></Col>
+        </Row>
+
+        <Row>
+          <Col span={2}></Col>
+          <Col span={2}>
+            <Card
+              bodyStyle={{
+                backgroundColor: "#ffffff",
+                padding: "0px",
+                borderStyle: "solid",
+                borderWidth: "1px",
+                borderRadius: "5px",
+              }}
+            >
               <br />
-            </div>
-          </div>
-          <div className="col mt-1">Prácticas I y II</div>
-          <div className="col col-md-1 mt-1">*</div>
-          <div className="col mt-1">
+            </Card>
+          </Col>
+          <Col span={8}>Prácticas I y II</Col>
+          <Col span={2}>*</Col>
+          <Col span={8}>
             (Electivos 33XX: Área Informática / Electivos 34XX: Área
             Telecomuniaciones)
-          </div>
-        </div>
-
+          </Col>
+          <Col span={2}></Col>
+        </Row>
         <br />
-
-        <div className="row row-cols-10">
-          <Semestre semestre={"1"} />
-          <Semestre semestre={"2"} />
-          <Semestre semestre={"3"} />
-          <Semestre semestre={"4"} />
-          <Semestre semestre={"5"} />
-          <Semestre semestre={"6"} />
-          <Semestre semestre={"7"} />
-          <Semestre semestre={"8"} />
-          <Semestre semestre={"9"} />
-          <Semestre semestre={"10"} />
-          <div></div>
-        </div>
-
         <br />
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
+          justify="center"
+        >
+          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+            <Semestre semestre={"1"} />
+            <br />
+            <Ramo
+              codigo={"CBM-1000"}
+              ramo={"Álgebra y Geometría"}
+              color={"#45C8FF"}
+              id={"1"}
+              req={"-"}
+            />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+            <Semestre semestre={"2"} />
+            <br />
+            <Ramo
+              codigo={"CBM-1002"}
+              ramo={"Álgebra Lineal"}
+              color={"#45C8FF"}
+              id={"6"}
+              req={"1"}
+            />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+            <Semestre semestre={"3"} />
+            <br />
+            <Ramo
+              codigo={"CBM-1005"}
+              ramo={"Ecuaciones Diferenciales"}
+              color={"#45C8FF"}
+              id={"11"}
+              req={"6, 7"}
+            />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+            <Semestre semestre={"4"} />
+            <br />
+            <Ramo
+              codigo={"CIT-2204"}
+              ramo={"Probabilidades y Estadística"}
+              color={"#4FFF80"}
+              id={"16"}
+              req={"7"}
+            />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+            <Semestre semestre={"5"} />
+            <br />
+            <Ramo
+              codigo={"CII-2750"}
+              ramo={"Optimización"}
+              color={"#4FFF80"}
+              id={"22"}
+              req={"6, 12"}
+            />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+            <Semestre semestre={"6"} />
+            <br />
+            <Ramo
+              codigo={"CII-2000"}
+              ramo={"Introducción a la Economía"}
+              color={"#4FFF80"}
+              id={"28"}
+              req={"12"}
+            />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+            <Semestre semestre={"7"} />
+            <br />
+            <Ramo
+              codigo={"CII-1000"}
+              ramo={"Contabilidad y Costos"}
+              color={"#4FFF80"}
+              id={"33"}
+              req={"2"}
+            />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+            <Semestre semestre={"8"} />
+            <br />
+            <Ramo
+              codigo={"CIT-2203"}
+              ramo={"Gestión Organizacional"}
+              color={"#4FFF80"}
+              id={"38"}
+              req={"5"}
+            />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+            <Semestre semestre={"9"} />
+            <br />
+            <Ramo
+              codigo={"CIT-33XX"}
+              ramo={"Electivo Profesional"}
+              color={"#FFDA27"}
+              id={"43"}
+              req={"SC"}
+            />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+            <Semestre semestre={"10"} />
+            <br />
+            <Ramo
+              codigo={"CIT-33XX"}
+              ramo={"Electivo Profesional"}
+              color={"#FFDA27"}
+              id={"48"}
+              req={"SC"}
+            />
+          </Col>
+        </Row>
 
-        <div className="row row-cols-10 align-items-start">
-          <Ramo
-            codigo={"CBM-1000"}
-            ramo={"Álgebra y Geometría"}
-            color={"#45C8FF"}
-            id={"1"}
-            req={"-"}
-          />
-          <Ramo
-            codigo={"CBM-1002"}
-            ramo={"Álgebra Lineal"}
-            color={"#45C8FF"}
-            id={"6"}
-            req={"1"}
-          />
-          <Ramo
-            codigo={"CBM-1005"}
-            ramo={"Ecuaciones Diferenciales"}
-            color={"#45C8FF"}
-            id={"11"}
-            req={"6, 7"}
-          />
-          <Ramo
-            codigo={"CIT-2204"}
-            ramo={"Probabilidades y Estadística"}
-            color={"#4FFF80"}
-            id={"16"}
-            req={"7"}
-          />
-          <Ramo
-            codigo={"CII-2750"}
-            ramo={"Optimización"}
-            color={"#4FFF80"}
-            id={"22"}
-            req={"6, 12"}
-          />
-          <Ramo
-            codigo={"CII-2000"}
-            ramo={"Introducción a la Economía"}
-            color={"#4FFF80"}
-            id={"28"}
-            req={"12"}
-          />
-          <Ramo
-            codigo={"CII-1000"}
-            ramo={"Contabilidad y Costos"}
-            color={"#4FFF80"}
-            id={"33"}
-            req={"2"}
-          />
-          <Ramo
-            codigo={"CIT-2203"}
-            ramo={"Gestión Organizacional"}
-            color={"#4FFF80"}
-            id={"38"}
-            req={"5"}
-          />
-          <Ramo
-            codigo={"CIT-33XX"}
-            ramo={"Electivo Profesional"}
-            color={"#FFDA27"}
-            id={"43"}
-            req={"SC"}
-          />
-          <Ramo
-            codigo={"CIT-33XX"}
-            ramo={"Electivo Profesional"}
-            color={"#FFDA27"}
-            id={"48"}
-            req={"SC"}
-          />
-        </div>
         <br />
 
         <div className="row row-cols-10">
@@ -549,7 +642,7 @@ export default class Malla2010 extends Component {
 
           <div className="col"></div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

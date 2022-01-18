@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { Typography, Col, Row, Card } from "antd";
+import { Typography, Col, Row, Card, Divider } from "antd";
+import "../assets/css/Cards.css";
 
 const { Text } = Typography;
 
@@ -22,39 +23,49 @@ export default class Ramo extends Component {
             borderStyle: "solid",
             borderWidth: "1px",
             borderRadius: "10px",
+            textAlign: "-webkit-center",
           }}
         >
-          <Row align="middle" justify="left" style={{ padding: "5px" }}>
+          <Row align="middle" justify="center" style={{ padding: "5px" }}>
             <Col span={24}>
               <Text strong>{this.props.codigo}</Text>
             </Col>
           </Row>
           <Row align="middle" justify="center" style={{ padding: "5px" }}>
-            <Col align="middle" justify="left" span={24}>
+            <Col span={24}>
               <Text>{this.props.ramo}</Text>
             </Col>
           </Row>
-          <Row style={{ position: "absolute", bottom: 0, right: 0, left: 0 }}>
-            <Col
-              align="middle"
-              justify="center"
-              span={9}
+
+          <Row
+            justify="center"
+            align="middle"
+            style={{ position: "absolute", bottom: 0, width: 110 }}
+          >
+            <Divider
               style={{
-                borderStyle: "solid",
-                borderWidth: "1px 1px 0px 0px",
+                "background-color": "black",
+                height: "1px",
+                margin: "0px",
+                right: 0,
+              }}
+            />
+            <Col
+              span={6}
+              style={{
                 paddingTop: "3px",
                 paddingBottom: "3px",
               }}
             >
               <Text>{this.props.id}</Text>
             </Col>
+            <Divider
+              style={{ "background-color": "black", height: "30px" }}
+              type="vertical"
+            />
             <Col
-              align="middle"
-              justify="center"
-              span={15}
+              span={13}
               style={{
-                borderStyle: "solid",
-                borderWidth: "1px 0px 0px 0px",
                 paddingTop: "3px",
                 paddingBottom: "3px",
               }}
