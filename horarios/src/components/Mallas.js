@@ -24,19 +24,18 @@ export default class Mallas extends Component {
                   { xs: 8, sm: 16, md: 24, lg: 32 },
                 ]}
               >
-                <Col xs={24} xl={12}>
+                <Col xs={24} sm={12} style={{ textAlign: "center" }}>
                   <Button
                     href="/users/usr/"
                     onClick={this.deleteMalla}
                     icon={<ArrowLeftOutlined />}
                     size="large"
-                    style={{ float: "left" }}
                   >
                     Volver a Inicio
                   </Button>
                 </Col>
 
-                <Col xs={24} xl={12}></Col>
+                <Col xs={24} sm={12}></Col>
               </Row>
               <Row
                 gutter={[

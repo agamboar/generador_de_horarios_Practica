@@ -8,7 +8,7 @@ import NotAuth from "./NotAuth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { Button, Typography } from "antd";
+import { Button, Typography, Row, Col, Card } from "antd";
 import {
   ArrowLeftOutlined,
   ArrowRightOutlined,
@@ -66,65 +66,67 @@ export default class PERT extends Component {
         return (
           <Fragment>
             <ATRLayout phase={3}>
-              <br />
-              <br />
-              <br />
-              <div className="container">
-                <Button
-                  href="/users/usr/mallas/malla2010/AvanceCurricular"
-                  icon={<ArrowLeftOutlined />}
-                  size="large"
-                  style={{ textAlign: "left" }}
-                >
-                  Volver a Avance Curricular
-                </Button>
-                <Button
-                  href="/users/usr/priorizarAreaCFG"
-                  type="primary"
-                  icon={<ArrowRightOutlined />}
-                  style={{ float: "right" }}
-                  size="large"
-                >
-                  Ir a Priorizar CFG
-                </Button>
-              </div>
-              <div style={{ textAlign: "center" }}>
-                <Title
-                  style={{
-                    textAlign: "center",
-                    color: "#008cdb",
-                    fontSize: "40px",
-                  }}
-                >
-                  Mis Ramos Críticos
-                </Title>
-                <Button
-                  type="text"
-                  href="/users/usr/PERT/PERTExtra1"
-                  size="large"
-                  icon={<PlusCircleTwoTone />}
-                >
-                  Más Detalles
-                </Button>
-              </div>
+              <Row
+                gutter={[
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                ]}
+              >
+                <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                  <Button
+                    href="/users/usr/mallas/malla2010/AvanceCurricular"
+                    icon={<ArrowLeftOutlined />}
+                    size="large"
+                  >
+                    Volver a Avance Curricular
+                  </Button>
+                </Col>
 
-              <div className="row row-cols-3">
-                <div className="col"></div>
-                <div className="col"></div>
-                <div className="col">
-                  {/*<br />
-                                <div className="align-self-center">
-                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} style={{ color: '#FFF' }} >
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="3">Priorizar Ramos</font>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </Link>
-                                    </button>
-                                </div>*/}
-                </div>
-              </div>
-              <br />
+                <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                  <Button
+                    href="/users/usr/priorizarAreaCFG"
+                    type="primary"
+                    icon={<ArrowRightOutlined />}
+                    size="large"
+                  >
+                    Ir a Priorizar CFG
+                  </Button>
+                </Col>
+              </Row>
+              <Row
+                gutter={[
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                ]}
+              >
+                <Col span={24} style={{ textAlign: "center" }}>
+                  <Title
+                    style={{
+                      color: "#008cdb",
+                      fontSize: "40px",
+                    }}
+                  >
+                    Mis Ramos Críticos
+                  </Title>
+                </Col>
+              </Row>
+              <Row
+                gutter={[
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                ]}
+              >
+                <Col span={24} style={{ textAlign: "center" }}>
+                  <Button
+                    type="text"
+                    href="/users/usr/PERT/PERTExtra1"
+                    size="large"
+                    icon={<PlusCircleTwoTone />}
+                  >
+                    Más Detalles
+                  </Button>
+                </Col>
+              </Row>
               <br />
               <PERTMalla2010 ramos={this.state.ramos} />
             </ATRLayout>
@@ -134,64 +136,67 @@ export default class PERT extends Component {
         return (
           <Fragment>
             <ATRLayout phase={3}>
-              <br />
-              <br />
-              <br />
-              <div className="container">
-                <Button
-                  href="/users/usr/mallas/malla2018/AvanceCurricular"
-                  icon={<ArrowLeftOutlined />}
-                  size="large"
-                  style={{ textAlign: "left" }}
-                >
-                  Volver a Avance Curricular
-                </Button>
-                <Button
-                  href="/users/usr/priorizarAreaCFG"
-                  type="primary"
-                  icon={<ArrowRightOutlined />}
-                  style={{ float: "right" }}
-                  size="large"
-                >
-                  Ir a Priorizar CFG
-                </Button>
-              </div>
-              <div style={{ textAlign: "center" }}>
-                <Title
-                  style={{
-                    textAlign: "center",
-                    color: "#008cdb",
-                    fontSize: "40px",
-                  }}
-                >
-                  Mis Ramos Críticos
-                </Title>
-                <Button
-                  type="text"
-                  href="/users/usr/PERT/PERTExtra1"
-                  size="large"
-                  icon={<PlusCircleTwoTone />}
-                >
-                  Más Detalles
-                </Button>
-              </div>
-              <div className="row row-cols-3">
-                <div className="col"></div>
-                <div className="col"></div>
-                <div className="col">
-                  {/*<br />
-                                <div className="align-self-center">
-                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} style={{ color: '#FFF' }} >
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="3">Priorizar Ramos</font>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </Link>
-                                    </button>
-                                </div>*/}
-                </div>
-              </div>
-              <br />
+              <Row
+                gutter={[
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                ]}
+              >
+                <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                  <Button
+                    href="/users/usr/mallas/malla2018/AvanceCurricular"
+                    icon={<ArrowLeftOutlined />}
+                    size="large"
+                  >
+                    Volver a Avance Curricular
+                  </Button>
+                </Col>
+
+                <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                  <Button
+                    href="/users/usr/priorizarAreaCFG"
+                    type="primary"
+                    icon={<ArrowRightOutlined />}
+                    size="large"
+                  >
+                    Ir a Priorizar CFG
+                  </Button>
+                </Col>
+              </Row>
+              <Row
+                gutter={[
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                ]}
+              >
+                <Col span={24} style={{ textAlign: "center" }}>
+                  <Title
+                    style={{
+                      color: "#008cdb",
+                      fontSize: "40px",
+                    }}
+                  >
+                    Mis Ramos Críticos
+                  </Title>
+                </Col>
+              </Row>
+              <Row
+                gutter={[
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                ]}
+              >
+                <Col span={24} style={{ textAlign: "center" }}>
+                  <Button
+                    type="text"
+                    href="/users/usr/PERT/PERTExtra1"
+                    size="large"
+                    icon={<PlusCircleTwoTone />}
+                  >
+                    Más Detalles
+                  </Button>
+                </Col>
+              </Row>
               <br />
               <PERTMalla2018 ramos={this.state.ramos} />
             </ATRLayout>
@@ -201,64 +206,67 @@ export default class PERT extends Component {
         return (
           <Fragment>
             <ATRLayout phase={3}>
-              <br />
-              <br />
-              <br />
-              <div className="container">
-                <Button
-                  href="/users/usr/mallas/malla2020/AvanceCurricular"
-                  icon={<ArrowLeftOutlined />}
-                  size="large"
-                  style={{ textAlign: "left" }}
-                >
-                  Volver a Avance Curricular
-                </Button>
-                <Button
-                  href="/users/usr/priorizarAreaCFG"
-                  type="primary"
-                  icon={<ArrowRightOutlined />}
-                  style={{ float: "right" }}
-                  size="large"
-                >
-                  Ir a Priorizar CFG
-                </Button>
-              </div>
-              <div style={{ textAlign: "center" }}>
-                <Title
-                  style={{
-                    textAlign: "center",
-                    color: "#008cdb",
-                    fontSize: "40px",
-                  }}
-                >
-                  Mis Ramos Críticos
-                </Title>
-                <Button
-                  type="text"
-                  href="/users/usr/PERT/PERTExtra1"
-                  size="large"
-                  icon={<PlusCircleTwoTone />}
-                >
-                  Más Detalles
-                </Button>
-              </div>
-              <div className="row row-cols-3">
-                <div className="col"></div>
-                <div className="col"></div>
-                <div className="col">
-                  {/*<br />
-                                <div className="align-self-center">
-                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarRamos' }} style={{ color: '#FFF' }} >
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="3">Priorizar Ramos</font>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </Link>
-                                    </button>
-                                </div>*/}
-                </div>
-              </div>
-              <br />
+              <Row
+                gutter={[
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                ]}
+              >
+                <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                  <Button
+                    href="/users/usr/mallas/malla2020/AvanceCurricular"
+                    icon={<ArrowLeftOutlined />}
+                    size="large"
+                  >
+                    Volver a Avance Curricular
+                  </Button>
+                </Col>
+
+                <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                  <Button
+                    href="/users/usr/priorizarAreaCFG"
+                    type="primary"
+                    icon={<ArrowRightOutlined />}
+                    size="large"
+                  >
+                    Ir a Priorizar CFG
+                  </Button>
+                </Col>
+              </Row>
+              <Row
+                gutter={[
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                ]}
+              >
+                <Col span={24} style={{ textAlign: "center" }}>
+                  <Title
+                    style={{
+                      color: "#008cdb",
+                      fontSize: "40px",
+                    }}
+                  >
+                    Mis Ramos Críticos
+                  </Title>
+                </Col>
+              </Row>
+              <Row
+                gutter={[
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                ]}
+              >
+                <Col span={24} style={{ textAlign: "center" }}>
+                  <Button
+                    type="text"
+                    href="/users/usr/PERT/PERTExtra1"
+                    size="large"
+                    icon={<PlusCircleTwoTone />}
+                  >
+                    Más Detalles
+                  </Button>
+                </Col>
+              </Row>
               <br />
               <PERTMalla2020 ramos={this.state.ramos} />
             </ATRLayout>
@@ -270,107 +278,162 @@ export default class PERT extends Component {
             {/*aca deberia haber algo que diga que no se escogio una malla*/}
             {this.state.malla === "empty" ? (
               <ATRLayout phase={3}>
-                <br />
-                <br />
-                <br />
-                <div style={{ textAlign: "center" }}>
-                  <Title
-                    style={{
-                      textAlign: "center",
-                      color: "#008cdb",
-                      fontSize: "40px",
-                    }}
-                  >
-                    Mis Ramos Críticos
-                  </Title>
-                </div>
-                <div className="row row-cols-3">
-                  <div className="col"></div>
-                  <div className="col"></div>
-                  <div className="col"></div>
-                </div>
+                <Row
+                  gutter={[
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                  ]}
+                >
+                  <Col xs={24} sm={12} style={{ textAlign: "center" }}></Col>
 
+                  <Col xs={24} sm={12} style={{ textAlign: "center" }}></Col>
+                </Row>
+                <Row
+                  gutter={[
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                  ]}
+                >
+                  <Col span={24} style={{ textAlign: "center" }}>
+                    <Title
+                      style={{
+                        color: "#008cdb",
+                        fontSize: "40px",
+                      }}
+                    >
+                      Mis Ramos Críticos
+                    </Title>
+                  </Col>
+                </Row>
+                <Row
+                  gutter={[
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                  ]}
+                >
+                  <Col span={24} style={{ textAlign: "center" }}></Col>
+                </Row>
                 <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <div className="d-flex justify-content-center">
-                  <h2 className="display-6">No has elegido ninguna malla</h2>
-                </div>
-                <div className="d-flex justify-content-center">
-                  <h4 className="display-6">Seras redirigido</h4>
-                  {this.aux()}
-                </div>
-                <br />
-                <br />
-                <div className="d-flex justify-content-center">
-                  <div className="spinner-grow text-primary" role="status" />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <div className="spinner-grow text-primary" role="status" />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <div className="spinner-border text-primary" role="status" />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <div className="spinner-grow text-primary" role="status" />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <div className="spinner-grow text-primary" role="status" />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                </div>
-                <br />
-                <br />
-                <br />
+                <Row
+                  gutter={[
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                  ]}
+                >
+                  <Col span={24} style={{ textAlign: "center" }}>
+                    <Title>No has elegido ninguna malla</Title>
+                    <Title level={3} type="secondary">
+                      Serás redirigido
+                    </Title>
+                    {this.aux()}
+                    <div className="d-flex justify-content-center">
+                      <div
+                        className="spinner-grow text-primary"
+                        role="status"
+                      />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <div
+                        className="spinner-grow text-primary"
+                        role="status"
+                      />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <div
+                        className="spinner-border text-primary"
+                        role="status"
+                      />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <div
+                        className="spinner-grow text-primary"
+                        role="status"
+                      />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <div
+                        className="spinner-grow text-primary"
+                        role="status"
+                      />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                  </Col>
+                </Row>
               </ATRLayout>
             ) : (
               <ATRLayout phase={3}>
+                <Row
+                  gutter={[
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                  ]}
+                >
+                  <Col xs={24} sm={12} style={{ textAlign: "center" }}></Col>
+
+                  <Col xs={24} sm={12} style={{ textAlign: "center" }}></Col>
+                </Row>
+                <Row
+                  gutter={[
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                  ]}
+                >
+                  <Col span={24} style={{ textAlign: "center" }}>
+                    <Title
+                      style={{
+                        color: "#008cdb",
+                        fontSize: "40px",
+                      }}
+                    >
+                      Mis Ramos Críticos
+                    </Title>
+                  </Col>
+                </Row>
+                <Row
+                  gutter={[
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                  ]}
+                >
+                  <Col span={24} style={{ textAlign: "center" }}></Col>
+                </Row>
                 <br />
-                <br />
-                <br />
-                <div style={{ textAlign: "center" }}>
-                  <Title
-                    style={{
-                      textAlign: "center",
-                      color: "#008cdb",
-                      fontSize: "40px",
-                    }}
-                  >
-                    Mis Ramos Críticos
-                  </Title>
-                </div>
-                <div className="row row-cols-3">
-                  <div className="col"></div>
-                  <div className="col"></div>
-                  <div className="col"></div>
-                </div>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <div className="d-flex justify-content-center">
-                  <h2 className="display-6">
-                    Se estan obteniendo tus ramos críticos
-                  </h2>
-                </div>
-                <div className="d-flex justify-content-center">
-                  <h4 className="display-6">Un momento porfavor...</h4>
-                </div>
-                <br />
-                <br />
-                <div className="d-flex justify-content-center">
-                  <div className="spinner-grow text-primary" role="status" />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <div className="spinner-grow text-primary" role="status" />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <div className="spinner-border text-primary" role="status" />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <div className="spinner-grow text-primary" role="status" />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <div className="spinner-grow text-primary" role="status" />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                </div>
-                <br />
-                <br />
-                <br />
+                <Row
+                  gutter={[
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                    { xs: 8, sm: 16, md: 24, lg: 32 },
+                  ]}
+                >
+                  <Col span={24} style={{ textAlign: "center" }}>
+                    <Title>Se estan obteniendo tus ramos críticos</Title>
+                    <Title level={3} type="secondary">
+                      Un momento porfavor...
+                    </Title>
+                    <div className="d-flex justify-content-center">
+                      <div
+                        className="spinner-grow text-primary"
+                        role="status"
+                      />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <div
+                        className="spinner-grow text-primary"
+                        role="status"
+                      />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <div
+                        className="spinner-border text-primary"
+                        role="status"
+                      />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <div
+                        className="spinner-grow text-primary"
+                        role="status"
+                      />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <div
+                        className="spinner-grow text-primary"
+                        role="status"
+                      />
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                  </Col>
+                </Row>
               </ATRLayout>
             )}
           </Fragment>

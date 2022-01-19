@@ -32,9 +32,6 @@ export default class M2020 extends Component {
     return (
       <Fragment>
         <ATRLayout phase={1}>
-          <br />
-          <br />
-          <br />
           <Malla2020 />
         </ATRLayout>
       </Fragment>

@@ -32,9 +32,6 @@ export default class M2018 extends Component {
     return (
       <Fragment>
         <ATRLayout phase={1}>
-          <br />
-          <br />
-          <br />
           <Malla2018 />
         </ATRLayout>
       </Fragment>

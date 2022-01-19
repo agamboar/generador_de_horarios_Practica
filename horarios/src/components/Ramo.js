@@ -23,8 +23,8 @@ export default class Ramo extends Component {
             borderStyle: "solid",
             borderWidth: "1px",
             borderRadius: "10px",
-            textAlign: "-webkit-center",
           }}
+          className="AntdCard"
         >
           <Row align="middle" justify="center" style={{ padding: "5px" }}>
             <Col span={24}>

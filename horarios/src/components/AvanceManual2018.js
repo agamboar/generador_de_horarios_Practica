@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ARamo from "./ARamo";
 import Semestre from "./Semestre";
-import { Link } from "react-router-dom";
+import NotAuth from "./NotAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Typography } from "antd";
+import { Button, Typography, Row, Col, Card } from "antd";
 import {
   ArrowLeftOutlined,
   ArrowRightOutlined,
@@ -13,6 +13,7 @@ import {
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
+import "../assets/css/Form.css";
 
 const { Title } = Typography;
 
@@ -150,655 +151,624 @@ export default class AvanceManual2018 extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Button
-          href="/users/usr/mallas/malla2018"
-          onClick={this.deleteMalla}
-          icon={<ArrowLeftOutlined />}
-          size="large"
-        >
-          Volver a Malla 2018
-        </Button>
-        <Button
-          type="primary"
-          icon={<ArrowRightOutlined />}
-          style={{ float: "right" }}
-          size="large"
-          htmlType="submit"
-          key={"submit"}
-          form="myForm"
-        >
-          Guardar
-        </Button>
-        <div style={{ textAlign: "center" }}>
-          <Title
-            style={{
-              textAlign: "center",
-              color: "#008cdb",
-              fontSize: "40px",
-            }}
-          >
-            Avance Curricular Malla 2018
-          </Title>
-        </div>
-        <br />
+      <Fragment>
+        {localStorage.getItem("token") ? (
+          <Fragment>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+            >
+              <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                <Button
+                  href="/users/usr/mallas/malla2018"
+                  onClick={this.deleteMalla}
+                  icon={<ArrowLeftOutlined />}
+                  size="large"
+                >
+                  Volver a Malla 2018
+                </Button>
+              </Col>
 
-        <div className="row row-cols-10">
-          <Semestre semestre={"1"} />
-          <Semestre semestre={"2"} />
-          <Semestre semestre={"3"} />
-          <Semestre semestre={"4"} />
-          <Semestre semestre={"5"} />
-          <Semestre semestre={"6"} />
-          <Semestre semestre={"7"} />
-          <Semestre semestre={"8"} />
-          <Semestre semestre={"9"} />
-          <Semestre semestre={"10"} />
-        </div>
+              <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                <Button
+                  type="primary"
+                  icon={<ArrowRightOutlined />}
+                  size="large"
+                  htmlType="submit"
+                  key={"submit"}
+                  form="myForm"
+                >
+                  Guardar
+                </Button>
+              </Col>
+            </Row>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+            >
+              <Col span={24} style={{ textAlign: "center" }}>
+                <Title
+                  style={{
+                    color: "#008cdb",
+                    fontSize: "40px",
+                  }}
+                >
+                  Avance Curricular Malla 2018
+                </Title>
+              </Col>
+            </Row>
+            <form id="myForm" onSubmit={this.onSubmit} className="Form">
+              <Row
+                gutter={[
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                ]}
+                justify="center"
+              >
+                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                  <Semestre semestre={"1"} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-outline-success d-inline-block text-truncate border-0"
+                    onClick={this.onChange1_5}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      className="bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg>
+                  </button>
+                  <br />
+                  <ARamo
+                    codigo={"CBM-1000"}
+                    ramo={"Álgebra y Geometría"}
+                    show={this.state.CBM1000}
+                    onChange1={this.onChange1}
+                  />
+                  <ARamo
+                    codigo={"CBM-1001"}
+                    ramo={"Cálculo I"}
+                    show={this.state.CBM1001}
+                    onChange1={this.onChange2}
+                  />
+                  <ARamo
+                    codigo={"CBQ-1000"}
+                    ramo={"Química"}
+                    show={this.state.CBQ1000}
+                    onChange1={this.onChange3}
+                  />
+                  <ARamo
+                    codigo={"CIT-1000"}
+                    ramo={"Programación"}
+                    show={this.state.CIT1000}
+                    onChange1={this.onChange4}
+                  />
+                  <ARamo
+                    codigo={"FIC-1000"}
+                    ramo={"Comunicación para la Ing."}
+                    show={this.state.FIC1000}
+                    onChange1={this.onChange5}
+                  />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                  <Semestre semestre={"2"} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-outline-success d-inline-block text-truncate border-0"
+                    onClick={this.onChange6_10}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      className="bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg>
+                  </button>
+                  <br />
+                  <ARamo
+                    codigo={"CBM-1002"}
+                    ramo={"Álgebra Lineal"}
+                    show={this.state.CBM1002}
+                    onChange1={this.onChange6}
+                  />
+                  <ARamo
+                    codigo={"CBM-1003"}
+                    ramo={"Cálculo II"}
+                    show={this.state.CBM1003}
+                    onChange1={this.onChange7}
+                  />
+                  <ARamo
+                    codigo={"CBF-1000"}
+                    ramo={"Mecánica"}
+                    show={this.state.CBF1000}
+                    onChange1={this.onChange8}
+                  />
+                  <ARamo
+                    codigo={"CIT-1010"}
+                    ramo={"Programación Avanzada"}
+                    show={this.state.CIT1010}
+                    onChange1={this.onChange9}
+                  />
+                  <ARamo
+                    codigo={""}
+                    ramo={"Minor / CFG"}
+                    show={this.state.CFG1}
+                    onChange1={this.onChange10}
+                  />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                  <Semestre semestre={"3"} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-outline-success d-inline-block text-truncate border-0"
+                    onClick={this.onChange11_15}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      className="bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg>
+                  </button>
+                  <br />
+                  <ARamo
+                    codigo={"CBM-1005"}
+                    ramo={"Ecuaciones Diferenciales"}
+                    show={this.state.CBM1005}
+                    onChange1={this.onChange11}
+                  />
+                  <ARamo
+                    codigo={"CBM-1006"}
+                    ramo={"Cálculo III"}
+                    show={this.state.CBM1006}
+                    onChange1={this.onChange12}
+                  />
+                  <ARamo
+                    codigo={"CBF-1001"}
+                    ramo={"Calor y Ondas"}
+                    show={this.state.CBF1001}
+                    onChange1={this.onChange13}
+                  />
+                  <ARamo
+                    codigo={"CIT-2000"}
+                    ramo={"Estructura de Datos"}
+                    show={this.state.CIT2000}
+                    onChange1={this.onChange14}
+                  />
+                  <ARamo
+                    codigo={"CIT-2100"}
+                    ramo={"Redes de Datos"}
+                    show={this.state.CIT2100}
+                    onChange1={this.onChange15}
+                  />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                  <Semestre semestre={"4"} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-outline-success d-inline-block text-truncate border-0"
+                    onClick={this.onChange16_21}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      className="bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg>
+                  </button>
+                  <br />
+                  <ARamo
+                    codigo={"CIT-2204"}
+                    ramo={"Probabilidades y Estadística"}
+                    show={this.state.CIT2204}
+                    onChange1={this.onChange16}
+                  />
+                  <ARamo
+                    codigo={"CBM-2000"}
+                    ramo={"Métodos Numéricos"}
+                    show={this.state.CBM2000}
+                    onChange1={this.onChange17}
+                  />
+                  <ARamo
+                    codigo={"CBF-1002"}
+                    ramo={"Electricidad y Magnetismo"}
+                    show={this.state.CBF1002}
+                    onChange1={this.onChange18}
+                  />
+                  <ARamo
+                    codigo={"CIT-2001"}
+                    ramo={"Dis. y Análisis de Algoritmos"}
+                    show={this.state.CIT2001}
+                    onChange1={this.onChange19}
+                  />
+                  <ARamo
+                    codigo={""}
+                    ramo={"Minor / CFG"}
+                    show={this.state.CFG2}
+                    onChange1={this.onChange20}
+                  />
+                  <ARamo
+                    codigo={"CIG-1012"}
+                    ramo={"Inglés I"}
+                    show={this.state.CIG1012}
+                    onChange1={this.onChange21}
+                  />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                  <Semestre semestre={"5"} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-outline-success d-inline-block text-truncate border-0"
+                    onClick={this.onChange22_27}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      className="bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg>
+                  </button>
+                  <br />
+                  <ARamo
+                    codigo={"CII-2750"}
+                    ramo={"Optimización"}
+                    show={this.state.CII2750}
+                    onChange1={this.onChange22}
+                  />
+                  <ARamo
+                    codigo={"CIT-2106"}
+                    ramo={"Electrónica y Electrotecnia"}
+                    show={this.state.CIT2106}
+                    onChange1={this.onChange23}
+                  />
+                  <ARamo
+                    codigo={"CIT-2200"}
+                    ramo={"Proyectos en TICs I"}
+                    show={this.state.CIT2200}
+                    onChange1={this.onChange24}
+                  />
+                  <ARamo
+                    codigo={"CIT-2002"}
+                    ramo={"Bases de Datos"}
+                    show={this.state.CIT2002}
+                    onChange1={this.onChange25}
+                  />
+                  <ARamo
+                    codigo={""}
+                    ramo={"Minor / CFG"}
+                    show={this.state.CFG3}
+                    onChange1={this.onChange26}
+                  />
+                  <ARamo
+                    codigo={"CIG-1013"}
+                    ramo={"Inglés II"}
+                    show={this.state.CIG1013}
+                    onChange1={this.onChange27}
+                  />
+                  <ARamo
+                    codigo={""}
+                    ramo={"Práctica I"}
+                    show={this.state.CIT5001}
+                    onChange1={this.onChangePR1}
+                  />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                  <Semestre semestre={"6"} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-outline-success d-inline-block text-truncate border-0"
+                    onClick={this.onChange28_33}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      className="bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg>
+                  </button>
+                  <br />
+                  <ARamo
+                    codigo={"CII-2000"}
+                    ramo={"Introducción a la Economía"}
+                    show={this.state.CII2000}
+                    onChange1={this.onChange28}
+                  />
+                  <ARamo
+                    codigo={"CIT-2202"}
+                    ramo={"Modelos Estoc. y Simul."}
+                    show={this.state.CIT2202}
+                    onChange1={this.onChange29}
+                  />
+                  <ARamo
+                    codigo={"CIT-2101"}
+                    ramo={"Señales y Sistemas"}
+                    show={this.state.CIT2101}
+                    onChange1={this.onChange30}
+                  />
+                  <ARamo
+                    codigo={"CIT-2003"}
+                    ramo={"Sistemas Operativos"}
+                    show={this.state.CIT2003}
+                    onChange1={this.onChange31}
+                  />
+                  <ARamo
+                    codigo={"CIT-2103"}
+                    ramo={"Sistemas Digitales"}
+                    show={this.state.CIT2103}
+                    onChange1={this.onChange32}
+                  />
+                  <ARamo
+                    codigo={"CIG-1014"}
+                    ramo={"Inglés III"}
+                    show={this.state.CIG1014}
+                    onChange1={this.onChange53}
+                  />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                  <Semestre semestre={"7"} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-outline-success d-inline-block text-truncate border-0"
+                    onClick={this.onChange34_38}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      className="bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg>
+                  </button>
+                  <br />
+                  <ARamo
+                    codigo={"CII-1000"}
+                    ramo={"Contabilidad y Costos"}
+                    show={this.state.CII1000}
+                    onChange1={this.onChange33}
+                  />
+                  <ARamo
+                    codigo={"CIT-2005"}
+                    ramo={"Ingeniería de Software"}
+                    show={this.state.CIT2005}
+                    onChange1={this.onChange34}
+                  />
+                  <ARamo
+                    codigo={"CIT-2102"}
+                    ramo={"Comunicaciones Digitales"}
+                    show={this.state.CIT2102}
+                    onChange1={this.onChange35}
+                  />
+                  <ARamo
+                    codigo={"FIC-1003"}
+                    ramo={"Derecho en Ingeniería"}
+                    show={this.state.FIC1003}
+                    onChange1={this.onChange36}
+                  />
+                  <ARamo
+                    codigo={"CIT-2104"}
+                    ramo={"Arquitectura de Computadores"}
+                    show={this.state.CIT2104}
+                    onChange1={this.onChange37}
+                  />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                  <Semestre semestre={"8"} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-outline-success d-inline-block text-truncate border-0"
+                    onClick={this.onChange39_43}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      className="bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg>
+                  </button>
+                  <br />
+                  <ARamo
+                    codigo={"CIT-2203"}
+                    ramo={"Gestión Organizacional"}
+                    show={this.state.CIT2203}
+                    onChange1={this.onChange38}
+                  />
+                  <ARamo
+                    codigo={"CIT-2004"}
+                    ramo={"Arquitectura de Sistemas"}
+                    show={this.state.CIT2004}
+                    onChange1={this.onChange39}
+                  />
+                  <ARamo
+                    codigo={"CIT-2105"}
+                    ramo={"Criptografía y Seg. en Redes"}
+                    show={this.state.CIT2105}
+                    onChange1={this.onChange40}
+                  />
+                  <ARamo
+                    codigo={"CIT-2201"}
+                    ramo={"Proyecto en TICs II"}
+                    show={this.state.CIT2201}
+                    onChange1={this.onChange41}
+                  />
+                  <ARamo
+                    codigo={""}
+                    ramo={"Minor / CFG"}
+                    show={this.state.CFG4}
+                    onChange1={this.onChange42}
+                  />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                  <Semestre semestre={"9"} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-outline-success d-inline-block text-truncate border-0"
+                    onClick={this.onChange44_48}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      className="bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg>
+                  </button>
+                  <br />
+                  <ARamo
+                    codigo={"CIT-33XX"}
+                    ramo={"Electivo Profesional"}
+                    show={this.state.CIT3310}
+                    onChange1={this.onChange43}
+                  />
+                  <ARamo
+                    codigo={"CIT-34XX"}
+                    ramo={"Electivo Profesional"}
+                    show={this.state.CIT3410}
+                    onChange1={this.onChange44}
+                  />
+                  <ARamo
+                    codigo={"CIT-34XX"}
+                    ramo={"Electivo Profesional"}
+                    show={this.state.CIT3412}
+                    onChange1={this.onChange49}
+                  />
 
-        <br />
+                  <ARamo
+                    codigo={"CIT-3200"}
+                    ramo={"Evaluación de Proyectos TIC"}
+                    show={this.state.CIT3200}
+                    onChange1={this.onChange46}
+                  />
 
-        <div className="card border-0">
-          <div
-            className="row row-cols-10 align-items-start"
-            style={{ background: "#e7e7e7" }}
-          >
-            <div className="col border-0">
-              &nbsp;&nbsp;
-              <button
-                type="button"
-                className="btn btn-outline-success d-inline-block text-truncate border-0"
-                onClick={this.onChange1_5}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-check2-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-                </svg>
-              </button>
-            </div>
-            <div className="col justify-content-center border-0">
-              &nbsp;&nbsp;
-              <button
-                type="button"
-                className="btn btn-outline-success d-inline-block text-truncate border-0"
-                onClick={this.onChange6_10}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-check2-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-                </svg>
-              </button>
-            </div>
-            <div className="col justify-content-center border-0">
-              &nbsp;&nbsp;
-              <button
-                type="button"
-                className="btn btn-outline-success d-inline-block text-truncate border-0"
-                onClick={this.onChange11_15}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-check2-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-                </svg>
-              </button>
-            </div>
-            <div className="col justify-content-center border-0">
-              &nbsp;&nbsp;
-              <button
-                type="button"
-                className="btn btn-outline-success d-inline-block text-truncate border-0"
-                onClick={this.onChange16_21}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-check2-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-                </svg>
-              </button>
-            </div>
-            <div className="col justify-content-center border-0">
-              &nbsp;&nbsp;
-              <button
-                type="button"
-                className="btn btn-outline-success d-inline-block text-truncate border-0"
-                onClick={this.onChange22_27}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-check2-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-                </svg>
-              </button>
-            </div>
-            <div className="col justify-content-center border-0">
-              &nbsp;&nbsp;
-              <button
-                type="button"
-                className="btn btn-outline-success d-inline-block text-truncate border-0"
-                onClick={this.onChange28_33}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-check2-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-                </svg>
-              </button>
-            </div>
-            <div className="col justify-content-center border-0">
-              &nbsp;&nbsp;
-              <button
-                type="button"
-                className="btn btn-outline-success d-inline-block text-truncate border-0"
-                onClick={this.onChange34_38}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-check2-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-                </svg>
-              </button>
-            </div>
-            <div className="col justify-content-center border-0">
-              &nbsp;&nbsp;
-              <button
-                type="button"
-                className="btn btn-outline-success d-inline-block text-truncate border-0"
-                onClick={this.onChange39_43}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-check2-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-                </svg>
-              </button>
-            </div>
-            <div className="col justify-content-center border-0">
-              &nbsp;&nbsp;
-              <button
-                type="button"
-                className="btn btn-outline-success d-inline-block text-truncate border-0"
-                onClick={this.onChange44_48}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-check2-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-                </svg>
-              </button>
-            </div>
-            <div className="col justify-content-center border-0">
-              &nbsp;&nbsp;
-              <button
-                type="button"
-                className="btn btn-outline-success d-inline-block text-truncate border-0"
-                onClick={this.onChange49_53}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-check2-circle"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        <br />
-        {/*   show= {this.state.AR} onChange1 = {this.onChange}      */}
-        <form id="myForm" onSubmit={this.onSubmit}>
-          <div className="row row-cols-10 ">
-            <ARamo
-              codigo={"CBM-1000"}
-              ramo={"Álgebra y Geometría"}
-              show={this.state.CBM1000}
-              onChange1={this.onChange1}
-            />
-            <ARamo
-              codigo={"CBM-1002"}
-              ramo={"Álgebra Lineal"}
-              show={this.state.CBM1002}
-              onChange1={this.onChange6}
-            />
-            <ARamo
-              codigo={"CBM-1005"}
-              ramo={"Ecuaciones Diferenciales"}
-              show={this.state.CBM1005}
-              onChange1={this.onChange11}
-            />
-            <ARamo
-              codigo={"CIT-2204"}
-              ramo={"Probabilidades y Estadísticas"}
-              show={this.state.CIT2204}
-              onChange1={this.onChange16}
-            />
-            <ARamo
-              codigo={"CII-2750"}
-              ramo={"Optimización"}
-              show={this.state.CII2750}
-              onChange1={this.onChange22}
-            />
-            <ARamo
-              codigo={"CII-2000"}
-              ramo={"Introducción a la Economía"}
-              show={this.state.CII2000}
-              onChange1={this.onChange28}
-            />
-            <ARamo
-              codigo={"CII-1000"}
-              ramo={"Contabilidad y Costos"}
-              show={this.state.CII1000}
-              onChange1={this.onChange33}
-            />
-            <ARamo
-              codigo={"CIT-2203"}
-              ramo={"Gestión Organizacional"}
-              show={this.state.CIT2203}
-              onChange1={this.onChange38}
-            />
-            <ARamo
-              codigo={"CIT-33XX"}
-              ramo={"Electivo Profesional"}
-              show={this.state.CIT3310}
-              onChange1={this.onChange43}
-            />
-            <ARamo
-              codigo={"CIT-33XX"}
-              ramo={"Electivo Profesional"}
-              show={this.state.CIT3311}
-              onChange1={this.onChange48}
-            />
-          </div>
-          <br />
+                  <ARamo
+                    codigo={"CIT-33XX"}
+                    ramo={"Electivo Profesional"}
+                    show={this.state.CIT3312}
+                    onChange1={this.onChange48}
+                  />
+                  <ARamo
+                    codigo={""}
+                    ramo={"Práctica II"}
+                    show={this.state.CIT5002}
+                    onChange1={this.onChangePR2}
+                  />
+                </Col>
 
-          <div className="row row-cols-10">
-            <ARamo
-              codigo={"CBM-1001"}
-              ramo={"Cálculo I"}
-              show={this.state.CBM1001}
-              onChange1={this.onChange2}
-            />
-            <ARamo
-              codigo={"CBM-1003"}
-              ramo={"Cálculo II"}
-              show={this.state.CBM1003}
-              onChange1={this.onChange7}
-            />
-            <ARamo
-              codigo={"CBM-1006"}
-              ramo={"Cálculo III"}
-              show={this.state.CBM1006}
-              onChange1={this.onChange12}
-            />
-            <ARamo
-              codigo={"CBM-2000"}
-              ramo={"Métodos Numéricos"}
-              show={this.state.CBM2000}
-              onChange1={this.onChange17}
-            />
-            <ARamo
-              codigo={"CIT-2106"}
-              ramo={"Electrónica y Electrotecnia"}
-              show={this.state.CIT2106}
-              onChange1={this.onChange23}
-            />
-            <ARamo
-              codigo={"CIT-2202"}
-              ramo={"Modelos Estoc. y Simul."}
-              show={this.state.CIT2202}
-              onChange1={this.onChange29}
-            />
-            <ARamo
-              codigo={"CIT-2005"}
-              ramo={"Ingeniería de Software"}
-              show={this.state.CIT2005}
-              onChange1={this.onChange34}
-            />
-            <ARamo
-              codigo={"CIT-2004"}
-              ramo={"Arquitectura de Sistemas"}
-              show={this.state.CIT2004}
-              onChange1={this.onChange39}
-            />
-            <ARamo
-              codigo={"CIT-34XX"}
-              ramo={"Electivo Profesional"}
-              show={this.state.CIT3410}
-              onChange1={this.onChange44}
-            />
-            <ARamo
-              codigo={"CIT-34XX"}
-              ramo={"Electivo Profesional"}
-              show={this.state.CIT3411}
-              onChange1={this.onChange49}
-            />
-          </div>
-
-          <br />
-
-          <div className="row row-cols-10">
-            <ARamo
-              codigo={"CBQ-1000"}
-              ramo={"Química"}
-              show={this.state.CBQ1000}
-              onChange1={this.onChange3}
-            />
-            <ARamo
-              codigo={"CBF-1000"}
-              ramo={"Mecánica"}
-              show={this.state.CBF1000}
-              onChange1={this.onChange8}
-            />
-            <ARamo
-              codigo={"CBF-1001"}
-              ramo={"Calor y Ondas"}
-              show={this.state.CBF1001}
-              onChange1={this.onChange13}
-            />
-            <ARamo
-              codigo={"CBF-1002"}
-              ramo={"Electricidad y Magnetismo"}
-              show={this.state.CBF1002}
-              onChange1={this.onChange18}
-            />
-            <ARamo
-              codigo={"CIT-2200"}
-              ramo={"Proyecto en TICs I"}
-              show={this.state.CIT2200}
-              onChange1={this.onChange24}
-            />
-            <ARamo
-              codigo={"CIT-2101"}
-              ramo={"Señales y Sistemas"}
-              show={this.state.CIT2101}
-              onChange1={this.onChange30}
-            />
-            <ARamo
-              codigo={"CIT-2102"}
-              ramo={"Comunicaciones Digitales"}
-              show={this.state.CIT2102}
-              onChange1={this.onChange35}
-            />
-            <ARamo
-              codigo={"CIT-2105"}
-              ramo={"Criptografía y Seg. en Redes"}
-              show={this.state.CIT2105}
-              onChange1={this.onChange40}
-            />
-            <ARamo
-              codigo={"CIT-34XX"}
-              ramo={"Electivo Profesional"}
-              show={this.state.CIT3412}
-              onChange1={this.onChange45}
-            />
-            <ARamo
-              codigo={"CIT-34XX"}
-              ramo={"Electivo Profesional"}
-              show={this.state.CIT3413}
-              onChange1={this.onChange50}
-            />
-          </div>
-          <br />
-          <div className="row row-cols-10">
-            <ARamo
-              codigo={"CIT-1000"}
-              ramo={"Programación"}
-              show={this.state.CIT1000}
-              onChange1={this.onChange4}
-            />
-            <ARamo
-              codigo={"CIT-1010"}
-              ramo={"Programación Avanzada"}
-              show={this.state.CIT1010}
-              onChange1={this.onChange9}
-            />
-            <ARamo
-              codigo={"CIT-2000"}
-              ramo={"Estructura de Datos"}
-              show={this.state.CIT2000}
-              onChange1={this.onChange14}
-            />
-            <ARamo
-              codigo={"CIT-2001"}
-              ramo={"Dis. y Análisis de Algoritmos"}
-              show={this.state.CIT2001}
-              onChange1={this.onChange19}
-            />
-            <ARamo
-              codigo={"CIT-2002"}
-              ramo={"Bases de Datos"}
-              show={this.state.CIT2002}
-              onChange1={this.onChange25}
-            />
-            <ARamo
-              codigo={"CIT-2003"}
-              ramo={"Sistemas Operativos"}
-              show={this.state.CIT2003}
-              onChange1={this.onChange31}
-            />
-            <ARamo
-              codigo={"FIC-1003"}
-              ramo={"Derecho en Ingeniería"}
-              show={this.state.FIC1003}
-              onChange1={this.onChange36}
-            />
-            <ARamo
-              codigo={"CIT-2201"}
-              ramo={"Proyecto en TICs II"}
-              show={this.state.CIT2201}
-              onChange1={this.onChange41}
-            />
-            <ARamo
-              codigo={"CIT-3200"}
-              ramo={"Evaluación de Proyectos TIC"}
-              show={this.state.CIT3200}
-              onChange1={this.onChange46}
-            />
-            <ARamo
-              codigo={"CIT-3201"}
-              ramo={"Proyecto en TICs III"}
-              show={this.state.CIT3201}
-              onChange1={this.onChange51}
-            />
-          </div>
-          <br />
-          <div className="row row-cols-10">
-            <ARamo
-              codigo={"FIC-1000"}
-              ramo={"Comunicación para la Ing."}
-              show={this.state.FIC1000}
-              onChange1={this.onChange5}
-            />
-            <ARamo
-              codigo={""}
-              ramo={"Minor / CFG"}
-              show={this.state.CFG1}
-              onChange1={this.onChange10}
-            />
-            <ARamo
-              codigo={"CIT-2100"}
-              ramo={"Redes de Datos"}
-              show={this.state.CIT2100}
-              onChange1={this.onChange15}
-            />
-            <ARamo
-              codigo={""}
-              ramo={"Minor / CFG"}
-              show={this.state.CFG2}
-              onChange1={this.onChange20}
-            />
-            <ARamo
-              codigo={""}
-              ramo={"Minor / CFG"}
-              show={this.state.CFG3}
-              onChange1={this.onChange26}
-            />
-            <ARamo
-              codigo={"CIT-2103"}
-              ramo={"Sistemas Digitales"}
-              show={this.state.CIT2103}
-              onChange1={this.onChange32}
-            />
-            <ARamo
-              codigo={"CIT-2104"}
-              ramo={"Arquitectura de Computadores"}
-              show={this.state.CIT2104}
-              onChange1={this.onChange37}
-            />
-            <ARamo
-              codigo={""}
-              ramo={"Minor / CFG"}
-              show={this.state.CFG4}
-              onChange1={this.onChange42}
-            />
-            <ARamo
-              codigo={"CIT-33XX"}
-              ramo={"Electivo Profesional"}
-              show={this.state.CIT3312}
-              onChange1={this.onChange47}
-            />
-            <ARamo
-              codigo={"CIT-33XX"}
-              ramo={"Electivo Profesional"}
-              show={this.state.CIT3313}
-              onChange1={this.onChange52}
-            />
-          </div>
-          <br />
-
-          <div className="row row-cols-10">
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <ARamo
-              codigo={"CIG-1012"}
-              ramo={"Inglés I"}
-              show={this.state.CIG1012}
-              onChange1={this.onChange21}
-            />
-            <ARamo
-              codigo={"CIG-1013"}
-              ramo={"Inglés II"}
-              show={this.state.CIG1013}
-              onChange1={this.onChange27}
-            />
-            <ARamo
-              codigo={"CIG-1014"}
-              ramo={"Inglés III"}
-              show={this.state.CIG1014}
-              onChange1={this.onChange53}
-            />
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-          </div>
-          <br />
-          <div className="row row-cols-10">
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <ARamo
-              codigo={""}
-              ramo={"Práctica I"}
-              show={this.state.CIT6001}
-              onChange1={this.onChangePR1}
-            />
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <ARamo
-              codigo={""}
-              ramo={"Práctica II"}
-              show={this.state.CIT6002}
-              onChange1={this.onChangePR2}
-            />
-            <div className="col"> </div>
-          </div>
-          <br />
-          <div className="row row-cols-10">
-            <div className="col"></div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-            <div className="col"> </div>
-
-            <div className="col">
-              <div className="col "></div>
-            </div>
-          </div>
-        </form>
-
-        <br />
-        <br />
-        <br />
-      </div>
+                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                  <Semestre semestre={"10"} />
+                  <br />
+                  <button
+                    type="button"
+                    className="btn btn-outline-success d-inline-block text-truncate border-0"
+                    onClick={this.onChange49_53}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      className="bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg>
+                  </button>
+                  <br />
+                  <ARamo
+                    codigo={"CIT-33XX"}
+                    ramo={"Electivo Profesional"}
+                    show={this.state.CIT3311}
+                    onChange1={this.onChange47}
+                  />
+                  <ARamo
+                    codigo={"CIT-34XX"}
+                    ramo={"Electivo Profesional"}
+                    show={this.state.CIT3411}
+                    onChange1={this.onChange45}
+                  />
+                  <ARamo
+                    codigo={"CIT-34XX"}
+                    ramo={"Electivo Profesional"}
+                    show={this.state.CIT3413}
+                    onChange1={this.onChange50}
+                  />
+                  <ARamo
+                    codigo={"CIT-3201"}
+                    ramo={"Proyecto en TICs III"}
+                    show={this.state.CIT3201}
+                    onChange1={this.onChange51}
+                  />
+                  <ARamo
+                    codigo={"CIT-33XX"}
+                    ramo={"Electivo Profesional"}
+                    show={this.state.CIT3313}
+                    onChange1={this.onChange52}
+                  />
+                </Col>
+              </Row>
+            </form>
+          </Fragment>
+        ) : (
+          <NotAuth />
+        )}
+      </Fragment>
     );
   }
 

@@ -19,14 +19,13 @@ export default class UserInterface extends Component {
                 { xs: 8, sm: 16, md: 24, lg: 32 },
               ]}
             >
-              <Col span={12}></Col>
-              <Col span={12}>
+              <Col xs={24} sm={12}></Col>
+              <Col xs={24} sm={12} style={{ textAlign: "center" }}>
                 <Button
                   href="/users/usr/mallas/"
                   type="primary"
                   icon={<ArrowRightOutlined />}
                   size="large"
-                  style={{ float: "right" }}
                 >
                   Ir a Elegir Mi Malla
                 </Button>

@@ -7,9 +7,6 @@ export default class AManual extends Component {
     return (
       <div>
         <ATRLayout phase={2}>
-          <br />
-          <br />
-          <br />
           <AvanceManual2020 />
         </ATRLayout>
       </div>
