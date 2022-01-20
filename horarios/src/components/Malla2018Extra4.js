@@ -1,73 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import RamoE from "./RamoE";
 import Semestre from "./Semestre";
 import { Link } from "react-router-dom";
+import { Row, Col } from "antd";
 
 export default class Malla2018Extra3 extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-around">
-          <div className="col col-md-1"> </div>
-          <Semestre semestre={"7"} />
-          <Semestre semestre={"8"} />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10 align-items-start">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CII-1000"}
-            ramo={"Contabilidad y Costos"}
-            numero={"33"}
-            creditos={"6"}
-            prerequisitos={"Cálculo I"}
-            formacion={"Ciencias de la Ingeniería"}
-          />
-          <RamoE
-            codigo={"CIT-2203"}
-            ramo={"Gestión Organizacional"}
-            numero={"38"}
-            creditos={"6"}
-            prerequisitos={"Comuniación para la Ingeniería"}
-            formacion={"Ciencias de la Ingeniería"}
-          />
-
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIT-2005"}
-            ramo={"Ingeniería de Software"}
-            numero={"34"}
-            creditos={"6"}
-            prerequisitos={"Proyecto en TICs I - Bases de Datos"}
-            formacion={"Ingeniería Aplicada "}
-          />
-          <RamoE
-            codigo={"CIT-2004"}
-            ramo={"Arquitectura de Sistemas"}
-            numero={"39"}
-            creditos={"6"}
-            prerequisitos={"Ingeniería de Software"}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1">
+      <Fragment>
+        <Row>
+          <Col span={2} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
               to={{ pathname: "/users/usr/mallas/malla2018/DatosExtraM2018-3" }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,27 +29,114 @@ export default class Malla2018Extra3 extends Component {
                 />
               </svg>
             </Link>
-          </div>
-          <RamoE
-            codigo={"CIT-2102"}
-            ramo={"Comunicaciones Digitales"}
-            numero={"35"}
-            creditos={"6"}
-            prerequisitos={"Señales y Sistemas"}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <RamoE
-            codigo={"CIT-2105"}
-            ramo={"Criptografía y Seguridad en Redes"}
-            numero={"40"}
-            creditos={"6"}
-            prerequisitos={"Sistemas Operativos"}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <div className="col col-md-1">
+          </Col>
+          <Col span={20}>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+              justify="center"
+            >
+              <Col xs={20} sm={10}>
+                <Semestre semestre={"7"} />
+                <br />
+                <RamoE
+                  codigo={"CII-1000"}
+                  ramo={"Contabilidad y Costos"}
+                  numero={"33"}
+                  creditos={"6"}
+                  prerequisitos={"Cálculo I"}
+                  formacion={"Ciencias de la Ingeniería"}
+                />
+                <RamoE
+                  codigo={"CIT-2005"}
+                  ramo={"Ingeniería de Software"}
+                  numero={"34"}
+                  creditos={"6"}
+                  prerequisitos={"Proyecto en TICs I - Bases de Datos"}
+                  formacion={"Ingeniería Aplicada "}
+                />
+                <RamoE
+                  codigo={"CIT-2102"}
+                  ramo={"Comunicaciones Digitales"}
+                  numero={"35"}
+                  creditos={"6"}
+                  prerequisitos={"Señales y Sistemas"}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"FIC-1003"}
+                  ramo={"Derecho en Ingeniería"}
+                  numero={"35"}
+                  creditos={"5"}
+                  prerequisitos={"180 Créditos"}
+                  formacion={"Transversal"}
+                />
+                <RamoE
+                  codigo={"CIT-2104"}
+                  ramo={"Arquitectura de Computadores"}
+                  numero={"37"}
+                  creditos={"6"}
+                  prerequisitos={"Sistemas Digitales"}
+                  formacion={"Ingeniería Aplicada"}
+                />
+              </Col>
+              <Col xs={20} sm={10}>
+                <Semestre semestre={"8"} />
+                <br />
+                <RamoE
+                  codigo={"CIT-2203"}
+                  ramo={"Gestión Organizacional"}
+                  numero={"38"}
+                  creditos={"6"}
+                  prerequisitos={"Comuniación para la Ingeniería"}
+                  formacion={"Ciencias de la Ingeniería"}
+                />
+                <RamoE
+                  codigo={"CIT-2004"}
+                  ramo={"Arquitectura de Sistemas"}
+                  numero={"39"}
+                  creditos={"6"}
+                  prerequisitos={"Ingeniería de Software"}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-2105"}
+                  ramo={"Criptografía y Seguridad en Redes"}
+                  numero={"40"}
+                  creditos={"6"}
+                  prerequisitos={"Sistemas Operativos"}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-2201"}
+                  ramo={"Proyecto en TICs II"}
+                  numero={"41"}
+                  creditos={"6"}
+                  prerequisitos={
+                    "Proyecto en TICs I - Ingeniería de Software - Comunicaciones Digitales"
+                  }
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={" - "}
+                  ramo={"Minor / CFG"}
+                  numero={"42"}
+                  creditos={"5"}
+                  prerequisitos={" - "}
+                  formacion={"Transversal"}
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col span={2} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
-              to={{ pathname: "/users/usr/mallas/malla2018/DatosExtraM2018-5" }}
+              to={{
+                pathname: "/users/usr/mallas/malla2018/DatosExtraM2018-5",
+              }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -119,65 +152,9 @@ export default class Malla2018Extra3 extends Component {
                 />
               </svg>
             </Link>
-          </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"FIC-1003"}
-            ramo={"Derecho en Ingeniería"}
-            numero={"35"}
-            creditos={"5"}
-            prerequisitos={"180 Créditos"}
-            formacion={"Transversal"}
-          />
-          <RamoE
-            codigo={"CIT-2201"}
-            ramo={"Proyecto en TICs II"}
-            numero={"41"}
-            creditos={"6"}
-            prerequisitos={
-              "Proyecto en TICs I - Ingeniería de Software - Comunicaciones Digitales"
-            }
-            formacion={"Ingeniería Aplicada"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIT-2104"}
-            ramo={"Arquitectura de Computadores"}
-            numero={"37"}
-            creditos={"6"}
-            prerequisitos={"Sistemas Digitales"}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <RamoE
-            codigo={" - "}
-            ramo={"Minor / CFG"}
-            numero={"42"}
-            creditos={"5"}
-            prerequisitos={" - "}
-            formacion={"Transversal"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col"></div>
-          <div className="col"> </div>
-          <div className="col"> </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Fragment>
     );
   }
 }

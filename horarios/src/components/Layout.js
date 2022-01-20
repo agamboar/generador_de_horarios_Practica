@@ -8,6 +8,7 @@ import {
   Divider,
   Steps,
   Collapse,
+  Space,
 } from "antd";
 import {
   PoweroffOutlined,
@@ -24,7 +25,7 @@ import "../assets/css/Layout.css";
 import "../assets/css/Steps.css";
 
 const { Header, Content, Footer } = Layout;
-const { Text } = Typography;
+const { Text, Title } = Typography;
 const { Step } = Steps;
 const { SubMenu } = Menu;
 const { Panel } = Collapse;
@@ -118,17 +119,25 @@ export default class ATRLayout extends Component {
         <Layout>
           <Header className="header">
             <a href="/users/usr">
-              <div className="logo" />
-              <Avatar
-                size={40}
-                src="https://cdn.discordapp.com/attachments/928022489039273994/928022582064717884/logo.png"
-                style={{
-                  "margin-left": "2%",
-                  "margin-right": "1vh",
-                  "margin-bottom": "1vh",
-                }}
-              />
-              <Text className="title">ASISTENTE TDR</Text>
+              <Space>
+                <Avatar
+                  size={40}
+                  src="https://cdn.discordapp.com/attachments/928022489039273994/933606606548107294/udp.png"
+                  style={{
+                    "margin-left": "2%",
+                    "margin-right": "1vh",
+                  }}
+                />
+                <Title
+                  style={{
+                    fontSize: "30px",
+                    color: "#008cdb",
+                    margin: "0px",
+                  }}
+                >
+                  ASISTENTE TDR
+                </Title>
+              </Space>
             </a>
             <Menu
               className="menu-header"

@@ -1,74 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import RamoE from "./RamoE";
 import Semestre from "./Semestre";
 import { Link } from "react-router-dom";
+import { Row, Col } from "antd";
 
 export default class Malla2018Extra2 extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-around">
-          <div className="col col-md-1"> </div>
-          <Semestre semestre={"3"} />
-          <Semestre semestre={"4"} />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10 align-items-start">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CBM-1005"}
-            ramo={"Ecuaciones Diferenciales"}
-            numero={"11"}
-            creditos={"6"}
-            prerequisitos={"Álgebra Lineal - Cálculo II"}
-            formacion={"Ciencias Básicas"}
-          />
-          <RamoE
-            codigo={"CIT-2204"}
-            ramo={"Probabilidades y Estadistica"}
-            numero={"16"}
-            creditos={"6"}
-            prerequisitos={"Cálculo II"}
-            formacion={"Ciencias de la Ingeniería"}
-          />
-
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CBM-1006"}
-            ramo={"Cálculo III"}
-            numero={"12"}
-            creditos={"6"}
-            prerequisitos={"Cálculo II"}
-            formacion={"Ciencias Básicas"}
-          />
-
-          <RamoE
-            codigo={"CBM-2000"}
-            ramo={"Métodos Numéricos"}
-            numero={"17"}
-            creditos={"6"}
-            prerequisitos={"Álgebra Lineal - Cálculo II"}
-            formacion={"Ciencias de la Ingeniería"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1">
+      <Fragment>
+        <Row>
+          <Col span={2} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
               to={{ pathname: "/users/usr/mallas/malla2018/DatosExtraM2018-1" }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,28 +29,121 @@ export default class Malla2018Extra2 extends Component {
                 />
               </svg>
             </Link>
-          </div>
-          <RamoE
-            codigo={"CBF-1001"}
-            ramo={"Calor y Ondas"}
-            numero={"13"}
-            creditos={"7"}
-            prerequisitos={"Cálculo II - Mecánica"}
-            formacion={"Ciencias Básicas"}
-          />
-          <RamoE
-            codigo={"CBF-1002"}
-            ramo={"Electricidad y Magnetismo"}
-            numero={"18"}
-            creditos={"7"}
-            prerequisitos={"Ecuaciones Diferenciales - Cálculo III"}
-            formacion={"Ciencias Básicas"}
-          />
+          </Col>
+          <Col span={20}>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+              justify="center"
+            >
+              <Col xs={20} sm={10}>
+                <Semestre semestre={"3"} />
+                <br />
+                <RamoE
+                  codigo={"CBM-1005"}
+                  ramo={"Ecuaciones Diferenciales"}
+                  numero={"11"}
+                  creditos={"6"}
+                  prerequisitos={"Álgebra Lineal - Cálculo II"}
+                  formacion={"Ciencias Básicas"}
+                />
+                <RamoE
+                  codigo={"CBM-1006"}
+                  ramo={"Cálculo III"}
+                  numero={"12"}
+                  creditos={"6"}
+                  prerequisitos={"Cálculo II"}
+                  formacion={"Ciencias Básicas"}
+                />
+                <RamoE
+                  codigo={"CBF-1001"}
+                  ramo={"Calor y Ondas"}
+                  numero={"13"}
+                  creditos={"7"}
+                  prerequisitos={"Cálculo II - Mecánica"}
+                  formacion={"Ciencias Básicas"}
+                />
+                <RamoE
+                  codigo={"CIT-2000"}
+                  ramo={"Estructura de Datos"}
+                  numero={"14"}
+                  creditos={"6"}
+                  prerequisitos={"Programación Avanzada"}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-2100"}
+                  ramo={"Redes de Datos"}
+                  numero={"15"}
+                  creditos={"6"}
+                  prerequisitos={"Programación Avanzada"}
+                  formacion={"Ingeniería Aplicada"}
+                />
+              </Col>
+              <Col xs={20} sm={10}>
+                <Semestre semestre={"4"} />
+                <br />
+                <RamoE
+                  codigo={"CIT-2204"}
+                  ramo={"Probabilidades y Estadistica"}
+                  numero={"16"}
+                  creditos={"6"}
+                  prerequisitos={"Cálculo II"}
+                  formacion={"Ciencias de la Ingeniería"}
+                />
+                <RamoE
+                  codigo={"CBM-2000"}
+                  ramo={"Métodos Numéricos"}
+                  numero={"17"}
+                  creditos={"6"}
+                  prerequisitos={"Álgebra Lineal - Cálculo II"}
+                  formacion={"Ciencias de la Ingeniería"}
+                />
 
-          <div className="col col-md-1">
+                <RamoE
+                  codigo={"CBF-1002"}
+                  ramo={"Electricidad y Magnetismo"}
+                  numero={"18"}
+                  creditos={"7"}
+                  prerequisitos={"Ecuaciones Diferenciales - Cálculo III"}
+                  formacion={"Ciencias Básicas"}
+                />
+                <RamoE
+                  codigo={"CIT-2001"}
+                  ramo={"Diseño y Análisis de Algoritmos"}
+                  numero={"19"}
+                  creditos={"6"}
+                  prerequisitos={"Estructura de Datos"}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={" - "}
+                  ramo={"Minor / CFG"}
+                  numero={"20"}
+                  creditos={"5"}
+                  prerequisitos={" - "}
+                  formacion={"Transversal"}
+                />
+                <RamoE
+                  codigo={"FIC-1001"}
+                  ramo={"Inglés I"}
+                  numero={"21"}
+                  creditos={"5"}
+                  prerequisitos={""}
+                  formacion={"Transversal"}
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col span={2} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
-              to={{ pathname: "/users/usr/mallas/malla2018/DatosExtraM2018-3" }}
+              to={{
+                pathname: "/users/usr/mallas/malla2018/DatosExtraM2018-3",
+              }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -121,81 +159,9 @@ export default class Malla2018Extra2 extends Component {
                 />
               </svg>
             </Link>
-          </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIT-2000"}
-            ramo={"Estructura de Datos"}
-            numero={"14"}
-            creditos={"6"}
-            prerequisitos={"Programación Avanzada"}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <RamoE
-            codigo={"CIT-2001"}
-            ramo={"Diseño y Análisis de Algoritmos"}
-            numero={"19"}
-            creditos={"6"}
-            prerequisitos={"Estructura de Datos"}
-            formacion={"Ingeniería Aplicada"}
-          />
-
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIT-2100"}
-            ramo={"Redes de Datos"}
-            numero={"15"}
-            creditos={"6"}
-            prerequisitos={"Programación Avanzada"}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <RamoE
-            codigo={" - "}
-            ramo={"Minor / CFG"}
-            numero={"20"}
-            creditos={"5"}
-            prerequisitos={" - "}
-            formacion={"Transversal"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <div className="col"> </div>
-          <RamoE
-            codigo={"FIC-1001"}
-            ramo={"Inglés I"}
-            numero={"21"}
-            creditos={"5"}
-            prerequisitos={""}
-            formacion={"Transversal"}
-          />
-
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col"></div>
-          <div className="col"> </div>
-          <div className="col"> </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Fragment>
     );
   }
 }

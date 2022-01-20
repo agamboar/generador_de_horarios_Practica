@@ -1,72 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import RamoE from "./RamoE";
 import Semestre from "./Semestre";
 import { Link } from "react-router-dom";
+import { Row, Col } from "antd";
 
 export default class Malla2010Extra4 extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-around">
-          <div className="col col-md-1"> </div>
-          <Semestre semestre={"9"} />
-          <Semestre semestre={"10"} />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10 align-items-start">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIT-33XX"}
-            ramo={"Electivo Profesional"}
-            numero={"43"}
-            creditos={"6"}
-            prerequisitos={" - "}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <RamoE
-            codigo={"CIT-33XX"}
-            ramo={"Electivo Profesional"}
-            numero={"48"}
-            creditos={"6"}
-            prerequisitos={" - "}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIT-34XX"}
-            ramo={"Electivo Profesional"}
-            numero={"44"}
-            creditos={"6"}
-            prerequisitos={" - "}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <RamoE
-            codigo={"CIT-34XX"}
-            ramo={"Electivo Profesional"}
-            numero={"49"}
-            creditos={"6"}
-            prerequisitos={" - "}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1">
+      <Fragment>
+        <Row>
+          <Col span={2} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
               to={{ pathname: "/users/usr/mallas/malla2010/DatosExtraM2010-4" }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -82,24 +29,106 @@ export default class Malla2010Extra4 extends Component {
                 />
               </svg>
             </Link>
-          </div>
-          <RamoE
-            codigo={"CIT-34XX"}
-            ramo={"Electivo Profesional"}
-            numero={"45"}
-            creditos={"6"}
-            prerequisitos={" - "}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <RamoE
-            codigo={"CIT-34XX"}
-            ramo={"Electivo Profesional"}
-            numero={"50"}
-            creditos={"6"}
-            prerequisitos={" - "}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <div className="col col-md-1">
+          </Col>
+          <Col span={20}>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+              justify="center"
+            >
+              <Col xs={20} sm={10}>
+                <Semestre semestre={"9"} />
+                <br />
+                <RamoE
+                  codigo={"CIT-33XX"}
+                  ramo={"Electivo Profesional"}
+                  numero={"43"}
+                  creditos={"6"}
+                  prerequisitos={" - "}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-34XX"}
+                  ramo={"Electivo Profesional"}
+                  numero={"44"}
+                  creditos={"6"}
+                  prerequisitos={" - "}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-34XX"}
+                  ramo={"Electivo Profesional"}
+                  numero={"45"}
+                  creditos={"6"}
+                  prerequisitos={" - "}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-3200"}
+                  ramo={"Evaluación de Proyectos TIC"}
+                  numero={"46"}
+                  creditos={"6"}
+                  prerequisitos={"Contabilidad y costos - Proyectos en TICs II"}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-33XX"}
+                  ramo={"Electivo Profesional"}
+                  numero={"47"}
+                  creditos={"6"}
+                  prerequisitos={" - "}
+                  formacion={"Ingeniería Aplicada"}
+                />
+              </Col>
+              <Col xs={20} sm={10}>
+                <Semestre semestre={"10"} />
+                <br />
+                <RamoE
+                  codigo={"CIT-33XX"}
+                  ramo={"Electivo Profesional"}
+                  numero={"48"}
+                  creditos={"6"}
+                  prerequisitos={" - "}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-34XX"}
+                  ramo={"Electivo Profesional"}
+                  numero={"49"}
+                  creditos={"6"}
+                  prerequisitos={" - "}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-34XX"}
+                  ramo={"Electivo Profesional"}
+                  numero={"50"}
+                  creditos={"6"}
+                  prerequisitos={" - "}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-3201"}
+                  ramo={"Proyecto en TICs III"}
+                  numero={"51"}
+                  creditos={"6"}
+                  prerequisitos={"Evaluación de Proyectos TIC"}
+                  formacion={"Ingeniería Aplicada"}
+                />
+                <RamoE
+                  codigo={"CIT-33XX"}
+                  ramo={"Electivo Profesional"}
+                  numero={"52"}
+                  creditos={"6"}
+                  prerequisitos={" - "}
+                  formacion={"Ingeniería Aplicada"}
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col span={2} style={{ alignSelf: "start" }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="36"
@@ -110,63 +139,9 @@ export default class Malla2010Extra4 extends Component {
             >
               <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
             </svg>
-          </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIT-3200"}
-            ramo={"Evaluación de Proyectos TIC"}
-            numero={"46"}
-            creditos={"6"}
-            prerequisitos={"Contabilidad y costos - Proyectos en TICs II"}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <RamoE
-            codigo={"CIT-3201"}
-            ramo={"Proyecto en TICs III"}
-            numero={"51"}
-            creditos={"6"}
-            prerequisitos={"Evaluación de Proyectos TIC"}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIT-33XX"}
-            ramo={"Electivo Profesional"}
-            numero={"47"}
-            creditos={"6"}
-            prerequisitos={" - "}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <RamoE
-            codigo={"CIT-33XX"}
-            ramo={"Electivo Profesional"}
-            numero={"52"}
-            creditos={"6"}
-            prerequisitos={" - "}
-            formacion={"Ingeniería Aplicada"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col"></div>
-          <div className="col"> </div>
-          <div className="col"> </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Fragment>
     );
   }
 }

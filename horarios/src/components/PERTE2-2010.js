@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Ramo from "./RamoP";
 import Semestre from "./Semestre";
 import { Link } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Row, Col, Typography } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
+
+const { Title } = Typography;
 
 export default class Malla2010Extra2 extends Component {
   state = {
@@ -83,85 +85,59 @@ export default class Malla2010Extra2 extends Component {
 
   render() {
     return (
-      <div className="container">
-        <br />
-        <Button
-          href="/users/usr/PERT"
-          onClick={this.deleteMalla}
-          icon={<ArrowLeftOutlined />}
-          size="large"
+      <Fragment>
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
         >
-          Volver
-        </Button>
-        <Button
-          href="/users/usr/priorizarRamos"
-          type="primary"
-          icon={<ArrowRightOutlined />}
-          style={{ float: "right" }}
-          size="large"
+          <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+            <Button
+              href="/users/usr/PERT"
+              onClick={this.deleteMalla}
+              icon={<ArrowLeftOutlined />}
+              size="large"
+            >
+              Volver
+            </Button>
+          </Col>
+
+          <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+            <Button
+              href="/users/usr/priorizarAreaCFG"
+              type="primary"
+              icon={<ArrowRightOutlined />}
+              size="large"
+            >
+              Ir a Priorizar CFG
+            </Button>
+          </Col>
+        </Row>
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
         >
-          Ir a Priorizar Asignaturas
-        </Button>
-        <br />
-        <div className="row justify-content-around">
-          <div className="col col-md-1"> </div>
-          <Semestre semestre={"4"} />
-          <Semestre semestre={"5"} />
-          <Semestre semestre={"6"} />
-          <div className="col col-md-1"> </div>
-        </div>
+          <Col span={24} style={{ textAlign: "center" }}>
+            <Title
+              style={{
+                color: "#008cdb",
+                fontSize: "40px",
+              }}
+            >
+              Mis Ramos Críticos
+            </Title>
+          </Col>
+        </Row>
 
-        <br />
-
-        <div className="row row-cols-10 align-items-start">
-          <div className="col col-md-1"> </div>
-          <Ramo
-            codigo={"CIT2204"}
-            ramo={"Prob. y Estadisticas"}
-            state={this.state.CIT2204}
-          />
-          <Ramo
-            codigo={"CII2750"}
-            ramo={"Optimización"}
-            state={this.state.CII2750}
-          />
-          <Ramo
-            codigo={"CII2000"}
-            ramo={"Introducción a la Economía"}
-            state={this.state.CII2000}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <Ramo
-            codigo={"CBM2000"}
-            ramo={"Métodos Numéricos"}
-            state={this.state.CBM2000}
-          />
-          <Ramo
-            codigo={"CIT2106"}
-            ramo={"Electrónica y Electrotecnia"}
-            state={this.state.CIT2106}
-          />
-          <Ramo
-            codigo={"CIT2202"}
-            ramo={"Modelos Estoc. y Simul."}
-            state={this.state.CIT2202}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1">
+        <Row>
+          <Col span={3} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
               to={{ pathname: "/users/usr/PERT/PERTExtra1" }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -172,31 +148,126 @@ export default class Malla2010Extra2 extends Component {
                 viewBox="0 0 16 16"
               >
                 <path
-                  fillRule="evenodd"
+                  fill-rule="evenodd"
                   d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
                 />
               </svg>
             </Link>
-          </div>
-          <Ramo
-            codigo={"CBF1002"}
-            ramo={"Electricidad y Magnetismo"}
-            state={this.state.CBF1002}
-          />
-          <Ramo
-            codigo={"CIT2200"}
-            ramo={"Proyectos en TICs I"}
-            state={this.state.CIT2200}
-          />
-          <Ramo
-            codigo={"CIT2101"}
-            ramo={"Señales y Sistemas"}
-            state={this.state.CIT2101}
-          />
-          <div className="col col-md-1">
+          </Col>
+          <Col span={18}>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+              justify="center"
+            >
+              <Col xs={18} sm={9} md={6}>
+                <Semestre semestre={"4"} />
+                <br />
+                <Ramo
+                  codigo={"CIT2204"}
+                  ramo={"Prob. y Estadisticas"}
+                  state={this.state.CIT2204}
+                />
+                <Ramo
+                  codigo={"CBM2000"}
+                  ramo={"Métodos Numéricos"}
+                  state={this.state.CBM2000}
+                />
+                <Ramo
+                  codigo={"CBF1002"}
+                  ramo={"Electricidad y Magnetismo"}
+                  state={this.state.CBF1002}
+                />
+                <Ramo
+                  codigo={"CIT2001"}
+                  ramo={"Dis. y Análisis de Algoritmos"}
+                  state={this.state.CIT2001}
+                />
+                <Ramo
+                  codigo={"CFG2"}
+                  ramo={"Minor / CFG"}
+                  state={this.state.CFG2}
+                />
+                <Ramo
+                  codigo={"FIC1001"}
+                  ramo={"Inglés I"}
+                  state={this.state.FIC1001}
+                />
+              </Col>
+              <Col xs={18} sm={9} md={6}>
+                <Semestre semestre={"5"} />
+                <br />
+                <Ramo
+                  codigo={"CII2750"}
+                  ramo={"Optimización"}
+                  state={this.state.CII2750}
+                />
+                <Ramo
+                  codigo={"CIT2106"}
+                  ramo={"Electrónica y Electrotecnia"}
+                  state={this.state.CIT2106}
+                />
+                <Ramo
+                  codigo={"CIT2200"}
+                  ramo={"Proyectos en TICs I"}
+                  state={this.state.CIT2200}
+                />
+                <Ramo
+                  codigo={"CIT2002"}
+                  ramo={"Bases de Datos"}
+                  state={this.state.CIT2002}
+                />
+                <Ramo
+                  codigo={"CFG3"}
+                  ramo={"Minor / CFG"}
+                  state={this.state.CFG3}
+                />
+                <Ramo
+                  codigo={"FIC1002"}
+                  ramo={"Inglés II"}
+                  state={this.state.FIC1002}
+                />
+              </Col>
+              <Col xs={18} sm={9} md={6}>
+                <Semestre semestre={"6"} />
+                <br />
+                <Ramo
+                  codigo={"CII2000"}
+                  ramo={"Introducción a la Economía"}
+                  state={this.state.CII2000}
+                />
+                <Ramo
+                  codigo={"CIT2202"}
+                  ramo={"Modelos Estoc. y Simul."}
+                  state={this.state.CIT2202}
+                />
+                <Ramo
+                  codigo={"CIT2101"}
+                  ramo={"Señales y Sistemas"}
+                  state={this.state.CIT2101}
+                />
+                <Ramo
+                  codigo={"CIT2003"}
+                  ramo={"Sistemas Operativos"}
+                  state={this.state.CIT2003}
+                />
+                <Ramo
+                  codigo={"CIT2103"}
+                  ramo={"Sistemas Digitales"}
+                  state={this.state.CIT2103}
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col span={3} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
-              to={{ pathname: "/users/usr/PERT/PERTExtra3" }}
+              to={{
+                pathname: "/users/usr/PERT/PERTExtra3",
+              }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -207,76 +278,14 @@ export default class Malla2010Extra2 extends Component {
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
                 />
               </svg>
             </Link>
-          </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <Ramo
-            codigo={"CIT2001"}
-            ramo={"Dis. y Análisis de Algoritmos"}
-            state={this.state.CIT2001}
-          />
-          <Ramo
-            codigo={"CIT2002"}
-            ramo={"Bases de Datos"}
-            state={this.state.CIT2002}
-          />
-          <Ramo
-            codigo={"CIT2003"}
-            ramo={"Sistemas Operativos"}
-            state={this.state.CIT2003}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <Ramo codigo={"CFG2"} ramo={"Minor / CFG"} state={this.state.CFG2} />
-          <Ramo codigo={"CFG3"} ramo={"Minor / CFG"} state={this.state.CFG3} />
-          <Ramo
-            codigo={"CIT2103"}
-            ramo={"Sistemas Digitales"}
-            state={this.state.CIT2103}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <Ramo
-            codigo={"FIC1001"}
-            ramo={"Inglés I"}
-            state={this.state.FIC1001}
-          />
-          <Ramo
-            codigo={"FIC1002"}
-            ramo={"Inglés II"}
-            state={this.state.FIC1002}
-          />
-          <div className="col "> </div>
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col"></div>
-          <div className="col"> </div>
-          <div className="col"> </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Fragment>
     );
   }
 }

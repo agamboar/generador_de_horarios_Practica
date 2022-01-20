@@ -35,9 +35,6 @@ export default class M2018Extra1 extends Component {
       return (
         <Fragment>
           <ATRLayout phase={3}>
-            <br />
-            <br />
-            <br />
             <PERTE2_2010 ramos={this.state.ramos} />
           </ATRLayout>
         </Fragment>
@@ -46,9 +43,6 @@ export default class M2018Extra1 extends Component {
       return (
         <Fragment>
           <ATRLayout phase={3}>
-            <br />
-            <br />
-            <br />
             <PERTE2_2018 ramos={this.state.ramos} />
           </ATRLayout>
         </Fragment>
@@ -57,9 +51,6 @@ export default class M2018Extra1 extends Component {
       return (
         <Fragment>
           <ATRLayout phase={3}>
-            <br />
-            <br />
-            <br />
             <PERTE2_2020 ramos={this.state.ramos} />
           </ATRLayout>
         </Fragment>

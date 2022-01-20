@@ -5,7 +5,7 @@ import NotAuth from "./NotAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Typography } from "antd";
+import { Button, Typography, Row, Col } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
@@ -414,349 +414,340 @@ export default class PriorizarRamos extends Component {
             {this.state.ramos === "no" ? (
               <Fragment>
                 <ATRLayout phase={5}>
-                  <br />
-                  <br />
-                  <br />
-                  <div className="container">
-                    <Button
-                      href="/users/usr/priorizarAreaCFG"
-                      icon={<ArrowLeftOutlined />}
-                      size="large"
-                      style={{ textAlign: "left" }}
-                    >
-                      Volver a Priorizar CFG
-                    </Button>
-                    <Button
-                      href="/users/usr/priorizarSeccion"
-                      type="primary"
-                      icon={<ArrowRightOutlined />}
-                      style={{ float: "right" }}
-                      size="large"
-                    >
-                      Ir a Priorizar Secciones
-                    </Button>
-                  </div>
-                  <div style={{ textAlign: "center" }}>
-                    <Title
-                      style={{
-                        textAlign: "center",
-                        color: "#008cdb",
-                        fontSize: "40px",
-                      }}
-                    >
-                      Priorizar Ramos
-                    </Title>
-                    <Text
-                      style={{
-                        textAlign: "center",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Ahora deberás elegir que ramos prefieres asignarles una
-                      mayor prioridad en tu horario.
-                    </Text>
-                  </div>
-                  <br />
-                  <div className="row row-cols-3">
-                    <div className="col"></div>
-                    <div className="col"></div>
-                    <div className="col"></div>
-                    {/*  <div className="col"><br />
-                                <div className="align-self-center">
-                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarSeccion' }} style={{ color: '#FFF' }} >
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="2">Priorizar Secciones</font>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </Link>
-                                    </button>
-                                </div></div>
-                                    <div className="col"><br />
-                                <div className="align-self-center">
-                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="3">Generar Horario</font>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </Link>
-                                    </button>
-                                </div></div>*/}
-                  </div>
+                  <Row
+                    gutter={[
+                      { xs: 8, sm: 16, md: 24, lg: 32 },
+                      { xs: 8, sm: 16, md: 24, lg: 32 },
+                    ]}
+                  >
+                    <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                      <Button
+                        href="/users/usr/priorizarAreaCFG"
+                        icon={<ArrowLeftOutlined />}
+                        size="large"
+                      >
+                        Volver a Priorizar CFG
+                      </Button>
+                    </Col>
+
+                    <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                      <Button
+                        href="/users/usr/priorizarSeccion"
+                        type="primary"
+                        icon={<ArrowRightOutlined />}
+                        size="large"
+                      >
+                        Ir a Priorizar Secciones
+                      </Button>
+                    </Col>
+                  </Row>
+                  <Row
+                    gutter={[
+                      { xs: 8, sm: 16, md: 24, lg: 32 },
+                      { xs: 8, sm: 16, md: 24, lg: 32 },
+                    ]}
+                  >
+                    <Col span={24} style={{ textAlign: "center" }}>
+                      <Title
+                        style={{
+                          textAlign: "center",
+                          color: "#008cdb",
+                          fontSize: "40px",
+                        }}
+                      >
+                        Priorizar Ramos
+                      </Title>
+                      <Text
+                        style={{
+                          textAlign: "center",
+                          fontSize: "20px",
+                        }}
+                      >
+                        Ahora deberás elegir que ramos prefieres asignarles una
+                        mayor prioridad en tu horario.
+                      </Text>
+                    </Col>
+                  </Row>
 
                   <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <div className="d-flex justify-content-center">
-                    <h2 className="display-6">Te has saltado un paso</h2>
-                  </div>
-                  <div className="d-flex justify-content-center">
-                    <h4 className="display-6">Seras redirigido</h4>
-                    {this.aux()}
-                  </div>
-                  <br />
-                  <br />
-                  <div className="d-flex justify-content-center">
-                    <div className="spinner-grow text-primary" role="status" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div className="spinner-grow text-primary" role="status" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div
-                      className="spinner-border text-primary"
-                      role="status"
-                    />
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div className="spinner-grow text-primary" role="status" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div className="spinner-grow text-primary" role="status" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                  </div>
+                  <Row
+                    gutter={[
+                      { xs: 8, sm: 16, md: 24, lg: 32 },
+                      { xs: 8, sm: 16, md: 24, lg: 32 },
+                    ]}
+                  >
+                    <Col span={24} style={{ textAlign: "center" }}>
+                      <Title>No has elegido ninguna malla</Title>
+                      <Title level={3} type="secondary">
+                        Serás redirigido
+                      </Title>
+                      {this.aux()}
+                      <div className="d-flex justify-content-center">
+                        <div
+                          className="spinner-grow text-primary"
+                          role="status"
+                        />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div
+                          className="spinner-grow text-primary"
+                          role="status"
+                        />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div
+                          className="spinner-border text-primary"
+                          role="status"
+                        />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div
+                          className="spinner-grow text-primary"
+                          role="status"
+                        />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div
+                          className="spinner-grow text-primary"
+                          role="status"
+                        />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                      </div>
+                    </Col>
+                  </Row>
                 </ATRLayout>
               </Fragment>
             ) : (
               <Fragment>
                 <ATRLayout phase={5}>
-                  <br />
-                  <br />
-                  <br />
-                  <div className="container">
-                    <Button
-                      href="/users/usr/priorizarAreaCFG"
-                      icon={<ArrowLeftOutlined />}
-                      size="large"
-                      style={{ textAlign: "left" }}
-                    >
-                      Volver a Mis Priorizar CFG
-                    </Button>
-                    <Button
-                      href="/users/usr/priorizarSeccion"
-                      type="primary"
-                      icon={<ArrowRightOutlined />}
-                      style={{ float: "right" }}
-                      size="large"
-                    >
-                      Ir a Priorizar Secciones
-                    </Button>
-                  </div>
-                  <div style={{ textAlign: "center" }}>
-                    <Title
-                      style={{
-                        textAlign: "center",
-                        color: "#008cdb",
-                        fontSize: "40px",
-                      }}
-                    >
-                      Priorizar Ramos
-                    </Title>
-                    <Text
-                      style={{
-                        textAlign: "center",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Ahora deberás elegir que ramos prefieres asignarles una
-                      mayor prioridad en tu horario.
-                    </Text>
-                  </div>
-                  <br />
-                  <div className="row row-cols-3">
-                    <div className="col"></div>
-                    <div className="col"></div>
-                    <div className="col"></div>
-                    {/*<div className="col"><br />
-                                <div className="align-self-center">
-                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/priorizarSeccion' }} style={{ color: '#FFF' }} >
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="3">Priorizar Secciones</font>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </Link>
-                                    </button>
-                                </div></div>
-                                    <div className="col"><br />
-                                <div className="align-self-center">
-                                    <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                        <Link className="nav-link" to={{ pathname: '/users/usr/horariosPosibles' }} style={{ color: '#FFF' }} >
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <font size="3">Generar Horario</font>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </Link>
-                                    </button>
-                              </div></div>*/}
-                  </div>
+                  <Row
+                    gutter={[
+                      { xs: 8, sm: 16, md: 24, lg: 32 },
+                      { xs: 8, sm: 16, md: 24, lg: 32 },
+                    ]}
+                  >
+                    <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                      <Button
+                        href="/users/usr/priorizarAreaCFG"
+                        icon={<ArrowLeftOutlined />}
+                        size="large"
+                      >
+                        Volver a Priorizar CFG
+                      </Button>
+                    </Col>
 
-                  <br />
+                    <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                      <Button
+                        href="/users/usr/priorizarSeccion"
+                        type="primary"
+                        icon={<ArrowRightOutlined />}
+                        size="large"
+                      >
+                        Ir a Priorizar Secciones
+                      </Button>
+                    </Col>
+                  </Row>
+                  <Row
+                    gutter={[
+                      { xs: 8, sm: 16, md: 24, lg: 32 },
+                      { xs: 8, sm: 16, md: 24, lg: 32 },
+                    ]}
+                  >
+                    <Col span={24} style={{ textAlign: "center" }}>
+                      <Title
+                        style={{
+                          textAlign: "center",
+                          color: "#008cdb",
+                          fontSize: "40px",
+                        }}
+                      >
+                        Priorizar Ramos
+                      </Title>
+                      <Text
+                        style={{
+                          textAlign: "center",
+                          fontSize: "20px",
+                        }}
+                      >
+                        Ahora deberás elegir que ramos prefieres asignarles una
+                        mayor prioridad en tu horario.
+                      </Text>
+                    </Col>
+                  </Row>
                   <br />
                   {console.log(this.state.critico) /* NO BORRAR */}
-                  <RamoCritico
-                    name="Críticos"
-                    resultado={this.state.critico}
-                    onChange0_1={this.criticoonChange0_1}
-                    onChange1_2={this.criticoonChange1_2}
-                    onChange2_3={this.criticoonChange2_3}
-                    onChange3_4={this.criticoonChange3_4}
-                    onChange4_5={this.criticoonChange4_5}
-                    onChange5_6={this.criticoonChange5_6}
-                    onChange6_7={this.criticoonChange6_7}
-                    onChange7_8={this.criticoonChange7_8}
-                    onChange8_9={this.criticoonChange8_9}
-                    onChange9_10={this.criticoonChange9_10}
-                  />
-                  <RamoCritico
-                    name="Prioridad 0"
-                    resultado={this.state.p0}
-                    onChange0_1={this.p0onChange0_1}
-                    onChange1_2={this.p0onChange1_2}
-                    onChange2_3={this.p0onChange2_3}
-                    onChange3_4={this.p0onChange3_4}
-                    onChange4_5={this.p0onChange4_5}
-                    onChange5_6={this.p0onChange5_6}
-                    onChange6_7={this.p0onChange6_7}
-                    onChange7_8={this.p0onChange7_8}
-                    onChange8_9={this.p0onChange8_9}
-                    onChange9_10={this.p0onChange9_10}
-                  />
-                  <RamoCritico
-                    name="Prioridad 1"
-                    resultado={this.state.p1}
-                    onChange0_1={this.p1onChange0_1}
-                    onChange1_2={this.p1onChange1_2}
-                    onChange2_3={this.p1onChange2_3}
-                    onChange3_4={this.p1onChange3_4}
-                    onChange4_5={this.p1onChange4_5}
-                    onChange5_6={this.p1onChange5_6}
-                    onChange6_7={this.p1onChange6_7}
-                    onChange7_8={this.p1onChange7_8}
-                    onChange8_9={this.p1onChange8_9}
-                    onChange9_10={this.p1onChange9_10}
-                  />
-                  <RamoCritico
-                    name="Prioridad 2"
-                    resultado={this.state.p2}
-                    onChange0_1={this.p2onChange0_1}
-                    onChange1_2={this.p2onChange1_2}
-                    onChange2_3={this.p2onChange2_3}
-                    onChange3_4={this.p2onChange3_4}
-                    onChange4_5={this.p2onChange4_5}
-                    onChange5_6={this.p2onChange5_6}
-                    onChange6_7={this.p2onChange6_7}
-                    onChange7_8={this.p2onChange7_8}
-                    onChange8_9={this.p2onChange8_9}
-                    onChange9_10={this.p2onChange9_10}
-                  />
-                  <RamoCritico
-                    name="Prioridad 3"
-                    resultado={this.state.p3}
-                    onChange0_1={this.p3onChange0_1}
-                    onChange1_2={this.p3onChange1_2}
-                    onChange2_3={this.p3onChange2_3}
-                    onChange3_4={this.p3onChange3_4}
-                    onChange4_5={this.p3onChange4_5}
-                    onChange5_6={this.p3onChange5_6}
-                    onChange6_7={this.p3onChange6_7}
-                    onChange7_8={this.p3onChange7_8}
-                    onChange8_9={this.p3onChange8_9}
-                    onChange9_10={this.p3onChange9_10}
-                  />
-                  <RamoCritico
-                    name="Prioridad 4"
-                    resultado={this.state.p4}
-                    onChange0_1={this.p4onChange0_1}
-                    onChange1_2={this.p4onChange1_2}
-                    onChange2_3={this.p4onChange2_3}
-                    onChange3_4={this.p4onChange3_4}
-                    onChange4_5={this.p4onChange4_5}
-                    onChange5_6={this.p4onChange5_6}
-                    onChange6_7={this.p4onChange6_7}
-                    onChange7_8={this.p4onChange7_8}
-                    onChange8_9={this.p4onChange8_9}
-                    onChange9_10={this.p4onChange9_10}
-                  />
-                  <RamoCritico
-                    name="Prioridad 5"
-                    resultado={this.state.p5}
-                    onChange0_1={this.p5onChange0_1}
-                    onChange1_2={this.p5onChange1_2}
-                    onChange2_3={this.p5onChange2_3}
-                    onChange3_4={this.p5onChange3_4}
-                    onChange4_5={this.p5onChange4_5}
-                    onChange5_6={this.p5onChange5_6}
-                    onChange6_7={this.p5onChange6_7}
-                    onChange7_8={this.p5onChange7_8}
-                    onChange8_9={this.p5onChange8_9}
-                    onChange9_10={this.p5onChange9_10}
-                  />
-                  <RamoCritico
-                    name="Prioridad 6"
-                    resultado={this.state.p6}
-                    onChange0_1={this.p6onChange0_1}
-                    onChange1_2={this.p6onChange1_2}
-                    onChange2_3={this.p6onChange2_3}
-                    onChange3_4={this.p6onChange3_4}
-                    onChange4_5={this.p6onChange4_5}
-                    onChange5_6={this.p6onChange5_6}
-                    onChange6_7={this.p6onChange6_7}
-                    onChange7_8={this.p6onChange7_8}
-                    onChange8_9={this.p6onChange8_9}
-                    onChange9_10={this.p6onChange9_10}
-                  />
-                  <RamoCritico
-                    name="Prioridad 7"
-                    resultado={this.state.p7}
-                    onChange0_1={this.p7onChange0_1}
-                    onChange1_2={this.p7onChange1_2}
-                    onChange2_3={this.p7onChange2_3}
-                    onChange3_4={this.p7onChange3_4}
-                    onChange4_5={this.p7onChange4_5}
-                    onChange5_6={this.p7onChange5_6}
-                    onChange6_7={this.p7onChange6_7}
-                    onChange7_8={this.p7onChange7_8}
-                    onChange8_9={this.p7onChange8_9}
-                    onChange9_10={this.p7onChange9_10}
-                  />
-                  <RamoCritico
-                    name="Prioridad 8"
-                    resultado={this.state.p8}
-                    onChange0_1={this.p8onChange0_1}
-                    onChange1_2={this.p8onChange1_2}
-                    onChange2_3={this.p8onChange2_3}
-                    onChange3_4={this.p8onChange3_4}
-                    onChange4_5={this.p8onChange4_5}
-                    onChange5_6={this.p8onChange5_6}
-                    onChange6_7={this.p8onChange6_7}
-                    onChange7_8={this.p8onChange7_8}
-                    onChange8_9={this.p8onChange8_9}
-                    onChange9_10={this.p8onChange9_10}
-                  />
-                  <RamoCritico
-                    name="Prioridad 9"
-                    resultado={this.state.p9}
-                    onChange0_1={this.p9onChange0_1}
-                    onChange1_2={this.p9onChange1_2}
-                    onChange2_3={this.p9onChange2_3}
-                    onChange3_4={this.p9onChange3_4}
-                    onChange4_5={this.p9onChange4_5}
-                    onChange5_6={this.p9onChange5_6}
-                    onChange6_7={this.p9onChange6_7}
-                    onChange7_8={this.p9onChange7_8}
-                    onChange8_9={this.p9onChange8_9}
-                    onChange9_10={this.p9onChange9_10}
-                  />
-
-                  <form onSubmit={this.onSubmit}>
-                    <div className="container">
-                      <div className=" align-self-end">
-                        <button
-                          type="submit"
-                          className="btn btn-primary rounded-pill"
-                        >
-                          {" "}
-                          Guardar Prioridades
-                        </button>
-                      </div>
-                    </div>
-                  </form>
+                  <Row justify="center">
+                    <Col span={24}>
+                      {" "}
+                      <RamoCritico
+                        name="Críticos"
+                        resultado={this.state.critico}
+                        onChange0_1={this.criticoonChange0_1}
+                        onChange1_2={this.criticoonChange1_2}
+                        onChange2_3={this.criticoonChange2_3}
+                        onChange3_4={this.criticoonChange3_4}
+                        onChange4_5={this.criticoonChange4_5}
+                        onChange5_6={this.criticoonChange5_6}
+                        onChange6_7={this.criticoonChange6_7}
+                        onChange7_8={this.criticoonChange7_8}
+                        onChange8_9={this.criticoonChange8_9}
+                        onChange9_10={this.criticoonChange9_10}
+                      />
+                      <RamoCritico
+                        name="Prioridad 0"
+                        resultado={this.state.p0}
+                        onChange0_1={this.p0onChange0_1}
+                        onChange1_2={this.p0onChange1_2}
+                        onChange2_3={this.p0onChange2_3}
+                        onChange3_4={this.p0onChange3_4}
+                        onChange4_5={this.p0onChange4_5}
+                        onChange5_6={this.p0onChange5_6}
+                        onChange6_7={this.p0onChange6_7}
+                        onChange7_8={this.p0onChange7_8}
+                        onChange8_9={this.p0onChange8_9}
+                        onChange9_10={this.p0onChange9_10}
+                      />
+                      <RamoCritico
+                        name="Prioridad 1"
+                        resultado={this.state.p1}
+                        onChange0_1={this.p1onChange0_1}
+                        onChange1_2={this.p1onChange1_2}
+                        onChange2_3={this.p1onChange2_3}
+                        onChange3_4={this.p1onChange3_4}
+                        onChange4_5={this.p1onChange4_5}
+                        onChange5_6={this.p1onChange5_6}
+                        onChange6_7={this.p1onChange6_7}
+                        onChange7_8={this.p1onChange7_8}
+                        onChange8_9={this.p1onChange8_9}
+                        onChange9_10={this.p1onChange9_10}
+                      />
+                      <RamoCritico
+                        name="Prioridad 2"
+                        resultado={this.state.p2}
+                        onChange0_1={this.p2onChange0_1}
+                        onChange1_2={this.p2onChange1_2}
+                        onChange2_3={this.p2onChange2_3}
+                        onChange3_4={this.p2onChange3_4}
+                        onChange4_5={this.p2onChange4_5}
+                        onChange5_6={this.p2onChange5_6}
+                        onChange6_7={this.p2onChange6_7}
+                        onChange7_8={this.p2onChange7_8}
+                        onChange8_9={this.p2onChange8_9}
+                        onChange9_10={this.p2onChange9_10}
+                      />
+                      <RamoCritico
+                        name="Prioridad 3"
+                        resultado={this.state.p3}
+                        onChange0_1={this.p3onChange0_1}
+                        onChange1_2={this.p3onChange1_2}
+                        onChange2_3={this.p3onChange2_3}
+                        onChange3_4={this.p3onChange3_4}
+                        onChange4_5={this.p3onChange4_5}
+                        onChange5_6={this.p3onChange5_6}
+                        onChange6_7={this.p3onChange6_7}
+                        onChange7_8={this.p3onChange7_8}
+                        onChange8_9={this.p3onChange8_9}
+                        onChange9_10={this.p3onChange9_10}
+                      />
+                      <RamoCritico
+                        name="Prioridad 4"
+                        resultado={this.state.p4}
+                        onChange0_1={this.p4onChange0_1}
+                        onChange1_2={this.p4onChange1_2}
+                        onChange2_3={this.p4onChange2_3}
+                        onChange3_4={this.p4onChange3_4}
+                        onChange4_5={this.p4onChange4_5}
+                        onChange5_6={this.p4onChange5_6}
+                        onChange6_7={this.p4onChange6_7}
+                        onChange7_8={this.p4onChange7_8}
+                        onChange8_9={this.p4onChange8_9}
+                        onChange9_10={this.p4onChange9_10}
+                      />
+                      <RamoCritico
+                        name="Prioridad 5"
+                        resultado={this.state.p5}
+                        onChange0_1={this.p5onChange0_1}
+                        onChange1_2={this.p5onChange1_2}
+                        onChange2_3={this.p5onChange2_3}
+                        onChange3_4={this.p5onChange3_4}
+                        onChange4_5={this.p5onChange4_5}
+                        onChange5_6={this.p5onChange5_6}
+                        onChange6_7={this.p5onChange6_7}
+                        onChange7_8={this.p5onChange7_8}
+                        onChange8_9={this.p5onChange8_9}
+                        onChange9_10={this.p5onChange9_10}
+                      />
+                      <RamoCritico
+                        name="Prioridad 6"
+                        resultado={this.state.p6}
+                        onChange0_1={this.p6onChange0_1}
+                        onChange1_2={this.p6onChange1_2}
+                        onChange2_3={this.p6onChange2_3}
+                        onChange3_4={this.p6onChange3_4}
+                        onChange4_5={this.p6onChange4_5}
+                        onChange5_6={this.p6onChange5_6}
+                        onChange6_7={this.p6onChange6_7}
+                        onChange7_8={this.p6onChange7_8}
+                        onChange8_9={this.p6onChange8_9}
+                        onChange9_10={this.p6onChange9_10}
+                      />
+                      <RamoCritico
+                        name="Prioridad 7"
+                        resultado={this.state.p7}
+                        onChange0_1={this.p7onChange0_1}
+                        onChange1_2={this.p7onChange1_2}
+                        onChange2_3={this.p7onChange2_3}
+                        onChange3_4={this.p7onChange3_4}
+                        onChange4_5={this.p7onChange4_5}
+                        onChange5_6={this.p7onChange5_6}
+                        onChange6_7={this.p7onChange6_7}
+                        onChange7_8={this.p7onChange7_8}
+                        onChange8_9={this.p7onChange8_9}
+                        onChange9_10={this.p7onChange9_10}
+                      />
+                      <RamoCritico
+                        name="Prioridad 8"
+                        resultado={this.state.p8}
+                        onChange0_1={this.p8onChange0_1}
+                        onChange1_2={this.p8onChange1_2}
+                        onChange2_3={this.p8onChange2_3}
+                        onChange3_4={this.p8onChange3_4}
+                        onChange4_5={this.p8onChange4_5}
+                        onChange5_6={this.p8onChange5_6}
+                        onChange6_7={this.p8onChange6_7}
+                        onChange7_8={this.p8onChange7_8}
+                        onChange8_9={this.p8onChange8_9}
+                        onChange9_10={this.p8onChange9_10}
+                      />
+                      <RamoCritico
+                        name="Prioridad 9"
+                        resultado={this.state.p9}
+                        onChange0_1={this.p9onChange0_1}
+                        onChange1_2={this.p9onChange1_2}
+                        onChange2_3={this.p9onChange2_3}
+                        onChange3_4={this.p9onChange3_4}
+                        onChange4_5={this.p9onChange4_5}
+                        onChange5_6={this.p9onChange5_6}
+                        onChange6_7={this.p9onChange6_7}
+                        onChange7_8={this.p9onChange7_8}
+                        onChange8_9={this.p9onChange8_9}
+                        onChange9_10={this.p9onChange9_10}
+                      />
+                    </Col>
+                  </Row>
+                  <Row justify="center">
+                    <Col span={24} style={{ textAlign: "center" }}>
+                      <form onSubmit={this.onSubmit}>
+                        <div className="container">
+                          <div className=" align-self-end">
+                            <button
+                              type="submit"
+                              className="btn btn-primary rounded-pill"
+                            >
+                              {" "}
+                              Guardar Prioridades
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </Col>
+                  </Row>
                 </ATRLayout>
               </Fragment>
             )}

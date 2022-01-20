@@ -38,15 +38,21 @@ export default class UserInterface extends Component {
                 { xs: 8, sm: 16, md: 24, lg: 32 },
               ]}
             >
-              <Col xs={24} xl={8} style={{ textAlign: "center" }}>
+              <Col xs={24} style={{ textAlign: "center" }}>
                 <Image
-                  width={"80%"}
+                  width={"60%"}
                   src={`https://cdn.discordapp.com/attachments/928022489039273994/930677277174423552/udp.png`}
                   preview="false"
                 />
               </Col>
-              <Col xs={24} xl={16}>
-                <Title>¡Bienvenido al Asistente Toma de Ramos!</Title>
+              <Col xs={24} style={{ textAlign: "center" }}>
+                <Title
+                  style={{
+                    fontSize: "50px",
+                  }}
+                >
+                  ¡Bienvenido al Asistente Toma de Ramos!
+                </Title>
                 <Title level={3} type="secondary">
                   Esta plataforma tiene como objetivo asistir a los estudiantes
                   de la UDP en su proceso de toma de ramos. ¡Suerte!

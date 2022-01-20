@@ -1,11 +1,11 @@
-import React, { useEffect, useState, Component, Fragment } from "react";
+import React, { Component, Fragment } from "react";
 import { Card } from "antd";
 import ATRLayout from "./Layout";
 import NotAuth from "./NotAuth";
 import SelectSearch from "./SelectSearch";
 import TablaSecciones from "./TablaSecciones";
 import axios from "axios";
-import { Button, Typography, Layout } from "antd";
+import { Button, Typography, Layout, Row, Col } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
@@ -51,111 +51,102 @@ export default class UserInterface extends Component {
       <Fragment>
         {localStorage.getItem("token") ? (
           <ATRLayout phase={6}>
-            <br />
-            <br />
-            <br />
-            <div className="container">
-              <Button
-                href="/users/usr/priorizarRamos"
-                icon={<ArrowLeftOutlined />}
-                size="large"
-                style={{ textAlign: "left" }}
-              >
-                Volver a Priorizar Ramos
-              </Button>
-              <Button
-                href="/users/usr/horariosPosibles"
-                type="primary"
-                icon={<ArrowRightOutlined />}
-                style={{ float: "right" }}
-                size="large"
-              >
-                Ir a Horarios Posibles
-              </Button>
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <Title
-                style={{
-                  textAlign: "center",
-                  color: "#008cdb",
-                  fontSize: "40px",
-                }}
-              >
-                Priorizar Secciones
-              </Title>
-              <Text
-                style={{
-                  textAlign: "center",
-                  fontSize: "20px",
-                }}
-              >
-                Escoja un ramo para que pueda priorizar sus secciones.
-              </Text>
-              <br />
-              <Text
-                style={{
-                  textAlign: "center",
-                  fontSize: "20px",
-                }}
-              >
-                (Solo aparecerán secciones con cupos libres. Además, solo se
-                mostrarán las opciones de las 2 áreas de CFG con más
-                preferencia)
-              </Text>
-            </div>
-            <br />
-            <Layout>
-              <Content
-                className="site-layout"
-                style={{
-                  padding: "0 50px",
-                  marginLeft: 30,
-                  alignItems: "center",
-                }}
-              >
-                <div
-                  className="site-layout-background"
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+            >
+              <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                <Button
+                  href="/users/usr/priorizarRamos"
+                  icon={<ArrowLeftOutlined />}
+                  size="large"
+                >
+                  Volver a Priorizar Ramos
+                </Button>
+              </Col>
+
+              <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                <Button
+                  href="/users/usr/horariosPosibles"
+                  type="primary"
+                  icon={<ArrowRightOutlined />}
+                  size="large"
+                >
+                  Ir a Horarios Posibles
+                </Button>
+              </Col>
+            </Row>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+            >
+              <Col span={24} style={{ textAlign: "center" }}>
+                <Title
                   style={{
-                    padding: 15,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
+                    textAlign: "center",
+                    color: "#008cdb",
+                    fontSize: "40px",
                   }}
                 >
-                  {console.log(this.state.ramos)}
-                  {console.log(this.state.ramos["ramos_disponibles"])}
-                  {this.state.ramos != "" ? (
-                    <SelectSearch
-                      ramosDisponibles={this.state.ramos["ramos_disponibles"]}
-                      parentCallback={this.callbackFunction}
-                    />
-                  ) : (
-                    <p>Te has saltado un paso, vuelve atrás</p>
-                  )}
-                </div>
-                {/*(this.state.message != "no")?
-                  <div style={{padding: 10, display: "flex",  justifyContent: "flex-begin"}}><Button  type="primary">Guardar prioridad</Button></div>:null*/}
-                {/*aca recibir el nombre del ramo y sus secciones o no, simplemente recibir el nombre y el codigo*/}
+                  Priorizar Secciones
+                </Title>
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  Escoja un ramo para que pueda priorizar sus secciones.
+                </Text>
+                <br />
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  (Solo aparecerán secciones con cupos libres. Además, solo se
+                  mostrarán las opciones de las 2 áreas de CFG con más
+                  preferencia)
+                </Text>
+              </Col>
+            </Row>
+            <br />
+            <Row justify="center">
+              <Col span={24} style={{ textAlign: "center" }}>
+                {this.state.ramos != "" ? (
+                  <SelectSearch
+                    ramosDisponibles={this.state.ramos["ramos_disponibles"]}
+                    parentCallback={this.callbackFunction}
+                  />
+                ) : (
+                  <p>Te has saltado un paso, vuelve atrás</p>
+                )}
+              </Col>
+            </Row>
 
-                {this.state.message != "no" ? (
-                  <div>
-                    <Card
-                      title={
-                        'Secciones del ramo: "' +
-                        this.state.message["codigo"] +
-                        '"'
-                      }
-                    >
-                      {console.log(this.state.message["secciones"])}
-                      <TablaSecciones
-                        codigo={this.state.message["codigo"]}
-                      />{" "}
-                      {/*aca pasar el codigo del ramo y dps solo recibir el arreglo para mandarlo a la base*/}
-                    </Card>
-                  </div>
-                ) : null}
-              </Content>
-            </Layout>
+            {console.log(this.state.message)}
+            {this.state.message != "no" ? (
+              <Fragment>
+                <Row justify="center">
+                  <Col span={24} style={{ textAlign: "center" }}>
+                    <Text>
+                      Secciones del ramo: {this.state.message["codigo"]}
+                    </Text>
+                  </Col>
+                </Row>
+                <br />
+                <Row justify="center">
+                  <Col span={24}>
+                    <TablaSecciones codigo={this.state.message["codigo"]} />
+                  </Col>
+                </Row>
+              </Fragment>
+            ) : null}
           </ATRLayout>
         ) : (
           <NotAuth />

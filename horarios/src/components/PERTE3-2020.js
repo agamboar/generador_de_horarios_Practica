@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ARamo from "./RamoP";
 import Semestre from "./Semestre";
 import { Link } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Row, Col, Typography } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
+
+const { Title } = Typography;
 
 export default class Malla2020Extra3 extends Component {
   state = {
@@ -84,76 +86,59 @@ export default class Malla2020Extra3 extends Component {
 
   render() {
     return (
-      <div className="container">
-        <br />
-        <Button
-          href="/users/usr/PERT"
-          onClick={this.deleteMalla}
-          icon={<ArrowLeftOutlined />}
-          size="large"
+      <Fragment>
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
         >
-          Volver
-        </Button>
+          <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+            <Button
+              href="/users/usr/PERT"
+              onClick={this.deleteMalla}
+              icon={<ArrowLeftOutlined />}
+              size="large"
+            >
+              Volver
+            </Button>
+          </Col>
 
-        <Button
-          href="/users/usr/priorizarRamos"
-          type="primary"
-          icon={<ArrowRightOutlined />}
-          style={{ float: "right" }}
-          size="large"
+          <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+            <Button
+              href="/users/usr/priorizarAreaCFG"
+              type="primary"
+              icon={<ArrowRightOutlined />}
+              size="large"
+            >
+              Ir a Priorizar CFG
+            </Button>
+          </Col>
+        </Row>
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
         >
-          Ir a Priorizar Asignaturas
-        </Button>
-        <br />
-        <div className="row justify-content-around">
-          <div className="col col-md-1"> </div>
-          <Semestre semestre={"7"} />
-          <Semestre semestre={"8"} />
-          <div className="col col-md-1"> </div>
-        </div>
+          <Col span={24} style={{ textAlign: "center" }}>
+            <Title
+              style={{
+                color: "#008cdb",
+                fontSize: "40px",
+              }}
+            >
+              Mis Ramos Críticos
+            </Title>
+          </Col>
+        </Row>
 
-        <br />
-
-        <div className="row row-cols-10 align-items-start">
-          <div className="col col-md-1"> </div>
-          <ARamo
-            codigo={"CIT2206"}
-            ramo={"Gestión Org."}
-            state={this.state.CIT2206}
-          />
-          <ARamo
-            codigo={"CII2100"}
-            ramo={"Introducción a la Economía"}
-            state={this.state.CII2100}
-          />
-
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <ARamo
-            codigo={"CIT2011"}
-            ramo={"Sistemas Distribuidos"}
-            state={this.state.CIT2011}
-          />
-          <ARamo
-            codigo={"CIT2112"}
-            ramo={"Tecnologías Inalámbricas"}
-            state={this.state.CIT2112}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1">
+        <Row>
+          <Col span={3} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
               to={{ pathname: "/users/usr/PERT/PERTExtra2" }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -169,21 +154,82 @@ export default class Malla2020Extra3 extends Component {
                 />
               </svg>
             </Link>
-          </div>
-          <ARamo
-            codigo={"CIT2111"}
-            ramo={"Comunicacio- nes Digitales"}
-            state={this.state.CIT2111}
-          />
-          <ARamo
-            codigo={"CIT2113"}
-            ramo={"Criptografía y Seg. en Redes"}
-            state={this.state.CIT2113}
-          />
-          <div className="col col-md-1">
+          </Col>
+          <Col span={18}>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+              justify="center"
+            >
+              <Col xs={18} sm={6}>
+                <Semestre semestre={"7"} />
+                <br />
+                <ARamo
+                  codigo={"CIT2206"}
+                  ramo={"Gestión Org."}
+                  state={this.state.CIT2206}
+                />
+                <ARamo
+                  codigo={"CIT2011"}
+                  ramo={"Sistemas Distribuidos"}
+                  state={this.state.CIT2011}
+                />
+                <ARamo
+                  codigo={"CIT2111"}
+                  ramo={"Comunicacio- nes Digitales"}
+                  state={this.state.CIT2111}
+                />
+                <ARamo
+                  codigo={"CIT2012"}
+                  ramo={"Ingeniería de Software"}
+                  state={this.state.CIT2012}
+                />
+                <ARamo
+                  codigo={"CFG4"}
+                  ramo={"Minor / CFG"}
+                  state={this.state.CFG4}
+                />
+              </Col>
+              <Col xs={18} sm={6}>
+                <Semestre semestre={"8"} />
+                <br />
+                <ARamo
+                  codigo={"CII2100"}
+                  ramo={"Introducción a la Economía"}
+                  state={this.state.CII2100}
+                />
+                <ARamo
+                  codigo={"CIT2112"}
+                  ramo={"Tecnologías Inalámbricas"}
+                  state={this.state.CIT2112}
+                />
+                <ARamo
+                  codigo={"CIT2113"}
+                  ramo={"Criptografía y Seg. en Redes"}
+                  state={this.state.CIT2113}
+                />
+                <ARamo
+                  codigo={"CIT2013"}
+                  ramo={"Inteligencia Artifical"}
+                  state={this.state.CIT2013}
+                />
+                <ARamo
+                  codigo={"CIT2207"}
+                  ramo={"Evaluación de Proy. TIC"}
+                  state={this.state.CIT2207}
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col span={3} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
-              to={{ pathname: "/users/usr/PERT/PERTExtra4" }}
+              to={{
+                pathname: "/users/usr/PERT/PERTExtra4",
+              }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -194,52 +240,14 @@ export default class Malla2020Extra3 extends Component {
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
                 />
               </svg>
             </Link>
-          </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <ARamo
-            codigo={"CIT2012"}
-            ramo={"Ingeniería de Software"}
-            state={this.state.CIT2012}
-          />
-          <ARamo
-            codigo={"CIT2013"}
-            ramo={"Inteligencia Artifical"}
-            state={this.state.CIT2013}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <ARamo codigo={"CFG4"} ramo={"Minor / CFG"} state={this.state.CFG4} />
-          <ARamo
-            codigo={"CIT2207"}
-            ramo={"Evaluación de Proy. TIC"}
-            state={this.state.CIT2207}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col"></div>
-          <div className="col"> </div>
-          <div className="col"> </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Fragment>
     );
   }
 }

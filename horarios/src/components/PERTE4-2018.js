@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ARamo from "./RamoP";
 import Semestre from "./Semestre";
 import { Link } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Row, Col, Typography } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
+
+const { Title } = Typography;
 
 export default class Malla2018Extra4 extends Component {
   state = {
@@ -84,8 +86,157 @@ export default class Malla2018Extra4 extends Component {
 
   render() {
     return (
-      <div className="container">
-        <br />
+      <Fragment>
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
+        >
+          <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+            <Button
+              href="/users/usr/PERT"
+              onClick={this.deleteMalla}
+              icon={<ArrowLeftOutlined />}
+              size="large"
+            >
+              Volver
+            </Button>
+          </Col>
+
+          <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+            <Button
+              href="/users/usr/priorizarAreaCFG"
+              type="primary"
+              icon={<ArrowRightOutlined />}
+              size="large"
+            >
+              Ir a Priorizar CFG
+            </Button>
+          </Col>
+        </Row>
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 8, sm: 16, md: 24, lg: 32 },
+          ]}
+        >
+          <Col span={24} style={{ textAlign: "center" }}>
+            <Title
+              style={{
+                color: "#008cdb",
+                fontSize: "40px",
+              }}
+            >
+              Mis Ramos Críticos
+            </Title>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col span={3} style={{ alignSelf: "start" }}>
+            <Link
+              className="nav-link"
+              to={{ pathname: "/users/usr/PERT/PERTExtra3" }}
+              style={{ padding: "0px" }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="currentColor"
+                className="bi bi-arrow-left-circle"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
+                />
+              </svg>
+            </Link>
+          </Col>
+          <Col span={18}>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+              justify="center"
+            >
+              <Col xs={18} sm={6}>
+                <Semestre semestre={"9"} />
+                <br />
+                <ARamo
+                  codigo={"CIT3310"}
+                  ramo={"Electivo Profesional"}
+                  state={this.state.CIT3310}
+                />
+                <ARamo
+                  codigo={"CIT3410"}
+                  ramo={"Electivo Profesional"}
+                  state={this.state.CIT3410}
+                />
+                <ARamo
+                  codigo={"CIT3412"}
+                  ramo={"Electivo Profesional"}
+                  state={this.state.CIT3412}
+                />
+                <ARamo
+                  codigo={"CIT3200"}
+                  ramo={"Evaluación de Proy. TIC"}
+                  state={this.state.CIT3200}
+                />
+                <ARamo
+                  codigo={"CIT3312"}
+                  ramo={"Electivo Profesional"}
+                  state={this.state.CIT3312}
+                />
+              </Col>
+              <Col xs={18} sm={6}>
+                <Semestre semestre={"10"} />
+                <br />
+                <ARamo
+                  codigo={"CIT3311"}
+                  ramo={"Electivo Profesional"}
+                  state={this.state.CIT3311}
+                />
+                <ARamo
+                  codigo={"CIT3411"}
+                  ramo={"Electivo Profesional"}
+                  state={this.state.CIT3411}
+                />
+                <ARamo
+                  codigo={"CIT3413"}
+                  ramo={"Electivo Profesional"}
+                  state={this.state.CIT3413}
+                />
+                <ARamo
+                  codigo={"CIT3201"}
+                  ramo={"Proyecto en TICs III"}
+                  state={this.state.CIT3201}
+                />
+                <ARamo
+                  codigo={"CIT3313"}
+                  ramo={"Electivo Profesional"}
+                  state={this.state.CIT3313}
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col span={3} style={{ alignSelf: "start" }}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="36"
+              height="36"
+              fill="currentColor"
+              className="bi bi-arrow-right-circle-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+          </Col>
+        </Row>
+
         <Button
           href="/users/usr/PERT"
           onClick={this.deleteMalla}
@@ -233,7 +384,7 @@ export default class Malla2018Extra4 extends Component {
           <div className="col"> </div>
           <div className="col"> </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

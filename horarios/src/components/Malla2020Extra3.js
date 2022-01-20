@@ -1,72 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import RamoE from "./RamoE";
 import Semestre from "./Semestre";
 import { Link } from "react-router-dom";
+import { Row, Col } from "antd";
 
 export default class Malla2020Extra3 extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-around">
-          <div className="col col-md-1"> </div>
-          <Semestre semestre={"5"} />
-          <Semestre semestre={"6"} />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10 align-items-start">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CII-2750"}
-            ramo={"Optimización"}
-            numero={"22"}
-            creditos={"6"}
-            prerequisitos={"Álgebra Lineal - Cálculo II"}
-            formacion={"Ciencias de la Ingeniería"}
-          />
-          <RamoE
-            codigo={"CII-1000"}
-            ramo={"Contabilidad y Costos"}
-            numero={"28"}
-            creditos={"6"}
-            prerequisitos={"Cálculo I"}
-            formacion={"Ciencias de la Ingeniería"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIT-2108"}
-            ramo={"Taller de Redes y Servicios"}
-            numero={"23"}
-            creditos={"6"}
-            prerequisitos={"Redes de Datos - Probabilidades y Estadistica"}
-            formacion={"Ingeniería Aplicada - Telecomunicaciones"}
-          />
-          <RamoE
-            codigo={"CIT-2109"}
-            ramo={"Arquitectura y Organización de Computadores"}
-            numero={"29"}
-            creditos={"6"}
-            prerequisitos={"Redes de Datos - Electrónica y Electrotecnia"}
-            formacion={"Ingeniería Aplicada - Telecomunicaciones"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1">
+      <Fragment>
+        <Row>
+          <Col span={2} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
               to={{ pathname: "/users/usr/mallas/malla2020/DatosExtraM2020-2" }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -82,28 +29,140 @@ export default class Malla2020Extra3 extends Component {
                 />
               </svg>
             </Link>
-          </div>
-          <RamoE
-            codigo={"CIT-2205"}
-            ramo={"Proyecto en TICs"}
-            numero={"24"}
-            creditos={"6"}
-            prerequisitos={"Redes de Datos - Desarrollo Web y Móvil"}
-            formacion={"Ingeniería Aplicada - Telecomuniaciones"}
-          />
-          <RamoE
-            codigo={"CIT-2110"}
-            ramo={"Señales y Sistemas"}
-            numero={"30"}
-            creditos={"6"}
-            prerequisitos={"Calor y Ondas - Electrónica y Electrotecnia"}
-            formacion={"Ingeniería Aplicada - Proyectos e Integración"}
-          />
-
-          <div className="col col-md-1">
+          </Col>
+          <Col span={20}>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+              justify="center"
+            >
+              <Col xs={20} sm={10}>
+                <Semestre semestre={"5"} />
+                <br />
+                <RamoE
+                  codigo={"CII-2750"}
+                  ramo={"Optimización"}
+                  numero={"22"}
+                  creditos={"6"}
+                  prerequisitos={"Álgebra Lineal - Cálculo II"}
+                  formacion={"Ciencias de la Ingeniería"}
+                />
+                <RamoE
+                  codigo={"CIT-2108"}
+                  ramo={"Taller de Redes y Servicios"}
+                  numero={"23"}
+                  creditos={"6"}
+                  prerequisitos={
+                    "Redes de Datos - Probabilidades y Estadistica"
+                  }
+                  formacion={"Ingeniería Aplicada - Telecomunicaciones"}
+                />
+                <RamoE
+                  codigo={"CIT-2205"}
+                  ramo={"Proyecto en TICs"}
+                  numero={"24"}
+                  creditos={"6"}
+                  prerequisitos={"Redes de Datos - Desarrollo Web y Móvil"}
+                  formacion={"Ingeniería Aplicada - Telecomuniaciones"}
+                />
+                <RamoE
+                  codigo={"CIT-2009"}
+                  ramo={"Bases de Datos Avanzadas"}
+                  numero={"25"}
+                  creditos={"6"}
+                  prerequisitos={"Bases de Datos"}
+                  formacion={"Ingeniería Aplicada - Informática"}
+                />
+                <RamoE
+                  codigo={" - "}
+                  ramo={"Minor / CFG"}
+                  numero={"26"}
+                  creditos={"5"}
+                  prerequisitos={" - "}
+                  formacion={"Transversal"}
+                />
+                <RamoE
+                  codigo={"CIG-1013"}
+                  ramo={"Inglés II"}
+                  numero={"27"}
+                  creditos={"5"}
+                  prerequisitos={"Inglés I"}
+                  formacion={"Transversal"}
+                />
+                <RamoE
+                  codigo={"CIT-4000"}
+                  ramo={"Práctica I"}
+                  numero={"54"}
+                  creditos={"7"}
+                  prerequisitos={"4 Semestres Cursados"}
+                  formacion={"Prácticas"}
+                />
+              </Col>
+              <Col xs={20} sm={10}>
+                <Semestre semestre={"6"} />
+                <br />
+                <RamoE
+                  codigo={"CII-1000"}
+                  ramo={"Contabilidad y Costos"}
+                  numero={"28"}
+                  creditos={"6"}
+                  prerequisitos={"Cálculo I"}
+                  formacion={"Ciencias de la Ingeniería"}
+                />
+                <RamoE
+                  codigo={"CIT-2109"}
+                  ramo={"Arquitectura y Organización de Computadores"}
+                  numero={"29"}
+                  creditos={"6"}
+                  prerequisitos={"Redes de Datos - Electrónica y Electrotecnia"}
+                  formacion={"Ingeniería Aplicada - Telecomunicaciones"}
+                />
+                <RamoE
+                  codigo={"CIT-2110"}
+                  ramo={"Señales y Sistemas"}
+                  numero={"30"}
+                  creditos={"6"}
+                  prerequisitos={"Calor y Ondas - Electrónica y Electrotecnia"}
+                  formacion={"Ingeniería Aplicada - Proyectos e Integración"}
+                />
+                <RamoE
+                  codigo={"CIT-2010"}
+                  ramo={"Sistemas Operativos"}
+                  numero={"31"}
+                  creditos={"6"}
+                  prerequisitos={
+                    "Estructura de Datos y Algoritmos - Taller de Redes y Servicios"
+                  }
+                  formacion={"Ingeniería Aplicada - Informática"}
+                />
+                <RamoE
+                  codigo={" - "}
+                  ramo={"Minor / CFG"}
+                  numero={"32"}
+                  creditos={"5"}
+                  prerequisitos={" - "}
+                  formacion={"Transversal"}
+                />
+                <RamoE
+                  codigo={"CIG-1014"}
+                  ramo={"Inglés III"}
+                  numero={"33"}
+                  creditos={"5"}
+                  prerequisitos={"Inglés II"}
+                  formacion={"Transversal"}
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col span={2} style={{ alignSelf: "start" }}>
             <Link
               className="nav-link"
-              to={{ pathname: "/users/usr/mallas/malla2020/DatosExtraM2020-4" }}
+              to={{
+                pathname: "/users/usr/mallas/malla2020/DatosExtraM2020-4",
+              }}
+              style={{ padding: "0px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -119,105 +178,9 @@ export default class Malla2020Extra3 extends Component {
                 />
               </svg>
             </Link>
-          </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-
-          <RamoE
-            codigo={"CIT-2009"}
-            ramo={"Bases de Datos Avanzadas"}
-            numero={"25"}
-            creditos={"6"}
-            prerequisitos={"Bases de Datos"}
-            formacion={"Ingeniería Aplicada - Informática"}
-          />
-          <RamoE
-            codigo={"CIT-2010"}
-            ramo={"Sistemas Operativos"}
-            numero={"31"}
-            creditos={"6"}
-            prerequisitos={
-              "Estructura de Datos y Algoritmos - Taller de Redes y Servicios"
-            }
-            formacion={"Ingeniería Aplicada - Informática"}
-          />
-
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={" - "}
-            ramo={"Minor / CFG"}
-            numero={"26"}
-            creditos={"5"}
-            prerequisitos={" - "}
-            formacion={"Transversal"}
-          />
-          <RamoE
-            codigo={" - "}
-            ramo={"Minor / CFG"}
-            numero={"32"}
-            creditos={"5"}
-            prerequisitos={" - "}
-            formacion={"Transversal"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIG-1013"}
-            ramo={"Inglés II"}
-            numero={"27"}
-            creditos={"5"}
-            prerequisitos={"Inglés I"}
-            formacion={"Transversal"}
-          />
-          <RamoE
-            codigo={"CIG-1014"}
-            ramo={"Inglés III"}
-            numero={"33"}
-            creditos={"5"}
-            prerequisitos={"Inglés II"}
-            formacion={"Transversal"}
-          />
-          <div className="col col-md-1"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col col-md-1"> </div>
-          <RamoE
-            codigo={"CIT-4000"}
-            ramo={"Práctica I"}
-            numero={"54"}
-            creditos={"7"}
-            prerequisitos={"4 Semestres Cursados"}
-            formacion={"Prácticas"}
-          />
-          <div className="col col-md-6"> </div>
-        </div>
-
-        <br />
-
-        <div className="row row-cols-10">
-          <div className="col"></div>
-          <div className="col"> </div>
-          <div className="col"> </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Fragment>
     );
   }
 }

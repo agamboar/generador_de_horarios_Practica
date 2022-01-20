@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from "react";
 import ATRLayout from "./Layout";
 import Malla2010Extra3 from "./Malla2010Extra3";
-import { Link } from "react-router-dom";
-import { Button, Typography } from "antd";
+import { Button, Typography, Row, Col } from "antd";
 import {
   ArrowLeftOutlined,
   ArrowRightOutlined,
@@ -18,40 +17,53 @@ export default class M2010Extra3 extends Component {
     return (
       <Fragment>
         <ATRLayout phase={1}>
-          <br />
-          <br />
-          <br />
-          <div className="container">
-            <Button
-              href="/users/usr/mallas/malla2010"
-              onClick={this.deleteMalla}
-              icon={<ArrowLeftOutlined />}
-              size="large"
-            >
-              Volver
-            </Button>
-            <Button
-              href="/users/usr/mallas/malla2010/AvanceCurricular"
-              type="primary"
-              icon={<ArrowRightOutlined />}
-              style={{ float: "right" }}
-              size="large"
-            >
-              Elegir Malla 2010
-            </Button>
-            <div style={{ textAlign: "center" }}>
+          <Row
+            gutter={[
+              { xs: 8, sm: 16, md: 24, lg: 32 },
+              { xs: 8, sm: 16, md: 24, lg: 32 },
+            ]}
+          >
+            <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+              <Button
+                href="/users/usr/mallas/malla2010"
+                onClick={this.deleteMalla}
+                icon={<ArrowLeftOutlined />}
+                size="large"
+              >
+                Volver
+              </Button>
+            </Col>
+
+            <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+              <Button
+                href="/users/usr/mallas/malla2010/AvanceCurricular"
+                type="primary"
+                icon={<ArrowRightOutlined />}
+                size="large"
+              >
+                Elegir Malla 2010
+              </Button>
+            </Col>
+          </Row>
+          <Row
+            gutter={[
+              { xs: 8, sm: 16, md: 24, lg: 32 },
+              { xs: 8, sm: 16, md: 24, lg: 32 },
+            ]}
+          >
+            <Col span={24} style={{ textAlign: "center" }}>
               <Title
                 style={{
-                  textAlign: "center",
                   color: "#008cdb",
                   fontSize: "40px",
                 }}
               >
                 Malla 2010
               </Title>
-            </div>
-            <Malla2010Extra3 />
-          </div>
+            </Col>
+          </Row>
+          <br />
+          <Malla2010Extra3 />
         </ATRLayout>
       </Fragment>
     );
