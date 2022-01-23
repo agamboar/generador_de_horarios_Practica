@@ -255,7 +255,7 @@ export default class PriorizarRamos extends Component {
     const payload = priorizaciones;
 
     var data = JSON.stringify(payload);
-    console.log(data);
+    //console.log(data);
 
     var config = {
       method: "post",
@@ -290,7 +290,7 @@ export default class PriorizarRamos extends Component {
     };
 
     var PERT_j = await axios(config);
-    console.log(PERT_j);
+    //console.log(PERT_j);
 
     //console.log(PERT_j)
     this.setState({
@@ -402,7 +402,7 @@ export default class PriorizarRamos extends Component {
     this.setState({
       bool: true,
     });
-    console.log(this.state.bool);
+    //console.log(this.state.bool);
   };
 
   render() {
@@ -731,6 +731,7 @@ export default class PriorizarRamos extends Component {
                       />
                     </Col>
                   </Row>
+                  <br />
                   <Row justify="center">
                     <Col span={24} style={{ textAlign: "center" }}>
                       <form onSubmit={this.onSubmit}>

@@ -122,7 +122,7 @@ export default class ATRLayout extends Component {
               <Space>
                 <Avatar
                   size={40}
-                  src="https://cdn.discordapp.com/attachments/928022489039273994/933606606548107294/udp.png"
+                  src="https://cdn.discordapp.com/attachments/928022489039273994/928022582064717884/logo.png"
                   style={{
                     "margin-left": "2%",
                     "margin-right": "1vh",

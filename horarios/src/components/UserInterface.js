@@ -41,7 +41,7 @@ export default class UserInterface extends Component {
               <Col xs={24} style={{ textAlign: "center" }}>
                 <Image
                   width={"60%"}
-                  src={`https://cdn.discordapp.com/attachments/928022489039273994/930677277174423552/udp.png`}
+                  src={`https://cdn.discordapp.com/attachments/928022489039273994/933606606548107294/udp.png`}
                   preview="false"
                 />
               </Col>
