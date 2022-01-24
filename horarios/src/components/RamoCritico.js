@@ -1,13 +1,46 @@
 import React, { Component, Fragment } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
 import RamoPrioridad from "./RamoPrioridad";
-import { Collapse, List, Typography } from "antd";
+import arrayMove from "array-move";
+import { Collapse, List, Typography, Row, Col, Table } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
+import {
+  sortableContainer,
+  sortableElement,
+  sortableHandle,
+} from "react-sortable-hoc";
 
 const { Panel } = Collapse;
 const { Title, Text } = Typography;
-/*
 
-*/
+const DragHandle = sortableHandle(() => (
+  <MenuOutlined style={{ cursor: "grab", color: "#999" }} />
+));
+const columns = [
+  {
+    title: "Priorizar",
+    dataIndex: "sort",
+    width: "90px",
+    className: "drag-visible",
+    render: () => <DragHandle />,
+  },
+  {
+    title: "Nombre Ramo",
+    dataIndex: "nombre",
+    className: "drag-visible",
+    width: "135px",
+  },
+  {
+    title: "Código Sección",
+    dataIndex: "codigo",
+    className: "drag-visible",
+    width: "135px",
+  },
+];
+
+const SortableItem = sortableElement((props) => <tr {...props} />);
+const SortableContainer = sortableContainer((props) => <tbody {...props} />);
+
 export default class RamoCritico extends Component {
   constructor(props) {
     super(props);
@@ -17,9 +50,40 @@ export default class RamoCritico extends Component {
     ramos: [],
   };
 
+  onSortEnd = ({ oldIndex, newIndex }) => {
+    var drag_ramos = this.state.ramos;
+    if (oldIndex !== newIndex) {
+      var newData = arrayMove([].concat(drag_ramos), oldIndex, newIndex).filter(
+        (el) => !!el
+      );
+      console.log("Sorted items: ", newData);
+      this.setState({ ramos: newData });
+    }
+  };
+
+  DraggableContainer = (props) => (
+    <SortableContainer
+      useDragHandle
+      disableAutoscroll
+      helperClass="row-dragging"
+      onSortEnd={this.onSortEnd}
+      {...props}
+    />
+  );
+
+  DraggableBodyRow = ({ className, style, ...restProps }) => {
+    //antes de var era const
+    var drag_ramos = this.state.ramos;
+    // function findIndex base on Table rowKey props and should always be a right array index
+    var index = drag_ramos.findIndex(
+      (x) => x.index === restProps["data-row-key"]
+    );
+    return <SortableItem index={index} {...restProps} />;
+  };
+
   componentDidMount = () => {
-    console.log("INICIAL RAMOS");
-    console.log(this.props);
+    //console.log("INICIAL RAMOS");
+    //console.log(this.props);
   };
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -28,7 +92,6 @@ export default class RamoCritico extends Component {
     console.log("RAMOS");
     console.log(this.state.ramos);
     let new_ramo = [];
-
     if (
       prevState.ramos.length === this.state.ramos.length &&
       this.props.resultado[0] !== null
@@ -40,14 +103,17 @@ export default class RamoCritico extends Component {
           new_ramo.push({
             nombre: this.props.resultado[i].to_asignatura_real.nombre,
             codigo: this.props.resultado[i].to_asignatura_real.codigo,
+            index: new_ramo.length,
           });
-          console.log(this.props.resultado[i].to_asignatura_real.nombre);
+          //console.log(this.props.resultado[i].to_asignatura_real.nombre);
         }
       }
 
-      this.setState({
-        ramos: [...this.state.ramos, ...new_ramo],
-      });
+      if (this.state.ramos.length === 0) {
+        this.setState({
+          ramos: [...this.state.ramos, ...new_ramo],
+        });
+      }
     }
 
     // if (prevState.ramos !== this.state.ramos) {
@@ -109,6 +175,7 @@ export default class RamoCritico extends Component {
               key="0"
               style={{ fontSize: "20px" }}
             >
+              {/*
               <List
                 itemLayout="horizontal"
                 dataSource={this.state.ramos}
@@ -125,6 +192,30 @@ export default class RamoCritico extends Component {
                   </List.Item>
                 )}
               />
+               */}
+
+              {this.state.ramos.length > 0 ? (
+                <Row justify="center">
+                  <Col span={24}>
+                    <Table
+                      pagination={false}
+                      dataSource={this.state.ramos}
+                      columns={columns}
+                      rowKey="index"
+                      components={{
+                        body: {
+                          wrapper: this.DraggableContainer,
+                          row: this.DraggableBodyRow,
+                        },
+                      }}
+                      scroll={{ x: "true" }}
+                    />
+                  </Col>
+                </Row>
+              ) : (
+                <Fragment />
+              )}
+
               {/*<RamoPrioridad
                 ramo={this.props.resultado[0]}
                 onChangeDOWN={this.props.onChange0_1}

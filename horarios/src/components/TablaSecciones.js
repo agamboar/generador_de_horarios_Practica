@@ -8,6 +8,7 @@ import {
 import { MenuOutlined } from "@ant-design/icons";
 import arrayMove from "array-move";
 import "antd/dist/antd.css";
+import "../assets/css/HorarioCol.css";
 import axios from "axios";
 import { Button } from "antd";
 import { Alert } from "antd";
@@ -52,6 +53,7 @@ const columns = [
     title: "Horario",
     dataIndex: "horario",
     width: "400px",
+    className: "horario_column",
   },
   {
     title: "Vacantes",
@@ -96,6 +98,10 @@ class SortableTable extends React.Component {
   DraggableBodyRow = ({ className, style, ...restProps }) => {
     //antes de var era const
     var { dataSource } = this.state;
+    console.log("dataSource");
+    console.log(dataSource);
+    console.log("restProps");
+    console.log(restProps);
     // function findIndex base on Table rowKey props and should always be a right array index
     var index = dataSource.findIndex(
       (x) => x.index === restProps["data-row-key"]
@@ -152,7 +158,7 @@ class SortableTable extends React.Component {
 
       await axios(config);
       setTimeout(function () {
-        message.success("Prioridadas guardadas.");
+        message.success("Prioridades guardadas.");
       }, 500);
       //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/priorizarSeccion'; }, 3500);
       //

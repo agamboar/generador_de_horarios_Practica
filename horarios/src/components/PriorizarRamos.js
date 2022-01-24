@@ -255,7 +255,8 @@ export default class PriorizarRamos extends Component {
     const payload = priorizaciones;
 
     var data = JSON.stringify(payload);
-    //console.log(data);
+    console.log(data);
+    console.log(JSON.stringify(this.state.ramos));
 
     var config = {
       method: "post",
@@ -269,7 +270,7 @@ export default class PriorizarRamos extends Component {
 
     await axios(config);
     setTimeout(function () {
-      notify("Prioridadas guardadas.");
+      notify("Prioridades guardadas.");
     }, 1000);
     //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/horariosPosibles'; }, 4500);
   };
