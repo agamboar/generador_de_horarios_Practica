@@ -10,9 +10,10 @@ Primero probar en rama local
 1.  Revisar que el excel tenga el formato correcto. La primera columna "Asignatura" debe comenzar en la columna "M" del excel, si no lo esta, modificar el excel para que quede de esta forma.  
 2. Iniciar servidor local "python manage.py runserver"
 3. En el navegador, ingresar al menu "Administrador", luego "Hacer Staff". Si no aparece el menu, es porque el usuario no es administrador, ver archivo "hacer_usuario_administrador.txt" de esta carpeta para hacer la cuenta admin.
-4. En el panel "Ingreso de Oferta Informatica" intentar ingresar la nueva oferta. Aqui dara errores en caso de que la oferta incluya ramos nuevos, esto va a pasar por lo general con electivos.
+4. En el panel "Ingreso de Oferta Informatica" intentar ingresar la nueva oferta. Aqui dara error en caso de que la oferta incluya ramos nuevos, esto va a pasar por lo general con electivos. El servidor debiese imprimir por consola el codigo del ramo.
+5. Revisar el Excel de Oferta Academica por la informacion de los ramos que dan error. En caso de que no sea un ramo con secciones "verdaderas" (por ejemplo titulaciones, practicas) borrar sus filas del excel.
 
-Para cada ramo que de error, se deben agregar entradas a las tablas (archivos .csv) que se encuentran en la carpeta "DB_data/": 
+Para cada ramo valido que de error, se deben agregar entradas a las tablas (archivos .csv) que se encuentran en la carpeta "DB_data/": 
 - asignaturaReal.csv
 - equivale.csv 
 - prerrequisito.csv"
@@ -30,7 +31,7 @@ Por ejemplo, las entrada de electivos se ven asi
     CIT3337;ASEGURAMIENTO DE CALIDAD;6;43-44-47-48-49-52;(9-10);2;2
     CIT3317;BASES DE DATOS DE GRAN VOLUMEN;6;43-44-47-48-49-52;(9-10);2;2
 
-Las unicas entradas que cambian para ramos del mismo tipo (en este caso electivos) son el codigo y el nombre, por lo que para agregar los electivos nuevos se ingresan, al final del archivo las entradas asi
+Las unicas entradas que cambian para ramos del mismo tipo (en este caso electivos) son el codigo y el nombre, por lo que para agregar los electivos nuevos se ingresan, al final del archivo las entradas asi (los nombres deben omitir tildes)
 
     <codigo de electivo>;<nombre de electivo>;6;43-44-47-48-49-52;(9-10);2;2
 
@@ -92,5 +93,22 @@ Para cargar los archivos .csv a la base de datos se pueden utilizar scripts, pri
     python manage.py runscript load_prerrequisitos
     python manage.py runscript load_malla_asignatura
 
+## Actualizar en produccion
 
+Una vez se agrega la oferta sin problemas en local, y se agregaron las entradas necesarias a las tablas, hacer el mismo proceso en produccion es mas simple.
 
+1. Hacer merge a rama "main", para que contenga los archivos csv que se actualizaron en local.
+2. git push en la rama main
+3. Ingresar a servidor via ssh... (excluyo pasos porque el repo es publico)
+4. Ejecutar comandos para llegar al directorio correcto:
+
+        cd ..
+        cd /usr/generador_de_horarios_Practica/aplicacion_web/TdR
+5. git pull
+6. Ejecutar scripts para cargar tablas:
+
+        python manage.py runscript load_asignaturas
+        python manage.py runscript load_equivale
+        python manage.py runscript load_prerrequisitos
+        python manage.py runscript load_malla_asignatura 
+7. Cargar oferta desde pagina web en una cuenta de administrador (recordar usar mimo excel final que funciono en local)   
