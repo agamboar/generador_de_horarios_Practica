@@ -1,0 +1,14 @@
+Como hacer usuario staff (administrador) por consola servidor produccion ATR:
+
+- ingresar a servidor via ssh---(excluyo pasos porque el repo es publico)
+
+- comandos:
+cd ..
+cd /usr/generador_de_horarios_Practica/aplicacion_web/TdR
+python manage.py shell
+from generador_horarios.models import *
+u = User.objects.filter(username="<nombre usuario>").get()
+u.is_staff = True
+u.save()
+
+*Para hacer usuario staff en local el proceso es el mismo una vez en el directorio correcto
