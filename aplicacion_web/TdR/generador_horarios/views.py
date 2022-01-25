@@ -173,9 +173,14 @@ def import_malla(request):
                                     vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
                     else:
                         # print('codigo: ', elem[4])
-                        a = asignatura_real.objects.get(codigo=elem[4])
+                        if elem[0] == '': elem[0] = 10 # para el caso en que el excel tiene vacio el campo vacantes
+                        try: # para atrapar ramos nuevos en la oferta
+                            a = asignatura_real.objects.get(codigo=elem[4])
+                        except Exception as exc:
+                            raise Exception("No se encontro el ramo: ", elem[4])
                         s = seccion(cod_seccion=elem[3], semestre=elem[1], num_seccion=elem[2],
                                     vacantes=elem[0], inscritos=0, vacantes_libres=elem[0])
+                    
                     s.save()
                     s.to_asignatura_real.add(a)
                     added_sec += 1
