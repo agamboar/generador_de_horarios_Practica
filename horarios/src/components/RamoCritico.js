@@ -57,6 +57,9 @@ export default class RamoCritico extends Component {
         (el) => !!el
       );
       console.log("Sorted items: ", newData);
+      for (let i = 0; i < newData.length; i++) {
+        newData[i].new_kk = 110 - i * 10;
+      }
       this.setState({ ramos: newData });
     }
   };
@@ -87,10 +90,12 @@ export default class RamoCritico extends Component {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    console.log("PREVSTATE");
-    console.log(prevState);
-    console.log("RAMOS");
-    console.log(this.state.ramos);
+    //console.log("PREVSTATE");
+    //console.log(prevState);
+    //console.log("RAMOS");
+    //console.log(this.state.ramos);
+    //console.log("PROPS");
+    //console.log(this.props);
     let new_ramo = [];
     if (
       prevState.ramos.length === this.state.ramos.length &&
@@ -103,6 +108,9 @@ export default class RamoCritico extends Component {
           new_ramo.push({
             nombre: this.props.resultado[i].to_asignatura_real.nombre,
             codigo: this.props.resultado[i].to_asignatura_real.codigo,
+            holgura: this.props.resultado[i].holgura,
+            kk: this.props.resultado[i].kk,
+            new_kk: 110 - new_ramo.length * 10,
             index: new_ramo.length,
           });
           //console.log(this.props.resultado[i].to_asignatura_real.nombre);
@@ -113,6 +121,30 @@ export default class RamoCritico extends Component {
         this.setState({
           ramos: [...this.state.ramos, ...new_ramo],
         });
+      } else {
+        //console.log("state ramos");
+        //console.log(this.state.ramos);
+        let full_ramos = this.props.full;
+        for (let i = 0; i < full_ramos.length; i++) {
+          for (let j = 0; j < this.state.ramos.length; j++) {
+            if (
+              full_ramos[i].holgura === this.state.ramos[j].holgura &&
+              full_ramos[i].to_asignatura_real.nombre ===
+                this.state.ramos[j].nombre
+            ) {
+              console.log(
+                "reordenando los ramos",
+                full_ramos[i].kk,
+                "-->",
+                this.state.ramos[j].new_kk
+              );
+              full_ramos[i].kk = this.state.ramos[j].new_kk;
+            }
+          }
+        }
+        //console.log("full_ramos");
+        //console.log(full_ramos);
+        this.props.onPriorChange(full_ramos);
       }
     }
 

@@ -9,6 +9,7 @@ import { Button, Typography, Row, Col } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
+import { getKeyThenIncreaseKey } from "antd/lib/message";
 
 const { Title, Text } = Typography;
 
@@ -17,6 +18,7 @@ toast.configure();
 export default class PriorizarRamos extends Component {
   state = {
     ramos: null,
+    ramos2: [],
     critico: [null, null, null, null, null, null, null, null, null, null, null],
     p0: [null, null, null, null, null, null, null, null, null, null, null],
     p1: [null, null, null, null, null, null, null, null, null, null, null],
@@ -250,13 +252,27 @@ export default class PriorizarRamos extends Component {
     }
     priorizaciones[10] = this.state.aux;
 
-    //console.log(priorizaciones)
-
     const payload = priorizaciones;
+    var data_old = JSON.stringify(payload);
+    console.log("payload");
+    //console.log(payload);
+    console.log(data_old);
 
-    var data = JSON.stringify(payload);
-    console.log(data);
-    console.log(JSON.stringify(this.state.ramos));
+    let arr = [];
+    let new_payload = Array(10).fill(arr);
+    for (let i = 0; i < new_payload.length; i++) {
+      let payload_item = [];
+      for (let j = 0; j < this.state.ramos2.length; j++) {
+        if (i === this.state.ramos2[j].holgura) {
+          payload_item.push([this.state.ramos2[j], this.state.ramos2[j].kk]);
+        }
+      }
+      new_payload[i] = payload_item;
+    }
+    console.log("new_payload");
+    //console.log(new_payload);
+    console.log(JSON.stringify(new_payload));
+    var data = JSON.stringify(new_payload);
 
     var config = {
       method: "post",
@@ -406,12 +422,23 @@ export default class PriorizarRamos extends Component {
     //console.log(this.state.bool);
   };
 
+  priorRamos = (pRamos) => {
+    if (this.state.ramos2.length === 0) {
+      this.setState({ ramos2: pRamos });
+    } else if (
+      pRamos.length === this.state.ramos2.length &&
+      JSON.stringify(this.state.ramos2) !== JSON.stringify(pRamos)
+    ) {
+      this.setState({ ramos2: pRamos });
+    }
+  };
+
   render() {
     return (
       <Fragment>
         {localStorage.getItem("token") ? (
           <Fragment>
-            {console.log(this.state.ramos)}
+            {/*console.log(this.state.ramos)*/}
             {this.state.ramos === "no" ? (
               <Fragment>
                 <ATRLayout phase={5}>
@@ -456,7 +483,7 @@ export default class PriorizarRamos extends Component {
                           fontSize: "40px",
                         }}
                       >
-                        Priorizar Ramos
+                        Priorizar Ramos (Opcional)
                       </Title>
                       <Text
                         style={{
@@ -558,7 +585,7 @@ export default class PriorizarRamos extends Component {
                           fontSize: "40px",
                         }}
                       >
-                        Priorizar Ramos
+                        Priorizar Ramos (Opcional)
                       </Title>
                       <Text
                         style={{
@@ -572,7 +599,22 @@ export default class PriorizarRamos extends Component {
                     </Col>
                   </Row>
                   <br />
-                  {console.log(this.state.critico) /* NO BORRAR */}
+                  <Row justify="center">
+                    <Col span={24} style={{ textAlign: "center" }}>
+                      <form onSubmit={this.onSubmit} id="myForm">
+                        <Button
+                          type="primary"
+                          htmlType="submit"
+                          key={"submit"}
+                          form="myForm"
+                          size="large"
+                        >
+                          Guardar Prioridades
+                        </Button>
+                      </form>
+                    </Col>
+                  </Row>
+                  <br />
                   <Row justify="center">
                     <Col span={24}>
                       {" "}
@@ -589,6 +631,8 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.criticoonChange7_8}
                         onChange8_9={this.criticoonChange8_9}
                         onChange9_10={this.criticoonChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
                       <RamoCritico
                         name="Prioridad 0"
@@ -603,6 +647,8 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.p0onChange7_8}
                         onChange8_9={this.p0onChange8_9}
                         onChange9_10={this.p0onChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
                       <RamoCritico
                         name="Prioridad 1"
@@ -617,6 +663,8 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.p1onChange7_8}
                         onChange8_9={this.p1onChange8_9}
                         onChange9_10={this.p1onChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
                       <RamoCritico
                         name="Prioridad 2"
@@ -631,6 +679,8 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.p2onChange7_8}
                         onChange8_9={this.p2onChange8_9}
                         onChange9_10={this.p2onChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
                       <RamoCritico
                         name="Prioridad 3"
@@ -645,6 +695,8 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.p3onChange7_8}
                         onChange8_9={this.p3onChange8_9}
                         onChange9_10={this.p3onChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
                       <RamoCritico
                         name="Prioridad 4"
@@ -659,6 +711,8 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.p4onChange7_8}
                         onChange8_9={this.p4onChange8_9}
                         onChange9_10={this.p4onChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
                       <RamoCritico
                         name="Prioridad 5"
@@ -673,6 +727,8 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.p5onChange7_8}
                         onChange8_9={this.p5onChange8_9}
                         onChange9_10={this.p5onChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
                       <RamoCritico
                         name="Prioridad 6"
@@ -687,6 +743,8 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.p6onChange7_8}
                         onChange8_9={this.p6onChange8_9}
                         onChange9_10={this.p6onChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
                       <RamoCritico
                         name="Prioridad 7"
@@ -701,6 +759,8 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.p7onChange7_8}
                         onChange8_9={this.p7onChange8_9}
                         onChange9_10={this.p7onChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
                       <RamoCritico
                         name="Prioridad 8"
@@ -715,6 +775,8 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.p8onChange7_8}
                         onChange8_9={this.p8onChange8_9}
                         onChange9_10={this.p8onChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
                       <RamoCritico
                         name="Prioridad 9"
@@ -729,25 +791,9 @@ export default class PriorizarRamos extends Component {
                         onChange7_8={this.p9onChange7_8}
                         onChange8_9={this.p9onChange8_9}
                         onChange9_10={this.p9onChange9_10}
+                        onPriorChange={this.priorRamos}
+                        full={this.state.ramos}
                       />
-                    </Col>
-                  </Row>
-                  <br />
-                  <Row justify="center">
-                    <Col span={24} style={{ textAlign: "center" }}>
-                      <form onSubmit={this.onSubmit}>
-                        <div className="container">
-                          <div className=" align-self-end">
-                            <button
-                              type="submit"
-                              className="btn btn-primary rounded-pill"
-                            >
-                              {" "}
-                              Guardar Prioridades
-                            </button>
-                          </div>
-                        </div>
-                      </form>
                     </Col>
                   </Row>
                 </ATRLayout>

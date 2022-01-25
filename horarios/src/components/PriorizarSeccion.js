@@ -92,7 +92,7 @@ export default class UserInterface extends Component {
                     fontSize: "40px",
                   }}
                 >
-                  Priorizar Secciones
+                  Priorizar Secciones (Opcional)
                 </Title>
                 <Text
                   style={{

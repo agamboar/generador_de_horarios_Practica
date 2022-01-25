@@ -60,7 +60,7 @@ export default class UserInterface extends Component {
                     fontSize: "40px",
                   }}
                 >
-                  Priorizar CFG
+                  Priorizar CFG (Opcional)
                 </Title>
                 <Text
                   style={{
@@ -72,6 +72,7 @@ export default class UserInterface extends Component {
                 </Text>
               </Col>
             </Row>
+            <br />
             <Row justify="center">
               <Col span={24}>
                 <TablaAreasCfg />

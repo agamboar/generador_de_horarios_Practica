@@ -260,7 +260,7 @@ export default class ATRLayout extends Component {
               }}
               className="footer"
             >
-              <Text>Copyright© Universidad Diego Portales 2021</Text>
+              <Text>Copyright© Universidad Diego Portales 2022</Text>
             </Footer>
           </Layout>
         </Layout>
