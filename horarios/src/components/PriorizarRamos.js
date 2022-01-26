@@ -608,6 +608,7 @@ export default class PriorizarRamos extends Component {
                           key={"submit"}
                           form="myForm"
                           size="large"
+                          shape="round"
                         >
                           Guardar Prioridades
                         </Button>

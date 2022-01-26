@@ -98,10 +98,10 @@ class SortableTable extends React.Component {
   DraggableBodyRow = ({ className, style, ...restProps }) => {
     //antes de var era const
     var { dataSource } = this.state;
-    console.log("dataSource");
-    console.log(dataSource);
-    console.log("restProps");
-    console.log(restProps);
+    //console.log("dataSource");
+    //console.log(dataSource);
+    //console.log("restProps");
+    //console.log(restProps);
     // function findIndex base on Table rowKey props and should always be a right array index
     var index = dataSource.findIndex(
       (x) => x.index === restProps["data-row-key"]
@@ -168,36 +168,36 @@ class SortableTable extends React.Component {
   componentDidMount() {
     this.refreshTable();
   }
+
+  componentDidUpdate(prevProps) {
+    // console.log("props");
+    // console.log(this.props);
+    // console.log("prevProps");
+    // console.log(prevProps);
+    if (this.props.codigo !== prevProps.codigo) {
+      this.refreshTable();
+    }
+  }
+
   render() {
-    var { dataSource } = this.state;
+    //var { dataSource } = this.state;
 
     return (
       <div>
-        <Row
-          gutter={[
-            { xs: 8, sm: 16, md: 24, lg: 32 },
-            { xs: 8, sm: 16, md: 24, lg: 32 },
-          ]}
-        >
-          <Col xs={24} sm={12} style={{ textAlign: "center" }}>
-            <Button onClick={this.setSS} type="primary">
-              Guardar prioridad
-            </Button>
-          </Col>
-
-          <Col xs={24} sm={12} style={{ textAlign: "center" }}>
-            <Button onClick={this.refreshTable} type="primary">
-              Actualizar tabla
+        <Row justify="center">
+          <Col span={24} style={{ textAlign: "center" }}>
+            <Button
+              onClick={this.setSS}
+              type="primary"
+              shape="round"
+              size="large"
+            >
+              Guardar Prioridades
             </Button>
           </Col>
         </Row>
         <br />
-        <Row
-          gutter={[
-            { xs: 8, sm: 16, md: 24, lg: 32 },
-            { xs: 8, sm: 16, md: 24, lg: 32 },
-          ]}
-        >
+        <Row justify="center">
           <Col span={24} style={{ textAlign: "center" }}>
             <Alert
               message="(Guarde los cambios antes de actualizar la tabla)"
@@ -207,13 +207,13 @@ class SortableTable extends React.Component {
         </Row>
         <br />
 
-        {dataSource == "" || dataSource == "no" ? null : (
+        {this.state.dataSource.length === 0 ? null : (
           <Fragment>
             <Row justify="center">
               <Col span={24}>
                 <Table
                   pagination={false}
-                  dataSource={dataSource}
+                  dataSource={this.state.dataSource}
                   columns={columns}
                   rowKey="index"
                   components={{

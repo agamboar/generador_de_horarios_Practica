@@ -52,6 +52,10 @@ class SortableTable extends React.Component {
         (el) => !!el
       );
       console.log("Sorted items: ", newData);
+      for (let i = 0; i < newData.length; i++) {
+        newData[i].index = i;
+        newData[i].prioridad = i + 1;
+      }
       this.setState({ dataSource: newData });
     }
   };
@@ -134,49 +138,46 @@ class SortableTable extends React.Component {
     this.refreshTable();
   }
   render() {
-    var { dataSource } = this.state;
+    //var { dataSource } = this.state;
 
     return (
       <div>
-        <Row
-          gutter={[
-            { xs: 8, sm: 16, md: 24, lg: 32 },
-            { xs: 8, sm: 16, md: 24, lg: 32 },
-          ]}
-        >
-          <Col xs={24} sm={12} style={{ textAlign: "center" }}>
-            <Button onClick={this.setPrio} type="primary">
-              Guardar prioridad
-            </Button>
-          </Col>
-
-          <Col xs={24} sm={12} style={{ textAlign: "center" }}>
-            <Button onClick={this.refreshTable} type="primary">
-              Actualizar tabla
+        <Row justify="center">
+          <Col span={24} style={{ textAlign: "center" }}>
+            <Button
+              onClick={this.setPrio}
+              type="primary"
+              shape="round"
+              size="large"
+            >
+              Guardar Prioridades
             </Button>
           </Col>
         </Row>
         <br />
-        {dataSource == "" ? null : (
-          <Fragment>
-            <Row justify="center">
-              <Col span={24}>
-                <Table
-                  pagination={false}
-                  dataSource={dataSource}
-                  columns={columns}
-                  rowKey="index"
-                  components={{
-                    body: {
-                      wrapper: this.DraggableContainer,
-                      row: this.DraggableBodyRow,
-                    },
-                  }}
-                />
-              </Col>
-            </Row>
-          </Fragment>
-        )}
+        {this.state.dataSource.length === 0
+          ? null
+          : (console.log(this.state.dataSource),
+            (
+              <Fragment>
+                <Row justify="center">
+                  <Col span={24}>
+                    <Table
+                      pagination={false}
+                      dataSource={this.state.dataSource}
+                      columns={columns}
+                      rowKey="index"
+                      components={{
+                        body: {
+                          wrapper: this.DraggableContainer,
+                          row: this.DraggableBodyRow,
+                        },
+                      }}
+                    />
+                  </Col>
+                </Row>
+              </Fragment>
+            ))}
         {this.state.dataSource == "" ? (
           <div
             style={{ padding: 20, display: "flex", justifyContent: "center" }}
