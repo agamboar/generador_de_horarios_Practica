@@ -732,7 +732,7 @@ def get_ramos_disponibles(request):
         #ramos_disponibles = nodo_seccion.objects.filter(to_nodo_asignatura__to_user=current_user,to_nodo_asignatura__es = 1).values("to_nodo_asignatura__to_asignatura_real__codigo","to_nodo_asignatura__to_asignatura_real__nombre").distinct('to_nodo_asignatura__to_asignatura_real__codigo')
 
         if len(ramos_disponibles) < 1:
-            return JsonResponse({"mensaje": "No existen ramos disponibles en los registros"}, safe=False, status=status.HTTP_404_NOT_FOUND)
+            return JsonResponse("no", safe=False, status=status.HTTP_200_OK)
 
         for elem in ramos_disponibles:
             aux_retornar.append(

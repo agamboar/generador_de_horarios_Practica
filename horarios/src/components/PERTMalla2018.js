@@ -145,12 +145,12 @@ export default class AvanceManual2018 extends Component {
         <br />
         <Row
           gutter={[
-            { xs: 8, sm: 16, md: 24, lg: 32 },
-            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 2, sm: 4, md: 6, lg: 12 },
+            { xs: 2, sm: 4, md: 6, lg: 12 },
           ]}
           justify="center"
         >
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"1"} />
             <br />
             <ARamo
@@ -179,7 +179,7 @@ export default class AvanceManual2018 extends Component {
               state={this.state.FIC1000}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"2"} />
             <br />
             <ARamo
@@ -204,7 +204,7 @@ export default class AvanceManual2018 extends Component {
             />
             <ARamo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG1} />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"3"} />
             <br />
             <ARamo
@@ -233,7 +233,7 @@ export default class AvanceManual2018 extends Component {
               state={this.state.CIT2100}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"4"} />
             <br />
             <ARamo
@@ -263,7 +263,7 @@ export default class AvanceManual2018 extends Component {
               state={this.state.CIG1012}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"5"} />
             <br />
             <ARamo
@@ -294,7 +294,7 @@ export default class AvanceManual2018 extends Component {
             />
             <ARamo codigo={""} ramo={"Práctica I"} state={this.state.CIT6001} />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"6"} />
             <br />
             <ARamo
@@ -328,7 +328,7 @@ export default class AvanceManual2018 extends Component {
               state={this.state.CIG1014}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"7"} />
             <br />
             <ARamo
@@ -357,7 +357,7 @@ export default class AvanceManual2018 extends Component {
               state={this.state.CIT2104}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"8"} />
             <br />
             <ARamo
@@ -382,7 +382,7 @@ export default class AvanceManual2018 extends Component {
             />
             <ARamo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG4} />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"9"} />
             <br />
             <ARamo
@@ -416,7 +416,7 @@ export default class AvanceManual2018 extends Component {
               state={this.state.CIT6002}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"10"} />
             <br />
             <ARamo

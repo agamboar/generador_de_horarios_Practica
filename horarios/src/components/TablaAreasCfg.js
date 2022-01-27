@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { Table } from "antd";
 import {
   sortableContainer,
   sortableElement,
@@ -8,11 +7,9 @@ import {
 import { MenuOutlined } from "@ant-design/icons";
 import arrayMove from "array-move";
 import "antd/dist/antd.css";
+import "../assets/css/message.css";
 import axios from "axios";
-import { Button } from "antd";
-import { Alert } from "antd";
-import { Row, Col, Divider } from "antd";
-import { message } from "antd";
+import { Row, Col, Divider, message, Button, Alert, Table } from "antd";
 
 const DragHandle = sortableHandle(() => (
   <MenuOutlined style={{ cursor: "grab", color: "#999" }} />
@@ -108,10 +105,28 @@ class SortableTable extends React.Component {
   };
 
   setPrio = async () => {
+    const success_message = (msgcontent) => {
+      message.success({
+        key: "msgKey",
+        content: msgcontent,
+        duration: 3,
+        onClick: () => message.destroy("msgKey"),
+      });
+    };
+
+    const error_message = (msgcontent) => {
+      message.error({
+        key: "msgKey2",
+        content: msgcontent,
+        duration: 3,
+        onClick: () => message.destroy("msgKey2"),
+      });
+    };
+
     if (this.state.dataSource == "" || this.state.dataSource == "no") {
       setTimeout(function () {
-        message.error("No hay datos que guardar.");
-      }, 1000);
+        error_message("No hay datos que guardar.");
+      }, 500);
     } else {
       var data = JSON.stringify(this.state.dataSource);
       console.log(data);
@@ -127,7 +142,7 @@ class SortableTable extends React.Component {
       };
       await axios(config);
       setTimeout(function () {
-        message.success("Prioridadas guardadas.");
+        success_message("Prioridadas guardadas.");
       }, 500);
       //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/priorizarSeccion'; }, 3500);
       //

@@ -10,11 +10,10 @@ import arrayMove from "array-move";
 import "antd/dist/antd.css";
 import "../assets/css/HorarioCol.css";
 import axios from "axios";
-import { Button } from "antd";
-import { Alert } from "antd";
-import { Row, Col, Divider } from "antd";
-import { message } from "antd";
+import { Row, Col, Divider, Alert, Button, message } from "antd";
 import { toast } from "react-toastify";
+import "../assets/css/message.css";
+
 const DragHandle = sortableHandle(() => (
   <MenuOutlined style={{ cursor: "grab", color: "#999" }} />
 ));
@@ -110,6 +109,15 @@ class SortableTable extends React.Component {
   };
 
   refreshTable = () => {
+    const error_message = (msgcontent) => {
+      message.error({
+        key: "msgKey2",
+        content: msgcontent,
+        duration: 3,
+        onClick: () => message.destroy("msgKey2"),
+      });
+    };
+
     var config = {
       method: "get",
       url: `http://127.0.0.1:8000/get_secciones/${this.props.codigo}/`,
@@ -130,17 +138,33 @@ class SortableTable extends React.Component {
       })
       .catch(function (error) {
         if (error.response) {
-          toast.error("Elige tu malla y calcula tu ruta critica nuevamente", {
-            position: toast.POSITION.TOP_CENTER,
-          });
+          error_message("Elige tu malla y calcula tu ruta critica nuevamente");
         }
       });
   };
 
   setSS = async () => {
+    const success_message = (msgcontent) => {
+      message.success({
+        key: "msgKey",
+        content: msgcontent,
+        duration: 3,
+        onClick: () => message.destroy("msgKey"),
+      });
+    };
+
+    const error_message = (msgcontent) => {
+      message.error({
+        key: "msgKey2",
+        content: msgcontent,
+        duration: 3,
+        onClick: () => message.destroy("msgKey2"),
+      });
+    };
+
     if (this.state.dataSource == "" || this.state.dataSource == "no") {
       setTimeout(function () {
-        message.error("No hay datos que guardar.");
+        error_message("No hay datos que guardar.");
       }, 1000);
     } else {
       var data = JSON.stringify(this.state.dataSource);
@@ -158,7 +182,7 @@ class SortableTable extends React.Component {
 
       await axios(config);
       setTimeout(function () {
-        message.success("Prioridades guardadas.");
+        success_message("Prioridades guardadas.");
       }, 500);
       //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/priorizarSeccion'; }, 3500);
       //

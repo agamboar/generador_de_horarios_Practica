@@ -229,12 +229,12 @@ export default class Malla2010 extends Component {
         <br />
         <Row
           gutter={[
-            { xs: 8, sm: 16, md: 24, lg: 32 },
-            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 2, sm: 4, md: 6, lg: 12 },
+            { xs: 2, sm: 4, md: 6, lg: 12 },
           ]}
           justify="center"
         >
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"1"} />
             <br />
             <Ramo
@@ -277,7 +277,7 @@ export default class Malla2010 extends Component {
               req={"-"}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"2"} />
             <br />
             <Ramo
@@ -314,7 +314,7 @@ export default class Malla2010 extends Component {
 
             <Ramo ramo={"CFG"} color={"#FFB260"} id={"10"} req={"SC"} />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"3"} />
             <br />
             <Ramo
@@ -357,7 +357,7 @@ export default class Malla2010 extends Component {
               req={"9"}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"4"} />
             <br />
             <Ramo
@@ -408,7 +408,7 @@ export default class Malla2010 extends Component {
               req={"5"}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"5"} />
             <br />
             <Ramo
@@ -461,7 +461,7 @@ export default class Malla2010 extends Component {
               req={"45"}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"6"} />
             <br />
             <Ramo
@@ -506,7 +506,7 @@ export default class Malla2010 extends Component {
               req={"27"}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"7"} />
             <br />
             <Ramo
@@ -544,7 +544,7 @@ export default class Malla2010 extends Component {
             <Ramo ramo={"CFG"} color={"#FFB260"} id={"38"} req={"SC"} />
           </Col>
 
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"8"} />
             <br />
             <Ramo
@@ -587,7 +587,7 @@ export default class Malla2010 extends Component {
               req={"28, 34, 37"}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"9"} />
             <br />
             <Ramo
@@ -638,7 +638,7 @@ export default class Malla2010 extends Component {
               req={"8S"}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"10"} />
             <br />
             <Ramo

@@ -6,7 +6,7 @@ import NotAuth from "./NotAuth";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Typography, Row, Col, Card } from "antd";
+import { Button, Typography, Row, Col, Card, message } from "antd";
 import {
   ArrowLeftOutlined,
   ArrowRightOutlined,
@@ -15,6 +15,7 @@ import {
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
 import "../assets/css/Form.css";
+import "../assets/css/message.css";
 
 const { Title } = Typography;
 
@@ -105,11 +106,29 @@ export default class AvanceManual extends Component {
   onSubmit = async (e) => {
     e.preventDefault();
 
-    const notify = (e) => {
-      toast.info(e, { position: toast.POSITION.TOP_CENTER });
+    // const notify = (e) => {
+    //   toast.info(e, { position: toast.POSITION.TOP_CENTER });
+    // };
+    // const err = (e) => {
+    //   toast.error(e, { position: toast.POSITION.TOP_CENTER });
+    // };
+
+    const success_message = (msgcontent) => {
+      message.success({
+        key: "msgKey",
+        content: msgcontent,
+        duration: 3,
+        onClick: () => message.destroy("msgKey"),
+      });
     };
-    const err = (e) => {
-      toast.error(e, { position: toast.POSITION.TOP_CENTER });
+
+    const error_message = (msgcontent) => {
+      message.error({
+        key: "msgKey2",
+        content: msgcontent,
+        duration: 3,
+        onClick: () => message.destroy("msgKey2"),
+      });
     };
 
     const Avance = { state: this.state };
@@ -131,21 +150,21 @@ export default class AvanceManual extends Component {
       .then((response) => {
         if (response.status === 201) {
           setTimeout(function () {
-            notify("Ahora puedes obtener tus ramos críticos");
+            success_message("Ahora puedes obtener tus ramos críticos");
           }, 1000); //cambia esto por toast
           localStorage.setItem("malla", this.state.malla); //se borra cuando apreto un boton
           //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/PERT'; }, 4500);
           setTimeout(function () {
             window.location.href = "http://127.0.0.1:8000/users/usr/PERT";
-          }, 3000);
+          }, 4000);
         } else {
-          err("Error verifica los seleccionados");
+          error_message("Error, verifica los ramos seleccionados");
         }
       })
       .catch(function (error) {
         if (error.response) {
           if (error.response.data.error) {
-            err(`error:  ${error.response.data.error}`);
+            error_message(`${error.response.data.error}`);
           }
         }
       });
@@ -206,12 +225,12 @@ export default class AvanceManual extends Component {
             <form id="myForm" onSubmit={this.onSubmit} className="Form">
               <Row
                 gutter={[
-                  { xs: 8, sm: 16, md: 24, lg: 32 },
-                  { xs: 8, sm: 16, md: 24, lg: 32 },
+                  { xs: 2, sm: 4, md: 6, lg: 12 },
+                  { xs: 2, sm: 4, md: 6, lg: 12 },
                 ]}
                 justify="center"
               >
-                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
                   <Semestre semestre={"1"} />
                   <br />
                   <button
@@ -263,7 +282,7 @@ export default class AvanceManual extends Component {
                     onChange1={this.onChange5}
                   />
                 </Col>
-                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
                   <Semestre semestre={"2"} />
                   <br />
                   <button
@@ -315,7 +334,7 @@ export default class AvanceManual extends Component {
                     onChange1={this.onChange10}
                   />
                 </Col>
-                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
                   <Semestre semestre={"3"} />
                   <br />
                   <button
@@ -367,7 +386,7 @@ export default class AvanceManual extends Component {
                     onChange1={this.onChange15}
                   />
                 </Col>
-                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
                   <Semestre semestre={"4"} />
                   <br />
                   <button
@@ -425,7 +444,7 @@ export default class AvanceManual extends Component {
                     onChange1={this.onChange21}
                   />
                 </Col>
-                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
                   <Semestre semestre={"5"} />
                   <br />
                   <button
@@ -489,7 +508,7 @@ export default class AvanceManual extends Component {
                     onChange1={this.onChangePR1}
                   />
                 </Col>
-                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
                   <Semestre semestre={"6"} />
                   <br />
                   <button
@@ -541,7 +560,7 @@ export default class AvanceManual extends Component {
                     onChange1={this.onChange32}
                   />
                 </Col>
-                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
                   <Semestre semestre={"7"} />
                   <br />
                   <button
@@ -593,7 +612,7 @@ export default class AvanceManual extends Component {
                     onChange1={this.onChange37}
                   />
                 </Col>
-                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
                   <Semestre semestre={"8"} />
                   <br />
                   <button
@@ -645,7 +664,7 @@ export default class AvanceManual extends Component {
                     onChange1={this.onChange42}
                   />
                 </Col>
-                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
                   <Semestre semestre={"9"} />
                   <br />
                   <button
@@ -704,7 +723,7 @@ export default class AvanceManual extends Component {
                   />
                 </Col>
 
-                <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+                <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
                   <Semestre semestre={"10"} />
                   <br />
                   <button

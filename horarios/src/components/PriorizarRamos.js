@@ -5,11 +5,12 @@ import NotAuth from "./NotAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Typography, Row, Col } from "antd";
+import { Button, Typography, Row, Col, message } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
 import { getKeyThenIncreaseKey } from "antd/lib/message";
+import "../assets/css/message.css";
 
 const { Title, Text } = Typography;
 
@@ -250,6 +251,25 @@ export default class PriorizarRamos extends Component {
     for (let i = 0; i < this.state.p9.length; i++) {
       this.state.aux[i] = [this.state.p9[i], this.state.puntaje[i]];
     }
+
+    const success_message = (msgcontent) => {
+      message.success({
+        key: "msgKey",
+        content: msgcontent,
+        duration: 3,
+        onClick: () => message.destroy("msgKey"),
+      });
+    };
+
+    const error_message = (msgcontent) => {
+      message.error({
+        key: "msgKey2",
+        content: msgcontent,
+        duration: 3,
+        onClick: () => message.destroy("msgKey2"),
+      });
+    };
+
     priorizaciones[10] = this.state.aux;
 
     const payload = priorizaciones;
@@ -286,14 +306,14 @@ export default class PriorizarRamos extends Component {
 
     await axios(config);
     setTimeout(function () {
-      notify("Prioridades guardadas.");
+      success_message("Prioridades guardadas.");
     }, 1000);
     //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/horariosPosibles'; }, 4500);
   };
 
   aux = () => {
     setTimeout(function () {
-      window.location.href = "http://127.0.0.1:8000/users/usr/PERT";
+      window.location.href = "http://127.0.0.1:8000/users/usr/mallas";
     }, 3000);
   };
   componentDidMount = async () => {
@@ -307,8 +327,6 @@ export default class PriorizarRamos extends Component {
     };
 
     var PERT_j = await axios(config);
-    //console.log(PERT_j);
-
     //console.log(PERT_j)
     this.setState({
       ramos: PERT_j.data,
@@ -438,7 +456,7 @@ export default class PriorizarRamos extends Component {
       <Fragment>
         {localStorage.getItem("token") ? (
           <Fragment>
-            {/*console.log(this.state.ramos)*/}
+            {console.log(this.state.ramos)}
             {this.state.ramos === "no" ? (
               <Fragment>
                 <ATRLayout phase={5}>

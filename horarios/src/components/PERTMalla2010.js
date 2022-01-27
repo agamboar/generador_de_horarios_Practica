@@ -145,12 +145,12 @@ export default class Malla2010 extends Component {
         <br />
         <Row
           gutter={[
-            { xs: 8, sm: 16, md: 24, lg: 32 },
-            { xs: 8, sm: 16, md: 24, lg: 32 },
+            { xs: 2, sm: 4, md: 6, lg: 12 },
+            { xs: 2, sm: 4, md: 6, lg: 12 },
           ]}
           justify="center"
         >
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"1"} />
             <br />
             <Ramo
@@ -179,7 +179,7 @@ export default class Malla2010 extends Component {
               state={this.state.FIC1000}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"2"} />
             <br />
             <Ramo
@@ -204,7 +204,7 @@ export default class Malla2010 extends Component {
             />
             <Ramo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG1} />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"3"} />
             <br />
             <Ramo
@@ -233,7 +233,7 @@ export default class Malla2010 extends Component {
               state={this.state.CIT2100}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"4"} />
             <br />
             <Ramo
@@ -263,7 +263,7 @@ export default class Malla2010 extends Component {
               state={this.state.FIC1001}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"5"} />
             <br />
             <Ramo
@@ -294,7 +294,7 @@ export default class Malla2010 extends Component {
             />
             <Ramo codigo={""} ramo={"Practica I"} state={this.state.CIT5001} />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"6"} />
             <br />
             <Ramo
@@ -323,7 +323,7 @@ export default class Malla2010 extends Component {
               state={this.state.CIT2103}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"7"} />
             <br />
             <Ramo
@@ -352,7 +352,7 @@ export default class Malla2010 extends Component {
               state={this.state.CIT2104}
             />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"8"} />
             <br />
             <Ramo
@@ -377,7 +377,7 @@ export default class Malla2010 extends Component {
             />
             <Ramo codigo={""} ramo={"Minor / CFG"} state={this.state.CFG4} />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"9"} />
             <br />
             <Ramo
@@ -407,7 +407,7 @@ export default class Malla2010 extends Component {
             />
             <Ramo codigo={""} ramo={"Practica II"} state={this.state.CIT5002} />
           </Col>
-          <Col xs={24} sm={12} md={8} lg={4} xl={3} xxl={2}>
+          <Col xs={12} sm={8} md={6} lg={4} xl={3} xxl={2}>
             <Semestre semestre={"10"} />
             <br />
             <Ramo
