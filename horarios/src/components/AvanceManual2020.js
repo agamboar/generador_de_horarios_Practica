@@ -16,7 +16,7 @@ import "../assets/css/Buttons.css";
 import "../assets/css/Form.css";
 import "../assets/css/message.css";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 toast.configure();
 
@@ -219,8 +219,17 @@ export default class AvanceManual2020 extends Component {
                 >
                   Avance Curricular Malla 2020
                 </Title>
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  Asegurese de marcar todos los ramos que haya aprobado.
+                </Text>
               </Col>
             </Row>
+            <br />
             <form id="myForm" onSubmit={this.onSubmit} className="Form">
               <Row
                 gutter={[

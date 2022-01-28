@@ -222,10 +222,12 @@ class SortableTable extends React.Component {
         </Row>
         <br />
         <Row justify="center">
-          <Col span={24} style={{ textAlign: "center" }}>
+          <Col xs={24} sm={16} lg={12} style={{ textAlign: "center" }}>
             <Alert
-              message="(Guarde los cambios antes de actualizar la tabla)"
-              type="error"
+              message="Recuerde guardar los cambios antes de pasar a otro ramo."
+              type="info"
+              showIcon
+              style={{ fontSize: "15px" }}
             />
           </Col>
         </Row>

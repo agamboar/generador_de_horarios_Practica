@@ -68,7 +68,8 @@ export default class UserInterface extends Component {
                     fontSize: "20px",
                   }}
                 >
-                  (Deje las areas que más le importen al inicio de la tabla)
+                  Ordene sus preferencias de área dejando las que más le
+                  importen al inicio de la tabla.
                 </Text>
               </Col>
             </Row>

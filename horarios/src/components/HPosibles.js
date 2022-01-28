@@ -84,8 +84,8 @@ export default class HPosibles extends Component {
                       fontSize: "20px",
                     }}
                   >
-                    A continuación veras los horarios que te recomendamos tomar
-                    para tu semestre actual. ¡Esperamos haberte ayudado!
+                    A continuación veras los horarios que le recomendamos tomar
+                    para su próximo semestre. ¡Esperamos haberle ayudado!
                   </Text>
                 </Col>
               </Row>
@@ -98,7 +98,7 @@ export default class HPosibles extends Component {
                 ]}
               >
                 <Col span={24} style={{ textAlign: "center" }}>
-                  <Title>Se estan obteniendo tus ramos críticos</Title>
+                  <Title>Se estan obteniendo tus horarios posibles</Title>
                   <Title level={3} type="secondary">
                     Un momento porfavor...
                   </Title>
@@ -166,8 +166,8 @@ export default class HPosibles extends Component {
                       fontSize: "20px",
                     }}
                   >
-                    A continuación veras los horarios que te recomendamos tomar
-                    para tu semestre actual. ¡Esperamos haberte ayudado!
+                    A continuación veras los horarios que le recomendamos tomar
+                    para su próximo semestre. ¡Esperamos haberle ayudado!
                   </Text>
                 </Col>
               </Row>
@@ -250,13 +250,13 @@ export default class HPosibles extends Component {
                       fontSize: "20px",
                     }}
                   >
-                    A continuación veras los horarios que te recomendamos tomar
-                    para tu semestre actual. ¡Esperamos haberte ayudado!
+                    A continuación veras los horarios que le recomendamos tomar
+                    para su próximo semestre. ¡Esperamos haberle ayudado!
                   </Text>
                 </Col>
               </Row>
               <br />
-              <Row justify="center">
+              <Row justify="center" style={{ overflowX: "auto" }}>
                 <Col span={24}>
                   <Horarios horarios={this.state.Horarios} />
                 </Col>

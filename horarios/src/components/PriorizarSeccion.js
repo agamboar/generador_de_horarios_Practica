@@ -231,9 +231,9 @@ export default class UserInterface extends Component {
                           fontSize: "20px",
                         }}
                       >
-                        (Solo aparecerán secciones con cupos libres. Además,
-                        solo se mostrarán las opciones de las 2 áreas de CFG con
-                        más preferencia)
+                        Solo aparecerán secciones con cupos libres. Además, solo
+                        se mostrarán las opciones de las 2 áreas de CFG con más
+                        preferencia.
                       </Text>
                     </Col>
                   </Row>

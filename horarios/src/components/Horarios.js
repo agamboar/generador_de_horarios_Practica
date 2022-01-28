@@ -8,7 +8,7 @@ class Horarios extends Component {
     console.log(this.props.horarios);
     if (this.props.horarios == "n") {
       setTimeout(function () {
-        return <Navigate to="/users/usr/PERT" />;
+        return <Navigate to="/users/usr/mallas" />;
       }, 5000);
     } else if (this.props.horarios != null) {
       console.log(this.props.horarios);

@@ -5,7 +5,7 @@ import NotAuth from "./NotAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Typography, Row, Col, message } from "antd";
+import { Button, Typography, Row, Col, message, Alert } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
@@ -605,14 +605,15 @@ export default class PriorizarRamos extends Component {
                       >
                         Priorizar Ramos (Opcional)
                       </Title>
+
                       <Text
                         style={{
                           textAlign: "center",
                           fontSize: "20px",
                         }}
                       >
-                        Ahora deberás elegir que ramos prefieres asignarles una
-                        mayor prioridad en tu horario.
+                        Ordene sus preferencias de ramos dejando los que más le
+                        importen al inicio de cada tabla.
                       </Text>
                     </Col>
                   </Row>
@@ -634,6 +635,22 @@ export default class PriorizarRamos extends Component {
                     </Col>
                   </Row>
                   <br />
+
+                  <Row justify="center">
+                    <Col
+                      xs={24}
+                      sm={16}
+                      lg={12}
+                      style={{ textAlign: "center" }}
+                    >
+                      <Alert
+                        message="Recuerde guardar los cambios antes de seguir."
+                        type="info"
+                        showIcon
+                        style={{ fontSize: "15px" }}
+                      />
+                    </Col>
+                  </Row>
                   <Row justify="center">
                     <Col span={24}>
                       {" "}

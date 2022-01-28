@@ -16,7 +16,7 @@ import "../assets/css/Buttons.css";
 import "../assets/css/Form.css";
 import "../assets/css/message.css";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 toast.configure();
 
@@ -218,8 +218,17 @@ export default class AvanceManual2018 extends Component {
                 >
                   Avance Curricular Malla 2018
                 </Title>
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: "20px",
+                  }}
+                >
+                  Asegurese de marcar todos los ramos que haya aprobado.
+                </Text>
               </Col>
             </Row>
+            <br />
             <form id="myForm" onSubmit={this.onSubmit} className="Form">
               <Row
                 gutter={[
@@ -718,8 +727,8 @@ export default class AvanceManual2018 extends Component {
                   <ARamo
                     codigo={"CIT-33XX"}
                     ramo={"Electivo Profesional"}
-                    show={this.state.CIT3312}
-                    onChange1={this.onChange48}
+                    show={this.state.CIT3311}
+                    onChange1={this.onChange47}
                   />
                   <ARamo
                     codigo={""}
@@ -753,8 +762,8 @@ export default class AvanceManual2018 extends Component {
                   <ARamo
                     codigo={"CIT-33XX"}
                     ramo={"Electivo Profesional"}
-                    show={this.state.CIT3311}
-                    onChange1={this.onChange47}
+                    show={this.state.CIT3312}
+                    onChange1={this.onChange48}
                   />
                   <ARamo
                     codigo={"CIT-34XX"}

@@ -176,6 +176,17 @@ class SortableTable extends React.Component {
             (
               <Fragment>
                 <Row justify="center">
+                  <Col xs={24} sm={16} lg={12} style={{ textAlign: "center" }}>
+                    <Alert
+                      message="Recuerde guardar los cambios antes de seguir."
+                      type="info"
+                      showIcon
+                      style={{ fontSize: "15px" }}
+                    />
+                  </Col>
+                </Row>
+                <br />
+                <Row justify="center">
                   <Col span={24}>
                     <Table
                       pagination={false}

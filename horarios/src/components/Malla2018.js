@@ -102,6 +102,7 @@ export default class Malla2018 extends Component {
             </Button>
           </Col>
         </Row>
+        <br />
         <Row>
           <Col span={3}></Col>
           <Col span={1}>

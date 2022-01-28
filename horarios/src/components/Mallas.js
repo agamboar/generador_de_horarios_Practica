@@ -46,11 +46,12 @@ export default class Mallas extends Component {
                 <Col span={24} style={{ textAlign: "center" }}>
                   <Text
                     style={{
+                      textAlign: "center",
                       fontSize: "20px",
                     }}
                   >
-                    A continuación deberas elegir la malla que actualmente estas
-                    cursando
+                    A continuación deberá elegir la malla que esta cursando
+                    actualmente.
                   </Text>
                 </Col>
               </Row>

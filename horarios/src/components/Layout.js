@@ -189,7 +189,7 @@ export default class ATRLayout extends Component {
                 <UpOutlined rotate={isActive ? 180 : 0} />
               )}
             >
-              <Panel header={<Text strong>Expandir</Text>} key="1">
+              <Panel header={<Text strong>Pasos a seguir</Text>} key="1">
                 <Steps
                   labelPlacement="vertical"
                   responsive="true"
