@@ -3,7 +3,7 @@ import ATRLayout from "./Layout";
 import Horarios from "./Horarios";
 import axios from "axios";
 import NotAuth from "./NotAuth";
-import { Typography, Button, Row, Col } from "antd";
+import { Typography, Button, Row, Col, Alert } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "../assets/css/Buttons.css";
@@ -12,10 +12,8 @@ const { Title, Text } = Typography;
 
 export default class HPosibles extends Component {
   aux = () => {
-    //console.log("si")
-
     setTimeout(function () {
-      window.location.href = "http://127.0.0.1:8000/users/usr/PERT";
+      window.location.href = "http://127.0.0.1:8000/users/usr/mallas";
     }, 3000);
   };
   state = {
@@ -39,7 +37,6 @@ export default class HPosibles extends Component {
 
   render() {
     if (localStorage.getItem("token")) {
-      console.log(this.state.Horarios);
       if (this.state.Horarios === null) {
         return (
           <Fragment>
@@ -253,6 +250,17 @@ export default class HPosibles extends Component {
                     A continuación veras los horarios que le recomendamos tomar
                     para su próximo semestre. ¡Esperamos haberle ayudado!
                   </Text>
+                </Col>
+              </Row>
+              <br />
+              <Row justify="center">
+                <Col xs={24} sm={16} lg={12} style={{ textAlign: "center" }}>
+                  <Alert
+                    message="Puede hacer clic en los cuadros para obtener más información."
+                    type="info"
+                    showIcon
+                    style={{ fontSize: "15px" }}
+                  />
                 </Col>
               </Row>
               <br />
