@@ -42,7 +42,7 @@ export default class CrearHorario extends Component {
     setTimeout(function () {
       notify("Seras redirigido para calcular tus ramos críticos");
     }, 1000);
-    //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/PERT'; }, 4500);
+    //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/PERT'; }, 4500);
   };
 
   render() {

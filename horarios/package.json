@@ -37,7 +37,7 @@
     "eject": "react-scripts eject"
   },
   "proxy": "http://127.0.0.1:8000",
-  "homepage": "http://127.0.0.1:8000/",
+  "homepage": "https://asistente-eit.udp.cl/",
   "eslintConfig": {
     "extends": [
       "react-app",

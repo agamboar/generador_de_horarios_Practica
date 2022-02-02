@@ -8,6 +8,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 from pathlib import Path
 import os
+
+import environ
+
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # print(BASE_DIR)
@@ -42,8 +49,8 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 # cambiar despues por la URL para que alumno indique ramos aprobados
-LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/users/usr'
-ACCOUNT_LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000/"
+LOGIN_REDIRECT_URL = env("DJANGO_HOST") + '/users/usr'
+ACCOUNT_LOGOUT_REDIRECT_URL = env("DJANGO_HOST") + "/"
 
 
 # SESSION_COOKIE_AGE = 10000 # preguntar
@@ -99,11 +106,11 @@ WSGI_APPLICATION = 'TdR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tdr',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': env("DATABASE_NAME"),
+        'USER': env("DATABASE_USER"),
+        'PASSWORD': env("DATABASE_PASSWORD"),
+        'HOST': env("DATABASE_HOST"),
+        'PORT': env("DATABASE_PORT"),
     }
 }
 AUTHENTICATION_BACKENDS = [

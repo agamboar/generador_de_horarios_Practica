@@ -12,10 +12,11 @@ import {
   EyeTwoTone,
 } from "@ant-design/icons";
 import "../assets/css/Placeholder.css";
+export const HOST = process.env.REACT_APP_HOST;
 //import Cookies from 'js-cookie';
 
 /*
-const API_HOST = 'http://127.0.0.1:8000/';
+const API_HOST = HOST + '/';
 let _csrfToken = null;
 async function getCsrfToken() {
     if (_csrfToken === null) {
@@ -57,7 +58,7 @@ export default class GoogleSocialAuth extends Component {
     //console.log(data)
     var config = {
       method: "post",
-      url: "http://127.0.0.1:8000/dj-rest-auth/login/",
+      url: HOST + "/dj-rest-auth/login/",
       data: data,
     };
 
@@ -78,7 +79,7 @@ export default class GoogleSocialAuth extends Component {
 
       var config = {
         method: "get",
-        url: "http://127.0.0.1:8000/is_staff/",
+        url: HOST + "/is_staff/",
         headers: {
           Authorization: "Token " + localStorage.getItem("token"),
           "Content-Type": "application/json",
@@ -90,7 +91,7 @@ export default class GoogleSocialAuth extends Component {
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("username", response.data.username);
       });
-      window.location.href = "http://127.0.0.1:8000/users/usr/";
+      window.location.href = HOST + "/users/usr/";
     }
   };
   onChange = (e) => {
@@ -112,11 +113,31 @@ export default class GoogleSocialAuth extends Component {
       console.log("hola");
     };
     const googleResponse = async (response) => {
-      console.log("hola");
+      console.log("Datos obtenidos de google", response);
       let responseGoogle = await googleLogin(response.accessToken);
-      console.log(responseGoogle);
-      sessionStorage.setItem("token", response.accessToken);
-      sessionStorage.setItem("key", responseGoogle.key);
+      console.log(
+        "Respuesta obtenido de google Login para el ajax: ",
+        responseGoogle
+      );
+      localStorage.setItem("google_token", response.accessToken);
+      localStorage.setItem("token", responseGoogle.key);
+      if (localStorage.getItem("token")) {
+        var config = {
+          method: "GET",
+          url: HOST + "/is_staff/",
+          headers: {
+            Authorization: "Token " + responseGoogle.key,
+            "Content-Type": "application/json",
+          },
+        };
+        var axios = require("axios");
+        await axios(config).then((response) => {
+          localStorage.setItem("is_staff", response.data.is_staff);
+          localStorage.setItem("id", response.data.id);
+          localStorage.setItem("username", response.data.username);
+        });
+        window.location.href = HOST + "/users/usr/";
+      }
     };
 
     if (!localStorage.getItem("token")) {
@@ -365,7 +386,7 @@ export default class GoogleSocialAuth extends Component {
         </Fragment>
       );
     } else {
-      window.location.href = "http://127.0.0.1:8000/users/usr/";
+      window.location.href = HOST + "/users/usr/";
     }
   }
 }

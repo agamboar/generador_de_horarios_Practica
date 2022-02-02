@@ -19,7 +19,7 @@ export default class Malla2010 extends Component {
     var axios = require("axios");
     var config = {
       method: "get",
-      url: "http://127.0.0.1:8000/delete_asignaturasCursadas/",
+      url: "https://asistente-eit.udp.cl/delete_asignaturasCursadas/",
       headers: {
         Authorization: "Token " + localStorage.getItem("token"), //cambiiar a localStorage
         "Content-Type": "application/json",
