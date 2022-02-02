@@ -21,129 +21,129 @@ Ramos disponibles:
 Desea asignarle prioridad a los ramos ? (si/no) 
 Desea asignarle prioridad a las secciones de un ramo? (si/no)
 ---------------
-
+ 
 Solucion Recomendada # 1 : 
 
 CIT3313  ||  INTELIGENCIA ARTIFICIAL - Seccion: 1 | Horario ->  ['LU 14:30', 'JU 14:30'] || 90801
 CIT3201  ||  PROYECTO EN TICS III - Seccion: 1 | Horario ->  ['LU 17:25', 'JU 17:25', 'MA 13:00'] || 90901
 CIT3413  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91001
-CIT3412  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
-CIT3312  ||  TELEVISIÓN DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CIT3412  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
+CIT3312  ||  TELEVISIÃ“N DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91201
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 2 : 
 
-CIT3313  ||  REDES ÓPTICAS DE DATOS - Seccion: 1 | Horario ->  ['MA 08:30', 'VI 08:30'] || 90801
+CIT3313  ||  REDES Ã“PTICAS DE DATOS - Seccion: 1 | Horario ->  ['MA 08:30', 'VI 08:30'] || 90801
 CIT3201  ||  PROYECTO EN TICS III - Seccion: 1 | Horario ->  ['LU 17:25', 'JU 17:25', 'MA 13:00'] || 90901
 CIT3413  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91001
-CIT3412  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
-CIT3312  ||  TELEVISIÓN DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CIT3412  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
+CIT3312  ||  TELEVISIÃ“N DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91201
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 3 : 
 
-CIT3313  ||  TELEVISIÓN DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 90801
+CIT3313  ||  TELEVISIÃ“N DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 90801
 CIT3201  ||  PROYECTO EN TICS III - Seccion: 1 | Horario ->  ['LU 17:25', 'JU 17:25', 'MA 13:00'] || 90901
 CIT3413  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91001
-CIT3412  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
+CIT3412  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
 CIT3312  ||  INTELIGENCIA ARTIFICIAL - Seccion: 1 | Horario ->  ['LU 14:30', 'JU 14:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 4 : 
 
-CIT3313  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 90801
+CIT3313  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 90801
 CIT3201  ||  PROYECTO EN TICS III - Seccion: 1 | Horario ->  ['LU 17:25', 'JU 17:25', 'MA 13:00'] || 90901
 CIT3413  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91001
 CIT3412  ||  INTELIGENCIA ARTIFICIAL - Seccion: 1 | Horario ->  ['LU 14:30', 'JU 14:30'] || 91101
-CIT3312  ||  TELEVISIÓN DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CIT3312  ||  TELEVISIÃ“N DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91201
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 5 : 
 
 CIT3313  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 90801
 CIT3201  ||  PROYECTO EN TICS III - Seccion: 1 | Horario ->  ['LU 17:25', 'JU 17:25', 'MA 13:00'] || 90901
-CIT3413  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91001
+CIT3413  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91001
 CIT3412  ||  INTELIGENCIA ARTIFICIAL - Seccion: 1 | Horario ->  ['LU 14:30', 'JU 14:30'] || 91101
-CIT3312  ||  TELEVISIÓN DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CIT3312  ||  TELEVISIÃ“N DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91201
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 6 : 
 
 CIT3201  ||  PROYECTO EN TICS III - Seccion: 1 | Horario ->  ['LU 17:25', 'JU 17:25', 'MA 13:00'] || 90901
 CIT3413  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91001
-CIT3412  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
+CIT3412  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
 CIT3312  ||  INTELIGENCIA ARTIFICIAL - Seccion: 1 | Horario ->  ['LU 14:30', 'JU 14:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 7 : 
 
 CIT3413  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91001
-CIT3412  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
+CIT3412  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
 CIT3312  ||  INTELIGENCIA ARTIFICIAL - Seccion: 1 | Horario ->  ['LU 14:30', 'JU 14:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 8 : 
 
 CIT3413  ||  INTELIGENCIA ARTIFICIAL - Seccion: 1 | Horario ->  ['LU 14:30', 'JU 14:30'] || 91001
 CIT3412  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91101
-CIT3312  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CIT3312  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91201
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 9 : 
 
-CIT3413  ||  TELEVISIÓN DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91001
+CIT3413  ||  TELEVISIÃ“N DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91001
 CIT3412  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91101
-CIT3312  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CIT3312  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91201
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 10 : 
 
-CIT3413  ||  REDES ÓPTICAS DE DATOS - Seccion: 1 | Horario ->  ['MA 08:30', 'VI 08:30'] || 91001
+CIT3413  ||  REDES Ã“PTICAS DE DATOS - Seccion: 1 | Horario ->  ['MA 08:30', 'VI 08:30'] || 91001
 CIT3412  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91101
-CIT3312  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CIT3312  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91201
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 11 : 
 
-CIT3413  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91001
+CIT3413  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91001
 CIT3412  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91101
 CIT3312  ||  INTELIGENCIA ARTIFICIAL - Seccion: 1 | Horario ->  ['LU 14:30', 'JU 14:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 12 : 
 
 CIT3412  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91101
-CIT3312  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CIT3312  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91201
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 13 : 
 
-CIT3412  ||  TECNOLOGÍAS INALÁMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
+CIT3412  ||  TECNOLOGÃAS INALÃMBRICAS - Seccion: 1 | Horario ->  ['LU 11:30', 'JU 11:30', 'VI 11:30'] || 91101
 CIT3312  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 14 : 
 
 CIT3412  ||  INTELIGENCIA ARTIFICIAL - Seccion: 1 | Horario ->  ['LU 14:30', 'JU 14:30'] || 91101
 CIT3312  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
 ---------------
 
 Solucion Recomendada # 15 : 
 
-CIT3412  ||  TELEVISIÓN DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91101
+CIT3412  ||  TELEVISIÃ“N DIGITAL - Seccion: 1 | Horario ->  ['LU 08:30', 'JU 08:30'] || 91101
 CIT3312  ||  SISTEMAS DISTRIBUIDOS - Seccion: 1 | Horario ->  ['LU 16:00', 'JU 16:00'] || 91201
-CFG-4    ||  CREYENTES, AGNÓSTICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802
+CFG-4    ||  CREYENTES, AGNÃ“STICOS Y ATEOS EN LA ERA - Seccion: 2 | Horario ->  ['MA 10:00', 'JU 10:00'] || 10101802

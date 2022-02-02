@@ -43,12 +43,41 @@ from django.core.exceptions import *
 from generador_horarios.codigos_cfg.categorize_cfgs import get_area
 
 import time
-import logging
 
-logging.basicConfig(filename='views_info.log', level=logging.INFO,
-                    format='%(levelname)s:%(asctime)s:%(message)s')
+"""
+###########################PROVIDERS
 
-# Create your views here.
+
+from allauth.socialaccount.providers.google.provider import GoogleProvider
+
+
+class GoogleProviderMod(GoogleProvider):
+    def extract_uid(self, data):
+        return str(data['sub'])
+#######################eEND PROVIDERS
+
+
+###########################ADAPTERS
+
+#from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from google.auth.transport import requests
+from google.oauth2 import id_token
+
+#from myproj.users.providers import GoogleProviderMod
+
+
+class GoogleOAuth2AdapterIdToken(GoogleOAuth2Adapter):
+    provider_id = GoogleProviderMod.id
+
+    def complete_login(self, request, app, token, **kwargs):
+        idinfo = id_token.verify_oauth2_token(token.token, requests.Request(), app.client_id)
+        if idinfo["iss"] not in ["accounts.google.com", "https://accounts.google.com"]:
+            raise ValueError("Wrong issuer.")
+        extra_data = idinfo
+        login = self.get_provider().sociallogin_from_response(request, extra_data)
+        return login
+#######################eEND ADAPTERS
+"""
 
 
 class GoogleLogin(SocialLoginView):
@@ -347,7 +376,6 @@ def get_PERT(request):
             start = time.time()
             ramos = calc_PERT(user_id)
             end = time.time()
-            logging.info('PERT:{} segundos'.format(end-start))
             return Response(calc_PERT(user_id))
         except Exception:
             traceback.print_exc()
@@ -423,7 +451,6 @@ def get_clique(request):
             start = time.time()
             solucion = calc_clique(user_id)
             end = time.time()
-            logging.info('Clique:{} segundos'.format(end-start))
             return Response(solucion, status=status.HTTP_200_OK)
         except Exception:
             traceback.print_exc()
@@ -806,7 +833,14 @@ def get_secciones_disponibles(request, codigo):
                 prio_area_cfg = prioridad_cfg.objects.filter(
                     to_user=current_user).values('area').order_by('prioridad')
             except prioridad_cfg.DoesNotExist:
-                prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
+                prio_area_cfg = [
+                    {
+                        'area': "Ciencias Sociales"
+                    },
+                    {
+                        'area': 'Ciencia y Sociedad'
+                    }
+                ]
 
         aux_retornar = []
         aux_horario = []
@@ -830,7 +864,6 @@ def get_secciones_disponibles(request, codigo):
                     codigo=cod_sec[0:7]).area
                 # se consideran los cfg de las primeras areas
                 if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']:
-
                     pass
                 else:
                     continue

@@ -1,5 +1,5 @@
 
-PATH = './generador_horarios/codigos_cfg/codigos_2021-2/'
+PATH = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/generador_horarios/codigos_cfg/codigos_2021-2/'
 
 class CfgNotFoundException(Exception):
     def __init__(self, message='No encontro el cfg en archivos areas en '+ PATH):
