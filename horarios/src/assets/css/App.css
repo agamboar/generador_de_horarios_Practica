@@ -8,6 +8,7 @@
 
 .title{
   font-size: 4rem;
+  text-align: center;
 }
 
 .primero{
@@ -73,14 +74,13 @@
 
 }
 
-
-
 .wrap { 
   position:relative;
   margin:0 
   auto; 
   width:960px; 
 }
+/*
 
 header, #footer{
   width:100%; 
@@ -95,6 +95,7 @@ header, #footer{
   z-index:999999;
   color: rgba(121, 120, 120, 0.692);
 }
+*/
 
 .custom { width: 84px !important; height: 86px; }
 .custom2 { min-width: 1110px; max-width: 1110px; min-height: 622px; max-height: 622px; }
@@ -107,4 +108,3 @@ header, #footer{
   padding: 10px;
   box-shadow: 5px 5px rgb(255, 179, 65);
 }
-

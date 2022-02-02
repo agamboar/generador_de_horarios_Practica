@@ -1,50 +1,71 @@
-import React, { Component } from 'react'
-import Derechos from './Derechos'
-import Navbar from './Navbar'
-import NotAuth from './NotAuth'
-import { withAuth0 } from '@auth0/auth0-react';
-export const HOST = process.env.REACT_APP_HOST
+import React, { Component, Fragment } from "react";
+import ATRLayout from "./Layout";
+import NotAuth from "./NotAuth";
+import "../assets/css/Images.css";
+import { Typography, Space, Image, Button, Row, Col } from "antd";
+import { ArrowRightOutlined } from "@ant-design/icons";
 
-class UserInterface extends Component {
+const { Title } = Typography;
 
-    componentDidMount() {
-        const { user, isAuthenticated, getAccessTokenSilently } = this.props.auth0;
-        console.log("Datos del usuario: ", user, isAuthenticated)
-        getAccessTokenSilently()
-        .then(token => fetch(`https://dev--c34vvj2.us.auth0.com/api/v2/`, { headers: {authorization: `Bearer ${token}`} }))
-        .then(res => res.json())
-        .then(json => {
-            //this.setState({ data: json })
-            console.log("Token Auth0: ", json, user, isAuthenticated)
-        });
-        
-    }
-    render() {
-        return (
-            <div>
-            {(localStorage.getItem("token"))?  
-            <div>
-                <Navbar/>
-                
-                <div className="jumbotron jumbotron-fluid">
-                    <div className="container">
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>  
-                        <h1 className="title text-primary">BIENVENIDO/A AL ASISTENTE TOMA DE RAMOS</h1>
-                        <br/>
-                        <p className="lead">Que tengas una buena toma de ramos!!!</p>
-                    </div> 
-                </div>
-                
-
-                <Derechos/>
-            </div>
-            : <NotAuth />}
-            </div>
-        )
-    }
+export default class UserInterface extends Component {
+  render() {
+    return (
+      <Fragment>
+        {localStorage.getItem("token") ? (
+          <ATRLayout phase={0}>
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+            >
+              <Col xs={24} sm={12}></Col>
+              <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+                <Button
+                  href="/users/usr/mallas/"
+                  type="primary"
+                  icon={<ArrowRightOutlined />}
+                  size="large"
+                >
+                  Ir a Elegir Mi Malla
+                </Button>
+              </Col>
+            </Row>
+            <br />
+            <Row
+              gutter={[
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+                { xs: 8, sm: 16, md: 24, lg: 32 },
+              ]}
+            >
+              <Col xs={24} style={{ textAlign: "center" }}>
+                <Image
+                  width={"60%"}
+                  src={`https://cdn.discordapp.com/attachments/928022489039273994/933606606548107294/udp.png`}
+                  preview="false"
+                />
+              </Col>
+              <Col xs={24} style={{ textAlign: "center" }}>
+                <Title
+                  style={{
+                    fontSize: "50px",
+                  }}
+                >
+                  ¡Bienvenido al Asistente Toma de Ramos!
+                </Title>
+                <Title level={3} type="secondary">
+                  Esta plataforma tiene como objetivo asistir a los estudiantes
+                  de la UDP en su proceso de toma de ramos. ¡Suerte!
+                </Title>
+              </Col>
+            </Row>
+          </ATRLayout>
+        ) : (
+          <NotAuth />
+        )}
+      </Fragment>
+    );
+  }
 }
 
 export default withAuth0(UserInterface);

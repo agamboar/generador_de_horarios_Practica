@@ -1,42 +1,71 @@
-import React, { Component } from 'react'
-import Navbar from './Navbar'
-import Malla2018Extra3 from './Malla2018Extra3'
-import {Link} from 'react-router-dom';
+import React, { Component, Fragment } from "react";
+import ATRLayout from "./Layout";
+import Malla2018Extra3 from "./Malla2018Extra3";
+import { Button, Typography, Row, Col } from "antd";
+import {
+  ArrowLeftOutlined,
+  ArrowRightOutlined,
+  PlusCircleTwoTone,
+} from "@ant-design/icons";
+import "antd/dist/antd.css";
+import "../assets/css/Buttons.css";
 
-
+const { Title } = Typography;
 
 export default class M2018Extra3 extends Component {
-    render() {
-        return (
-            <div>
-                <Navbar/>
-                <br/>
-                <div className="row row-cols-3">
-                    <div className="col">
-                        <h1 className="title text-primary text-center">Malla 2018</h1>
-                    </div>
-                    <div className="col"></div>
-                    <div className="col">
-                        <br/>
-                        <div className = "align-self-center">
-                            <button type="submit" className="btn btn-secondary rounded-pill btn-sm">
-                                <Link className="nav-link" to={{ pathname: '/users/usr/mallas/malla2018/AvanceCurricular'}}style={{ color: '#FFF' }} >
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                Elegir Malla 2018
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                </Link>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-                <br/>
-                
-                <Malla2018Extra3/>
+  render() {
+    return (
+      <Fragment>
+        <ATRLayout phase={1}>
+          <Row
+            gutter={[
+              { xs: 8, sm: 16, md: 24, lg: 32 },
+              { xs: 8, sm: 16, md: 24, lg: 32 },
+            ]}
+          >
+            <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+              <Button
+                href="/users/usr/mallas/malla2018"
+                onClick={this.deleteMalla}
+                icon={<ArrowLeftOutlined />}
+                size="large"
+              >
+                Volver
+              </Button>
+            </Col>
 
-                
-                
-            </div>
-        )
-    }
+            <Col xs={24} sm={12} style={{ textAlign: "center" }}>
+              <Button
+                href="/users/usr/mallas/malla2018/AvanceCurricular"
+                type="primary"
+                icon={<ArrowRightOutlined />}
+                size="large"
+              >
+                Elegir Malla 2018
+              </Button>
+            </Col>
+          </Row>
+          <Row
+            gutter={[
+              { xs: 8, sm: 16, md: 24, lg: 32 },
+              { xs: 8, sm: 16, md: 24, lg: 32 },
+            ]}
+          >
+            <Col span={24} style={{ textAlign: "center" }}>
+              <Title
+                style={{
+                  color: "#008cdb",
+                  fontSize: "40px",
+                }}
+              >
+                Malla 2018
+              </Title>
+            </Col>
+          </Row>
+          <br />
+          <Malla2018Extra3 />
+        </ATRLayout>
+      </Fragment>
+    );
+  }
 }

@@ -20,8 +20,10 @@ from generador_horarios.views import GoogleLogin
 from django.shortcuts import render
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+
 def render_react(request):
     return render(request, "index.html")
+
 
 urlpatterns = [
 
