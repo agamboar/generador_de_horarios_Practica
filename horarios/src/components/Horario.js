@@ -12,7 +12,7 @@ export default class Horario extends Component {
     super();
     this.state = {
       isFlipped: false,
-      LU_8: null,
+      LU_08: null,
       LU_10: null,
       LU_11: null,
       LU_13: null,
@@ -20,7 +20,7 @@ export default class Horario extends Component {
       LU_16: null,
       LU_17: null,
 
-      MA_8: null,
+      MA_08: null,
       MA_10: null,
       MA_11: null,
       MA_13: null,
@@ -28,7 +28,7 @@ export default class Horario extends Component {
       MA_16: null,
       MA_17: null,
 
-      MI_8: null,
+      MI_08: null,
       MI_10: null,
       MI_11: null,
       MI_13: null,
@@ -36,7 +36,7 @@ export default class Horario extends Component {
       MI_16: null,
       MI_17: null,
 
-      JU_8: null,
+      JU_08: null,
       JU_10: null,
       JU_11: null,
       JU_13: null,
@@ -44,7 +44,7 @@ export default class Horario extends Component {
       JU_16: null,
       JU_17: null,
 
-      VI_8: null,
+      VI_08: null,
       VI_10: null,
       VI_11: null,
       VI_13: null,
@@ -131,7 +131,7 @@ export default class Horario extends Component {
                 >
                   Lunes
                 </Title>
-                <Bloque ramo={this.state.LU_8} />
+                <Bloque ramo={this.state.LU_08} />
                 <Bloque ramo={this.state.LU_10} />
                 <Bloque ramo={this.state.LU_11} />
                 <Bloque ramo={this.state.LU_13} />
@@ -150,7 +150,7 @@ export default class Horario extends Component {
                 >
                   Martes
                 </Title>
-                <Bloque ramo={this.state.MA_8} />
+                <Bloque ramo={this.state.MA_08} />
                 <Bloque ramo={this.state.MA_10} />
                 <Bloque ramo={this.state.MA_11} />
                 <Bloque ramo={this.state.MA_13} />
@@ -168,7 +168,7 @@ export default class Horario extends Component {
                 >
                   Miércoles
                 </Title>
-                <Bloque ramo={this.state.MI_8} />
+                <Bloque ramo={this.state.MI_08} />
                 <Bloque ramo={this.state.MI_10} />
                 <Bloque ramo={this.state.MI_11} />
                 <Bloque ramo={this.state.MI_13} />
@@ -186,7 +186,7 @@ export default class Horario extends Component {
                 >
                   Jueves
                 </Title>
-                <Bloque ramo={this.state.JU_8} />
+                <Bloque ramo={this.state.JU_08} />
                 <Bloque ramo={this.state.JU_10} />
                 <Bloque ramo={this.state.JU_11} />
                 <Bloque ramo={this.state.JU_13} />
@@ -204,7 +204,7 @@ export default class Horario extends Component {
                 >
                   Viernes
                 </Title>
-                <Bloque ramo={this.state.VI_8} />
+                <Bloque ramo={this.state.VI_08} />
                 <Bloque ramo={this.state.VI_10} />
                 <Bloque ramo={this.state.VI_11} />
                 <Bloque ramo={this.state.VI_13} />

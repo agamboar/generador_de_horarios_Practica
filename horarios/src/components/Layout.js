@@ -137,6 +137,13 @@ export default class ATRLayout extends Component {
                 >
                   ASISTENTE TDR
                 </Title>
+                <Text
+                  style={{
+                    margin: "0px",
+                  }}
+                >
+                  Usuario: {localStorage.getItem("username")}
+                </Text>
               </Space>
             </a>
             <Menu
