@@ -165,31 +165,30 @@ def import_malla(request):
             #         print('no existe asignatura: ', elem[4])
             # return JsonResponse()
             for elem in arr_secciones:
-                # try:
-                #     for i in range(0,19):
-                #         print('item[',i,']: ', elem[i])
-                # except Exception as exc:
-                #     print('fallo en indice ', i)
+                    # try:
+                    #     for i in range(0,19):
+                    #         print('item[',i,']: ', elem[i])
+                    # except Exception as exc:
+                    #     print('fallo en indice ', i)
 
-                if has_vacantes:
-                    # print('codigo: ', elem[6])
-                    a = asignatura_real.objects.get(codigo=elem[6])
-                    s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                                vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
-                else:
-                    # print('codigo: ', elem[4])
-                    try:
-                        a = asignatura_real.objects.get(codigo=elem[4])
-                    except:
-                        print(elem[4])
-                        raise Exception("error")
-                    if elem[0] == '':
-                        elem[0] = 10
-                    s = seccion(cod_seccion=elem[3], semestre=elem[1], num_seccion=elem[2],
-                                vacantes=elem[0], inscritos=0, vacantes_libres=elem[0])
-                s.save()
-                s.to_asignatura_real.add(a)
-                added_sec += 1
+                    if has_vacantes:
+                        # print('codigo: ', elem[6])
+                        a = asignatura_real.objects.get(codigo=elem[6])
+                        s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                                    vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+                    else:
+                        # print('codigo: ', elem[4])
+                        if elem[0] == '': elem[0] = 10 # para el caso en que el excel tiene vacio el campo vacantes
+                        try: # para atrapar ramos nuevos en la oferta
+                            a = asignatura_real.objects.get(codigo=elem[4])
+                        except Exception as exc:
+                            raise Exception("No se encontro el ramo: ", elem[4])
+                        s = seccion(cod_seccion=elem[3], semestre=elem[1], num_seccion=elem[2],
+                                    vacantes=elem[0], inscritos=0, vacantes_libres=elem[0])
+                    
+                    s.save()
+                    s.to_asignatura_real.add(a)
+                    added_sec += 1
 
             for elem in arr_eventos:
 
