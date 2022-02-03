@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GoogleLogin from "react-google-login";
 import googleLogin from "../services/googleLogin";
-import { Row, Col, Typography, Space, Button, Input } from "antd";
+import { Row, Col, Typography, Space, Button, Input, message } from "antd";
 import {
   UserOutlined,
   LockOutlined,
@@ -12,6 +12,7 @@ import {
   EyeTwoTone,
 } from "@ant-design/icons";
 import "../assets/css/Placeholder.css";
+import "../assets/css/message.css";
 export const HOST = process.env.REACT_APP_HOST;
 //import Cookies from 'js-cookie';
 
@@ -62,12 +63,21 @@ export default class GoogleSocialAuth extends Component {
       data: data,
     };
 
+    const error_message = (msgcontent) => {
+      message.error({
+        key: "msgKey2",
+        content: msgcontent,
+        duration: 3,
+        onClick: () => message.destroy("msgKey2"),
+      });
+    };
+
     await axios(config)
       .then((response) => localStorage.setItem("token", response.data.key))
       .catch(function (error) {
         if (error.response) {
           if (error.response.data.non_field_errors) {
-            notify(`error:  ${error.response.data.non_field_errors[0]}`);
+            error_message(`${error.response.data.non_field_errors[0]}`);
           }
           console.log(error.response);
         }
