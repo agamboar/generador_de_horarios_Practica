@@ -90,7 +90,6 @@ export default class AvanceManual2020 extends Component {
       },
     };
 
-<<<<<<< HEAD
     axios(config).then((response) => {
       console.log(response);
       if (response.data) {
@@ -98,41 +97,6 @@ export default class AvanceManual2020 extends Component {
           const mov = i;
           const mov2 = response.data[mov].codigo;
           this.setState({ [mov2]: true });
-=======
-    }
-    componentDidMount = () => {
-
-        var config = {
-            method: 'get',
-            url: 'https://asistente-eit.udp.cl/asignaturasCursadas/',
-            headers: {
-                'Authorization': 'Token ' + localStorage.getItem("token"), //cambiiar a localStorage
-                'Content-Type': 'application/json'
-            }
-        };
-
-        axios(config).then(response => { 
-            console.log(response)           
-            if (response.data){
-                for (let i = 0; i < response.data.length; i++) {
-                    const mov = i;
-                    const mov2 = response.data[mov].codigo;
-                    this.setState({[mov2]: true})
-                }
-            }
-        } )
-
-        
-    }
-    onSubmit = async (e) => {
-        e.preventDefault();
-
-        const notify = (e) => {
-            toast.info(e, { position: toast.POSITION.TOP_CENTER })
-        }
-        const err = (e) => {
-            toast.error(e, { position: toast.POSITION.TOP_CENTER })
->>>>>>> main
         }
       }
     });
