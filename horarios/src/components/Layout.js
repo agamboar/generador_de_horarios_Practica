@@ -9,6 +9,8 @@ import {
   Steps,
   Collapse,
   Space,
+  Row,
+  Col,
 } from "antd";
 import {
   PoweroffOutlined,
@@ -118,77 +120,88 @@ export default class ATRLayout extends Component {
       <Fragment>
         <Layout>
           <Header className="header">
-            <a href="/users/usr">
-              <Space>
-                <Avatar
-                  size={40}
-                  src="https://cdn.discordapp.com/attachments/928022489039273994/928022582064717884/logo.png"
-                  style={{
-                    "margin-left": "2%",
-                    "margin-right": "1vh",
-                  }}
-                />
-                <Title
-                  style={{
-                    fontSize: "30px",
-                    color: "#008cdb",
-                    margin: "0px",
-                  }}
-                >
-                  ASISTENTE TDR
-                </Title>
-                <Text
-                  style={{
-                    margin: "0px",
-                  }}
-                >
-                  Usuario: {localStorage.getItem("username")}
-                </Text>
-              </Space>
-            </a>
-            <Menu
-              className="menu-header"
-              theme="light"
-              mode="horizontal"
-              defaultSelectedKeys={["2"]}
-            >
-              {localStorage.getItem("is_staff") === "si" ? (
-                <Fragment>
-                  <Menu.Item key="op1" icon={<HomeOutlined />}>
-                    <a href="/users/usr">Inicio</a>
-                  </Menu.Item>
-                  <SubMenu
-                    key="ad"
-                    title="Administración"
-                    icon={<UserOutlined />}
-                  >
-                    <Menu.Item key="ad1">
-                      <Link
-                        className="nav-link"
-                        to="/staff/subirOferta"
-                        style={{ color: "#000000" }}
-                      >
-                        Subir Ofertas
-                      </Link>
-                    </Menu.Item>
-                    <Menu.Item key="ad2">
-                      <Link
-                        className="nav-link"
-                        to="/staff/Usuarios"
-                        style={{ color: "#000000" }}
-                      >
-                        Hacer Staff
-                      </Link>
-                    </Menu.Item>
-                  </SubMenu>
-                </Fragment>
-              ) : null}
-              <Menu.Item key="op2" icon={<PoweroffOutlined />}>
-                <a href="/" onClick={this.deleteToken}>
-                  Salir
+            <Row>
+              <Col xs={20} md={12}>
+                {" "}
+                <a href="/users/usr">
+                  <Space>
+                    <Avatar
+                      size={40}
+                      src="https://cdn.discordapp.com/attachments/928022489039273994/928022582064717884/logo.png"
+                      style={{
+                        "margin-left": "2%",
+                        "margin-right": "1vh",
+                      }}
+                    />
+                    <Title
+                      style={{
+                        fontSize: "30px",
+                        color: "#008cdb",
+                        margin: "0px",
+                      }}
+                    >
+                      ASISTENTE TDR
+                    </Title>
+                  </Space>
                 </a>
-              </Menu.Item>
-            </Menu>
+              </Col>
+              <Col xs={4} md={12}>
+                {" "}
+                <Menu
+                  className="menu-header"
+                  theme="light"
+                  mode="horizontal"
+                  defaultSelectedKeys={["2"]}
+                >
+                  <Menu.Item key="userinfo" style={{ pointerEvents: "none" }}>
+                    <Text
+                      style={{
+                        margin: "0px",
+                      }}
+                    >
+                      Usuario: {localStorage.getItem("username")}
+                    </Text>
+                  </Menu.Item>
+                  {localStorage.getItem("is_staff") === "si" ? (
+                    <Fragment>
+                      <Menu.Item key="op1" icon={<HomeOutlined />}>
+                        <a href="/users/usr">Inicio</a>
+                      </Menu.Item>
+                      <SubMenu
+                        key="ad"
+                        title="Administración"
+                        icon={<UserOutlined />}
+                      >
+                        <Menu.Item key="ad1">
+                          <Link
+                            className="nav-link"
+                            to="/staff/subirOferta"
+                            style={{ color: "#000000" }}
+                          >
+                            Subir Ofertas
+                          </Link>
+                        </Menu.Item>
+                        <Menu.Item key="ad2">
+                          <Link
+                            className="nav-link"
+                            to="/staff/Usuarios"
+                            style={{ color: "#000000" }}
+                          >
+                            Hacer Staff
+                          </Link>
+                        </Menu.Item>
+                      </SubMenu>
+                    </Fragment>
+                  ) : null}
+                  <Menu.Item key="op2" icon={<PoweroffOutlined />}>
+                    <a href="/" onClick={this.deleteToken}>
+                      Salir
+                    </a>
+                  </Menu.Item>
+                </Menu>
+              </Col>
+            </Row>
+
             <Divider style={{ "background-color": "#c0c0c0", margin: "0px" }} />
             <Collapse
               ghost
