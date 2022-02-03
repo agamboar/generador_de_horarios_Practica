@@ -67,5 +67,3 @@ export default class UserInterface extends Component {
     );
   }
 }
-
-export default withAuth0(UserInterface);

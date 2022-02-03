@@ -3,7 +3,6 @@ import Bloque from "./Bloque";
 import BloqueH from "./BloqueH";
 import RamosH from "./RamosH";
 import Dia from "./Dia";
-import ReactCardFlip from "react-card-flip";
 import { Button, Row, Col, Typography } from "antd";
 
 const { Title } = Typography;
