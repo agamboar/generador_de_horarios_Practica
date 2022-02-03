@@ -46,8 +46,7 @@
 }
 
 .menu-header{
-  width: 18%;
-  float: right;
+  justify-content: right;
 }
 
 .ant-menu-inline-collapsed-tooltip { display: none; }
