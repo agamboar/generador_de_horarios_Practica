@@ -202,6 +202,19 @@ class SortableTable extends React.Component {
                     />
                   </Col>
                 </Row>
+                <br />
+                <Row justify="center">
+                  <Col span={24} style={{ textAlign: "center" }}>
+                    <Button
+                      onClick={this.setPrio}
+                      type="primary"
+                      shape="round"
+                      size="large"
+                    >
+                      Guardar Prioridades
+                    </Button>
+                  </Col>
+                </Row>
               </Fragment>
             ))}
         {this.state.dataSource == "" ? (

@@ -832,6 +832,23 @@ export default class PriorizarRamos extends Component {
                       />
                     </Col>
                   </Row>
+                  <br />
+                  <Row justify="center">
+                    <Col span={24} style={{ textAlign: "center" }}>
+                      <form onSubmit={this.onSubmit} id="myForm">
+                        <Button
+                          type="primary"
+                          htmlType="submit"
+                          key={"submit"}
+                          form="myForm"
+                          size="large"
+                          shape="round"
+                        >
+                          Guardar Prioridades
+                        </Button>
+                      </form>
+                    </Col>
+                  </Row>
                 </ATRLayout>
               </Fragment>
             )}
