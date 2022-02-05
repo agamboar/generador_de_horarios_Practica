@@ -9,6 +9,7 @@ import {
   sortableElement,
   sortableHandle,
 } from "react-sortable-hoc";
+import "../assets/css/Tables.css";
 
 const { Panel } = Collapse;
 const { Title, Text } = Typography;
