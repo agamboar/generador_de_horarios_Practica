@@ -9,6 +9,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import arrayMove from "array-move";
 import "antd/dist/antd.css";
 import "../assets/css/HorarioCol.css";
+import "../assets/css/Tables.css";
 import axios from "axios";
 import { Row, Col, Divider, Alert, Button, message } from "antd";
 import { toast } from "react-toastify";
@@ -41,11 +42,13 @@ const columns = [
   {
     title: "Número Sección",
     dataIndex: "numb_seccion",
+    className: "drag-visible",
     width: "100px",
   },
   {
     title: "Profesor",
     dataIndex: "profesor",
+    className: "drag-visible",
     width: "300px",
   },
   {
@@ -58,6 +61,7 @@ const columns = [
     title: "Vacantes",
     dataIndex: "vac_libres",
     width: "100px",
+    className: "drag-visible",
   },
   /*{
     title: 'Prioridad Actual',
