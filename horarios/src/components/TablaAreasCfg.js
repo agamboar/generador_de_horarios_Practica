@@ -8,6 +8,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import arrayMove from "array-move";
 import "antd/dist/antd.css";
 import "../assets/css/message.css";
+import "../assets/css/Tables.css";
 import axios from "axios";
 import { Row, Col, Divider, message, Button, Alert, Table } from "antd";
 
@@ -31,6 +32,7 @@ const columns = [
   {
     title: "Prioridad Actual",
     dataIndex: "prioridad",
+    className: "drag-visible",
   },
 ];
 
