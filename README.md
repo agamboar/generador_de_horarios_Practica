@@ -7,18 +7,21 @@
 ```
    npm install
 ```
+Nota: hay errores y vulnerabilidades que apareceran al correr el comando ya que la aplicacion esta hecha con una version de npm antigua con librerias que estan obsoletas o modificadas, las soluciones que ofrece la consola ayuda a resolver algunas de las vulnerabilidades pero no afecta en el programa como tal (Se recomienda actualizar eventualmente para mayor seguridad).
+
 3. En la carpeta 'horarios':
    ```
    npm run build
    ```
-   Mover la carpeta 'build' a la ubicacion: 'aplicación_web/TdR/'
+   Mover la carpeta 'build' generada a la ubicacion: 'aplicación_web/TdR/'
 
 4. Instalar librerias requeridas, usando el archivo 'requirements.txt' ubicado en la carpeta principal:
    ```
    python -m pip install -r requirements.txt
    ```
+   Nota: La version de python utilizada fue la 3.9
 
-5. En aplicacion_web/tdr/tdr/ esta settings.py, y ahi el objeto "DATABASES". Modificar las credenciales que debe tener la base (puedes cambiarlas o bien modificar las de la base para que sean iguales).
+5. En aplicacion_web/tdr/tdr/ se encuentra settings.py, y ahi el objeto "DATABASES". Modificar las credenciales que debe tener la base (puedes cambiarlas o bien modificar las de la base para que sean iguales).
 
 6. Ubicar el archivo 'manage.py' (aplicación_web/TdR/), y en esa carpeta ejecutar:
    ```
@@ -26,7 +29,7 @@
    python manage.py migrate
    python manage.py runserver
    ```
-7. Luego, con todo lo anterior listo, cada vez que se quiera correr la aplicacion web, utilizar:asdasd
+7. Luego, con todo lo anterior listo, cada vez que se quiera correr la aplicacion web, utilizar:
 
    ```
    1. python manage.py runserver
@@ -63,4 +66,9 @@ Para la oferta academica de Informatica, el archivo debe tener formato .xlsx, ad
 
 # Problemas conocidos:
 
-1. No usar Python 3.10.x, ya que tiene problemas conocidos con algunas librerias como pandas o numpy
+1. No usar Python 3.10.x, ya que tiene problemas conocidos con algunas librerias como pandas o numpy (Comprobado por Matias Aguilera)
+2. No usar Python 3.11.x problemas de compatibilidad con librerias similares a 3.10.x (Comprobado por Shun Zhou)
+
+# Objetivos a futuro:
+
+1. Hay muchas librerias obsoletas o actualizadas, si se quiere usar la aplicacion de manera no local se recomienda actualizarlas
