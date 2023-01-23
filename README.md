@@ -2,12 +2,12 @@
 
 # Instrucciones de uso:
 
-1. Instalar NodeJS desde: https://nodejs.org/en/
+1. Instalar NodeJS desde: https://nodejs.org/en/ (cualquier version sirve)
 2. Primera vez ejecutar en la carpeta 'horarios':
 ```
    npm install
 ```
-Nota: hay errores y vulnerabilidades que apareceran al correr el comando ya que la aplicacion esta hecha con una version de npm antigua con librerias que estan obsoletas o modificadas, las soluciones que ofrece la consola ayuda a resolver algunas de las vulnerabilidades pero no afecta en el programa como tal (Se recomienda actualizar eventualmente para mayor seguridad).
+Nota: hay errores y vulnerabilidades que apareceran al correr el comando ya que la aplicacion esta hecha con una version de npm antigua con librerias que estan obsoletas o modificadas, las soluciones que ofrece la consola puede causar errores por lo tanto se recomienda ignorar bulnerabilidades (Se recomienda actualizar eventualmente para mayor seguridad).
 
 3. En la carpeta 'horarios':
    ```
@@ -19,7 +19,7 @@ Nota: hay errores y vulnerabilidades que apareceran al correr el comando ya que 
    ```
    python -m pip install -r requirements.txt
    ```
-   Nota: La version de python utilizada fue la 3.9
+   Nota: La version de python debe ser la 3.9
 
 5. En aplicacion_web/tdr/tdr/ se encuentra settings.py, y ahi el objeto "DATABASES". Modificar las credenciales que debe tener la base (puedes cambiarlas o bien modificar las de la base para que sean iguales).
 
@@ -66,9 +66,10 @@ Para la oferta academica de Informatica, el archivo debe tener formato .xlsx, ad
 
 # Problemas conocidos:
 
-1. No usar Python 3.10.x, ya que tiene problemas conocidos con algunas librerias como pandas o numpy (Comprobado por Matias Aguilera)
-2. No usar Python 3.11.x problemas de compatibilidad con librerias similares a 3.10.x (Comprobado por Shun Zhou)
+1. No usar Python 3.10.x, ya que tiene problemas conocidos con algunas librerias como pandas o numpy 
+2. No usar Python 3.11.x problemas de compatibilidad con librerias errores similares a los problemas con la version 3.10.x 
 
 # Objetivos a futuro:
 
-1. Hay muchas librerias obsoletas o actualizadas, si se quiere usar la aplicacion de manera no local se recomienda actualizarlas
+1. Hay muchas librerias obsoletas o desactualizadas, si se quiere usar la aplicacion de manera no local se recomienda actualizarlas para mayor seguridad
+2. Mejorar la documentacion, hay muchas funciones de la aplicacion que no estan explicadas aun
