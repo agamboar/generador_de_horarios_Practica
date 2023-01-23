@@ -7,7 +7,7 @@
 ```
    npm install
 ```
-Nota: hay errores y vulnerabilidades que apareceran al correr el comando ya que la aplicacion esta hecha con una version de npm antigua con librerias que estan obsoletas o modificadas, las soluciones que ofrece la consola puede causar errores por lo tanto se recomienda ignorar bulnerabilidades (Se recomienda actualizar eventualmente para mayor seguridad).
+Nota: hay errores y vulnerabilidades que apareceran al correr el comando ya que la aplicacion esta hecha con una version de npm antigua con librerias que estan obsoletas o modificadas, las soluciones que ofrece la consola puede causar errores por lo tanto se recomienda ignorar vulnerabilidades (Se recomienda actualizar eventualmente para mayor seguridad).
 
 3. En la carpeta 'horarios':
    ```
