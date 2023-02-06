@@ -8,20 +8,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 from pathlib import Path
 import os
-
-import environ
-
-env = environ.Env()
-# reading .env file
-environ.Env.read_env()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # print(BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "na*2v($m74c(@ifhm&=x@g$+qnpent*5$6&$j46f6_otxfp6rw"
+SECRET_KEY = 'na*2v($m74c(@ifhm&=x@g$+qnpent*5$6&$j46f6_otxfp6rw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # Application definition
@@ -49,10 +42,17 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 # cambiar despues por la URL para que alumno indique ramos aprobados
-LOGIN_REDIRECT_URL = env("DJANGO_HOST") + '/users/usr'
-ACCOUNT_LOGOUT_REDIRECT_URL = env("DJANGO_HOST") + "/"
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/users/usr'
+ACCOUNT_LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000/"
 
 
+# SESSION_COOKIE_AGE = 10000 # preguntar
+FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
+                        "django_excel.TemporaryExcelFileUploadHandler")
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '200.14.84.238',
+                 'asistente-eit.udp.cl', '104.18.25.162:443']
+CSRF_TRUSTED_ORIGINS = ['127.0.0.1', 'localhost',
+                        'http://200.14.84.238:80/', '104.18.25.162:443']
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -64,26 +64,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-# CORS DEVELOPMENT SERVER
-
-#CORS_ORIGIN_ALLOW_ALL = True
-
-#CORS_ALLOW_CREDENTIALS = True
-
-# ALLOWED_HOSTS=['*']
-# CSRF_TRUSTED_ORIGINS=['*']
-# END SERVER CORS DEVELOPMENT
-
-# SESSION_COOKIE_AGE = 10000 # preguntar
-FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
-                        "django_excel.TemporaryExcelFileUploadHandler")
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '200.14.84.238',
-                 'asistente-eit.udp.cl', '104.18.25.162:443']
-CSRF_TRUSTED_ORIGINS = ['127.0.0.1', 'localhost',
-                        'http://200.14.84.238:80/', '104.18.25.162:443', 'asistente-eit.udp.cl']
-
-
 ROOT_URLCONF = 'TdR.urls'
 LANGUAGE_COOKIE_HTTPONLY = True
 SESSION_COOKIE_HTTPONLY = True
@@ -96,7 +76,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "build")],  # "build" para produccion
+        'DIRS': [os.path.join(BASE_DIR, "build")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -110,7 +90,7 @@ TEMPLATES = [
 ]
 STATICFILES_DIRS = [
     # Tell Django where to look for React's static files (css, js)
-    os.path.join(BASE_DIR, "build/static"),  # "build/static" para produccion
+    os.path.join(BASE_DIR, "build/static"),
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 WSGI_APPLICATION = 'TdR.wsgi.application'
@@ -119,11 +99,11 @@ WSGI_APPLICATION = 'TdR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env("DATABASE_NAME"),
-        'USER': env("DATABASE_USER"),
-        'PASSWORD': env("DATABASE_PASSWORD"),
-        'HOST': env("DATABASE_HOST"),
-        'PORT': env("DATABASE_PORT"),
+        'NAME': 'tdr',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 AUTHENTICATION_BACKENDS = [
@@ -168,10 +148,8 @@ USE_L10N = True
 USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_URL = '/static/'  # '/static/'
-# static DEVELOPER ROOT NPM START '/usr/generador_de_horarios_Practica/horarios/public/'
-STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/'
+STATIC_URL = '/static/'
+STATIC_ROOT = '/usr/generador_de_horarios_Practica/aplicacion_web/TdR/build/'  # static
 # super usuario admin: tdr
 # password: tdr2021
 

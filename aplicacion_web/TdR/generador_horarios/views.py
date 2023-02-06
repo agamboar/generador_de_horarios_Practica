@@ -20,9 +20,6 @@ from django.http import JsonResponse
 from django.middleware.csrf import get_token
 
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
-from dj_rest_auth.registration.serializers import SocialLoginSerializer
-from allauth.socialaccount.providers.oauth2.client import OAuth2Client
-from allauth.account.adapter import get_adapter
 
 import json
 from datetime import date
@@ -43,80 +40,16 @@ from django.core.exceptions import *
 from generador_horarios.codigos_cfg.categorize_cfgs import get_area
 
 import time
+import logging
 
-"""
-###########################PROVIDERS
+logging.basicConfig(filename='views_info.log', level=logging.INFO,
+                    format='%(levelname)s:%(asctime)s:%(message)s')
 
-
-from allauth.socialaccount.providers.google.provider import GoogleProvider
-
-
-class GoogleProviderMod(GoogleProvider):
-    def extract_uid(self, data):
-        return str(data['sub'])
-#######################eEND PROVIDERS
-
-
-###########################ADAPTERS
-
-#from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
-from google.auth.transport import requests
-from google.oauth2 import id_token
-
-#from myproj.users.providers import GoogleProviderMod
-
-
-class GoogleOAuth2AdapterIdToken(GoogleOAuth2Adapter):
-    provider_id = GoogleProviderMod.id
-
-    def complete_login(self, request, app, token, **kwargs):
-        idinfo = id_token.verify_oauth2_token(token.token, requests.Request(), app.client_id)
-        if idinfo["iss"] not in ["accounts.google.com", "https://accounts.google.com"]:
-            raise ValueError("Wrong issuer.")
-        extra_data = idinfo
-        login = self.get_provider().sociallogin_from_response(request, extra_data)
-        return login
-#######################eEND ADAPTERS
-"""
+# Create your views here.
 
 
 class GoogleLogin(SocialLoginView):
-    adapter_class = GoogleOAuth2Adapter  # GoogleOAuth2AdapterIdToken
-    client_class = OAuth2Client
-    serializer_class = SocialLoginSerializer
-    callback_url = 'http://localhost:8000/accounts/google/login/callback/'
-
-    def get(self, request):
-        """
-        Get google authorization code and make an internal
-        post request to allow social media login or register
-        """
-        code = request.GET.get('code')
-        state = request.GET.get('state')
-        response = Response({
-            'status': 'Bad request',
-            'message': 'Invalido request, please try again later.'
-        }, status=status.HTTP_400_BAD_REQUEST)
-        if code is not None:
-            data = {
-                'code': code,
-                'state': state
-            }
-            self.serializer = self.get_serializer(
-                data=data, context={'request': request})
-            serializer_is_valid = False
-            try:
-                serializer_is_valid = self.serializer.is_valid(
-                    raise_exception=True)
-            except OAuth2Error:
-                serializer_is_valid = False
-            if serializer_is_valid:
-                self.login()
-                response = self.get_response()
-        return response
-
-    def process_login(self):
-        get_adapter(self.request).login(self.request, self.user)
+    adapter_class = GoogleOAuth2Adapter
 
 
 @api_view(['GET'])
@@ -165,30 +98,31 @@ def import_malla(request):
             #         print('no existe asignatura: ', elem[4])
             # return JsonResponse()
             for elem in arr_secciones:
-                    # try:
-                    #     for i in range(0,19):
-                    #         print('item[',i,']: ', elem[i])
-                    # except Exception as exc:
-                    #     print('fallo en indice ', i)
+                # try:
+                #     for i in range(0,19):
+                #         print('item[',i,']: ', elem[i])
+                # except Exception as exc:
+                #     print('fallo en indice ', i)
 
-                    if has_vacantes:
-                        # print('codigo: ', elem[6])
-                        a = asignatura_real.objects.get(codigo=elem[6])
-                        s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
-                                    vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
-                    else:
-                        # print('codigo: ', elem[4])
-                        if elem[0] == '': elem[0] = 10 # para el caso en que el excel tiene vacio el campo vacantes
-                        try: # para atrapar ramos nuevos en la oferta
-                            a = asignatura_real.objects.get(codigo=elem[4])
-                        except Exception as exc:
-                            raise Exception("No se encontro el ramo: ", elem[4])
-                        s = seccion(cod_seccion=elem[3], semestre=elem[1], num_seccion=elem[2],
-                                    vacantes=elem[0], inscritos=0, vacantes_libres=elem[0])
-                    
-                    s.save()
-                    s.to_asignatura_real.add(a)
-                    added_sec += 1
+                if has_vacantes:
+                    # print('codigo: ', elem[6])
+                    a = asignatura_real.objects.get(codigo=elem[6])
+                    s = seccion(cod_seccion=elem[0], semestre=elem[1], num_seccion=elem[2],
+                                vacantes=elem[3], inscritos=elem[4], vacantes_libres=elem[5])
+                else:
+                    # print('codigo: ', elem[4])
+                    try:
+                        a = asignatura_real.objects.get(codigo=elem[4])
+                    except:
+                        print(elem[4])
+                        raise Exception("error")
+                    if elem[0] == '':
+                        elem[0] = 10
+                    s = seccion(cod_seccion=elem[3], semestre=elem[1], num_seccion=elem[2],
+                                vacantes=elem[0], inscritos=0, vacantes_libres=elem[0])
+                s.save()
+                s.to_asignatura_real.add(a)
+                added_sec += 1
 
             for elem in arr_eventos:
 
@@ -375,6 +309,7 @@ def get_PERT(request):
             start = time.time()
             ramos = calc_PERT(user_id)
             end = time.time()
+            logging.info('PERT:{} segundos'.format(end-start))
             return Response(calc_PERT(user_id))
         except Exception:
             traceback.print_exc()
@@ -450,6 +385,7 @@ def get_clique(request):
             start = time.time()
             solucion = calc_clique(user_id)
             end = time.time()
+            logging.info('Clique:{} segundos'.format(end-start))
             return Response(solucion, status=status.HTTP_200_OK)
         except Exception:
             traceback.print_exc()
@@ -832,14 +768,7 @@ def get_secciones_disponibles(request, codigo):
                 prio_area_cfg = prioridad_cfg.objects.filter(
                     to_user=current_user).values('area').order_by('prioridad')
             except prioridad_cfg.DoesNotExist:
-                prio_area_cfg = [
-                    {
-                        'area': "Ciencias Sociales"
-                    },
-                    {
-                        'area': 'Ciencia y Sociedad'
-                    }
-                ]
+                prio_area_cfg = ["Ciencias Sociales", "Ciencia y Sociedad"]
 
         aux_retornar = []
         aux_horario = []
@@ -863,6 +792,7 @@ def get_secciones_disponibles(request, codigo):
                     codigo=cod_sec[0:7]).area
                 # se consideran los cfg de las primeras areas
                 if current_cfg_area == prio_area_cfg[0]['area'] or current_cfg_area == prio_area_cfg[1]['area']:
+
                     pass
                 else:
                     continue

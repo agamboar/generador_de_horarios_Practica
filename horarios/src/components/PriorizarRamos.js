@@ -296,7 +296,7 @@ export default class PriorizarRamos extends Component {
 
     var config = {
       method: "post",
-      url: "https://asistente-eit.udp.cl/kk/",
+      url: "http://127.0.0.1:8000/kk/",
       headers: {
         "Content-Type": "application/json",
         Authorization: "Token " + localStorage.getItem("token"),
@@ -308,18 +308,18 @@ export default class PriorizarRamos extends Component {
     setTimeout(function () {
       success_message("Prioridades guardadas.");
     }, 1000);
-    //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/horariosPosibles'; }, 4500);
+    //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/horariosPosibles'; }, 4500);
   };
 
   aux = () => {
     setTimeout(function () {
-      window.location.href = "https://asistente-eit.udp.cl/users/usr/mallas";
+      window.location.href = "http://127.0.0.1:8000/users/usr/mallas";
     }, 3000);
   };
   componentDidMount = async () => {
     var config = {
       method: "get",
-      url: "https://asistente-eit.udp.cl/PERT_es1/",
+      url: "http://127.0.0.1:8000/PERT_es1/",
       headers: {
         Authorization: "Token " + localStorage.getItem("token"), //cambiar a localStorage
         "Content-Type": "application/json",

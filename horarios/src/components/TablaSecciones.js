@@ -9,7 +9,6 @@ import { MenuOutlined } from "@ant-design/icons";
 import arrayMove from "array-move";
 import "antd/dist/antd.css";
 import "../assets/css/HorarioCol.css";
-import "../assets/css/Tables.css";
 import axios from "axios";
 import { Row, Col, Divider, Alert, Button, message } from "antd";
 import { toast } from "react-toastify";
@@ -42,13 +41,11 @@ const columns = [
   {
     title: "Número Sección",
     dataIndex: "numb_seccion",
-    className: "drag-visible",
     width: "100px",
   },
   {
     title: "Profesor",
     dataIndex: "profesor",
-    className: "drag-visible",
     width: "300px",
   },
   {
@@ -61,7 +58,6 @@ const columns = [
     title: "Vacantes",
     dataIndex: "vac_libres",
     width: "100px",
-    className: "drag-visible",
   },
   /*{
     title: 'Prioridad Actual',
@@ -124,7 +120,7 @@ class SortableTable extends React.Component {
 
     var config = {
       method: "get",
-      url: `https://asistente-eit.udp.cl/get_secciones/${this.props.codigo}/`,
+      url: `http://127.0.0.1:8000/get_secciones/${this.props.codigo}/`,
       headers: {
         Authorization: "Token " + localStorage.getItem("token"),
         "Content-Type": "application/json",
@@ -176,7 +172,7 @@ class SortableTable extends React.Component {
 
       var config = {
         method: "post",
-        url: "https://asistente-eit.udp.cl/ss/",
+        url: "http://127.0.0.1:8000/ss/",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Token " + localStorage.getItem("token"),
@@ -188,7 +184,7 @@ class SortableTable extends React.Component {
       setTimeout(function () {
         success_message("Prioridades guardadas.");
       }, 500);
-      //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarSeccion'; }, 3500);
+      //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/priorizarSeccion'; }, 3500);
       //
     }
   };

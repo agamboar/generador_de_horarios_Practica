@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GoogleLogin from "react-google-login";
 import googleLogin from "../services/googleLogin";
-import { Row, Col, Typography, Space, Button, Input, message } from "antd";
+import { Row, Col, Typography, Space, Button, Input } from "antd";
 import {
   UserOutlined,
   LockOutlined,
@@ -12,12 +12,10 @@ import {
   EyeTwoTone,
 } from "@ant-design/icons";
 import "../assets/css/Placeholder.css";
-import "../assets/css/message.css";
-export const HOST = process.env.REACT_APP_HOST;
 //import Cookies from 'js-cookie';
 
 /*
-const API_HOST = HOST + '/';
+const API_HOST = 'http://127.0.0.1:8000/';
 let _csrfToken = null;
 async function getCsrfToken() {
     if (_csrfToken === null) {
@@ -59,17 +57,8 @@ export default class GoogleSocialAuth extends Component {
     //console.log(data)
     var config = {
       method: "post",
-      url: HOST + "/dj-rest-auth/login/",
+      url: "http://127.0.0.1:8000/dj-rest-auth/login/",
       data: data,
-    };
-
-    const error_message = (msgcontent) => {
-      message.error({
-        key: "msgKey2",
-        content: msgcontent,
-        duration: 3,
-        onClick: () => message.destroy("msgKey2"),
-      });
     };
 
     await axios(config)
@@ -77,7 +66,7 @@ export default class GoogleSocialAuth extends Component {
       .catch(function (error) {
         if (error.response) {
           if (error.response.data.non_field_errors) {
-            error_message(`${error.response.data.non_field_errors[0]}`);
+            notify(`error:  ${error.response.data.non_field_errors[0]}`);
           }
           console.log(error.response);
         }
@@ -89,7 +78,7 @@ export default class GoogleSocialAuth extends Component {
 
       var config = {
         method: "get",
-        url: HOST + "/is_staff/",
+        url: "http://127.0.0.1:8000/is_staff/",
         headers: {
           Authorization: "Token " + localStorage.getItem("token"),
           "Content-Type": "application/json",
@@ -101,7 +90,7 @@ export default class GoogleSocialAuth extends Component {
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("username", response.data.username);
       });
-      window.location.href = HOST + "/users/usr/";
+      window.location.href = "http://127.0.0.1:8000/users/usr/";
     }
   };
   onChange = (e) => {
@@ -123,31 +112,11 @@ export default class GoogleSocialAuth extends Component {
       console.log("hola");
     };
     const googleResponse = async (response) => {
-      console.log("Datos obtenidos de google", response);
+      console.log("hola");
       let responseGoogle = await googleLogin(response.accessToken);
-      console.log(
-        "Respuesta obtenido de google Login para el ajax: ",
-        responseGoogle
-      );
-      localStorage.setItem("google_token", response.accessToken);
-      localStorage.setItem("token", responseGoogle.key);
-      if (localStorage.getItem("token")) {
-        var config = {
-          method: "GET",
-          url: HOST + "/is_staff/",
-          headers: {
-            Authorization: "Token " + responseGoogle.key,
-            "Content-Type": "application/json",
-          },
-        };
-        var axios = require("axios");
-        await axios(config).then((response) => {
-          localStorage.setItem("is_staff", response.data.is_staff);
-          localStorage.setItem("id", response.data.id);
-          localStorage.setItem("username", response.data.username);
-        });
-        window.location.href = HOST + "/users/usr/";
-      }
+      console.log(responseGoogle);
+      sessionStorage.setItem("token", response.accessToken);
+      sessionStorage.setItem("key", responseGoogle.key);
     };
 
     if (!localStorage.getItem("token")) {
@@ -396,7 +365,7 @@ export default class GoogleSocialAuth extends Component {
         </Fragment>
       );
     } else {
-      window.location.href = HOST + "/users/usr/";
+      window.location.href = "http://127.0.0.1:8000/users/usr/";
     }
   }
 }
