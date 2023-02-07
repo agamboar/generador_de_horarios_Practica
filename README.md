@@ -10,9 +10,10 @@ La aplicacion esta lista para correr sin modificaciones mayores, para ello neces
 NOTA: se necesita la version 3.9 de python (3.10.x y 3.11.x no sirven)
 
 2. Crear una base de datos utilizando PostgreSQL con la aplicacion PGAdmin (la version no afecta)
-   ```
-      Para asegurar que la base de datos funcione correctamente hay un Archivo en la carpeta base de datos con un respaldo con las tablas y conecciones ya listas para importar a la base de datos, para ello se debe crear la base de datos en PGAdmin, luego se selecciona la base de datos y se "recupera" la base de datos utilizando el archivo en la carpeta
-   ```
+    Para asegurar que la base de datos funcione correctamente hay un Archivo en la carpeta base de datos con un respaldo con las tablas y conecciones ya listas para importar a la base de datos, para ello se debe crear la base de datos en PGAdmin, luego se selecciona la base de datos y se "recupera" la base de datos utilizando el archivo en la carpeta
+    
+NOTA: no es necesario recuperar o usar el respaldo, ya que las tablas deberian generarse automaticamente una vez se levante la aplicacion, en caso de que eso no suceda usar el respaldo o comprobar las credenciales
+
 3. En aplicacion_web/tdr/tdr/ se encuentra settings.py, abre el archivo con un editor de tecto y busca "DATABASE" cambia el nombre y credenciales de acceso de esta seccion en base a la base de datos creada en el paso anterior.
 
 4. Si es la primera vez que se corre la aplicacion se debe ubicar el archivo 'manage.py' ( esta deberia estar en aplicación_web/TdR/), y en esa carpeta ejecutar:
@@ -51,18 +52,17 @@ Nota: hay errores y vulnerabilidades que apareceran al correr el comando ya que 
     python manage.py runserver
    ```
 
-   # Archivos
-8. Para modificar la oferta academica de cfgs: aplicacion_web\TdR\generador_horarios\codigos_cfg\ dentro de esta carpeta, agregar carpeta correspondiente y modificar los nombres de acuerdo al codigo 'categorize_cfgs.py'.
+# Archivos compatibles
 
-# Base de datos
-
-Para cambiar los valores de la coneccion a la base de datos, cambiar las credenciales en el archivo:
-
-    \TdR\settings.py linea 97
+   -Para la oferta academica de Informatica, el archivo debe tener formato .xlsx, ademas de tener la columna 'Asignatura' en la columna M.
+   
+   -Para modificar la oferta academica de cfgs: aplicacion_web\TdR\generador_horarios\codigos_cfg\ dentro de esta carpeta, agregar carpeta correspondiente y modificar los nombres de acuerdo al codigo 'categorize_cfgs.py'.
+   
+   Mas detalles en guias/actualizar_oferta.md
 
 # Modo Admin para actualizar Oferta Academica
 
-Para darse permisos de administrador, se puede hacer de dos maneras:
+Solo los administradores podran actualizar la oferta academica, por lo tanto una vez registrado se puede otorgar administrador de las siguientes maneras:
 
 1. Acceder a la base de datos, modificar la tabla auth_user de la forma:
 ```
@@ -74,16 +74,13 @@ Para darse permisos de administrador, se puede hacer de dos maneras:
    ```
 2. Que un usuario staff agregue al nuevo usuario.
 
-# Actualizar Oferta Academica
 
-Al tener permisos de staff, en el header ir a "Administrador>Subir Ofertas".
-
-Para la oferta academica de Informatica, el archivo debe tener formato .xlsx, ademas de tener la columna 'Asignatura' en la columna M.
 
 # Problemas conocidos:
 
 1. No usar Python 3.10.x, ya que tiene problemas conocidos con algunas librerias como pandas o numpy 
 2. No usar Python 3.11.x problemas de compatibilidad con librerias errores similares a los problemas con la version 3.10.x 
+3. NPM va a detectar problemas y vulnerabilidades al hacer la build, estas se deben ignorar, ya que aplicar las soluciones recomendadas por el programa afectara el frontend de la aplicacion
 
 # Objetivos a futuro:
 
