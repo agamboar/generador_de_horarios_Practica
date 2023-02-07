@@ -99,9 +99,9 @@ WSGI_APPLICATION = 'TdR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tdr',
+        'NAME': 'pgit',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': '8974',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
