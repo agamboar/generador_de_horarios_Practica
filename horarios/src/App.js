@@ -3,12 +3,11 @@ import "./assets/css/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Router from "./Router";
 import Cookies from "js-cookie";
-export const HOST = process.env.REACT_APP_HOST;
 
 let _csrfToken = null;
 async function getCsrfToken() {
   if (_csrfToken === null) {
-    const response = await fetch(HOST + "/csrf/", {
+    const response = await fetch("http://127.0.0.1:8000/csrf/", {
       credentials: "include",
     });
     const data = await response.json();

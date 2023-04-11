@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Horario from "./Horario.js";
-import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router";
 
 class Horarios extends Component {
   render() {

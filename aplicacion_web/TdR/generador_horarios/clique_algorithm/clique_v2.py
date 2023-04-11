@@ -8,6 +8,45 @@ from .fetchData import getData
 
 VERSION = 2
 
+""" # TODO actualizar
+ejemplo de estructura de diccionario 'data'
+    data = {
+        'prioridades_area_cfg': {
+            'Ciencias Sociales' : 1~4,
+            'Ciencia y Sociedad' : 1~4,
+            'Humanidades'  : 1~4,
+            'Historia' : 1~4
+        },
+        'asignaturas': {
+            '<codigo asignatura 1>' : {
+                'nombre' : '<nombre asignatura 1>',
+                'nodo_asignatura' : '<nodo_asignatura de asignatura 1>',
+                'is_cfg' : True/False,
+                'secciones' : {
+                    '<codigo seccion 1>' : {
+                        'nodo_seccion' : '<nodo_seccion de seccion 1>',
+                        'bloques' : set('<bloque(ej. JU_10)>', ...),
+                        'eventos' : [
+                            {
+                                'bloque': '<bloque>', 
+                                'tipo': '<tipo: ej. CATEDRA>', 
+                                'profesor': '<profesor>'
+                            },
+                            {...},
+                            {...},
+                            ...
+                        ],
+                    },
+                    '<codigo seccion 2>' : {...}
+                } 
+            },
+            '<codigo asignatura 2>' : {...},
+            '<codigo asignatura 3>' : {...},
+            ...
+        }
+    }
+"""
+
 def get_clique_max_pond(userId, cfgAreaLimit=2, amount=5, solutionType='A'):
 
     G = setupGraph(userId, cfgAreaLimit)
@@ -90,17 +129,13 @@ def getRecommendations(G, amount, solutionType):
         (solution, formattedSolution) = getSolution(G, solutionType)
         recommendations.append(formattedSolution)
         solutions.append(solution)
-        
-        # Remover el menos prioritario del grafo, **Si esque existe
+
+        # se elimina del grafo el nodo (perteneciente a la solucion) de menor prioridad para que la proxima solución de un resultado diferente
         if len(solution) > 0:
             leastPriorityNode = solution[0][0]
-            try:
-                G.remove_node(leastPriorityNode)
-            except KeyError:
-                pass
+            G.remove_node(leastPriorityNode) 
     
-    # Retorno de recomendaciones y soluciones
-    return recommendations, solutions
+    return recommendations, solutions 
 
 def getSolution(G, solutionType):
     # las funciones getSolution_[A-Z](G) no deben modificar el grafo 'G'

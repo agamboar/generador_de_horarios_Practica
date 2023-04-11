@@ -82,7 +82,7 @@ class SortableTable extends React.Component {
   refreshTable = () => {
     var config = {
       method: "get",
-      url: `https://asistente-eit.udp.cl/get_prio_cfg/`,
+      url: `http://127.0.0.1:8000/get_prio_cfg/`,
       headers: {
         Authorization: "Token " + localStorage.getItem("token"),
         "Content-Type": "application/json",
@@ -135,7 +135,7 @@ class SortableTable extends React.Component {
 
       var config = {
         method: "post",
-        url: "https://asistente-eit.udp.cl/set_prio_areas_cfg/",
+        url: "http://127.0.0.1:8000/set_prio_areas_cfg/",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Token " + localStorage.getItem("token"),
@@ -146,7 +146,7 @@ class SortableTable extends React.Component {
       setTimeout(function () {
         success_message("Prioridadas guardadas.");
       }, 500);
-      //setTimeout(function () { window.location.href = 'https://asistente-eit.udp.cl/users/usr/priorizarSeccion'; }, 3500);
+      //setTimeout(function () { window.location.href = 'http://127.0.0.1:8000/users/usr/priorizarSeccion'; }, 3500);
       //
     }
   };
